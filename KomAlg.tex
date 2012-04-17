@@ -1,0 +1,1255 @@
+%% LyX 2.0.1 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
+\documentclass[11pt,english,ngerman]{report}
+\usepackage[T1]{fontenc}
+\usepackage[latin9]{inputenc}
+\usepackage[a4paper]{geometry}
+\geometry{verbose,tmargin=2.6cm,bmargin=3.5cm,lmargin=2.6cm,rmargin=2.6cm}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\setlength{\parskip}{\smallskipamount}
+\setlength{\parindent}{0pt}
+\usepackage{babel}
+\usepackage{textcomp}
+\usepackage{url}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx}
+\usepackage[unicode=true,
+ bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
+ breaklinks=true,pdfborder={0 0 0},backref=page,colorlinks=false]
+ {hyperref}
+\hypersetup{pdftitle={Algebra},
+ pdfauthor={Andreas Völklein},
+ pdfkeywords={Algebra, Mathematik}}
+
+\makeatletter
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% LyX specific LaTeX commands.
+\providecommand{\LyX}{\texorpdfstring%
+  {L\kern-.1667em\lower.25em\hbox{Y}\kern-.125emX\@}
+  {LyX}}
+\newcommand{\noun}[1]{\textsc{#1}}
+
+\@ifundefined{date}{}{\date{}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
+\usepackage{tikz}
+%\usepackage{tikz-3dplot}
+\usetikzlibrary{matrix,arrows,calc,decorations.pathmorphing,snakes}
+\usepackage{latexsym,stmaryrd,stackrel,array,tabularx,multirow,icomma,braket,polynom,cancel}
+\usepackage[explicit]{titlesec}
+
+% Inhaltsverzeichnis
+\usepackage{tocloft}
+\tocloftpagestyle{fancy}
+
+\renewcommand{\cftchapindent}{1 em}
+\renewcommand{\cftchapnumwidth}{1.5 em}
+
+\renewcommand{\cftsecindent}{2.7 em}
+\renewcommand{\cftsecnumwidth}{2.5em}
+
+\renewcommand{\cftsubsecindent}{5.2 em}
+\renewcommand{\cftsubsecnumwidth}{3.8 em}
+
+\renewcommand{\cftsubsubsecindent}{9 em}
+\renewcommand{\cftsubsubsecnumwidth}{4.5 em}
+
+% Mathe-Operatoren
+\DeclareMathOperator*{\exsop}{\exists}
+\DeclareMathOperator*{\exsgop}{\exists!}
+\DeclareMathOperator*{\fallop}{\forall}
+\DeclareMathOperator*{\bcupdop}{\dot{\bigcup}}
+\DeclareMathOperator*{\bcapdop}{\dot{\bigcap}}
+
+% Rotieren
+\newcommand{\Rotate}[1]{
+\begin{tikzpicture}
+\node[rotate=90] {\ensuremath{#1}};
+\end{tikzpicture}
+}
+
+%QED-Zeichen (Box)
+\newcommand{\qed}{\ensuremath{\Box}}
+\newcommand{\qqed}[1][\arabic{chapter}.\arabic{section}\ifnum\arabic{subsection}>0{.\arabic{subsection}}\fi]{\hfill\qed\ensuremath{_{\text{#1}}}}
+
+% Mengen Modulo
+\newcommand{\moduloT}[2]{
+\mbox{\raisebox{0.6ex}{\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\Large /}
+\raisebox{-0.6ex}{\hspace*{-1.5mm}\ensuremath{\displaystyle #2}}
+}}
+
+% Links Modulo
+\newcommand{\lmoduloT}[2]{
+\mbox{\raisebox{-0.6ex}{\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\Large \ensuremath{\backslash}}
+\raisebox{0.6ex}{\hspace*{-1.5mm}\ensuremath{\displaystyle #2}}
+}}
+
+% Für Z/2Z, um nicht soviel schreiben zu müssen
+\newcommand{\modloT}[2]{\moduloT{ \mathbb{#1}}{#2\mathbb{#1}}}
+
+%Die Modulo-Kommandos in klein, für die Darstellungen unter Quantoren.
+\newcommand{\moduloScriptT}[2]{
+\mbox{\raisebox{0.4ex}{\scriptsize\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\footnotesize /}
+\raisebox{-0.4ex}{\hspace*{-1.5mm}\scriptsize\ensuremath{\displaystyle #2}}
+}}
+
+\newcommand{\lmoduloScriptT}[2]{
+\mbox{\raisebox{-0.4ex}{\scriptsize\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\footnotesize \ensuremath{\backslash}}
+\raisebox{0.4ex}{\hspace*{-1.5mm}\scriptsize\ensuremath{\displaystyle #2}}
+}}
+
+\newcommand{\modloScriptT}[2]{\moduloScriptT{ \mathbb{#1}}{#2\mathbb{#1}}}
+
+% stehendes Winkelzeichen
+\newcommand{\winkel}{
+\begin{tikzpicture}[scale=0.25]
+\draw ({-2+3^(1/2)},0) -- (0,1) -- ({2-3^(1/2)},0);
+\draw ($(0,1) + ({cos(235)*0.7},{sin(315)*0.7})$) arc (235:315:0.7);
+\end{tikzpicture}}
+
+% Wurzel mit Häkchen
+\newcommand{\hsqrt}[2][{}]{\setbox0=\hbox{$\sqrt[#1]{\phantom{|}\!\! #2\hspace*{1pt}}$}\dimen0=\ht0
+  \advance\dimen0-0.2\ht0
+  \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}
+  {\box0\lower0.4pt\box2}}
+
+% alphabetische Aufzählung
+\newcounter{ale}
+\newcommand{\abc}{\stepcounter{ale}\item[\alph{ale})]}
+\newenvironment{abclist}{\begin{itemize} \setcounter{ale}{0}}{\end{itemize}}
+
+%klein-römische Aufzählung
+\newcounter{ale2}
+\newcommand{\iii}{\stepcounter{ale2}\item[\textnormal{\roman{ale2})}]}
+\newenvironment{iiilist}{\begin{itemize} \setcounter{ale2}{0}}{\end{itemize}}
+
+% Damit nicht immer "Kapitel 1" etc. über der Kapitelüberschrift steht
+\titleformat{\chapter}
+  {\huge\bfseries}
+  {\textrm{\thechapter} }{0pt}
+  {\textrm{#1} \thispagestyle{fancy}
+  }
+
+% Neudefinition der Abschnittsmarker für die Kopfzeile
+\renewcommand\partmark[1]{\markboth{#1}{}}
+\renewcommand\chaptermark[1]{\markright{\arabic{chapter} #1}}
+\renewcommand\sectionmark[1]{}
+\renewcommand\subsectionmark[1]{}
+
+% Kopf- und Fußzeile
+% Höhe der Kopfzeile
+\setlength{\headheight}{14pt}
+% obere Trennlinie
+%\renewcommand{\headrulewidth}{0.4pt}
+\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+\fancyhead[L]{\textbf{Kommutative Algebra}} %Kopfzeile links
+%\fancyhead[C]{\leftmark} %zentrierte Kopfzeile
+\fancyhead[R]{\rightmark} %Kopfzeile rechts
+\fancyfoot[C]{\thepage\quad\!\!\!\slash\quad\!\!\!\pageref{END-front}} %Seitenzahl der Front-Matter
+
+\AtBeginDocument{
+  \def\labelitemi{\normalfont\bfseries{--}}
+  \def\labelitemii{\(\circ\)}
+  \def\labelitemiii{\(\triangleright\)}
+}
+
+\makeatother
+
+\begin{document}
+
+
+
+
+
+
+\global\long\def\norm#1{\left\lVert #1\right\rVert }
+
+
+\global\long\def\abs#1{\left\lvert #1\right\rvert }
+
+
+\global\long\def\neg{\text{-}}
+
+
+\global\long\def\exs{\exsop}
+
+
+\global\long\def\exsg{\exsgop}
+
+
+\global\long\def\fall{\fallop}
+
+
+\global\long\def\bcupd{\bcupdop}
+
+
+\global\long\def\bcapd{\bcapdop}
+
+
+\global\long\def\sr#1#2#3{\underset{#3}{\overset{#2}{#1}}}
+
+
+\global\long\def\dd{\textnormal{d}}
+
+
+\global\long\def\ii{\textbf{i}}
+
+
+\global\long\def\modulo#1#2{\moduloT{#1}{#2}}
+
+
+\global\long\def\lmodulo#1#2{\lmoduloT{#1}{#2}}
+
+
+\global\long\def\modlo#1#2{\modloT{#1}{#2}}
+
+
+\global\long\def\moduloScript#1#2{\moduloScriptT{#1}{#2}}
+
+
+\global\long\def\lmoduloScript#1#2{\lmoduloScriptT{#1}{#2}}
+
+
+\global\long\def\modloScript#1#2{\modloScriptT{#1}{#2}}
+
+
+\pagenumbering{roman}
+
+
+\title{\textbf{\Huge \vspace*{-30mm}}\\
+\textbf{\Huge Kommutative Algebra}}
+
+
+\author{\textit{\small Vorlesung von}\\
+\textit{\noun{\small Prof. Dr. Niko Naumann}}\textit{\small }\\
+\textit{\small im Sommersemester 2012}\\
+\textit{\small Überarbeitung und Textsatz in \LyX{} von}\\
+\textit{\noun{\small Andreas Völklein}}\\
+{\small \vspace*{10mm}}\\
+{\small \includegraphics[clip,width=15cm]{unir}}\textit{\noun{\small }}\\
+{\small \vspace*{3mm}}\\
+Stand: \today}
+
+\maketitle
+\fancyhead[R]{Lizenz}
+\setcounter{page}{2} % sonst gibt es aus irgendeinem Grund zweimal die Seite 1!?!?!?
+
+\vspace*{-15mm}
+
+
+\subsubsection*{ACHTUNG}
+
+Diese Mitschrift ersetzt \emph{nicht} die Vorlesung.
+
+Es wird daher \emph{dringend} empfohlen, die Vorlesung zu besuchen.
+
+\vfill{}
+
+
+\selectlanguage{english}%
+
+\subsubsection*{Copyright Notice}
+
+Copyright © 2012 \noun{Andreas Völklein}
+
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+Texts.
+
+A copy of the license is included in the section entitled \textquotedblleft{}GNU
+Free Documentation License\textquotedblright{}.
+
+
+\subsubsection*{Disclaimer of Warranty}
+
+\noun{Unless otherwise mutually agreed to by the parties in writing
+and to the extent not prohibited by applicable law, }\textbf{\noun{the
+Copyright Holders and any other party, who may distribute the Document
+as permitted above,   provide the Document \textquotedblleft{}as is}}\textbf{\textquotedblright{},}\textbf{\noun{
+without warranty of any kind}}\noun{, expressed, implied, statutory
+or otherwise, including, but not limited to, the implied warranties
+of merchantability, fitness for a particular purpose, non-infringement,
+the absence of latent or other defects, accuracy, or the absence of
+errors, whether or not discoverable.}
+
+
+\subsubsection*{Limitation of Liability}
+
+\textbf{\noun{In no event}}\noun{ unless required by applicable law
+or agreed to in writing }\textbf{\noun{will the Copyright Holders,
+or any other party, who may distribute the Document as permitted above,
+be liable to you for any damages}}\noun{, including, but not limited
+to, any general, special, incidental, consequential, punitive or exemplary
+damages, however caused, regardless of the theory of liability, arising
+out of or related to this license or any use of or inability to use
+the Document, even if they have been advised of the possibility of
+such damages.}
+
+\textbf{\noun{In no event will the Copyright Holders'/Distributor's
+liability to you}}\noun{, whether in contract, tort (including negligence),
+or otherwise, }\textbf{\noun{exceed the amount you paid the Copyright
+Holders/Distributor}}\noun{ for the document under this agreement.}
+
+\selectlanguage{ngerman}%
+
+\subsubsection*{Links}
+
+Der Text der \quotedblbase{}\foreignlanguage{english}{GNU Free Documentation
+License}\textquotedblleft{} kann auch auf der Seite
+\begin{quote}
+\url{https://www.gnu.org/licenses/fdl-1.3.de.html}
+\end{quote}
+nachgelesen werden.
+
+Eine transparente Kopie der aktuellen Version dieses Dokuments kann
+von
+\begin{quote}
+\url{https://github.com/andiv/KomAlg}
+\end{quote}
+heruntergeladen werden.
+
+\newpage{}
+
+\fancyhead[R]{Literatur}
+
+
+\subsection*{Literatur}
+\begin{itemize}
+\item \noun{Michael Francis Atiyah, Ian G. Macdonald}: \foreignlanguage{english}{\emph{Introduction
+to commutative algebra}}, Westview Press, 1994; ISBN: 0-201-40751-5
+\item \noun{David }Eisenbud: \foreignlanguage{english}{\emph{Commutative
+algebra with a view toward algebraic geometry}}, Springer, 2004; ISBN:
+3-540-94269-6
+\item \noun{Hideyuki Matsumura}: \foreignlanguage{english}{\emph{Commutative
+ring theory}}, Cambridge University Press, 2005\\
+ISBN: 0-521-36764-6
+\item \noun{Nicolas Bourbaki}: \foreignlanguage{english}{\emph{Commutative
+algebra}}, Springer, 1991\\
+ISBN: 3-540-64239-0
+\end{itemize}
+{\small \newpage{}}\fancyhead[R]{Inhaltsverzeichnis}
+\fancyhead[C]{}
+
+\tableofcontents{}\label{END-front}\newpage{}\pagenumbering{arabic}
+\fancyfoot[C]{\thepage\quad\!\!\!\slash\quad\!\!\!\pageref{END}} % Seitenzahl des Hauptteils
+\fancyhead[R]{\rightmark}
+%\fancyhead[C]{\leftmark}%DATE: Mo 17.04.2012
+
+
+\chapter{Ringe und Ideale}
+
+
+\section{Definition \textmd{(Ring, Ringhomomorphismus)}}
+
+\begin{iiilist}
+
+\iii Ein (\emph{unitärer}, \emph{kommutativer}) \emph{Ring} ist ein
+Tupel $\left(A,+,\cdot,0,1\right)$ mit den Eigenschaften:
+
+\begin{abclist}
+
+\abc $\left(A,+,0\right)$ ist eine abelsche Gruppe.
+
+\abc Für alle $x,y,z\in A$ gelten:
+\begin{align*}
+\left(xy\right)z & =x\left(yz\right) &  & \text{(Assoziativität)}\\
+x\left(y+z\right) & =xy+xz &  & \text{(Distributivität)}\\
+xy & =yx &  & \text{(Kommutativität)}\\
+x\cdot1 & =x &  & \text{(neutrales Element)}
+\end{align*}
+
+
+\end{abclist}
+
+\iii Sind $A$ und $B$ Ringe, so ist ein \emph{Ringhomomorphismus}
+(\emph{von $A$ nach $B$}) (Abkürzung: Ringhom.) eine Abbildung $f:A\to B$,
+sodass für alle $x,y\in A$ gilt:
+
+\begin{abclist}
+
+\abc $f\left(x+y\right)=f\left(x\right)+f\left(y\right)$
+
+\abc $f\left(xy\right)=f\left(x\right)f\left(y\right)$
+
+\abc $f\left(1\right)=1$
+
+\end{abclist}
+
+Aus a) folgt direkt $f\left(0\right)=0$, da Ringe additive Gruppen
+sind.
+
+Aus b) folgt aber nicht c), da Ringe im Allgemeinen keine multiplikativen
+Gruppen sind.
+
+\end{iiilist}
+
+
+\section{Beispiel\label{sec:Bsp-Ringe}}
+
+\begin{iiilist}
+
+\iii Bekannte Ringe sind $\mathbb{Z},\,\mathbb{Q},\,\mathbb{R},\,\mathbb{C},\,\mathbb{Z}\left[\ii\right]=\left\{ a+b\ii\big|a,b\in\mathbb{Z}\right\} \subseteq\mathbb{C}$,
+der Polynomring $A\left[X\right]$ eines Rings $A$ und der Produktring
+$A\times B$ der Ringe $A$ und $B$.
+
+\iii Für jeden Ring $A$ existiert genau ein Ringhomomorphismus $\mathbb{Z}\to A$.
+
+Für jeden Ring $A$ ist die Abbildung von Mengen
+\begin{align*}
+\left\{ f:\mathbb{Z}\left[X\right]\to A\big|f\text{ ist Ringhom.}\right\}  & \stackrel{\sim}{\rightarrow}A\\
+f & \mapsto f\left(X\right)
+\end{align*}
+bijektiv. (Die Ringhomomorphismen $f$ sind die Einsetzungshomomorphismen.)
+
+\end{iiilist}
+
+
+\section{Definition \textmd{(Unterring)}}
+
+Sei $A$ ein Ring.
+
+Eine Teilmengen $B\subseteq A$ heißt \emph{Unterring} (\emph{von
+$A$}), wenn für alle $x,y\in B$ gilt:
+
+\begin{iiilist}
+
+\iii $x-y\in B,\ x\cdot y\in B$
+
+\iii $1\in B$
+
+\end{iiilist}
+
+In diesem Fall ist $\left(B,+\big|_{B\times B},\cdot\big|_{B\times B},0,1\right)$
+wieder ein Ring.
+
+
+\section{Beispiel}
+
+$\mathbb{Z}\subseteq\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$
+sind Unterringe, nicht aber $\mathbb{N}\subseteq\mathbb{Z}$.
+
+
+\section{Definition und Bemerkung \textmd{(Ideal, Quotientenring)\label{sec:Def-Ideal}}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Eine Teilmenge $I\subseteq A$ heißt \emph{Ideal} (\emph{von
+$A$}), falls folgende Eigenschaften gelten:
+
+\begin{abclist}
+
+\abc $I\subseteq\left(A,+,0\right)$ ist eine Untergruppe.
+
+\abc Für alle $x\in A$ und $y\in I$ gilt $xy\in I$.
+
+\end{abclist}
+
+\iii Ist $I\subseteq A$ ein Ideal, so ist die für alle $x,y\in A$
+durch
+\begin{align*}
+x & \equiv y\mod I\qquad:\Leftrightarrow\qquad x-y\in I
+\end{align*}
+(lies: \quotedblbase{}\emph{$x$ ist kongruent zu $y$ modulo $I$}\textquotedblleft{})
+auf $A$ definierte Relation eine Äquivalenzrelation und es existiert
+genau eine Ringstruktur $\modulo AI$, sodass die kanonische Abbildung
+\begin{align*}
+\pi:A & \to\modulo AI\\
+x & \mapsto\pi\left(x\right):=\left[x\right]:=\left(x\mod I\right)
+\end{align*}
+ein Ringhomomorphismus ist.
+
+Es gilt $\ker\left(\pi\right)=I$. Der Ring $\modulo AI$ heißt \emph{Quotientenring}
+(\emph{von $A$ bezüglich $I$}).
+
+\iii Sind $I\subseteq A$ ein Ideal und $B$ ein Ring, so ist die
+Abbildung
+\begin{align*}
+\left\{ \overline{f}:\modulo AI\to B\big|\overline{f}\text{ ist Ringhom.}\right\}  & \stackrel{\sim}{\to}\left\{ f:A\to B\big|f\text{ ist Ringhom.},f\left(I\right)=0\right\} \\
+\overline{f} & \mapsto\overline{f}\circ\pi
+\end{align*}
+bijektiv.
+
+Skizze:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.75ex, text depth=0.25ex] { A & B \\ \modulo{A}{I} &  \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[auto] {$ f $} (m-1-2) edge node[left] {$ \pi $} (m-2-1) (m-2-1) edge node[right] {$ \,\,\,\exsg_{\overline{f}}:f=\overline{f}\circ \pi \Leftrightarrow f(I)=0 (\Leftrightarrow I \subseteq \ker (f)) $} (m-1-2); 
+\end{tikzpicture}
+\par\end{center}
+
+(universelle Eigenschaft des Quotientenrings)
+
+\end{iiilist}
+
+
+\section{Beispiel \textmd{(Kern, Bild)}}
+
+\begin{iiilist}
+
+\iii Ist $f:A\to B$ ein Ringhomomorphismus, so ist
+\begin{align*}
+\ker\left(f\right) & :=\left\{ x\in A\big|f\left(x\right)=0\right\} \subseteq A
+\end{align*}
+ein Ideal und das Bild
+\begin{align*}
+\text{im}\left(f\right) & =\left\{ f\left(x\right)\big|x\in A\right\} \subseteq B
+\end{align*}
+ein Unterring.
+
+(Ist $B\subseteq A$ ein Unterring, so ist $\iota:B\hookrightarrow A$
+ein Ringhomomorphismus mit $\text{im}\left(\iota\right)=B$.)
+
+\iii Sind $A$ ein Ring und $n\in\mathbb{N}_{>0}$, so gilt:
+\begin{align*}
+\left|\left\{ f:\modlo Zn\to A\text{ ist Ringhom.}\right\} \right| & =\begin{cases}
+1 & \text{falls }\underbrace{1+\ldots+1}_{n\text{-mal}}=0\text{ in }A\\
+0 & \text{sonst}
+\end{cases}
+\end{align*}
+(Verwende \ref{sec:Bsp-Ringe} ii) und \ref{sec:Def-Ideal} iii) mit
+$I=n\mathbb{Z}\subseteq A=\mathbb{Z}$.)
+
+\end{iiilist}
+
+
+\section{Proposition \textmd{(Ideale des Quotientenrings)}}
+
+Seien $A$ ein Ring, $I\subseteq A$ ein Ideal und $\pi:A\to\modulo AI$
+der kanonische Ringhomomorphismus.
+
+Dann ist die Abbildung
+\begin{align*}
+\Phi:M:=\left\{ J\big|J\subseteq A\text{ Ideal mit }I\subseteq J\right\}  & \stackrel{\sim}{\to}N:=\left\{ \overline{J}\big|\overline{J}\subseteq\modulo AI\text{ Ideal}\right\} \\
+J & \mapsto\Phi\left(J\right):=\pi\left(J\right)
+\end{align*}
+wohldefiniert und bijektiv und erfüllt:
+
+Für alle Ideale $J_{1},J_{2}\subseteq A$ mit $I\subseteq J_{1},J_{2}$
+gilt:
+\begin{align*}
+J_{1}\subseteq J_{2} & \Leftrightarrow\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+Ist $J\in M$, so ist $\Phi\left(J\right)=\pi\left(J\right)\subseteq\modulo AI$
+als Bild des Ringhomomorphismus $\pi$ ein Unterring von $\modulo AI$
+und somit ist insbesondere $\left(\pi\left(J\right),+,0\right)$ eine
+Untergruppe.
+
+Seien $x\in\modulo AI$ und $y\in\Phi\left(J\right)$ gegeben. Wegen
+$\Phi\left(J\right)=\pi\left(J\right)$ und $\modulo AI=\pi\left(A\right)$
+gibt es ein $x_{0}\in A$ und ein $y_{0}\in J$ mit $x=\pi\left(x_{0}\right)$
+und $y=\pi\left(y_{0}\right)$.
+\begin{align*}
+xy & =\pi\left(x_{0}\right)\pi\left(y_{0}\right)=\pi\left(x_{0}y_{0}\right)
+\end{align*}
+Da $J$ ein Ideal ist, folgt aus $y_{0}\in J$ und $x_{0}\in A$ schon
+$x_{0}y_{0}\in J$. Daher ist $xy=\pi\left(x_{0}y_{0}\right)\in\pi\left(J\right)$,
+weswegen $\pi\left(J\right)$ ein Ideal ist. Also ist $\Phi$ wohldefiniert.
+
+Betrachte die Abbildung:
+\begin{align*}
+\Psi:N & \to M\\
+\overline{J} & \mapsto\pi^{-1}\left(\overline{J}\right)
+\end{align*}
+Seien $\overline{J}\subseteq\modulo AI$ ein Ideal und $a,b\in\Psi\left(\overline{J}\right)=\pi^{-1}\left(\overline{J}\right)$,
+das heißt $\pi\left(a\right),\pi\left(b\right)\in\overline{J}$. Dann
+gilt:
+\begin{align*}
+\pi\left(a-b\right) & =\underbrace{\pi\left(a\right)}_{\in\overline{J}}-\underbrace{\pi\left(b\right)}_{\in\overline{J}}\stackrel{\overline{J}\text{ Ideal}}{\in}\overline{J}
+\end{align*}
+Also ist $a-b\in\pi^{-1}\left(\overline{J}\right)$ und somit $\left(\Psi\left(\overline{J}\right),+,0\right)$
+eine Untergruppe von $A$.
+
+Seien $x\in A$ und $y\in\Psi\left(\overline{J}\right)$, das heißt
+$\pi\left(y\right)\in\overline{J}$, so gilt:
+\begin{align*}
+\pi\left(x\cdot y\right) & =\pi\left(x\right)\underbrace{\pi\left(y\right)}_{\in\overline{J}}\stackrel{\overline{J}\text{ Ideal}}{\in}\overline{J}
+\end{align*}
+Also ist $\Psi\left(\overline{J}\right)\subseteq A$ ein Ideal.
+
+Da für alle Ideale $\overline{J}\in\modulo AI$ schon $0\in\overline{J}$
+gilt, folgt $\pi^{-1}\left(\overline{J}\right)\supseteq\pi^{-1}\left(0\right)=\ker\left(\pi\right)=I$.
+Daher ist $\Psi$ wohldefiniert.
+
+Nun gilt:
+\begin{align*}
+\left(\Phi\circ\Psi\right)\left(\overline{J}\right) & =\left(\pi\circ\pi^{-1}\right)\left(\overline{J}\right)\stackrel{\pi\text{ surjektiv}}{=}\overline{J}\\
+\left(\Psi\circ\Phi\right)\left(J\right) & =\left(\pi^{-1}\circ\pi\right)\left(J\right)=\left\{ a+b\big|a\in J,b\in I\right\} \stackrel{I\subseteq J}{=}J
+\end{align*}
+Also ist $\Psi$ die Umkehrabbildung zu $\Phi$, weswegen $\Phi$
+bijektiv ist.\qqed
+
+
+\section{Beispiel}
+
+Die Ideale des Ringes $\modlo Z6=\left\{ \overline{0},\overline{1},\ldots,\overline{5}\right\} $
+sind genau die Hauptideale:
+\begin{align*}
+\left(\overline{0}\right),\left(\overline{3}\right),\left(\overline{2}\right),\left(\overline{1}\right) & \subseteq\modlo Z6
+\end{align*}
+
+
+
+\section{Definition \textmd{(Integritätsring)}}
+
+\begin{iiilist}
+
+\iii Sei $A$ ein Ring. Ein Element $x\in A$ heißt genau dann \emph{Nullteiler},
+wenn es ein $x\in A\setminus\left\{ 0\right\} $ mit $xy=0$ gibt.
+
+\iii Ein \emph{Integritätsring} (Abkürzung: IR) ist ein Ring $A\not=\left\{ 0\right\} $,
+in dem $0\in A$ der einzige Nullteiler ist.
+
+\end{iiilist}
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii $\mathbb{Z}$ ist ein Integritätsring.
+
+\iii Ist $A$ ein Integritätsring, so ist auch $A\left[X\right]$
+ein Integritätsring. (Gradformel!)
+
+\iii Der Ring $A:=\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}\right)}$
+ist kein Integritätsring, denn für $\overline{X}:=\left(X\mod\left(X^{2}\right)\right)$
+gilt $\overline{X}\not=0$, aber auch $\overline{X}\cdot\overline{X}=0$,
+weswegen $\overline{X}\in A$ ein Nullteiler ist.
+
+Auch $\modlo Z6$ ist kein Integritätsring, denn $\underbrace{\overline{2}}_{\not=\overline{0}}\cdot\underbrace{\overline{3}}_{\not=\overline{0}}=\overline{0}$.
+
+\end{iiilist}
+
+
+\section{Definition \textmd{(nilpotent)}}
+
+Sei $A$ ein Ring. Ein $x\in A$ heißt genau dann \emph{nilpotent},
+wenn es ein $n\in\mathbb{N}_{>0}$ gibt mit $x^{n}=0$.
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Ist $0\not=x\in A\not=\left\{ 0\right\} $ nilpotent, so ist
+$x$ ein Nullteiler, denn für $N:=\min\left\{ n\in\mathbb{N}_{>0}\big|x^{n}=0\right\} $
+gilt $N\ge1$ und wegen der Minimalität von $N$ ist $x^{N-1}\not=0$.
+Also folgt aus
+\begin{align*}
+0 & =x^{N}=\underbrace{x}_{\not=0}\cdot\underbrace{x^{N-1}}_{\not=0}
+\end{align*}
+schon, dass $x$ ein Nullteiler ist.
+
+\iii In dem Produktring $A:=\mathbb{Z}\times\mathbb{Z}$ ist $x:=\left(1,0\right)$
+ein Nullteiler, da $x\cdot\left(0,1\right)=\left(0,0\right)=0$ gilt,
+aber nicht nilpotent, denn für alle $n\in\mathbb{N}_{>0}$ gilt:
+\begin{align*}
+x^{n} & =\left(1,0\right)^{n}=\left(1^{n},0^{n}\right)=\left(1,0\right)=x\not=0
+\end{align*}
+
+
+\end{iiilist}
+
+
+\section{Definition und Bemerkung \textmd{(Einheit, Einheitengruppe)}}
+
+Sei $A$ ein Ring. Ein $x\in A$ heißt genau dann \emph{Einheit} (\emph{in
+$A$}), wenn es ein $y\in A$ mit $xy=1$ gibt.
+
+Die Menge $A^{*}=\left\{ x\in A\big|x\text{ ist Einheit}\right\} $
+der Einheiten ist eine kommutative Gruppe bezüglich der Multiplikation
+und heißt \emph{die Einheitengruppe von $A$}.
+
+(Beachte: $\left\{ 0\right\} ^{*}=\left\{ 0=1\right\} $)
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii $\mathbb{Z}^{*}=\left\{ \pm1\right\} ,\ \mathbb{Q}^{*}=\mathbb{Q}\setminus\left\{ 0\right\} $.
+
+\iii $\mathbb{Z}\left[\ii\right]^{*}=\left\{ \pm1,\pm\ii\right\} $
+
+\iii Ist $A$ ein Integritätsring, dann ist $\left(A\left[X\right]\right)^{*}=A^{*}$.
+(Folgt aus der Gradformel.)
+
+\end{iiilist}
+
+
+\section{Beispiel und Definition}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Für jedes $x\in A$ ist $\left(x\right):=\left\{ xy\big|y\in A\right\} \subseteq A$
+ein Ideal. Es heißt \emph{das von $x$ erzeugte Hauptideal} (Abkürzung:
+HI).
+
+\iii Ist $A$ ein Integritätsring, so gilt für alle $x,y\in A$:
+\begin{align*}
+\left(x\right)=\left(y\right) & \quad\Leftrightarrow\quad\exs_{u\in A^{*}}:x=uy
+\end{align*}
+Insbesondere gilt:
+\begin{align}
+\left(x\right)=1=A & \quad\Leftrightarrow\quad x\in A^{*}\label{eq:Einheitsideal}
+\end{align}
+(Beachte: \eqref{eq:Einheitsideal} gilt für jeden Ring $A$.)
+
+\iii $A$ heißt genau dann \emph{Hauptidealring} (Abkürzung: HIR),
+wenn $A$ ein Integritätsring ist, in dem jedes Ideal $I\subseteq A$
+ein Hauptideal ist.
+
+\iii $A$ heißt genau dann \emph{Körper}, wenn $A^{*}=A\setminus\left\{ 0\right\} $
+und $A\not=\left\{ 0\right\} $ ist. 
+
+\end{iiilist}
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Die Ringe $\mathbb{Z},\,\mathbb{Z}\left[\ii\right]$ und $k\left[X\right]$
+für einen Körper $k$, nicht aber $\mathbb{Z}\left[X\right]$ oder
+$k\left[X,Y\right]$ sind Hauptidealringe.
+
+Die Ringe $\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$ und
+$\mathbb{F}_{p}:=\modlo Zp$ für eine Primzahl $p$ sind Körper, nicht
+aber $\mathbb{Z}$.
+
+\iii 
+
+\end{iiilist}
+
+
+\part*{Anhang\thispagestyle{empty}}
+
+\addcontentsline{toc}{part}{Anhang}
+
+\fancyhead[R]{Index}
+\fancyhead[C]{Anhang}
+
+
+\chapter*{Danksagungen}
+
+\addcontentsline{toc}{section}{\hspace*{2.7em}Danksagungen}
+
+\fancyhead[R]{Danksagungen}
+
+Mein besonderer Dank geht an Professor Naumann, der diese Vorlesung
+hielt und es mir gestattete, diese Vorlesungsmitschrift zu veröffentlichen.
+
+Außerdem möchte ich mich ganz herzlich bei allen bedanken, die durch
+aufmerksames Lesen Fehler gefunden und mir diese mitgeteilt haben.
+
+\vspace{1cm}
+
+
+\hfill{}Andreas Völklein
+
+\selectlanguage{english}%
+
+\chapter*{GNU Free Documentation License}
+
+\addcontentsline{toc}{section}{\hspace*{2.7em}GNU Free Documentation License}
+
+\fancyhead[R]{GNU Free Documentation License}
+
+\noindent \begin{center}
+Version 1.3, 3 November 2008\\
+Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation,
+Inc. 
+\par\end{center}
+
+\noindent \begin{center}
+\texttt{<}\url{https://fsf.org/}\texttt{>}
+\par\end{center}
+
+\noindent \begin{center}
+Everyone is permitted to copy and distribute verbatim copies of this
+license document,\\
+but changing it is not allowed
+\par\end{center}
+
+
+\section*{\noun{0. Preamble}}
+
+\noindent The purpose of this License is to make a manual, textbook,
+or other functional and useful document \textquotedblleft{}free\textquotedblright{}
+in the sense of freedom: to assure everyone the effective freedom
+to copy and redistribute it, with or without modifying it, either
+commercially or noncommercially. Secondarily, this License preserves
+for the author and publisher a way to get credit for their work, while
+not being considered responsible for modifications made by others.
+
+\noindent This License is a kind of \textquotedblleft{}copyleft\textquotedblright{},
+which means that derivative works of the document must themselves
+be free in the same sense. It complements the GNU General Public License,
+which is a copyleft license designed for free software.
+
+\noindent We have designed this License in order to use it for manuals
+for free software, because free software needs free documentation:
+a free program should come with manuals providing the same freedoms
+that the software does. But this License is not limited to software
+manuals; it can be used for any textual work, regardless of subject
+matter or whether it is published as a printed book. We recommend
+this License principally for works whose purpose is instruction or
+reference.
+
+
+\section*{\noun{1. Applicability and definitions}}
+
+This License applies to any manual or other work, in any medium, that
+contains a notice placed by the copyright holder saying it can be
+distributed under the terms of this License. Such a notice grants
+a world-wide, royalty-free license, unlimited in duration, to use
+that work under the conditions stated herein. The \textquotedblleft{}\textbf{Document}\textquotedblright{},
+below, refers to any such manual or work. Any member of the public
+is a licensee, and is addressed as \textquotedblleft{}\textbf{you}\textquotedblright{}.
+You accept the license if you copy, modify or distribute the work
+in a way requiring permission under copyright law.
+
+A \textquotedblleft{}\textbf{Modified Version}\textquotedblright{}
+of the Document means any work containing the Document or a portion
+of it, either copied verbatim, or with modifications and/or translated
+into another language.
+
+A \textquotedblleft{}\textbf{Secondary Section}\textquotedblright{}
+is a named appendix or a front-matter section of the Document that
+deals exclusively with the relationship of the publishers or authors
+of the Document to the Document's overall subject (or to related matters)
+and contains nothing that could fall directly within that overall
+subject. (Thus, if the Document is in part a textbook of mathematics,
+a Secondary Section may not explain any mathematics.) The relationship
+could be a matter of historical connection with the subject or with
+related matters, or of legal, commercial, philosophical, ethical or
+political position regarding them.
+
+The \textquotedblleft{}\textbf{Invariant Sections}\textquotedblright{}
+are certain Secondary Sections whose titles are designated, as being
+those of Invariant Sections, in the notice that says that the Document
+is released under this License. If a section does not fit the above
+definition of Secondary then it is not allowed to be designated as
+Invariant. The Document may contain zero Invariant Sections. If the
+Document does not identify any Invariant Sections then there are none.
+
+The \textquotedblleft{}\textbf{Cover Texts}\textquotedblright{} are
+certain short passages of text that are listed, as Front-Cover Texts
+or Back-Cover Texts, in the notice that says that the Document is
+released under this License. A Front-Cover Text may be at most 5 words,
+and a Back-Cover Text may be at most 25 words.
+
+A \textquotedblleft{}\textbf{Transparent}\textquotedblright{} copy
+of the Document means a machine-readable copy, represented in a format
+whose specification is available to the general public, that is suitable
+for revising the document straightforwardly with generic text editors
+or (for images composed of pixels) generic paint programs or (for
+drawings) some widely available drawing editor, and that is suitable
+for input to text formatters or for automatic translation to a variety
+of formats suitable for input to text formatters. A copy made in an
+otherwise Transparent file format whose markup, or absence of markup,
+has been arranged to thwart or discourage subsequent modification
+by readers is not Transparent. An image format is not Transparent
+if used for any substantial amount of text. A copy that is not \textquotedblleft{}Transparent\textquotedblright{}
+is called \textquotedblleft{}\textbf{Opaque}\textquotedblright{}.
+
+Examples of suitable formats for Transparent copies include plain
+ASCII without markup, Texinfo input format, \LaTeX{} input format,
+SGML or XML using a publicly available DTD, and standard-conforming
+simple HTML, PostScript or PDF designed for human modification. Examples
+of transparent image formats include PNG, XCF and JPG. Opaque formats
+include proprietary formats that can be read and edited only by proprietary
+word processors, SGML or XML for which the DTD and/or processing tools
+are not generally available, and the machine-generated HTML, PostScript
+or PDF produced by some word processors for output purposes only.
+
+The \textquotedblleft{}\textbf{Title Page}\textquotedblright{} means,
+for a printed book, the title page itself, plus such following pages
+as are needed to hold, legibly, the material this License requires
+to appear in the title page. For works in formats which do not have
+any title page as such, \textquotedblleft{}Title Page\textquotedblright{}
+means the text near the most prominent appearance of the work's title,
+preceding the beginning of the body of the text.
+
+The \textquotedblleft{}\textbf{publisher}\textquotedblright{} means
+any person or entity that distributes copies of the Document to the
+public.
+
+A section \textquotedblleft{}\textbf{Entitled XYZ}\textquotedblright{}
+means a named subunit of the Document whose title either is precisely
+XYZ or contains XYZ in parentheses following text that translates
+XYZ in another language. (Here XYZ stands for a specific section name
+mentioned below, such as \textquotedblleft{}\textbf{Acknowledgements}\textquotedblright{},
+\textquotedblleft{}\textbf{Dedications}\textquotedblright{}, \textquotedblleft{}\textbf{Endorsements}\textquotedblright{},
+or \textquotedblleft{}\textbf{History}\textquotedblright{}.) To \textquotedblleft{}\textbf{Preserve
+the Title}\textquotedblright{} of such a section when you modify the
+Document means that it remains a section \textquotedblleft{}Entitled
+XYZ\textquotedblright{} according to this definition.
+
+The Document may include Warranty Disclaimers next to the notice which
+states that this License applies to the Document. These Warranty Disclaimers
+are considered to be included by reference in this License, but only
+as regards disclaiming warranties: any other implication that these
+Warranty Disclaimers may have is void and has no effect on the meaning
+of this License.
+
+
+\section*{\noun{2. Verbatim copying}}
+
+You may copy and distribute the Document in any medium, either commercially
+or noncommercially, provided that this License, the copyright notices,
+and the license notice saying this License applies to the Document
+are reproduced in all copies, and that you add no other conditions
+whatsoever to those of this License. You may not use technical measures
+to obstruct or control the reading or further copying of the copies
+you make or distribute. However, you may accept compensation in exchange
+for copies. If you distribute a large enough number of copies you
+must also follow the conditions in section 3.
+
+You may also lend copies, under the same conditions stated above,
+and you may publicly display copies.
+
+
+\section*{\noun{3. Copying in quantity}}
+
+If you publish printed copies (or copies in media that commonly have
+printed covers) of the Document, numbering more than 100, and the
+Document's license notice requires Cover Texts, you must enclose the
+copies in covers that carry, clearly and legibly, all these Cover
+Texts: Front-Cover Texts on the front cover, and Back-Cover Texts
+on the back cover. Both covers must also clearly and legibly identify
+you as the publisher of these copies. The front cover must present
+the full title with all words of the title equally prominent and visible.
+You may add other material on the covers in addition. Copying with
+changes limited to the covers, as long as they preserve the title
+of the Document and satisfy these conditions, can be treated as verbatim
+copying in other respects.
+
+If the required texts for either cover are too voluminous to fit legibly,
+you should put the first ones listed (as many as fit reasonably) on
+the actual cover, and continue the rest onto adjacent pages.
+
+If you publish or distribute Opaque copies of the Document numbering
+more than 100, you must either include a machine-readable Transparent
+copy along with each Opaque copy, or state in or with each Opaque
+copy a computer-network location from which the general network-using
+public has access to download using public-standard network protocols
+a complete Transparent copy of the Document, free of added material.
+If you use the latter option, you must take reasonably prudent steps,
+when you begin distribution of Opaque copies in quantity, to ensure
+that this Transparent copy will remain thus accessible at the stated
+location until at least one year after the last time you distribute
+an Opaque copy (directly or through your agents or retailers) of that
+edition to the public.
+
+It is requested, but not required, that you contact the authors of
+the Document well before redistributing any large number of copies,
+to give them a chance to provide you with an updated version of the
+Document.
+
+
+\section*{\noun{4. Modifications}}
+
+You may copy and distribute a Modified Version of the Document under
+the conditions of sections 2 and 3 above, provided that you release
+the Modified Version under precisely this License, with the Modified
+Version filling the role of the Document, thus licensing distribution
+and modification of the Modified Version to whoever possesses a copy
+of it. In addition, you must do these things in the Modified Version:
+\begin{description}
+\item [{A.\hspace*{3.2mm}}] Use in the Title Page (and on the covers,
+if any) a title distinct from that of the Document, and from those
+of previous versions (which should, if there were any, be listed in
+the History section of the Document). You may use the same title as
+a previous version if the original publisher of that version gives
+permission.
+\item [{B.\hspace*{3.4mm}}] List on the Title Page, as authors, one or
+more persons or entities responsible for authorship of the modifications
+in the Modified Version, together with at least five of the principal
+authors of the Document (all of its principal authors, if it has fewer
+than five), unless they release you from this requirement.
+\item [{C.\hspace*{3.4mm}}] State on the Title page the name of the publisher
+of the Modified Version, as the publisher.
+\item [{D.\hspace*{3.4mm}}] Preserve all the copyright notices of the
+Document.
+\item [{E.\hspace*{3.4mm}}] Add an appropriate copyright notice for your
+modifications adjacent to the other copyright notices.
+\item [{F.\hspace*{3.8mm}}] Include, immediately after the copyright notices,
+a license notice giving the public permission to use the Modified
+Version under the terms of this License, in the form shown in the
+Addendum below.
+\item [{G.\hspace*{3.1mm}}] Preserve in that license notice the full lists
+of Invariant Sections and required Cover Texts given in the Document's
+license notice.
+\item [{H.\hspace*{3.2mm}}] Include an unaltered copy of this License.
+\item [{I.\hspace*{5.0mm}}] Preserve the section Entitled \textquotedblleft{}History\textquotedblright{},
+Preserve its Title, and add to it an item stating at least the title,
+year, new authors, and publisher of the Modified Version as given
+on the Title Page. If there is no section Entitled \textquotedblleft{}History\textquotedblright{}
+in the Document, create one stating the title, year, authors, and
+publisher of the Document as given on its Title Page, then add an
+item describing the Modified Version as stated in the previous sentence.
+\item [{J.\hspace*{4.3mm}}] Preserve the network location, if any, given
+in the Document for public access to a Transparent copy of the Document,
+and likewise the network locations given in the Document for previous
+versions it was based on. These may be placed in the \textquotedblleft{}History\textquotedblright{}
+section. You may omit a network location for a work that was published
+at least four years before the Document itself, or if the original
+publisher of the version it refers to gives permission.
+\item [{K.\hspace*{3.3mm}}] For any section Entitled \textquotedblleft{}Acknowledgements\textquotedblright{}
+or \textquotedblleft{}Dedications\textquotedblright{}, Preserve the
+Title of the section, and preserve in the section all the substance
+and tone of each of the contributor acknowledgements and/or dedications
+given therein.
+\item [{L.\hspace*{4.1mm}}] Preserve all the Invariant Sections of the
+Document, unaltered in their text and in their titles. Section numbers
+or the equivalent are not considered part of the section titles.
+\item [{M.\hspace*{3mm}}] Delete any section Entitled \textquotedblleft{}Endorsements\textquotedblright{}.
+Such a section may not be included in the Modified Version.
+\item [{N.\hspace*{3.4mm}}] Do not retitle any existing section to be
+Entitled \textquotedblleft{}Endorsements\textquotedblright{} or to
+conflict in title with any Invariant Section.
+\item [{O.\hspace*{3.4mm}}] Preserve any Warranty Disclaimers.
+\end{description}
+If the Modified Version includes new front-matter sections or appendices
+that qualify as Secondary Sections and contain no material copied
+from the Document, you may at your option designate some or all of
+these sections as invariant. To do this, add their titles to the list
+of Invariant Sections in the Modified Version's license notice. These
+titles must be distinct from any other section titles.
+
+You may add a section Entitled \textquotedblleft{}Endorsements\textquotedblright{},
+provided it contains nothing but endorsements of your Modified Version
+by various parties\textemdash{}for example, statements of peer review
+or that the text has been approved by an organization as the authoritative
+definition of a standard.
+
+You may add a passage of up to five words as a Front-Cover Text, and
+a passage of up to 25 words as a Back-Cover Text, to the end of the
+list of Cover Texts in the Modified Version. Only one passage of Front-Cover
+Text and one of Back-Cover Text may be added by (or through arrangements
+made by) any one entity. If the Document already includes a cover
+text for the same cover, previously added by you or by arrangement
+made by the same entity you are acting on behalf of, you may not add
+another; but you may replace the old one, on explicit permission from
+the previous publisher that added the old one.
+
+The author(s) and publisher(s) of the Document do not by this License
+give permission to use their names for publicity for or to assert
+or imply endorsement of any Modified Version.
+
+
+\section*{\noun{5. Combining documents}}
+
+You may combine the Document with other documents released under this
+License, under the terms defined in section 4 above for modified versions,
+provided that you include in the combination all of the Invariant
+Sections of all of the original documents, unmodified, and list them
+all as Invariant Sections of your combined work in its license notice,
+and that you preserve all their Warranty Disclaimers.
+
+The combined work need only contain one copy of this License, and
+multiple identical Invariant Sections may be replaced with a single
+copy. If there are multiple Invariant Sections with the same name
+but different contents, make the title of each such section unique
+by adding at the end of it, in parentheses, the name of the original
+author or publisher of that section if known, or else a unique number.
+Make the same adjustment to the section titles in the list of Invariant
+Sections in the license notice of the combined work.
+
+In the combination, you must combine any sections Entitled \textquotedblleft{}History\textquotedblright{}
+in the various original documents, forming one section Entitled \textquotedblleft{}History\textquotedblright{};
+likewise combine any sections Entitled \textquotedblleft{}Acknowledgements\textquotedblright{},
+and any sections Entitled \textquotedblleft{}Dedications\textquotedblright{}.
+You must delete all sections Entitled \textquotedblleft{}Endorsements\textquotedblright{}.
+
+
+\section*{\noun{6. Collections of documents}}
+
+You may make a collection consisting of the Document and other documents
+released under this License, and replace the individual copies of
+this License in the various documents with a single copy that is included
+in the collection, provided that you follow the rules of this License
+for verbatim copying of each of the documents in all other respects.
+
+You may extract a single document from such a collection, and distribute
+it individually under this License, provided you insert a copy of
+this License into the extracted document, and follow this License
+in all other respects regarding verbatim copying of that document.
+
+
+\section*{\noun{7. Aggregation with independent works}}
+
+A compilation of the Document or its derivatives with other separate
+and independent documents or works, in or on a volume of a storage
+or distribution medium, is called an \textquotedblleft{}aggregate\textquotedblright{}
+if the copyright resulting from the compilation is not used to limit
+the legal rights of the compilation's users beyond what the individual
+works permit. When the Document is included in an aggregate, this
+License does not apply to the other works in the aggregate which are
+not themselves derivative works of the Document.
+
+If the Cover Text requirement of section 3 is applicable to these
+copies of the Document, then if the Document is less than one half
+of the entire aggregate, the Document's Cover Texts may be placed
+on covers that bracket the Document within the aggregate, or the electronic
+equivalent of covers if the Document is in electronic form. Otherwise
+they must appear on printed covers that bracket the whole aggregate.
+
+
+\section*{\noun{8. Translation}}
+
+Translation is considered a kind of modification, so you may distribute
+translations of the Document under the terms of section 4. Replacing
+Invariant Sections with translations requires special permission from
+their copyright holders, but you may include translations of some
+or all Invariant Sections in addition to the original versions of
+these Invariant Sections. You may include a translation of this License,
+and all the license notices in the Document, and any Warranty Disclaimers,
+provided that you also include the original English version of this
+License and the original versions of those notices and disclaimers.
+In case of a disagreement between the translation and the original
+version of this License or a notice or disclaimer, the original version
+will prevail.
+
+If a section in the Document is Entitled \textquotedblleft{}Acknowledgements\textquotedblright{},
+\textquotedblleft{}Dedications\textquotedblright{}, or \textquotedblleft{}History\textquotedblright{},
+the requirement (section 4) to Preserve its Title (section 1) will
+typically require changing the actual title.
+
+
+\section*{\noun{9. Termination}}
+
+You may not copy, modify, sublicense, or distribute the Document except
+as expressly provided under this License. Any attempt otherwise to
+copy, modify, sublicense, or distribute it is void, and will automatically
+terminate your rights under this License.
+
+However, if you cease all violation of this License, then your license
+from a particular copyright holder is reinstated (a) provisionally,
+unless and until the copyright holder explicitly and finally terminates
+your license, and (b) permanently, if the copyright holder fails to
+notify you of the violation by some reasonable means prior to 60 days
+after the cessation.
+
+Moreover, your license from a particular copyright holder is reinstated
+permanently if the copyright holder notifies you of the violation
+by some reasonable means, this is the first time you have received
+notice of violation of this License (for any work) from that copyright
+holder, and you cure the violation prior to 30 days after your receipt
+of the notice.
+
+Termination of your rights under this section does not terminate the
+licenses of parties who have received copies or rights from you under
+this License. If your rights have been terminated and not permanently
+reinstated, receipt of a copy of some or all of the same material
+does not give you any rights to use it.
+
+
+\section*{\noun{10. Future revisions of this license}}
+
+The Free Software Foundation may publish new, revised versions of
+the GNU Free Documentation License from time to time. Such new versions
+will be similar in spirit to the present version, but may differ in
+detail to address new problems or concerns. See \url{https://www.gnu.org/copyleft/}.
+
+Each version of the License is given a distinguishing version number.
+If the Document specifies that a particular numbered version of this
+License \textquotedbl{}or any later version\textquotedbl{} applies
+to it, you have the option of following the terms and conditions either
+of that specified version or of any later version that has been published
+(not as a draft) by the Free Software Foundation. If the Document
+does not specify a version number of this License, you may choose
+any version ever published (not as a draft) by the Free Software Foundation.
+If the Document specifies that a proxy can decide which future versions
+of this License can be used, that proxy's public statement of acceptance
+of a version permanently authorizes you to choose that version for
+the Document.
+
+
+\section*{\noun{11. Relicensing}}
+
+\textquotedblleft{}Massive Multiauthor Collaboration Site\textquotedblright{}
+(or \textquotedblleft{}MMC Site\textquotedblright{}) means any World
+Wide Web server that publishes copyrightable works and also provides
+prominent facilities for anybody to edit those works. A public wiki
+that anybody can edit is an example of such a server. A \textquotedblleft{}Massive
+Multiauthor Collaboration\textquotedblright{} (or \textquotedblleft{}MMC\textquotedblright{})
+contained in the site means any set of copyrightable works thus published
+on the MMC site.
+
+\textquotedblleft{}CC-BY-SA\textquotedblright{} means the Creative
+Commons Attribution-Share Alike 3.0 license published by Creative
+Commons Corporation, a not-for-profit corporation with a principal
+place of business in San Francisco, California, as well as future
+copyleft versions of that license published by that same organization.
+
+\textquotedblleft{}Incorporate\textquotedblright{} means to publish
+or republish a Document, in whole or in part, as part of another Document.
+
+An MMC is \textquotedblleft{}eligible for relicensing\textquotedblright{}
+if it is licensed under this License, and if all works that were first
+published under this License somewhere other than this MMC, and subsequently
+incorporated in whole or in part into the MMC, (1) had no cover texts
+or invariant sections, and (2) were thus incorporated prior to November
+1, 2008.
+
+The operator of an MMC Site may republish an MMC contained in the
+site under CC-BY-SA on the same site at any time before August 1,
+2009, provided the MMC is eligible for relicensing.
+
+
+\section*{\noun{Addendum}: How to use this License for your documents}
+
+To use this License in a document you have written, include a copy
+of the License in the document and put the following copyright and
+license notices just after the title page:
+\begin{quote}
+Copyright © YEAR YOUR NAME.\\
+Permission is granted to copy, distribute and/or modify this document
+under the terms of the GNU Free Documentation License, Version 1.3
+or any later version published by the Free Software Foundation;
+
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover
+Texts.
+
+A copy of the license is included in the section entitled \textquotedbl{}GNU
+Free Documentation License\textquotedbl{}.
+\end{quote}
+If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+replace the \textquotedbl{}with $\ldots$ Texts.\textquotedbl{} line
+with this:
+\begin{quote}
+with the Invariant Sections being LIST THEIR TITLES, with the Front-Cover
+Texts being LIST, and with the Back-Cover Texts being LIST.
+\end{quote}
+If you have Invariant Sections without Cover Texts, or some other
+combination of the three, merge those two alternatives to suit the
+situation.
+
+If your document contains nontrivial examples of program code, we
+recommend releasing these examples in parallel under your choice of
+free software license, such as the GNU General Public License, to
+permit their use in free software.
+
+\selectlanguage{ngerman}%
+\label{END}
+\end{document}

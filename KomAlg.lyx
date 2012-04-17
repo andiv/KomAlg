@@ -1,0 +1,4690 @@
+#LyX 2.0 created this file. For more info see http://www.lyx.org/
+\lyxformat 413
+\begin_document
+\begin_header
+\textclass report
+\begin_preamble
+\usepackage{tikz}
+%\usepackage{tikz-3dplot}
+\usetikzlibrary{matrix,arrows,calc,decorations.pathmorphing,snakes}
+\usepackage{latexsym,stmaryrd,stackrel,array,tabularx,multirow,icomma,braket,polynom,cancel}
+\usepackage[explicit]{titlesec}
+
+% Inhaltsverzeichnis
+\usepackage{tocloft}
+\tocloftpagestyle{fancy}
+
+\renewcommand{\cftchapindent}{1 em}
+\renewcommand{\cftchapnumwidth}{1.5 em}
+
+\renewcommand{\cftsecindent}{2.7 em}
+\renewcommand{\cftsecnumwidth}{2.5em}
+
+\renewcommand{\cftsubsecindent}{5.2 em}
+\renewcommand{\cftsubsecnumwidth}{3.8 em}
+
+\renewcommand{\cftsubsubsecindent}{9 em}
+\renewcommand{\cftsubsubsecnumwidth}{4.5 em}
+
+% Mathe-Operatoren
+\DeclareMathOperator*{\exsop}{\exists}
+\DeclareMathOperator*{\exsgop}{\exists!}
+\DeclareMathOperator*{\fallop}{\forall}
+\DeclareMathOperator*{\bcupdop}{\dot{\bigcup}}
+\DeclareMathOperator*{\bcapdop}{\dot{\bigcap}}
+
+% Rotieren
+\newcommand{\Rotate}[1]{
+\begin{tikzpicture}
+\node[rotate=90] {\ensuremath{#1}};
+\end{tikzpicture}
+}
+
+%QED-Zeichen (Box)
+\newcommand{\qed}{\ensuremath{\Box}}
+\newcommand{\qqed}[1][\arabic{chapter}.\arabic{section}\ifnum\arabic{subsection}>0{.\arabic{subsection}}\fi]{\hfill\qed\ensuremath{_{\text{#1}}}}
+
+% Mengen Modulo
+\newcommand{\moduloT}[2]{
+\mbox{\raisebox{0.6ex}{\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\Large /}
+\raisebox{-0.6ex}{\hspace*{-1.5mm}\ensuremath{\displaystyle #2}}
+}}
+
+% Links Modulo
+\newcommand{\lmoduloT}[2]{
+\mbox{\raisebox{-0.6ex}{\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\Large \ensuremath{\backslash}}
+\raisebox{0.6ex}{\hspace*{-1.5mm}\ensuremath{\displaystyle #2}}
+}}
+
+% Für Z/2Z, um nicht soviel schreiben zu müssen
+\newcommand{\modloT}[2]{\moduloT{ \mathbb{#1}}{#2\mathbb{#1}}}
+
+%Die Modulo-Kommandos in klein, für die Darstellungen unter Quantoren.
+\newcommand{\moduloScriptT}[2]{
+\mbox{\raisebox{0.4ex}{\scriptsize\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\footnotesize /}
+\raisebox{-0.4ex}{\hspace*{-1.5mm}\scriptsize\ensuremath{\displaystyle #2}}
+}}
+
+\newcommand{\lmoduloScriptT}[2]{
+\mbox{\raisebox{-0.4ex}{\scriptsize\ensuremath{\displaystyle #1}}
+{\hspace*{-1.5mm}\footnotesize \ensuremath{\backslash}}
+\raisebox{0.4ex}{\hspace*{-1.5mm}\scriptsize\ensuremath{\displaystyle #2}}
+}}
+
+\newcommand{\modloScriptT}[2]{\moduloScriptT{ \mathbb{#1}}{#2\mathbb{#1}}}
+
+% stehendes Winkelzeichen
+\newcommand{\winkel}{
+\begin{tikzpicture}[scale=0.25]
+\draw ({-2+3^(1/2)},0) -- (0,1) -- ({2-3^(1/2)},0);
+\draw ($(0,1) + ({cos(235)*0.7},{sin(315)*0.7})$) arc (235:315:0.7);
+\end{tikzpicture}}
+
+% Wurzel mit Häkchen
+\newcommand{\hsqrt}[2][{}]{\setbox0=\hbox{$\sqrt[#1]{\phantom{|}\!\! #2\hspace*{1pt}}$}\dimen0=\ht0
+  \advance\dimen0-0.2\ht0
+  \setbox2=\hbox{\vrule height\ht0 depth -\dimen0}
+  {\box0\lower0.4pt\box2}}
+
+% alphabetische Aufzählung
+\newcounter{ale}
+\newcommand{\abc}{\stepcounter{ale}\item[\alph{ale})]}
+\newenvironment{abclist}{\begin{itemize} \setcounter{ale}{0}}{\end{itemize}}
+
+%klein-römische Aufzählung
+\newcounter{ale2}
+\newcommand{\iii}{\stepcounter{ale2}\item[\textnormal{\roman{ale2})}]}
+\newenvironment{iiilist}{\begin{itemize} \setcounter{ale2}{0}}{\end{itemize}}
+
+% Damit nicht immer "Kapitel 1" etc. über der Kapitelüberschrift steht
+\titleformat{\chapter}
+  {\huge\bfseries}
+  {\textrm{\thechapter} }{0pt}
+  {\textrm{#1} \thispagestyle{fancy}
+  }
+
+% Neudefinition der Abschnittsmarker für die Kopfzeile
+\renewcommand\partmark[1]{\markboth{#1}{}}
+\renewcommand\chaptermark[1]{\markright{\arabic{chapter} #1}}
+\renewcommand\sectionmark[1]{}
+\renewcommand\subsectionmark[1]{}
+
+% Kopf- und Fußzeile
+% Höhe der Kopfzeile
+\setlength{\headheight}{14pt}
+% obere Trennlinie
+%\renewcommand{\headrulewidth}{0.4pt}
+\fancyhf{} %alle Kopf- und Fußzeilenfelder bereinigen
+\fancyhead[L]{\textbf{Kommutative Algebra}} %Kopfzeile links
+%\fancyhead[C]{\leftmark} %zentrierte Kopfzeile
+\fancyhead[R]{\rightmark} %Kopfzeile rechts
+\fancyfoot[C]{\thepage\quad\!\!\!\slash\quad\!\!\!\pageref{END-front}} %Seitenzahl der Front-Matter
+\end_preamble
+\use_default_options false
+\maintain_unincluded_children false
+\language ngerman
+\language_package default
+\inputencoding auto
+\fontencoding global
+\font_roman default
+\font_sans default
+\font_typewriter default
+\font_default_family default
+\use_non_tex_fonts false
+\font_sc false
+\font_osf false
+\font_sf_scale 100
+\font_tt_scale 100
+
+\graphics default
+\default_output_format default
+\output_sync 0
+\bibtex_command default
+\index_command default
+\paperfontsize 11
+\spacing single
+\use_hyperref true
+\pdf_title "Algebra"
+\pdf_author "Andreas Völklein"
+\pdf_keywords "Algebra, Mathematik"
+\pdf_bookmarks true
+\pdf_bookmarksnumbered true
+\pdf_bookmarksopen false
+\pdf_bookmarksopenlevel 1
+\pdf_breaklinks true
+\pdf_pdfborder true
+\pdf_colorlinks false
+\pdf_backref page
+\pdf_pdfusetitle false
+\papersize a4paper
+\use_geometry true
+\use_amsmath 2
+\use_esint 1
+\use_mhchem 1
+\use_mathdots 1
+\cite_engine basic
+\use_bibtopic false
+\use_indices false
+\paperorientation portrait
+\suppress_date true
+\use_refstyle 0
+\index Stichwortverzeichnis
+\shortcut idx
+\color #008000
+\end_index
+\leftmargin 2.6cm
+\topmargin 2.6cm
+\rightmargin 2.6cm
+\bottommargin 3.5cm
+\secnumdepth 2
+\tocdepth 2
+\paragraph_separation skip
+\defskip smallskip
+\quotes_language german
+\papercolumns 1
+\papersides 1
+\paperpagestyle fancy
+\bullet 0 0 0 -1
+\bullet 1 0 9 -1
+\bullet 2 0 15 -1
+\tracking_changes false
+\output_changes false
+\html_math_output 0
+\html_css_as_file 0
+\html_be_strict false
+\end_header
+
+\begin_body
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Lyx:
+\end_layout
+
+\begin_layout Plain Layout
+$
+\backslash
+root{3}{2}$ entspricht $
+\backslash
+sqrt[3]{2}$
+\end_layout
+
+\begin_layout Plain Layout
+$
+\backslash
+unittwo{864}{
+\backslash
+frac{km}{h}}$ entspricht $
+\backslash
+unit[864]{
+\backslash
+frac{km}{h}}$
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status collapsed
+
+\begin_layout Plain Layout
+Vorlage: Kommutatives Diagramm
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex] { G & & G' 
+\backslash
+
+\backslash
+  & a & 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[auto] {$ 
+\backslash
+varphi $} (m-1-3) edge node[description] {$ 
+\backslash
+Psi $} (m-2-2) (m-1-3) edge node[auto] {$ 
+\backslash
+Phi $} (m-2-2); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Plain Layout
+Vorlage: Funktions-Plot
+\end_layout
+
+\begin_layout Plain Layout
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[domain=0:4]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[very thin,color=gray] (-0.1,-1.1) grid (3.9,3.9);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (-0.2,0) -- (4.2,0) node[right] {$x$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (0,-1.2) -- (0,4.2) node[above] {$f(x)$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[color=red] plot (
+\backslash
+x,
+\backslash
+x) node[right] {$f(x) =x$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[color=blue] plot (
+\backslash
+x,{sin(
+\backslash
+x r)}) node[right] {$f(x) = 
+\backslash
+sin x$}; 
+\backslash
+draw[color=orange] plot (
+\backslash
+x,{0.05*exp(
+\backslash
+x)}) node[right] {$f(x) = 
+\backslash
+frac{1}{20} 
+\backslash
+mathrm e^x$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture} 
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Note Note
+status open
+
+\begin_layout Plain Layout
+TODO: 
+\backslash
+begin{iiilist} als LyX-Kommandos einbauen.
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\norm}[1]{\left\lVert #1\right\rVert }
+{\left\Vert #1\right\Vert }
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert }
+{\left|#1\right|}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\neg}{\text{-}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\exs}{\exsop}
+{\text{\exists}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\exsg}{\exsgop}
+{\text{\exists!}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\fall}{\fallop}
+{\text{\forall}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\bcupd}{\bcupdop}
+{\text{\dot{\bigcup}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\bcapd}{\bcapdop}
+{\text{\dot{\bigcap}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\sr}[3]{\underset{#3}{\overset{#2}{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\dd}{\textnormal{d}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\ii}{\textbf{i}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\modulo}[2]{\moduloT{#1}{#2}}
+{#1/#2}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\lmodulo}[2]{\lmoduloT{#1}{#2}}
+{#1\backslash#2}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\modlo}[2]{\modloT{#1}{#2}}
+{\mathbb{#1}/#2\mathbb{#1}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\moduloScript}[2]{\moduloScriptT{#1}{#2}}
+{{\scriptstyle #1/#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\lmoduloScript}[2]{\lmoduloScriptT{#1}{#2}}
+{{\scriptstyle #1\backslash#2}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset FormulaMacro
+\newcommand{\modloScript}[2]{\modloScriptT{#1}{#2}}
+{{\scriptstyle \mathbb{#1}/#2\mathbb{#1}}}
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{roman}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Title
+
+\series bold
+\size giant
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{-30mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+Kommutative Algebra
+\end_layout
+
+\begin_layout Author
+
+\shape italic
+\size small
+Vorlesung von
+\begin_inset Newline newline
+\end_inset
+
+
+\noun on
+Prof.
+ Dr.
+ Niko Naumann
+\noun default
+
+\begin_inset Newline newline
+\end_inset
+
+im Sommersemester 2012
+\begin_inset Newline newline
+\end_inset
+
+Überarbeitung und Textsatz in LyX von
+\begin_inset Newline newline
+\end_inset
+
+
+\noun on
+Andreas Völklein
+\begin_inset Newline newline
+\end_inset
+
+
+\shape default
+\noun default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{10mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset Graphics
+	filename unir.png
+	width 15cm
+	clip
+
+\end_inset
+
+
+\shape italic
+\noun on
+
+\begin_inset Newline newline
+\end_inset
+
+
+\shape default
+\noun default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{3mm}
+\end_layout
+
+\end_inset
+
+
+\size default
+
+\begin_inset Newline newline
+\end_inset
+
+Stand: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+today
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[R]{Lizenz}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{page}{2} % sonst gibt es aus irgendeinem Grund zweimal die Seite
+ 1!?!?!?
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+vspace*{-15mm}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+ACHTUNG
+\end_layout
+
+\begin_layout Standard
+Diese Mitschrift ersetzt 
+\emph on
+nicht
+\emph default
+ die Vorlesung.
+\end_layout
+
+\begin_layout Standard
+Es wird daher 
+\emph on
+dringend
+\emph default
+ empfohlen, die Vorlesung zu besuchen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace vfill
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang english
+Copyright Notice
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Copyright © 2012 
+\noun on
+Andreas Völklein
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Permission is granted to copy, distribute and/or modify this document under
+ the terms of the GNU Free Documentation License, Version 1.3 or any later
+ version published by the Free Software Foundation;
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A copy of the license is included in the section entitled “GNU Free Documentatio
+n License”.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang english
+Disclaimer of Warranty
+\end_layout
+
+\begin_layout Standard
+
+\noun on
+\lang english
+Unless otherwise mutually agreed to by the parties in writing and to the
+ extent not prohibited by applicable law, 
+\series bold
+the Copyright Holders and any other party, who may distribute the Document
+ as permitted above,   provide the Document “as is
+\noun default
+”,
+\noun on
+ without warranty of any kind
+\series default
+, expressed, implied, statutory or otherwise, including, but not limited
+ to, the implied warranties of merchantability, fitness for a particular
+ purpose, non-infringement, the absence of latent or other defects, accuracy,
+ or the absence of errors, whether or not discoverable.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\lang english
+Limitation of Liability
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+\lang english
+In no event
+\series default
+ unless required by applicable law or agreed to in writing 
+\series bold
+will the Copyright Holders, or any other party, who may distribute the Document
+ as permitted above, be liable to you for any damages
+\series default
+, including, but not limited to, any general, special, incidental, consequential
+, punitive or exemplary damages, however caused, regardless of the theory
+ of liability, arising out of or related to this license or any use of or
+ inability to use the Document, even if they have been advised of the possibilit
+y of such damages.
+\end_layout
+
+\begin_layout Standard
+
+\series bold
+\noun on
+\lang english
+In no event will the Copyright Holders'/Distributor's liability to you
+\series default
+, whether in contract, tort (including negligence), or otherwise, 
+\series bold
+exceed the amount you paid the Copyright Holders/Distributor
+\series default
+ for the document under this agreement.
+\end_layout
+
+\begin_layout Subsubsection*
+Links
+\end_layout
+
+\begin_layout Standard
+Der Text der „
+\lang english
+GNU Free Documentation License
+\lang ngerman
+“ kann auch auf der Seite
+\end_layout
+
+\begin_layout Quote
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.gnu.org/licenses/fdl-1.3.de.html
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+nachgelesen werden.
+\end_layout
+
+\begin_layout Standard
+Eine transparente Kopie der aktuellen Version dieses Dokuments kann von
+\end_layout
+
+\begin_layout Quote
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://github.com/andiv/KomAlg
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+heruntergeladen werden.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Newpage newpage
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[R]{Literatur}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Literatur
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Michael Francis Atiyah, Ian G.
+ Macdonald
+\noun default
+: 
+\emph on
+\lang english
+Introduction to commutative algebra
+\emph default
+\lang ngerman
+, Westview Press, 1994; ISBN: 0-201-40751-5
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+David 
+\noun default
+Eisenbud: 
+\emph on
+\lang english
+Commutative algebra with a view toward algebraic geometry
+\emph default
+\lang ngerman
+, Springer, 2004; ISBN: 3-540-94269-6
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Hideyuki Matsumura
+\noun default
+: 
+\emph on
+\lang english
+Commutative ring theory
+\emph default
+\lang ngerman
+, Cambridge University Press, 2005
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 0-521-36764-6
+\end_layout
+
+\begin_layout Itemize
+
+\noun on
+Nicolas Bourbaki
+\noun default
+: 
+\emph on
+\lang english
+Commutative algebra
+\emph default
+\lang ngerman
+, Springer, 1991
+\begin_inset Newline newline
+\end_inset
+
+ISBN: 3-540-64239-0
+\end_layout
+
+\begin_layout Standard
+
+\size small
+\begin_inset Newpage newpage
+\end_inset
+
+
+\size default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[R]{Inhaltsverzeichnis}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[C]{}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset toc
+LatexCommand tableofcontents
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+label{END-front}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Newpage newpage
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+pagenumbering{arabic}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyfoot[C]{
+\backslash
+thepage
+\backslash
+quad
+\backslash
+!
+\backslash
+!
+\backslash
+!
+\backslash
+slash
+\backslash
+quad
+\backslash
+!
+\backslash
+!
+\backslash
+!
+\backslash
+pageref{END}} % Seitenzahl des Hauptteils
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[R]{
+\backslash
+rightmark}
+\end_layout
+
+\begin_layout Plain Layout
+
+%
+\backslash
+fancyhead[C]{
+\backslash
+leftmark}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Mo 17.04.2012
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Ringe und Ideale
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Ring, Ringhomomorphismus)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ein (
+\emph on
+unitärer
+\emph default
+, 
+\emph on
+kommutativer
+\emph default
+) 
+\emph on
+Ring
+\emph default
+ ist ein Tupel 
+\begin_inset Formula $\left(A,+,\cdot,0,1\right)$
+\end_inset
+
+ mit den Eigenschaften:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(A,+,0\right)$
+\end_inset
+
+ ist eine abelsche Gruppe.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $x,y,z\in A$
+\end_inset
+
+ gelten:
+\begin_inset Formula 
+\begin{align*}
+\left(xy\right)z & =x\left(yz\right) &  & \text{(Assoziativität)}\\
+x\left(y+z\right) & =xy+xz &  & \text{(Distributivität)}\\
+xy & =yx &  & \text{(Kommutativität)}\\
+x\cdot1 & =x &  & \text{(neutrales Element)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $A$
+\end_inset
+
+ und 
+\begin_inset Formula $B$
+\end_inset
+
+ Ringe, so ist ein 
+\emph on
+Ringhomomorphismus
+\emph default
+ (
+\emph on
+von 
+\begin_inset Formula $A$
+\end_inset
+
+ nach 
+\begin_inset Formula $B$
+\end_inset
+
+
+\emph default
+) (Abkürzung: Ringhom.) eine Abbildung 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+, sodass für alle 
+\begin_inset Formula $x,y\in A$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f\left(x+y\right)=f\left(x\right)+f\left(y\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f\left(xy\right)=f\left(x\right)f\left(y\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f\left(1\right)=1$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Aus a) folgt direkt 
+\begin_inset Formula $f\left(0\right)=0$
+\end_inset
+
+, da Ringe additive Gruppen sind.
+\end_layout
+
+\begin_layout Standard
+Aus b) folgt aber nicht c), da Ringe im Allgemeinen keine multiplikativen
+ Gruppen sind.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-Ringe"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Bekannte Ringe sind 
+\begin_inset Formula $\mathbb{Z},\,\mathbb{Q},\,\mathbb{R},\,\mathbb{C},\,\mathbb{Z}\left[\ii\right]=\left\{ a+b\ii\big|a,b\in\mathbb{Z}\right\} \subseteq\mathbb{C}$
+\end_inset
+
+, der Polynomring 
+\begin_inset Formula $A\left[X\right]$
+\end_inset
+
+ eines Rings 
+\begin_inset Formula $A$
+\end_inset
+
+ und der Produktring 
+\begin_inset Formula $A\times B$
+\end_inset
+
+ der Ringe 
+\begin_inset Formula $A$
+\end_inset
+
+ und 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jeden Ring 
+\begin_inset Formula $A$
+\end_inset
+
+ existiert genau ein Ringhomomorphismus 
+\begin_inset Formula $\mathbb{Z}\to A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Für jeden Ring 
+\begin_inset Formula $A$
+\end_inset
+
+ ist die Abbildung von Mengen
+\begin_inset Formula 
+\begin{align*}
+\left\{ f:\mathbb{Z}\left[X\right]\to A\big|f\text{ ist Ringhom.}\right\}  & \stackrel{\sim}{\rightarrow}A\\
+f & \mapsto f\left(X\right)
+\end{align*}
+
+\end_inset
+
+bijektiv.
+ (Die Ringhomomorphismen 
+\begin_inset Formula $f$
+\end_inset
+
+ sind die Einsetzungshomomorphismen.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Unterring)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+Eine Teilmengen 
+\begin_inset Formula $B\subseteq A$
+\end_inset
+
+ heißt 
+\emph on
+Unterring
+\emph default
+ (
+\emph on
+von 
+\begin_inset Formula $A$
+\end_inset
+
+
+\emph default
+), wenn für alle 
+\begin_inset Formula $x,y\in B$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $x-y\in B,\ x\cdot y\in B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $1\in B$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In diesem Fall ist 
+\begin_inset Formula $\left(B,+\big|_{B\times B},\cdot\big|_{B\times B},0,1\right)$
+\end_inset
+
+ wieder ein Ring.
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{Z}\subseteq\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$
+\end_inset
+
+ sind Unterringe, nicht aber 
+\begin_inset Formula $\mathbb{N}\subseteq\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Definition und Bemerkung 
+\series medium
+(Ideal, Quotientenring)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Def-Ideal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine Teilmenge 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ heißt 
+\emph on
+Ideal
+\emph default
+ (
+\emph on
+von 
+\begin_inset Formula $A$
+\end_inset
+
+
+\emph default
+), falls folgende Eigenschaften gelten:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $I\subseteq\left(A,+,0\right)$
+\end_inset
+
+ ist eine Untergruppe.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $y\in I$
+\end_inset
+
+ gilt 
+\begin_inset Formula $xy\in I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal, so ist die für alle 
+\begin_inset Formula $x,y\in A$
+\end_inset
+
+ durch
+\begin_inset Formula 
+\begin{align*}
+x & \equiv y\mod I\qquad:\Leftrightarrow\qquad x-y\in I
+\end{align*}
+
+\end_inset
+
+(lies: „
+\emph on
+
+\begin_inset Formula $x$
+\end_inset
+
+ ist kongruent zu 
+\begin_inset Formula $y$
+\end_inset
+
+ modulo 
+\begin_inset Formula $I$
+\end_inset
+
+
+\emph default
+“) auf 
+\begin_inset Formula $A$
+\end_inset
+
+ definierte Relation eine Äquivalenzrelation und es existiert genau eine
+ Ringstruktur 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+, sodass die kanonische Abbildung
+\begin_inset Formula 
+\begin{align*}
+\pi:A & \to\modulo AI\\
+x & \mapsto\pi\left(x\right):=\left[x\right]:=\left(x\mod I\right)
+\end{align*}
+
+\end_inset
+
+ein Ringhomomorphismus ist.
+\end_layout
+
+\begin_layout Standard
+Es gilt 
+\begin_inset Formula $\ker\left(\pi\right)=I$
+\end_inset
+
+.
+ Der Ring 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+ heißt 
+\emph on
+Quotientenring
+\emph default
+ (
+\emph on
+von 
+\begin_inset Formula $A$
+\end_inset
+
+ bezüglich 
+\begin_inset Formula $I$
+\end_inset
+
+
+\emph default
+).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal und 
+\begin_inset Formula $B$
+\end_inset
+
+ ein Ring, so ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\left\{ \overline{f}:\modulo AI\to B\big|\overline{f}\text{ ist Ringhom.}\right\}  & \stackrel{\sim}{\to}\left\{ f:A\to B\big|f\text{ ist Ringhom.},f\left(I\right)=0\right\} \\
+\overline{f} & \mapsto\overline{f}\circ\pi
+\end{align*}
+
+\end_inset
+
+bijektiv.
+\end_layout
+
+\begin_layout Standard
+Skizze:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.75e
+x, text depth=0.25ex] { A & B 
+\backslash
+
+\backslash
+ 
+\backslash
+modulo{A}{I} &  
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[auto] {$ f $} (m-1-2) edge node[left] {$ 
+\backslash
+pi $} (m-2-1) (m-2-1) edge node[right] {$ 
+\backslash
+,
+\backslash
+,
+\backslash
+,
+\backslash
+exsg_{
+\backslash
+overline{f}}:f=
+\backslash
+overline{f}
+\backslash
+circ 
+\backslash
+pi 
+\backslash
+Leftrightarrow f(I)=0 (
+\backslash
+Leftrightarrow I 
+\backslash
+subseteq 
+\backslash
+ker (f)) $} (m-1-2); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(universelle Eigenschaft des Quotientenrings)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel 
+\series medium
+(Kern, Bild)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus, so ist
+\begin_inset Formula 
+\begin{align*}
+\ker\left(f\right) & :=\left\{ x\in A\big|f\left(x\right)=0\right\} \subseteq A
+\end{align*}
+
+\end_inset
+
+ein Ideal und das Bild
+\begin_inset Formula 
+\begin{align*}
+\text{im}\left(f\right) & =\left\{ f\left(x\right)\big|x\in A\right\} \subseteq B
+\end{align*}
+
+\end_inset
+
+ein Unterring.
+\end_layout
+
+\begin_layout Standard
+(Ist 
+\begin_inset Formula $B\subseteq A$
+\end_inset
+
+ ein Unterring, so ist 
+\begin_inset Formula $\iota:B\hookrightarrow A$
+\end_inset
+
+ ein Ringhomomorphismus mit 
+\begin_inset Formula $\text{im}\left(\iota\right)=B$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $n\in\mathbb{N}_{>0}$
+\end_inset
+
+, so gilt:
+\begin_inset Formula 
+\begin{align*}
+\left|\left\{ f:\modlo Zn\to A\text{ ist Ringhom.}\right\} \right| & =\begin{cases}
+1 & \text{falls }\underbrace{1+\ldots+1}_{n\text{-mal}}=0\text{ in }A\\
+0 & \text{sonst}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+(Verwende 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-Ringe"
+
+\end_inset
+
+ ii) und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Def-Ideal"
+
+\end_inset
+
+ iii) mit 
+\begin_inset Formula $I=n\mathbb{Z}\subseteq A=\mathbb{Z}$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(Ideale des Quotientenrings)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal und 
+\begin_inset Formula $\pi:A\to\modulo AI$
+\end_inset
+
+ der kanonische Ringhomomorphismus.
+\end_layout
+
+\begin_layout Standard
+Dann ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\Phi:M:=\left\{ J\big|J\subseteq A\text{ Ideal mit }I\subseteq J\right\}  & \stackrel{\sim}{\to}N:=\left\{ \overline{J}\big|\overline{J}\subseteq\modulo AI\text{ Ideal}\right\} \\
+J & \mapsto\Phi\left(J\right):=\pi\left(J\right)
+\end{align*}
+
+\end_inset
+
+wohldefiniert und bijektiv und erfüllt:
+\end_layout
+
+\begin_layout Standard
+Für alle Ideale 
+\begin_inset Formula $J_{1},J_{2}\subseteq A$
+\end_inset
+
+ mit 
+\begin_inset Formula $I\subseteq J_{1},J_{2}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+J_{1}\subseteq J_{2} & \Leftrightarrow\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $J\in M$
+\end_inset
+
+, so ist 
+\begin_inset Formula $\Phi\left(J\right)=\pi\left(J\right)\subseteq\modulo AI$
+\end_inset
+
+ als Bild des Ringhomomorphismus 
+\begin_inset Formula $\pi$
+\end_inset
+
+ ein Unterring von 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+ und somit ist insbesondere 
+\begin_inset Formula $\left(\pi\left(J\right),+,0\right)$
+\end_inset
+
+ eine Untergruppe.
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $x\in\modulo AI$
+\end_inset
+
+ und 
+\begin_inset Formula $y\in\Phi\left(J\right)$
+\end_inset
+
+ gegeben.
+ Wegen 
+\begin_inset Formula $\Phi\left(J\right)=\pi\left(J\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\modulo AI=\pi\left(A\right)$
+\end_inset
+
+ gibt es ein 
+\begin_inset Formula $x_{0}\in A$
+\end_inset
+
+ und ein 
+\begin_inset Formula $y_{0}\in J$
+\end_inset
+
+ mit 
+\begin_inset Formula $x=\pi\left(x_{0}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $y=\pi\left(y_{0}\right)$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+xy & =\pi\left(x_{0}\right)\pi\left(y_{0}\right)=\pi\left(x_{0}y_{0}\right)
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $J$
+\end_inset
+
+ ein Ideal ist, folgt aus 
+\begin_inset Formula $y_{0}\in J$
+\end_inset
+
+ und 
+\begin_inset Formula $x_{0}\in A$
+\end_inset
+
+ schon 
+\begin_inset Formula $x_{0}y_{0}\in J$
+\end_inset
+
+.
+ Daher ist 
+\begin_inset Formula $xy=\pi\left(x_{0}y_{0}\right)\in\pi\left(J\right)$
+\end_inset
+
+, weswegen 
+\begin_inset Formula $\pi\left(J\right)$
+\end_inset
+
+ ein Ideal ist.
+ Also ist 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ wohldefiniert.
+\end_layout
+
+\begin_layout Standard
+Betrachte die Abbildung:
+\begin_inset Formula 
+\begin{align*}
+\Psi:N & \to M\\
+\overline{J} & \mapsto\pi^{-1}\left(\overline{J}\right)
+\end{align*}
+
+\end_inset
+
+Seien 
+\begin_inset Formula $\overline{J}\subseteq\modulo AI$
+\end_inset
+
+ ein Ideal und 
+\begin_inset Formula $a,b\in\Psi\left(\overline{J}\right)=\pi^{-1}\left(\overline{J}\right)$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $\pi\left(a\right),\pi\left(b\right)\in\overline{J}$
+\end_inset
+
+.
+ Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+\pi\left(a-b\right) & =\underbrace{\pi\left(a\right)}_{\in\overline{J}}-\underbrace{\pi\left(b\right)}_{\in\overline{J}}\stackrel{\overline{J}\text{ Ideal}}{\in}\overline{J}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $a-b\in\pi^{-1}\left(\overline{J}\right)$
+\end_inset
+
+ und somit 
+\begin_inset Formula $\left(\Psi\left(\overline{J}\right),+,0\right)$
+\end_inset
+
+ eine Untergruppe von 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $y\in\Psi\left(\overline{J}\right)$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $\pi\left(y\right)\in\overline{J}$
+\end_inset
+
+, so gilt:
+\begin_inset Formula 
+\begin{align*}
+\pi\left(x\cdot y\right) & =\pi\left(x\right)\underbrace{\pi\left(y\right)}_{\in\overline{J}}\stackrel{\overline{J}\text{ Ideal}}{\in}\overline{J}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\Psi\left(\overline{J}\right)\subseteq A$
+\end_inset
+
+ ein Ideal.
+\end_layout
+
+\begin_layout Standard
+Da für alle Ideale 
+\begin_inset Formula $\overline{J}\in\modulo AI$
+\end_inset
+
+ schon 
+\begin_inset Formula $0\in\overline{J}$
+\end_inset
+
+ gilt, folgt 
+\begin_inset Formula $\pi^{-1}\left(\overline{J}\right)\supseteq\pi^{-1}\left(0\right)=\ker\left(\pi\right)=I$
+\end_inset
+
+.
+ Daher ist 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ wohldefiniert.
+\end_layout
+
+\begin_layout Standard
+Nun gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(\Phi\circ\Psi\right)\left(\overline{J}\right) & =\left(\pi\circ\pi^{-1}\right)\left(\overline{J}\right)\stackrel{\pi\text{ surjektiv}}{=}\overline{J}\\
+\left(\Psi\circ\Phi\right)\left(J\right) & =\left(\pi^{-1}\circ\pi\right)\left(J\right)=\left\{ a+b\big|a\in J,b\in I\right\} \stackrel{I\subseteq J}{=}J
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\Psi$
+\end_inset
+
+ die Umkehrabbildung zu 
+\begin_inset Formula $\Phi$
+\end_inset
+
+, weswegen 
+\begin_inset Formula $\Phi$
+\end_inset
+
+ bijektiv ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+Die Ideale des Ringes 
+\begin_inset Formula $\modlo Z6=\left\{ \overline{0},\overline{1},\ldots,\overline{5}\right\} $
+\end_inset
+
+ sind genau die Hauptideale:
+\begin_inset Formula 
+\begin{align*}
+\left(\overline{0}\right),\left(\overline{3}\right),\left(\overline{2}\right),\left(\overline{1}\right) & \subseteq\modlo Z6
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Integritätsring)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+ Ein Element 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ heißt genau dann 
+\emph on
+Nullteiler
+\emph default
+, wenn es ein 
+\begin_inset Formula $x\in A\setminus\left\{ 0\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $xy=0$
+\end_inset
+
+ gibt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ein 
+\emph on
+Integritätsring
+\emph default
+ (Abkürzung: IR) ist ein Ring 
+\begin_inset Formula $A\not=\left\{ 0\right\} $
+\end_inset
+
+, in dem 
+\begin_inset Formula $0\in A$
+\end_inset
+
+ der einzige Nullteiler ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ ist ein Integritätsring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring, so ist auch 
+\begin_inset Formula $A\left[X\right]$
+\end_inset
+
+ ein Integritätsring.
+ (Gradformel!)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Der Ring 
+\begin_inset Formula $A:=\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}\right)}$
+\end_inset
+
+ ist kein Integritätsring, denn für 
+\begin_inset Formula $\overline{X}:=\left(X\mod\left(X^{2}\right)\right)$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\overline{X}\not=0$
+\end_inset
+
+, aber auch 
+\begin_inset Formula $\overline{X}\cdot\overline{X}=0$
+\end_inset
+
+, weswegen 
+\begin_inset Formula $\overline{X}\in A$
+\end_inset
+
+ ein Nullteiler ist.
+\end_layout
+
+\begin_layout Standard
+Auch 
+\begin_inset Formula $\modlo Z6$
+\end_inset
+
+ ist kein Integritätsring, denn 
+\begin_inset Formula $\underbrace{\overline{2}}_{\not=\overline{0}}\cdot\underbrace{\overline{3}}_{\not=\overline{0}}=\overline{0}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(nilpotent)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+ Ein 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ heißt genau dann 
+\emph on
+nilpotent
+\emph default
+, wenn es ein 
+\begin_inset Formula $n\in\mathbb{N}_{>0}$
+\end_inset
+
+ gibt mit 
+\begin_inset Formula $x^{n}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $0\not=x\in A\not=\left\{ 0\right\} $
+\end_inset
+
+ nilpotent, so ist 
+\begin_inset Formula $x$
+\end_inset
+
+ ein Nullteiler, denn für 
+\begin_inset Formula $N:=\min\left\{ n\in\mathbb{N}_{>0}\big|x^{n}=0\right\} $
+\end_inset
+
+ gilt 
+\begin_inset Formula $N\ge1$
+\end_inset
+
+ und wegen der Minimalität von 
+\begin_inset Formula $N$
+\end_inset
+
+ ist 
+\begin_inset Formula $x^{N-1}\not=0$
+\end_inset
+
+.
+ Also folgt aus
+\begin_inset Formula 
+\begin{align*}
+0 & =x^{N}=\underbrace{x}_{\not=0}\cdot\underbrace{x^{N-1}}_{\not=0}
+\end{align*}
+
+\end_inset
+
+schon, dass 
+\begin_inset Formula $x$
+\end_inset
+
+ ein Nullteiler ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ In dem Produktring 
+\begin_inset Formula $A:=\mathbb{Z}\times\mathbb{Z}$
+\end_inset
+
+ ist 
+\begin_inset Formula $x:=\left(1,0\right)$
+\end_inset
+
+ ein Nullteiler, da 
+\begin_inset Formula $x\cdot\left(0,1\right)=\left(0,0\right)=0$
+\end_inset
+
+ gilt, aber nicht nilpotent, denn für alle 
+\begin_inset Formula $n\in\mathbb{N}_{>0}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+x^{n} & =\left(1,0\right)^{n}=\left(1^{n},0^{n}\right)=\left(1,0\right)=x\not=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition und Bemerkung 
+\series medium
+(Einheit, Einheitengruppe)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+ Ein 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ heißt genau dann 
+\emph on
+Einheit
+\emph default
+ (
+\emph on
+in 
+\begin_inset Formula $A$
+\end_inset
+
+
+\emph default
+), wenn es ein 
+\begin_inset Formula $y\in A$
+\end_inset
+
+ mit 
+\begin_inset Formula $xy=1$
+\end_inset
+
+ gibt.
+\end_layout
+
+\begin_layout Standard
+Die Menge 
+\begin_inset Formula $A^{*}=\left\{ x\in A\big|x\text{ ist Einheit}\right\} $
+\end_inset
+
+ der Einheiten ist eine kommutative Gruppe bezüglich der Multiplikation
+ und heißt 
+\emph on
+die Einheitengruppe von 
+\begin_inset Formula $A$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+(Beachte: 
+\begin_inset Formula $\left\{ 0\right\} ^{*}=\left\{ 0=1\right\} $
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathbb{Z}^{*}=\left\{ \pm1\right\} ,\ \mathbb{Q}^{*}=\mathbb{Q}\setminus\left\{ 0\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathbb{Z}\left[\ii\right]^{*}=\left\{ \pm1,\pm\ii\right\} $
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring, dann ist 
+\begin_inset Formula $\left(A\left[X\right]\right)^{*}=A^{*}$
+\end_inset
+
+.
+ (Folgt aus der Gradformel.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel und Definition
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jedes 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ ist 
+\begin_inset Formula $\left(x\right):=\left\{ xy\big|y\in A\right\} \subseteq A$
+\end_inset
+
+ ein Ideal.
+ Es heißt 
+\emph on
+das von 
+\begin_inset Formula $x$
+\end_inset
+
+ erzeugte Hauptideal
+\emph default
+ (Abkürzung: HI).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring, so gilt für alle 
+\begin_inset Formula $x,y\in A$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(x\right)=\left(y\right) & \quad\Leftrightarrow\quad\exs_{u\in A^{*}}:x=uy
+\end{align*}
+
+\end_inset
+
+Insbesondere gilt:
+\begin_inset Formula 
+\begin{align}
+\left(x\right)=1=A & \quad\Leftrightarrow\quad x\in A^{*}\label{eq:Einheitsideal}
+\end{align}
+
+\end_inset
+
+(Beachte: 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Einheitsideal"
+
+\end_inset
+
+ gilt für jeden Ring 
+\begin_inset Formula $A$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ heißt genau dann 
+\emph on
+Hauptidealring
+\emph default
+ (Abkürzung: HIR), wenn 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring ist, in dem jedes Ideal 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Hauptideal ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ heißt genau dann 
+\emph on
+Körper
+\emph default
+, wenn 
+\begin_inset Formula $A^{*}=A\setminus\left\{ 0\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $A\not=\left\{ 0\right\} $
+\end_inset
+
+ ist.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Ringe 
+\begin_inset Formula $\mathbb{Z},\,\mathbb{Z}\left[\ii\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $k\left[X\right]$
+\end_inset
+
+ für einen Körper 
+\begin_inset Formula $k$
+\end_inset
+
+, nicht aber 
+\begin_inset Formula $\mathbb{Z}\left[X\right]$
+\end_inset
+
+ oder 
+\begin_inset Formula $k\left[X,Y\right]$
+\end_inset
+
+ sind Hauptidealringe.
+\end_layout
+
+\begin_layout Standard
+Die Ringe 
+\begin_inset Formula $\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathbb{F}_{p}:=\modlo Zp$
+\end_inset
+
+ für eine Primzahl 
+\begin_inset Formula $p$
+\end_inset
+
+ sind Körper, nicht aber 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Part*
+Anhang
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+thispagestyle{empty}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{part}{Anhang}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[R]{Index}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[C]{Anhang}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter*
+Danksagungen
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+hspace*{2.7em}Danksagungen}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[R]{Danksagungen}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Mein besonderer Dank geht an Professor Naumann, der diese Vorlesung hielt
+ und es mir gestattete, diese Vorlesungsmitschrift zu veröffentlichen.
+\end_layout
+
+\begin_layout Standard
+Außerdem möchte ich mich ganz herzlich bei allen bedanken, die durch aufmerksame
+s Lesen Fehler gefunden und mir diese mitgeteilt haben.
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset space \hfill{}
+\end_inset
+
+Andreas Völklein
+\end_layout
+
+\begin_layout Chapter*
+
+\lang english
+GNU Free Documentation License
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+addcontentsline{toc}{section}{
+\backslash
+hspace*{2.7em}GNU Free Documentation License}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+fancyhead[R]{GNU Free Documentation License}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\lang english
+Version 1.3, 3 November 2008
+\begin_inset Newline newline
+\end_inset
+
+Copyright © 2000, 2001, 2002, 2007, 2008 Free Software Foundation, Inc.
+ 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\family typewriter
+\lang english
+<
+\family default
+
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://fsf.org/
+\end_layout
+
+\end_inset
+
+
+\family typewriter
+>
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+
+\lang english
+Everyone is permitted to copy and distribute verbatim copies of this license
+ document,
+\begin_inset Newline newline
+\end_inset
+
+but changing it is not allowed
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+0.
+ Preamble
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\lang english
+The purpose of this License is to make a manual, textbook, or other functional
+ and useful document “free” in the sense of freedom: to assure everyone
+ the effective freedom to copy and redistribute it, with or without modifying
+ it, either commercially or noncommercially.
+ Secondarily, this License preserves for the author and publisher a way
+ to get credit for their work, while not being considered responsible for
+ modifications made by others.
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\lang english
+This License is a kind of “copyleft”, which means that derivative works
+ of the document must themselves be free in the same sense.
+ It complements the GNU General Public License, which is a copyleft license
+ designed for free software.
+\end_layout
+
+\begin_layout Standard
+\noindent
+
+\lang english
+We have designed this License in order to use it for manuals for free software,
+ because free software needs free documentation: a free program should come
+ with manuals providing the same freedoms that the software does.
+ But this License is not limited to software manuals; it can be used for
+ any textual work, regardless of subject matter or whether it is published
+ as a printed book.
+ We recommend this License principally for works whose purpose is instruction
+ or reference.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+1.
+ Applicability and definitions
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+This License applies to any manual or other work, in any medium, that contains
+ a notice placed by the copyright holder saying it can be distributed under
+ the terms of this License.
+ Such a notice grants a world-wide, royalty-free license, unlimited in duration,
+ to use that work under the conditions stated herein.
+ The “
+\series bold
+Document
+\series default
+”, below, refers to any such manual or work.
+ Any member of the public is a licensee, and is addressed as “
+\series bold
+you
+\series default
+”.
+ You accept the license if you copy, modify or distribute the work in a
+ way requiring permission under copyright law.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A “
+\series bold
+Modified Version
+\series default
+” of the Document means any work containing the Document or a portion of
+ it, either copied verbatim, or with modifications and/or translated into
+ another language.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A “
+\series bold
+Secondary Section
+\series default
+” is a named appendix or a front-matter section of the Document that deals
+ exclusively with the relationship of the publishers or authors of the Document
+ to the Document's overall subject (or to related matters) and contains
+ nothing that could fall directly within that overall subject.
+ (Thus, if the Document is in part a textbook of mathematics, a Secondary
+ Section may not explain any mathematics.) The relationship could be a matter
+ of historical connection with the subject or with related matters, or of
+ legal, commercial, philosophical, ethical or political position regarding
+ them.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The “
+\series bold
+Invariant Sections
+\series default
+” are certain Secondary Sections whose titles are designated, as being those
+ of Invariant Sections, in the notice that says that the Document is released
+ under this License.
+ If a section does not fit the above definition of Secondary then it is
+ not allowed to be designated as Invariant.
+ The Document may contain zero Invariant Sections.
+ If the Document does not identify any Invariant Sections then there are
+ none.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The “
+\series bold
+Cover Texts
+\series default
+” are certain short passages of text that are listed, as Front-Cover Texts
+ or Back-Cover Texts, in the notice that says that the Document is released
+ under this License.
+ A Front-Cover Text may be at most 5 words, and a Back-Cover Text may be
+ at most 25 words.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A “
+\series bold
+Transparent
+\series default
+” copy of the Document means a machine-readable copy, represented in a format
+ whose specification is available to the general public, that is suitable
+ for revising the document straightforwardly with generic text editors or
+ (for images composed of pixels) generic paint programs or (for drawings)
+ some widely available drawing editor, and that is suitable for input to
+ text formatters or for automatic translation to a variety of formats suitable
+ for input to text formatters.
+ A copy made in an otherwise Transparent file format whose markup, or absence
+ of markup, has been arranged to thwart or discourage subsequent modification
+ by readers is not Transparent.
+ An image format is not Transparent if used for any substantial amount of
+ text.
+ A copy that is not “Transparent” is called “
+\series bold
+Opaque
+\series default
+”.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Examples of suitable formats for Transparent copies include plain ASCII
+ without markup, Texinfo input format, LaTeX input format, SGML or XML using
+ a publicly available DTD, and standard-conforming simple HTML, PostScript
+ or PDF designed for human modification.
+ Examples of transparent image formats include PNG, XCF and JPG.
+ Opaque formats include proprietary formats that can be read and edited
+ only by proprietary word processors, SGML or XML for which the DTD and/or
+ processing tools are not generally available, and the machine-generated
+ HTML, PostScript or PDF produced by some word processors for output purposes
+ only.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The “
+\series bold
+Title Page
+\series default
+” means, for a printed book, the title page itself, plus such following
+ pages as are needed to hold, legibly, the material this License requires
+ to appear in the title page.
+ For works in formats which do not have any title page as such, “Title Page”
+ means the text near the most prominent appearance of the work's title,
+ preceding the beginning of the body of the text.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The “
+\series bold
+publisher
+\series default
+” means any person or entity that distributes copies of the Document to
+ the public.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A section “
+\series bold
+Entitled XYZ
+\series default
+” means a named subunit of the Document whose title either is precisely
+ XYZ or contains XYZ in parentheses following text that translates XYZ in
+ another language.
+ (Here XYZ stands for a specific section name mentioned below, such as “
+\series bold
+Acknowledgements
+\series default
+”, “
+\series bold
+Dedications
+\series default
+”, “
+\series bold
+Endorsements
+\series default
+”, or “
+\series bold
+History
+\series default
+”.) To “
+\series bold
+Preserve the Title
+\series default
+” of such a section when you modify the Document means that it remains a
+ section “Entitled XYZ” according to this definition.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The Document may include Warranty Disclaimers next to the notice which states
+ that this License applies to the Document.
+ These Warranty Disclaimers are considered to be included by reference in
+ this License, but only as regards disclaiming warranties: any other implication
+ that these Warranty Disclaimers may have is void and has no effect on the
+ meaning of this License.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+2.
+ Verbatim copying
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may copy and distribute the Document in any medium, either commercially
+ or noncommercially, provided that this License, the copyright notices,
+ and the license notice saying this License applies to the Document are
+ reproduced in all copies, and that you add no other conditions whatsoever
+ to those of this License.
+ You may not use technical measures to obstruct or control the reading or
+ further copying of the copies you make or distribute.
+ However, you may accept compensation in exchange for copies.
+ If you distribute a large enough number of copies you must also follow
+ the conditions in section 3.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may also lend copies, under the same conditions stated above, and you
+ may publicly display copies.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+3.
+ Copying in quantity
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If you publish printed copies (or copies in media that commonly have printed
+ covers) of the Document, numbering more than 100, and the Document's license
+ notice requires Cover Texts, you must enclose the copies in covers that
+ carry, clearly and legibly, all these Cover Texts: Front-Cover Texts on
+ the front cover, and Back-Cover Texts on the back cover.
+ Both covers must also clearly and legibly identify you as the publisher
+ of these copies.
+ The front cover must present the full title with all words of the title
+ equally prominent and visible.
+ You may add other material on the covers in addition.
+ Copying with changes limited to the covers, as long as they preserve the
+ title of the Document and satisfy these conditions, can be treated as verbatim
+ copying in other respects.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If the required texts for either cover are too voluminous to fit legibly,
+ you should put the first ones listed (as many as fit reasonably) on the
+ actual cover, and continue the rest onto adjacent pages.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If you publish or distribute Opaque copies of the Document numbering more
+ than 100, you must either include a machine-readable Transparent copy along
+ with each Opaque copy, or state in or with each Opaque copy a computer-network
+ location from which the general network-using public has access to download
+ using public-standard network protocols a complete Transparent copy of
+ the Document, free of added material.
+ If you use the latter option, you must take reasonably prudent steps, when
+ you begin distribution of Opaque copies in quantity, to ensure that this
+ Transparent copy will remain thus accessible at the stated location until
+ at least one year after the last time you distribute an Opaque copy (directly
+ or through your agents or retailers) of that edition to the public.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+It is requested, but not required, that you contact the authors of the Document
+ well before redistributing any large number of copies, to give them a chance
+ to provide you with an updated version of the Document.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+4.
+ Modifications
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may copy and distribute a Modified Version of the Document under the
+ conditions of sections 2 and 3 above, provided that you release the Modified
+ Version under precisely this License, with the Modified Version filling
+ the role of the Document, thus licensing distribution and modification
+ of the Modified Version to whoever possesses a copy of it.
+ In addition, you must do these things in the Modified Version:
+\end_layout
+
+\begin_layout Description
+
+\lang english
+A.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.2mm}
+\end_layout
+
+\end_inset
+
+ Use in the Title Page (and on the covers, if any) a title distinct from
+ that of the Document, and from those of previous versions (which should,
+ if there were any, be listed in the History section of the Document).
+ You may use the same title as a previous version if the original publisher
+ of that version gives permission.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+B.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.4mm}
+\end_layout
+
+\end_inset
+
+ List on the Title Page, as authors, one or more persons or entities responsible
+ for authorship of the modifications in the Modified Version, together with
+ at least five of the principal authors of the Document (all of its principal
+ authors, if it has fewer than five), unless they release you from this
+ requirement.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+C.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.4mm}
+\end_layout
+
+\end_inset
+
+ State on the Title page the name of the publisher of the Modified Version,
+ as the publisher.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+D.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.4mm}
+\end_layout
+
+\end_inset
+
+ Preserve all the copyright notices of the Document.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+E.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.4mm}
+\end_layout
+
+\end_inset
+
+ Add an appropriate copyright notice for your modifications adjacent to
+ the other copyright notices.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+F.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.8mm}
+\end_layout
+
+\end_inset
+
+ Include, immediately after the copyright notices, a license notice giving
+ the public permission to use the Modified Version under the terms of this
+ License, in the form shown in the Addendum below.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+G.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.1mm}
+\end_layout
+
+\end_inset
+
+ Preserve in that license notice the full lists of Invariant Sections and
+ required Cover Texts given in the Document's license notice.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+H.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.2mm}
+\end_layout
+
+\end_inset
+
+ Include an unaltered copy of this License.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+I.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{5.0mm}
+\end_layout
+
+\end_inset
+
+ Preserve the section Entitled “History”, Preserve its Title, and add to
+ it an item stating at least the title, year, new authors, and publisher
+ of the Modified Version as given on the Title Page.
+ If there is no section Entitled “History” in the Document, create one stating
+ the title, year, authors, and publisher of the Document as given on its
+ Title Page, then add an item describing the Modified Version as stated
+ in the previous sentence.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+J.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{4.3mm}
+\end_layout
+
+\end_inset
+
+ Preserve the network location, if any, given in the Document for public
+ access to a Transparent copy of the Document, and likewise the network
+ locations given in the Document for previous versions it was based on.
+ These may be placed in the “History” section.
+ You may omit a network location for a work that was published at least
+ four years before the Document itself, or if the original publisher of
+ the version it refers to gives permission.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+K.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.3mm}
+\end_layout
+
+\end_inset
+
+ For any section Entitled “Acknowledgements” or “Dedications”, Preserve
+ the Title of the section, and preserve in the section all the substance
+ and tone of each of the contributor acknowledgements and/or dedications
+ given therein.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+L.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{4.1mm}
+\end_layout
+
+\end_inset
+
+ Preserve all the Invariant Sections of the Document, unaltered in their
+ text and in their titles.
+ Section numbers or the equivalent are not considered part of the section
+ titles.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+M.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3mm}
+\end_layout
+
+\end_inset
+
+ Delete any section Entitled “Endorsements”.
+ Such a section may not be included in the Modified Version.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+N.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.4mm}
+\end_layout
+
+\end_inset
+
+ Do not retitle any existing section to be Entitled “Endorsements” or to
+ conflict in title with any Invariant Section.
+\end_layout
+
+\begin_layout Description
+
+\lang english
+O.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{3.4mm}
+\end_layout
+
+\end_inset
+
+ Preserve any Warranty Disclaimers.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If the Modified Version includes new front-matter sections or appendices
+ that qualify as Secondary Sections and contain no material copied from
+ the Document, you may at your option designate some or all of these sections
+ as invariant.
+ To do this, add their titles to the list of Invariant Sections in the Modified
+ Version's license notice.
+ These titles must be distinct from any other section titles.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may add a section Entitled “Endorsements”, provided it contains nothing
+ but endorsements of your Modified Version by various parties—for example,
+ statements of peer review or that the text has been approved by an organization
+ as the authoritative definition of a standard.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may add a passage of up to five words as a Front-Cover Text, and a passage
+ of up to 25 words as a Back-Cover Text, to the end of the list of Cover
+ Texts in the Modified Version.
+ Only one passage of Front-Cover Text and one of Back-Cover Text may be
+ added by (or through arrangements made by) any one entity.
+ If the Document already includes a cover text for the same cover, previously
+ added by you or by arrangement made by the same entity you are acting on
+ behalf of, you may not add another; but you may replace the old one, on
+ explicit permission from the previous publisher that added the old one.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The author(s) and publisher(s) of the Document do not by this License give
+ permission to use their names for publicity for or to assert or imply endorseme
+nt of any Modified Version.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+5.
+ Combining documents
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may combine the Document with other documents released under this License,
+ under the terms defined in section 4 above for modified versions, provided
+ that you include in the combination all of the Invariant Sections of all
+ of the original documents, unmodified, and list them all as Invariant Sections
+ of your combined work in its license notice, and that you preserve all
+ their Warranty Disclaimers.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The combined work need only contain one copy of this License, and multiple
+ identical Invariant Sections may be replaced with a single copy.
+ If there are multiple Invariant Sections with the same name but different
+ contents, make the title of each such section unique by adding at the end
+ of it, in parentheses, the name of the original author or publisher of
+ that section if known, or else a unique number.
+ Make the same adjustment to the section titles in the list of Invariant
+ Sections in the license notice of the combined work.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+In the combination, you must combine any sections Entitled “History” in
+ the various original documents, forming one section Entitled “History”;
+ likewise combine any sections Entitled “Acknowledgements”, and any sections
+ Entitled “Dedications”.
+ You must delete all sections Entitled “Endorsements”.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+6.
+ Collections of documents
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may make a collection consisting of the Document and other documents
+ released under this License, and replace the individual copies of this
+ License in the various documents with a single copy that is included in
+ the collection, provided that you follow the rules of this License for
+ verbatim copying of each of the documents in all other respects.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may extract a single document from such a collection, and distribute
+ it individually under this License, provided you insert a copy of this
+ License into the extracted document, and follow this License in all other
+ respects regarding verbatim copying of that document.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+7.
+ Aggregation with independent works
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+A compilation of the Document or its derivatives with other separate and
+ independent documents or works, in or on a volume of a storage or distribution
+ medium, is called an “aggregate” if the copyright resulting from the compilatio
+n is not used to limit the legal rights of the compilation's users beyond
+ what the individual works permit.
+ When the Document is included in an aggregate, this License does not apply
+ to the other works in the aggregate which are not themselves derivative
+ works of the Document.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If the Cover Text requirement of section 3 is applicable to these copies
+ of the Document, then if the Document is less than one half of the entire
+ aggregate, the Document's Cover Texts may be placed on covers that bracket
+ the Document within the aggregate, or the electronic equivalent of covers
+ if the Document is in electronic form.
+ Otherwise they must appear on printed covers that bracket the whole aggregate.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+8.
+ Translation
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Translation is considered a kind of modification, so you may distribute
+ translations of the Document under the terms of section 4.
+ Replacing Invariant Sections with translations requires special permission
+ from their copyright holders, but you may include translations of some
+ or all Invariant Sections in addition to the original versions of these
+ Invariant Sections.
+ You may include a translation of this License, and all the license notices
+ in the Document, and any Warranty Disclaimers, provided that you also include
+ the original English version of this License and the original versions
+ of those notices and disclaimers.
+ In case of a disagreement between the translation and the original version
+ of this License or a notice or disclaimer, the original version will prevail.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If a section in the Document is Entitled “Acknowledgements”, “Dedications”,
+ or “History”, the requirement (section 4) to Preserve its Title (section
+ 1) will typically require changing the actual title.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+9.
+ Termination
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+You may not copy, modify, sublicense, or distribute the Document except
+ as expressly provided under this License.
+ Any attempt otherwise to copy, modify, sublicense, or distribute it is
+ void, and will automatically terminate your rights under this License.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+However, if you cease all violation of this License, then your license from
+ a particular copyright holder is reinstated (a) provisionally, unless and
+ until the copyright holder explicitly and finally terminates your license,
+ and (b) permanently, if the copyright holder fails to notify you of the
+ violation by some reasonable means prior to 60 days after the cessation.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Moreover, your license from a particular copyright holder is reinstated
+ permanently if the copyright holder notifies you of the violation by some
+ reasonable means, this is the first time you have received notice of violation
+ of this License (for any work) from that copyright holder, and you cure
+ the violation prior to 30 days after your receipt of the notice.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Termination of your rights under this section does not terminate the licenses
+ of parties who have received copies or rights from you under this License.
+ If your rights have been terminated and not permanently reinstated, receipt
+ of a copy of some or all of the same material does not give you any rights
+ to use it.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+10.
+ Future revisions of this license
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The Free Software Foundation may publish new, revised versions of the GNU
+ Free Documentation License from time to time.
+ Such new versions will be similar in spirit to the present version, but
+ may differ in detail to address new problems or concerns.
+ See 
+\begin_inset Flex URL
+status open
+
+\begin_layout Plain Layout
+
+https://www.gnu.org/copyleft/
+\end_layout
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+Each version of the License is given a distinguishing version number.
+ If the Document specifies that a particular numbered version of this License
+ "or any later version" applies to it, you have the option of following
+ the terms and conditions either of that specified version or of any later
+ version that has been published (not as a draft) by the Free Software Foundatio
+n.
+ If the Document does not specify a version number of this License, you
+ may choose any version ever published (not as a draft) by the Free Software
+ Foundation.
+ If the Document specifies that a proxy can decide which future versions
+ of this License can be used, that proxy's public statement of acceptance
+ of a version permanently authorizes you to choose that version for the
+ Document.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+11.
+ Relicensing
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+“Massive Multiauthor Collaboration Site” (or “MMC Site”) means any World
+ Wide Web server that publishes copyrightable works and also provides prominent
+ facilities for anybody to edit those works.
+ A public wiki that anybody can edit is an example of such a server.
+ A “Massive Multiauthor Collaboration” (or “MMC”) contained in the site
+ means any set of copyrightable works thus published on the MMC site.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+“CC-BY-SA” means the Creative Commons Attribution-Share Alike 3.0 license
+ published by Creative Commons Corporation, a not-for-profit corporation
+ with a principal place of business in San Francisco, California, as well
+ as future copyleft versions of that license published by that same organization.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+“Incorporate” means to publish or republish a Document, in whole or in part,
+ as part of another Document.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+An MMC is “eligible for relicensing” if it is licensed under this License,
+ and if all works that were first published under this License somewhere
+ other than this MMC, and subsequently incorporated in whole or in part
+ into the MMC, (1) had no cover texts or invariant sections, and (2) were
+ thus incorporated prior to November 1, 2008.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+The operator of an MMC Site may republish an MMC contained in the site under
+ CC-BY-SA on the same site at any time before August 1, 2009, provided the
+ MMC is eligible for relicensing.
+\end_layout
+
+\begin_layout Section*
+
+\noun on
+\lang english
+Addendum
+\noun default
+: How to use this License for your documents
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+To use this License in a document you have written, include a copy of the
+ License in the document and put the following copyright and license notices
+ just after the title page:
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+Copyright © YEAR YOUR NAME.
+\begin_inset Newline newline
+\end_inset
+
+Permission is granted to copy, distribute and/or modify this document under
+ the terms of the GNU Free Documentation License, Version 1.3 or any later
+ version published by the Free Software Foundation;
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+with no Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+A copy of the license is included in the section entitled "GNU Free Documentatio
+n License".
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If you have Invariant Sections, Front-Cover Texts and Back-Cover Texts,
+ replace the "with 
+\begin_inset Formula $\ldots$
+\end_inset
+
+ Texts." line with this:
+\end_layout
+
+\begin_layout Quote
+
+\lang english
+with the Invariant Sections being LIST THEIR TITLES, with the Front-Cover
+ Texts being LIST, and with the Back-Cover Texts being LIST.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If you have Invariant Sections without Cover Texts, or some other combination
+ of the three, merge those two alternatives to suit the situation.
+\end_layout
+
+\begin_layout Standard
+
+\lang english
+If your document contains nontrivial examples of program code, we recommend
+ releasing these examples in parallel under your choice of free software
+ license, such as the GNU General Public License, to permit their use in
+ free software.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset label
+LatexCommand label
+name "END"
+
+\end_inset
+
+
+\end_layout
+
+\end_body
+\end_document
