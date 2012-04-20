@@ -2289,7 +2289,11 @@ J_{1}\subseteq J_{2} & \Leftrightarrow\Phi\left(J_{1}\right)\subseteq\Phi\left(J
 
 \end_inset
 
+Man sagt, die Bijektion 
+\begin_inset Formula $\Phi$
+\end_inset
 
+ ist ordnungserhaltend.
 \end_layout
 
 \begin_layout Subsubsection*
@@ -2322,11 +2326,11 @@ Ist
 
 \begin_layout Standard
 Seien 
-\begin_inset Formula $x\in\modulo AI$
+\begin_inset Formula $\overline{x}\in\modulo AI$
 \end_inset
 
  und 
-\begin_inset Formula $y\in\Phi\left(J\right)$
+\begin_inset Formula $\overline{y}\in\Phi\left(J\right)$
 \end_inset
 
  gegeben.
@@ -2339,25 +2343,25 @@ Seien
 \end_inset
 
  gibt es ein 
-\begin_inset Formula $x_{0}\in A$
+\begin_inset Formula $x\in A$
 \end_inset
 
  und ein 
-\begin_inset Formula $y_{0}\in J$
+\begin_inset Formula $y\in J$
 \end_inset
 
  mit 
-\begin_inset Formula $x=\pi\left(x_{0}\right)$
+\begin_inset Formula $\overline{x}=\pi\left(x\right)$
 \end_inset
 
  und 
-\begin_inset Formula $y=\pi\left(y_{0}\right)$
+\begin_inset Formula $\overline{y}=\pi\left(y\right)$
 \end_inset
 
 .
 \begin_inset Formula 
 \begin{align*}
-xy & =\pi\left(x_{0}\right)\pi\left(y_{0}\right)=\pi\left(x_{0}y_{0}\right)
+\overline{x}\cdot\overline{y} & =\pi\left(x\right)\pi\left(y\right)=\pi\left(xy\right)
 \end{align*}
 
 \end_inset
@@ -2367,20 +2371,20 @@ Da
 \end_inset
 
  ein Ideal ist, folgt aus 
-\begin_inset Formula $y_{0}\in J$
+\begin_inset Formula $y\in J$
 \end_inset
 
  und 
-\begin_inset Formula $x_{0}\in A$
+\begin_inset Formula $x\in A$
 \end_inset
 
  schon 
-\begin_inset Formula $x_{0}y_{0}\in J$
+\begin_inset Formula $xy\in J$
 \end_inset
 
 .
  Daher ist 
-\begin_inset Formula $xy=\pi\left(x_{0}y_{0}\right)\in\pi\left(J\right)$
+\begin_inset Formula $\overline{x}\cdot\overline{y}=\pi\left(xy\right)\in\pi\left(J\right)$
 \end_inset
 
 , weswegen 
@@ -2463,6 +2467,10 @@ Seien
 \end_inset
 
 Also ist 
+\begin_inset Formula $xy\in\Psi\left(\overline{J}\right)$
+\end_inset
+
+ und daher 
 \begin_inset Formula $\Psi\left(\overline{J}\right)\subseteq A$
 \end_inset
 
@@ -2488,10 +2496,7 @@ Da für alle Ideale
 \end_inset
 
  wohldefiniert.
-\end_layout
-
-\begin_layout Standard
-Nun gilt:
+ Nun gilt:
 \begin_inset Formula 
 \begin{align*}
 \left(\Phi\circ\Psi\right)\left(\overline{J}\right) & =\left(\pi\circ\pi^{-1}\right)\left(\overline{J}\right)\stackrel{\pi\text{ surjektiv}}{=}\overline{J}\\
@@ -2500,7 +2505,7 @@ Nun gilt:
 
 \end_inset
 
-Also ist 
+Somit ist 
 \begin_inset Formula $\Psi$
 \end_inset
 
@@ -2513,6 +2518,111 @@ Also ist
 \end_inset
 
  bijektiv ist.
+\end_layout
+
+\begin_layout Standard
+Zeige nun
+\shape italic
+ 
+\family roman
+\series medium
+\shape default
+
+\begin_inset Formula $J_{1}\subseteq J_{2}\Leftrightarrow\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+“: Seien 
+\begin_inset Formula $J_{1}\subseteq J_{2}$
+\end_inset
+
+, und 
+\begin_inset Formula $\overline{x}\in\Phi\left(J_{1}\right)=\pi\left(J_{1}\right)$
+\end_inset
+
+.
+ Dann gibt es ein 
+\begin_inset Formula $x\in J_{1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\overline{x}=\pi\left(x\right)$
+\end_inset
+
+ und wegen 
+\begin_inset Formula $J_{1}\subseteq J_{2}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $x\in J_{2}$
+\end_inset
+
+.
+ Daher ist 
+\begin_inset Formula $\overline{x}=\pi\left(x\right)\in\pi\left(J_{2}\right)=\Phi\left(J_{2}\right)$
+\end_inset
+
+.
+ Also gilt 
+\begin_inset Formula $\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+„
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“: Seien 
+\begin_inset Formula $\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $x\in J_{1}$
+\end_inset
+
+.
+ Dann ist 
+\begin_inset Formula $\overline{x}\in\pi\left(J_{1}\right)=\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)$
+\end_inset
+
+ und daher gibt es ein 
+\begin_inset Formula $\tilde{x}\in J_{2}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\left(\tilde{x}\right)=\overline{x}$
+\end_inset
+
+.
+ Also ist 
+\begin_inset Formula $x-\tilde{x}=a\in I$
+\end_inset
+
+.
+ Wegen 
+\begin_inset Formula $I\subseteq J_{2}$
+\end_inset
+
+ folgt somit 
+\begin_inset Formula $x=\tilde{x}+a\in J_{2}$
+\end_inset
+
+.
+ Also gilt 
+\begin_inset Formula $J_{1}\subseteq J_{2}$
+\end_inset
+
+.
 \begin_inset ERT
 status open
 

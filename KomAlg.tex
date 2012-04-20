@@ -540,7 +540,7 @@ gilt:
 \begin{align*}
 J_{1}\subseteq J_{2} & \Leftrightarrow\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)
 \end{align*}
-
+Man sagt, die Bijektion $\Phi$ ist ordnungserhaltend.
 
 
 \subsubsection*{Beweis}
@@ -550,15 +550,15 @@ als Bild des Ringhomomorphismus $\pi$ ein Unterring von $\modulo AI$
 und somit ist insbesondere $\left(\pi\left(J\right),+,0\right)$ eine
 Untergruppe.
 
-Seien $x\in\modulo AI$ und $y\in\Phi\left(J\right)$ gegeben. Wegen
-$\Phi\left(J\right)=\pi\left(J\right)$ und $\modulo AI=\pi\left(A\right)$
-gibt es ein $x_{0}\in A$ und ein $y_{0}\in J$ mit $x=\pi\left(x_{0}\right)$
-und $y=\pi\left(y_{0}\right)$.
+Seien $\overline{x}\in\modulo AI$ und $\overline{y}\in\Phi\left(J\right)$
+gegeben. Wegen $\Phi\left(J\right)=\pi\left(J\right)$ und $\modulo AI=\pi\left(A\right)$
+gibt es ein $x\in A$ und ein $y\in J$ mit $\overline{x}=\pi\left(x\right)$
+und $\overline{y}=\pi\left(y\right)$.
 \begin{align*}
-xy & =\pi\left(x_{0}\right)\pi\left(y_{0}\right)=\pi\left(x_{0}y_{0}\right)
+\overline{x}\cdot\overline{y} & =\pi\left(x\right)\pi\left(y\right)=\pi\left(xy\right)
 \end{align*}
-Da $J$ ein Ideal ist, folgt aus $y_{0}\in J$ und $x_{0}\in A$ schon
-$x_{0}y_{0}\in J$. Daher ist $xy=\pi\left(x_{0}y_{0}\right)\in\pi\left(J\right)$,
+Da $J$ ein Ideal ist, folgt aus $y\in J$ und $x\in A$ schon $xy\in J$.
+Daher ist $\overline{x}\cdot\overline{y}=\pi\left(xy\right)\in\pi\left(J\right)$,
 weswegen $\pi\left(J\right)$ ein Ideal ist. Also ist $\Phi$ wohldefiniert.
 
 Betrachte die Abbildung:
@@ -580,19 +580,31 @@ $\pi\left(y\right)\in\overline{J}$, so gilt:
 \begin{align*}
 \pi\left(x\cdot y\right) & =\pi\left(x\right)\underbrace{\pi\left(y\right)}_{\in\overline{J}}\stackrel{\overline{J}\text{ Ideal}}{\in}\overline{J}
 \end{align*}
-Also ist $\Psi\left(\overline{J}\right)\subseteq A$ ein Ideal.
+Also ist $xy\in\Psi\left(\overline{J}\right)$ und daher $\Psi\left(\overline{J}\right)\subseteq A$
+ein Ideal.
 
 Da für alle Ideale $\overline{J}\in\modulo AI$ schon $0\in\overline{J}$
 gilt, folgt $\pi^{-1}\left(\overline{J}\right)\supseteq\pi^{-1}\left(0\right)=\ker\left(\pi\right)=I$.
-Daher ist $\Psi$ wohldefiniert.
-
-Nun gilt:
+Daher ist $\Psi$ wohldefiniert. Nun gilt:
 \begin{align*}
 \left(\Phi\circ\Psi\right)\left(\overline{J}\right) & =\left(\pi\circ\pi^{-1}\right)\left(\overline{J}\right)\stackrel{\pi\text{ surjektiv}}{=}\overline{J}\\
 \left(\Psi\circ\Phi\right)\left(J\right) & =\left(\pi^{-1}\circ\pi\right)\left(J\right)=\left\{ a+b\big|a\in J,b\in I\right\} \stackrel{I\subseteq J}{=}J
 \end{align*}
-Also ist $\Psi$ die Umkehrabbildung zu $\Phi$, weswegen $\Phi$
-bijektiv ist.\qqed
+Somit ist $\Psi$ die Umkehrabbildung zu $\Phi$, weswegen $\Phi$
+bijektiv ist.
+
+Zeige nun\textit{ }$J_{1}\subseteq J_{2}\Leftrightarrow\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)$:
+
+\quotedblbase{}$\Rightarrow$\textquotedblleft{}: Seien $J_{1}\subseteq J_{2}$,
+und $\overline{x}\in\Phi\left(J_{1}\right)=\pi\left(J_{1}\right)$.
+Dann gibt es ein $x\in J_{1}$ mit $\overline{x}=\pi\left(x\right)$
+und wegen $J_{1}\subseteq J_{2}$ gilt $x\in J_{2}$. Daher ist $\overline{x}=\pi\left(x\right)\in\pi\left(J_{2}\right)=\Phi\left(J_{2}\right)$.
+Also gilt $\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)$.\\
+\quotedblbase{}$\Leftarrow$\textquotedblleft{}: Seien $\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)$
+und $x\in J_{1}$. Dann ist $\overline{x}\in\pi\left(J_{1}\right)=\Phi\left(J_{1}\right)\subseteq\Phi\left(J_{2}\right)$
+und daher gibt es ein $\tilde{x}\in J_{2}$ mit $\pi\left(\tilde{x}\right)=\overline{x}$.
+Also ist $x-\tilde{x}=a\in I$. Wegen $I\subseteq J_{2}$ folgt somit
+$x=\tilde{x}+a\in J_{2}$. Also gilt $J_{1}\subseteq J_{2}$.\qqed
 
 
 \section{Beispiel}
