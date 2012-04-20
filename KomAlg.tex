@@ -341,7 +341,7 @@ ISBN: 3-540-64239-0
 \tableofcontents{}\label{END-front}\newpage{}\pagenumbering{arabic}
 \fancyfoot[C]{\thepage\quad\!\!\!\slash\quad\!\!\!\pageref{END}} % Seitenzahl des Hauptteils
 \fancyhead[R]{\rightmark}
-%\fancyhead[C]{\leftmark}%DATE: Mo 17.04.2012
+%\fancyhead[C]{\leftmark}%DATE: Di 17.04.2012
 
 
 \chapter{Ringe und Ideale}
@@ -497,13 +497,13 @@ Skizze:
 
 \begin{iiilist}
 
-\iii Ist $f:A\to B$ ein Ringhomomorphismus, so ist
+\iii Ist $f:A\to B$ ein Ringhomomorphismus, so ist der \emph{Kern}
 \begin{align*}
 \ker\left(f\right) & :=\left\{ x\in A\big|f\left(x\right)=0\right\} \subseteq A
 \end{align*}
-ein Ideal und das Bild
+ein Ideal und das \emph{Bild}
 \begin{align*}
-\text{im}\left(f\right) & =\left\{ f\left(x\right)\big|x\in A\right\} \subseteq B
+\text{im}\left(f\right) & :=\left\{ f\left(x\right)\big|x\in A\right\} \subseteq B
 \end{align*}
 ein Unterring.
 
@@ -523,7 +523,7 @@ $I=n\mathbb{Z}\subseteq A=\mathbb{Z}$.)
 \end{iiilist}
 
 
-\section{Proposition \textmd{(Ideale des Quotientenrings)}}
+\section{Proposition \textmd{(Ideale des Quotientenrings)\label{sec:Prop-IdealeQuotientenring}}}
 
 Seien $A$ ein Ring, $I\subseteq A$ ein Ideal und $\pi:A\to\modulo AI$
 der kanonische Ringhomomorphismus.
@@ -605,7 +605,7 @@ sind genau die Hauptideale:
 
 
 
-\section{Definition \textmd{(Integritätsring)}}
+\section{Definition \textmd{(Nullteiler, Integritätsring)}}
 
 \begin{iiilist}
 
@@ -693,7 +693,7 @@ und heißt \emph{die Einheitengruppe von $A$}.
 \end{iiilist}
 
 
-\section{Beispiel und Definition}
+\section{Beispiel und Definition \textmd{(Hauptideal(-ring))\label{sec:BuD-Hauptidealring}}}
 
 Sei $A$ ein Ring.
 
@@ -725,9 +725,7 @@ und $A\not=\left\{ 0\right\} $ ist.
 
 \section{Beispiel}
 
-\begin{iiilist}
-
-\iii Die Ringe $\mathbb{Z},\,\mathbb{Z}\left[\ii\right]$ und $k\left[X\right]$
+Die Ringe $\mathbb{Z},\,\mathbb{Z}\left[\ii\right]$ und $k\left[X\right]$
 für einen Körper $k$, nicht aber $\mathbb{Z}\left[X\right]$ oder
 $k\left[X,Y\right]$ sind Hauptidealringe.
 
@@ -735,9 +733,383 @@ Die Ringe $\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$ und
 $\mathbb{F}_{p}:=\modlo Zp$ für eine Primzahl $p$ sind Körper, nicht
 aber $\mathbb{Z}$.
 
-\iii 
+%DATE: Fr 20.04.2012
+
+
+
+
+\section{Proposition \textmd{(Ideale eines Körpers)\label{sec:Prop-KoerperIdeale}}}
+
+Für einen Ring $A\not=\left\{ 0\right\} $ sind folgende Aussagen
+äquivalent:
+
+\begin{iiilist}
+
+\iii $A$ ist ein Körper.
+
+\iii $\left(0\right),\left(1\right)\subseteq A$ sind die einzigen
+Ideale.
+
+\iii Jeder Ringhomomorphismus $f:A\to B\not=\left\{ 0\right\} $
+ist injektiv.
 
 \end{iiilist}
+
+
+\subsubsection{Beweis}
+\begin{description}
+\item [{\textmd{\quotedblbase{}i)~$\Rightarrow$~ii)\textquotedblleft{}:}}] Sei
+$\left(0\right)\not=I\subseteq A$ ein Ideal. Also gibt es ein Element
+$0\not=x\in I$. Da $A$ ein Körper ist, ist $A^{*}=A\setminus\left\{ 0\right\} \ni x$.
+Also folgt $\left(1\right)=\left(x\right)\subseteq I$. Daher ist
+$A=I=\left(1\right)$.
+\item [{\textmd{\quotedblbase{}ii)~$\Rightarrow$~iii)\textquotedblleft{}:}}] Wegen
+$f\left(1\right)=1\not=0$ in $B$ ist $\left(1\right)\not=\text{ker}\left(f\right)\subseteq A$.
+Da der Kern aber ein Ideal ist, bleibt für den Kern nur das einzige
+andere Ideal $\text{ker}\left(f\right)=\left(0\right)$, was äquivalent
+zur Injektivität von $f$ ist.
+\item [{\textmd{\quotedblbase{}iii)~$\Rightarrow$~i)\textquotedblleft{}:}}] Nach
+Voraussetzung gilt $A\not=\left\{ 0\right\} $, weswegen nach der
+Definition \ref{sec:BuD-Hauptidealring} iv) ist nur noch $A\setminus\left\{ 0\right\} \subseteq A^{*}$
+zu zeigen ist. Sei $x\in A\setminus A^{*}$, dann ist $\left(x\right)\subsetneq A$.
+Wende iii) auf den Quotientenhomomorphismus
+\begin{align*}
+\pi:A & \to B:=\modulo A{\left(x\right)}\not=\left(0\right)
+\end{align*}
+an und erhalte, dass $\pi$ injektiv ist. Daher gilt $\left(0\right)=\text{ker}\left(\pi\right)=\left(x\right)$
+und somit $x=0$.\qqed
+\end{description}
+
+\section{Proposition und Definition \textmd{(Primideal, maximales Ideal)\label{sec:PuD-Prim-maximales-Ideal}}}
+
+Sei $I\subsetneq A$ ein Ideal.
+
+\begin{iiilist}
+
+\iii Äquivalent sind:
+
+\begin{abclist}
+
+\abc $\fall_{a,b\in A}:ab\in I\Rightarrow\left(a\in I\vee b\in I\right)$
+
+\abc $\modulo AI$ ist ein Integritätsring.
+
+\end{abclist}
+
+In diesem Fall heißt $I$ \emph{Primideal} (Abkürzung: PI).
+
+\iii Äquivalent sind:
+
+\begin{abclist}
+
+\abc Für alle Ideale $J\subseteq A$ mit $I\subsetneq J$ gilt $J=A$.
+
+\abc $\modulo AI$ ist ein Körper.
+
+\end{abclist}
+
+In diesem Fall heißt $I$ \emph{maximales Ideal}.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii \quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{}: $\modulo AI\not=\left\{ 0\right\} ,$
+da $I\subsetneq A$ ein echtes Ideal ist. Sind $a,b\in A$ mit $\overline{a}\cdot\overline{b}=\overline{0}$
+in $\modulo AI$, so folgt $ab\in I$. Aus a) ergibt sich $\left(a\in I\vee b\in I\right)$
+und im Quotientenring bedeutet dies $\overline{a}=\overline{0}$ oder
+$\overline{b}=\overline{0}$. Daher ist $\overline{0}\in\modulo AI$
+der einzige Nullteiler.
+
+\quotedblbase{}b) $\Rightarrow$ a)\textquotedblleft{}: Folgt analog:\\
+Sind $a,b\in A$ mit $ab\in I$, so folgt $\overline{a}\cdot\overline{b}=\overline{0}$
+in $\modulo AI$. Da nach b) $\modulo AI$ ein Integritätsring ist,
+ist $\overline{0}\in\modulo AI$ der einzige Nullteiler und somit
+$\overline{a}=\overline{0}$ oder $\overline{b}=\overline{0}$. Im
+Ring $A$ bedeutet das $\left(a\in I\vee b\in I\right)$, womit a)
+gezeigt ist.\qqed[\roman{ale2})]
+
+\iii Da nach \ref{sec:Prop-KoerperIdeale} i) $\Leftrightarrow$
+ii) ein Körper genau die Ideale $\left(0\right)$ und $\left(1\right)$
+hat und nach \ref{sec:Prop-IdealeQuotientenring} die Ideale des Quotientenrings
+$\modulo AI$ den Idealen $J\subseteq A$ mit $I\subseteq J$ entsprechen,
+von denen es aufgrund der Maximalität von $I$ nur die zwei Möglichkeiten
+$J=I$ und $J=A$ gibt, beziehungsweise andersherum nur diese zwei
+geben kann, wenn $\modulo AI$ ein Körper ist, ist die Äquivalenz
+gezeigt.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Jedes maximale Ideal ist ein Primideal, da jeder Körper ein
+Integritätsring ist.
+
+\iii Das Nullideal $\left(0\right)\subseteq\mathbb{Z}$ ist ein Primideal,
+aber nicht maximal, da $\modulo{\mathbb{Z}}{\left(0\right)}=\mathbb{Z}$
+ein Integritätsring, aber kein Körper, ist.
+
+\iii Die maximalen Ideal in $\mathbb{Z}$ sind genau die Hauptideale
+$\left(p\right)\subseteq\mathbb{Z}$ mit einer Primzahl $p$. Das
+einzige Primideal, welches nicht maximal ist, ist das Nullideal $\left(0\right)\subseteq\mathbb{Z}$.
+
+\end{iiilist}
+
+
+\section{Proposition}
+
+Sind $f:A\to B$ ein Ringhomomorphismus und $\mathfrak{p}\subseteq B$
+ein Primideal, so ist $f^{-1}\left(\mathfrak{p}\right)\subseteq A$
+ein Primideal.
+
+
+\subsubsection*{Beweis}
+
+Wegen $f^{-1}\left(\mathfrak{p}\right)=\ker\left(A\stackrel{f}{\to}B\stackrel{\pi}{\to}\modulo B{\mathfrak{p}}\not=\left\{ 0\right\} \right)\subsetneq A$
+ist $f^{-1}\left(\mathfrak{p}\right)$ ein Ideal und
+\begin{align*}
+\left\{ 0\right\} \not=\modulo A{f^{-1}\left(\mathfrak{p}\right)} & \hookrightarrow\modulo B{\mathfrak{p}}
+\end{align*}
+ein Unterring des Integritätsrings $\modulo B{\mathfrak{p}}$, weshalb
+$\modulo A{f^{-1}\left(\mathfrak{p}\right)}$ ebenfalls ein Integritätsring
+ist. Dann ist nach der Definition \ref{sec:PuD-Prim-maximales-Ideal}
+i) auch $f^{-1}\left(\mathfrak{p}\right)$ ein Primideal.\qqed
+
+
+\section{Beispiel}
+
+Für den eindeutigen Ringhomomorphismus $f:\mathbb{Z}=:A\hookrightarrow B:=\mathbb{Q}$
+ist $\mathfrak{p}:=\left(0\right)\subseteq B$ ein maximales Ideal,
+da $B$ ein Körper ist, aber $f^{-1}\left(\mathfrak{p}\right)=\left(0\right)\subseteq A=\mathbb{Z}$
+ist kein maximales Ideal.
+
+
+\section{Satz\label{sec:Satz-ExistensMaximalesIdeal}}
+
+In jedem Ring $A\not=\left\{ 0\right\} $ existiert mindestens ein
+maximales Ideal.
+
+
+\subsubsection*{Beweis}
+
+Dies ist eine bekannte Anwendung des Lemmas von Zorn:
+\begin{quote}
+\quotedblbase{}Jede halbgeordnete Menge, in der jede Kette (d.h. jede
+total geordnete Teilmenge) eine obere Schranke hat, enthält mindestens
+ein maximales Element.\textquotedblleft{}
+\end{quote}
+Die Teilmengenrelation auf der Menge $M$ der echten Ideale des Rings
+$A$ erzeugt eine Halbordnung. Diese Menge ist nicht leer, da sie
+immer das triviale Ideal $\left(0\right)$ enthält.
+
+Außerdem ist für eine Kette $K$ in $M$ die Vereinigung $I:=\bigcup_{k\in K}k$
+aller Elemente eine obere Schranke für $K$, denn $I$ ist nicht leer
+und ein Ideal von $A$.
+
+Nach dem Lemma von Zorn gibt es also mindestens ein maximales Element
+von $M$, also ein maximales Ideal von $A$.\qqed
+
+
+\section{Korollar\label{sec:Kor-ExistenzMaximalesIdealenthaeltI}}
+
+Ist $A$ ein Ring und $I\subsetneq A$ ein Ideal, so existiert ein
+maximales Ideal $\mathfrak{m}\subseteq A$ mit $I\subseteq\mathfrak{m}$.
+
+
+\subsubsection*{Beweis}
+
+
+
+Sei $\mathfrak{n}\subseteq\modulo AI$ ein maximales Ideal, das nach
+\ref{sec:Satz-ExistensMaximalesIdeal} existiert, und $\pi:A\to\modulo AI$
+der kanonische Ringhomomorphismus. Nach \ref{sec:Prop-IdealeQuotientenring}
+ist $\mathfrak{m}:=\pi^{-1}\left(\mathfrak{n}\right)\subseteq A$
+ein maximales Ideal mit $I\subseteq\mathfrak{m}$.\qqed
+
+
+\section{Korollar\label{sec:Kor-EinheitMaximalesIdeal}}
+
+Sei $A$ ein Ring. Für ein beliebiges Element $x\in A$ sind äquivalent:
+
+\begin{iiilist}
+
+\iii $x\in A^{*}$
+
+\iii $x$ ist in keinem maximalen Ideal von $A$ enthalten.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Dies ist
+klar, da $\left(x\right)=A$ ist und für jedes Ideal $I\subseteq A$
+aus $x\in I$ schon $\left(x\right)\subseteq I$ folgt.
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Zeige äquivalent,
+dass wenn i) nicht gilt, auch ii) nicht gilt:
+
+Sei $x\not\in A^{*}$, so folgt aus \ref{sec:BuD-Hauptidealring}
+ii), dass $\left(x\right)\subsetneq A$ ein echtes Ideal ist und nach
+\ref{sec:Kor-ExistenzMaximalesIdealenthaeltI} gibt es ein maximales
+Ideal $\mathfrak{m}\subseteq A$ mit $x\in\left(x\right)\subseteq\mathfrak{m}$.\qqed
+
+
+\section{Ausblick}
+
+Seien $X$ ein kompakter Hausdorffraum und $A=C\left(X,\mathbb{R}\right)$
+die $\mathbb{R}$-Algebra der stetigen $\mathbb{R}$-wertigen Funktionen
+auf $X$.
+
+Für jedes $f\in A$ gilt:
+\begin{align}
+f\in A^{*} & \Leftrightarrow\fall_{x\in X}:f\left(x\right)\not=0\label{eq:finv}\\
+f\in A^{*} & \Rightarrow\fall_{x\in X}:f^{-1}\left(x\right)=f\left(x\right)^{-1}\nonumber 
+\end{align}
+Ein Vergleich mit \ref{sec:Kor-EinheitMaximalesIdeal} lässt einen
+Zusammenhang zwischen den Punkten $x\in X$ und den maximalen Idealen
+von $A$ vermuten.
+
+Für alle $x\in X$ ist die Auswertungsabbildung
+\begin{align*}
+\text{ev}_{x}:A & \twoheadrightarrow\mathbb{R}\\
+f & \mapsto\text{ev}_{x}\left(f\right):=f\left(x\right)
+\end{align*}
+ein surjektiver $\mathbb{R}$-Algebrenhomomorphismus, dessen Kern
+\begin{align}
+\mathfrak{m}_{x} & :=\ker\left(\text{ev}_{x}\right)=\left\{ f\in C\left(X,\mathbb{R}\right)\big|f\left(x\right)=0\right\} \subseteq A\label{eq:mx}
+\end{align}
+ein maximales Ideal ist, da $\modulo A{\mathfrak{m}_{x}}\stackrel{\sim}{=}\mathbb{R}$
+ein Körper ist.
+
+Genauer kann man auf der Menge
+\begin{align*}
+\text{MaxSpec}\left(A\right) & :=\left\{ \mathfrak{m}\subseteq A\text{ maximales Ideal}\right\} 
+\end{align*}
+eine Topologie nur mit Hilfe des kommutativen Ringes $A$ definieren,
+so dass die Abbildung $X\to\text{MaxSpec}\left(A\right),x\mapsto\mathfrak{m}_{x}$
+ein Homöomorphismus, also insbesondere bijektiv ist. (vergleiche \noun{{[}Atiyah,
+Macdonald{]}}, \foreignlanguage{english}{chapter 1, exercise 26})
+
+Insbesondere bestimmt der kommutative Ring $A$ den topologischen
+Raum $X$.
+
+Nicht jeder kommutative Ring ist von der Form $C\left(X,\mathbb{R}\right)$.
+Aber eine Grundidee der topologischen Geometrie ist, dass jeder Ring
+$A$ der Ring von \quotedblbase{}stetigen Funktionen\textquotedblleft{}
+auf einem \quotedblbase{}Raum\textquotedblleft{} sein soll, zum Beispiel:
+
+Betrachte $\text{MaxSpec}\left(A\right):=\left\{ \mathfrak{m}\subseteq A\big|\mathfrak{m}\text{ maximales Ideal}\right\} $.
+Jedes $a\in A$ bestimmt eine Abbildung
+\begin{align*}
+\text{MaxSpec}\left(A\right) & \to\bcupd_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(\modulo A{\mathfrak{m}}\right)\\
+\mathfrak{m} & \mapsto\left(a\mod\mathfrak{m}\right)_{\mathfrak{m}}=:a\left(\mathfrak{m}\right)
+\end{align*}
+und es gilt:
+
+\begin{iiilist}
+
+\iii Für alle $\mathfrak{m}\in\text{MaxSpec}\left(A\right)$ gilt
+nach Definition $\mathfrak{m}=\left\{ a\in A\big|a\left(\mathfrak{m}\right)=0\right\} $.
+(vergleiche \eqref{eq:mx})
+
+\iii Für alle $a\in A$ gilt
+\begin{align*}
+a\in A^{*}\Leftrightarrow & \left(\fall_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}:a\left(\mathfrak{m}\right)\not=0\right)
+\end{align*}
+da $a\left(\mathfrak{m}\right)\not=0\Leftrightarrow a\not\in\mathfrak{m}$
+ist und nach \ref{sec:Kor-EinheitMaximalesIdeal} eine Einheit in
+keinem maximalen Ideal enthalten ist. (vergleiche \eqref{eq:finv})
+
+\end{iiilist}
+
+\qqed
+
+
+\section{Definition \textmd{(lokaler Ring, Restklassenkörper)}}
+
+Ein \emph{lokaler Ring} ist ein Ring $A$ mit genau einem maximalem
+Ideal $\mathfrak{m}$.
+
+(Jeder Körper ist ein lokaler Ring mit $\mathfrak{m}=\left(0\right)$.)
+
+Der Körper $\modulo A{\mathfrak{m}}$ heißt der \emph{Restklassenkörper}
+(\emph{von $A$}).
+
+Schreibe $\left(A,\mathfrak{m}\right)$ für einen lokalen Ring mit
+maximalem Ideal $\mathfrak{m}$, und definiere $\kappa\left(\mathfrak{m}\right):=\modulo A{\mathfrak{m}}$.
+
+
+\section{Proposition\label{sec:Prop-HinreichendLokalerRing}}
+
+Seien $A$ ein Ring und $\mathfrak{m}\subsetneq A$ ein Ideal.
+
+\begin{iiilist}
+
+\iii Gilt $A\setminus\mathfrak{m}\subseteq A^{*}$, so ist $\left(A,\mathfrak{m}\right)$
+ein lokaler Ring.
+
+\iii Ist $\mathfrak{m}$ maximal und gilt $1+\mathfrak{m}:=\left\{ 1+x\big|x\in\mathfrak{m}\right\} \subseteq A^{*}$,
+so ist $\left(A,\mathfrak{m}\right)$ ein lokaler Ring.
+
+\end{iiilist}
+
+
+\subsubsection{Beweis}
+
+\begin{iiilist}
+
+\iii Ist $I\subseteq A$ ein Ideal mit $\mathfrak{m}\subseteq I$,
+so existiert ein $u\in I\setminus\mathfrak{m}\subseteq A\setminus\mathfrak{m}\subseteq A^{*}$,
+weswegen $I=\left(1\right)$ ist. Also ist $\mathfrak{m}\subseteq A$
+ein maximales Ideal.
+
+Sei $\mathfrak{n}\subseteq A$ ein (weiteres) maximales Ideal. Zeige
+$\mathfrak{n}\subseteq\mathfrak{m}$, denn dann folgt, weil beides
+maximale Ideale sind, schon $\mathfrak{m}=\mathfrak{n}$, das heißt
+$\mathfrak{m}\subseteq A$ ist das einzige maximale Ideal.
+
+Angenommen es gilt $\mathfrak{n}\subsetneq\mathfrak{m}$, dann existiert
+ein $x\in\mathfrak{n}\setminus\mathfrak{m}\subseteq A\setminus\mathfrak{m}\subseteq A^{*}$.
+Deswegen ist $\mathfrak{n}=\left(1\right)$ im Widerspruch zur Maximalität
+von $\mathfrak{n}$.\qqed[i)]
+
+\iii Wegen i) ist nur $A\setminus\mathfrak{m}\subseteq A^{*}$ zu
+zeigen.
+
+Sei $x\in A\setminus\mathfrak{m}$, so ist $\mathfrak{m}\subsetneq\mathfrak{m}+\left(x\right)=\left\{ y+ax\big|y\in\mathfrak{m},a\in A\right\} $
+ein Ideal, aber $\mathfrak{m}$ ist ein maximales Ideal, weswegen
+$\mathfrak{m}+\left(x\right)=\left(1\right)$ gelten muss. Daher gibt
+es ein $y\in\mathfrak{m}$ und ein $a\in A$ mit $1=y+ax$ und somit
+$ax=1+\left(-y\right)\in1+\mathfrak{m}\subseteq A^{*}$. Deswegen
+existiert ein $b\in A$ mit $1=b\left(ax\right)=\left(ba\right)x$
+und daher ist $x$ invertierbar und somit $x\in A^{*}$.\qqed[ii)]
+
+\end{iiilist}
+
+
+\section{Beispiel}
+
+Sei $p\in\mathbb{Z}$ eine Primzahl, insbesondere $\left(p\right)\not=0$.
+Dann ist $\mathbb{Z}\subseteq\mathbb{Z}_{\left(p\right)}:=\left\{ \frac{a}{b}\big|a\in\mathbb{Z},p\not|b\in\mathbb{Z}\right\} \subsetneq\mathbb{Q}$
+ein Unterring von $\mathbb{Q}$ und $\left(\mathbb{Z}_{\left(p\right)},\left(p\right)\right)$
+ist ein lokaler Ring mit $\kappa\left(\mathfrak{p}\right)\stackrel{\sim}{=}\mathbb{F}_{p}$.
+
+
+\subsubsection*{Beweis}
+
+Nach Beispiel 2.6 aus Algebra ist die Lokalisierung $\mathbb{Z}_{\left(p\right)}=\left(\mathbb{Z}\setminus\left(p\right)\right)^{-1}\mathbb{Z}$
+von $\mathbb{Z}$ bei $\left(p\right)$ ein Unterring von $\mathbb{Z}_{\left(0\right)}=\mathbb{Q}$
+mit der Einheitengruppe $\mathbb{Z}_{\left(p\right)}^{*}=\mathbb{Z}_{\left(p\right)}\setminus\left(p\right)$.
+
+Nach \ref{sec:Prop-HinreichendLokalerRing} i) ist also $\left(\mathbb{Z}_{\left(p\right)},\left(p\right)\right)$
+ein lokaler Ring.\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}
