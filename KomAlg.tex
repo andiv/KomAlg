@@ -9,6 +9,7 @@
 \pagestyle{fancy}
 \setlength{\parskip}{\smallskipamount}
 \setlength{\parindent}{0pt}
+\usepackage{color}
 \usepackage{babel}
 \usepackage{textcomp}
 \usepackage{url}
@@ -171,9 +172,6 @@
 
 
 \global\long\def\abs#1{\left\lvert #1\right\rvert }
-
-
-\global\long\def\neg{\text{-}}
 
 
 \global\long\def\exs{\exsop}
@@ -748,8 +746,6 @@ aber $\mathbb{Z}$.
 %DATE: Fr 20.04.2012
 
 
-
-
 \section{Proposition \textmd{(Ideale eines Körpers)\label{sec:Prop-KoerperIdeale}}}
 
 Für einen Ring $A\not=\left\{ 0\right\} $ sind folgende Aussagen
@@ -856,7 +852,7 @@ gezeigt.\qqed[\roman{ale2})]
 \end{iiilist}
 
 
-\section{Beispiel}
+\section{Beispiel\label{sec:Bsp-Prim-maximales-Ideal}}
 
 \begin{iiilist}
 
@@ -874,7 +870,7 @@ einzige Primideal, welches nicht maximal ist, ist das Nullideal $\left(0\right)\
 \end{iiilist}
 
 
-\section{Proposition}
+\section{Proposition \textmd{(Urbild eines Primideals ist ein Primideal)}\label{sec:Prop-UrbildPrimideal}}
 
 Sind $f:A\to B$ ein Ringhomomorphismus und $\mathfrak{p}\subseteq B$
 ein Primideal, so ist $f^{-1}\left(\mathfrak{p}\right)\subseteq A$
@@ -902,7 +898,7 @@ da $B$ ein Körper ist, aber $f^{-1}\left(\mathfrak{p}\right)=\left(0\right)\subs
 ist kein maximales Ideal.
 
 
-\section{Satz\label{sec:Satz-ExistensMaximalesIdeal}}
+\section{Satz \textmd{(Existenz eines maximalen Ideals)}\label{sec:Satz-ExistensMaximalesIdeal}}
 
 In jedem Ring $A\not=\left\{ 0\right\} $ existiert mindestens ein
 maximales Ideal.
@@ -935,8 +931,6 @@ maximales Ideal $\mathfrak{m}\subseteq A$ mit $I\subseteq\mathfrak{m}$.
 
 
 \subsubsection*{Beweis}
-
-
 
 Sei $\mathfrak{n}\subseteq\modulo AI$ ein maximales Ideal, das nach
 \ref{sec:Satz-ExistensMaximalesIdeal} existiert, und $\pi:A\to\modulo AI$
@@ -1020,8 +1014,8 @@ auf einem \quotedblbase{}Raum\textquotedblleft{} sein soll, zum Beispiel:
 Betrachte $\text{MaxSpec}\left(A\right):=\left\{ \mathfrak{m}\subseteq A\big|\mathfrak{m}\text{ maximales Ideal}\right\} $.
 Jedes $a\in A$ bestimmt eine Abbildung
 \begin{align*}
-\text{MaxSpec}\left(A\right) & \to\bcupd_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(\modulo A{\mathfrak{m}}\right)\\
-\mathfrak{m} & \mapsto\left(a\mod\mathfrak{m}\right)_{\mathfrak{m}}=:a\left(\mathfrak{m}\right)
+\text{MaxSpec}\left(A\right) & \to\bcupd_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(\modulo A{\mathfrak{m}}\right)=:M\\
+\mathfrak{m}_{0} & \mapsto\underbrace{\left(a\mod\mathfrak{m}_{0}\right)}_{\in\moduloScript A{\mathfrak{m}_{0}}\subseteq M}=:a\left(\mathfrak{m}_{0}\right)
 \end{align*}
 und es gilt:
 
@@ -1043,6 +1037,9 @@ keinem maximalen Ideal enthalten ist. (vergleiche \eqref{eq:finv})
 
 \qqed
 
+Zum Beispiel für $A=\mathbb{Z}$ ist $\modulo A{\mathbb{Z}}=\mathbb{F}_{p}$
+für eine Primzahl $p$.
+
 
 \section{Definition \textmd{(lokaler Ring, Restklassenkörper)}}
 
@@ -1058,7 +1055,7 @@ Schreibe $\left(A,\mathfrak{m}\right)$ für einen lokalen Ring mit
 maximalem Ideal $\mathfrak{m}$, und definiere $\kappa\left(\mathfrak{m}\right):=\modulo A{\mathfrak{m}}$.
 
 
-\section{Proposition\label{sec:Prop-HinreichendLokalerRing}}
+\section{Proposition \textmd{(Kriterium für lokalen Ring)}\label{sec:Prop-HinreichendLokalerRing}}
 
 Seien $A$ ein Ring und $\mathfrak{m}\subsetneq A$ ein Ideal.
 
@@ -1122,6 +1119,261 @@ mit der Einheitengruppe $\mathbb{Z}_{\left(p\right)}^{*}=\mathbb{Z}_{\left(p\rig
 
 Nach \ref{sec:Prop-HinreichendLokalerRing} i) ist also $\left(\mathbb{Z}_{\left(p\right)},\left(p\right)\right)$
 ein lokaler Ring.\qqed
+
+%DATE: Di 24.04.2012
+
+
+\section{Proposition und Definition \textmd{(Nilradikal)}}
+
+Sei $A$ ein Ring. Dann ist $\mathfrak{N}\left(A\right):=\left\{ x\in A\big|x\text{ nilpotent}\right\} \subseteq A$
+ein Ideal und es gilt:
+\begin{align*}
+\mathfrak{N}\left(\modulo A{\mathfrak{N}\left(A\right)}\right) & =\left(\overline{0}\right)
+\end{align*}
+
+
+Das Ideal $\mathfrak{N}\left(A\right)\subseteq A$ heißt \emph{das
+Nilradikal von $A$.}
+
+
+\subsubsection*{Beweis}
+
+Überprüfe \ref{sec:Def-Ideal} i) a) und b):
+\begin{align*}
+x,y\in\mathfrak{N}\left(A\right) & \quad\Rightarrow\quad\exs_{N\in\mathbb{N}_{\ge1}}:x^{N}=y^{N}=0\quad\Rightarrow\quad\left(x-y\right)^{2N}=\sum_{i=0}^{2N}\left(\begin{array}{c}
+2N\\
+i
+\end{array}\right)x^{i}\cdot\left(-1\right)^{2N-i}\cdot y^{2N-i}
+\end{align*}
+Da für alle $0\le i\le2N$ gilt $\left(i\ge N\vee2N-i\ge N\right)$
+ist in jedem Produkt $x^{i}\cdot y^{2N-i}$ mindestens einer der Faktoren
+Null und es folgt $\left(x-y\right)^{2N}=\left(0\right)$, also $x-y\in\mathfrak{N}\left(A\right)$.\qqed[a)]
+
+Zu b): Seien $x\in\mathfrak{N}\left(A\right)$ und $a\in A$. Dann
+gibt es ein $N\in\mathbb{N}_{\ge1}$ mit $x^{N}=0$ und somit gilt:
+\begin{align*}
+\left(ax\right)^{N} & =a^{N}x^{N}=a^{N}\cdot0=0
+\end{align*}
+Daher ist $ax\in\mathfrak{N}\left(A\right)$.\qqed[b)]
+
+Sei nun $x\in A$ mit $\overline{x}:=\left(x\mod\mathfrak{N}\left(A\right)\right)\in\mathfrak{N}\left(\modulo A{\mathfrak{N}\left(A\right)}\right)$.
+Daher gibt es ein $N\in\mathbb{N}_{\ge1}$ mit $0=\left(\overline{x}\right)^{N}=\overline{\left(x^{N}\right)}$
+in $\modulo A{\mathfrak{N}\left(A\right)}$, weswegen $x^{N}\in\mathfrak{N}\left(A\right)$
+ist. Also gibt es ein $M\in\mathbb{N}_{\ge1}$ mit $0=\left(X^{N}\right)^{M}=x^{N\cdot M}$
+in $A$, weshalb $x\in\mathfrak{N}\left(A\right)$ ist, also $\overline{x}=0$
+ist.\qqed
+
+
+\section{Satz \textmd{(Nilradikal ist Schnitt aller Primideale)}\label{sec:Satz-NullidealIstSchnittPrimideale}}
+
+Sei $A$ ein Ring. Dann gilt:
+\begin{align*}
+\mathfrak{N}\left(A\right) & =\bigcap_{\mathfrak{p}\subseteq A\text{ Primideal}}\mathfrak{p}
+\end{align*}
+(Es folgt nochmal, dass $\mathfrak{N}\left(A\right)\subseteq A$ ein
+Ideal ist.)
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}$\subseteq$\textquotedblleft{}: Seien $x\in\mathfrak{N}\left(A\right)$
+und $\mathfrak{p}\subseteq A$ ein Primideal. Dann existiert ein $n\in\mathbb{N}_{\ge1}$
+mit $x^{n}=0\in\mathfrak{p}$.
+
+Aus der Definition eines Primideals \ref{sec:PuD-Prim-maximales-Ideal}
+i) a) folgt $x\in\mathfrak{p}$, da dies der einzige Faktor im Produkt
+$x^{n}$ ist.
+
+\quotedblbase{}$\supseteq$\textquotedblleft{}: Sei $x\in A\setminus\mathfrak{N}\left(A\right)$.
+Zeige, dass ein Primideal $\mathfrak{p}\subseteq A$ mit $x\not\in\mathfrak{p}$
+existiert.
+\begin{itemize}
+\item 1. Beweis (direkt): Betrachte $\Sigma:=\left\{ \mathfrak{u}\big|\mathfrak{u}\subseteq A\text{ Ideal mit }\left(\fall_{n\in\mathbb{N}_{\ge1}}:x^{n}\not\in\mathfrak{u}\right)\right\} $.\\
+Wegen $x\not\in\mathfrak{N}\left(A\right)$ gilt $\left(0\right)\in\Sigma$,
+also $\Sigma\not=\emptyset$.\\
+Es ist klar, dass $\left(\Sigma,\subseteq\right)$ eine teilweise
+geordnete Menge ist.\\
+Ist $\Sigma'\subseteq\Sigma$ total geordnet, so gilt:
+\begin{align*}
+\mathfrak{u}' & :=\bigcup_{\mathfrak{u}\in\Sigma'}\mathfrak{u}\in\Sigma
+\end{align*}
+Denn aus der totalen Ordnung von $\Sigma'$ folgt, dass $\mathfrak{u}'\subseteq A$
+ein Ideal ist und $x^{n}\not\in\mathfrak{u}'$ für alle $n\in\mathbb{N}_{\ge1}$
+ist dann klar, denn sonst müsste es schon in einem $\mathfrak{u}$
+sein.\\
+Aus dem Lemma von Zorn folgt daraus die Existenz eines maximalen Elementes
+$\mathfrak{p}\in\Sigma$. Wegen $x\not\in\mathfrak{p}$ zeige noch,
+dass $\mathfrak{p}$ ein Primideal ist.\\
+Angenommen dies ist nicht der Fall, dann existieren $a,b\in A$ mit
+$a,b\not\in\mathfrak{p}$ und $ab\in\mathfrak{p}$.\\
+Wegen $\mathfrak{p}\subsetneq\mathfrak{p}+\left(a\right),\mathfrak{p}+\left(b\right)$
+und der Maximalität von $\mathfrak{p}$ existieren $n,m\in\mathbb{N}_{\ge1}$
+mit $x^{n}\in\mathfrak{p}+\left(a\right)$ und $x^{m}\in\mathfrak{p}+\left(b\right)$.
+Dann folgt:
+\begin{align*}
+x^{n+m} & =x^{n}\cdot x^{m}\in\mathfrak{p}+\left(ab\right)\stackrel{ab\in\mathfrak{p}}{=}\mathfrak{p}
+\end{align*}
+Dies ist ein Widerspruch zu $\mathfrak{p}\in\Sigma$, also $x^{n+m}\not\in\mathfrak{p}$.\qqed[1. Beweis]
+\item 2. Beweis (mit Lokalisierung): $S:=\left\{ x^{n}\big|n\ge0\right\} \subseteq A$
+ist multiplikativ abgeschlossen und wegen $x\not\in\mathfrak{N}\left(A\right)$
+gilt $0\not\in S$. Es folgt $S^{-1}A\not=\left\{ 0\right\} $.\\
+Nach \ref{sec:Satz-ExistensMaximalesIdeal} existiert ein maximales
+Ideal $\mathfrak{m}\subseteq S^{-1}A$ und nach \ref{sec:Bsp-Prim-maximales-Ideal}
+i) und \ref{sec:Prop-UrbildPrimideal} ist
+\begin{align*}
+\mathfrak{p} & :=\left(\varphi:A\xrightarrow{\text{kanonisch}}S^{-1}A\right)^{-1}\left(\mathfrak{m}\right)\subseteq A
+\end{align*}
+ein Primideal. Wegen $\varphi\left(x\right)\in\left(S^{-1}A\right)^{*}$
+folgt $\varphi\left(x\right)\not\in\mathfrak{m}$ nach \ref{sec:Kor-EinheitMaximalesIdeal}
+und somit gilt also $x\not\in\varphi^{-1}\left(\mathfrak{m}\right)=\mathfrak{p}$.\qqed[2. Beweis]
+\end{itemize}
+
+\section{Korollar und Definition \textmd{(Radikal)\label{sec:KuD-Radikal}}}
+
+Seien $A$ ein Ring und $I\subseteq A$ ein Ideal. Dann heißt $\sqrt{I}:=\left\{ x\in A\big|\exs_{n\in\mathbb{N}_{\ge1}}:x^{n}\in I\right\} $
+\emph{das Radikal von $I$}. Es gilt:
+\begin{align*}
+\sqrt{I} & =\sr{\bigcap_{\mathfrak{p}\subseteq A\text{ PI}}}{}{\text{mit }I\subseteq\mathfrak{p}}\mathfrak{p}
+\end{align*}
+
+
+Beispiel: $\sqrt{\left(0\right)}=\mathfrak{N}\left(A\right)$
+
+
+\subsubsection*{Beweis}
+
+Für den kanonischen Ringhomomorphismus $\pi:A\to\modulo AI$ gilt
+$\sqrt{I}=\pi^{-1}\left(\pi\left(\sqrt{I}\right)\right)$, da $\pi$
+surjektiv ist. Zudem ist offenbar $\pi\left(\sqrt{I}\right)=\mathfrak{N}\left(\modulo AI\right)$.
+Nach der Definition von $\sqrt{I}$ folgt:
+\begin{align*}
+\sqrt{I} & =\pi^{-1}\left(\pi\left(\sqrt{I}\right)\right)=\pi^{-1}\left(\mathfrak{N}\left(\modulo AI\right)\right)=\\
+ & \stackrel{\ref{sec:Satz-NullidealIstSchnittPrimideale}}{=}\pi^{-1}\left(\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\overline{\mathfrak{p}}\right)=\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\pi^{-1}\left(\overline{\mathfrak{p}}\right)=\\
+ & \sr ={\ref{sec:Prop-UrbildPrimideal}}{\ref{sec:Prop-IdealeQuotientenring}}\sr{\bigcap_{\mathfrak{p}\subseteq A\text{ PI}}}{}{I\subseteq\mathfrak{p}}\mathfrak{p}
+\end{align*}
+\qqed
+
+
+\section{Proposition und Definition \textmd{(Summe, Schnitt und Produkt von
+Idealen)\label{sec:PuD-SummeSchnittProduktIdeale}}}
+
+Seien $A$ ein Ring, $K$ eine Menge und $\fall_{k\in K}$ sei $I_{k}\subseteq A$
+ein Ideal.
+
+\begin{iiilist}
+
+\iii Das kleinste Ideal, welches alle $I_{k}$ enthält, ist:
+\begin{align*}
+\sum_{k\in K}I_{k} & :=\left\{ \sum_{k\in K'}x_{k}\Bigg|K'\subseteq K\text{ endlich, }x_{k}\in I_{k}\right\} \subseteq A
+\end{align*}
+Es heißt \emph{die Summe der $I_{k}$} über alle $k\in K$.
+
+\iii ${\displaystyle \bigcap_{k\in K}I_{k}\subseteq A}$ ist das
+größte Ideal, dass in allen $I_{k}$ enthalten ist.
+
+\iii Sind $I$ und $J$ Ideale, so auch $IJ:=\left\{ \sum_{i=0}^{n}x_{i}y_{i}\big|n\in\mathbb{N},x_{i}\in I,y_{i}\in J\right\} \subseteq A$,
+\emph{das Produkt von $X$ und $Y$}.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\textcolor{green}{TODO: Beweis als Übung einfügen.}\qqed
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Sind $I$ und $J$ Ideale, so gilt $IJ\subseteq I\cap J$. Denn
+ist $a\in IJ$, so gibt es ein $n\in\mathbb{N}$ und für $0\le i\le n$
+auch $x_{i}\in I$ und $y_{i}\in J$ mit:
+\begin{align*}
+a & =\sum_{i=0}^{n}x_{i}y_{i}
+\end{align*}
+Da $I$ ein Ideal ist und $x_{i}\in I$ und $y_{i}\in A$ ist, folgt
+$x_{i}y_{i}\in I$ und somit auch die Summe aller dieser Faktoren,
+also $a\in I$. Analog folgt $a\in J$ und somit $a\in I\cap J$.
+
+\iii Für $A=\mathbb{Z}$, $I=\left(a\right)$ und $J=\left(b\right)$
+gilt:
+\begin{align*}
+\left(a\right)+\left(b\right) & =\left(\text{ggT}\left(a,b\right)\right)\\
+\left(a\right)\cap\left(b\right) & =\left(\text{kgV}\left(a,b\right)\right)\\
+\left(a\right)\left(b\right) & =\left(ab\right)
+\end{align*}
+Insbesondere folgt:
+\begin{align*}
+\left(a\right)\left(b\right) & =\left(a\right)\cap\left(b\right)\quad\Leftrightarrow\quad\text{kgV}\left(a,b\right)=\pm ab\quad\Leftrightarrow\quad\text{ggT}\left(a,b\right)=1
+\end{align*}
+
+
+\iii Seien $k$ ein Körper, $n\in\mathbb{N}_{\ge1}$ und
+\begin{align*}
+A=k\left[X_{1},\ldots,X_{n}\right] & =\left\{ f=\sum_{i_{1},\ldots,i_{n}\ge0}a_{\left(i_{1},\ldots,i_{n}\right)}X_{1}^{i_{1}}X_{2}^{i_{2}}\cdots X_{n}^{i_{n}}\Bigg|a_{\left(i_{1},\ldots,i_{n}\right)}\in k\text{ fast alle Null}\right\} 
+\end{align*}
+\emph{der Polynomring über $k$ in den Variablen $X_{1},\ldots,X_{n}$}.
+Dann ist
+\begin{align*}
+\mathfrak{m} & :=\left(X_{1},\ldots,X_{n}\right)=\left\{ f\in A\bigg|a_{\left(0,\ldots,0\right)}=0\right\} =\left\{ f\in A\bigg|f\left(0,\ldots,0\right)=0\right\} \subseteq A
+\end{align*}
+ein maximales Ideal mit $\modulo A{\mathfrak{m}}\stackrel{\sim}{=}k$
+vermöge $\overline{f}\mapsto f\left(0,\ldots,0\right)\in k$. Für
+alle $n\in\mathbb{N}_{\ge1}$ gilt:
+\begin{align*}
+\mathfrak{m}^{n} & =\left\{ f\in A\Bigg|\fall_{\left(i_{1},\ldots,i_{n}\right)\in\mathbb{N}^{n}}:\left(\sum_{j=1}^{n}ij<n\Rightarrow a_{\left(i_{1},\ldots,i_{n}\right)}=0\right)\right\} 
+\end{align*}
+Für $n=2$ gilt zum Beispiel:
+\begin{align*}
+k\left[X,Y\right]\supseteq\left(X,Y\right)^{n} & =\left\{ \sr{\sum_{i,j\ge0}}{}{i+j\ge n}a_{i,j}X^{i}Y^{j}\Bigg|a_{ij}\in k\text{ fast alle Null}\right\} =\\
+ & =\left(X^{n},X^{n-1}Y,\ldots,XY^{n-1},Y^{n}\right)
+\end{align*}
+\qqed
+
+\end{iiilist}
+
+
+\section{Bemerkung und Definition \textmd{(komaximal)}}
+
+Zwei Ideale $I$ und $J$ heißen genau dann \emph{komaximal}, wenn
+$I+J=\left(1\right)$ ist. Nach \ref{sec:KuD-Radikal} i) ist dies
+äquivalent dazu, dass es ein $a\in I$ und ein $b\in J$ mit $a+b=1$
+gibt.
+
+In diesem Fall gilt $IJ=I\cap J$.
+
+
+\subsubsection*{Beweis}
+
+Wegen \ref{sec:PuD-SummeSchnittProduktIdeale} i) ist nur noch $I\cap J\subseteq IJ$
+zu zeigen.
+
+Wähle $a\in I$ und $b\in J$ mit $a+b=1$ und sei $x\in I\cap J$
+beliebig. Dann folgt:
+\begin{align*}
+x & =x\cdot1=\underbrace{xa}_{\in JI=IJ}+\underbrace{xb}_{\in IJ}\in IJ
+\end{align*}
+\qqed
+
+
+\section{Satz \textmd{(Chinesischer Restsatz)}}
+
+Sei $A$ ein Ring, $n\in\mathbb{N}_{\ge1}$ und $I_{1},\ldots,I_{n}\subseteq A$
+Ideale. Dann ist die Abbildung
+\begin{align*}
+\varphi:A & \to\prod_{i=1}^{n}\left(\modulo A{I_{i}}\right)\\
+a & \mapsto\varphi\left(a\right):=\left(a\mod I_{i}\right)_{i_{1},\ldots,i_{n}}
+\end{align*}
+ein Ringhomomorphismus und es gilt:
+
+\begin{abclist}
+
+\abc ${\displaystyle \varphi\text{ ist surjektiv }\stackrel{\text{ii)}}{\Leftrightarrow}\left(\fall_{1\le i,j\le n,i\not=j}\Rightarrow I_{i}+I_{j}=\left(1\right)\right)\stackrel{\text{i)}}{\Rightarrow}\sum_{i=1}^{n}I_{i}=\prod_{i=1}^{n}I_{i}}$
+
+\abc ${\displaystyle \text{ker}\left(\varphi\right)=\bigcap_{i=1}^{n}I_{i}}$
+
+\end{abclist}
 
 
 \part*{Anhang\thispagestyle{empty}}

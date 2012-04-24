@@ -416,14 +416,6 @@ begin{iiilist} als LyX-Kommandos einbauen.
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\newcommand{\neg}{\text{-}}
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
-\begin_inset FormulaMacro
 \newcommand{\exs}{\exsop}
 {\text{\exists}}
 \end_inset
@@ -3479,72 +3471,6 @@ status open
 
 \end_layout
 
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: Entfernen:
-\end_layout
-
-\begin_layout Plain Layout
-Bemerkung (vergleiche 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "asdf"
-
-\end_inset
-
- 1.29 und 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "asdf"
-
-\end_inset
-
- 1.30)
-\end_layout
-
-\begin_layout Plain Layout
-Ist 
-\begin_inset Formula $A$
-\end_inset
-
- ein Ring, so ist 
-\begin_inset Formula $\mathfrak{N}\left(A\right):=\left\{ x\in A\big|x\text{ nilpotent}\right\} \subseteq A$
-\end_inset
-
- ein Ideal, 
-\emph on
-das Nilradikal von 
-\begin_inset Formula $A$
-\end_inset
-
-
-\emph default
-.
-\end_layout
-
-\begin_layout Plain Layout
-Es ist der Durchschnitt aller Primideale (
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "asdf"
-
-\end_inset
-
-1.18 i)) von 
-\begin_inset Formula $A$
-\end_inset
-
-.
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
 \begin_layout Section
 Proposition 
 \series medium
@@ -4257,36 +4183,7 @@ iii
 
 \end_inset
 
- 
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: Folgt aus 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "asdf"
-
-\end_inset
-
-1.17 i) 
-\begin_inset Formula $\Leftrightarrow$
-\end_inset
-
- ii) und 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "asdf"
-
-\end_inset
-
-1.5 iii).
- ???
-\end_layout
-
-\end_inset
-
-Da nach 
+ Da nach 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Prop-KoerperIdeale"
@@ -4376,6 +4273,13 @@ end{iiilist}
 
 \begin_layout Section
 Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-Prim-maximales-Ideal"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4485,7 +4389,18 @@ end{iiilist}
 \end_layout
 
 \begin_layout Section
-Proposition
+Proposition 
+\series medium
+(Urbild eines Primideals ist ein Primideal)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-UrbildPrimideal"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -4586,7 +4501,11 @@ Für den eindeutigen Ringhomomorphismus
 \end_layout
 
 \begin_layout Section
-Satz
+Satz 
+\series medium
+(Existenz eines maximalen Ideals)
+\series default
+
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Satz-ExistensMaximalesIdeal"
@@ -4722,37 +4641,6 @@ Ist
 
 \begin_layout Subsubsection*
 Beweis
-\end_layout
-
-\begin_layout Standard
-\begin_inset Note Note
-status open
-
-\begin_layout Plain Layout
-TODO: 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "asdf"
-
-\end_inset
-
-1.22 für 
-\begin_inset Formula $\modulo AI$
-\end_inset
-
- und 
-\begin_inset CommandInset ref
-LatexCommand ref
-reference "asdf"
-
-\end_inset
-
-1.15 iii).
-\end_layout
-
-\end_inset
-
-
 \end_layout
 
 \begin_layout Standard
@@ -5146,8 +5034,8 @@ Betrachte
  bestimmt eine Abbildung
 \begin_inset Formula 
 \begin{align*}
-\text{MaxSpec}\left(A\right) & \to\bcupd_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(\modulo A{\mathfrak{m}}\right)\\
-\mathfrak{m} & \mapsto\left(a\mod\mathfrak{m}\right)_{\mathfrak{m}}=:a\left(\mathfrak{m}\right)
+\text{MaxSpec}\left(A\right) & \to\bcupd_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(\modulo A{\mathfrak{m}}\right)=:M\\
+\mathfrak{m}_{0} & \mapsto\underbrace{\left(a\mod\mathfrak{m}_{0}\right)}_{\in\moduloScript A{\mathfrak{m}_{0}}\subseteq M}=:a\left(\mathfrak{m}_{0}\right)
 \end{align*}
 
 \end_inset
@@ -5282,6 +5170,22 @@ qqed
 
 \end_layout
 
+\begin_layout Standard
+Zum Beispiel für 
+\begin_inset Formula $A=\mathbb{Z}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\modulo A{\mathbb{Z}}=\mathbb{F}_{p}$
+\end_inset
+
+ für eine Primzahl 
+\begin_inset Formula $p$
+\end_inset
+
+.
+\end_layout
+
 \begin_layout Section
 Definition 
 \series medium
@@ -5349,7 +5253,11 @@ Schreibe
 \end_layout
 
 \begin_layout Section
-Proposition
+Proposition 
+\series medium
+(Kriterium für lokalen Ring)
+\series default
+
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Prop-HinreichendLokalerRing"
@@ -5752,6 +5660,1374 @@ status open
 
 \backslash
 qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 24.04.2012
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition und Definition 
+\series medium
+(Nilradikal)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+ Dann ist 
+\begin_inset Formula $\mathfrak{N}\left(A\right):=\left\{ x\in A\big|x\text{ nilpotent}\right\} \subseteq A$
+\end_inset
+
+ ein Ideal und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{N}\left(\modulo A{\mathfrak{N}\left(A\right)}\right) & =\left(\overline{0}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Ideal 
+\begin_inset Formula $\mathfrak{N}\left(A\right)\subseteq A$
+\end_inset
+
+ heißt 
+\emph on
+das Nilradikal von 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Überprüfe 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Def-Ideal"
+
+\end_inset
+
+ i) a) und b):
+\begin_inset Formula 
+\begin{align*}
+x,y\in\mathfrak{N}\left(A\right) & \quad\Rightarrow\quad\exs_{N\in\mathbb{N}_{\ge1}}:x^{N}=y^{N}=0\quad\Rightarrow\quad\left(x-y\right)^{2N}=\sum_{i=0}^{2N}\left(\begin{array}{c}
+2N\\
+i
+\end{array}\right)x^{i}\cdot\left(-1\right)^{2N-i}\cdot y^{2N-i}
+\end{align*}
+
+\end_inset
+
+Da für alle 
+\begin_inset Formula $0\le i\le2N$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\left(i\ge N\vee2N-i\ge N\right)$
+\end_inset
+
+ ist in jedem Produkt 
+\begin_inset Formula $x^{i}\cdot y^{2N-i}$
+\end_inset
+
+ mindestens einer der Faktoren Null und es folgt 
+\begin_inset Formula $\left(x-y\right)^{2N}=\left(0\right)$
+\end_inset
+
+, also 
+\begin_inset Formula $x-y\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[a)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zu b): Seien 
+\begin_inset Formula $x\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+ Dann gibt es ein 
+\begin_inset Formula $N\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $x^{N}=0$
+\end_inset
+
+ und somit gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(ax\right)^{N} & =a^{N}x^{N}=a^{N}\cdot0=0
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $ax\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[b)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei nun 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ mit 
+\begin_inset Formula $\overline{x}:=\left(x\mod\mathfrak{N}\left(A\right)\right)\in\mathfrak{N}\left(\modulo A{\mathfrak{N}\left(A\right)}\right)$
+\end_inset
+
+.
+ Daher gibt es ein 
+\begin_inset Formula $N\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $0=\left(\overline{x}\right)^{N}=\overline{\left(x^{N}\right)}$
+\end_inset
+
+ in 
+\begin_inset Formula $\modulo A{\mathfrak{N}\left(A\right)}$
+\end_inset
+
+, weswegen 
+\begin_inset Formula $x^{N}\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+ ist.
+ Also gibt es ein 
+\begin_inset Formula $M\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $0=\left(X^{N}\right)^{M}=x^{N\cdot M}$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+, weshalb 
+\begin_inset Formula $x\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+ ist, also 
+\begin_inset Formula $\overline{x}=0$
+\end_inset
+
+ ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Nilradikal ist Schnitt aller Primideale)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-NullidealIstSchnittPrimideale"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+ Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{N}\left(A\right) & =\bigcap_{\mathfrak{p}\subseteq A\text{ Primideal}}\mathfrak{p}
+\end{align*}
+
+\end_inset
+
+(Es folgt nochmal, dass 
+\begin_inset Formula $\mathfrak{N}\left(A\right)\subseteq A$
+\end_inset
+
+ ein Ideal ist.)
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\subseteq$
+\end_inset
+
+“: Seien 
+\begin_inset Formula $x\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal.
+ Dann existiert ein 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $x^{n}=0\in\mathfrak{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Aus der Definition eines Primideals 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PuD-Prim-maximales-Ideal"
+
+\end_inset
+
+ i) a) folgt 
+\begin_inset Formula $x\in\mathfrak{p}$
+\end_inset
+
+, da dies der einzige Faktor im Produkt 
+\begin_inset Formula $x^{n}$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\supseteq$
+\end_inset
+
+“: Sei 
+\begin_inset Formula $x\in A\setminus\mathfrak{N}\left(A\right)$
+\end_inset
+
+.
+ Zeige, dass ein Primideal 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ mit 
+\begin_inset Formula $x\not\in\mathfrak{p}$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Itemize
+1.
+ Beweis (direkt): Betrachte 
+\begin_inset Formula $\Sigma:=\left\{ \mathfrak{u}\big|\mathfrak{u}\subseteq A\text{ Ideal mit }\left(\fall_{n\in\mathbb{N}_{\ge1}}:x^{n}\not\in\mathfrak{u}\right)\right\} $
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Wegen 
+\begin_inset Formula $x\not\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\left(0\right)\in\Sigma$
+\end_inset
+
+, also 
+\begin_inset Formula $\Sigma\not=\emptyset$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Es ist klar, dass 
+\begin_inset Formula $\left(\Sigma,\subseteq\right)$
+\end_inset
+
+ eine teilweise geordnete Menge ist.
+\begin_inset Newline newline
+\end_inset
+
+Ist 
+\begin_inset Formula $\Sigma'\subseteq\Sigma$
+\end_inset
+
+ total geordnet, so gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{u}' & :=\bigcup_{\mathfrak{u}\in\Sigma'}\mathfrak{u}\in\Sigma
+\end{align*}
+
+\end_inset
+
+Denn aus der totalen Ordnung von 
+\begin_inset Formula $\Sigma'$
+\end_inset
+
+ folgt, dass 
+\begin_inset Formula $\mathfrak{u}'\subseteq A$
+\end_inset
+
+ ein Ideal ist und 
+\begin_inset Formula $x^{n}\not\in\mathfrak{u}'$
+\end_inset
+
+ für alle 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ ist dann klar, denn sonst müsste es schon in einem 
+\begin_inset Formula $\mathfrak{u}$
+\end_inset
+
+ sein.
+\begin_inset Newline newline
+\end_inset
+
+Aus dem Lemma von Zorn folgt daraus die Existenz eines maximalen Elementes
+ 
+\begin_inset Formula $\mathfrak{p}\in\Sigma$
+\end_inset
+
+.
+ Wegen 
+\begin_inset Formula $x\not\in\mathfrak{p}$
+\end_inset
+
+ zeige noch, dass 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ ein Primideal ist.
+\begin_inset Newline newline
+\end_inset
+
+Angenommen dies ist nicht der Fall, dann existieren 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+ mit 
+\begin_inset Formula $a,b\not\in\mathfrak{p}$
+\end_inset
+
+ und 
+\begin_inset Formula $ab\in\mathfrak{p}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Wegen 
+\begin_inset Formula $\mathfrak{p}\subsetneq\mathfrak{p}+\left(a\right),\mathfrak{p}+\left(b\right)$
+\end_inset
+
+ und der Maximalität von 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ existieren 
+\begin_inset Formula $n,m\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $x^{n}\in\mathfrak{p}+\left(a\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $x^{m}\in\mathfrak{p}+\left(b\right)$
+\end_inset
+
+.
+ Dann folgt:
+\begin_inset Formula 
+\begin{align*}
+x^{n+m} & =x^{n}\cdot x^{m}\in\mathfrak{p}+\left(ab\right)\stackrel{ab\in\mathfrak{p}}{=}\mathfrak{p}
+\end{align*}
+
+\end_inset
+
+Dies ist ein Widerspruch zu 
+\begin_inset Formula $\mathfrak{p}\in\Sigma$
+\end_inset
+
+, also 
+\begin_inset Formula $x^{n+m}\not\in\mathfrak{p}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[1.
+ Beweis]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+2.
+ Beweis (mit Lokalisierung): 
+\begin_inset Formula $S:=\left\{ x^{n}\big|n\ge0\right\} \subseteq A$
+\end_inset
+
+ ist multiplikativ abgeschlossen und wegen 
+\begin_inset Formula $x\not\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+ gilt 
+\begin_inset Formula $0\not\in S$
+\end_inset
+
+.
+ Es folgt 
+\begin_inset Formula $S^{-1}A\not=\left\{ 0\right\} $
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-ExistensMaximalesIdeal"
+
+\end_inset
+
+ existiert ein maximales Ideal 
+\begin_inset Formula $\mathfrak{m}\subseteq S^{-1}A$
+\end_inset
+
+ und nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-Prim-maximales-Ideal"
+
+\end_inset
+
+ i) und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-UrbildPrimideal"
+
+\end_inset
+
+ ist
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{p} & :=\left(\varphi:A\xrightarrow{\text{kanonisch}}S^{-1}A\right)^{-1}\left(\mathfrak{m}\right)\subseteq A
+\end{align*}
+
+\end_inset
+
+ein Primideal.
+ Wegen 
+\begin_inset Formula $\varphi\left(x\right)\in\left(S^{-1}A\right)^{*}$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\varphi\left(x\right)\not\in\mathfrak{m}$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-EinheitMaximalesIdeal"
+
+\end_inset
+
+ und somit gilt also 
+\begin_inset Formula $x\not\in\varphi^{-1}\left(\mathfrak{m}\right)=\mathfrak{p}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[2.
+ Beweis]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar und Definition 
+\series medium
+(Radikal)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:KuD-Radikal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal.
+ Dann heißt 
+\begin_inset Formula $\sqrt{I}:=\left\{ x\in A\big|\exs_{n\in\mathbb{N}_{\ge1}}:x^{n}\in I\right\} $
+\end_inset
+
+ 
+\emph on
+das Radikal von 
+\begin_inset Formula $I$
+\end_inset
+
+
+\emph default
+.
+ Es gilt:
+\begin_inset Formula 
+\begin{align*}
+\sqrt{I} & =\sr{\bigcap_{\mathfrak{p}\subseteq A\text{ PI}}}{}{\text{mit }I\subseteq\mathfrak{p}}\mathfrak{p}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Beispiel: 
+\begin_inset Formula $\sqrt{\left(0\right)}=\mathfrak{N}\left(A\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Für den kanonischen Ringhomomorphismus 
+\begin_inset Formula $\pi:A\to\modulo AI$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\sqrt{I}=\pi^{-1}\left(\pi\left(\sqrt{I}\right)\right)$
+\end_inset
+
+, da 
+\begin_inset Formula $\pi$
+\end_inset
+
+ surjektiv ist.
+ Zudem ist offenbar 
+\begin_inset Formula $\pi\left(\sqrt{I}\right)=\mathfrak{N}\left(\modulo AI\right)$
+\end_inset
+
+.
+ Nach der Definition von 
+\begin_inset Formula $\sqrt{I}$
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\begin{align*}
+\sqrt{I} & =\pi^{-1}\left(\pi\left(\sqrt{I}\right)\right)=\pi^{-1}\left(\mathfrak{N}\left(\modulo AI\right)\right)=\\
+ & \stackrel{\ref{sec:Satz-NullidealIstSchnittPrimideale}}{=}\pi^{-1}\left(\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\overline{\mathfrak{p}}\right)=\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\pi^{-1}\left(\overline{\mathfrak{p}}\right)=\\
+ & \sr ={\ref{sec:Prop-UrbildPrimideal}}{\ref{sec:Prop-IdealeQuotientenring}}\sr{\bigcap_{\mathfrak{p}\subseteq A\text{ PI}}}{}{I\subseteq\mathfrak{p}}\mathfrak{p}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition und Definition 
+\series medium
+(Summe, Schnitt und Produkt von Idealen)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:PuD-SummeSchnittProduktIdeale"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $K$
+\end_inset
+
+ eine Menge und 
+\begin_inset Formula $\fall_{k\in K}$
+\end_inset
+
+ sei 
+\begin_inset Formula $I_{k}\subseteq A$
+\end_inset
+
+ ein Ideal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Das kleinste Ideal, welches alle 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ enthält, ist:
+\begin_inset Formula 
+\begin{align*}
+\sum_{k\in K}I_{k} & :=\left\{ \sum_{k\in K'}x_{k}\Bigg|K'\subseteq K\text{ endlich, }x_{k}\in I_{k}\right\} \subseteq A
+\end{align*}
+
+\end_inset
+
+Es heißt 
+\emph on
+die Summe der 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+
+\emph default
+ über alle 
+\begin_inset Formula $k\in K$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula ${\displaystyle \bigcap_{k\in K}I_{k}\subseteq A}$
+\end_inset
+
+ ist das größte Ideal, dass in allen 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ enthalten ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $I$
+\end_inset
+
+ und 
+\begin_inset Formula $J$
+\end_inset
+
+ Ideale, so auch 
+\begin_inset Formula $IJ:=\left\{ \sum_{i=0}^{n}x_{i}y_{i}\big|n\in\mathbb{N},x_{i}\in I,y_{i}\in J\right\} \subseteq A$
+\end_inset
+
+, 
+\emph on
+das Produkt von 
+\begin_inset Formula $X$
+\end_inset
+
+ und 
+\begin_inset Formula $Y$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+
+\color green
+TODO: Beweis als Übung einfügen.
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $I$
+\end_inset
+
+ und 
+\begin_inset Formula $J$
+\end_inset
+
+ Ideale, so gilt 
+\begin_inset Formula $IJ\subseteq I\cap J$
+\end_inset
+
+.
+ Denn ist 
+\begin_inset Formula $a\in IJ$
+\end_inset
+
+, so gibt es ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und für 
+\begin_inset Formula $0\le i\le n$
+\end_inset
+
+ auch 
+\begin_inset Formula $x_{i}\in I$
+\end_inset
+
+ und 
+\begin_inset Formula $y_{i}\in J$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+a & =\sum_{i=0}^{n}x_{i}y_{i}
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $I$
+\end_inset
+
+ ein Ideal ist und 
+\begin_inset Formula $x_{i}\in I$
+\end_inset
+
+ und 
+\begin_inset Formula $y_{i}\in A$
+\end_inset
+
+ ist, folgt 
+\begin_inset Formula $x_{i}y_{i}\in I$
+\end_inset
+
+ und somit auch die Summe aller dieser Faktoren, also 
+\begin_inset Formula $a\in I$
+\end_inset
+
+.
+ Analog folgt 
+\begin_inset Formula $a\in J$
+\end_inset
+
+ und somit 
+\begin_inset Formula $a\in I\cap J$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für 
+\begin_inset Formula $A=\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $I=\left(a\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $J=\left(b\right)$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(a\right)+\left(b\right) & =\left(\text{ggT}\left(a,b\right)\right)\\
+\left(a\right)\cap\left(b\right) & =\left(\text{kgV}\left(a,b\right)\right)\\
+\left(a\right)\left(b\right) & =\left(ab\right)
+\end{align*}
+
+\end_inset
+
+Insbesondere folgt:
+\begin_inset Formula 
+\begin{align*}
+\left(a\right)\left(b\right) & =\left(a\right)\cap\left(b\right)\quad\Leftrightarrow\quad\text{kgV}\left(a,b\right)=\pm ab\quad\Leftrightarrow\quad\text{ggT}\left(a,b\right)=1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper, 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und
+\begin_inset Formula 
+\begin{align*}
+A=k\left[X_{1},\ldots,X_{n}\right] & =\left\{ f=\sum_{i_{1},\ldots,i_{n}\ge0}a_{\left(i_{1},\ldots,i_{n}\right)}X_{1}^{i_{1}}X_{2}^{i_{2}}\cdots X_{n}^{i_{n}}\Bigg|a_{\left(i_{1},\ldots,i_{n}\right)}\in k\text{ fast alle Null}\right\} 
+\end{align*}
+
+\end_inset
+
+
+\emph on
+der Polynomring über 
+\begin_inset Formula $k$
+\end_inset
+
+ in den Variablen 
+\begin_inset Formula $X_{1},\ldots,X_{n}$
+\end_inset
+
+
+\emph default
+.
+ Dann ist
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{m} & :=\left(X_{1},\ldots,X_{n}\right)=\left\{ f\in A\bigg|a_{\left(0,\ldots,0\right)}=0\right\} =\left\{ f\in A\bigg|f\left(0,\ldots,0\right)=0\right\} \subseteq A
+\end{align*}
+
+\end_inset
+
+ein maximales Ideal mit 
+\begin_inset Formula $\modulo A{\mathfrak{m}}\stackrel{\sim}{=}k$
+\end_inset
+
+ vermöge 
+\begin_inset Formula $\overline{f}\mapsto f\left(0,\ldots,0\right)\in k$
+\end_inset
+
+.
+ Für alle 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{m}^{n} & =\left\{ f\in A\Bigg|\fall_{\left(i_{1},\ldots,i_{n}\right)\in\mathbb{N}^{n}}:\left(\sum_{j=1}^{n}ij<n\Rightarrow a_{\left(i_{1},\ldots,i_{n}\right)}=0\right)\right\} 
+\end{align*}
+
+\end_inset
+
+Für 
+\begin_inset Formula $n=2$
+\end_inset
+
+ gilt zum Beispiel:
+\begin_inset Formula 
+\begin{align*}
+k\left[X,Y\right]\supseteq\left(X,Y\right)^{n} & =\left\{ \sr{\sum_{i,j\ge0}}{}{i+j\ge n}a_{i,j}X^{i}Y^{j}\Bigg|a_{ij}\in k\text{ fast alle Null}\right\} =\\
+ & =\left(X^{n},X^{n-1}Y,\ldots,XY^{n-1},Y^{n}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung und Definition 
+\series medium
+(komaximal)
+\end_layout
+
+\begin_layout Standard
+Zwei Ideale 
+\begin_inset Formula $I$
+\end_inset
+
+ und 
+\begin_inset Formula $J$
+\end_inset
+
+ heißen genau dann 
+\emph on
+komaximal
+\emph default
+, wenn 
+\begin_inset Formula $I+J=\left(1\right)$
+\end_inset
+
+ ist.
+ Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:KuD-Radikal"
+
+\end_inset
+
+ i) ist dies äquivalent dazu, dass es ein 
+\begin_inset Formula $a\in I$
+\end_inset
+
+ und ein 
+\begin_inset Formula $b\in J$
+\end_inset
+
+ mit 
+\begin_inset Formula $a+b=1$
+\end_inset
+
+ gibt.
+\end_layout
+
+\begin_layout Standard
+In diesem Fall gilt 
+\begin_inset Formula $IJ=I\cap J$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PuD-SummeSchnittProduktIdeale"
+
+\end_inset
+
+ i) ist nur noch 
+\begin_inset Formula $I\cap J\subseteq IJ$
+\end_inset
+
+ zu zeigen.
+\end_layout
+
+\begin_layout Standard
+Wähle 
+\begin_inset Formula $a\in I$
+\end_inset
+
+ und 
+\begin_inset Formula $b\in J$
+\end_inset
+
+ mit 
+\begin_inset Formula $a+b=1$
+\end_inset
+
+ und sei 
+\begin_inset Formula $x\in I\cap J$
+\end_inset
+
+ beliebig.
+ Dann folgt:
+\begin_inset Formula 
+\begin{align*}
+x & =x\cdot1=\underbrace{xa}_{\in JI=IJ}+\underbrace{xb}_{\in IJ}\in IJ
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Chinesischer Restsatz)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und 
+\begin_inset Formula $I_{1},\ldots,I_{n}\subseteq A$
+\end_inset
+
+ Ideale.
+ Dann ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\varphi:A & \to\prod_{i=1}^{n}\left(\modulo A{I_{i}}\right)\\
+a & \mapsto\varphi\left(a\right):=\left(a\mod I_{i}\right)_{i_{1},\ldots,i_{n}}
+\end{align*}
+
+\end_inset
+
+ein Ringhomomorphismus und es gilt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula ${\displaystyle \varphi\text{ ist surjektiv }\stackrel{\text{ii)}}{\Leftrightarrow}\left(\fall_{1\le i,j\le n,i\not=j}\Rightarrow I_{i}+I_{j}=\left(1\right)\right)\stackrel{\text{i)}}{\Rightarrow}\sum_{i=1}^{n}I_{i}=\prod_{i=1}^{n}I_{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula ${\displaystyle \text{ker}\left(\varphi\right)=\bigcap_{i=1}^{n}I_{i}}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
 \end_layout
 
 \end_inset
