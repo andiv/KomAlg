@@ -1698,7 +1698,7 @@ Definition und Bemerkung
 (Ideal, Quotientenring)
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Def-Ideal"
+name "sec:DuB-Ideal"
 
 \end_inset
 
@@ -2195,7 +2195,7 @@ reference "sec:Bsp-Ringe"
  ii) und 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Def-Ideal"
+reference "sec:DuB-Ideal"
 
 \end_inset
 
@@ -5730,7 +5730,7 @@ Beweis
 Überprüfe 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Def-Ideal"
+reference "sec:DuB-Ideal"
 
 \end_inset
 
@@ -6488,11 +6488,15 @@ iii
 \begin_inset Formula $J$
 \end_inset
 
- Ideale, so auch 
-\begin_inset Formula $IJ:=\left\{ \sum_{i=0}^{n}x_{i}y_{i}\big|n\in\mathbb{N},x_{i}\in I,y_{i}\in J\right\} \subseteq A$
+ Ideale, so auch
+\begin_inset Formula 
+\begin{align*}
+IJ & :=\left\{ \sum_{i=0}^{n}x_{i}y_{i}\middle|n\in\mathbb{N},x_{i}\in I,y_{i}\in J\right\} \subseteq A
+\end{align*}
+
 \end_inset
 
-, 
+
 \emph on
 das Produkt von 
 \begin_inset Formula $X$
@@ -6502,8 +6506,6 @@ das Produkt von
 \begin_inset Formula $Y$
 \end_inset
 
-
-\emph default
 .
 \end_layout
 
@@ -6528,11 +6530,6 @@ Beweis
 \end_layout
 
 \begin_layout Standard
-
-\color green
-TODO: Beweis als Übung einfügen.
-\color inherit
-
 \begin_inset ERT
 status open
 
@@ -6540,7 +6537,225 @@ status open
 
 
 \backslash
-qqed
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $x\in I_{k}$
+\end_inset
+
+, so ist nach Definition auch 
+\begin_inset Formula ${\displaystyle x\in\sum_{k\in K}I_{k}}$
+\end_inset
+
+ und somit ist für alle 
+\begin_inset Formula $k\in K$
+\end_inset
+
+ schon 
+\begin_inset Formula ${\displaystyle I_{k}\subseteq\sum_{k\in K}I_{k}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Andererseits müssen mit alle 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ auch beliebige endliche Summen von Elementen aus den 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ in jedem Ideal liegen, dass die 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ enthält.
+ Daher ist die Summe das kleinste solche Ideal.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Der Schnitt ist definitionsgemäß in allen 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ enthalten.
+\begin_inset Newline newline
+\end_inset
+
+Sei 
+\begin_inset Formula $J$
+\end_inset
+
+ ein Ideal, dass in allen 
+\begin_inset Formula $I_{k}$
+\end_inset
+
+ enthalten ist.
+ Dann gilt für jedes 
+\begin_inset Formula $x\in J$
+\end_inset
+
+ schon 
+\begin_inset Formula $x\in I_{k}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $k\in K$
+\end_inset
+
+ und somit 
+\begin_inset Formula ${\displaystyle x\in\bigcap_{k\in K}I_{k}}$
+\end_inset
+
+.
+ Also ist der Schnitt das größte solche Ideal.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Nach Definition ist 
+\begin_inset Formula $IJ$
+\end_inset
+
+ eine Gruppe bezüglich der Addition.
+ Für 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $x\in IJ$
+\end_inset
+
+ gilt für ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ mit 
+\begin_inset Formula $x_{i}\in I$
+\end_inset
+
+ und 
+\begin_inset Formula $y_{i}\in J$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x & =\sum_{i=0}^{n}x_{i}y_{i}\\
+ax & =a\left(\sum_{i=0}^{n}x_{i}y_{i}\right)=\sum_{i=0}^{n}\underbrace{\left(ax_{i}\right)}_{\in I}y_{i}\in IJ
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $IJ$
+\end_inset
+
+ ein Ideal.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
 \end_layout
 
 \end_inset
@@ -6550,6 +6765,13 @@ qqed
 
 \begin_layout Section
 Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-SummeSchnittIdeale"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -6938,7 +7160,7 @@ Satz
 \end_layout
 
 \begin_layout Standard
-Sei 
+Seien 
 \begin_inset Formula $A$
 \end_inset
 
@@ -6993,7 +7215,7 @@ abc
 \end_inset
 
  
-\begin_inset Formula ${\displaystyle \varphi\text{ ist surjektiv }\stackrel{\text{ii)}}{\Leftrightarrow}\left(\fall_{1\le i,j\le n,i\not=j}\Rightarrow I_{i}+I_{j}=\left(1\right)\right)\stackrel{\text{i)}}{\Rightarrow}\sum_{i=1}^{n}I_{i}=\prod_{i=1}^{n}I_{i}}$
+\begin_inset Formula ${\displaystyle \varphi\text{ ist surjektiv }\stackrel{\text{ii)}}{\Leftrightarrow}\left(\fall_{1\le i,j\le n,i\not=j}I_{i}+I_{j}=\left(1\right)\right)\stackrel{\text{i)}}{\Rightarrow}\bigcap_{i=1}^{n}I_{i}=\prod_{i=1}^{n}I_{i}}$
 \end_inset
 
 
@@ -7028,6 +7250,2236 @@ status open
 
 \backslash
 end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 27.4.2012
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Dass 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ ein Ringhomomorphismus ist, ist leicht nachzurechnen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $n=1$
+\end_inset
+
+ ist klar.
+ 
+\begin_inset Formula $n=2$
+\end_inset
+
+ wurde in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-SummeSchnittIdeale"
+
+\end_inset
+
+ gezeigt.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $n>2$
+\end_inset
+
+ führe eine Induktion über 
+\begin_inset Formula $n$
+\end_inset
+
+ durch:
+\end_layout
+
+\begin_layout Standard
+Induktionsvoraussetzung:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+J & :=\bigcap_{i=1}^{n-1}I_{i}=\prod_{i=1}^{n-1}I_{i}
+\end{align*}
+
+\end_inset
+
+Für alle 
+\begin_inset Formula $1\le i\le n-1$
+\end_inset
+
+ gibt es wegen 
+\begin_inset Formula $I_{i}+I_{n}=\left(1\right)$
+\end_inset
+
+ ein 
+\begin_inset Formula $x_{i}\in I_{i}$
+\end_inset
+
+ und ein 
+\begin_inset Formula $y_{i}\in I_{n}$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align}
+1 & =x_{i}+y_{i}\label{eq:1xiyi}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es folgt:
+\begin_inset Formula 
+\begin{align*}
+J=\prod_{i=1}^{n-1}I_{i} & \ni\prod_{i=1}^{n-1}x_{i}\stackrel{\eqref{eq:1xiyi}}{=}\prod_{i=1}^{n-1}\left(1-y_{i}\right)\stackrel{y_{i}\in I_{n}}{\equiv}1\mod I_{n}
+\end{align*}
+
+\end_inset
+
+Also gibt es ein 
+\begin_inset Formula $y\in I_{n}$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align}
+1 & =\underbrace{\left(\prod_{i=1}^{n-1}x_{i}\right)}_{\in J}+y\nonumber \\
+\Rightarrow\quad J+I_{n} & =\left(1\right)\label{eq:IJ1}
+\end{align}
+
+\end_inset
+
+Es folgt:
+\begin_inset Formula 
+\begin{align*}
+\prod_{i=1}^{n}I_{i} & =J\cdot I_{n}\sr ={\ref{eq:IJ1}}{n=2}J\cap I_{n}\sr ={\text{Induktions-}}{\text{voraussetzung}}\bigcap_{i=1}^{n-1}I_{i}\cap I_{n}=\bigcap_{i=1}^{n}I_{i}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[a) i)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ „
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“: Da 
+\begin_inset Formula ${\displaystyle \text{im}\left(\varphi\right)\subseteq\prod_{i=1}^{n}\left(\modulo A{I_{i}}\right)}$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermodul ist, genügt es zu zeigen:
+\begin_inset Formula 
+\begin{align*}
+\fall_{1\le i\le n}:e_{i}:=(0,\ldots,0,\underbrace{1}_{i\text{-te Stelle}},0,\ldots,0) & \in\text{im}\left(\varphi\right)
+\end{align*}
+
+\end_inset
+
+Sei 
+\begin_inset Formula $i=1$
+\end_inset
+
+ (sonst analog), so ist zu zeigen, dass es ein 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ gibt, für das gilt:
+\begin_inset Formula 
+\begin{align*}
+x & \equiv1\mod I_{1}\\
+x & \in\bigcap_{i=2}^{n}I_{i}
+\end{align*}
+
+\end_inset
+
+Nach Voraussetzung existieren für alle 
+\begin_inset Formula $2\le i\le n$
+\end_inset
+
+ schon 
+\begin_inset Formula $x_{i}\in I_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $y_{i}\in I_{i}$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+1 & =x_{i}+y_{i}\\
+\Rightarrow\quad x & :=\prod_{i=2}^{n}y_{i}\in\prod_{i=2}^{n}I_{i}\subseteq\bigcap_{i=2}^{n}I_{i}\\
+x & =\prod_{i=2}^{n}\left(1-x_{i}\right)\stackrel{x_{i}\in I_{1}}{\equiv}1\mod I_{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+“: Seine 
+\begin_inset Formula $1\le i,j\le n$
+\end_inset
+
+ mit 
+\begin_inset Formula $i\not=j$
+\end_inset
+
+ gegeben.
+ Da 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ surjektiv ist, existiert ein 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+\varphi\left(x\right) & =e_{i}
+\end{align*}
+
+\end_inset
+
+Nach der Definition von 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ folgt für alle 
+\begin_inset Formula $1\le j\le n$
+\end_inset
+
+ mit 
+\begin_inset Formula $j\not=i$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x & \equiv1\mod I_{i} & x & \equiv0\mod I_{j}
+\end{align*}
+
+\end_inset
+
+Es folgt 
+\begin_inset Formula $1=x+y$
+\end_inset
+
+ mit einem geeigneten 
+\begin_inset Formula $y\in I_{i}$
+\end_inset
+
+.
+ Also gilt 
+\begin_inset Formula $I_{i}+I_{j}=\left(1\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[a) ii)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Dies ist klar, da 
+\begin_inset Formula $\varphi\left(x\right)=0$
+\end_inset
+
+ bedeutet, dass 
+\begin_inset Formula $x\mod I_{i}=0$
+\end_inset
+
+ für allen 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ gilt, also 
+\begin_inset Formula $x$
+\end_inset
+
+ in alle 
+\begin_inset Formula $I_{i}$
+\end_inset
+
+ liegt, und somit im Schnitt liegt.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[b)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition und Bemerkung 
+\series medium
+(Bild und Urbild eines Ideals)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal, so ist
+\begin_inset Formula 
+\begin{align*}
+f_{*}\left(I\right) & :=\left\{ \sum_{i=1}^{n}b_{i}\cdot f\left(x_{i}\right)\middle|n\in\mathbb{N},\, b_{i}\in B,\, x_{i}\in I\right\} \subseteq B
+\end{align*}
+
+\end_inset
+
+das kleinste Ideal von 
+\begin_inset Formula $B$
+\end_inset
+
+, welches 
+\begin_inset Formula $f\left(I\right)$
+\end_inset
+
+umfasst.
+ Es heißt 
+\emph on
+das Bild von 
+\begin_inset Formula $I$
+\end_inset
+
+ unter 
+\begin_inset Formula $f$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $J\subseteq B$
+\end_inset
+
+ ein Ideal, so ist 
+\begin_inset Formula $f^{*}\left(J\right):=f^{-1}\left(J\right)\subseteq A$
+\end_inset
+
+ ein Ideal, 
+\emph on
+das Urbild von 
+\begin_inset Formula $J$
+\end_inset
+
+ unter 
+\begin_inset Formula $f$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $\mathfrak{p}\subseteq B$
+\end_inset
+
+ ein Primideal, so auch 
+\begin_inset Formula $f^{*}\left(\mathfrak{p}\right)\subseteq A$
+\end_inset
+
+, wie in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-UrbildPrimideal"
+
+\end_inset
+
+ gezeigt wurde.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Es ist 
+\begin_inset Formula $\mathfrak{p}:=\left(5\right)\subseteq A:=\mathbb{Z}$
+\end_inset
+
+ ein Primideal, aber für den eindeutigen Ringhomomorphismus 
+\begin_inset Formula $f:\mathbb{Z}\to\mathbb{Q}$
+\end_inset
+
+ ist 
+\begin_inset Formula $f_{*}\left(\mathfrak{p}\right)=\left(1\right)\subseteq\mathbb{Q}$
+\end_inset
+
+ kein Primideal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für den eindeutigen Ringhomomorphismus 
+\begin_inset Formula $f:\mathbb{Z}\to\mathbb{Z}\left[\ii\right]$
+\end_inset
+
+ und eine Primzahl 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ gelten:
+\begin_inset Formula 
+\begin{align*}
+f_{*}\left(\left(p\right)\right) & =\begin{cases}
+\mathfrak{p}^{2} & \text{mit }\mathfrak{p}=\left(1+\ii\right)\subseteq\mathbb{Z}\left[\ii\right]\text{ für }p=2\\
+\mathfrak{p}_{1}\cdot\mathfrak{p}_{2} & \text{für Primideale }\mathfrak{p}_{1},\mathfrak{p}_{2},\mathfrak{p}_{1}\not=\mathfrak{p}_{2}\text{ für }p\equiv1\mod4\\
+\left(p\right) & p\equiv3\mod4
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Durch Betrachten der Norm ist dies äquivalent zu:
+\begin_inset Formula 
+\begin{align*}
+p\not=2\text{ Primzahl }\Rightarrow & \left(\exs_{x,y\in\mathbb{Z}}p=x^{2}+y^{2}\Leftrightarrow p\equiv1\mod4\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Der Beweis erfolgt später in der algebraischen Zahlentheorie.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace 1cm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+
+\emph on
+freiwillige Übung
+\emph default
+: Was aus Kapitel 1 gilt allgemein für nicht notwendig kommutative Ringe?
+\end_layout
+
+\begin_layout Chapter
+Moduln
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+((Unter-)Modul)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ein 
+\emph on
+
+\begin_inset Formula $A$
+\end_inset
+
+-Modul
+\emph default
+ ist eine abelsche Gruppe 
+\begin_inset Formula $M$
+\end_inset
+
+ zusammen mit einer Abbildung, 
+\emph on
+Skalarmultiplikation
+\emph default
+ genannt,
+\begin_inset Formula 
+\begin{align*}
+A\times M & \to M\\
+\left(a,m\right) & \mapsto am
+\end{align*}
+
+\end_inset
+
+für die für alle 
+\begin_inset Formula $a,b\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $x,y\in M$
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $a\left(x+y\right)=ax+ay$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(a+b\right)x=ax+bx$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(ab\right)x=a\left(bx\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $1\cdot x=x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Äquivalent dazu ist, dass die Abbildung 
+\begin_inset Formula $A\to\text{End}_{\mathbb{Z}}\left(M\right),a\mapsto\left(m\mapsto am\right)$
+\end_inset
+
+ ein Ringhomomorphismus ist.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sei 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+ Ein 
+\emph on
+(
+\begin_inset Formula $A$
+\end_inset
+
+-)Untermodul (von 
+\begin_inset Formula $M$
+\end_inset
+
+)
+\emph default
+ (Abkürzung: UM) ist eine abelsche Untergruppe 
+\begin_inset Formula $N\subseteq M$
+\end_inset
+
+ mit 
+\begin_inset Formula $ax\in N$
+\end_inset
+
+ für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und alle 
+\begin_inset Formula $x\in N$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung und Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:BuB-Modul"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Ringmultiplikation 
+\begin_inset Formula $A\times A\to A$
+\end_inset
+
+ definiert auf 
+\begin_inset Formula $\left(A,+,0\right)$
+\end_inset
+
+ die Struktur eines 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduls, und die 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermoduln sind genau die Ideale von 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A=k$
+\end_inset
+
+ ein Körper, so ist ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul dasselbe wie ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Vektorraum.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jede abelsche Gruppe 
+\begin_inset Formula $M$
+\end_inset
+
+ besitzt genau eine 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-Modulstruktur, nämlich:
+\begin_inset Formula 
+\begin{align*}
+\mathbb{Z}\times M & \to M\\
+\left(n,x\right) & \mapsto\begin{cases}
+{\displaystyle \sum_{k=1}^{n}x} & n\ge0\\
+{\displaystyle -\sum_{k=1}^{-n}x} & n<0
+\end{cases}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper, 
+\begin_inset Formula $A=k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+ für 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und 
+\begin_inset Formula $M$
+\end_inset
+
+ eine abelsche Gruppe.
+\end_layout
+
+\begin_layout Standard
+Die Angabe eines Ringhomomorphismus 
+\begin_inset Formula $\varphi:A\to\text{End}_{\mathbb{Z}}\left(M\right)$
+\end_inset
+
+ ist äquivalent zur Angabe
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ von einem Ringhomomorphismus 
+\begin_inset Formula $k\to\text{End}_{\mathbb{Z}}\left(M\right)$
+\end_inset
+
+, also ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Vektorraumstruktur auf 
+\begin_inset Formula $M$
+\end_inset
+
+ und
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ von 
+\begin_inset Formula $\varphi_{1}=\varphi\left(X_{1}\right),\ldots,\varphi_{n}=\varphi\left(X_{n}\right)\in\text{End}_{k}\left(M\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\varphi_{i}\circ\varphi_{j}=\varphi_{j}\circ\varphi_{i}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $1\le i,j\le n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Beachte die universelle Eigenschaft der 
+\begin_inset Formula $k$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $A$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=3.5em, text height=1.5ex
+, text depth=0.25ex] {
+\end_layout
+
+\begin_layout Plain Layout
+
+   A & 
+\backslash
+text{End}_{
+\backslash
+mathbb{Z}}(M) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   k & 
+\backslash
+text{End}_{k}(M) 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->,font=
+\backslash
+scriptsize]
+\end_layout
+
+\begin_layout Plain Layout
+
+    (m-2-1) edge (m-1-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+    (m-2-2) edge (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize]
+\end_layout
+
+\begin_layout Plain Layout
+
+    (m-2-1) edge (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            edge (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[dashed,->,font=
+\backslash
+scriptsize]
+\end_layout
+
+\begin_layout Plain Layout
+
+    (m-1-1) edge (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Abbildung 
+\begin_inset Formula $A\to\text{End}_{k}\left(M\right)$
+\end_inset
+
+ ist dabei durch die 
+\begin_inset Formula $\varphi_{i}$
+\end_inset
+
+ bestimmt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition und Bemerkung 
+\series medium
+(lineare Abbildung)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $M$
+\end_inset
+
+ und 
+\begin_inset Formula $N$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine 
+\emph on
+(
+\begin_inset Formula $A$
+\end_inset
+
+-)lineare Abbildung (von 
+\begin_inset Formula $M$
+\end_inset
+
+ nach 
+\begin_inset Formula $N$
+\end_inset
+
+)
+\emph default
+ ist ein Homomorphismus abelscher Gruppen 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(ax\right)=af\left(x\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und alle 
+\begin_inset Formula $x\in M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Menge 
+\begin_inset Formula $\text{Hom}_{A}\left(M,N\right):=\left\{ f:M\to N\big|g\text{ ist \ensuremath{A}-linear}\right\} $
+\end_inset
+
+ ist ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul vermöge
+\begin_inset Formula 
+\begin{align*}
+\left(f+g\right)\left(x\right) & :=f\left(x\right)+g\left(x\right)\\
+\left(af\right)\left(x\right) & :=a\left(f\left(x\right)\right)
+\end{align*}
+
+\end_inset
+
+für alle 
+\begin_inset Formula $f,g\in\text{Hom}_{A}\left(M,N\right)$
+\end_inset
+
+, alle 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ und alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $\alpha:M'\to M$
+\end_inset
+
+ und 
+\begin_inset Formula $\beta:N\to N'$
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+-linear, so auch
+\begin_inset Formula 
+\begin{align*}
+\alpha^{*}:\text{Hom}_{A}\left(M,N\right) & \to\text{Hom}_{A}\left(M',N\right)\\
+f & \mapsto\alpha^{*}\left(f\right):=f\circ\alpha
+\end{align*}
+
+\end_inset
+
+und:
+\begin_inset Formula 
+\begin{align*}
+\beta_{*}:\text{Hom}_{A}\left(M,N\right) & \to\text{Hom}_{A}\left(M,N'\right)\\
+f & \mapsto\beta^{*}\left(f\right):=\beta\circ f
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\varepsilon_{M}:\text{Hom}_{A}\left(A,M\right) & \stackrel{\sim}{\to}M\\
+f & \mapsto f\left(1\right)
+\end{align*}
+
+\end_inset
+
+ist ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul-Isomorphismus, der 
+\emph on
+natürlich
+\emph default
+ in 
+\begin_inset Formula $M$
+\end_inset
+
+ ist, das heißt, ist 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+-linear, so ist folgendes Diagramm kommutativ:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex] {  
+\backslash
+text{Hom}_{A}(A,M) & M 
+\backslash
+
+\backslash
+ 
+\backslash
+text{Hom}_{A}(A,N) & N 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+sim$} node[below] {$ 
+\backslash
+varepsilon_M $} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above]{$
+\backslash
+sim$} node[below] {$ 
+\backslash
+varepsilon_N $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge node[right]{$f_*$} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-2) edge node[right]{$f$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind wie in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:BuB-Modul"
+
+\end_inset
+
+ iv) 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A=k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+-Moduln, bestimmt durch Abbildungen 
+\begin_inset Formula $\varphi_{i}^{\left(j\right)}\in\text{End}_{k}\left(M_{j}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+, 
+\begin_inset Formula $1\le j\le2$
+\end_inset
+
+, so sind die 
+\begin_inset Formula $A$
+\end_inset
+
+-linearen Abbildungen 
+\begin_inset Formula $f:M_{1}\to M_{2}$
+\end_inset
+
+ genau die 
+\begin_inset Formula $k$
+\end_inset
+
+-linearen Abbildungen mit 
+\begin_inset Formula $f\circ\varphi_{i}^{\left(1\right)}=\varphi_{i}^{\left(2\right)}\circ f$
+\end_inset
+
+ für alle 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+iv): Man sieht leicht, dass 
+\begin_inset Formula $\varepsilon_{M}$
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+-linear und 
+\begin_inset Formula $\varepsilon_{M}^{-1}\left(x\right)\left(a\right)=ax$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Standard
+Also ist 
+\begin_inset Formula $\varepsilon_{M}$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-linearer Isomorphismus.
+ Sei 
+\begin_inset Formula $\varphi\in\text{Hom}_{A}\left(A,M\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Rechne einerseits 
+\begin_inset Formula 
+\begin{align*}
+f\left(\varepsilon_{M}\left(\varphi\right)\right) & =f\left(\varphi\left(1\right)\right)
+\end{align*}
+
+\end_inset
+
+und andererseits:
+\begin_inset Formula 
+\begin{align*}
+\varepsilon_{N}\left(f_{*}\left(\varphi\right)\right) & =\varepsilon_{N}\left(f\circ\varphi\right)=\left(f\circ\varphi\right)\left(1\right)=f\left(\varphi\left(1\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[iv)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung und Definition 
+\series medium
+(Quotientenmodul)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und 
+\begin_inset Formula $N\subseteq M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermodul.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Auf der abelschen Gruppe 
+\begin_inset Formula $\modulo MN$
+\end_inset
+
+ existiert genau eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Modulstruktur so, dass die kanonische Abbildung 
+\begin_inset Formula $\pi:M\to\modulo MN$
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+-linear ist, nämlich 
+\begin_inset Formula $a\left[x\right]=\left[ax\right]$
+\end_inset
+
+ für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und alle 
+\begin_inset Formula $x\in M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Der 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $\modulo MN$
+\end_inset
+
+ heißt 
+\emph on
+der Quotientenmodul (von 
+\begin_inset Formula $M$
+\end_inset
+
+ nach 
+\begin_inset Formula $N$
+\end_inset
+
+)
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Abbildung von Mengen
+\begin_inset Formula 
+\begin{align*}
+\left\{ U\big|N\subseteq U\subseteq M\text{ ist \ensuremath{A}-Untermodul}\right\}  & \stackrel{\sim}{\to}\left\{ \overline{U}\big|\overline{U}\subseteq\modulo MN\text{ ist \ensuremath{A}-Untermodul}\right\} \\
+U & \mapsto\pi\left(U\right)
+\end{align*}
+
+\end_inset
+
+ist bijektiv und inklusionserhaltend.
+ (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-IdealeQuotientenring"
+
+\end_inset
+
+ für den Spezialfall 
+\begin_inset Formula $M=A$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $L$
+\end_inset
+
+ ein weiterer 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, so ist
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em] { 
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+text{Hom}_{A}
+\backslash
+left(
+\backslash
+modulo{M}{N},L
+\backslash
+right) & M 
+\backslash
+
+\backslash
+ & 
+\backslash
+text{Hom}_{A}
+\backslash
+left(M,L
+\backslash
+right) 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+sim$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->] (m-1-1) edge node[above]{$f_*$} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                      (m-1-2) edge (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+ein 
+\begin_inset Formula $A$
+\end_inset
+
+-linearer Isomorphismus.
+ (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:DuB-Ideal"
+
+\end_inset
+
+ iii))
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel und Definition 
+\series medium
+(Kokern)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+-linear, so gilt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\text{ker}\left(f\right):=\left\{ x\in M\big|f\left(x\right)=0\right\} \subseteq M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermodul.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Es heißt 
+\begin_inset Formula $\text{koker}\left(f\right):=\modulo N{\text{im}\left(f\right)}$
+\end_inset
+
+ 
+\emph on
+der Kokern von 
+\begin_inset Formula $f$
+\end_inset
+
+
+\emph default
+.
+\begin_inset Formula 
+\begin{align*}
+\text{ker}\left(f\right) & \hookrightarrow M\stackrel{f}{\to}N\twoheadrightarrow\text{koker}\left(f\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
 \end_layout
 
 \end_inset

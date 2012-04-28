@@ -1,4 +1,4 @@
-%% LyX 2.0.1 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.0.2 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[11pt,english,ngerman]{report}
 \usepackage[T1]{fontenc}
@@ -9,7 +9,6 @@
 \pagestyle{fancy}
 \setlength{\parskip}{\smallskipamount}
 \setlength{\parindent}{0pt}
-\usepackage{color}
 \usepackage{babel}
 \usepackage{textcomp}
 \usepackage{url}
@@ -435,7 +434,7 @@ $\mathbb{Z}\subseteq\mathbb{Q}\subseteq\mathbb{R}\subseteq\mathbb{C}$
 sind Unterringe, nicht aber $\mathbb{N}\subseteq\mathbb{Z}$.
 
 
-\section{Definition und Bemerkung \textmd{(Ideal, Quotientenring)\label{sec:Def-Ideal}}}
+\section{Definition und Bemerkung \textmd{(Ideal, Quotientenring)\label{sec:DuB-Ideal}}}
 
 Sei $A$ ein Ring.
 
@@ -515,7 +514,7 @@ ein Ringhomomorphismus mit $\text{im}\left(\iota\right)=B$.)
 0 & \text{sonst}
 \end{cases}
 \end{align*}
-(Verwende \ref{sec:Bsp-Ringe} ii) und \ref{sec:Def-Ideal} iii) mit
+(Verwende \ref{sec:Bsp-Ringe} ii) und \ref{sec:DuB-Ideal} iii) mit
 $I=n\mathbb{Z}\subseteq A=\mathbb{Z}$.)
 
 \end{iiilist}
@@ -1138,7 +1137,7 @@ Nilradikal von $A$.}
 
 \subsubsection*{Beweis}
 
-Überprüfe \ref{sec:Def-Ideal} i) a) und b):
+Überprüfe \ref{sec:DuB-Ideal} i) a) und b):
 \begin{align*}
 x,y\in\mathfrak{N}\left(A\right) & \quad\Rightarrow\quad\exs_{N\in\mathbb{N}_{\ge1}}:x^{N}=y^{N}=0\quad\Rightarrow\quad\left(x-y\right)^{2N}=\sum_{i=0}^{2N}\left(\begin{array}{c}
 2N\\
@@ -1271,18 +1270,45 @@ Es heißt \emph{die Summe der $I_{k}$} über alle $k\in K$.
 \iii ${\displaystyle \bigcap_{k\in K}I_{k}\subseteq A}$ ist das
 größte Ideal, dass in allen $I_{k}$ enthalten ist.
 
-\iii Sind $I$ und $J$ Ideale, so auch $IJ:=\left\{ \sum_{i=0}^{n}x_{i}y_{i}\big|n\in\mathbb{N},x_{i}\in I,y_{i}\in J\right\} \subseteq A$,
-\emph{das Produkt von $X$ und $Y$}.
+\iii Sind $I$ und $J$ Ideale, so auch
+\begin{align*}
+IJ & :=\left\{ \sum_{i=0}^{n}x_{i}y_{i}\middle|n\in\mathbb{N},x_{i}\in I,y_{i}\in J\right\} \subseteq A
+\end{align*}
+\emph{das Produkt von $X$ und $Y$.}
 
 \end{iiilist}
 
 
 \subsubsection*{Beweis}
 
-\textcolor{green}{TODO: Beweis als Übung einfügen.}\qqed
+\begin{iiilist}
+
+\iii Ist $x\in I_{k}$, so ist nach Definition auch ${\displaystyle x\in\sum_{k\in K}I_{k}}$
+und somit ist für alle $k\in K$ schon ${\displaystyle I_{k}\subseteq\sum_{k\in K}I_{k}}$.
+
+Andererseits müssen mit alle $I_{k}$ auch beliebige endliche Summen
+von Elementen aus den $I_{k}$ in jedem Ideal liegen, dass die $I_{k}$
+enthält. Daher ist die Summe das kleinste solche Ideal.\qqed[\roman{ale2})]
+
+\iii Der Schnitt ist definitionsgemäß in allen $I_{k}$ enthalten.\\
+Sei $J$ ein Ideal, dass in allen $I_{k}$ enthalten ist. Dann gilt
+für jedes $x\in J$ schon $x\in I_{k}$ für alle $k\in K$ und somit
+${\displaystyle x\in\bigcap_{k\in K}I_{k}}$. Also ist der Schnitt
+das größte solche Ideal.\qqed[\roman{ale2})]
+
+\iii Nach Definition ist $IJ$ eine Gruppe bezüglich der Addition.
+Für $a\in A$ und $x\in IJ$ gilt für ein $n\in\mathbb{N}$ und $1\le i\le n$
+mit $x_{i}\in I$ und $y_{i}\in J$:
+\begin{align*}
+x & =\sum_{i=0}^{n}x_{i}y_{i}\\
+ax & =a\left(\sum_{i=0}^{n}x_{i}y_{i}\right)=\sum_{i=0}^{n}\underbrace{\left(ax_{i}\right)}_{\in I}y_{i}\in IJ
+\end{align*}
+Also ist $IJ$ ein Ideal.\qqed[\roman{ale2})]
+
+\end{iiilist}
 
 
-\section{Beispiel}
+\section{Beispiel\label{sec:Bsp-SummeSchnittIdeale}}
 
 \begin{iiilist}
 
@@ -1359,7 +1385,7 @@ x & =x\cdot1=\underbrace{xa}_{\in JI=IJ}+\underbrace{xb}_{\in IJ}\in IJ
 
 \section{Satz \textmd{(Chinesischer Restsatz)}}
 
-Sei $A$ ein Ring, $n\in\mathbb{N}_{\ge1}$ und $I_{1},\ldots,I_{n}\subseteq A$
+Seien $A$ ein Ring, $n\in\mathbb{N}_{\ge1}$ und $I_{1},\ldots,I_{n}\subseteq A$
 Ideale. Dann ist die Abbildung
 \begin{align*}
 \varphi:A & \to\prod_{i=1}^{n}\left(\modulo A{I_{i}}\right)\\
@@ -1369,11 +1395,386 @@ ein Ringhomomorphismus und es gilt:
 
 \begin{abclist}
 
-\abc ${\displaystyle \varphi\text{ ist surjektiv }\stackrel{\text{ii)}}{\Leftrightarrow}\left(\fall_{1\le i,j\le n,i\not=j}\Rightarrow I_{i}+I_{j}=\left(1\right)\right)\stackrel{\text{i)}}{\Rightarrow}\sum_{i=1}^{n}I_{i}=\prod_{i=1}^{n}I_{i}}$
+\abc ${\displaystyle \varphi\text{ ist surjektiv }\stackrel{\text{ii)}}{\Leftrightarrow}\left(\fall_{1\le i,j\le n,i\not=j}I_{i}+I_{j}=\left(1\right)\right)\stackrel{\text{i)}}{\Rightarrow}\bigcap_{i=1}^{n}I_{i}=\prod_{i=1}^{n}I_{i}}$
 
 \abc ${\displaystyle \text{ker}\left(\varphi\right)=\bigcap_{i=1}^{n}I_{i}}$
 
 \end{abclist}
+
+%DATE: Fr 27.4.2012
+
+
+\subsubsection*{Beweis}
+
+Dass $\varphi$ ein Ringhomomorphismus ist, ist leicht nachzurechnen.
+
+\begin{abclist}
+
+\abc
+
+\begin{iiilist}
+
+\iii $n=1$ ist klar. $n=2$ wurde in \ref{sec:Bsp-SummeSchnittIdeale}
+gezeigt.
+
+Für $n>2$ führe eine Induktion über $n$ durch:
+
+Induktionsvoraussetzung:
+
+\begin{align*}
+J & :=\bigcap_{i=1}^{n-1}I_{i}=\prod_{i=1}^{n-1}I_{i}
+\end{align*}
+Für alle $1\le i\le n-1$ gibt es wegen $I_{i}+I_{n}=\left(1\right)$
+ein $x_{i}\in I_{i}$ und ein $y_{i}\in I_{n}$ mit:
+\begin{align}
+1 & =x_{i}+y_{i}\label{eq:1xiyi}
+\end{align}
+
+
+Es folgt:
+\begin{align*}
+J=\prod_{i=1}^{n-1}I_{i} & \ni\prod_{i=1}^{n-1}x_{i}\stackrel{\eqref{eq:1xiyi}}{=}\prod_{i=1}^{n-1}\left(1-y_{i}\right)\stackrel{y_{i}\in I_{n}}{\equiv}1\mod I_{n}
+\end{align*}
+Also gibt es ein $y\in I_{n}$ mit:
+\begin{align}
+1 & =\underbrace{\left(\prod_{i=1}^{n-1}x_{i}\right)}_{\in J}+y\nonumber \\
+\Rightarrow\quad J+I_{n} & =\left(1\right)\label{eq:IJ1}
+\end{align}
+Es folgt:
+\begin{align*}
+\prod_{i=1}^{n}I_{i} & =J\cdot I_{n}\sr ={\ref{eq:IJ1}}{n=2}J\cap I_{n}\sr ={\text{Induktions-}}{\text{voraussetzung}}\bigcap_{i=1}^{n-1}I_{i}\cap I_{n}=\bigcap_{i=1}^{n}I_{i}
+\end{align*}
+\qqed[a) i)]
+
+\iii \quotedblbase{}$\Leftarrow$\textquotedblleft{}: Da ${\displaystyle \text{im}\left(\varphi\right)\subseteq\prod_{i=1}^{n}\left(\modulo A{I_{i}}\right)}$
+ein $A$-Untermodul ist, genügt es zu zeigen:
+\begin{align*}
+\fall_{1\le i\le n}:e_{i}:=(0,\ldots,0,\underbrace{1}_{i\text{-te Stelle}},0,\ldots,0) & \in\text{im}\left(\varphi\right)
+\end{align*}
+Sei $i=1$ (sonst analog), so ist zu zeigen, dass es ein $x\in A$
+gibt, für das gilt:
+\begin{align*}
+x & \equiv1\mod I_{1}\\
+x & \in\bigcap_{i=2}^{n}I_{i}
+\end{align*}
+Nach Voraussetzung existieren für alle $2\le i\le n$ schon $x_{i}\in I_{1}$
+und $y_{i}\in I_{i}$ mit:
+\begin{align*}
+1 & =x_{i}+y_{i}\\
+\Rightarrow\quad x & :=\prod_{i=2}^{n}y_{i}\in\prod_{i=2}^{n}I_{i}\subseteq\bigcap_{i=2}^{n}I_{i}\\
+x & =\prod_{i=2}^{n}\left(1-x_{i}\right)\stackrel{x_{i}\in I_{1}}{\equiv}1\mod I_{1}
+\end{align*}
+
+
+\quotedblbase{}$\Rightarrow$\textquotedblleft{}: Seine $1\le i,j\le n$
+mit $i\not=j$ gegeben. Da $\varphi$ surjektiv ist, existiert ein
+$x\in A$ mit:
+\begin{align*}
+\varphi\left(x\right) & =e_{i}
+\end{align*}
+Nach der Definition von $\varphi$ folgt für alle $1\le j\le n$ mit
+$j\not=i$:
+\begin{align*}
+x & \equiv1\mod I_{i} & x & \equiv0\mod I_{j}
+\end{align*}
+Es folgt $1=x+y$ mit einem geeigneten $y\in I_{i}$. Also gilt $I_{i}+I_{j}=\left(1\right)$.\qqed[a) ii)]
+
+\end{iiilist}
+
+\abc Dies ist klar, da $\varphi\left(x\right)=0$ bedeutet, dass
+$x\mod I_{i}=0$ für allen $1\le i\le n$ gilt, also $x$ in alle
+$I_{i}$ liegt, und somit im Schnitt liegt.\qqed[b)]
+
+\end{abclist}
+
+
+\section{Definition und Bemerkung \textmd{(Bild und Urbild eines Ideals)}}
+
+Sei $f:A\to B$ ein Ringhomomorphismus.
+
+\begin{iiilist}
+
+\iii Ist $I\subseteq A$ ein Ideal, so ist
+\begin{align*}
+f_{*}\left(I\right) & :=\left\{ \sum_{i=1}^{n}b_{i}\cdot f\left(x_{i}\right)\middle|n\in\mathbb{N},\, b_{i}\in B,\, x_{i}\in I\right\} \subseteq B
+\end{align*}
+das kleinste Ideal von $B$, welches $f\left(I\right)$umfasst. Es
+heißt \emph{das Bild von $I$ unter $f$}.
+
+\iii Ist $J\subseteq B$ ein Ideal, so ist $f^{*}\left(J\right):=f^{-1}\left(J\right)\subseteq A$
+ein Ideal, \emph{das Urbild von $J$ unter $f$}.
+
+\iii Ist $\mathfrak{p}\subseteq B$ ein Primideal, so auch $f^{*}\left(\mathfrak{p}\right)\subseteq A$,
+wie in \ref{sec:Prop-UrbildPrimideal} gezeigt wurde.
+
+\iii Es ist $\mathfrak{p}:=\left(5\right)\subseteq A:=\mathbb{Z}$
+ein Primideal, aber für den eindeutigen Ringhomomorphismus $f:\mathbb{Z}\to\mathbb{Q}$
+ist $f_{*}\left(\mathfrak{p}\right)=\left(1\right)\subseteq\mathbb{Q}$
+kein Primideal.
+
+\iii Für den eindeutigen Ringhomomorphismus $f:\mathbb{Z}\to\mathbb{Z}\left[\ii\right]$
+und eine Primzahl $p\in\mathbb{Z}$ gelten:
+\begin{align*}
+f_{*}\left(\left(p\right)\right) & =\begin{cases}
+\mathfrak{p}^{2} & \text{mit }\mathfrak{p}=\left(1+\ii\right)\subseteq\mathbb{Z}\left[\ii\right]\text{ für }p=2\\
+\mathfrak{p}_{1}\cdot\mathfrak{p}_{2} & \text{für Primideale }\mathfrak{p}_{1},\mathfrak{p}_{2},\mathfrak{p}_{1}\not=\mathfrak{p}_{2}\text{ für }p\equiv1\mod4\\
+\left(p\right) & p\equiv3\mod4
+\end{cases}
+\end{align*}
+Durch Betrachten der Norm ist dies äquivalent zu:
+\begin{align*}
+p\not=2\text{ Primzahl }\Rightarrow & \left(\exs_{x,y\in\mathbb{Z}}p=x^{2}+y^{2}\Leftrightarrow p\equiv1\mod4\right)
+\end{align*}
+
+
+(Der Beweis erfolgt später in der algebraischen Zahlentheorie.)
+
+\end{iiilist}
+
+\vspace{1cm}
+
+
+\emph{freiwillige Übung}: Was aus Kapitel 1 gilt allgemein für nicht
+notwendig kommutative Ringe?
+
+
+\chapter{Moduln}
+
+
+\section{Definition \textmd{((Unter-)Modul)}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Ein \emph{$A$-Modul} ist eine abelsche Gruppe $M$ zusammen
+mit einer Abbildung, \emph{Skalarmultiplikation} genannt,
+\begin{align*}
+A\times M & \to M\\
+\left(a,m\right) & \mapsto am
+\end{align*}
+für die für alle $a,b\in A$ und $x,y\in M$ gilt:
+
+\begin{abclist}
+
+\abc $a\left(x+y\right)=ax+ay$
+
+\abc $\left(a+b\right)x=ax+bx$
+
+\abc $\left(ab\right)x=a\left(bx\right)$
+
+\abc $1\cdot x=x$
+
+\end{abclist}
+
+(Äquivalent dazu ist, dass die Abbildung $A\to\text{End}_{\mathbb{Z}}\left(M\right),a\mapsto\left(m\mapsto am\right)$
+ein Ringhomomorphismus ist.)
+
+\iii Sei $M$ ein $A$-Modul. Ein \emph{($A$-)Untermodul (von $M$)}
+(Abkürzung: UM) ist eine abelsche Untergruppe $N\subseteq M$ mit
+$ax\in N$ für alle $a\in A$ und alle $x\in N$.
+
+\end{iiilist}
+
+
+\section{Bemerkung und Beispiel\label{sec:BuB-Modul}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Die Ringmultiplikation $A\times A\to A$ definiert auf $\left(A,+,0\right)$
+die Struktur eines $A$-Moduls, und die $A$-Untermoduln sind genau
+die Ideale von $A$.
+
+\iii Ist $A=k$ ein Körper, so ist ein $A$-Modul dasselbe wie ein
+$k$-Vektorraum.
+
+\iii Jede abelsche Gruppe $M$ besitzt genau eine $\mathbb{Z}$-Modulstruktur,
+nämlich:
+\begin{align*}
+\mathbb{Z}\times M & \to M\\
+\left(n,x\right) & \mapsto\begin{cases}
+{\displaystyle \sum_{k=1}^{n}x} & n\ge0\\
+{\displaystyle -\sum_{k=1}^{-n}x} & n<0
+\end{cases}
+\end{align*}
+\iii Seien $k$ ein Körper, $A=k\left[X_{1},\ldots,X_{n}\right]$
+für $n\in\mathbb{N}_{\ge1}$ und $M$ eine abelsche Gruppe.
+
+Die Angabe eines Ringhomomorphismus $\varphi:A\to\text{End}_{\mathbb{Z}}\left(M\right)$
+ist äquivalent zur Angabe
+
+\begin{abclist}
+
+\abc von einem Ringhomomorphismus $k\to\text{End}_{\mathbb{Z}}\left(M\right)$,
+also ein $k$-Vektorraumstruktur auf $M$ und
+
+\abc von $\varphi_{1}=\varphi\left(X_{1}\right),\ldots,\varphi_{n}=\varphi\left(X_{n}\right)\in\text{End}_{k}\left(M\right)$
+mit $\varphi_{i}\circ\varphi_{j}=\varphi_{j}\circ\varphi_{i}$ für
+alle $1\le i,j\le n$.
+
+\end{abclist}
+
+Beachte die universelle Eigenschaft der $k$-Algebra $A$:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=3.5em, text height=1.5ex, text depth=0.25ex] {
+   A & \text{End}_{\mathbb{Z}}(M) \\
+   k & \text{End}_{k}(M) \\};
+  \path[right hook->,font=\scriptsize]
+    (m-2-1) edge (m-1-1)
+    (m-2-2) edge (m-1-2);
+  \path[->,font=\scriptsize]
+    (m-2-1) edge (m-1-2)
+            edge (m-2-2);
+  \path[dashed,->,font=\scriptsize]
+    (m-1-1) edge (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+Die Abbildung $A\to\text{End}_{k}\left(M\right)$ ist dabei durch
+die $\varphi_{i}$ bestimmt.
+
+\end{iiilist}
+
+
+\section{Definition und Bemerkung \textmd{(lineare Abbildung)}}
+
+Seien $A$ ein Ring und $M$ und $N$ zwei $A$-Moduln.
+
+\begin{iiilist}
+
+\iii Eine \emph{($A$-)lineare Abbildung (von $M$ nach $N$)} ist
+ein Homomorphismus abelscher Gruppen $f:M\to N$ mit $f\left(ax\right)=af\left(x\right)$
+für alle $a\in A$ und alle $x\in M$.
+
+\iii Die Menge $\text{Hom}_{A}\left(M,N\right):=\left\{ f:M\to N\big|g\text{ ist \ensuremath{A}-linear}\right\} $
+ist ein $A$-Modul vermöge
+\begin{align*}
+\left(f+g\right)\left(x\right) & :=f\left(x\right)+g\left(x\right)\\
+\left(af\right)\left(x\right) & :=a\left(f\left(x\right)\right)
+\end{align*}
+für alle $f,g\in\text{Hom}_{A}\left(M,N\right)$, alle $x\in A$ und
+alle $a\in A$.
+
+\iii Sind $\alpha:M'\to M$ und $\beta:N\to N'$ $A$-linear, so
+auch
+\begin{align*}
+\alpha^{*}:\text{Hom}_{A}\left(M,N\right) & \to\text{Hom}_{A}\left(M',N\right)\\
+f & \mapsto\alpha^{*}\left(f\right):=f\circ\alpha
+\end{align*}
+und:
+\begin{align*}
+\beta_{*}:\text{Hom}_{A}\left(M,N\right) & \to\text{Hom}_{A}\left(M,N'\right)\\
+f & \mapsto\beta^{*}\left(f\right):=\beta\circ f
+\end{align*}
+\iii Die Abbildung
+\begin{align*}
+\varepsilon_{M}:\text{Hom}_{A}\left(A,M\right) & \stackrel{\sim}{\to}M\\
+f & \mapsto f\left(1\right)
+\end{align*}
+ist ein $A$-Modul-Isomorphismus, der \emph{natürlich} in $M$ ist,
+das heißt, ist $f:M\to N$ $A$-linear, so ist folgendes Diagramm
+kommutativ:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex] {  \text{Hom}_{A}(A,M) & M \\ \text{Hom}_{A}(A,N) & N \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\sim$} node[below] {$ \varepsilon_M $} (m-1-2);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above]{$\sim$} node[below] {$ \varepsilon_N $} (m-2-2);
+  \path[->] (m-1-1) edge node[right]{$f_*$} (m-2-1)
+            (m-1-2) edge node[right]{$f$} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+\iii Sind wie in \ref{sec:BuB-Modul} iv) $M_{1}$ und $M_{2}$ zwei
+$A=k\left[X_{1},\ldots,X_{n}\right]$-Moduln, bestimmt durch Abbildungen
+$\varphi_{i}^{\left(j\right)}\in\text{End}_{k}\left(M_{j}\right)$
+für alle $1\le i\le n$, $1\le j\le2$, so sind die $A$-linearen
+Abbildungen $f:M_{1}\to M_{2}$ genau die $k$-linearen Abbildungen
+mit $f\circ\varphi_{i}^{\left(1\right)}=\varphi_{i}^{\left(2\right)}\circ f$
+für alle $1\le i\le n$.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+iv): Man sieht leicht, dass $\varepsilon_{M}$ $A$-linear und $\varepsilon_{M}^{-1}\left(x\right)\left(a\right)=ax$
+ist.
+
+Also ist $\varepsilon_{M}$ ein $A$-linearer Isomorphismus. Sei $\varphi\in\text{Hom}_{A}\left(A,M\right)$.
+
+Rechne einerseits 
+\begin{align*}
+f\left(\varepsilon_{M}\left(\varphi\right)\right) & =f\left(\varphi\left(1\right)\right)
+\end{align*}
+und andererseits:
+\begin{align*}
+\varepsilon_{N}\left(f_{*}\left(\varphi\right)\right) & =\varepsilon_{N}\left(f\circ\varphi\right)=\left(f\circ\varphi\right)\left(1\right)=f\left(\varphi\left(1\right)\right)
+\end{align*}
+\qqed[iv)]
+
+
+\section{Bemerkung und Definition \textmd{(Quotientenmodul)}}
+
+Seien $A$ ein Ring, $M$ ein $A$-Modul und $N\subseteq M$ ein $A$-Untermodul.
+
+\begin{iiilist}
+
+\iii Auf der abelschen Gruppe $\modulo MN$ existiert genau eine
+$A$-Modulstruktur so, dass die kanonische Abbildung $\pi:M\to\modulo MN$
+$A$-linear ist, nämlich $a\left[x\right]=\left[ax\right]$ für alle
+$a\in A$ und alle $x\in M$.
+
+Der $A$-Modul $\modulo MN$ heißt \emph{der Quotientenmodul (von
+$M$ nach $N$)}.
+
+\iii Die Abbildung von Mengen
+\begin{align*}
+\left\{ U\big|N\subseteq U\subseteq M\text{ ist \ensuremath{A}-Untermodul}\right\}  & \stackrel{\sim}{\to}\left\{ \overline{U}\big|\overline{U}\subseteq\modulo MN\text{ ist \ensuremath{A}-Untermodul}\right\} \\
+U & \mapsto\pi\left(U\right)
+\end{align*}
+ist bijektiv und inklusionserhaltend. (vergleiche \ref{sec:Prop-IdealeQuotientenring}
+für den Spezialfall $M=A$)
+
+\iii Ist $L$ ein weiterer $A$-Modul, so ist
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em] { 
+  \text{Hom}_{A}\left(\modulo{M}{N},L\right) & M \\ & \text{Hom}_{A}\left(M,L\right) \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\sim$} (m-1-2);
+  \path[right hook->] (m-1-1) edge node[above]{$f_*$} (m-2-2)
+                      (m-1-2) edge (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+ein $A$-linearer Isomorphismus. (vergleiche \ref{sec:DuB-Ideal}
+iii))
+
+\end{iiilist}
+
+
+\section{Beispiel und Definition \textmd{(Kokern)}}
+
+Sei $f:M\to N$ $A$-linear, so gilt:
+
+\begin{iiilist}
+
+\iii $\text{ker}\left(f\right):=\left\{ x\in M\big|f\left(x\right)=0\right\} \subseteq M$
+ein $A$-Untermodul.
+
+\iii Es heißt $\text{koker}\left(f\right):=\modulo N{\text{im}\left(f\right)}$
+\emph{der Kokern von $f$}.
+\begin{align*}
+\text{ker}\left(f\right) & \hookrightarrow M\stackrel{f}{\to}N\twoheadrightarrow\text{koker}\left(f\right)
+\end{align*}
+
+
+\end{iiilist}
 
 
 \part*{Anhang\thispagestyle{empty}}
