@@ -1406,7 +1406,7 @@ ein Ringhomomorphismus und es gilt:
 
 \subsubsection*{Beweis}
 
-Dass $\varphi$ ein Ringhomomorphismus ist, ist leicht nachzurechnen.
+Dass $\varphi$ ein Ringhomomorphismus ist, kann man leicht nachrechnen.
 
 \begin{abclist}
 
@@ -1541,19 +1541,20 @@ notwendig kommutative Ringe?
 \chapter{Moduln}
 
 
-\section{Definition \textmd{((Unter-)Modul)}}
+\section{Definition \textmd{((Unter-)Modul)\label{sec:Def-Modul}}}
 
 Sei $A$ ein Ring.
 
 \begin{iiilist}
 
 \iii Ein \emph{$A$-Modul} ist eine abelsche Gruppe $M$ zusammen
-mit einer Abbildung, \emph{Skalarmultiplikation} genannt,
+mit einer Abbildung
 \begin{align*}
 A\times M & \to M\\
 \left(a,m\right) & \mapsto am
 \end{align*}
-für die für alle $a,b\in A$ und $x,y\in M$ gilt:
+die \emph{Skalarmultiplikation} heißt, und für die für alle $a,b\in A$
+und $x,y\in M$ gilt:
 
 \begin{abclist}
 
@@ -1640,7 +1641,7 @@ die $\varphi_{i}$ bestimmt.
 \end{iiilist}
 
 
-\section{Definition und Bemerkung \textmd{(lineare Abbildung)}}
+\section{Definition und Bemerkung \textmd{(lineare Abbildung)\label{sec:DuB-lineareAbb}}}
 
 Seien $A$ ein Ring und $M$ und $N$ zwei $A$-Moduln.
 
@@ -1702,12 +1703,12 @@ für alle $1\le i\le n$.
 
 \subsubsection*{Beweis}
 
-iv): Man sieht leicht, dass $\varepsilon_{M}$ $A$-linear und $\varepsilon_{M}^{-1}\left(x\right)\left(a\right)=ax$
-ist.
+iv): Man sieht leicht, dass $\varepsilon_{M}$ eine $A$-lineare Abbildung
+und $\varepsilon_{M}^{-1}\left(x\right)\left(a\right)=ax$ ist.
 
-Also ist $\varepsilon_{M}$ ein $A$-linearer Isomorphismus. Sei $\varphi\in\text{Hom}_{A}\left(A,M\right)$.
+Also ist $\varepsilon_{M}$ ein $A$-linearer Isomorphismus.
 
-Rechne einerseits 
+Sei $\varphi\in\text{Hom}_{A}\left(A,M\right)$, so rechne einerseits
 \begin{align*}
 f\left(\varepsilon_{M}\left(\varphi\right)\right) & =f\left(\varphi\left(1\right)\right)
 \end{align*}
@@ -1718,7 +1719,7 @@ und andererseits:
 \qqed[iv)]
 
 
-\section{Bemerkung und Definition \textmd{(Quotientenmodul)}}
+\section{Bemerkung und Definition \textmd{(Quotientenmodul)\label{sec:BuD-Quotientenmodul}}}
 
 Seien $A$ ein Ring, $M$ ein $A$-Modul und $N\subseteq M$ ein $A$-Untermodul.
 
@@ -1744,10 +1745,10 @@ für den Spezialfall $M=A$)
 
 \noindent \begin{center}
 \begin{tikzpicture}
-  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em] { 
-  \text{Hom}_{A}\left(\modulo{M}{N},L\right) & M \\ & \text{Hom}_{A}\left(M,L\right) \\ };
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1.5em] { 
+  \text{Hom}_{A}\left(\modulo{M}{N}\!,\,L\right) & \left\{f\in \text{Hom}_A(M,L)\big| f(N)=0 \right\} \\ & \text{Hom}_{A}\left(M,L\right) \\ };
   \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\sim$} (m-1-2);
-  \path[right hook->] (m-1-1) edge node[above]{$f_*$} (m-2-2)
+  \path[right hook->,,font=\scriptsize] (m-1-1) edge node[above]{$\pi^*$} (m-2-2)
                       (m-1-2) edge (m-2-2);
 \end{tikzpicture}
 \par\end{center}
@@ -1775,6 +1776,445 @@ ein $A$-Untermodul.
 
 
 \end{iiilist}
+
+%DATE: Fr 4.5.12
+
+
+\section{Proposition \textmd{(Homomorphiesatz)}\label{sec:Prop-Homsatz}}
+
+Sei $A$ ein Ring. Dann faktorisiert jede $A$-lineare Abbildung $f:M\to N$
+wie folgt:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=3ex, text depth=0.25ex] {  M & N \\ \modulo{M}{\ker (f)} & \text{im}(f) \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$f$} (m-1-2);
+  \path[->>,font=\scriptsize] (m-1-1) edge node[right]{$\pi$} (m-2-1);
+  \path[right hook->] (m-2-2) edge node[right]{$\iota$} (m-1-2);
+  \path[dashed,->] (m-2-1) edge node[above]{$\sim$} node[below]{$\exsg \tilde{f}$} (m-2-2);
+  \path[->]  (m-1-1) edge node[right=4]{$f_1$} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+Das heißt es existiert genau eine Abbildung $\tilde{f}:\modulo M{\ker\left(f\right)\to\text{im}\left(f\right)}$
+mit $f=\iota\circ\tilde{f}\circ\pi$.
+
+Dieses $\tilde{f}$ ist ein $A$-linearer Isomorphismus
+
+
+\subsubsection*{Beweis}
+
+Zunächst faktorisiert $f$ als $f:M\stackrel{f_{1}}{\twoheadrightarrow}\text{im}\left(f\right)\stackrel{\iota}{\hookrightarrow}N$,
+$f_{1}$ und $\iota$ sind $A$-linear, es gilt $\ker\left(f\right)=\ker\left(f_{1}\right)$
+und $f_{1}$ ist surjektiv.
+
+Nach \ref{sec:BuD-Quotientenmodul} iii) faktorisiert dann $f_{1}$
+eindeutig mit einer $A$-lineare Abbildung $\tilde{f}$ 
+\begin{align*}
+f_{1} & :M\stackrel{\pi}{\to}\modulo M{\ker\left(f_{1}\right)\stackrel{\tilde{f}}{\hookrightarrow}}\text{im}\left(f\right)
+\end{align*}
+und $\tilde{f}$ ist injektiv und surjektiv, also ein $A$-linearer
+Isomorphismus.\qqed
+
+
+\section{Definition \textmd{(Summe, Schnitt, endlich erzeugt)\label{sec:Def-SummeSchnittModul}}}
+
+Seien $A$ ein Ring, $M$ ein $A$-Modul, $I$ eine Menge und für
+alle $I$ sei $M_{i}\subseteq M$ ein $A$-Untermodul.
+
+\begin{iiilist}
+
+\iii Der kleinste Untermodul von $M$, der alle $M_{i}$ enthält
+ist:
+\begin{align*}
+\sum_{i\in I}M_{i} & :=\left\{ \sum_{i\in J}x_{i}\bigg|J\subseteq I\text{ ist endlich},\ x_{i}\in M_{i}\right\} \subseteq M
+\end{align*}
+Er heißt die \emph{Summe der $M_{i}$ (in $M$)}.
+
+\iii Der \emph{Schnitt} ${\displaystyle \bigcap_{i\in I}M_{i}\subseteq M}$
+ist der größte Untermodul von $M$, der in allen $M_{i}$ enthalten
+ist.
+
+\iii Ist für alle $i\in I$ nun $x_{i}\in M$ ein Element, so ist
+$Ax_{i}:=\left\{ ax_{i}\big|a\in A\right\} \subseteq M$ der kleinste
+$A$-Untermodul, der $x_{i}$ enthält.
+
+Nach i) ist also ${\displaystyle \sum_{i\in I}Ax_{i}\subseteq M}$
+der kleinste $A$-Untermodul von $M$, der alle $x_{i}$ enthält.
+
+\iii $M$ heißt genau dann \emph{endlich erzeugt}, wenn es ein $n\in\mathbb{N}_{\ge1}$
+und $x_{1},\ldots,x_{n}\in M$ gibt, mit:
+\begin{align*}
+M & =\sum_{i=1}^{n}Ax_{i}
+\end{align*}
+
+
+Beispiel: Für einen Körper $k$ ist der $k$-Modul $k\left[X\right]$
+nicht endlich erzeugt.
+
+\end{iiilist}
+
+
+\section{Proposition \textmd{(Isomorphiesätze)}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Sind $L$ ein $A$-Modul und $M\subseteq N\subseteq L$ zwei
+$A$-Untermoduln, so existiert genau eine $A$-lineare Abbildung
+\begin{align*}
+\varphi:\modulo{\left(\modulo LM\right)}{\left(\modulo NM\right)} & \stackrel{\sim}{\to}\modulo LN
+\end{align*}
+für die für alle $x\in L$ schon
+\begin{align*}
+\varphi\left(\left(x+M\right)+\left(\modulo NM\right)\right) & =x+N
+\end{align*}
+gilt. Dieses $\varphi$ ist ein $A$-linearer Isomorphismus.
+
+\iii Sind $M$ ein $A$-Modul und $M_{1},M_{2}\subseteq M$ zwei
+$A$-Untermoduln, so existiert genau eine $A$-lineare Abbildung
+\begin{align*}
+\varphi:\modulo{M_{2}}{\left(M_{1}\cap M_{2}\right)} & \stackrel{\sim}{\to}\modulo{M_{1}+M_{2}}{M_{1}}
+\end{align*}
+für die für alle $x\in M_{2}$ schon
+\begin{align*}
+\varphi\left(x+\left(M_{1}\cap M_{2}\right)\right) & =x+M_{1}
+\end{align*}
+gilt. Dieses $\varphi$ ist ein Isomorphismus.
+
+Merkhilfe:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1.5em, text height=1.5ex, text depth=0.25ex] {  & M &  \\ & M_1 + M_2 & \\ M_1 & & M_2 \\ & M_1 \cap M_2 &\\};
+  \path (m-1-2) edge (m-2-2);
+  \path (m-3-1) +(0.2,0.2) edge ($(m-2-2) + (-0.2,-0.2)$)
+                          (m-3-1) +(0.25,0.15) edge ($(m-2-2) + (-0.15,-0.25)$);
+  \path (m-3-3) edge (m-2-2);
+  \path (m-4-2) edge (m-3-1);
+  \path (m-4-2) +(0.3,0.3) edge ($(m-3-3) + (-0.2,-0.2)$)
+                          (m-4-2) +(0.35,0.25) edge ($(m-3-3) + (-0.15,-0.25)$);
+  \node (a) at ($0.5*(m-4-2)+ 0.5*(m-3-3)$) {};
+  \node (b) at ($0.5*(m-3-1) + 0.5*(m-2-2)$) {};
+  \path[font=\scriptsize,->] ($ 0.9*(a) + 0.1*(b)$) edge node[above,rotate=-30]{$\sim$} node[below left]{$\varphi$} ($0.9*(b) + 0.1*(a)$);
+\end{tikzpicture}
+\par\end{center}
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii \inputencoding{latin1}{Betrachte die Abbildung:
+\begin{align*}
+\psi:\modulo LM & \to\modulo LN\\
+x+M & \mapsto x+N
+\end{align*}
+Diese ist wegen $M\subseteq N$ wohldefiniert und surjektiv, }\inputencoding{latin9}und
+offenbar $A$-linear. Außerdem gilt:
+\begin{align*}
+\ker\psi & =\left\{ x+M\in\modulo LM\bigg|x+N=N\right\} =\left\{ x+M\in\modulo LM\bigg|x\in N\right\} =\modulo NM
+\end{align*}
+Damit folgt nach \ref{sec:Prop-Homsatz}, dass es eine eindeutige
+$A$-lineare Abbildung
+\begin{align*}
+\varphi:\modulo{\left(\modulo LM\right)}{\left(\modulo NM\right)} & \stackrel{\sim}{\to}\modulo LN
+\end{align*}
+mit
+\begin{align*}
+\varphi\left(\left(x+M\right)+\left(\modulo NM\right)\right) & =x+N
+\end{align*}
+gibt.\qqed[\roman{ale2})]
+
+\iii \inputencoding{latin1}{Betrachte die Abbildung:
+\begin{align*}
+\psi:M_{2} & \hookrightarrow M_{1}+M_{2}\twoheadrightarrow\modulo{M_{1}+M_{2}}{M_{1}}\\
+x & \mapsto x+M_{1}
+\end{align*}
+Diese Komposition von Inklusions- und Projektionshomomorphismus ist}\inputencoding{latin9}
+$A$-linear. Außerdem gilt:
+\begin{align*}
+\ker\psi & =\left\{ x\in M_{2}\bigg|x+M_{1}=M_{1}\right\} =\left\{ x\in M_{2}\bigg|x\in M_{1}\right\} =M_{1}\cap M_{2}
+\end{align*}
+Damit folgt nach \ref{sec:Prop-Homsatz}, dass es eine eindeutige
+$A$-lineare Abbildung
+\begin{align*}
+\varphi:\modulo{M_{2}}{\left(M_{1}\cap M_{2}\right)} & \stackrel{\sim}{\to}\modulo{M_{1}+M_{2}}{M_{1}}
+\end{align*}
+mit
+\begin{align*}
+\varphi\left(x+\left(M_{1}\cap M_{2}\right)\right) & =x+M_{1}
+\end{align*}
+gibt.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Bemerkung und Definition \textmd{(Produkt und direkte Summe)}}
+
+Seien $A$ ein Ring, $I$ eine Menge und für alle $i\in I$ sei $M_{i}$
+ein $A$-Modul.
+
+\begin{iiilist}
+
+\iii Das kartesische Produkt ${\displaystyle \prod_{i\in I}M_{i}}$
+ist ein $A$-Modul vermöge komponentenweiser Addition und Skalarmultiplikation,
+\emph{das Produkt der $M_{i}$}. Für alle $i_{0}\in I$ ist die Abbildung
+\begin{align*}
+\pi_{i_{0}}:\prod_{i\in I}M_{i} & \to M_{i_{0}}
+\end{align*}
+$A$-linear und für jeden $A$-Modul $N$ ist die Abbildung 
+\begin{align*}
+\text{Hom}_{A}\left(N,\prod_{i\in I}M_{i}\right) & \stackrel{\sim}{\to}\prod_{i\in I}\text{Hom}_{A}\left(N,M_{i}\right)\\
+f & \mapsto\left(\pi_{i}^{*}f=\pi_{i}\circ f\right)_{i\in I}
+\end{align*}
+ein $A$-linearer Isomorphismus.
+
+Skizze:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=3ex, text depth=0.25ex] {   \displaystyle{\prod_{i\in I} M_i} & & M_i  \\ & N & \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\pi_i$} (m-1-3);
+  \path[dashed,->,font=\scriptsize] (m-2-2) edge node[right]{$\exsg f$} (m-1-1);
+  \path[->,font=\scriptsize] (m-2-2) edge node[right]{$f_i$} (m-1-3);
+\end{tikzpicture}
+\par\end{center}
+
+Die eindeutige Abbildung ist $f\left(x\right)=\left(f_{i}\left(x\right)\right)_{i\in I}$
+für alle $x\in N$.
+
+Dies ist \emph{die universelle Eigenschaft des Produkts}.
+
+\iii Die Teilmenge
+\begin{align*}
+\bigoplus_{i\in I}M_{i} & :=\left\{ \left(x_{i}\right)_{i\in I}\in\prod_{i\in I}M_{i}\Bigg|\abs{\left\{ i\in I\big|x_{i}\not=0\right\} }<\infty\right\} \subseteq\prod_{i\in I}M_{i}
+\end{align*}
+ist ein $A$-Untermodul, \emph{die direkte Summe der $M_{i}$}.
+
+Die Abbildungen
+\begin{align*}
+\iota_{i}:M_{i} & \hookrightarrow\bigoplus_{i\in I}M_{i}\\
+x & \mapsto\left(\iota_{i}\left(x\right)\right)_{j}:=\delta_{ij}\cdot x
+\end{align*}
+sind $A$-linear und für jeden $A$-Modul $N$ ist die Abbildung
+\begin{align*}
+\text{Hom}_{A}\left(\bigoplus_{i\in I}M_{i},N\right) & \stackrel{\sim}{\to}\prod_{i\in I}\text{Hom}_{A}\left(M_{i},N\right)\\
+f & \mapsto\left(f\circ\iota_{i}=\iota_{i,*}\left(f\right)\right)
+\end{align*}
+ein $A$-linearer Isomorphismus.
+
+Dies ist \emph{die universelle Eigenschaft der direkten Summe}.
+
+Skizze:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=2ex, text depth=3ex] {    M_i & & \displaystyle{\bigoplus_{i\in I} M_i}  \\ & N & \\ };
+  \path[right hook->,font=\scriptsize] (m-1-1) edge node[above]{$\iota_i$} (m-1-3);
+  \path[dashed,->,font=\scriptsize] (m-1-3) edge node[right]{$\exsg f$} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[right]{$f_i$} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+\end{iiilist}
+
+Beachte:
+
+${\displaystyle \bigoplus_{i\in I}M_{i}}$ ist nicht dasselbe wie
+${\displaystyle \sum_{i\in I}M_{i}}$ aus \ref{sec:Def-SummeSchnittModul}
+i).
+
+Aber falls alle $M_{i}\subseteq M$ Untermoduln desselben Moduls $M$
+sind, gibt es genau eine $A$-lineare Abbildung
+\begin{align*}
+f:\bigoplus_{i\in I}M_{i} & \to\sum_{i\in I}M_{i}
+\end{align*}
+für die für alle $i\in I$ und $x_{i}\in M_{i}$ schon $f\left(x_{i}\right)=x_{i}$
+gilt.
+
+
+\section{Beispiel}
+
+Seien $A$ ein Ring und $X$ eine Menge. Dann heißt
+\begin{align*}
+A^{\left(X\right)} & :=\bigoplus_{x\in X}A
+\end{align*}
+\emph{der freie $A$-Modul mit Basis $X$}.
+
+Für jeden $A$-Modul $N$ erhalte einen $A$-linearen Isomorphismus:
+\begin{align*}
+\text{Hom}_{A}\left(A^{\left(X\right)},N\right) & \sr{\to}{\sim}{\ref{asdf}2.9\text{ ii)}}\prod_{x\in X}\text{Hom}_{A}\left(A,N\right)\sr{\to}{\prod\varepsilon_{N}}{\ref{asdf}2.3\text{ iv)}}\prod_{x\in X}N=\text{Abb}\left(X,N\right)
+\end{align*}
+Dies ist \emph{die universelle Eigenschaft des freien $A$-Moduls}.
+
+
+\section{Satz \textmd{(Cayley-Hamilton)\label{sec:Satz-Cayley-Hamilton}}}
+
+Seien $A$ ein Ring, $I\subseteq A$ ein Ideal, $M$ ein durch $n\in\mathbb{N}$
+Elemente erzeugbarer $A$-Modul und
+\begin{align*}
+f\in\text{End}_{A}\left(M\right) & :=\text{Hom}_{A}\left(M,M\right)
+\end{align*}
+erfülle:
+\begin{align*}
+f\left(M\right) & \subseteq IM:=\left\{ \sum_{i=1}^{m}\alpha_{i}x_{i}\middle|m\in\mathbb{N},\alpha_{i}\in I,x_{i}\in M\right\} \subseteq M
+\end{align*}
+Dann existiert ein
+\begin{align*}
+P\left(X\right) & =X^{n}+a_{1}X^{n-1}+\ldots+a_{n}\in A\left[X\right]
+\end{align*}
+mit $a_{i}\in I^{i}\subseteq A$ für alle $1\le i\le n$ und $P\left(f\right)=0$
+in $\text{End}_{k}\left(M\right)$.
+
+
+\subsubsection*{Beweis}
+
+Wähle Elemente $x_{1},\ldots,x_{n}\in M$ mit ${\displaystyle M=\sum_{i=1}^{n}Ax_{i}}$.
+Schreibe für alle $1\le i\le n$
+\begin{align*}
+f\left(x_{i}\right) & =\sum_{j=1}^{n}a_{ij}\cdot x_{j}
+\end{align*}
+mit geeigneten $a_{ij}\in I$.
+
+Setze $Z:=\left(\delta_{ij}X-a_{ij}\right)_{1\le i,j\le n}\in M_{n}\left(A\left[X\right]\right)$.
+Dann gilt:
+\begin{align*}
+\underbrace{Z\left(f\right)}_{\in M_{n}\left(\text{End}_{A}\left(M\right)\right)}\cdot\left(\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{n}
+\end{array}\right) & =0
+\end{align*}
+Es folgt durch Linksmultiplikation mit der Adjunkten $Z^{\text{ad}}\left(f\right)$
+von $Z\left(f\right)$:
+\begin{align*}
+\left(Z^{\text{\text{ad}}}\left(f\right)\cdot Z\left(f\right)\right)\left(\begin{array}{c}
+x_{1}\\
+\vdots\\
+x_{n}
+\end{array}\right) & =0
+\end{align*}
+Wegen $\left(Z^{\text{\text{ad}}}\left(f\right)\cdot Z\left(f\right)\right)=\det\left(Z\right)\left(f\right)\cdot E_{n}$
+gilt mit $P:=\det\left(Z\right)$ für alle $1\le i\le n$:
+\begin{align*}
+P\left(f\right)\left(x_{i}\right) & =0
+\end{align*}
+
+
+Also folgt wegen ${\displaystyle M=\sum_{i=1}^{n}Ax_{i}}$, dass $P\left(f\right)=0$
+in $\text{End}_{A}\left(M\right)$ gilt.
+
+Bekannte Rechenregeln für die Determinante zeigen, dass $P$ die behauptete
+Form besitzt.\qqed
+
+
+\section{Korollar\label{sec:KorEpiFolgtIso}}
+
+Seien $A$ ein Ring, $M$ ein endlich erzeugter $A$-Modul und $f:M\to M$
+ein $A$-linearer Epimorphismus. Dann ist $f$ ein Isomorphismus.
+
+
+\subsubsection*{Beweis}
+
+Betrachte $M$ als $A\left[X\right]$-Modul vermöge $f$, das heißt
+vermöge des Ringhomomorphismus:
+\begin{align*}
+\psi:A\left[X\right] & \to\text{End}_{\mathbb{Z}}\left(M\right)\\
+a\left(X\right) & \mapsto a\left(f\right)
+\end{align*}
+(vergleiche \ref{sec:Def-Modul} i))
+
+Weil $f$ surjektiv ist, gilt $f\left(M\right)=\left(X\right)M\stackrel{f\text{ surjektiv}}{=}M=\text{id}_{M}\left(M\right)$.
+
+Aus dem Satz \ref{sec:Satz-Cayley-Hamilton} von Cayley-Hamilton mit
+$A\left[X\right]$ als Ring, $\left(X\right)$ als Ideal und $\text{id}_{M}$
+als Endomorphismus folgt die Existenz eines Polynoms $P\left(Y\right)=Y^{n}+a_{1}Y^{n-1}+\ldots+a_{n}\in A\left[X\right]\left[Y\right]$
+mit $a_{i}\in\left(X^{i}\right)\subseteq A\left[X\right]$ und
+\begin{align*}
+0 & =P\left(\text{id}_{M}\right)=\text{id}_{M}+a_{1}\text{id}_{M}+\ldots+a_{n}
+\end{align*}
+in $\text{End}_{A\left[X\right]}\left(M\right)$. Wegen $a_{i}\in\left(X\right)$
+folgt durch Ausklammern von $X$
+\begin{align*}
+P\left(Y\right) & =Y^{n}+g\left(X,Y\right)\cdot X
+\end{align*}
+für ein geeignetes Polynom $g\in A\left[X,Y\right]$ und somit
+\begin{align*}
+0 & =\text{id}_{M}+g\left(\text{id}_{M},f\right)\circ f
+\end{align*}
+in $\text{End}_{A}\left(M\right)$ für ein geeignetes Polynom $g$.
+Damit gilt $\text{id}_{M}=g\left(\text{id}_{M},f\right)\circ\left(-f\right)$,
+also ist $f$ injektiv und damit ein Isomorphismus.\qqed
+
+
+\section{Korollar \textmd{(Isomorphie erhält Dimension)\label{sec:Kor-IsomorphieDimension}}}
+
+Sei $A\not=\left\{ 0\right\} $ ein Ring.
+
+Dann folgt für alle $n,m\in\mathbb{N}_{\ge1}$ aus der Existenz eines
+$A$-linearen Isomorphismus $f:A^{n}\stackrel{\sim}{=}A^{m}$, dass
+$n=m$ gilt.
+
+
+\subsubsection*{1. Beweis}
+
+Sei ohne Einschränkung $n\ge m$, so betrachte die Projektion $\pi$
+auf die ersten $m$ Summanden. Dann ist
+\begin{align*}
+A^{m} & \sr{\to}{\sim}fA^{n}=\underbrace{A\oplus\ldots\oplus A}_{n\text{-mal}}\stackrel{\pi}{\twoheadrightarrow}A^{m}
+\end{align*}
+ein surjektiver $A$-linearer Endomorphismus des endlich erzeugten
+$A$-Moduls $A^{m}$ und nach \ref{sec:KorEpiFolgtIso} also ein Isomorphismus.
+Damit ist $\pi$ ein Isomorphismus, also gilt:
+\begin{align*}
+\left(0\right) & =\ker\left(\pi\right)=A^{n-m}
+\end{align*}
+Wegen $A\not=\left\{ 0\right\} $ folgt $n-m=0$, also $n=m$.\qqed[1. Beweis]
+
+
+\subsubsection*{2. Beweis}
+
+Wegen $A\not=\left\{ 0\right\} $, \ref{sec:Satz-ExistensMaximalesIdeal}
+und \ref{sec:PuD-Prim-maximales-Ideal} ii) existiert ein maximales
+Ideal $\mathfrak{m}$ und somit ein Körper $k\stackrel{\sim}{=}\modulo A{\mathfrak{m}}$
+und ein Ringhomomorphismus $A\to k$. Dann ist
+\begin{align*}
+f\oplus_{A}1: & A^{n}\oplus_{A}k\stackrel{\sim}{\to}A^{m}\oplus_{A}k
+\end{align*}
+ein Isomorphismus von $n$- und $m$-dimensionalen $k$-Vektorräumen.
+Also gilt $n=m$ nach dem Basisergänzungssatz aus linearer Algebra
+I.\qqed[2. Beweis]
+
+
+\section{Bemerkung}
+
+\begin{iiilist}
+
+\iii Offenbar gilt \ref{sec:Kor-IsomorphieDimension} nicht für den
+Nullring.
+
+\iii Es existiert ein notwendigerweise nicht kommutativer Ringe $R\not=\left\{ 0\right\} $
+für den $R\stackrel{\sim}{=}R^{2}$ als $R$-Modul gilt.
+
+\end{iiilist}
+
+
+\section{Korollar}
+
+Seien $A$ ein Ring, $M$ ein endlich erzeugter $A$-Modul und $I\subseteq A$
+ein Ideal mit $IM=M$.
+
+Dann existiert ein $x\in A$ mit $x\equiv1\mod I$ und $xM:=\left\{ xm\big|m\in M\right\} =\left(0\right)$.
+
+
+\subsubsection*{Beweis}
+
+Wähle in Satz \ref{sec:Satz-Cayley-Hamilton} von Cayley-Hamilton
+$f:=\text{id}_{M}$ und dann in dortiger Notation $x:=1+\underbrace{a_{1}+\ldots+a_{n}}_{\in I}\equiv1\mod I$.\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}
