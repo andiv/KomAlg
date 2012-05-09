@@ -1,4 +1,4 @@
-%% LyX 2.0.2 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.0.3 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[11pt,english,ngerman]{report}
 \usepackage[T1]{fontenc}
@@ -11,6 +11,7 @@
 \setlength{\parindent}{0pt}
 \usepackage{babel}
 \usepackage{textcomp}
+\usepackage{mathrsfs}
 \usepackage{url}
 \usepackage{amsmath}
 \usepackage{amssymb}
@@ -1102,7 +1103,7 @@ und daher ist $x$ invertierbar und somit $x\in A^{*}$.\qqed[ii)]
 \end{iiilist}
 
 
-\section{Beispiel}
+\section{Beispiel\label{sec:Bsp-Zp}}
 
 Sei $p\in\mathbb{Z}$ eine Primzahl, insbesondere $\left(p\right)\not=0$.
 Dann ist $\mathbb{Z}\subseteq\mathbb{Z}_{\left(p\right)}:=\left\{ \frac{a}{b}\big|a\in\mathbb{Z},p\not|b\in\mathbb{Z}\right\} \subsetneq\mathbb{Q}$
@@ -1908,13 +1909,13 @@ Merkhilfe:
 
 \begin{iiilist}
 
-\iii \inputencoding{latin1}{Betrachte die Abbildung:
+\iii Betrachte die Abbildung:
 \begin{align*}
 \psi:\modulo LM & \to\modulo LN\\
 x+M & \mapsto x+N
 \end{align*}
-Diese ist wegen $M\subseteq N$ wohldefiniert und surjektiv, }\inputencoding{latin9}und
-offenbar $A$-linear. Außerdem gilt:
+Diese ist wegen $M\subseteq N$ wohldefiniert und surjektiv, und offenbar
+$A$-linear. Außerdem gilt:
 \begin{align*}
 \ker\psi & =\left\{ x+M\in\modulo LM\bigg|x+N=N\right\} =\left\{ x+M\in\modulo LM\bigg|x\in N\right\} =\modulo NM
 \end{align*}
@@ -1929,12 +1930,12 @@ mit
 \end{align*}
 gibt.\qqed[\roman{ale2})]
 
-\iii \inputencoding{latin1}{Betrachte die Abbildung:
+\iii Betrachte die Abbildung:
 \begin{align*}
 \psi:M_{2} & \hookrightarrow M_{1}+M_{2}\twoheadrightarrow\modulo{M_{1}+M_{2}}{M_{1}}\\
 x & \mapsto x+M_{1}
 \end{align*}
-Diese Komposition von Inklusions- und Projektionshomomorphismus ist}\inputencoding{latin9}
+Diese Komposition von Inklusions- und Projektionshomomorphismus ist
 $A$-linear. Außerdem gilt:
 \begin{align*}
 \ker\psi & =\left\{ x\in M_{2}\bigg|x+M_{1}=M_{1}\right\} =\left\{ x\in M_{2}\bigg|x\in M_{1}\right\} =M_{1}\cap M_{2}
@@ -1953,7 +1954,7 @@ gibt.\qqed[\roman{ale2})]
 \end{iiilist}
 
 
-\section{Bemerkung und Definition \textmd{(Produkt und direkte Summe)}}
+\section{Bemerkung und Definition \textmd{(Produkt und direkte Summe)\label{sec:BuD-ProduktSumme}}}
 
 Seien $A$ ein Ring, $I$ eine Menge und für alle $i\in I$ sei $M_{i}$
 ein $A$-Modul.
@@ -2047,7 +2048,7 @@ A^{\left(X\right)} & :=\bigoplus_{x\in X}A
 
 Für jeden $A$-Modul $N$ erhalte einen $A$-linearen Isomorphismus:
 \begin{align*}
-\text{Hom}_{A}\left(A^{\left(X\right)},N\right) & \sr{\to}{\sim}{\ref{asdf}2.9\text{ ii)}}\prod_{x\in X}\text{Hom}_{A}\left(A,N\right)\sr{\to}{\prod\varepsilon_{N}}{\ref{asdf}2.3\text{ iv)}}\prod_{x\in X}N=\text{Abb}\left(X,N\right)
+\text{Hom}_{A}\left(A^{\left(X\right)},N\right) & \sr{\to}{\sim}{\ref{sec:BuD-ProduktSumme}\text{ ii)}}\prod_{x\in X}\text{Hom}_{A}\left(A,N\right)\sr{\to}{\prod\varepsilon_{N}}{\ref{sec:DuB-lineareAbb}\text{ iv)}}\prod_{x\in X}N=\text{Abb}\left(X,N\right)
 \end{align*}
 Dies ist \emph{die universelle Eigenschaft des freien $A$-Moduls}.
 
@@ -2203,7 +2204,7 @@ für den $R\stackrel{\sim}{=}R^{2}$ als $R$-Modul gilt.
 \end{iiilist}
 
 
-\section{Korollar}
+\section{Korollar\label{sec:Kor-x=00003D1undxM=00003D0}}
 
 Seien $A$ ein Ring, $M$ ein endlich erzeugter $A$-Modul und $I\subseteq A$
 ein Ideal mit $IM=M$.
@@ -2214,7 +2215,364 @@ Dann existiert ein $x\in A$ mit $x\equiv1\mod I$ und $xM:=\left\{ xm\big|m\in M\
 \subsubsection*{Beweis}
 
 Wähle in Satz \ref{sec:Satz-Cayley-Hamilton} von Cayley-Hamilton
-$f:=\text{id}_{M}$ und dann in dortiger Notation $x:=1+\underbrace{a_{1}+\ldots+a_{n}}_{\in I}\equiv1\mod I$.\qqed
+$f:=\text{id}_{M}$ und dann in dortiger Notation:
+\begin{align*}
+x & :=1+\underbrace{a_{1}+\ldots+a_{n}}_{\in I}\equiv1\mod I
+\end{align*}
+\qqed
+
+%DATE: Di 8.5.12
+
+
+\section{Lemma \textmd{(von Nakayama)} und Definition \textmd{(Jacobsonradikal)\label{sec:LuD-Nakayama-Jacobsonradikal}}}
+
+Seien $A$ ein Ring, $M$ ein endlich erzeugter $A$-Modul und
+\begin{align*}
+I\subseteq & \text{Jac}\left(A\right):=\bigcap_{\mathfrak{m}\subseteq A\text{ max. Ideal}}\mathfrak{m}
+\end{align*}
+ein Ideal, das im \emph{Jacobsonradikal von $A$} enthalten ist. Dann
+folgt aus $IM=M$ schon $M=\left(0\right)$.
+
+
+\subsubsection*{Beweis}
+
+Nach \ref{sec:Kor-x=00003D1undxM=00003D0} existiert ein $x\in A$
+mit $xM=\left(0\right)$ und $x\equiv1\mod I$. Es folgt $x-1\in\mathfrak{m}$
+für alle maximalen Ideale $\mathfrak{m}\subseteq A$, also $x\not\in\mathfrak{m}$,
+da sonst $1\in\mathfrak{m}$, und damit $x\in A^{*}$ nach \ref{sec:Kor-EinheitMaximalesIdeal}
+ii) $\Rightarrow$ i). Aus $xM=0$ und $x\in A^{*}$ folgt $M=\left(0\right)$.\qqed
+
+
+\section{Beispiel}
+
+Sei $\left(A:=\mathbb{Z}_{\left(p\right)},\mathfrak{m}:=\left(p\right)\right)$
+ist nach \ref{sec:Bsp-Zp} ein lokaler Ring, also gilt $\text{Jac}\left(A\right)=\mathfrak{m}=\left(p\right)\subseteq\mathbb{Z}_{\left(p\right)}$.
+
+Für $M:=\mathbb{Q}$ aufgefasst als $A$-Modul -- beachte, dass $A\subseteq\mathbb{Q}$
+ein Unterring ist -- gilt:
+\begin{align*}
+\mathfrak{m}M & =\left(p\right)\cdot\mathbb{Q}=\mathbb{Q}=M
+\end{align*}
+Wegen $M\not=0$ folgt aus \ref{sec:LuD-Nakayama-Jacobsonradikal},
+dass $M$ als $A$-Modul nicht endlich erzeugt ist, beziehungsweise,
+dass man in \ref{sec:LuD-Nakayama-Jacobsonradikal} nicht auf \quotedblbase{}$M$
+endlich erzeugt\textquotedblleft{} verzichten kann.
+
+
+\section{Proposition \textmd{(minimales Erzeugendensystem)}}
+
+Sei $\left(A,\mathfrak{m}\right)$ ein lokaler Ring, $M$ ein endlich
+erzeugter $A$-Modul und für $x_{1},\ldots,x_{n}\in M$ gelte, dass
+\begin{align*}
+\left\{ \overline{x}_{i}\right\} _{1\le i\le n} & \subseteq\modulo M{\mathfrak{m}M}
+\end{align*}
+eine Basis dieses $\modulo A{\mathfrak{m}}=\kappa\left(\mathfrak{m}\right)$-Vektorraums
+ist. Dann ist $\left\{ x_{1},\ldots,x_{n}\right\} \subseteq M$ ein
+minimales Erzeugendensystem des $A$-Moduls $M$.
+
+
+\subsubsection{Beweis}
+
+Für
+\begin{align*}
+N & :=\sum_{i=1}^{N}Ax_{i}\subseteq M
+\end{align*}
+ist die Komposition $N\hookrightarrow M\stackrel{\pi}{\twoheadrightarrow}\modulo M{\mathfrak{m}M}$
+surjektiv, da alle $\overline{x}_{i}$ im Bild liegen, also gilt:
+\begin{align*}
+M & =\pi\left(N\right)=N+\mathfrak{m}M
+\end{align*}
+Es folgt $\modulo MN\subseteq\mathfrak{m}\cdot\left(\modulo MN\right)$
+und damit $\modulo MN=\left(0\right)$ nach dem Lemma\ref{sec:LuD-Nakayama-Jacobsonradikal}
+von Nakayama, da $\text{Jac}\left(A\right)=\mathfrak{m}$ ist. Damit
+gilt:
+\begin{align*}
+M & =N=\sum_{i=1}^{n}Ax_{i}
+\end{align*}
+Also ist $\left\{ x_{1},\ldots,x_{n}\right\} \subseteq M$ ein Erzeugendensystem,
+dessen Minimalität sofort aus derjenigen von $\left\{ \overline{x_{u}}\right\} _{1\le i\le n}$
+folgt.\qqed
+
+
+\section{Definition \textmd{(exakte Folge)\label{sec:Def-exakte-Folge}}}
+
+Sei $A$ ein Ring. Eine Folge von $A$-Moduln und $A$-linearen Abbildungen
+\begin{align*}
+\ldots\to M_{i-1} & \stackrel{f_{i-1}}{\to}M_{i}\stackrel{f_{i}}{\to}M_{i+1}\to\ldots
+\end{align*}
+heißt \emph{exakt an der Stelle $M_{i}$}, falls gilt:
+\begin{align*}
+\text{im}\left(f_{i-1}\right) & =\text{ker}\left(f_{i}\right)
+\end{align*}
+
+
+(\quotedblbase{}$\subseteq$\textquotedblleft{} bedeutet $f_{i}\circ f_{i-1}=0$
+und \quotedblbase{}$\supseteq$\textquotedblleft{} bedeutet $f_{i}\left(x\right)=0\Rightarrow x=f_{i-1}\left(y\right)$.)
+
+Sie heißt \emph{exakt}, falls sie an jeder Stelle exakt ist.
+
+
+\section{Beispiel und Definition \textmd{(kurze exakte Folge)}}
+
+In der Situation von \ref{sec:Def-exakte-Folge} gilt:
+
+\begin{iiilist}
+
+\iii $0\to M\stackrel{f}{\to}N$ exakt $\Leftrightarrow$ $0=\ker\left(f\right)$
+$\Leftrightarrow$ $f$ ist injektiv.
+
+\iii $M\stackrel{f}{\to}N\to0$ exakt $\Leftrightarrow$ $\text{im}\left(f\right)=N$
+$\Leftrightarrow$ $f$ ist surjektiv.
+
+\iii $0\to M\stackrel{f}{\to}N\stackrel{g}{\to}L\to0$ exakt $\Leftrightarrow$
+$f$ injektiv, $g$ surjektiv und $\text{im}\left(f\right)=\text{ker}\left(g\right)$.
+
+In diesem Fall heißt die $0\to M\stackrel{f}{\to}N\stackrel{g}{\to}L\to0$
+\emph{eine kurze exakte Folge}.
+
+\end{iiilist}
+
+
+\section{Proposition\label{sec:Prop-ExaktheitsKriterium}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Eine Folge $\mathscr{E}=\left(M'\stackrel{f}{\to}M\stackrel{g}{\to}M''\to0\right)$
+von $A$-Moduln ist genau dann exakt, wenn für alle $A$-Moduln $N$
+die Folge
+\begin{align*}
+\text{Hom}_{A}\left(\mathscr{E},N\right) & :=\left(0\to\text{Hom}_{A}\left(M'',N\right)\stackrel{g^{*}}{\to}\text{Hom}_{A}\left(M,N\right)\stackrel{f^{*}}{\to}\text{Hom}_{A}\left(M',N\right)\right)
+\end{align*}
+exakt ist.
+
+\iii Eine Folge $\mathscr{E}=\left(0\to M'\stackrel{f}{\to}M\stackrel{g}{\to}M''\right)$
+von $A$-Moduln ist genau dann exakt, wenn für alle $A$-Moduln $N$
+die Folge
+\begin{align*}
+\text{Hom}_{A}\left(N,\mathscr{E}\right) & :=\left(0\to\text{Hom}_{A}\left(N,M'\right)\stackrel{f_{*}}{\to}\text{Hom}_{A}\left(N,M\right)\stackrel{g_{*}}{\to}\text{Hom}_{A}\left(N,M''\right)\right)
+\end{align*}
+exakt ist.
+
+\end{iiilist}
+
+
+\subsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Sei $\mathscr{E}$ exakt. Zeige die Exaktheit von $\text{Hom}_{A}\left(\mathscr{E},N\right)$
+an der Stelle $\text{Hom}_{A}\left(M,N\right)$:
+
+Für $\varphi\in\text{Hom}_{A}\left(M'',N\right)$ gilt:
+\begin{align*}
+\left(f^{*}\circ g^{*}\right)\left(\varphi\right) & =\varphi\circ\underbrace{g\circ f}_{=0}\stackrel{\text{im}\left(f\right)\subseteq\text{ker}\left(g\right)}{=}0
+\end{align*}
+Ist umgekehrt $\varphi\in\text{ker}\left(f^{*}\right)\subseteq\text{Hom}_{A}\left(M,N\right)$,
+so gilt $0=f^{*}\left(\varphi\right)=\left(M'\stackrel{f}{\to}M\stackrel{\varphi}{\to}N\right)$,
+das heißt $\varphi\left(\text{im}\left(f\right)\right)=0$ und wegen
+\ref{sec:BuD-Quotientenmodul} iii) (mit $N=\text{im}\left(\varphi\right)$
+und $L=N$ in dortiger Notation) existiert genau eine $A$-lineare
+Abbildung $\psi:\modulo M{\text{im}\left(f\right)}\to N$ mit:
+\begin{align*}
+\varphi= & \left(M\stackrel{\pi}{\twoheadrightarrow}\modulo M{\text{im}\left(f\right)}\stackrel{\psi}{\to}N\right)
+\end{align*}
+Andererseits faktorisiert $g$ über einen Isomorphismus $\alpha:\modulo M{\text{im}\left(f\right)}\twoheadrightarrow M''$:
+
+\noindent \begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { M & M'' \\  \modulo{M}{\text{im}(\varphi)} & \\ };
+  \path[->>,font=\scriptsize] (m-1-1) edge node[above] {$ g $} (m-1-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ \pi $} (m-2-1);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above,rotate=30] {$\sim$} node[below right] {$ \alpha $} (m-1-2);
+\end{tikzpicture}
+\par\end{center}
+
+Da $g$ surjektiv ist. Es folgt:
+\begin{align*}
+\varphi & =\psi\circ\pi=\psi\circ\alpha^{-1}\circ\alpha\circ\pi=\psi\circ\alpha^{-1}\circ g=g^{*}\left(\psi\circ\alpha^{-1}\right)\in\text{im}\left(g^{*}\right)
+\end{align*}
+Insgesamt gilt also $\ker\left(f^{*}\right)=\text{im}\left(g^{*}\right)$.
+Der Rest des Beweises bleibt als Übung.
+
+\end{iiilist}
+
+\qqed
+
+
+\section{Bemerkung}
+
+\ref{sec:Prop-ExaktheitsKriterium} überträgt sich nicht auf exakte
+Folgen $\mathscr{E}$ beliebiger Gestalt.
+
+Zum Beispiel ist
+\begin{align*}
+\mathscr{E}:= & \left(0\to\mathbb{Z}\stackrel{\left(\cdot2\right)}{\to}\mathbb{Z}\right)\\
+ & \qquad\quad\, x\mapsto2x
+\end{align*}
+eine exakte Folge von $\mathbb{Z}$-Moduln, aber die Folge
+\begin{align*}
+\text{Hom}_{\mathbb{Z}}\left(\mathscr{E},\mathbb{Z}\right) & =\left(\text{Hom}_{\mathbb{Z}}\left(\mathbb{Z},\mathbb{Z}\right)\stackrel{\left(\cdot2\right)^{*}}{\to}\text{Hom}_{\mathbb{Z}}\left(\mathbb{Z},\mathbb{Z}\right)\stackrel{0^{*}}{\to}\text{Hom}_{\mathbb{Z}}\left(0,\mathbb{Z}\right)=0\right)
+\end{align*}
+ist nicht exakt, da $\text{id}_{\mathbb{Z}}\in\text{ker}\left(0^{*}\right)\setminus\text{im}\left(\left(\cdot2\right)^{*}\right)$
+liegt, denn sonst wäre $\text{id}_{\mathbb{Z}}=\left(\cdot2\right)^{*}\left(f\right)$
+für eine geeignete $\mathbb{Z}$-lineare Abbildung $f:\mathbb{Z}\to\mathbb{Z}$,
+also
+\begin{align*}
+1 & =\text{id}_{\mathbb{Z}}\left(1\right)=\left(\left(\cdot2\right)^{*}\left(f\right)\right)\left(1\right)=f\left(2\cdot1\right)=2\cdot f\left(1\right)
+\end{align*}
+in $\mathbb{Z}$. Dies ist ein Widerspruch, da $1\not\in2\cdot\mathbb{Z}$
+ist.
+
+
+\section{Projektive Moduln}
+
+
+\subsection{Definition \textmd{(spalten, direkter Summand)}}
+
+\begin{iiilist}
+
+\iii Eine kurze exakte Folge $0\to M'\to M\sr{\rightleftarrows}{\pi}sM''\to0$
+von $A$-Moduln \emph{spaltet} genau dann, wenn es eine $A$-lineare
+Abbildung $s:M''\to M$ mit $\pi\circ s=\text{id}_{M''}$ gibt.
+
+\iii Ein $A$-Untermodul $N\stackrel{\iota}{\hookrightarrow}M$ ist
+genau dann \emph{ein direkter Summand (von $M$)}, wenn eine $A$-lineare
+Abbildung $f:M\to N$ mit $f\circ\iota=\text{id}_{N}$ existiert.
+
+(In diesem Fall gilt $M=N\oplus\ker\left(f\right)$.)
+
+Zum Beispiel ist $2\mathbb{Z}\subseteq\mathbb{Z}$ kein direkter Summand
+und $0\to2\mathbb{Z}\to\mathbb{Z}\to\modlo Z2\to0$ spaltet nicht,
+da die einzige $A$-lineare Abbildung von $\modlo Z2\to\mathbb{Z}$
+die Nullabbildung ist.
+
+\end{iiilist}
+
+
+\subsection{Proposition und Definition \textmd{(Lift, projektiver Modul)}\label{sub:PuD-projektiv}}
+
+Sei $A$ ein Ring. Für einen $A$-Modul $P$ sind äquivalent:
+
+\begin{iiilist}
+
+\iii Jede kurze exakte Folge von $A$-Moduln der Form $0\to M'\to M\to P\to0$
+spaltet.
+
+\iii Für jeden $A$-linearen Epimorphismus $\pi:M\twoheadrightarrow N$
+in einen Ring $N$ und jede $A$-lineare Abbildung $g:P\to N$ existiert
+\emph{ein Lift von $g$}, also eine $A$-lineare Abbildung $h:P\to M$
+mit $\pi\circ h=g$.
+
+Skizze:
+
+\noindent \begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  {  & P \\  M & N \\ };
+  \path[->>,font=\scriptsize] (m-2-1) edge node[above] {$ \pi $} (m-2-2);
+  \path[->,font=\scriptsize,dashed] (m-1-2) edge node[left] {$ \exs h $} (m-2-1);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ g $} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+\iii $P$ ist direkter Summand eines freien $A$-Moduls.
+
+\end{iiilist}
+
+In diesem Fall heißt der $A$-Modul $P$ \emph{projektiv}.
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Betrachte:
+
+\noindent \begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { 0 & M' & M & P & 0 \\   & & & P & \\ };
+  \path[->>,font=\scriptsize] (m-2-4) edge node[right] {$ \text{id}_P $} (m-1-4);
+  \path[->,font=\scriptsize,dashed] (m-2-4) edge node[left] {$ \exs s $} (m-1-3);
+  \path[->,font=\scriptsize] (m-1-1) edge (m-1-2) (m-1-2) edge (m-1-3) (m-1-3) edge node[above] {$ \pi $} (m-1-4) (m-1-4) edge (m-1-5);
+\end{tikzpicture}
+\par\end{center}
+
+Weil $\pi$ surjektiv ist und wegen ii) existiert eine $A$-lineare
+Abbildung $s:P\to M$ mit $\text{id}_{P}=\pi\circ s$, das heißt obige
+Folge spaltet.
+
+\quotedblbase{}i) $\Rightarrow$ iii)\textquotedblleft{}: Es existiert
+ein freier $A$-Modul $F$ zusammen mit einem $A$-linearen Epimorphismus
+$\pi:F\twoheadrightarrow P$, zum Beispiel $F=A^{\left(P\right)}\twoheadrightarrow P$
+mit der kanonischen Projektion.
+
+Wegen i) spaltet die kurze exakte folge $0\to\ker\left(\pi\right)\to F\stackrel{\pi}{\to}P\to0$,
+das heißt es existiert eine $A$-lineare Abbildung $\iota:P\to F$
+mit $\pi\circ\iota=\text{id}_{P}$. Damit ist $P':=\iota\left(P\right)\subseteq F$
+ein zu $P$ isomorpher $A$-Modul, der durch $f:=\iota\circ\pi:F\to P'$
+als direkter Summand von $F$ erkannt wird.
+
+\quotedblbase{}iii) $\Rightarrow$ ii)\textquotedblleft{}: Nach Voraussetzung
+gilt $P\stackrel{\iota}{\hookrightarrow}F$\  für einen freien $A$-Modul
+$F$ und es existiert eine $A$-lineare Abbildung $f:F\to P$ mit:
+\begin{align}
+f\circ\iota & =\text{id}_{P}\label{eq:idp}
+\end{align}
+Betrachte:
+
+\noindent \begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { F & P \\ M & N \\ };
+  \path[->,font=\scriptsize] (m-1-1.20) edge node[above] {$ f $} (m-1-2.160);
+  \path[->,font=\scriptsize] (m-1-2.200) edge node[below] {$ \iota $} (m-1-1.340);
+  \path[->,font=\scriptsize,dashed] (m-1-1) edge node[left] {$ \tilde g $} (m-2-1) 
+                                    (m-1-2) edge node[below right]{$h$} (m-2-1);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ g $} (m-2-2);
+  \path[->>,font=\scriptsize] (m-2-1) edge node[above] {$ \pi $} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+Sei $X\subseteq F$ eine $A$-Basis. Weil $F$ frei ist, existiert
+eine $A$-lineare Abbildung $\tilde{g}:F\to M$, sodass für alle $x\in X$
+gilt:
+\begin{align*}
+\pi\circ\tilde{g}\left(x\right) & =g\circ f\left(x\right)
+\end{align*}
+Man wählt einfach für $\tilde{g}\left(x\right)$ ein Element aus $\pi^{-1}\left(g\left(f\left(x\right)\right)\right)\not=\emptyset$,
+was immer geht, da $\pi$ surjektiv ist. Weil $F$ frei ist und $\tilde{g}$
+dadurch auf einer Basis von $F$ bestimmt ist, ist $F$ schon vollständig
+festgelegt und es folgt:
+\begin{align}
+\pi\circ\tilde{g} & =g\circ f\label{eq:gf}
+\end{align}
+Setze nun $h:=\tilde{g}\circ\iota$ und rechne:
+\begin{align*}
+\pi\circ h & =\pi\circ\tilde{g}\circ\iota\stackrel{\ref{eq:gf}}{=}g\circ f\circ\iota\stackrel{\ref{eq:idp}}{=}g\circ\text{id}_{P}=g
+\end{align*}
+Daher ist $h$ ein Lift von $g$.\qqed
+
+
+\subsection{Proposition}
+
+Äquivalent zu i) bis iii) in \ref{sub:PuD-projektiv} ist ebenfalls:
+
+\begin{iiilist}
+
+\setcounter{ale2}{3}
+
+\iii Für jede kurze exakte Folge von $A$-Moduln $\mathscr{E}=\left(0\to M'\to M\to M''\to0\right)$
+ist die Folge $\text{Hom}_{A}\left(P,\mathscr{E}\right)$ ebenfalls
+exakt.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+Der Beweis bleibt als Übung.\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}

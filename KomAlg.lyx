@@ -5580,6 +5580,13 @@ end{iiilist}
 
 \begin_layout Section
 Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-Zp"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -10380,8 +10387,7 @@ iii
 
 \end_inset
 
- 
-Betrachte die Abbildung:
+ Betrachte die Abbildung:
 \begin_inset Formula 
 \begin{align*}
 \psi:\modulo LM & \to\modulo LN\\
@@ -10394,9 +10400,7 @@ Diese ist wegen
 \begin_inset Formula $M\subseteq N$
 \end_inset
 
- wohldefiniert und surjektiv, 
-\lang ngerman
-und offenbar 
+ wohldefiniert und surjektiv, und offenbar 
 \begin_inset Formula $A$
 \end_inset
 
@@ -10467,8 +10471,7 @@ iii
 
 \end_inset
 
- 
-Betrachte die Abbildung:
+ Betrachte die Abbildung:
 \begin_inset Formula 
 \begin{align*}
 \psi:M_{2} & \hookrightarrow M_{1}+M_{2}\twoheadrightarrow\modulo{M_{1}+M_{2}}{M_{1}}\\
@@ -10477,9 +10480,7 @@ x & \mapsto x+M_{1}
 
 \end_inset
 
-Diese Komposition von Inklusions- und Projektionshomomorphismus ist
-\lang ngerman
- 
+Diese Komposition von Inklusions- und Projektionshomomorphismus ist 
 \begin_inset Formula $A$
 \end_inset
 
@@ -10557,6 +10558,13 @@ end{iiilist}
 Bemerkung und Definition 
 \series medium
 (Produkt und direkte Summe)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:BuD-ProduktSumme"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -11062,7 +11070,7 @@ Für jeden
 -linearen Isomorphismus:
 \begin_inset Formula 
 \begin{align*}
-\text{Hom}_{A}\left(A^{\left(X\right)},N\right) & \sr{\to}{\sim}{\ref{asdf}2.9\text{ ii)}}\prod_{x\in X}\text{Hom}_{A}\left(A,N\right)\sr{\to}{\prod\varepsilon_{N}}{\ref{asdf}2.3\text{ iv)}}\prod_{x\in X}N=\text{Abb}\left(X,N\right)
+\text{Hom}_{A}\left(A^{\left(X\right)},N\right) & \sr{\to}{\sim}{\ref{sec:BuD-ProduktSumme}\text{ ii)}}\prod_{x\in X}\text{Hom}_{A}\left(A,N\right)\sr{\to}{\prod\varepsilon_{N}}{\ref{sec:DuB-lineareAbb}\text{ iv)}}\prod_{x\in X}N=\text{Abb}\left(X,N\right)
 \end{align*}
 
 \end_inset
@@ -11773,6 +11781,13 @@ end{iiilist}
 
 \begin_layout Section
 Korollar
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-x=1undxM=0"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -11831,11 +11846,2056 @@ reference "sec:Satz-Cayley-Hamilton"
 \begin_inset Formula $f:=\text{id}_{M}$
 \end_inset
 
- und dann in dortiger Notation 
-\begin_inset Formula $x:=1+\underbrace{a_{1}+\ldots+a_{n}}_{\in I}\equiv1\mod I$
+ und dann in dortiger Notation:
+\begin_inset Formula 
+\begin{align*}
+x & :=1+\underbrace{a_{1}+\ldots+a_{n}}_{\in I}\equiv1\mod I
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 8.5.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lemma 
+\series medium
+(von Nakayama)
+\series default
+ und Definition 
+\series medium
+(Jacobsonradikal)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:LuD-Nakayama-Jacobsonradikal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ ein endlich erzeugter 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und
+\begin_inset Formula 
+\begin{align*}
+I\subseteq & \text{Jac}\left(A\right):=\bigcap_{\mathfrak{m}\subseteq A\text{ max. Ideal}}\mathfrak{m}
+\end{align*}
+
+\end_inset
+
+ein Ideal, das im 
+\emph on
+Jacobsonradikal von 
+\begin_inset Formula $A$
+\end_inset
+
+
+\emph default
+ enthalten ist.
+ Dann folgt aus 
+\begin_inset Formula $IM=M$
+\end_inset
+
+ schon 
+\begin_inset Formula $M=\left(0\right)$
 \end_inset
 
 .
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-x=1undxM=0"
+
+\end_inset
+
+ existiert ein 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ mit 
+\begin_inset Formula $xM=\left(0\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $x\equiv1\mod I$
+\end_inset
+
+.
+ Es folgt 
+\begin_inset Formula $x-1\in\mathfrak{m}$
+\end_inset
+
+ für alle maximalen Ideale 
+\begin_inset Formula $\mathfrak{m}\subseteq A$
+\end_inset
+
+, also 
+\begin_inset Formula $x\not\in\mathfrak{m}$
+\end_inset
+
+, da sonst 
+\begin_inset Formula $1\in\mathfrak{m}$
+\end_inset
+
+, und damit 
+\begin_inset Formula $x\in A^{*}$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-EinheitMaximalesIdeal"
+
+\end_inset
+
+ ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i).
+ Aus 
+\begin_inset Formula $xM=0$
+\end_inset
+
+ und 
+\begin_inset Formula $x\in A^{*}$
+\end_inset
+
+ folgt 
+\begin_inset Formula $M=\left(0\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\left(A:=\mathbb{Z}_{\left(p\right)},\mathfrak{m}:=\left(p\right)\right)$
+\end_inset
+
+ ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-Zp"
+
+\end_inset
+
+ ein lokaler Ring, also gilt 
+\begin_inset Formula $\text{Jac}\left(A\right)=\mathfrak{m}=\left(p\right)\subseteq\mathbb{Z}_{\left(p\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $M:=\mathbb{Q}$
+\end_inset
+
+ aufgefasst als 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul -- beachte, dass 
+\begin_inset Formula $A\subseteq\mathbb{Q}$
+\end_inset
+
+ ein Unterring ist -- gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{m}M & =\left(p\right)\cdot\mathbb{Q}=\mathbb{Q}=M
+\end{align*}
+
+\end_inset
+
+Wegen 
+\begin_inset Formula $M\not=0$
+\end_inset
+
+ folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:LuD-Nakayama-Jacobsonradikal"
+
+\end_inset
+
+, dass 
+\begin_inset Formula $M$
+\end_inset
+
+ als 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul nicht endlich erzeugt ist, beziehungsweise, dass man in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:LuD-Nakayama-Jacobsonradikal"
+
+\end_inset
+
+ nicht auf „
+\begin_inset Formula $M$
+\end_inset
+
+ endlich erzeugt“ verzichten kann.
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(minimales Erzeugendensystem)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\left(A,\mathfrak{m}\right)$
+\end_inset
+
+ ein lokaler Ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ ein endlich erzeugter 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und für 
+\begin_inset Formula $x_{1},\ldots,x_{n}\in M$
+\end_inset
+
+ gelte, dass
+\begin_inset Formula 
+\begin{align*}
+\left\{ \overline{x}_{i}\right\} _{1\le i\le n} & \subseteq\modulo M{\mathfrak{m}M}
+\end{align*}
+
+\end_inset
+
+eine Basis dieses 
+\begin_inset Formula $\modulo A{\mathfrak{m}}=\kappa\left(\mathfrak{m}\right)$
+\end_inset
+
+-Vektorraums ist.
+ Dann ist 
+\begin_inset Formula $\left\{ x_{1},\ldots,x_{n}\right\} \subseteq M$
+\end_inset
+
+ ein minimales Erzeugendensystem des 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduls 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection
+Beweis
+\end_layout
+
+\begin_layout Standard
+Für
+\begin_inset Formula 
+\begin{align*}
+N & :=\sum_{i=1}^{N}Ax_{i}\subseteq M
+\end{align*}
+
+\end_inset
+
+ist die Komposition 
+\begin_inset Formula $N\hookrightarrow M\stackrel{\pi}{\twoheadrightarrow}\modulo M{\mathfrak{m}M}$
+\end_inset
+
+ surjektiv, da alle 
+\begin_inset Formula $\overline{x}_{i}$
+\end_inset
+
+ im Bild liegen, also gilt:
+\begin_inset Formula 
+\begin{align*}
+M & =\pi\left(N\right)=N+\mathfrak{m}M
+\end{align*}
+
+\end_inset
+
+Es folgt 
+\begin_inset Formula $\modulo MN\subseteq\mathfrak{m}\cdot\left(\modulo MN\right)$
+\end_inset
+
+ und damit 
+\begin_inset Formula $\modulo MN=\left(0\right)$
+\end_inset
+
+ nach dem Lemma
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:LuD-Nakayama-Jacobsonradikal"
+
+\end_inset
+
+ von Nakayama, da 
+\begin_inset Formula $\text{Jac}\left(A\right)=\mathfrak{m}$
+\end_inset
+
+ ist.
+ Damit gilt:
+\begin_inset Formula 
+\begin{align*}
+M & =N=\sum_{i=1}^{n}Ax_{i}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\left\{ x_{1},\ldots,x_{n}\right\} \subseteq M$
+\end_inset
+
+ ein Erzeugendensystem, dessen Minimalität sofort aus derjenigen von 
+\begin_inset Formula $\left\{ \overline{x_{u}}\right\} _{1\le i\le n}$
+\end_inset
+
+ folgt.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(exakte Folge)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Def-exakte-Folge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+ Eine Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln und 
+\begin_inset Formula $A$
+\end_inset
+
+-linearen Abbildungen
+\begin_inset Formula 
+\begin{align*}
+\ldots\to M_{i-1} & \stackrel{f_{i-1}}{\to}M_{i}\stackrel{f_{i}}{\to}M_{i+1}\to\ldots
+\end{align*}
+
+\end_inset
+
+heißt 
+\emph on
+exakt an der Stelle 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+
+\emph default
+, falls gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{im}\left(f_{i-1}\right) & =\text{ker}\left(f_{i}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(„
+\begin_inset Formula $\subseteq$
+\end_inset
+
+“ bedeutet 
+\begin_inset Formula $f_{i}\circ f_{i-1}=0$
+\end_inset
+
+ und „
+\begin_inset Formula $\supseteq$
+\end_inset
+
+“ bedeutet 
+\begin_inset Formula $f_{i}\left(x\right)=0\Rightarrow x=f_{i-1}\left(y\right)$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+Sie heißt 
+\emph on
+exakt
+\emph default
+, falls sie an jeder Stelle exakt ist.
+\end_layout
+
+\begin_layout Section
+Beispiel und Definition 
+\series medium
+(kurze exakte Folge)
+\end_layout
+
+\begin_layout Standard
+In der Situation von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Def-exakte-Folge"
+
+\end_inset
+
+ gilt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $0\to M\stackrel{f}{\to}N$
+\end_inset
+
+ exakt 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $0=\ker\left(f\right)$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ ist injektiv.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $M\stackrel{f}{\to}N\to0$
+\end_inset
+
+ exakt 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $\text{im}\left(f\right)=N$
+\end_inset
+
+ 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ ist surjektiv.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $0\to M\stackrel{f}{\to}N\stackrel{g}{\to}L\to0$
+\end_inset
+
+ exakt 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ injektiv, 
+\begin_inset Formula $g$
+\end_inset
+
+ surjektiv und 
+\begin_inset Formula $\text{im}\left(f\right)=\text{ker}\left(g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In diesem Fall heißt die 
+\begin_inset Formula $0\to M\stackrel{f}{\to}N\stackrel{g}{\to}L\to0$
+\end_inset
+
+ 
+\emph on
+eine kurze exakte Folge
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-ExaktheitsKriterium"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine Folge 
+\begin_inset Formula $\mathscr{E}=\left(M'\stackrel{f}{\to}M\stackrel{g}{\to}M''\to0\right)$
+\end_inset
+
+ von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln ist genau dann exakt, wenn für alle 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln 
+\begin_inset Formula $N$
+\end_inset
+
+ die Folge
+\begin_inset Formula 
+\begin{align*}
+\text{Hom}_{A}\left(\mathscr{E},N\right) & :=\left(0\to\text{Hom}_{A}\left(M'',N\right)\stackrel{g^{*}}{\to}\text{Hom}_{A}\left(M,N\right)\stackrel{f^{*}}{\to}\text{Hom}_{A}\left(M',N\right)\right)
+\end{align*}
+
+\end_inset
+
+exakt ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine Folge 
+\begin_inset Formula $\mathscr{E}=\left(0\to M'\stackrel{f}{\to}M\stackrel{g}{\to}M''\right)$
+\end_inset
+
+ von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln ist genau dann exakt, wenn für alle 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln 
+\begin_inset Formula $N$
+\end_inset
+
+ die Folge
+\begin_inset Formula 
+\begin{align*}
+\text{Hom}_{A}\left(N,\mathscr{E}\right) & :=\left(0\to\text{Hom}_{A}\left(N,M'\right)\stackrel{f_{*}}{\to}\text{Hom}_{A}\left(N,M\right)\stackrel{g_{*}}{\to}\text{Hom}_{A}\left(N,M''\right)\right)
+\end{align*}
+
+\end_inset
+
+exakt ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sei 
+\begin_inset Formula $\mathscr{E}$
+\end_inset
+
+ exakt.
+ Zeige die Exaktheit von 
+\begin_inset Formula $\text{Hom}_{A}\left(\mathscr{E},N\right)$
+\end_inset
+
+ an der Stelle 
+\begin_inset Formula $\text{Hom}_{A}\left(M,N\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $\varphi\in\text{Hom}_{A}\left(M'',N\right)$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(f^{*}\circ g^{*}\right)\left(\varphi\right) & =\varphi\circ\underbrace{g\circ f}_{=0}\stackrel{\text{im}\left(f\right)\subseteq\text{ker}\left(g\right)}{=}0
+\end{align*}
+
+\end_inset
+
+Ist umgekehrt 
+\begin_inset Formula $\varphi\in\text{ker}\left(f^{*}\right)\subseteq\text{Hom}_{A}\left(M,N\right)$
+\end_inset
+
+, so gilt 
+\begin_inset Formula $0=f^{*}\left(\varphi\right)=\left(M'\stackrel{f}{\to}M\stackrel{\varphi}{\to}N\right)$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $\varphi\left(\text{im}\left(f\right)\right)=0$
+\end_inset
+
+ und wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:BuD-Quotientenmodul"
+
+\end_inset
+
+ iii) (mit 
+\begin_inset Formula $N=\text{im}\left(\varphi\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $L=N$
+\end_inset
+
+ in dortiger Notation) existiert genau eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $\psi:\modulo M{\text{im}\left(f\right)}\to N$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+\varphi= & \left(M\stackrel{\pi}{\twoheadrightarrow}\modulo M{\text{im}\left(f\right)}\stackrel{\psi}{\to}N\right)
+\end{align*}
+
+\end_inset
+
+Andererseits faktorisiert 
+\begin_inset Formula $g$
+\end_inset
+
+ über einen Isomorphismus 
+\begin_inset Formula $\alpha:\modulo M{\text{im}\left(f\right)}\twoheadrightarrow M''$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { M & M'' 
+\backslash
+
+\backslash
+  
+\backslash
+modulo{M}{
+\backslash
+text{im}(
+\backslash
+varphi)} & 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-1-1) edge node[above] {$ g $} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left] {$ 
+\backslash
+pi $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above,rotate=30] {$
+\backslash
+sim$} node[below right] {$ 
+\backslash
+alpha $} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $g$
+\end_inset
+
+ surjektiv ist.
+ Es folgt:
+\begin_inset Formula 
+\begin{align*}
+\varphi & =\psi\circ\pi=\psi\circ\alpha^{-1}\circ\alpha\circ\pi=\psi\circ\alpha^{-1}\circ g=g^{*}\left(\psi\circ\alpha^{-1}\right)\in\text{im}\left(g^{*}\right)
+\end{align*}
+
+\end_inset
+
+Insgesamt gilt also 
+\begin_inset Formula $\ker\left(f^{*}\right)=\text{im}\left(g^{*}\right)$
+\end_inset
+
+.
+ Der Rest des Beweises bleibt als Übung.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-ExaktheitsKriterium"
+
+\end_inset
+
+ überträgt sich nicht auf exakte Folgen 
+\begin_inset Formula $\mathscr{E}$
+\end_inset
+
+ beliebiger Gestalt.
+\end_layout
+
+\begin_layout Standard
+Zum Beispiel ist
+\begin_inset Formula 
+\begin{align*}
+\mathscr{E}:= & \left(0\to\mathbb{Z}\stackrel{\left(\cdot2\right)}{\to}\mathbb{Z}\right)\\
+ & \qquad\quad\, x\mapsto2x
+\end{align*}
+
+\end_inset
+
+eine exakte Folge von 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-Moduln, aber die Folge
+\begin_inset Formula 
+\begin{align*}
+\text{Hom}_{\mathbb{Z}}\left(\mathscr{E},\mathbb{Z}\right) & =\left(\text{Hom}_{\mathbb{Z}}\left(\mathbb{Z},\mathbb{Z}\right)\stackrel{\left(\cdot2\right)^{*}}{\to}\text{Hom}_{\mathbb{Z}}\left(\mathbb{Z},\mathbb{Z}\right)\stackrel{0^{*}}{\to}\text{Hom}_{\mathbb{Z}}\left(0,\mathbb{Z}\right)=0\right)
+\end{align*}
+
+\end_inset
+
+ist nicht exakt, da 
+\begin_inset Formula $\text{id}_{\mathbb{Z}}\in\text{ker}\left(0^{*}\right)\setminus\text{im}\left(\left(\cdot2\right)^{*}\right)$
+\end_inset
+
+ liegt, denn sonst wäre 
+\begin_inset Formula $\text{id}_{\mathbb{Z}}=\left(\cdot2\right)^{*}\left(f\right)$
+\end_inset
+
+ für eine geeignete 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $f:\mathbb{Z}\to\mathbb{Z}$
+\end_inset
+
+, also
+\begin_inset Formula 
+\begin{align*}
+1 & =\text{id}_{\mathbb{Z}}\left(1\right)=\left(\left(\cdot2\right)^{*}\left(f\right)\right)\left(1\right)=f\left(2\cdot1\right)=2\cdot f\left(1\right)
+\end{align*}
+
+\end_inset
+
+in 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ Dies ist ein Widerspruch, da 
+\begin_inset Formula $1\not\in2\cdot\mathbb{Z}$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Section
+Projektive Moduln
+\end_layout
+
+\begin_layout Subsection
+Definition 
+\series medium
+(spalten, direkter Summand)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine kurze exakte Folge 
+\begin_inset Formula $0\to M'\to M\sr{\rightleftarrows}{\pi}sM''\to0$
+\end_inset
+
+ von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln 
+\emph on
+spaltet
+\emph default
+ genau dann, wenn es eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $s:M''\to M$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\circ s=\text{id}_{M''}$
+\end_inset
+
+ gibt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermodul 
+\begin_inset Formula $N\stackrel{\iota}{\hookrightarrow}M$
+\end_inset
+
+ ist genau dann 
+\emph on
+ein direkter Summand (von 
+\begin_inset Formula $M$
+\end_inset
+
+)
+\emph default
+, wenn eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\circ\iota=\text{id}_{N}$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Standard
+(In diesem Fall gilt 
+\begin_inset Formula $M=N\oplus\ker\left(f\right)$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+Zum Beispiel ist 
+\begin_inset Formula $2\mathbb{Z}\subseteq\mathbb{Z}$
+\end_inset
+
+ kein direkter Summand und 
+\begin_inset Formula $0\to2\mathbb{Z}\to\mathbb{Z}\to\modlo Z2\to0$
+\end_inset
+
+ spaltet nicht, da die einzige 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung von 
+\begin_inset Formula $\modlo Z2\to\mathbb{Z}$
+\end_inset
+
+ die Nullabbildung ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Proposition und Definition 
+\series medium
+(Lift, projektiver Modul)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sub:PuD-projektiv"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+ Für einen 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $P$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jede kurze exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln der Form 
+\begin_inset Formula $0\to M'\to M\to P\to0$
+\end_inset
+
+ spaltet.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jeden 
+\begin_inset Formula $A$
+\end_inset
+
+-linearen Epimorphismus 
+\begin_inset Formula $\pi:M\twoheadrightarrow N$
+\end_inset
+
+ in einen Ring 
+\begin_inset Formula $N$
+\end_inset
+
+ und jede 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $g:P\to N$
+\end_inset
+
+ existiert 
+\emph on
+ein Lift von 
+\begin_inset Formula $g$
+\end_inset
+
+
+\emph default
+, also eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $h:P\to M$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\circ h=g$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Skizze:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  {  & P 
+\backslash
+
+\backslash
+  M & N 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-2-1) edge node[above] {$ 
+\backslash
+pi $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-1-2) edge node[left] {$ 
+\backslash
+exs h $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ g $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $P$
+\end_inset
+
+ ist direkter Summand eines freien 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduls.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In diesem Fall heißt der 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $P$
+\end_inset
+
+ 
+\emph on
+projektiv
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Betrachte:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { 0 & M' & M & P & 0 
+\backslash
+
+\backslash
+   & & & P & 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-2-4) edge node[right] {$ 
+\backslash
+text{id}_P $} (m-1-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-2-4) edge node[left] {$ 
+\backslash
+exs s $} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-1-2) (m-1-2) edge (m-1-3) (m-1-3) edge node[above]
+ {$ 
+\backslash
+pi $} (m-1-4) (m-1-4) edge (m-1-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Weil 
+\begin_inset Formula $\pi$
+\end_inset
+
+ surjektiv ist und wegen ii) existiert eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $s:P\to M$
+\end_inset
+
+ mit 
+\begin_inset Formula $\text{id}_{P}=\pi\circ s$
+\end_inset
+
+, das heißt obige Folge spaltet.
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iii)“: Es existiert ein freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $F$
+\end_inset
+
+ zusammen mit einem 
+\begin_inset Formula $A$
+\end_inset
+
+-linearen Epimorphismus 
+\begin_inset Formula $\pi:F\twoheadrightarrow P$
+\end_inset
+
+, zum Beispiel 
+\begin_inset Formula $F=A^{\left(P\right)}\twoheadrightarrow P$
+\end_inset
+
+ mit der kanonischen Projektion.
+\end_layout
+
+\begin_layout Standard
+Wegen i) spaltet die kurze exakte folge 
+\begin_inset Formula $0\to\ker\left(\pi\right)\to F\stackrel{\pi}{\to}P\to0$
+\end_inset
+
+, das heißt es existiert eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $\iota:P\to F$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\circ\iota=\text{id}_{P}$
+\end_inset
+
+.
+ Damit ist 
+\begin_inset Formula $P':=\iota\left(P\right)\subseteq F$
+\end_inset
+
+ ein zu 
+\begin_inset Formula $P$
+\end_inset
+
+ isomorpher 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, der durch 
+\begin_inset Formula $f:=\iota\circ\pi:F\to P'$
+\end_inset
+
+ als direkter Summand von 
+\begin_inset Formula $F$
+\end_inset
+
+ erkannt wird.
+\end_layout
+
+\begin_layout Standard
+„iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Nach Voraussetzung gilt 
+\begin_inset Formula $P\stackrel{\iota}{\hookrightarrow}F$
+\end_inset
+
+
+\begin_inset space \space{}
+\end_inset
+
+ für einen freien 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $F$
+\end_inset
+
+ und es existiert eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $f:F\to P$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align}
+f\circ\iota & =\text{id}_{P}\label{eq:idp}
+\end{align}
+
+\end_inset
+
+Betrachte:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { F & P 
+\backslash
+
+\backslash
+ M & N 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1.20) edge node[above] {$ f $} (m-1-2.160);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2.200) edge node[below] {$ 
+\backslash
+iota $} (m-1-1.340);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-1-1) edge node[left] {$ 
+\backslash
+tilde g $} (m-2-1) 
+\end_layout
+
+\begin_layout Plain Layout
+
+                                    (m-1-2) edge node[below right]{$h$}
+ (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ g $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-2-1) edge node[above] {$ 
+\backslash
+pi $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $X\subseteq F$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Basis.
+ Weil 
+\begin_inset Formula $F$
+\end_inset
+
+ frei ist, existiert eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $\tilde{g}:F\to M$
+\end_inset
+
+, sodass für alle 
+\begin_inset Formula $x\in X$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\pi\circ\tilde{g}\left(x\right) & =g\circ f\left(x\right)
+\end{align*}
+
+\end_inset
+
+Man wählt einfach für 
+\begin_inset Formula $\tilde{g}\left(x\right)$
+\end_inset
+
+ ein Element aus 
+\begin_inset Formula $\pi^{-1}\left(g\left(f\left(x\right)\right)\right)\not=\emptyset$
+\end_inset
+
+, was immer geht, da 
+\begin_inset Formula $\pi$
+\end_inset
+
+ surjektiv ist.
+ Weil 
+\begin_inset Formula $F$
+\end_inset
+
+ frei ist und 
+\begin_inset Formula $\tilde{g}$
+\end_inset
+
+ dadurch auf einer Basis von 
+\begin_inset Formula $F$
+\end_inset
+
+ bestimmt ist, ist 
+\begin_inset Formula $F$
+\end_inset
+
+ schon vollständig festgelegt und es folgt:
+\begin_inset Formula 
+\begin{align}
+\pi\circ\tilde{g} & =g\circ f\label{eq:gf}
+\end{align}
+
+\end_inset
+
+Setze nun 
+\begin_inset Formula $h:=\tilde{g}\circ\iota$
+\end_inset
+
+ und rechne:
+\begin_inset Formula 
+\begin{align*}
+\pi\circ h & =\pi\circ\tilde{g}\circ\iota\stackrel{\ref{eq:gf}}{=}g\circ f\circ\iota\stackrel{\ref{eq:idp}}{=}g\circ\text{id}_{P}=g
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $h$
+\end_inset
+
+ ein Lift von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsection
+Proposition
+\end_layout
+
+\begin_layout Standard
+Äquivalent zu i) bis iii) in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sub:PuD-projektiv"
+
+\end_inset
+
+ ist ebenfalls:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+setcounter{ale2}{3}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jede kurze exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln 
+\begin_inset Formula $\mathscr{E}=\left(0\to M'\to M\to M''\to0\right)$
+\end_inset
+
+ ist die Folge 
+\begin_inset Formula $\text{Hom}_{A}\left(P,\mathscr{E}\right)$
+\end_inset
+
+ ebenfalls exakt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Der Beweis bleibt als Übung.
 \begin_inset ERT
 status open
 
