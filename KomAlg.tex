@@ -20,9 +20,9 @@
  bookmarks=true,bookmarksnumbered=true,bookmarksopen=false,
  breaklinks=true,pdfborder={0 0 0},backref=page,colorlinks=false]
  {hyperref}
-\hypersetup{pdftitle={Algebra},
+\hypersetup{pdftitle={Kommutative Algebra},
  pdfauthor={Andreas Völklein},
- pdfkeywords={Algebra, Mathematik}}
+ pdfkeywords={Kommutative Algebra, Mathematik}}
 
 \makeatletter
 
@@ -2237,9 +2237,10 @@ folgt aus $IM=M$ schon $M=\left(0\right)$.
 \subsubsection*{Beweis}
 
 Nach \ref{sec:Kor-x=00003D1undxM=00003D0} existiert ein $x\in A$
-mit $xM=\left(0\right)$ und $x\equiv1\mod I$. Es folgt $x-1\in\mathfrak{m}$
+mit $xM=\left(0\right)$ und $x\equiv1\mod I$. Es folgt $1-x\in\mathfrak{m}$
 für alle maximalen Ideale $\mathfrak{m}\subseteq A$, also $x\not\in\mathfrak{m}$,
-da sonst $1\in\mathfrak{m}$, und damit $x\in A^{*}$ nach \ref{sec:Kor-EinheitMaximalesIdeal}
+da sonst der Widerspruch $1=\left(1-x\right)+x\in\mathfrak{m}$ folgte,
+und damit ist $x\in A^{*}$ nach \ref{sec:Kor-EinheitMaximalesIdeal}
 ii) $\Rightarrow$ i). Aus $xM=0$ und $x\in A^{*}$ folgt $M=\left(0\right)$.\qqed
 
 
@@ -2573,6 +2574,308 @@ exakt.
 \subsubsection*{Beweis}
 
 Der Beweis bleibt als Übung.\qqed
+
+%DATE: Fr 11.5.12
+
+
+\section{Definition \textmd{(bilineare Abbildung)}}
+
+Seien $A$ ein Ring und $M,N,L$ drei $A$-Moduln.
+
+Eine Abbildung $f:M\times N\to L$ heißt \emph{$A$-bilinear}, falls
+für alle $m_{0}\in M$ und alle $n_{0}\in N$ die Abbildungen
+\begin{align*}
+M & \to L\\
+m & \mapsto f\left(m,n_{0}\right)
+\end{align*}
+und
+\begin{align*}
+N & \to L\\
+n & \mapsto f\left(m_{0},n\right)
+\end{align*}
+beide $A$-linear sind.
+
+
+\section{Satz und Definition \textmd{(Tensorprodukt)\label{sec:SuD-Tensorprodukt}}}
+
+Seien $A$ ein Ring und $M,N$ zwei $A$-Moduln. Dann existiert eine
+$A$-bilineare Abbildung
+\begin{align*}
+\tau:M\times N & \to M\otimes_{A}N
+\end{align*}
+so, dass für jede $A$-bilineare Abbildung $f:M\times N\to L$ genau
+eine $A$-lineare Abbildung $\alpha:M\otimes_{A}N\to L$ mit $f=\alpha\circ\tau$
+existiert.
+
+Der $A$-Modul $M\otimes_{A}N$, genauer die $A$-bilineare Abbildung
+$ $$\tau$, heißt \emph{das Tensorprodukt von $M$ und $N$ (über
+$A$)}.
+
+Schreibe $m\otimes n:=\tau\left(m,n\right)$ für alle $\left(m,n\right)\in M\times n$.
+Dann kann man jedes $x\in M\otimes_{A}N$ als
+\begin{align*}
+x & =\sum_{i=1}^{n}m_{i}\otimes n_{i}
+\end{align*}
+für ein $n\in\mathbb{N}_{\ge0}$ und geeignete $m_{i}\in M$ und $n_{i}\in N$
+schreiben.
+
+
+\subsubsection*{Beweis}
+
+Der Beweis ist genauso wie in dem aus der Linearen Algebra II bekannten
+Fall, dass $A$ ein Körper ist.\qqed
+
+
+\section{Bemerkung und Definition \texorpdfstring{\textmd{($f\otimes g$)}}{}\label{sec:BuD-fotimesg}}
+
+Seien $A$ ein Ring, $M,M',N,N'$ vier $A$-Moduln und $f:M\to M',g:N\to N'$
+zwei $A$-lineare Abbildungen.
+
+Dann existiert genau eine $A$-lineare Abbildung $f\otimes g:M\otimes_{A}N\to M'\otimes_{A}N'$,
+sodass für alle $\left(m,n\right)\in M\times N$ gilt:
+\begin{align*}
+\left(f\otimes g\right)\left(m\otimes n\right) & =f\left(m\right)\otimes g\left(n\right)
+\end{align*}
+Ferner existiert genau eine $A$-lineare Abbildung (im Allgemeinen
+kein Isomorphismus)
+\begin{align*}
+\text{Hom}_{A}\left(M,M'\right)\otimes_{A}\text{Hom}_{A}\left(N,N'\right) & \to\text{Hom}_{A}\left(M\otimes_{A}N,M'\otimes_{A}N'\right)
+\end{align*}
+mit:
+\begin{align*}
+\left(f\right)\otimes\left(g\right) & \mapsto\left(f\otimes g\right)
+\end{align*}
+Achtung Notationsüberlastung!
+
+$\left(f\right)\otimes\left(g\right)$ wie in \ref{sec:SuD-Tensorprodukt}
+und $\left(f\otimes g\right)$ wie in \ref{sec:BuD-fotimesg}.
+
+
+\section{Satz \textmd{(natürliche Isomorphismen)}}
+
+Seien $A$ ein Ring, $M,N$ zwei $A$-Moduln, $I$ eine Menge und
+für alle $i\in I$ sei $M_{i}$ ein $A$-Modul.
+
+Die folgenden Vorschriften definieren eindeutige $A$-lineare Abbildungen
+und jede solche ist ein natürlicher Isomorphismus:
+
+\begin{iiilist}
+
+\iii\hspace*{1mm}\vspace*{-4mm}
+\begin{align*}
+M\otimes_{A}N & \sr{\to}{\sim}{\not=}N\otimes_{A}M\\
+m\otimes n & \mapsto n\otimes m
+\end{align*}
+
+
+(Beispiel: $\text{End}_{k}\left(k^{n}\right)\sr{\to}{\sim}{\not=}M_{n}\left(k\right)$
+ist nicht natürlich, sondern von der Basis abhängig.)
+
+\iii\hspace*{1mm}\vspace*{-4mm}
+\begin{align*}
+\left(M\otimes_{A}N\right)\otimes_{A}L & \stackrel{\sim}{\to}M\otimes_{A}\left(N\otimes_{A}L\right)\\
+\left(m\otimes n\right)\otimes l & \mapsto m\otimes\left(n\otimes l\right)
+\end{align*}
+\iii\hspace*{1mm}\vspace*{-4mm}
+\begin{align*}
+\left(\bigoplus_{i\in I}M_{i}\right)\otimes_{A}N & \stackrel{\sim}{\to}\left(\bigoplus_{i\in I}M_{i}\otimes_{A}N\right)\\
+\left(m_{i}\right)_{i\in I}\otimes n & \mapsto\left(m_{i}\otimes n\right)_{i\in I}
+\end{align*}
+\iii\hspace*{1mm}\vspace*{-4mm}
+\begin{align*}
+A\otimes_{A}M & \stackrel{\sim}{\to}M\\
+a\otimes m & \mapsto am
+\end{align*}
+
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+i) Existenz und Eindeutigkeit der linearen Abbildung folgen aus \ref{sec:SuD-Tensorprodukt}
+aus der offensichtlichen Bilinearität von:
+\begin{align*}
+M\times N & \to N\otimes_{A}M\\
+\left(m,n\right) & \mapsto n\otimes m
+\end{align*}
+
+
+\noindent \begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { M\times N & N\otimes_A M \\ M\otimes_A N & \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge (m-1-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ \tau $} (m-2-1);
+  \path[->,font=\scriptsize,dashed] (m-2-1) edge node[right] {$ \exsg $} (m-1-2);
+\end{tikzpicture}
+\par\end{center}
+
+Die Abbildung ist ein Isomorphismus, da
+\begin{align*}
+N\otimes_{A}M & \to M\otimes_{A}N\\
+n\otimes m & \mapsto m\otimes n
+\end{align*}
+ihr Inverses ist.
+
+Die Natürlichkeit bedeutet hier:
+
+Sind $f:M\to M'$ und $g:N\to N'$ beide $A$-linear, so ist das Diagramm
+
+\noindent \begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { M\otimes_A N & N\otimes_A M \\ M'\otimes_A N' & N' \otimes_A M' \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above] {$\sim$} node[below]{i)} (m-1-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ f \otimes g $} (m-2-1);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above] {$ \sim $} node[below]{i)} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ g\otimes f $} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+kommutativ, was klar ist:
+
+\noindent \begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { m\otimes_A n & n\otimes_A m \\ f(m)\otimes f(n) & f(n) \otimes f(m) \\ };
+  \path[|->,font=\scriptsize] (m-1-1) edge (m-1-2);
+  \path[|->,font=\scriptsize] (m-1-1) edge (m-2-1);
+  \path[|->,font=\scriptsize] (m-2-1) edge (m-2-2);
+  \path[|->,font=\scriptsize] (m-1-2) edge (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+Zudem sind die $m\otimes n$ Erzeuger, womit die Aussage folgt.
+
+ii), iii) und iv) folgen analog.\qqed
+
+
+\section{Satz}
+
+Seien $A$ ein Ring und $M,N,L$ drei $A$-Moduln. Dann ist die Abbildung
+\begin{align*}
+\varphi\left(M,N,L\right):\text{Hom}_{A}\left(M\otimes_{A}N,L\right) & \stackrel{\sim}{\to}\text{Hom}_{A}\left(M,\text{Hom}_{A}\left(N,L\right)\right)
+\end{align*}
+für alle $\alpha\in\text{Hom}_{A}\left(M\otimes_{A}N,L\right)$, $m\in M$
+und $n\in N$ definiert durch
+\begin{align}
+\varphi\left(M,N,L\right)\left(\alpha\right)\left(m\right)\left(n\right) & :=\alpha\left(m\otimes n\right)\label{eq:varphiDefinition}
+\end{align}
+ein natürlicher $A$-linearer Isomorphismus.
+
+
+\subsubsection*{Beweis}
+
+Man sieht leicht, dass $\varphi\left(M,N,L\right)$ wohldefiniert
+ist.
+\begin{description}
+\item [{Behauptung}] Es existiert genau eine $A$-lineare Abbildung
+\begin{align*}
+\psi:\text{Hom}_{A}\left(M,\text{Hom}_{A}\left(N,L\right)\right) & \to\text{Hom}_{A}\left(M\otimes_{A}N,L\right)
+\end{align*}
+für die für alle $f\in\text{Hom}_{A}\left(M,\text{Hom}_{A}\left(N,L\right)\right)$,
+$m\in M$ und $n\in N$ gilt:
+\begin{align}
+\psi\left(f\right)\left(m\otimes n\right) & =f\left(m\right)\left(n\right)\label{eq:psiDefinition}
+\end{align}
+
+\item [{Beweis}] Für gegebenes $f$ ist die Abbildung
+\begin{align*}
+M\times N & \to L\\
+\left(m,n\right) & \to f\left(m\right)\left(n\right)
+\end{align*}
+schon $A$-bilinear. Also existiert genau eine $A$-lineare Abbildung
+$\psi\left(f\right):M\otimes_{A}N\to L$ mit $\psi\left(f\right)\left(m\otimes n\right)=f\left(m\right)\left(n\right)$.\\
+Dann sieht man leicht, dass $f\mapsto\psi\left(f\right)$ schon $A$-linear
+ist.\qqed[Behauptung]
+\item [{Behauptung}] $\psi=\varphi\left(M,N,L\right)^{-1}$ (Insbesondere
+ist damit $\varphi\left(M,N,L\right)$ ein $A$-linearer Isomorphismus.)
+\item [{Beweis}] Für $f\in\text{Hom}_{A}\left(M\otimes_{A}N,L\right)$,
+$m\in M$ und $n\in N$ rechne:
+\begin{align*}
+\psi\left(\varphi\left(M,N,L\right)\left(f\right)\right)\left(m\otimes n\right) & \stackrel{\eqref{eq:psiDefinition}}{=}\left(\varphi\left(M,N,L\right)\left(f\right)\right)\left(m\right)\left(n\right)=\\
+ & \stackrel{\eqref{eq:varphiDefinition}}{=}f\left(m\otimes n\right)
+\end{align*}
+Also folgt $\psi\circ\varphi\left(M,N,L\right)=\text{id}$ und analog
+folgt $\varphi\left(M,N,L\right)\circ\psi=\text{id}$.\qqed[Behauptung]
+\end{description}
+Die Natürlichkeit bedeutet hier:
+
+Sind $a:M'\to M,\ b:N'\to N$ und $c:L\to L'$ alle $A$-linear, so
+ist das Diagramm
+
+\noindent \begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=4.5em, text height=1.5ex, text depth=0.25ex]
+  { \text{Hom}_A(M\otimes_A N,L) & \text{Hom}_A(M,\text{Hom}_A(N,L)) \\
+    \text{Hom}_A(M'\otimes_A N',L') & \text{Hom}_A(M',\text{Hom}_A(N',L')) \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above] {$\sim$} node[below]{$\varphi(M,N,L)$} (m-1-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ (a \otimes b)^* \circ c_*$} (m-2-1);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above] {$ \sim $} node[below]{$\varphi(M',N',L')$} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ (b^*\circ c_*)_*\circ a^* $} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+\noindent kommutativ.
+
+Rechne dazu für beliebige $\alpha\in\text{Hom}_{A}\left(M\otimes_{A}N,L\right)$,
+$m'\in M'$ und $n'\in N'$ einerseits
+\begin{align*}
+\left(\varphi\left(M',N',L'\right)\circ\left(\left(a\otimes b\right)^{*}\circ c_{*}\right)\right)\left(\alpha\right)\left(m'\right)\left(n'\right) & =\varphi\left(M',N',L'\right)\left(\left(\left(a\otimes b\right)^{*}\circ c_{*}\right)\left(\alpha\right)\right)\left(m'\right)\left(n'\right)=\\
+ & \stackrel{\eqref{eq:varphiDefinition}}{=}\left(\left(\left(a\otimes b\right)^{*}\circ c_{*}\right)\left(\alpha\right)\right)\left(m'\otimes n'\right)=\\
+ & \stackrel{\ref{sec:DuB-lineareAbb}\text{ iii)}}{=}c\left(\alpha\left(\left(a\otimes b\right)\left(m'\otimes n'\right)\right)\right)=\\
+ & \stackrel{\ref{sec:BuD-fotimesg}}{=}c\left(\alpha\left(a\left(m'\right)\otimes b\left(n'\right)\right)\right)
+\end{align*}
+und andererseits:
+\begin{align*}
+\left(\left(\left(b^{*}\circ c_{*}\right)_{*}\circ a^{*}\right)\circ\varphi\left(M,N,L\right)\right)\left(\alpha\right)\left(m'\right)\left(n'\right) & \stackrel{\ref{sec:DuB-lineareAbb}\text{ iii)}}{=}c\left(\left(\varphi\left(M,N,L\right)\left(\alpha\right)\circ a\right)\left(m'\right)\left(b'\left(n'\right)\right)\right)=\\
+ & \stackrel{\eqref{eq:varphiDefinition}}{=}c\left(\alpha\left(a\left(m'\right)\otimes b\left(n'\right)\right)\right)
+\end{align*}
+ \qqed
+
+
+\section{Bemerkung und Definition \textmd{(Restriktion, Skalarerweiterung)}}
+
+Seien $f:A\to B$ ein Ringhomomorphismus, $M$ ein $A$-Modul und
+$N$ ein $B$-Modul.
+
+\begin{iiilist}
+
+\iii Vermöge $a\cdot n:=f\left(a\right)\cdot n$ für alle $a\in A$
+und $n\in N$ ist $N$ ein $A$-Modul, \emph{die Restriktion $f_{*}\left(N\right)$
+von $N$ entlang $f$}.
+
+\iii Auf dem $A$-Modul $f^{*}\left(M\right):=B\otimes_{A}M$ wird
+durch
+\begin{align*}
+b\cdot\left(b'\otimes m\right) & :=\left(bb'\right)\otimes m
+\end{align*}
+für alle $b,b'\in B$ und $m\in M$ die Struktur eines $B$-Moduls
+definiert, \emph{die Skalarerweiterung von $M$ entlang $f$}.
+
+\end{iiilist}
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Sind $A$ ein Ring, $M$ ein $A$-Modul und $f:\mathbb{Z}\to A$
+der eindeutige Ringhomomorphismus, so ist $f_{*}\left(M\right)$ die
+$M$ zugrunde liegende abelsche Gruppe.
+
+\iii Sind $A$ ein Integritätsring (Abkürzung: IR), $M$ ein endlich
+erzeugter $A$-Modul und
+\begin{align*}
+\iota:A & \hookrightarrow k:=\text{Quot}\left(A\right)
+\end{align*}
+der Quotientenkörper von $A$, zum Beispiel $\mathbb{Z}=A\hookrightarrow k=\mathbb{Q}$,
+so ist $\iota^{*}\left(M\right)=K\otimes_{A}M$ ein endlich-dimensionaler
+$k$-Vektorraum und $\dim_{k}\left(\iota^{*}\left(M\right)\right)$
+heißt \emph{der Rang von $M$}.
+
+\end{iiilist}
 
 
 \part*{Anhang\thispagestyle{empty}}

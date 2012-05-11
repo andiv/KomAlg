@@ -147,9 +147,9 @@
 \paperfontsize 11
 \spacing single
 \use_hyperref true
-\pdf_title "Algebra"
+\pdf_title "Kommutative Algebra"
 \pdf_author "Andreas Völklein"
-\pdf_keywords "Algebra, Mathematik"
+\pdf_keywords "Kommutative Algebra, Mathematik"
 \pdf_bookmarks true
 \pdf_bookmarksnumbered true
 \pdf_bookmarksopen false
@@ -11968,7 +11968,7 @@ reference "sec:Kor-x=1undxM=0"
 
 .
  Es folgt 
-\begin_inset Formula $x-1\in\mathfrak{m}$
+\begin_inset Formula $1-x\in\mathfrak{m}$
 \end_inset
 
  für alle maximalen Ideale 
@@ -11979,11 +11979,11 @@ reference "sec:Kor-x=1undxM=0"
 \begin_inset Formula $x\not\in\mathfrak{m}$
 \end_inset
 
-, da sonst 
-\begin_inset Formula $1\in\mathfrak{m}$
+, da sonst der Widerspruch 
+\begin_inset Formula $1=\left(1-x\right)+x\in\mathfrak{m}$
 \end_inset
 
-, und damit 
+ folgte, und damit ist 
 \begin_inset Formula $x\in A^{*}$
 \end_inset
 
@@ -13904,6 +13904,1711 @@ status open
 
 \backslash
 qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 11.5.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(bilineare Abbildung)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $M,N,L$
+\end_inset
+
+ drei 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln.
+\end_layout
+
+\begin_layout Standard
+Eine Abbildung 
+\begin_inset Formula $f:M\times N\to L$
+\end_inset
+
+ heißt 
+\emph on
+
+\begin_inset Formula $A$
+\end_inset
+
+-bilinear
+\emph default
+, falls für alle 
+\begin_inset Formula $m_{0}\in M$
+\end_inset
+
+ und alle 
+\begin_inset Formula $n_{0}\in N$
+\end_inset
+
+ die Abbildungen
+\begin_inset Formula 
+\begin{align*}
+M & \to L\\
+m & \mapsto f\left(m,n_{0}\right)
+\end{align*}
+
+\end_inset
+
+und
+\begin_inset Formula 
+\begin{align*}
+N & \to L\\
+n & \mapsto f\left(m_{0},n\right)
+\end{align*}
+
+\end_inset
+
+beide 
+\begin_inset Formula $A$
+\end_inset
+
+-linear sind.
+\end_layout
+
+\begin_layout Section
+Satz und Definition 
+\series medium
+(Tensorprodukt)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:SuD-Tensorprodukt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $M,N$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln.
+ Dann existiert eine 
+\begin_inset Formula $A$
+\end_inset
+
+-bilineare Abbildung
+\begin_inset Formula 
+\begin{align*}
+\tau:M\times N & \to M\otimes_{A}N
+\end{align*}
+
+\end_inset
+
+so, dass für jede 
+\begin_inset Formula $A$
+\end_inset
+
+-bilineare Abbildung 
+\begin_inset Formula $f:M\times N\to L$
+\end_inset
+
+ genau eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $\alpha:M\otimes_{A}N\to L$
+\end_inset
+
+ mit 
+\begin_inset Formula $f=\alpha\circ\tau$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Standard
+Der 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $M\otimes_{A}N$
+\end_inset
+
+, genauer die 
+\begin_inset Formula $A$
+\end_inset
+
+-bilineare Abbildung 
+\begin_inset Formula $ $
+\end_inset
+
+
+\begin_inset Formula $\tau$
+\end_inset
+
+, heißt 
+\emph on
+das Tensorprodukt von 
+\begin_inset Formula $M$
+\end_inset
+
+ und 
+\begin_inset Formula $N$
+\end_inset
+
+ (über 
+\begin_inset Formula $A$
+\end_inset
+
+)
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Schreibe 
+\begin_inset Formula $m\otimes n:=\tau\left(m,n\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $\left(m,n\right)\in M\times n$
+\end_inset
+
+.
+ Dann kann man jedes 
+\begin_inset Formula $x\in M\otimes_{A}N$
+\end_inset
+
+ als
+\begin_inset Formula 
+\begin{align*}
+x & =\sum_{i=1}^{n}m_{i}\otimes n_{i}
+\end{align*}
+
+\end_inset
+
+für ein 
+\begin_inset Formula $n\in\mathbb{N}_{\ge0}$
+\end_inset
+
+ und geeignete 
+\begin_inset Formula $m_{i}\in M$
+\end_inset
+
+ und 
+\begin_inset Formula $n_{i}\in N$
+\end_inset
+
+ schreiben.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Der Beweis ist genauso wie in dem aus der Linearen Algebra II bekannten
+ Fall, dass 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Körper ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung und Definition 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
+\series medium
+(
+\begin_inset Formula $f\otimes g$
+\end_inset
+
+)
+\series default
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}{}
+\end_layout
+
+\end_inset
+
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:BuD-fotimesg"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $M,M',N,N'$
+\end_inset
+
+ vier 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln und 
+\begin_inset Formula $f:M\to M',g:N\to N'$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen.
+\end_layout
+
+\begin_layout Standard
+Dann existiert genau eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $f\otimes g:M\otimes_{A}N\to M'\otimes_{A}N'$
+\end_inset
+
+, sodass für alle 
+\begin_inset Formula $\left(m,n\right)\in M\times N$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(f\otimes g\right)\left(m\otimes n\right) & =f\left(m\right)\otimes g\left(n\right)
+\end{align*}
+
+\end_inset
+
+Ferner existiert genau eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung (im Allgemeinen kein Isomorphismus)
+\begin_inset Formula 
+\begin{align*}
+\text{Hom}_{A}\left(M,M'\right)\otimes_{A}\text{Hom}_{A}\left(N,N'\right) & \to\text{Hom}_{A}\left(M\otimes_{A}N,M'\otimes_{A}N'\right)
+\end{align*}
+
+\end_inset
+
+mit:
+\begin_inset Formula 
+\begin{align*}
+\left(f\right)\otimes\left(g\right) & \mapsto\left(f\otimes g\right)
+\end{align*}
+
+\end_inset
+
+Achtung Notationsüberlastung!
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\left(f\right)\otimes\left(g\right)$
+\end_inset
+
+ wie in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SuD-Tensorprodukt"
+
+\end_inset
+
+ und 
+\begin_inset Formula $\left(f\otimes g\right)$
+\end_inset
+
+ wie in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:BuD-fotimesg"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(natürliche Isomorphismen)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $M,N$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln, 
+\begin_inset Formula $I$
+\end_inset
+
+ eine Menge und für alle 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ sei 
+\begin_inset Formula $M_{i}$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+\end_layout
+
+\begin_layout Standard
+Die folgenden Vorschriften definieren eindeutige 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen und jede solche ist ein natürlicher Isomorphismus:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{1mm}
+\backslash
+vspace*{-4mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+M\otimes_{A}N & \sr{\to}{\sim}{\not=}N\otimes_{A}M\\
+m\otimes n & \mapsto n\otimes m
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(Beispiel: 
+\begin_inset Formula $\text{End}_{k}\left(k^{n}\right)\sr{\to}{\sim}{\not=}M_{n}\left(k\right)$
+\end_inset
+
+ ist nicht natürlich, sondern von der Basis abhängig.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{1mm}
+\backslash
+vspace*{-4mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(M\otimes_{A}N\right)\otimes_{A}L & \stackrel{\sim}{\to}M\otimes_{A}\left(N\otimes_{A}L\right)\\
+\left(m\otimes n\right)\otimes l & \mapsto m\otimes\left(n\otimes l\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{1mm}
+\backslash
+vspace*{-4mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(\bigoplus_{i\in I}M_{i}\right)\otimes_{A}N & \stackrel{\sim}{\to}\left(\bigoplus_{i\in I}M_{i}\otimes_{A}N\right)\\
+\left(m_{i}\right)_{i\in I}\otimes n & \mapsto\left(m_{i}\otimes n\right)_{i\in I}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+hspace*{1mm}
+\backslash
+vspace*{-4mm}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+A\otimes_{A}M & \stackrel{\sim}{\to}M\\
+a\otimes m & \mapsto am
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+i) Existenz und Eindeutigkeit der linearen Abbildung folgen aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SuD-Tensorprodukt"
+
+\end_inset
+
+ aus der offensichtlichen Bilinearität von:
+\begin_inset Formula 
+\begin{align*}
+M\times N & \to N\otimes_{A}M\\
+\left(m,n\right) & \mapsto n\otimes m
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { M
+\backslash
+times N & N
+\backslash
+otimes_A M 
+\backslash
+
+\backslash
+ M
+\backslash
+otimes_A N & 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left] {$ 
+\backslash
+tau $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-2-1) edge node[right] {$ 
+\backslash
+exsg $} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Abbildung ist ein Isomorphismus, da
+\begin_inset Formula 
+\begin{align*}
+N\otimes_{A}M & \to M\otimes_{A}N\\
+n\otimes m & \mapsto m\otimes n
+\end{align*}
+
+\end_inset
+
+ihr Inverses ist.
+\end_layout
+
+\begin_layout Standard
+Die Natürlichkeit bedeutet hier:
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $f:M\to M'$
+\end_inset
+
+ und 
+\begin_inset Formula $g:N\to N'$
+\end_inset
+
+ beide 
+\begin_inset Formula $A$
+\end_inset
+
+-linear, so ist das Diagramm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { M
+\backslash
+otimes_A N & N
+\backslash
+otimes_A M 
+\backslash
+
+\backslash
+ M'
+\backslash
+otimes_A N' & N' 
+\backslash
+otimes_A M' 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above] {$
+\backslash
+sim$} node[below]{i)} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left] {$ f 
+\backslash
+otimes g $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above] {$ 
+\backslash
+sim $} node[below]{i)} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ g
+\backslash
+otimes f $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+kommutativ, was klar ist:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { m
+\backslash
+otimes_A n & n
+\backslash
+otimes_A m 
+\backslash
+
+\backslash
+ f(m)
+\backslash
+otimes f(n) & f(n) 
+\backslash
+otimes f(m) 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[|->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[|->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[|->,font=
+\backslash
+scriptsize] (m-2-1) edge (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[|->,font=
+\backslash
+scriptsize] (m-1-2) edge (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zudem sind die 
+\begin_inset Formula $m\otimes n$
+\end_inset
+
+ Erzeuger, womit die Aussage folgt.
+\end_layout
+
+\begin_layout Standard
+ii), iii) und iv) folgen analog.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $M,N,L$
+\end_inset
+
+ drei 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln.
+ Dann ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\varphi\left(M,N,L\right):\text{Hom}_{A}\left(M\otimes_{A}N,L\right) & \stackrel{\sim}{\to}\text{Hom}_{A}\left(M,\text{Hom}_{A}\left(N,L\right)\right)
+\end{align*}
+
+\end_inset
+
+für alle 
+\begin_inset Formula $\alpha\in\text{Hom}_{A}\left(M\otimes_{A}N,L\right)$
+\end_inset
+
+, 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ und 
+\begin_inset Formula $n\in N$
+\end_inset
+
+ definiert durch
+\begin_inset Formula 
+\begin{align}
+\varphi\left(M,N,L\right)\left(\alpha\right)\left(m\right)\left(n\right) & :=\alpha\left(m\otimes n\right)\label{eq:varphiDefinition}
+\end{align}
+
+\end_inset
+
+ein natürlicher 
+\begin_inset Formula $A$
+\end_inset
+
+-linearer Isomorphismus.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Man sieht leicht, dass 
+\begin_inset Formula $\varphi\left(M,N,L\right)$
+\end_inset
+
+ wohldefiniert ist.
+\end_layout
+
+\begin_layout Description
+Behauptung Es existiert genau eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung
+\begin_inset Formula 
+\begin{align*}
+\psi:\text{Hom}_{A}\left(M,\text{Hom}_{A}\left(N,L\right)\right) & \to\text{Hom}_{A}\left(M\otimes_{A}N,L\right)
+\end{align*}
+
+\end_inset
+
+für die für alle 
+\begin_inset Formula $f\in\text{Hom}_{A}\left(M,\text{Hom}_{A}\left(N,L\right)\right)$
+\end_inset
+
+, 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ und 
+\begin_inset Formula $n\in N$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align}
+\psi\left(f\right)\left(m\otimes n\right) & =f\left(m\right)\left(n\right)\label{eq:psiDefinition}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Beweis Für gegebenes 
+\begin_inset Formula $f$
+\end_inset
+
+ ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+M\times N & \to L\\
+\left(m,n\right) & \to f\left(m\right)\left(n\right)
+\end{align*}
+
+\end_inset
+
+schon 
+\begin_inset Formula $A$
+\end_inset
+
+-bilinear.
+ Also existiert genau eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $\psi\left(f\right):M\otimes_{A}N\to L$
+\end_inset
+
+ mit 
+\begin_inset Formula $\psi\left(f\right)\left(m\otimes n\right)=f\left(m\right)\left(n\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Dann sieht man leicht, dass 
+\begin_inset Formula $f\mapsto\psi\left(f\right)$
+\end_inset
+
+ schon 
+\begin_inset Formula $A$
+\end_inset
+
+-linear ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Behauptung 
+\begin_inset Formula $\psi=\varphi\left(M,N,L\right)^{-1}$
+\end_inset
+
+ (Insbesondere ist damit 
+\begin_inset Formula $\varphi\left(M,N,L\right)$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-linearer Isomorphismus.)
+\end_layout
+
+\begin_layout Description
+Beweis Für 
+\begin_inset Formula $f\in\text{Hom}_{A}\left(M\otimes_{A}N,L\right)$
+\end_inset
+
+, 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ und 
+\begin_inset Formula $n\in N$
+\end_inset
+
+ rechne:
+\begin_inset Formula 
+\begin{align*}
+\psi\left(\varphi\left(M,N,L\right)\left(f\right)\right)\left(m\otimes n\right) & \stackrel{\eqref{eq:psiDefinition}}{=}\left(\varphi\left(M,N,L\right)\left(f\right)\right)\left(m\right)\left(n\right)=\\
+ & \stackrel{\eqref{eq:varphiDefinition}}{=}f\left(m\otimes n\right)
+\end{align*}
+
+\end_inset
+
+Also folgt 
+\begin_inset Formula $\psi\circ\varphi\left(M,N,L\right)=\text{id}$
+\end_inset
+
+ und analog folgt 
+\begin_inset Formula $\varphi\left(M,N,L\right)\circ\psi=\text{id}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Natürlichkeit bedeutet hier:
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $a:M'\to M,\ b:N'\to N$
+\end_inset
+
+ und 
+\begin_inset Formula $c:L\to L'$
+\end_inset
+
+ alle 
+\begin_inset Formula $A$
+\end_inset
+
+-linear, so ist das Diagramm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=4.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { 
+\backslash
+text{Hom}_A(M
+\backslash
+otimes_A N,L) & 
+\backslash
+text{Hom}_A(M,
+\backslash
+text{Hom}_A(N,L)) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+text{Hom}_A(M'
+\backslash
+otimes_A N',L') & 
+\backslash
+text{Hom}_A(M',
+\backslash
+text{Hom}_A(N',L')) 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above] {$
+\backslash
+sim$} node[below]{$
+\backslash
+varphi(M,N,L)$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left] {$ (a 
+\backslash
+otimes b)^* 
+\backslash
+circ c_*$} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above] {$ 
+\backslash
+sim $} node[below]{$
+\backslash
+varphi(M',N',L')$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ (b^*
+\backslash
+circ c_*)_*
+\backslash
+circ a^* $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+kommutativ.
+\end_layout
+
+\begin_layout Standard
+Rechne dazu für beliebige 
+\begin_inset Formula $\alpha\in\text{Hom}_{A}\left(M\otimes_{A}N,L\right)$
+\end_inset
+
+, 
+\begin_inset Formula $m'\in M'$
+\end_inset
+
+ und 
+\begin_inset Formula $n'\in N'$
+\end_inset
+
+ einerseits
+\begin_inset Formula 
+\begin{align*}
+\left(\varphi\left(M',N',L'\right)\circ\left(\left(a\otimes b\right)^{*}\circ c_{*}\right)\right)\left(\alpha\right)\left(m'\right)\left(n'\right) & =\varphi\left(M',N',L'\right)\left(\left(\left(a\otimes b\right)^{*}\circ c_{*}\right)\left(\alpha\right)\right)\left(m'\right)\left(n'\right)=\\
+ & \stackrel{\eqref{eq:varphiDefinition}}{=}\left(\left(\left(a\otimes b\right)^{*}\circ c_{*}\right)\left(\alpha\right)\right)\left(m'\otimes n'\right)=\\
+ & \stackrel{\ref{sec:DuB-lineareAbb}\text{ iii)}}{=}c\left(\alpha\left(\left(a\otimes b\right)\left(m'\otimes n'\right)\right)\right)=\\
+ & \stackrel{\ref{sec:BuD-fotimesg}}{=}c\left(\alpha\left(a\left(m'\right)\otimes b\left(n'\right)\right)\right)
+\end{align*}
+
+\end_inset
+
+und andererseits:
+\begin_inset Formula 
+\begin{align*}
+\left(\left(\left(b^{*}\circ c_{*}\right)_{*}\circ a^{*}\right)\circ\varphi\left(M,N,L\right)\right)\left(\alpha\right)\left(m'\right)\left(n'\right) & \stackrel{\ref{sec:DuB-lineareAbb}\text{ iii)}}{=}c\left(\left(\varphi\left(M,N,L\right)\left(\alpha\right)\circ a\right)\left(m'\right)\left(b'\left(n'\right)\right)\right)=\\
+ & \stackrel{\eqref{eq:varphiDefinition}}{=}c\left(\alpha\left(a\left(m'\right)\otimes b\left(n'\right)\right)\right)
+\end{align*}
+
+\end_inset
+
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung und Definition 
+\series medium
+(Restriktion, Skalarerweiterung)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus, 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und 
+\begin_inset Formula $N$
+\end_inset
+
+ ein 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Vermöge 
+\begin_inset Formula $a\cdot n:=f\left(a\right)\cdot n$
+\end_inset
+
+ für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $n\in N$
+\end_inset
+
+ ist 
+\begin_inset Formula $N$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, 
+\emph on
+die Restriktion 
+\begin_inset Formula $f_{*}\left(N\right)$
+\end_inset
+
+ von 
+\begin_inset Formula $N$
+\end_inset
+
+ entlang 
+\begin_inset Formula $f$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Auf dem 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $f^{*}\left(M\right):=B\otimes_{A}M$
+\end_inset
+
+ wird durch
+\begin_inset Formula 
+\begin{align*}
+b\cdot\left(b'\otimes m\right) & :=\left(bb'\right)\otimes m
+\end{align*}
+
+\end_inset
+
+für alle 
+\begin_inset Formula $b,b'\in B$
+\end_inset
+
+ und 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ die Struktur eines 
+\begin_inset Formula $B$
+\end_inset
+
+-Moduls definiert, 
+\emph on
+die Skalarerweiterung von 
+\begin_inset Formula $M$
+\end_inset
+
+ entlang 
+\begin_inset Formula $f$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und 
+\begin_inset Formula $f:\mathbb{Z}\to A$
+\end_inset
+
+ der eindeutige Ringhomomorphismus, so ist 
+\begin_inset Formula $f_{*}\left(M\right)$
+\end_inset
+
+ die 
+\begin_inset Formula $M$
+\end_inset
+
+ zugrunde liegende abelsche Gruppe.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring (Abkürzung: IR), 
+\begin_inset Formula $M$
+\end_inset
+
+ ein endlich erzeugter 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und
+\begin_inset Formula 
+\begin{align*}
+\iota:A & \hookrightarrow k:=\text{Quot}\left(A\right)
+\end{align*}
+
+\end_inset
+
+der Quotientenkörper von 
+\begin_inset Formula $A$
+\end_inset
+
+, zum Beispiel 
+\begin_inset Formula $\mathbb{Z}=A\hookrightarrow k=\mathbb{Q}$
+\end_inset
+
+, so ist 
+\begin_inset Formula $\iota^{*}\left(M\right)=K\otimes_{A}M$
+\end_inset
+
+ ein endlich-dimensionaler 
+\begin_inset Formula $k$
+\end_inset
+
+-Vektorraum und 
+\begin_inset Formula $\dim_{k}\left(\iota^{*}\left(M\right)\right)$
+\end_inset
+
+ heißt 
+\emph on
+der Rang von 
+\begin_inset Formula $M$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
 \end_layout
 
 \end_inset
