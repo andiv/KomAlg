@@ -9,6 +9,7 @@
 \pagestyle{fancy}
 \setlength{\parskip}{\smallskipamount}
 \setlength{\parindent}{0pt}
+\usepackage{color}
 \usepackage{babel}
 \usepackage{textcomp}
 \usepackage{mathrsfs}
@@ -2157,7 +2158,7 @@ also ist $f$ injektiv und damit ein Isomorphismus.\qqed
 Sei $A\not=\left\{ 0\right\} $ ein Ring.
 
 Dann folgt für alle $n,m\in\mathbb{N}_{\ge1}$ aus der Existenz eines
-$A$-linearen Isomorphismus $f:A^{n}\stackrel{\sim}{=}A^{m}$, dass
+$A$-linearen Isomorphismus $f:A^{n}\stackrel{\sim}{\to}A^{m}$, dass
 $n=m$ gilt.
 
 
@@ -2651,7 +2652,7 @@ $\left(f\right)\otimes\left(g\right)$ wie in \ref{sec:SuD-Tensorprodukt}
 und $\left(f\otimes g\right)$ wie in \ref{sec:BuD-fotimesg}.
 
 
-\section{Satz \textmd{(natürliche Isomorphismen)}}
+\section{Satz \textmd{(natürliche Isomorphismen)\label{sec:Satz-natuerliche-Isomorphismen}}}
 
 Seien $A$ ein Ring, $M,N$ zwei $A$-Moduln, $I$ eine Menge und
 für alle $i\in I$ sei $M_{i}$ ein $A$-Modul.
@@ -2751,7 +2752,7 @@ Zudem sind die $m\otimes n$ Erzeuger, womit die Aussage folgt.
 ii), iii) und iv) folgen analog.\qqed
 
 
-\section{Satz}
+\section{Satz\label{sec:Satz-MNLiso}}
 
 Seien $A$ ein Ring und $M,N,L$ drei $A$-Moduln. Dann ist die Abbildung
 \begin{align*}
@@ -2806,7 +2807,7 @@ Sind $a:M'\to M,\ b:N'\to N$ und $c:L\to L'$ alle $A$-linear, so
 ist das Diagramm
 
 \noindent \begin{center}
-\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+\begin{tikzpicture}
   \matrix (m) [matrix of math nodes, row sep=3em, column sep=4.5em, text height=1.5ex, text depth=0.25ex]
   { \text{Hom}_A(M\otimes_A N,L) & \text{Hom}_A(M,\text{Hom}_A(N,L)) \\
     \text{Hom}_A(M'\otimes_A N',L') & \text{Hom}_A(M',\text{Hom}_A(N',L')) \\ };
@@ -2835,7 +2836,7 @@ und andererseits:
  \qqed
 
 
-\section{Bemerkung und Definition \textmd{(Restriktion, Skalarerweiterung)}}
+\section{Bemerkung und Definition \textmd{(Restriktion, Skalarerweiterung)\label{sec:BuD-Restriktion-Skalarerweiterung}}}
 
 Seien $f:A\to B$ ein Ringhomomorphismus, $M$ ein $A$-Modul und
 $N$ ein $B$-Modul.
@@ -2871,9 +2872,416 @@ erzeugter $A$-Modul und
 \iota:A & \hookrightarrow k:=\text{Quot}\left(A\right)
 \end{align*}
 der Quotientenkörper von $A$, zum Beispiel $\mathbb{Z}=A\hookrightarrow k=\mathbb{Q}$,
-so ist $\iota^{*}\left(M\right)=K\otimes_{A}M$ ein endlich-dimensionaler
+so ist $\iota^{*}\left(M\right)=k\otimes_{A}M$ ein endlich-dimensionaler
 $k$-Vektorraum und $\dim_{k}\left(\iota^{*}\left(M\right)\right)$
 heißt \emph{der Rang von $M$}.
+
+\end{iiilist}
+
+%DATE: Di 15.5.12
+
+
+\section{Satz\label{sec:Satz-HomMf*N}}
+
+Seien $f:A\to B$ ein Ringhomomorphismus, $M$ ein $A$-Modul und
+$N$ ein $B$-Modul.
+
+Dann ist die Abbildung
+\begin{align}
+\Phi:\text{Hom}_{A}\left(M,f_{*}\left(N\right)\right) & \stackrel{\sim}{\to}\text{Hom}_{B}\left(f^{*}\left(M\right),N\right)\nonumber \\
+\varphi & \mapsto\left(b\otimes m\mapsto b\cdot\varphi\left(m\right)\right)\label{eq:Phi}
+\end{align}
+wohldefiniert und ein Isomorphismus abelscher Gruppen.
+
+
+\subsubsection*{Beweis}
+
+Zunächst ist für gegebenes $A$-lineares $\varphi:M\to f_{*}\left(N\right)$
+die Abbildung
+\begin{align*}
+B\times M & \to N\\
+\left(b,m\right) & \mapsto b\cdot\varphi\left(m\right)
+\end{align*}
+schon $A$-bilinear. Also existiert nach der universellen Eigenschaft
+des Tensorprodukts genau eine $A$-lineare Abbildung
+\begin{align*}
+\psi:B\otimes_{A}M=f^{*}\left(M\right) & \to N
+\end{align*}
+für die für alle $b\in B$ und $m\in M$ gilt:
+\begin{align*}
+b\otimes m & \mapsto b\cdot\varphi\left(m\right)
+\end{align*}
+Wegen
+\begin{align*}
+\psi\left(b\cdot\left(b'\otimes m\right)\right) & \stackrel{\ref{sec:BuD-Restriktion-Skalarerweiterung}\,\text{ii)}}{=}\psi\left(\left(bb'\right)\otimes m\right)\stackrel{\eqref{eq:Phi}}{=}\left(bb'\right)\cdot\varphi\left(m\right)=\\
+ & \stackrel{N\text{ ist }B\text{-Modul}}{=}b\cdot\left(b'\cdot\varphi\left(m\right)\right)\stackrel{\eqref{eq:Phi}}{=}b\cdot\psi\left(b'\otimes m\right)
+\end{align*}
+ist $\psi$ sogar $B$-linear und damit ist $\Phi$ wohldefiniert.
+
+Für $\psi\in\text{Hom}_{B}\left(f^{*}\left(M\right),N\right)$ setze:
+\begin{align}
+\Gamma\left(\psi\right):= & \left(M\to f^{*}\left(M\right)=B\otimes_{A}M\stackrel{\psi}{\to}N\right)\nonumber \\
+ & \quad m\mapsto1\otimes m\quad\mapsto\quad\psi\left(1\otimes m\right)\label{eq:Gamma}
+\end{align}
+Wegen
+\begin{align*}
+\Gamma\left(\psi\right)\left(am\right) & =\psi\left(1\otimes\left(am\right)\right)=\psi\left(a\left(1\otimes m\right)\right)=a\psi\left(1\otimes m\right)
+\end{align*}
+ist $\Gamma\left(\psi\right)\in\text{Hom}_{A}\left(M,f_{*}\left(N\right)\right)$.
+
+Um zu sehen, dass $\Phi$ und $\Gamma$ zueinander invers sind, rechne
+einerseits für beliebige $A$-lineare Abbildungen $\varphi\in\text{Hom}_{A}\left(M,f_{*}\left(N\right)\right)$
+und $m\in M$
+\begin{align*}
+\left(\Gamma\circ\Phi\right)\left(\varphi\right)\left(m\right) & =\Gamma\left(\Phi\left(\varphi\right)\right)\left(m\right)\stackrel{\eqref{eq:Gamma}}{=}\Phi\left(\varphi\right)\left(1\otimes m\right)\stackrel{\eqref{eq:Phi}}{=}1\cdot\varphi\left(m\right)=\varphi\left(m\right)
+\end{align*}
+also $\Gamma\circ\Phi=\text{id}$, und andererseits für beliebige
+$\psi\in\text{Hom}_{B}\left(f^{*}\left(M\right),N\right)$, $b\in B$
+und $m\in M$:
+\begin{align*}
+\left(\Phi\circ\Gamma\right)\left(\psi\right)\left(b\otimes m\right) & =\Phi\left(\Gamma\left(\psi\right)\right)\left(b\otimes m\right)\stackrel{\eqref{eq:Phi}}{=}b\cdot\left(\Gamma\left(\psi\right)\left(m\right)\right)\stackrel{\eqref{eq:Gamma}}{=}b\cdot\psi\left(1\otimes m\right)=\\
+ & \stackrel{\psi\text{ linear}}{=}\psi\left(b\left(1\otimes m\right)\right)\sr ={\text{Definition von}}{f^{*}\left(M\right)}\psi\left(b\otimes m\right)
+\end{align*}
+Also gilt $\Phi\circ\Gamma=\text{id}$.\qqed
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Wähle $M=f_{*}\left(N\right)$ in \ref{sec:Satz-HomMf*N} und
+erhalte:
+\begin{align*}
+\Phi:\text{Hom}_{A}\left(f_{*}\left(N\right),f_{*}\left(N\right)\right) & \stackrel{\sim}{\to}\text{Hom}_{B}\left(f^{*}\left(f_{*}\left(N\right)\right),N\right)
+\end{align*}
+Definiere:
+\begin{align*}
+\text{can}_{B} & :=\Phi\left(\text{id}_{f_{*}\left(N\right)}\right)
+\end{align*}
+Dies ist eine kanonische $B$-lineare Abbildung für den $B$-Modul
+$N$:
+\begin{align*}
+\text{can}_{B}:f^{*}\left(f_{*}\left(N\right)\right)=B\otimes_{A}N & \to N
+\end{align*}
+Aus der Definition \eqref{eq:Phi} von $\Phi$ folgt, dass für alle
+$b\in B$ und $n\in N$ gilt:
+\begin{align*}
+\text{can}_{B}\left(b\otimes n\right) & =b\cdot n
+\end{align*}
+
+
+\iii Wähle $N=f^{*}\left(M\right)$ in \ref{sec:Satz-HomMf*N} und
+erhalte:
+\begin{align*}
+\Phi:\text{Hom}_{A}\left(M,f_{*}\left(f^{*}\left(M\right)\right)\right) & \stackrel{\sim}{\to}\text{Hom}_{B}\left(f^{*}\left(M\right),f^{*}\left(M\right)\right)\\
+\text{can}_{A} & :=\Phi^{-1}\left(\text{id}_{f^{*}\left(M\right)}\right)=\Gamma\left(\text{id}_{f^{*}\left(M\right)}\right)
+\end{align*}
+Dies ist eine kanonische $A$-lineare Abbildung für den $A$-Modul
+$N$:
+\begin{align*}
+\text{can}_{A}:M & \to f_{*}\left(f^{*}\left(M\right)\right)=B\otimes_{A}M
+\end{align*}
+Aus der Definition \eqref{eq:Gamma} von $\Gamma$ folgt, dass für
+alle $m\in M$ gilt:
+\begin{align*}
+\text{can}_{A}\left(m\right) & =1\otimes m
+\end{align*}
+
+
+\end{iiilist}
+
+
+\section{Proposition}
+
+Seien $f:A\to B$ ein Ringhomomorphismus, $M$ ein $A$-Modul und
+$N$ ein $B$-Modul.
+
+\begin{iiilist}
+
+\iii Sind $N$ als $B$-Modul und $B$ als $A$-Modul endlich erzeugt,
+so ist auch der $A$-Modul $f_{*}\left(N\right)$ endlich erzeugt.
+
+\iii Ist $M$ als $A$-Modul endlich erzeugt, so auch $f^{*}\left(M\right)$
+als $B$-Modul.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Seien
+\begin{align}
+N & =\sum_{i=1}^{n}B\cdot n_{i}\label{eq:NniB}
+\end{align}
+und
+\begin{align}
+B & =\sum_{i=1}^{m}b_{i}A\label{eq:BbiA}
+\end{align}
+für geeignete $m,n\in\mathbb{N}_{\ge0}$, $n_{i}\in N$ und $b_{i}\in B$.
+
+Dann schreibt sich jedes $n\in N$ für geeignete $\tilde{b}_{i}\in B$
+und $a_{j}\in A$ in der Form:
+\begin{align*}
+n & \stackrel{\eqref{eq:NniB}}{=}\sum_{i=1}^{n}\tilde{b}_{i}n_{i}\stackrel{\eqref{eq:BbiA}}{=}\sum_{i=1}^{n}\left(\sum_{j=1}^{m}a_{j}b_{j}\right)n_{i}=\sum_{i,j}^{n,m}a_{j}\left(b_{j}n_{i}\right)
+\end{align*}
+Es folgt:
+\begin{align*}
+f_{*}\left(N\right)=N & =\sum_{i,j=1}^{n,m}A\cdot\left(b_{j}n_{i}\right)
+\end{align*}
+Also ist der $A$-Modul $f_{*}\left(N\right)$ endlich erzeugt.
+
+\iii Sind $x_{1},\ldots,x_{n}\in M$ nun $A$-Modul-Erzeuger, so
+sind $1\otimes x_{1},\ldots,1\otimes x_{n}\in f^{*}\left(M\right)=B\otimes_{A}M$
+schon $B$-Modul-Erzeuger.\qqed
+
+\end{iiilist}
+
+
+\section{Satz \textmd{(Rechtsexaktheit des Tensorprodukts)\label{sec:Satz-RechtsexaktheitTensorprodukt}}}
+
+Seien $A$ ein Ring, $\mathscr{E}:=\left(M'\stackrel{f}{\to}M\stackrel{g}{\to}M''\to0\right)$
+eine exakte Folge von $A$-Moduln und $N$ ein $A$-Modul. Dann ist
+die Folge von $A$-Moduln
+\begin{align*}
+\mathscr{E}\otimes_{A}N & :=\left(M'\otimes_{A}N\stackrel{f\otimes\text{id}_{N}}{\to}M\otimes_{A}N\stackrel{g\otimes\text{id}_{N}}{\to}M''\otimes_{A}N\to\left\{ 0\right\} \otimes_{A}N=0\right)
+\end{align*}
+auch exakt.
+
+
+\subsubsection*{Beweis}
+
+Für jeden $A$-Modul $L$ ist
+\begin{align*}
+\text{Hom}_{A}\left(\mathscr{E}\otimes_{A}N,L\right) & \sr{\to}{\sim}{\ref{sec:Satz-MNLiso}}\text{Hom}_{A}\left(\mathscr{E},\text{Hom}_{A}\left(N,L\right)\right)
+\end{align*}
+exakt nach \ref{sec:Prop-ExaktheitsKriterium} i) \quotedblbase{}$\Rightarrow$\textquotedblleft{}.
+
+Da $L$ beliebig ist, ist also auch die Folge $\mathscr{E}\otimes_{A}N$
+exakt nach \ref{sec:Prop-ExaktheitsKriterium} i) \quotedblbase{}$\Leftarrow$\textquotedblleft{}.\qqed
+
+
+\section{Proposition und Definition \textmd{(flacher Modul)\label{sec:PuD-flacherModul}}}
+
+Sei $A$ ein Ring. Für einen $A$-Modul $M$ sind äquivalent:
+
+\begin{iiilist}
+
+\iii Für jede exakte Folge $\mathscr{E}$ von $A$-Moduln ist die
+Folge $\mathscr{E}\otimes_{A}M$ exakt.
+
+\iii Für jede kurze exakte Folge $\mathscr{E}$ von $A$-Moduln ist
+die kurze Folge $\mathscr{E}\otimes_{A}M$ exakt.
+
+\iii Für jeden $A$-linearen Monomorphismus $f:N'\hookrightarrow N$
+ist auch $f\otimes\text{\text{id}}_{M}:N'\otimes_{A}M\to N\otimes_{A}M$
+injektiv.
+
+\iii Für beliebige endlich erzeugte $A$-Moduln $N$ und $N'$ und
+jeden $A$-linearen Monomorphismus $f:N'\hookrightarrow N$ ist auch
+$f\otimes\text{\text{id}}_{M}:N'\otimes_{A}M\to N\otimes_{A}M$ injektiv.
+
+\end{iiilist}
+
+In diesem Fall heißt der $A$-Modul $M$ \emph{flach}.
+
+Zum Beispiel ist $\modlo Zn$ kein flacher $\mathbb{Z}$-Modul für
+$n\in\mathbb{N}_{\ge1}$, denn $n\cdot\overline{1}=\overline{n}=\overline{0}$.
+
+
+\subsubsection*{Beweis}
+
+Die Implikationen \quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}
+und \quotedblbase{}iii) $\Rightarrow$ iv)\textquotedblleft{} sind
+klar.
+
+\quotedblbase{}ii) $\Rightarrow$ iii)\textquotedblleft{} folgt, indem
+man die kurze exakte Folge
+\begin{align*}
+0\to & N'\stackrel{f}{\to}N\to\text{koker}\left(f\right)\to0
+\end{align*}
+betrachtet.
+
+\quotedblbase{}iv) $\Rightarrow$ iii)\textquotedblleft{} folgt, da
+jeder $A$-Modul die Vereinigung seiner endlich erzeugten $A$-Untermoduln
+ist. Dies ist klar, da jeder $A$-Modul die Vereinigung seiner Elemente
+ist und diese in den von ihnen erzeugten $A$-Moduln sind und diese
+damit endlich erzeugt sind.
+
+iii) $\Rightarrow$ ii) ergibt sich aus \ref{sec:Satz-RechtsexaktheitTensorprodukt},
+da die Injektivität nach iii) erhalten bleibt.
+
+ii) $\Rightarrow$ i): Zerlege eine beliebige exakte Folge $\left(M_{i},f_{i}\right)_{i\in\mathbb{Z}}$
+für alle $i\in\mathbb{Z}$ in kurze exakte Folgen
+\begin{align*}
+{\color{blue}0\to\ker\left(f_{i}\right)\to M_{i}\to\text{im}\left(f_{i}\right)=\text{ker}\left(f_{i+1}\right)\to0}
+\end{align*}
+
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1.5em, text height=1.5ex, text depth=0.25ex]
+  { \ldots        & M_{i-1}                 && \color{blue}M_i && M_{i+1}                   & \ldots \\
+                  && \color{blue}\ker{(f_i)} &                & \color{blue}\ker{(f_{i+1})} &&        \\ 
+    &\color{blue}0 & \text{im}{(f_{i-1})}    &  0            & \text{im}{(f_i)}          & \color{blue}0&\\};
+  \path[->,font=\scriptsize] (m-1-1) edge (m-1-2)
+                             (m-1-2) edge node[above] {$f_{i-1}$} (m-1-4)
+                             (m-1-4) edge node[above] {$f_i$} (m-1-6)
+                             (m-1-6) edge node[above] {$f_{i+1}$} (m-1-7);
+  \path[->] (m-1-2) edge (m-2-3)
+            (m-2-5) edge (m-1-6);
+  \path[->,color=blue] (m-3-2) edge (m-2-3)
+            (m-2-3) edge (m-1-4)
+            (m-1-4) edge (m-2-5)
+            (m-2-5) edge (m-3-6);
+  \path[->] (m-2-3) edge (m-3-4)
+            (m-3-4) edge (m-2-5);
+  \path[->] (m-2-3) -- node[rotate=90]{$=$} (m-3-3)
+            (m-2-5) -- node[rotate=90]{$=$} (m-3-5);
+\end{tikzpicture}
+\par\end{center}
+
+und wende $\otimes_{A}M$ an.\qqed
+
+
+\section{Proposition}
+
+Sei $A$ ein Ring. Jeder projektive (und insbesondere jeder freie)
+$A$-Modul ist flach.
+
+
+\subsubsection*{Beweis}
+
+\textcolor{green}{TODO: Beweis als Übung einfügen.}\qqed
+
+
+\section{Proposition\label{sec:Prop-flach}}
+
+Seien $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $M$ ist flach.
+
+\iii Für jedes endlich erzeugte Ideal $\iota:I\hookrightarrow A$
+von $A$ ist die Abbildung
+\begin{align*}
+\iota\otimes\text{id}_{M}:I\otimes_{A}M & \hookrightarrow A\otimes_{A}M\sr ={\sim}{\ref{sec:Satz-natuerliche-Isomorphismen}\,\text{iv)}}M
+\end{align*}
+injektiv (und induziert damit einen $A$-linearen Isomorphismus $I\otimes_{A}M\stackrel{\sim}{\to}IM\subseteq M$,
+denn $\text{im}\left(\iota\otimes\text{id}_{M}\right)=IM$ ist klar).
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+i) $\Rightarrow$ ii) ist klar, da ii) das Kriterium von \ref{sec:PuD-flacherModul}
+iv) verschärft.
+
+ii) $\Rightarrow$ i) wird später bewiesen.\qqed
+
+
+\section{Korollar und Definition \textmd{(torsionsfrei)}}
+
+\begin{iiilist}
+
+\iii Seien $A$ ein Ring, $M$ ein flacher $A$-Modul und $a\in A$
+kein Nullteiler.
+
+Dann gilt $\left\{ x\in M\big|ax=0\right\} =\left\{ 0\right\} $ und
+man nennt $M$ \emph{torsionsfrei}.
+
+\iii Seien $A$ ein Hauptidealring und $ $$M$ ein $A$-Modul, sodass
+für alle $0\not=a\in A$ gilt:
+\begin{align}
+\left\{ x\in M\big|ax=0\right\}  & =\left\{ 0\right\} \label{eq:ax0}
+\end{align}
+Dann ist $M$ ein flacher $A$-Modul.
+
+\end{iiilist}
+
+
+\subsubsection{Bemerkung}
+
+Es existieren Moduln über Ringen, die \eqref{eq:ax0} erfüllen, aber
+nicht flach sind.
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Die Abbildung
+\begin{align*}
+\cdot a:A & \hookrightarrow A\\
+x & \mapsto ax
+\end{align*}
+ist offenbar $A$-linear und injektiv, da $a$ kein Nullteiler ist.
+
+Da $M$ flach ist, ist auch die Abbildung $A\otimes_{A}M\stackrel{\left(\cdot a\right)\otimes\text{id}_{M}}{\hookrightarrow}A\otimes_{A}M$
+injektiv. Mit der Abbildung $f$ aus \ref{sec:Satz-natuerliche-Isomorphismen}
+iv) kommutiert das Diagramm:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=4.5em, text height=1.5ex, text depth=0.25ex]
+  { A \otimes_A M & A \otimes_A M \\
+    M & M \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above,rotate=90] {$\sim$} node[right]{$f$} (m-2-1)
+                             (m-1-2) edge node[above,rotate=90] {$\sim$} node[right]{$f$} (m-2-2);
+  \path[right hook->,font=\scriptsize] (m-1-1) edge node[above] {$ (\cdot a)\otimes \text{id}_M $} (m-1-2)
+              (m-2-1) edge node[above] {$ \cdot a $} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+Für $x\in M$ rechne:
+\begin{align*}
+f\left(\left(\left(\cdot a\right)\otimes\text{id}\right)\left(f^{-1}\left(x\right)\right)\right) & \stackrel{\ref{sec:Satz-natuerliche-Isomorphismen}}{=}f\left(\left(\left(\cdot a\right)\otimes\text{id}\right)\left(1\otimes x\right)\right)=f\left(a\otimes x\right)\stackrel{\ref{sec:Satz-natuerliche-Isomorphismen}}{=}ax
+\end{align*}
+\qqed[\roman{ale2})]
+
+\iii Wegen \ref{sec:Prop-flach} zeige:
+
+Für jedes (endlich erzeugte) Ideal $\iota:I\hookrightarrow A$ ist
+$\iota\otimes\text{id}_{M}$ injektiv.
+
+Für $I=\left(0\right)$ ist dies klar. Sei also $I\not=\left(0\right)$.
+
+Da $A$ ein Hauptidealring ist, gilt dann $I=\left(a\right)$ mit
+einem geeigneten $a\in A\setminus\left\{ 0\right\} $ und
+\begin{align*}
+f:A & \stackrel{\sim}{\to}\left(a\right)\\
+x & \mapsto ax
+\end{align*}
+ist ein $A$-linearer Isomorphismus. Betrachte:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { & I\otimes_{A}M  =\left(a\right)\otimes_{A}M & A\otimes_{A}M & M\\
+    M & A \otimes_A M &  & \\};
+  \path[->,font=\scriptsize] (m-1-2) edge node[above] {$\iota\otimes\text{id}_{M}$} (m-1-3)
+                             (m-1-3) edge node[above] {$\sim\,\,\,\alpha^{-1}$} node[below]{\ref{sec:Satz-natuerliche-Isomorphismen}} (m-1-4);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above] {$ \sim $} node[below]{$\alpha$} (m-2-2)
+                             (m-2-2) edge node[above,rotate=90] {$ \sim $} node[right]{$f \otimes \text{id}_M$} (m-1-2);
+  \draw[->] (m-2-1) .. controls +(1.5,-3) and +(-.75,-1).. node[below right]{$=?$}  (m-1-4.230);
+\end{tikzpicture}
+\par\end{center}
+
+\vspace{-13mm}
+
+
+Rechne für $x\in M$:
+\begin{align*}
+\left(\alpha^{-1}\circ\left(\iota\otimes\text{id}_{M}\right)\circ\left(f\otimes\text{id}_{M}\right)\circ\alpha\right)\left(x\right) & =\left(\alpha^{-1}\circ\left(\iota\otimes\text{id}_{M}\right)\circ\left(f\otimes\text{id}_{M}\right)\right)\left(1\otimes x\right)=\\
+ & =\alpha^{-1}\left(\underbrace{f\left(1\right)}_{=a}\otimes x\right)=ax
+\end{align*}
+
+
+Nach Voraussetzung ist $M\stackrel{\cdot a}{\hookrightarrow}M$ injektiv
+und es folgt, dass auch $\iota\otimes\text{id}_{M}$ injektiv ist.\qqed
 
 \end{iiilist}
 
