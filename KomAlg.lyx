@@ -425,7 +425,7 @@ begin{iiilist} als LyX-Kommandos einbauen.
 
 \begin_layout Standard
 \begin_inset FormulaMacro
-\renewcommand{\exsg}{\exsgop}
+\newcommand{\exsg}{\exsgop}
 {\text{\exists!}}
 \end_inset
 
@@ -17219,6 +17219,13 @@ qqed
 Korollar und Definition 
 \series medium
 (torsionsfrei)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:KuD-flach-torsionsfrei"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -17315,7 +17322,7 @@ iii
 \end_inset
 
 -Modul, sodass für alle 
-\begin_inset Formula $0\not=a\in A$
+\begin_inset Formula $a\in A\setminus\left\{ 0\right\} $
 \end_inset
 
  gilt:
@@ -17358,7 +17365,7 @@ Bemerkung
 \end_layout
 
 \begin_layout Standard
-Es existieren Moduln über Ringen, die 
+Es existieren Moduln über Integritätsringen, die 
 \begin_inset CommandInset ref
 LatexCommand eqref
 reference "eq:ax0"
@@ -17836,6 +17843,2098 @@ status open
 \backslash
 end{iiilist}
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 18.5.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lem-NullstellenKriterium"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $M$
+\end_inset
+
+ und 
+\begin_inset Formula $N$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln und 
+\begin_inset Formula $\left\{ n_{i}\right\} _{i\in I}\subseteq N$
+\end_inset
+
+ ein Erzeugendensystem, das heißt:
+\begin_inset Formula 
+\begin{align*}
+N & =\sum_{i\in I}An_{i}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dann gelten:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jedes 
+\begin_inset Formula $x\in M\otimes_{A}N$
+\end_inset
+
+ schreibt sich als
+\begin_inset Formula 
+\begin{align*}
+x & =\sum_{i\in I}m_{i}\otimes n_{i}
+\end{align*}
+
+\end_inset
+
+mit geeigneten 
+\begin_inset Formula $m_{i}\in M$
+\end_inset
+
+, die fast alle Null sind.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ In der Situation von i) sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $x=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Es existieren Elemente 
+\begin_inset Formula $m_{j}'\in M$
+\end_inset
+
+ für 
+\begin_inset Formula $j\in I$
+\end_inset
+
+, die fast alle Null sind, und 
+\begin_inset Formula $a_{ij}\in A$
+\end_inset
+
+ für 
+\begin_inset Formula $i,j\in I$
+\end_inset
+
+, die fast alle Null sind, mit:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\displaystyle m_{i}=\sum_{j\in I}a_{ij}m_{j}'}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $i\in I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula ${\displaystyle 0=\sum_{i\in I}a_{ij}n_{i}}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $j\in I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die eindeutige 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung
+\begin_inset Formula 
+\begin{align*}
+\pi:A^{\left(I\right)} & \twoheadrightarrow N\\
+\fall_{i\in I}\quad e_{i} & \mapsto n_{i}
+\end{align*}
+
+\end_inset
+
+ist surjektiv.
+ Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-RechtsexaktheitTensorprodukt"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-natuerliche-Isomorphismen"
+
+\end_inset
+
+ i) also auch:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { M
+\backslash
+otimes_{A}A^{
+\backslash
+left(I
+\backslash
+right)} & M
+\backslash
+otimes_{A}N
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+bigoplus_{i
+\backslash
+in I} M &  
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-1-1) edge node[above] {$
+\backslash
+text{id}_{M}
+\backslash
+otimes 
+\backslash
+pi$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-2-1) edge (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above,rotate=90] {$ 
+\backslash
+sim $} node[right]{$f, 
+\backslash
+ref{sec:Satz-natuerliche-Isomorphismen}$ i)} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Rechne für 
+\begin_inset Formula ${\displaystyle \left(m_{i}\right)_{i\in I}\in\bigoplus_{i\in I}M}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(\left(\text{id}_{M}\otimes\pi\right)\circ f^{-1}\right)\left(\left(m_{i}\right)_{i\in I}\right) & =\left(\text{id}_{M}\otimes\pi\right)\left(\sum_{i\in I}m_{i}\otimes e_{i}\right)=\sum_{i\in I}m_{i}\otimes n_{i}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ „b) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ a)“:
+\begin_inset Formula 
+\begin{align*}
+x & =\sum_{i\in I}m_{i}\otimes n_{i}\stackrel{\text{1.}}{=}\sum_{i\in I}\left(\sum_{j\in I}a_{ij}m_{j}'\right)\otimes n_{i}=\sum_{i,j\in I}\left(a_{ij}m_{j}'\right)\otimes n_{i}=\\
+ & =\sum_{i,j\in I}m_{j}'\otimes\left(a_{ij}n_{i}\right)=\sum_{j\in I}m_{j}'\otimes\underbrace{\left(\sum_{i\in I}a_{ij}n_{i}\right)}_{=0}\stackrel{\text{2.}}{=}0
+\end{align*}
+
+\end_inset
+
+„a) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ b)“: Betrachte den Spezialfall, dass 
+\begin_inset Formula ${\displaystyle N=\bigoplus_{i\in I}An_{i}}$
+\end_inset
+
+ ist, das heißt, das Erzeugendensystem 
+\begin_inset Formula $\left\{ n_{i}\right\} _{i\in I}$
+\end_inset
+
+ ist sogar eine Basis.
+ Dann folgt:
+\begin_inset Formula 
+\begin{align*}
+M\otimes_{A}N & \stackrel{\sim}{\to}\bigoplus_{i\in I}M\\
+x=\sum_{i\in I}m_{i}\otimes n_{i} & \mapsto\left(m_{i}\right)_{i\in I}
+\end{align*}
+
+\end_inset
+
+Aus 
+\begin_inset Formula $x=0$
+\end_inset
+
+ folgt für alle 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ schon 
+\begin_inset Formula $m_{i}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Damit gilt b) für 
+\begin_inset Formula $m_{i}':=0$
+\end_inset
+
+ und 
+\begin_inset Formula $a_{ij}:=0$
+\end_inset
+
+ für alle 
+\begin_inset Formula $i,j$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei nun 
+\begin_inset Formula $N$
+\end_inset
+
+ beliebig.
+\end_layout
+
+\begin_layout Description
+Behauptung Es existiert eine exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln
+\begin_inset Formula 
+\begin{align*}
+F & \stackrel{g}{\to}G\stackrel{\pi}{\to}N\to0
+\end{align*}
+
+\end_inset
+
+mit freien 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln 
+\begin_inset Formula $F$
+\end_inset
+
+ und 
+\begin_inset Formula $G$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Beweis Zunächst existiert ein freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $G$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi:G\twoheadrightarrow N$
+\end_inset
+
+, also ist 
+\begin_inset Formula $G\stackrel{\pi}{\to}N\to0$
+\end_inset
+
+ exakt.
+ Dann existiert ein freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $F$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi':F\twoheadrightarrow\ker\left(\pi\right)$
+\end_inset
+
+ und erhalte:
+\begin_inset Formula 
+\begin{align*}
+\mathscr{E}:=(F & \stackrel{g:=\iota\circ\pi'}{\to}G\stackrel{\pi}{\to}N\to0)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { F && G & N & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     & 
+\backslash
+ker(
+\backslash
+pi) &&&  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     0&&0&& 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-1-1.340) edge node[above] {$
+\backslash
+pi'$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$g:=
+\backslash
+iota
+\backslash
+circ
+\backslash
+pi'$} (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-3) edge node[above]{$
+\backslash
+pi$} (m-1-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-4) edge (m-1-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-2) edge node[right]{$
+\backslash
+iota$} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-3-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-2) edge (m-3-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+Nach der Definition ist diese Folge exakt.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-RechtsexaktheitTensorprodukt"
+
+\end_inset
+
+ ist dann auch
+\begin_inset Formula 
+\begin{align*}
+M\otimes_{A}\mathscr{E} & =\left(M\otimes_{A}F\stackrel{\text{id}\otimes g}{\to}M\otimes_{A}G\stackrel{\text{id}\otimes\pi}{\to}M\otimes_{A}N\to0\right)
+\end{align*}
+
+\end_inset
+
+exakt.
+ Wähle 
+\begin_inset Formula $g_{i}\in G$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\left(g_{i}\right)=n_{i}$
+\end_inset
+
+.
+ Dann gilt für
+\begin_inset Formula 
+\begin{align*}
+y & :=\sum_{i\in I}m_{i}\otimes g_{i}\in M\otimes_{A}G
+\end{align*}
+
+\end_inset
+
+nun:
+\begin_inset Formula 
+\begin{align*}
+\left(\text{id}\otimes\pi\right)\left(y\right) & =\sum_{i\in I}m_{i}\otimes n_{i}=x=0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $y\in\text{ker}\left(\text{id}\otimes\pi\right)=\text{im}\left(\text{id}\otimes g\right)$
+\end_inset
+
+, das heißt
+\begin_inset Formula 
+\begin{align*}
+y & =\left(\text{id}\otimes g\right)\left(\sum_{j\in I}m_{j}'\otimes f_{j}\right)=\sum_{j\in I}m_{j}'\otimes g\left(f_{j}\right)
+\end{align*}
+
+\end_inset
+
+mit geeigneten 
+\begin_inset Formula $f_{j}\in F$
+\end_inset
+
+ und 
+\begin_inset Formula $m_{j}'\in M$
+\end_inset
+
+.
+ Schreibe nun in 
+\begin_inset Formula $G$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+g\left(f_{j}\right) & =\sum_{i\in I}a_{ij}g_{i}
+\end{align*}
+
+\end_inset
+
+mit geeigneten 
+\begin_inset Formula $a_{ij}\in A$
+\end_inset
+
+ und erhalte:
+\begin_inset Formula 
+\begin{align*}
+0 & =y-y=\sum_{i\in I}m_{i}\otimes g_{i}-\sum_{j\in I}m_{j}'\otimes\left(\sum_{i\in I}a_{ij}g_{i}\right)=\\
+ & =\sum_{i\in I}\left(m_{i}-\sum_{j\in I}a_{ij}m_{j}'\right)\otimes g_{i}\in M\otimes_{A}G
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $G$
+\end_inset
+
+ frei ist, folgt aus dem Spezialfall:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad
+\end_layout
+
+\end_inset
+
+1.
+ Für alle 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+m_{i} & =\sum_{j\in I}a_{ij}m_{j}'
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+quad
+\end_layout
+
+\end_inset
+
+2.
+ Für alle 
+\begin_inset Formula $j\in I$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+0 & \stackrel{\left(\pi\circ g=0\right)}{=}\pi\left(g\left(f_{j}\right)\right)=\pi\left(\sum_{i\in I}a_{ij}g_{i}\right)=\sum_{i\in I}a_{ij}\cdot\pi\left(g_{i}\right)=\sum_{i\in I}a_{ij}\cdot n_{i}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $N=A\cdot n$
+\end_inset
+
+ durch ein Element 
+\begin_inset Formula $n$
+\end_inset
+
+ erzeugt und 
+\begin_inset Formula $M$
+\end_inset
+
+ beliebig, so schreibt sich jedes Element 
+\begin_inset Formula $x\in M\otimes_{A}N$
+\end_inset
+
+ als 
+\begin_inset Formula $x=m\otimes n$
+\end_inset
+
+ mit einem geeigneten 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ und es gilt:
+\begin_inset Formula 
+\begin{align*}
+x=0 & \quad\Leftrightarrow\quad\exs_{a\in A,m'\in M}\,:\, m=am'\wedge a\cdot n=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Wähle in i) nun 
+\begin_inset Formula $A=k\left[t\right]$
+\end_inset
+
+ für einen Körper 
+\begin_inset Formula $k$
+\end_inset
+
+, 
+\begin_inset Formula $N=\modulo{k\left[t\right]}{\left(t^{2}\right)}\ni n:=\overline{t}\not=0$
+\end_inset
+
+ und zudem 
+\begin_inset Formula $M=\modulo{k\left[t\right]}{\left(t\right)}\ni m:=\overline{1}\not=0$
+\end_inset
+
+.
+ Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+x & =m\otimes n=\overline{1}\otimes\overline{t}=\overline{1}\otimes\left(t\cdot\overline{1}\right)=t\cdot\left(\overline{1}\otimes\overline{1}\right)=\overline{t}\otimes\overline{1}=\overline{0}\otimes\overline{1}=0
+\end{align*}
+
+\end_inset
+
+Aber die Bedingung aus i) gilt nicht.
+ Man sieht, dass auf die Bedingung 
+\begin_inset Formula $N=An$
+\end_inset
+
+ in i) nicht verzichtet werden kann.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar 
+\series medium
+(Kriterium für flach)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-KriteriumFlach"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+ Dann sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ ist flach.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jede Relation
+\begin_inset Formula 
+\begin{align*}
+0 & =\sum_{i\in I}\alpha_{i}m_{i}\in M
+\end{align*}
+
+\end_inset
+
+mit 
+\begin_inset Formula $\alpha_{i}\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $m_{i}\in M$
+\end_inset
+
+ existieren 
+\begin_inset Formula $m_{j}'\in M$
+\end_inset
+
+ und 
+\begin_inset Formula $a_{ij}\in A$
+\end_inset
+
+, sodass für alle 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ schon
+\begin_inset Formula 
+\begin{align*}
+m_{i} & =\sum_{j\in I}a_{ij}m_{j}'
+\end{align*}
+
+\end_inset
+
+gilt und für alle 
+\begin_inset Formula $j\in J$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\sum_{i\in I}a_{ij}\alpha_{i} & =0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Dies folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-flach"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-NullstellenKriterium"
+
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel und Definition 
+\series medium
+(Torsionsuntermodul)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+ Dann ist
+\begin_inset Formula 
+\begin{align*}
+T\left(M\right) & :=\left\{ x\in M\bigg|\exs_{a\in A\setminus\left\{ 0\right\} }:ax=0\right\} \subseteq M
+\end{align*}
+
+\end_inset
+
+ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermodul, 
+\emph on
+der Torsionsuntermodul von 
+\begin_inset Formula $M$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $T\left(M\right)=\left\{ 0\right\} $
+\end_inset
+
+, so heißt 
+\begin_inset Formula $M$
+\end_inset
+
+ 
+\emph on
+torsionsfrei
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:KuD-flach-torsionsfrei"
+
+\end_inset
+
+ i) bedeutet also, dass über einem Integritätsring jeder flache Modul torsionsfr
+ei ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Vergleiche mit der Bemerkung zu 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:KuD-flach-torsionsfrei"
+
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper, dann ist 
+\begin_inset Formula $A:=k\left[X,Y\right]$
+\end_inset
+
+ ein Integritätsring, aber kein Hauptidealring.
+\end_layout
+
+\begin_layout Standard
+Der Modul 
+\begin_inset Formula $M:=\left(X,Y\right)\subseteq A$
+\end_inset
+
+ ist ein torsionsfreier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, der nicht flach ist.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Dass 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring ist, folgt aus der Gradformel für Polynome und daher
+ gilt 
+\begin_inset Formula $T\left(A\right)=\left\{ 0\right\} $
+\end_inset
+
+.
+ Aus 
+\begin_inset Formula $M\subseteq A$
+\end_inset
+
+ folgt 
+\begin_inset Formula $T\left(M\right)=\left\{ 0\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Angenommen 
+\begin_inset Formula $M$
+\end_inset
+
+ wäre flach.
+ Aus der 
+\begin_inset Formula $A$
+\end_inset
+
+-linearen Relation
+\begin_inset Formula 
+\begin{align*}
+\underbrace{Y}_{=:\alpha_{1}}\cdot\underbrace{X}_{=:m_{1}}+\underbrace{\left(-X\right)}_{=:\alpha_{2}}\cdot\underbrace{Y}_{=:m_{2}} & =0
+\end{align*}
+
+\end_inset
+
+in 
+\begin_inset Formula $M$
+\end_inset
+
+ würde dann mit 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-KriteriumFlach"
+
+\end_inset
+
+ „i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“ folgen, dass es ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $m_{1}',\ldots,m_{n}'\in M$
+\end_inset
+
+ und 
+\begin_inset Formula $\alpha_{ij}\in A$
+\end_inset
+
+ für 
+\begin_inset Formula $1\le i,j\le n$
+\end_inset
+
+ gibt, mit
+\begin_inset Formula 
+\begin{align*}
+X & =\sum_{j=1}^{n}a_{1j}m_{j}' & Y & =\sum_{j=1}^{n}a_{2j}m_{j}'
+\end{align*}
+
+\end_inset
+
+und für alle 
+\begin_inset Formula $1\le j\le n$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+0 & =\sum_{i=1}^{2}a_{ij}\alpha_{j}=a_{1j}Y-a_{2j}X
+\end{align*}
+
+\end_inset
+
+Damit würde für alle 
+\begin_inset Formula $1\le j\le n$
+\end_inset
+
+ in 
+\begin_inset Formula $A$
+\end_inset
+
+ folgen:
+\begin_inset Formula 
+\begin{align*}
+X & \big|a_{2j}X=a_{1j}Y
+\end{align*}
+
+\end_inset
+
+Wegen 
+\begin_inset Formula $X\!\not|\, Y$
+\end_inset
+
+ und weil 
+\begin_inset Formula $X$
+\end_inset
+
+ ein Primelement ist, folgt für alle 
+\begin_inset Formula $1\le j\le n$
+\end_inset
+
+ schon
+\begin_inset Formula 
+\begin{align*}
+a_{ij} & =X\cdot a_{1j}'
+\end{align*}
+
+\end_inset
+
+mit geeigneten 
+\begin_inset Formula $a_{ij}'\in A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Zusammen ergibt das:
+\begin_inset Formula 
+\begin{align*}
+X & =\sum_{j=1}^{n}X\cdot a_{1j}'\cdot m_{j}'
+\end{align*}
+
+\end_inset
+
+Wegen 
+\begin_inset Formula $0\not=X\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $T\left(M\right)=\left\{ 0\right\} $
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\begin{align*}
+1= & \sum_{j=1}^{m}\underbrace{a_{ij}'}_{\in A}\cdot\underbrace{m_{j}'}_{\in M}\in M=\left(X,Y\right)\subsetneq A
+\end{align*}
+
+\end_inset
+
+Dies ist ein Widerspruch.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Algebra)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine 
+\emph on
+
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra
+\emph default
+ ist ein Tupel 
+\begin_inset Formula $\left(B,\beta\right)$
+\end_inset
+
+, wobei 
+\begin_inset Formula $B$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $\beta:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $\left(B,\beta\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(C,\gamma\right)$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebren, so ist ein 
+\emph on
+
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus (von 
+\begin_inset Formula $B$
+\end_inset
+
+ nach 
+\begin_inset Formula $C$
+\end_inset
+
+)
+\emph default
+ eine Abbildung 
+\begin_inset Formula $f:B\to C$
+\end_inset
+
+, die ein Ringhomomorphismus ist und 
+\begin_inset Formula $f\circ\beta=\gamma$
+\end_inset
+
+ erfüllt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist für eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $\left(B,\beta\right)$
+\end_inset
+
+ die Abbildung 
+\begin_inset Formula $\beta$
+\end_inset
+
+ aus dem Kontext klar, so lässt man sie in der Notation fort.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $B$
+\end_inset
+
+ heißt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\emph on
+endlich
+\emph default
+ 
+\begin_inset Formula $:\Leftrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $B$
+\end_inset
+
+ als 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul ist endlich erzeugt.
+\end_layout
+
+\begin_layout Standard
+(Ist 
+\begin_inset Formula $\left(B,\beta\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra, so ist 
+\begin_inset Formula $B$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul vermöge 
+\begin_inset Formula $a\cdot b:=\beta\left(a\right)b$
+\end_inset
+
+ für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $b\in B$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\emph on
+endlich erzeugt
+\emph default
+ 
+\begin_inset Formula $:\Leftrightarrow$
+\end_inset
+
+ Es gibt ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und einen surjektiven 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus 
+\begin_inset Formula $A\left[X_{1},\ldots,X_{n}\right]\twoheadrightarrow B$
+\end_inset
+
+, das heißt es gibt ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und 
+\begin_inset Formula $b_{1},\ldots,b_{n}\in B$
+\end_inset
+
+ so, dass sich jedes 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ schreibt als
+\begin_inset Formula 
+\begin{align*}
+b & =\sum_{i_{1},\ldots,i_{n}\in\mathbb{N}}a_{i_{1}\ldots i_{n}}b_{1}^{i_{1}}\cdot\ldots\cdot b_{n}^{i_{n}}
+\end{align*}
+
+\end_inset
+
+mit geeigneten 
+\begin_inset Formula $a_{i_{1}\ldots i_{n}}\in A$
+\end_inset
+
+, die fast alle Null sind.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jede endliche Algebra ist endlich erzeugt, denn jede Linearkombination
+ ist ein Polynom vom Grad 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $A\left[X\right]$
+\end_inset
+
+ ist endlich erzeugt, aber nicht endlich, da alle Potenzen von 
+\begin_inset Formula $X$
+\end_inset
+
+ schon 
+\begin_inset Formula $A$
+\end_inset
+
+-linear unabhängig sind.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Konstruktion
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $\left(B,\beta\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(C,\gamma\right)$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebren, so setze 
+\begin_inset Formula $D:=B\otimes_{A}C$
+\end_inset
+
+.
+ Die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\left(B\times C\right)\times\left(B\times C\right) & \to B\times C\\
+\left(\left(b,c\right),\left(b',c'\right)\right) & \mapsto\left(bb',cc'\right)
+\end{align*}
+
+\end_inset
+
+ist 
+\emph on
+
+\begin_inset Formula $A$
+\end_inset
+
+-multilinear
+\emph default
+, das heißt linear in jedem Argument, und faktorisiert also über eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung
+\begin_inset Formula 
+\begin{align*}
+D\otimes_{A}D & \stackrel{\tilde{\mu}}{\to}D
+\end{align*}
+
+\end_inset
+
+und
+\begin_inset Formula 
+\begin{align*}
+\mu:= & \left(D\times D\sr{\to}{\tau}{\ref{sec:SuD-Tensorprodukt}}D\otimes_{A}D\stackrel{\tilde{\mu}}{\to}D\right)
+\end{align*}
+
+\end_inset
+
+ist 
+\begin_inset Formula $A$
+\end_inset
+
+-bilinear, sodass für alle 
+\begin_inset Formula $b,b'\in B$
+\end_inset
+
+ und 
+\begin_inset Formula $c,c'\in C$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\mu\left(b\otimes c,b'\otimes c'\right) & =\left(bb'\right)\otimes\left(cc'\right)
+\end{align*}
 
 \end_inset
 

@@ -3183,7 +3183,7 @@ iv) verschärft.
 ii) $\Rightarrow$ i) wird später bewiesen.\qqed
 
 
-\section{Korollar und Definition \textmd{(torsionsfrei)}}
+\section{Korollar und Definition \textmd{(torsionsfrei)\label{sec:KuD-flach-torsionsfrei}}}
 
 \begin{iiilist}
 
@@ -3194,7 +3194,7 @@ Dann gilt $\left\{ x\in M\big|ax=0\right\} =\left\{ 0\right\} $ und
 man nennt $M$ \emph{torsionsfrei}.
 
 \iii Seien $A$ ein Hauptidealring und $ $$M$ ein $A$-Modul, sodass
-für alle $0\not=a\in A$ gilt:
+für alle $a\in A\setminus\left\{ 0\right\} $ gilt:
 \begin{align}
 \left\{ x\in M\big|ax=0\right\}  & =\left\{ 0\right\} \label{eq:ax0}
 \end{align}
@@ -3205,8 +3205,8 @@ Dann ist $M$ ein flacher $A$-Modul.
 
 \subsubsection{Bemerkung}
 
-Es existieren Moduln über Ringen, die \eqref{eq:ax0} erfüllen, aber
-nicht flach sind.
+Es existieren Moduln über Integritätsringen, die \eqref{eq:ax0} erfüllen,
+aber nicht flach sind.
 
 
 \subsubsection*{Beweis}
@@ -3284,6 +3284,368 @@ Nach Voraussetzung ist $M\stackrel{\cdot a}{\hookrightarrow}M$ injektiv
 und es folgt, dass auch $\iota\otimes\text{id}_{M}$ injektiv ist.\qqed
 
 \end{iiilist}
+
+%DATE: Fr 18.5.12
+
+
+\section{Lemma\label{sec:Lem-NullstellenKriterium}}
+
+Seien $A$ ein Ring, $M$ und $N$ zwei $A$-Moduln und $\left\{ n_{i}\right\} _{i\in I}\subseteq N$
+ein Erzeugendensystem, das heißt:
+\begin{align*}
+N & =\sum_{i\in I}An_{i}
+\end{align*}
+
+
+Dann gelten:
+
+\begin{iiilist}
+
+\iii Jedes $x\in M\otimes_{A}N$ schreibt sich als
+\begin{align*}
+x & =\sum_{i\in I}m_{i}\otimes n_{i}
+\end{align*}
+mit geeigneten $m_{i}\in M$, die fast alle Null sind.
+
+\iii In der Situation von i) sind äquivalent:
+
+\begin{abclist}
+
+\abc $x=0$
+
+\abc Es existieren Elemente $m_{j}'\in M$ für $j\in I$, die fast
+alle Null sind, und $a_{ij}\in A$ für $i,j\in I$, die fast alle
+Null sind, mit:
+\begin{enumerate}
+\item ${\displaystyle m_{i}=\sum_{j\in I}a_{ij}m_{j}'}$ für alle $i\in I$.
+\item ${\displaystyle 0=\sum_{i\in I}a_{ij}n_{i}}$ für alle $j\in I$.
+\end{enumerate}
+\end{abclist}
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Die eindeutige $A$-lineare Abbildung
+\begin{align*}
+\pi:A^{\left(I\right)} & \twoheadrightarrow N\\
+\fall_{i\in I}\quad e_{i} & \mapsto n_{i}
+\end{align*}
+ist surjektiv. Nach \ref{sec:Satz-RechtsexaktheitTensorprodukt} und
+\ref{sec:Satz-natuerliche-Isomorphismen} i) also auch:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { M\otimes_{A}A^{\left(I\right)} & M\otimes_{A}N\\
+    \bigoplus_{i\in I} M &  \\};
+  \path[->>,font=\scriptsize] (m-1-1) edge node[above] {$\text{id}_{M}\otimes \pi$} (m-1-2);
+  \path[->>,font=\scriptsize] (m-2-1) edge (m-1-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[above,rotate=90] {$ \sim $} node[right]{$f, \ref{sec:Satz-natuerliche-Isomorphismen}$ i)} (m-2-1);
+\end{tikzpicture}
+\par\end{center}
+
+Rechne für ${\displaystyle \left(m_{i}\right)_{i\in I}\in\bigoplus_{i\in I}M}$:
+\begin{align*}
+\left(\left(\text{id}_{M}\otimes\pi\right)\circ f^{-1}\right)\left(\left(m_{i}\right)_{i\in I}\right) & =\left(\text{id}_{M}\otimes\pi\right)\left(\sum_{i\in I}m_{i}\otimes e_{i}\right)=\sum_{i\in I}m_{i}\otimes n_{i}
+\end{align*}
+\qqed[\roman{ale2})]
+
+\iii \quotedblbase{}b) $\Rightarrow$ a)\textquotedblleft{}:
+\begin{align*}
+x & =\sum_{i\in I}m_{i}\otimes n_{i}\stackrel{\text{1.}}{=}\sum_{i\in I}\left(\sum_{j\in I}a_{ij}m_{j}'\right)\otimes n_{i}=\sum_{i,j\in I}\left(a_{ij}m_{j}'\right)\otimes n_{i}=\\
+ & =\sum_{i,j\in I}m_{j}'\otimes\left(a_{ij}n_{i}\right)=\sum_{j\in I}m_{j}'\otimes\underbrace{\left(\sum_{i\in I}a_{ij}n_{i}\right)}_{=0}\stackrel{\text{2.}}{=}0
+\end{align*}
+\quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{}: Betrachte
+den Spezialfall, dass ${\displaystyle N=\bigoplus_{i\in I}An_{i}}$
+ist, das heißt, das Erzeugendensystem $\left\{ n_{i}\right\} _{i\in I}$
+ist sogar eine Basis. Dann folgt:
+\begin{align*}
+M\otimes_{A}N & \stackrel{\sim}{\to}\bigoplus_{i\in I}M\\
+x=\sum_{i\in I}m_{i}\otimes n_{i} & \mapsto\left(m_{i}\right)_{i\in I}
+\end{align*}
+Aus $x=0$ folgt für alle $i\in I$ schon $m_{i}=0$.
+
+Damit gilt b) für $m_{i}':=0$ und $a_{ij}:=0$ für alle $i,j$.
+
+Sei nun $N$ beliebig.
+\begin{description}
+\item [{Behauptung}] Es existiert eine exakte Folge von $A$-Moduln
+\begin{align*}
+F & \stackrel{g}{\to}G\stackrel{\pi}{\to}N\to0
+\end{align*}
+mit freien $A$-Moduln $F$ und $G$.
+\item [{Beweis}] Zunächst existiert ein freier $A$-Modul $G$ mit $\pi:G\twoheadrightarrow N$,
+also ist $G\stackrel{\pi}{\to}N\to0$ exakt. Dann existiert ein freier
+$A$-Modul $F$ mit $\pi':F\twoheadrightarrow\ker\left(\pi\right)$
+und erhalte:
+\begin{align*}
+\mathscr{E}:=(F & \stackrel{g:=\iota\circ\pi'}{\to}G\stackrel{\pi}{\to}N\to0)
+\end{align*}
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+  { F && G & N & 0\\
+     & \ker(\pi) &&&  \\
+     0&&0&& \\};
+  \path[->>,font=\scriptsize] (m-1-1.340) edge node[above] {$\pi'$} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$g:=\iota\circ\pi'$} (m-1-3)
+                             (m-1-3) edge node[above]{$\pi$} (m-1-4)
+                             (m-1-4) edge (m-1-5);
+  \path[->,font=\scriptsize] (m-2-2) edge node[right]{$\iota$} (m-1-3);
+  \path[->] (m-3-1) edge (m-2-2)
+            (m-2-2) edge (m-3-3);
+\end{tikzpicture}
+\end{center}Nach der Definition ist diese Folge exakt.\qqed[Behauptung]
+\end{description}
+Wegen \ref{sec:Satz-RechtsexaktheitTensorprodukt} ist dann auch
+\begin{align*}
+M\otimes_{A}\mathscr{E} & =\left(M\otimes_{A}F\stackrel{\text{id}\otimes g}{\to}M\otimes_{A}G\stackrel{\text{id}\otimes\pi}{\to}M\otimes_{A}N\to0\right)
+\end{align*}
+exakt. Wähle $g_{i}\in G$ mit $\pi\left(g_{i}\right)=n_{i}$. Dann
+gilt für
+\begin{align*}
+y & :=\sum_{i\in I}m_{i}\otimes g_{i}\in M\otimes_{A}G
+\end{align*}
+nun:
+\begin{align*}
+\left(\text{id}\otimes\pi\right)\left(y\right) & =\sum_{i\in I}m_{i}\otimes n_{i}=x=0
+\end{align*}
+Also ist $y\in\text{ker}\left(\text{id}\otimes\pi\right)=\text{im}\left(\text{id}\otimes g\right)$,
+das heißt
+\begin{align*}
+y & =\left(\text{id}\otimes g\right)\left(\sum_{j\in I}m_{j}'\otimes f_{j}\right)=\sum_{j\in I}m_{j}'\otimes g\left(f_{j}\right)
+\end{align*}
+mit geeigneten $f_{j}\in F$ und $m_{j}'\in M$. Schreibe nun in $G$
+\begin{align*}
+g\left(f_{j}\right) & =\sum_{i\in I}a_{ij}g_{i}
+\end{align*}
+mit geeigneten $a_{ij}\in A$ und erhalte:
+\begin{align*}
+0 & =y-y=\sum_{i\in I}m_{i}\otimes g_{i}-\sum_{j\in I}m_{j}'\otimes\left(\sum_{i\in I}a_{ij}g_{i}\right)=\\
+ & =\sum_{i\in I}\left(m_{i}-\sum_{j\in I}a_{ij}m_{j}'\right)\otimes g_{i}\in M\otimes_{A}G
+\end{align*}
+Da $G$ frei ist, folgt aus dem Spezialfall:
+
+\quad1. Für alle $i\in I$ gilt:
+\begin{align*}
+m_{i} & =\sum_{j\in I}a_{ij}m_{j}'
+\end{align*}
+\quad2. Für alle $j\in I$ gilt:
+\begin{align*}
+0 & \stackrel{\left(\pi\circ g=0\right)}{=}\pi\left(g\left(f_{j}\right)\right)=\pi\left(\sum_{i\in I}a_{ij}g_{i}\right)=\sum_{i\in I}a_{ij}\cdot\pi\left(g_{i}\right)=\sum_{i\in I}a_{ij}\cdot n_{i}
+\end{align*}
+\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Ist $N=A\cdot n$ durch ein Element $n$ erzeugt und $M$ beliebig,
+so schreibt sich jedes Element $x\in M\otimes_{A}N$ als $x=m\otimes n$
+mit einem geeigneten $m\in M$ und es gilt:
+\begin{align*}
+x=0 & \quad\Leftrightarrow\quad\exs_{a\in A,m'\in M}\,:\, m=am'\wedge a\cdot n=0
+\end{align*}
+
+
+\iii Wähle in i) nun $A=k\left[t\right]$ für einen Körper $k$,
+$N=\modulo{k\left[t\right]}{\left(t^{2}\right)}\ni n:=\overline{t}\not=0$
+und zudem $M=\modulo{k\left[t\right]}{\left(t\right)}\ni m:=\overline{1}\not=0$.
+Dann gilt:
+\begin{align*}
+x & =m\otimes n=\overline{1}\otimes\overline{t}=\overline{1}\otimes\left(t\cdot\overline{1}\right)=t\cdot\left(\overline{1}\otimes\overline{1}\right)=\overline{t}\otimes\overline{1}=\overline{0}\otimes\overline{1}=0
+\end{align*}
+Aber die Bedingung aus i) gilt nicht. Man sieht, dass auf die Bedingung
+$N=An$ in i) nicht verzichtet werden kann.
+
+\end{iiilist}
+
+
+\section{Korollar \textmd{(Kriterium für flach)\label{sec:Kor-KriteriumFlach}}}
+
+Seien $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $M$ ist flach.
+
+\iii Für jede Relation
+\begin{align*}
+0 & =\sum_{i\in I}\alpha_{i}m_{i}\in M
+\end{align*}
+mit $\alpha_{i}\in A$ und $m_{i}\in M$ existieren $m_{j}'\in M$
+und $a_{ij}\in A$, sodass für alle $i\in I$ schon
+\begin{align*}
+m_{i} & =\sum_{j\in I}a_{ij}m_{j}'
+\end{align*}
+gilt und für alle $j\in J$:
+\begin{align*}
+\sum_{i\in I}a_{ij}\alpha_{i} & =0
+\end{align*}
+
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+Dies folgt aus \ref{sec:Prop-flach} und \ref{sec:Lem-NullstellenKriterium}.\qqed
+
+
+\section{Beispiel und Definition \textmd{(Torsionsuntermodul)}}
+
+\begin{iiilist}
+
+\iii Seien $A$ ein Integritätsring und $M$ ein $A$-Modul. Dann
+ist
+\begin{align*}
+T\left(M\right) & :=\left\{ x\in M\bigg|\exs_{a\in A\setminus\left\{ 0\right\} }:ax=0\right\} \subseteq M
+\end{align*}
+ein $A$-Untermodul, \emph{der Torsionsuntermodul von $M$}.
+
+Ist $T\left(M\right)=\left\{ 0\right\} $, so heißt $M$ \emph{torsionsfrei}.
+
+\ref{sec:KuD-flach-torsionsfrei} i) bedeutet also, dass über einem
+Integritätsring jeder flache Modul torsionsfrei ist.
+
+\iii Vergleiche mit der Bemerkung zu \ref{sec:KuD-flach-torsionsfrei}:
+
+Sei $k$ ein Körper, dann ist $A:=k\left[X,Y\right]$ ein Integritätsring,
+aber kein Hauptidealring.
+
+Der Modul $M:=\left(X,Y\right)\subseteq A$ ist ein torsionsfreier
+$A$-Modul, der nicht flach ist.
+
+
+\subsubsection*{Beweis}
+
+Dass $A$ ein Integritätsring ist, folgt aus der Gradformel für Polynome
+und daher gilt $T\left(A\right)=\left\{ 0\right\} $. Aus $M\subseteq A$
+folgt $T\left(M\right)=\left\{ 0\right\} $.
+
+Angenommen $M$ wäre flach. Aus der $A$-linearen Relation
+\begin{align*}
+\underbrace{Y}_{=:\alpha_{1}}\cdot\underbrace{X}_{=:m_{1}}+\underbrace{\left(-X\right)}_{=:\alpha_{2}}\cdot\underbrace{Y}_{=:m_{2}} & =0
+\end{align*}
+in $M$ würde dann mit \ref{sec:Kor-KriteriumFlach} \quotedblbase{}i)
+$\Rightarrow$ ii)\textquotedblleft{} folgen, dass es ein $n\in\mathbb{N}$,
+$m_{1}',\ldots,m_{n}'\in M$ und $\alpha_{ij}\in A$ für $1\le i,j\le n$
+gibt, mit
+\begin{align*}
+X & =\sum_{j=1}^{n}a_{1j}m_{j}' & Y & =\sum_{j=1}^{n}a_{2j}m_{j}'
+\end{align*}
+und für alle $1\le j\le n$:
+\begin{align*}
+0 & =\sum_{i=1}^{2}a_{ij}\alpha_{j}=a_{1j}Y-a_{2j}X
+\end{align*}
+Damit würde für alle $1\le j\le n$ in $A$ folgen:
+\begin{align*}
+X & \big|a_{2j}X=a_{1j}Y
+\end{align*}
+Wegen $X\!\not|\, Y$ und weil $X$ ein Primelement ist, folgt für
+alle $1\le j\le n$ schon
+\begin{align*}
+a_{ij} & =X\cdot a_{1j}'
+\end{align*}
+mit geeigneten $a_{ij}'\in A$.
+
+Zusammen ergibt das:
+\begin{align*}
+X & =\sum_{j=1}^{n}X\cdot a_{1j}'\cdot m_{j}'
+\end{align*}
+Wegen $0\not=X\in A$ und $T\left(M\right)=\left\{ 0\right\} $ folgt:
+\begin{align*}
+1= & \sum_{j=1}^{m}\underbrace{a_{ij}'}_{\in A}\cdot\underbrace{m_{j}'}_{\in M}\in M=\left(X,Y\right)\subsetneq A
+\end{align*}
+Dies ist ein Widerspruch.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Definition \textmd{(Algebra)}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Eine \emph{$A$-Algebra} ist ein Tupel $\left(B,\beta\right)$,
+wobei $B$ ein Ring und $\beta:A\to B$ ein Ringhomomorphismus ist.
+
+\iii Sind $\left(B,\beta\right)$ und $\left(C,\gamma\right)$ zwei
+$A$-Algebren, so ist ein \emph{$A$-Algebrenhomomorphismus (von $B$
+nach $C$)} eine Abbildung $f:B\to C$, die ein Ringhomomorphismus
+ist und $f\circ\beta=\gamma$ erfüllt.
+
+\iii Ist für eine $A$-Algebra $\left(B,\beta\right)$ die Abbildung
+$\beta$ aus dem Kontext klar, so lässt man sie in der Notation fort.
+
+\iii Eine $A$-Algebra $B$ heißt:
+
+\begin{abclist}
+
+\abc \emph{endlich} $:\Leftrightarrow$ $B$ als $A$-Modul ist endlich
+erzeugt.
+
+(Ist $\left(B,\beta\right)$ eine $A$-Algebra, so ist $B$ ein $A$-Modul
+vermöge $a\cdot b:=\beta\left(a\right)b$ für alle $a\in A$ und $b\in B$.)
+
+\abc \emph{endlich erzeugt} $:\Leftrightarrow$ Es gibt ein $n\in\mathbb{N}$
+und einen surjektiven $A$-Algebrenhomomorphismus $A\left[X_{1},\ldots,X_{n}\right]\twoheadrightarrow B$,
+das heißt es gibt ein $n\in\mathbb{N}$ und $b_{1},\ldots,b_{n}\in B$
+so, dass sich jedes $b\in B$ schreibt als
+\begin{align*}
+b & =\sum_{i_{1},\ldots,i_{n}\in\mathbb{N}}a_{i_{1}\ldots i_{n}}b_{1}^{i_{1}}\cdot\ldots\cdot b_{n}^{i_{n}}
+\end{align*}
+mit geeigneten $a_{i_{1}\ldots i_{n}}\in A$, die fast alle Null sind.
+
+\end{abclist}
+
+\end{iiilist}
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Jede endliche Algebra ist endlich erzeugt, denn jede Linearkombination
+ist ein Polynom vom Grad 1.
+
+\iii Die $A$-Algebra $A\left[X\right]$ ist endlich erzeugt, aber
+nicht endlich, da alle Potenzen von $X$ schon $A$-linear unabhängig
+sind.
+
+\end{iiilist}
+
+
+\section{Konstruktion}
+
+Seien $A$ ein Ring und $\left(B,\beta\right)$ und $\left(C,\gamma\right)$
+zwei $A$-Algebren, so setze $D:=B\otimes_{A}C$. Die Abbildung
+\begin{align*}
+\left(B\times C\right)\times\left(B\times C\right) & \to B\times C\\
+\left(\left(b,c\right),\left(b',c'\right)\right) & \mapsto\left(bb',cc'\right)
+\end{align*}
+ist \emph{$A$-multilinear}, das heißt linear in jedem Argument, und
+faktorisiert also über eine $A$-lineare Abbildung
+\begin{align*}
+D\otimes_{A}D & \stackrel{\tilde{\mu}}{\to}D
+\end{align*}
+und
+\begin{align*}
+\mu:= & \left(D\times D\sr{\to}{\tau}{\ref{sec:SuD-Tensorprodukt}}D\otimes_{A}D\stackrel{\tilde{\mu}}{\to}D\right)
+\end{align*}
+ist $A$-bilinear, sodass für alle $b,b'\in B$ und $c,c'\in C$ gilt:
+\begin{align*}
+\mu\left(b\otimes c,b'\otimes c'\right) & =\left(bb'\right)\otimes\left(cc'\right)
+\end{align*}
+
 
 
 \part*{Anhang\thispagestyle{empty}}
