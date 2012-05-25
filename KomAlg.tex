@@ -678,7 +678,7 @@ x^{n} & =\left(1,0\right)^{n}=\left(1^{n},0^{n}\right)=\left(1,0\right)=x\not=0
 \end{iiilist}
 
 
-\section{Definition und Bemerkung \textmd{(Einheit, Einheitengruppe)}}
+\section{Definition und Bemerkung \textmd{(Einheit, Einheitengruppe)\label{sec:DuB-Einheit}}}
 
 Sei $A$ ein Ring. Ein $x\in A$ heißt genau dann \emph{Einheit} (\emph{in
 $A$}), wenn es ein $y\in A$ mit $xy=1$ gibt.
@@ -1385,7 +1385,7 @@ x & =x\cdot1=\underbrace{xa}_{\in JI=IJ}+\underbrace{xb}_{\in IJ}\in IJ
 \qqed
 
 
-\section{Satz \textmd{(Chinesischer Restsatz)}}
+\section{Satz \textmd{(Chinesischer Restsatz)\label{sec:Satz-Chinesischer-Restsatz}}}
 
 Seien $A$ ein Ring, $n\in\mathbb{N}_{\ge1}$ und $I_{1},\ldots,I_{n}\subseteq A$
 Ideale. Dann ist die Abbildung
@@ -1490,7 +1490,7 @@ $I_{i}$ liegt, und somit im Schnitt liegt.\qqed[b)]
 \end{abclist}
 
 
-\section{Definition und Bemerkung \textmd{(Bild und Urbild eines Ideals)}}
+\section{Definition und Bemerkung \textmd{(Bild und Urbild eines Ideals)\label{sec:DuB-Bild-Urbild-Ideal}}}
 
 Sei $f:A\to B$ ein Ringhomomorphismus.
 
@@ -2739,7 +2739,7 @@ kommutativ, was klar ist:
 \noindent \begin{center}
 \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
   \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
-  { m\otimes_A n & n\otimes_A m \\ f(m)\otimes f(n) & f(n) \otimes f(m) \\ };
+  { m\otimes_A n & n\otimes_A m \\ f(m)\otimes g(n) & g(n) \otimes f(m) \\ };
   \path[|->,font=\scriptsize] (m-1-1) edge (m-1-2);
   \path[|->,font=\scriptsize] (m-1-1) edge (m-2-1);
   \path[|->,font=\scriptsize] (m-2-1) edge (m-2-2);
@@ -3313,12 +3313,12 @@ mit geeigneten $m_{i}\in M$, die fast alle Null sind.
 
 \abc $x=0$
 
-\abc Es existieren Elemente $m_{j}'\in M$ für $j\in I$, die fast
-alle Null sind, und $a_{ij}\in A$ für $i,j\in I$, die fast alle
-Null sind, mit:
+\abc Es existieren Elemente $m_{j}'\in M$ für $j\in J$, die fast
+alle Null sind, und $a_{ij}\in A$ für $i\in I$ und $j\in J$, die
+fast alle Null sind, mit:
 \begin{enumerate}
-\item ${\displaystyle m_{i}=\sum_{j\in I}a_{ij}m_{j}'}$ für alle $i\in I$.
-\item ${\displaystyle 0=\sum_{i\in I}a_{ij}n_{i}}$ für alle $j\in I$.
+\item ${\displaystyle m_{i}=\sum_{j\in J}a_{ij}m_{j}'}$ für alle $i\in I$.
+\item ${\displaystyle 0=\sum_{i\in I}a_{ij}n_{i}}$ für alle $j\in J$.
 \end{enumerate}
 \end{abclist}
 
@@ -3356,8 +3356,8 @@ Rechne für ${\displaystyle \left(m_{i}\right)_{i\in I}\in\bigoplus_{i\in I}M}$:
 
 \iii \quotedblbase{}b) $\Rightarrow$ a)\textquotedblleft{}:
 \begin{align*}
-x & =\sum_{i\in I}m_{i}\otimes n_{i}\stackrel{\text{1.}}{=}\sum_{i\in I}\left(\sum_{j\in I}a_{ij}m_{j}'\right)\otimes n_{i}=\sum_{i,j\in I}\left(a_{ij}m_{j}'\right)\otimes n_{i}=\\
- & =\sum_{i,j\in I}m_{j}'\otimes\left(a_{ij}n_{i}\right)=\sum_{j\in I}m_{j}'\otimes\underbrace{\left(\sum_{i\in I}a_{ij}n_{i}\right)}_{=0}\stackrel{\text{2.}}{=}0
+x & =\sum_{i\in I}m_{i}\otimes n_{i}\stackrel{\text{1.}}{=}\sum_{i\in I}\left(\sum_{j\in J}a_{ij}m_{j}'\right)\otimes n_{i}=\sum_{i\in I,j\in J}\left(a_{ij}m_{j}'\right)\otimes n_{i}=\\
+ & =\sum_{i\in I,j\in J}m_{j}'\otimes\left(a_{ij}n_{i}\right)=\sum_{j\in J}m_{j}'\otimes\underbrace{\left(\sum_{i\in I}a_{ij}n_{i}\right)}_{=0}\stackrel{\text{2.}}{=}0
 \end{align*}
 \quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{}: Betrachte
 den Spezialfall, dass ${\displaystyle N=\bigoplus_{i\in I}An_{i}}$
@@ -3417,7 +3417,7 @@ nun:
 Also ist $y\in\text{ker}\left(\text{id}\otimes\pi\right)=\text{im}\left(\text{id}\otimes g\right)$,
 das heißt
 \begin{align*}
-y & =\left(\text{id}\otimes g\right)\left(\sum_{j\in I}m_{j}'\otimes f_{j}\right)=\sum_{j\in I}m_{j}'\otimes g\left(f_{j}\right)
+y & =\left(\text{id}\otimes g\right)\left(\sum_{j\in J}m_{j}'\otimes f_{j}\right)=\sum_{j\in J}m_{j}'\otimes g\left(f_{j}\right)
 \end{align*}
 mit geeigneten $f_{j}\in F$ und $m_{j}'\in M$. Schreibe nun in $G$
 \begin{align*}
@@ -3425,16 +3425,16 @@ g\left(f_{j}\right) & =\sum_{i\in I}a_{ij}g_{i}
 \end{align*}
 mit geeigneten $a_{ij}\in A$ und erhalte:
 \begin{align*}
-0 & =y-y=\sum_{i\in I}m_{i}\otimes g_{i}-\sum_{j\in I}m_{j}'\otimes\left(\sum_{i\in I}a_{ij}g_{i}\right)=\\
- & =\sum_{i\in I}\left(m_{i}-\sum_{j\in I}a_{ij}m_{j}'\right)\otimes g_{i}\in M\otimes_{A}G
+0 & =y-y=\sum_{i\in I}m_{i}\otimes g_{i}-\sum_{j\in J}m_{j}'\otimes\left(\sum_{i\in I}a_{ij}g_{i}\right)=\\
+ & =\sum_{i\in I}\left(m_{i}-\sum_{j\in J}a_{ij}m_{j}'\right)\otimes g_{i}\in M\otimes_{A}G
 \end{align*}
 Da $G$ frei ist, folgt aus dem Spezialfall:
 
 \quad1. Für alle $i\in I$ gilt:
 \begin{align*}
-m_{i} & =\sum_{j\in I}a_{ij}m_{j}'
+m_{i} & =\sum_{j\in J}a_{ij}m_{j}'
 \end{align*}
-\quad2. Für alle $j\in I$ gilt:
+\quad2. Für alle $j\in J$ gilt:
 \begin{align*}
 0 & \stackrel{\left(\pi\circ g=0\right)}{=}\pi\left(g\left(f_{j}\right)\right)=\pi\left(\sum_{i\in I}a_{ij}g_{i}\right)=\sum_{i\in I}a_{ij}\cdot\pi\left(g_{i}\right)=\sum_{i\in I}a_{ij}\cdot n_{i}
 \end{align*}
@@ -3481,9 +3481,10 @@ Seien $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
 0 & =\sum_{i\in I}\alpha_{i}m_{i}\in M
 \end{align*}
 mit $\alpha_{i}\in A$ und $m_{i}\in M$ existieren $m_{j}'\in M$
-und $a_{ij}\in A$, sodass für alle $i\in I$ schon
+für $j\in J$ und $a_{ij}\in A$ für $i\in I$ und $j\in J$, sodass
+für alle $i\in I$ schon
 \begin{align*}
-m_{i} & =\sum_{j\in I}a_{ij}m_{j}'
+m_{i} & =\sum_{j\in J}a_{ij}m_{j}'
 \end{align*}
 gilt und für alle $j\in J$:
 \begin{align*}
@@ -3624,7 +3625,7 @@ sind.
 \end{iiilist}
 
 
-\section{Konstruktion}
+\section{Konstruktion \textmd{(Multiplikation im Tensorprodukt)}\label{sec:Konstr-Algebrenmultiplikation}}
 
 Seien $A$ ein Ring und $\left(B,\beta\right)$ und $\left(C,\gamma\right)$
 zwei $A$-Algebren, so setze $D:=B\otimes_{A}C$. Die Abbildung
@@ -3646,6 +3647,843 @@ ist $A$-bilinear, sodass für alle $b,b'\in B$ und $c,c'\in C$ gilt:
 \mu\left(b\otimes c,b'\otimes c'\right) & =\left(bb'\right)\otimes\left(cc'\right)
 \end{align*}
 
+
+%DATE: Di 22.5.12
+
+
+\section{Satz\label{sec:Satz-BtensorC}}
+
+In der Situation von \ref{sec:Konstr-Algebrenmultiplikation} gelten:
+
+\begin{iiilist}
+
+\iii Das Tupel $\left(D,+,\mu,0\otimes0,1\otimes1\right)$ ist ein
+Ring.
+
+\iii Die Abbildungen
+\begin{align*}
+\iota_{B}:B & \to D\\
+b & \mapsto b\otimes1
+\end{align*}
+und
+\begin{align*}
+\iota_{C}:C & \to D\\
+c & \mapsto1\otimes c
+\end{align*}
+sind Ringhomomorphismen und es gilt:
+\begin{align*}
+\iota_{B}\circ\beta & =\iota_{C}\circ\gamma
+\end{align*}
+
+
+\iii Sind $\left(T,\tau\right)$ eine $A$-Algebra und $f:B\to T$
+und $g:C\to T$ zwei $A$-Algebrenhomomorphismen, so existiert genau
+ein $A$-Algebrenhomomorphismus
+\begin{align*}
+f\otimes g:D=B\otimes_{A}C & \to T
+\end{align*}
+mit:
+\begin{align*}
+\left(f\otimes g\right)\circ\iota_{B} & =f & \left(f\otimes g\right)\circ\iota_{C} & =g
+\end{align*}
+
+
+
+\subsubsection*{Skizze}
+
+\vspace{-11mm}
+
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2.5em, column sep=3.5em, text height=1.5ex, text depth=0.25ex]
+    {  & B & & \\
+     A &   & \color{orange}{D=B\otimes_A C} & \color{blue}{T} \\
+       & C & & \\};
+  \path[->,font=\scriptsize] (m-2-1) edge node[above] {$ \beta $} (m-1-2)
+                                     edge node[below] {$ \gamma $} (m-3-2);
+  \path[<-,font=\scriptsize,orange] (m-2-3) edge node[above] {$ \iota_B $} (m-1-2)
+                                     edge node[below] {$ \iota_C $} (m-3-2);
+  \draw[<-,font=\scriptsize,blue] (m-2-4) .. controls +(-0.0,0.85) and +(0.75,4).. node[above] {$ \tau $} (m-2-1);
+  \draw[<-,font=\scriptsize,blue] (m-2-4) ..controls +(-0.5,0.5) and +(0.5,0.7).. node[above] {$ f $} (m-1-2);
+  \draw[<-,font=\scriptsize,blue] (m-2-4) .. controls +(-0.5,-0.3) and +(0.5,-0.5).. node[below] {$ g $} (m-3-2);
+  \draw[->,font=\scriptsize,green,dashed] (m-2-3) edge node[above] {$ \exsg f\otimes g $} (m-2-4);
+\end{tikzpicture}
+\par\end{center}
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii $D$ ist ein $A$-Modul und somit insbesondere $\left(D,+\right)$
+eine abelsche Gruppe. Dass $0\otimes0$ das neutrale Element der Addition
+ist, ist klar.
+
+Da für alle $b,b',b''\in B$ und $c,c',c''\in C$ nun
+\begin{align*}
+\mu\left(\mu\left(b\otimes c,b'\otimes c'\right),b''\otimes c''\right) & =\mu\left(\left(bb'\right)\otimes\left(cc'\right),b''\otimes c''\right)=\left(bb'b''\right)\otimes\left(cc'c''\right)=\\
+ & =\mu\left(b\otimes c,\left(b'b''\right)\otimes\left(c'c''\right)\right)=\mu\left(b\otimes c,\mu\left(b'\otimes c',b''\otimes c''\right)\right)
+\end{align*}
+gilt, ist $\mu$ assoziativ, und wegen
+\begin{align*}
+\mu\left(b\otimes c,b'\otimes c'\right) & =\left(bb'\right)\otimes\left(cc'\right)=\left(b'b\right)\otimes\left(c'c\right)=\mu\left(b'\otimes c',b\otimes c\right)
+\end{align*}
+ist $\mu$ kommutativ. Weiter gilt:
+\begin{align*}
+\mu\left(b\otimes c,1\otimes1\right) & =\left(b\cdot1\right)\otimes\left(c\cdot1\right)=b\otimes c
+\end{align*}
+Also ist $1\otimes1$ das neutrale Element der Multiplikation. Die
+Distributivgesetze folgen direkt aus der $A$-Bilinearität von $\mu$.\qqed[\roman{ale2})]
+
+\iii Dass $\iota_{B}$ und $\iota_{C}$ Ringhomomorphismen sind,
+ist klar.
+
+Für $a\in A$ rechne in $D=B\otimes_{A}C$:
+\begin{align*}
+\left(\iota_{B}\circ\beta\right)\left(a\right) & =\iota_{B}\left(\beta\left(a\right)\right)=\beta\left(a\right)\otimes1\sr ={A\text{-Modulstruktur}}{\text{auf }B}\left(a\cdot1\right)\otimes1=\\
+ & \sr ={\text{Bilinearität}}{\text{des Tensorprodukts}}1\otimes\left(a\cdot1\right)=\sr ={A\text{-Modulstruktur}}{\text{auf }C}1\otimes\gamma\left(a\right)
+\end{align*}
+\qqed[\roman{ale2})]
+
+\iii Eindeutigkeit:
+
+Sei $x\in D$ beliebig, so gibt es ein geeignetes $n\in\mathbb{N}$
+und geeignete $b_{i}\in B$ und $c_{i}\in C$ mit:
+\begin{align*}
+x & =\sum_{i=1}^{n}b_{i}\otimes c_{i}
+\end{align*}
+Es folgt:
+\begin{align*}
+\left(f\otimes g\right)\left(x\right) & =\sum_{i=1}^{n}\left(f\otimes g\right)\bigg(\underbrace{\left(b_{i}\otimes1\right)}_{=\iota_{B}\left(b_{i}\right)}\cdot\underbrace{\left(1\otimes c_{i}\right)}_{\iota_{C}\left(c_{i}\right)}\bigg)=\\
+ & =\sum_{i=1}^{n}\underbrace{\left(f\otimes g\right)\left(\iota_{B}\left(b_{i}\right)\right)}_{\stackrel{\text{Vor.}}{=}f\left(b_{i}\right)}\cdot\underbrace{\left(f\otimes g\right)\left(\iota_{C}\left(c_{i}\right)\right)}_{\stackrel{\text{Vor.}}{=}g\left(c_{i}\right)}=\sum_{i=1}^{n}f\left(b_{i}\right)\cdot g\left(c_{i}\right)
+\end{align*}
+Existenz:
+
+Die Abbildung
+\begin{align*}
+\Phi:B\times C & \to T\\
+\left(b,c\right) & \mapsto f\left(b\right)\cdot g\left(c\right)
+\end{align*}
+ist $A$-bilinear, denn zum Beispiel gilt für alle $a\in A$, $b\in B$
+und $c\in C$ in $T$:
+\begin{align*}
+\Phi\left(ab,c\right) & =f\left(ab\right)\cdot g\left(c\right)=f\left(\beta\left(a\right)b\right)\cdot g\left(c\right)=\\
+ & =\underbrace{f\left(\beta\left(a\right)\right)}_{\stackrel{\text{Vor.}}{=}\tau\left(a\right)}\cdot\underbrace{f\left(b\right)\cdot g\left(c\right)}_{=\Phi\left(b,c\right)}\sr ={A\text{-Modulstruktur}}{\text{auf }T}a\cdot\Phi\left(b,c\right)
+\end{align*}
+Also existiert eine $A$-lineare Abbildung
+\begin{align*}
+f\otimes g:D & \to T
+\end{align*}
+mit
+\begin{align*}
+\left(f\otimes g\right)\left(b\otimes c\right) & =f\left(b\right)\cdot g\left(c\right)
+\end{align*}
+für alle $b\in B$ und $c\in C$.
+
+Man sieht leicht, dass $f\otimes g$ ein Ringhomomorphismus ist und
+rechnet dann zum Beispiel für $b\in B$ in $T$:
+\begin{align*}
+\left(\left(f\otimes g\right)\circ\iota_{B}\right)\left(b\right) & =\left(f\otimes g\right)\left(b\otimes1\right)=f\left(b\right)\cdot\underbrace{g\left(1\right)}_{=1}=f\left(b\right)
+\end{align*}
+Ebenso gilt für $c\in C$ in $T$:
+\begin{align*}
+\left(\left(f\otimes g\right)\circ\iota_{C}\right)\left(c\right) & =\left(f\otimes g\right)\left(1\otimes c\right)=\underbrace{f\left(1\right)}_{=1}\cdot g\left(c\right)=g\left(c\right)
+\end{align*}
+Insbesondere ist damit
+\begin{align*}
+f\otimes g:\left(D,\iota_{B}\circ\beta=\iota_{C}\circ\gamma\right) & \to\left(T,\tau\right)
+\end{align*}
+ein $A$-Algebrenhomomorphismus.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Beispiel und Definition \textmd{(Basiswechsel)}}
+
+\begin{iiilist}
+
+\iii Ist $A$ ein Ring, so besteht eine Isomorphie von $A$-Algebren:
+\begin{align*}
+A\left[X,Y\right] & \stackrel{\sim}{=}A\left[X\right]\otimes_{A}A\left[Y\right]\\
+A\text{-Modul-Basen: }\left\{ X^{i}Y^{j}\right\}  & \qquad\left\{ X^{i}\right\} \cdot\left\{ Y^{j}\right\} 
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+Die Inklusionen
+\begin{align*}
+A\left[X\right],A\left[Y\right] & \hookrightarrow A\left[X,Y\right]=A\left[X\right]\left[Y\right]=A\left[Y\right]\left[X\right]
+\end{align*}
+sind $A$-Algebrenhomomorphismen.
+
+Nach \ref{sec:Satz-BtensorC} gibt es also genau einen $A$-Algebrenhomomorphismus
+\begin{align*}
+F:A\left[X\right]\otimes_{A}A\left[Y\right] & \to A\left[X,Y\right]
+\end{align*}
+mit
+\begin{align*}
+F\left(f\left(X\right)\otimes g\left(Y\right)\right) & =f\left(X\right)\cdot g\left(Y\right)
+\end{align*}
+für alle $f\in A\left[X\right]$ und $g\in A\left[Y\right]$.
+
+Wegen der universellen Eigenschaft der $A$-Algebra $A\left[X,Y\right]$
+existiert genau ein $A$"=Algebrenhomomorphismus
+\begin{align*}
+G:A\left[X,Y\right] & \to A\left[X\right]\otimes_{A}A\left[Y\right]
+\end{align*}
+mit folgenden Bildern der Variablen:
+\begin{align*}
+G\left(X\right) & =X\otimes1 & G\left(Y\right) & =1\otimes Y
+\end{align*}
+Man sieht leicht $F=G^{-1}$. Zum Beispiel gilt:
+\begin{align*}
+F\circ G & \stackrel{\left(!\right)}{=}\text{id}_{A\left[X,Y\right]}
+\end{align*}
+Dazu ist zu prüfen, dass
+\begin{align*}
+\left(F\circ G\right)\left(X\right) & =X
+\end{align*}
+und
+\begin{align*}
+\left(F\circ G\right)\left(Y\right) & =Y
+\end{align*}
+gelten:
+\begin{align*}
+\left(F\circ G\right)\left(X\right) & =F\left(X\otimes1\right)=X\cdot1=X\\
+\left(F\circ G\right)\left(Y\right) & =F\left(1\otimes Y\right)=1\cdot Y=Y
+\end{align*}
+\qqed[\roman{ale2})]
+
+\iii Für jeden Ring $A$ besteht eine in $A$ natürliche Isomorphie
+von $A$-Algebren
+\begin{align*}
+\varphi:A\left[X\right] & \stackrel{\sim}{\to}A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]
+\end{align*}
+mit
+\begin{align*}
+\varphi\left(a\right) & =a\otimes1
+\end{align*}
+für alle $a\in A$.
+
+
+\subsubsection*{Beweis}
+
+\textcolor{green}{TODO: Beweis als Übung einfügen.}\qqed[\roman{ale2})]
+
+\iii Sind $f:A\to B$ ein Ringhomomorphismus und $C$ eine endliche
+(beziehungsweise endlich erzeugte) $A$-Algebra, so ist die $B$-Algebra
+$B\otimes_{A}C$ endlich (beziehungsweise endlich erzeugt).
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { A & C \\
+     B & B \otimes_A C\\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ f $} (m-2-1)
+                                     edge (m-1-2)
+                             (m-2-1) edge (m-2-2)
+                             (m-1-2) edge (m-2-2); 
+\end{tikzpicture}
+\par\end{center}
+
+$B\otimes_{A}C$ nennt man \emph{den Basiswechsel der $A$-Algebra
+$C$ entlang $f$}.
+
+
+\subsubsection*{Beweis}
+
+\textcolor{green}{TODO: Beweis als Übung einfügen.}\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Beispiel \textmd{(Die Fasern von \texorpdfstring{$\text{Spec}\left(\mathbb{Z}\left[\ii\right]\right)\to\text{Spec}\left(\mathbb{Z}\right)$}{Spec(Z[i])->Spec(Z)})}}
+
+Vergleiche mit \ref{sec:DuB-Bild-Urbild-Ideal} v).
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=0.5em, text height=1.5ex, text depth=0.25ex]
+   { \text{Spec}(\mathbb{Z}[\ii])\setminus\{0\} : & (1+\ii) & (3) & (1+2\ii,1-2\ii) & (7) & (11) & (3+2\ii),(3-2\ii) \\
+     \text{Spec}(\mathbb{Z})\setminus\{0\} :      & (2) & (3) & (5) & (7) & (11) & (13)\\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ \pi $} node[right]{$\mathfrak{p}\mapsto (\mathfrak{p}\cap \mathbb{Z})$} (m-2-1);
+  \path[->] (m-1-2) edge (m-2-2)
+            (m-1-3) edge (m-2-3)
+            (m-1-4) edge (m-2-4)
+            (m-1-5) edge (m-2-5)
+            (m-1-6) edge (m-2-6)
+            (m-1-7) edge (m-2-7); 
+\end{tikzpicture}
+\par\end{center}
+
+Es gilt
+\begin{align*}
+\left(\mathbb{Z}\hookrightarrow\mathbb{Z}\left[\ii\right]\right)^{*}\left(\mathfrak{p}\right) & =\mathfrak{p}\cap\mathbb{Z}
+\end{align*}
+
+
+und:
+\begin{align*}
+\abs{\pi^{-1}\left(\left(p\right)\right)} & =\begin{cases}
+1 & \text{falls }p=2\text{ oder }p\equiv3\mod4\\
+2 & \text{falls }p\equiv1\mod4
+\end{cases}
+\end{align*}
+Genauer ist die Menge $\pi^{-1}\left(\left(p\right)\right)$ sogar
+das Spektrum eines Ringes, nämlich
+\begin{align*}
+\pi^{-1}\left(\left(p\right)\right) & =\text{Spec}\left(\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p}\right)
+\end{align*}
+und für die $\mathbb{F}_{p}$-Algebra
+\begin{align*}
+\mathbb{F}_{p} & \to\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p}
+\end{align*}
+kommutiert das Diagramm
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { \mathbb{Z} & \mathbb{Z}[\ii] \\
+     \modulo{\mathbb{Z}}{(p)}=\mathbb{F}_p & \mathbb{Z}[\ii] \otimes_\mathbb{Z} \mathbb{F}_p\\ };
+  \path[->,font=\scriptsize] (m-1-1) edge (m-2-1)
+                                     edge (m-1-2)
+                             (m-2-1) edge (m-2-2)
+                             (m-1-2) edge (m-2-2); 
+\end{tikzpicture}
+\par\end{center}
+
+und es gilt:
+\begin{align*}
+\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p} & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+1\right)}\otimes_{\mathbb{Z}}\modlo{\mathbb{Z}}p\sr ={\sim}{(\text{Blatt 5 Aufgabe 1 i)})}\modulo{\mathbb{Z}\left[X\right]}{\left(p,X^{2}+1\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\modulo{\mathbb{F}_{p}\left[X\right]}{\left(X^{2}+1\right)}\sr ={\sim}{\left(*\right)}\begin{cases}
+\modulo{\mathbb{F}_{2}\left[X\right]}{\left(\left(X+1\right)^{2}\right)} & ;\ p=2\\
+\mathbb{F}_{p}\times\mathbb{F}_{p} & ;\ p\equiv1\mod4\\
+\mathbb{F}_{p^{2}} & ;\ p=3\mod4
+\end{cases}
+\end{align*}
+Denn die Zerlegung in irreduzible Faktoren ist gegeben durch
+\begin{align*}
+\mathbb{F}_{p}\left[X\right] & \ni X^{2}+1=\begin{cases}
+\left(X+1\right)^{2} & ;\ p=2\\
+\left(X-\alpha\right)\left(X+\alpha\right)=X^{2}-\alpha^{2} & ;\ p\equiv1\mod4,\ \left(\alpha\in\mathbb{F}_{p}^{*}\text{ geeignet}\right)\\
+X^{2}+1 & ;\ p\equiv3\mod4
+\end{cases}
+\end{align*}
+Dann folgt $\left(*\right)$ im Fall $p\equiv1\mod4$ aus dem Chinesischen
+Restsatz \ref{sec:Satz-Chinesischer-Restsatz}.
+
+
+\chapter{Lokalisierung}
+
+
+\section{Satz und Definition \textmd{(multiplikativ abgeschlossen, Quotientenring)\label{sec:SuD-Quotientenring}}}
+
+\begin{iiilist}
+
+\iii Seien $f:A\to B$ ein Ringhomomorphismus und $S:=f^{-1}\left(B^{*}\right)$.
+Dann gelten:
+
+\begin{abclist}
+
+\abc $1\in S$
+
+\abc Für alle $s,t\in S$ gilt $st\in S$.
+
+\end{abclist}
+
+Eine Teilmenge $S\subseteq A$ mit den Eigenschaften a) und b) heißt
+\emph{multiplikativ abgeschlossen}.
+
+\iii Seien $A$ ein Ring und $S\subseteq A$ multiplikativ abgeschlossen.
+Dann existiert eine bis auf eindeutige Isomorphie eindeutige $A$-Algebra
+\begin{align*}
+f:A & \to S^{-1}A
+\end{align*}
+so, dass für alle $A$-Algebren $g:A\to B$ äquivalent sind:
+
+\begin{abclist}
+
+\abc $g\left(S\right)\subseteq B^{*}$
+
+\abc Es existiert genau ein $A$-Algebrenhomomorphismus $\varphi:S^{-1}A\to B$.
+
+\end{abclist}
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { S\subseteq A & B \\
+      S^{-1}A & \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[left]{$f$} (m-2-1)
+                                     edge node[above]{$g$} (m-1-2);
+  \path[->,font=\scriptsize,dashed] (m-2-1) edge node[below right]{$\exsg_\varphi \quad\Leftrightarrow\quad g(S)\subseteq B^*$} (m-1-2);
+\end{tikzpicture}
+\par\end{center}
+
+Dabei gilt:
+\begin{align*}
+f\left(S\right) & \subseteq\left(S^{-1}A\right)^{*}
+\end{align*}
+
+
+Die $A$-Algebra $\left(A\stackrel{f}{\to}\right)S^{-1}A$ heißt \emph{der
+Quotientenring von $A$ bezüglich $S$}.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii
+
+\begin{abclist}
+
+\abc Wegen $f\left(1\right)=1\in B^{*}$ ist $1\in S$.
+
+\abc Seien $s,t\in S$, also $f\left(s\right),f\left(t\right)\in B^{*}$,
+dann folgt nach \ref{sec:DuB-Einheit}:
+\begin{align*}
+B^{*}\ni & f\left(s\right)\cdot f\left(t\right)=f\left(st\right)
+\end{align*}
+Also ist $st\in S$.
+
+\end{abclist}
+
+\iii Konstruktion:
+
+Definiere auf der Menge $A\times S$ die Relation:
+\begin{align}
+\left(a,s\right)\sim\left(b,t\right) & \quad:\Leftrightarrow\quad\exs_{u\in S}:u\left(at-bs\right)=0\in A\label{eq:Bruchrelation}
+\end{align}
+Man prüft, dass $\sim$ eine Äquivalenzrelation ist und schreibt:
+\begin{align*}
+\frac{a}{s} & :=\left[\left(a,s\right)\right]\in\modulo{A\times S}{\sim}=:S^{-1}A
+\end{align*}
+Man setzt in $S^{-1}A$
+\begin{align*}
+0 & :=\frac{0}{1} & 1 & :=\frac{1}{1}
+\end{align*}
+und für alle ${\displaystyle \frac{a}{s},\frac{b}{t}\in S^{-1}A}$:
+\begin{align*}
+\frac{a}{s}+\frac{b}{t} & :=\frac{at+bs}{st}\\
+\frac{a}{s}\cdot\frac{b}{t} & :=\frac{ab}{st}
+\end{align*}
+Man prüft, dass $+$ und $\cdot$ wohldefiniert sind, $\left(S^{-1}A,+,\cdot,0,1\right)$
+ein kommutativer Ring ist und
+\begin{align*}
+f:A & \to S^{-1}A\\
+a & \mapsto\frac{a}{1}
+\end{align*}
+ein Ringhomomorphismus ist.
+
+%DATE: Fr 25.5.12
+
+\quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{}: Zeige, dass
+genau ein Ringhomomorphismus $\varphi:S^{-1}A\to B$ existiert, sodass
+das Diagramm
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { A & S^{-1}A \\
+     B & \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above] {$ f $} (m-1-2) edge node[left] {$ g $} (m-2-1)
+                             (m-1-2) edge node[below right] {$ \varphi $} (m-2-1); 
+\end{tikzpicture}
+\par\end{center}
+
+kommutiert.
+
+Eindeutigkeit:
+
+Für alle $a\in A$ und $s\in S$ rechne:
+\begin{align*}
+\varphi\left(\frac{a}{s}\right) & =\varphi\left(\frac{a}{1}\cdot\left(\frac{s}{1}\right)^{-1}\right)=\varphi\left(f\left(a\right)\cdot f\left(s\right)^{-1}\right)=\varphi\left(f\left(a\right)\right)\cdot\varphi\left(f\left(s\right)\right)^{-1}=g\left(a\right)\cdot g\left(s\right)^{-1}
+\end{align*}
+Existenz:
+
+Für ein beliebiges ${\displaystyle \frac{a}{s}}\in S^{-1}A$ setze:
+\begin{align*}
+\varphi\left(\frac{a}{s}\right) & :=g\left(a\right)\cdot g\left(s\right)^{-1}
+\end{align*}
+Beachte, dass nach Voraussetzung $g\left(S\right)\subseteq B^{*}$
+ist.
+
+Man prüft, dass $\varphi$ wohldefiniert und ein Ringhomomorphismus
+ist. Dann folgt für alle $a\in A$:
+\begin{align*}
+\varphi\left(f\left(a\right)\right) & =\varphi\left(\frac{a}{1}\right)=g\left(a\right)\cdot\underbrace{g\left(1\right)^{-1}}_{=1}=g\left(a\right)
+\end{align*}
+\qqed[a) $\Rightarrow$ b)]
+
+\quotedblbase{}b) $\Rightarrow$ a)\textquotedblleft{}: Für alle $s\in S$
+gilt in $S^{-1}A$:
+\begin{align*}
+f\left(s\right)\cdot\frac{1}{s} & =\frac{s}{1}\cdot\frac{1}{s}=\frac{1}{1}=1
+\end{align*}
+Also gilt $f\left(S\right)\subseteq\left(S^{-1}A\right)^{*}$ und
+es folgt:
+\begin{align*}
+g\left(S\right) & \stackrel{\text{b)}}{=}\varphi\left(f\left(S\right)\right)\subseteq\varphi\left(\left(S^{-1}A\right)^{*}\right)\subseteq B^{*}
+\end{align*}
+\qqed[b) $\Rightarrow$ a)]
+
+Sei nun $\tilde{f}:A\to\tilde{A}$ eine weitere $A$-Algebra neben
+$f:A\to S^{-1}A$, für die gilt:
+
+Für alle $A$-Algebren $g:A\to B$ sind äquivalent:
+\begin{description}
+\item [{\textmd{a')}}] $g\left(S\right)\subseteq B^{*}$
+\item [{\textmd{b')}}] Es existiert genau ein $A$-Algebrenhomomorphismus
+$\varphi:\tilde{A}\to B$.
+\item [{Behauptung}] Es existiert genau ein $A$-Algebrenisomorphismus
+$\alpha:S^{-1}A\stackrel{\sim}{\to}\tilde{A}$.
+\item [{Beweis}] Da $\text{id}_{\tilde{A}}$ ein $A$-Algebrenhomomorphismus
+ist, folgt aus \quotedblbase{}b') $\Rightarrow$ a')\textquotedblleft{}
+für $B=\tilde{A}$, dass $\tilde{f}\left(S\right)\subseteq\left(\tilde{A}\right)^{*}$
+gilt. Damit folgt aus \quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{},
+dass genau ein $A$"=Algebrenhomomorphismus $\alpha:S^{-1}A\to\tilde{A}$
+existiert.\qqed[Behauptung]
+\end{description}
+Analog existiert genau ein $A$-Algebrenhomomorphismus $\beta:\tilde{A}\to S^{-1}A$.
+
+Die Komposition $\beta\circ\alpha:S^{-1}A\to S^{-1}A$ ist ein $A$-Algebrenhomomorphismus.
+
+Wegen \quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{} für $B:=S^{-1}A$
+existiert aber genau ein $A$-Algebrenhomomorphismus $S^{-1}A\to S^{-1}A$.
+Da $\text{id}_{S^{-1}A}$ ein solcher ist, folgt $\beta\circ\alpha=\text{id}_{S^{-1}A}$.
+Analog folgt $\alpha\circ\beta=\text{id}_{\tilde{A}}$.
+
+\end{iiilist}
+
+\qqed
+
+
+\section{Bemerkung\label{sec:Bem-Quotientenring-Darstellung}}
+
+Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
+für alle $s\in S$ sei $X_{s}$ eine Variable.
+
+Dann existiert genau ein $A$-Algebrenhomomorphismus
+\begin{align*}
+\alpha:S^{-1}A & \to\tilde{A}:=\modulo{A\left[X_{s}\big|s\in S\right]}{\left(s\cdot X_{s}-1\big|s\in S\right)}
+\end{align*}
+und $\alpha$ ist ein Isomorphismus.
+
+
+\subsubsection*{Beweis}
+
+$\tilde{A}$ hat die universelle Eigenschaft hat von $S^{-1}A$. Daher
+folgt aus der Eindeutigkeit von $S^{-1}A$ schon die Behauptung.
+
+\textcolor{green}{TODO: Beweis als Übung ergänzen.}\qqed
+
+
+\section{Bemerkung, Beispiel und Definition \textmd{(Quotientenkörper)}}
+
+Seien $A$ ein Ring und $S\subseteq A$ multiplikativ abgeschlossen.
+
+\begin{iiilist}
+
+\iii Ist $A$ ein Integritätsring und gilt $0\not\in S$, so ist
+\eqref{eq:Bruchrelation} in \ref{sec:SuD-Quotientenring} äquivalent
+zu:
+\begin{align*}
+\left(a,s\right)\sim\left(b,t\right) & \quad\Leftrightarrow\quad at-bs=0\in A
+\end{align*}
+Dies ist die naheliegende Definition von \quotedblbase{}${\displaystyle \frac{a}{s}=\frac{b}{t}}$\textquotedblleft{}.
+Im Allgemeinen ist dies jedoch keine Äquivalenzrelation.
+
+\iii Ist $A$ ein Integritätsring, so ist $S:=A\setminus\left\{ 0\right\} \subseteq A$
+multiplikativ abgeschlossen, da $1\not=0$ ist und für $a,b\in S$
+schon $ab\not=0$, also $ab\in S$ folgt.
+\begin{align*}
+Q\left(A\right) & :=\text{Quot}\left(A\right):=\left(A\setminus\left\{ 0\right\} \right)^{-1}A=\left\{ \frac{a}{b}\bigg|a,b\in A,b\not=0\right\} 
+\end{align*}
+heißt \emph{der Quotientenkörper von $A$}. Es gilt zum Beispiel:
+\begin{align*}
+Q\left(\mathbb{Z}\right) & =\mathbb{Q}
+\end{align*}
+
+
+\iii Ist $p\in\mathbb{Z}$ eine Primzahl, so ist $\mathbb{Z}\setminus\left(p\right)\subseteq\mathbb{Z}$
+multiplikativ abgeschlossen, da $p\not=1$ und für $a,b\in\mathbb{Z}$
+aus $ab\in\left(p\right)$ schon $a\in\left(p\right)$ oder $b\in\left(p\right)$
+gilt.
+\begin{align*}
+\left(\mathbb{Z}\setminus\left(p\right)\right)^{-1}\mathbb{Z} & =\left\{ \frac{a}{b}\bigg|a,b\in\mathbb{Z},p\not|b\right\} =\mathbb{Z}_{\left(p\right)}\subseteq\mathbb{Q}
+\end{align*}
+
+
+\iii Es gilt $S^{-1}A=\left\{ 0\right\} $ genau dann, wenn $0\in S$
+ist.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+Siehe Algebra.\qqed
+
+
+\section{Beispiel und Definition \textmd{(Lokalisierung, Funktionenkörper)}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Ist $\mathfrak{p}\subseteq A$ ein Primideal, so ist $A\setminus\mathfrak{p}\subseteq A$
+multiplikativ abgeschlossen und
+\begin{align*}
+\left(A_{\mathfrak{p}}:=\left(A\setminus\mathfrak{p}\right)^{-1}A,\mathfrak{m}:=f_{*}\left(\mathfrak{p}\right)=\mathfrak{p}A_{\mathfrak{p}}\right)
+\end{align*}
+ist ein lokaler Ring, \emph{die Lokalisierung von $A$ bei $\mathfrak{p}$}.
+Hier ist:
+\begin{align*}
+f:A & \to A_{\mathfrak{p}}\\
+a & \mapsto\frac{a}{1}
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+$A\setminus\mathfrak{p}$ ist nach \ref{sec:PuD-Prim-maximales-Ideal}
+i) multiplikativ abgeschlossen.
+
+Nach \ref{sec:DuB-Bild-Urbild-Ideal} i) schreibt sich jedes $x\in f_{*}\left(g\right)$
+als
+\begin{align*}
+x & =\sum_{i=1}^{n}\frac{a_{i}}{s_{i}}b_{i}
+\end{align*}
+mit $n\in\mathbb{N}$ und geeigneten $b_{i}\in\mathfrak{p}$, $a_{i}\in A$
+und $s_{i}\in S$. Also:
+\begin{align*}
+x & =\frac{\sum_{i=1}^{n}a_{i}b_{i}\prod_{j=1,j\not=1}^{n}s_{j}}{\prod_{i=1}^{n}s_{i}}=:\frac{b}{s}
+\end{align*}
+mit $s\in S$ und $b\in\mathfrak{p}$, da $b_{i}\in\mathfrak{p}$
+und $\mathfrak{p}$ ein Ideal ist. Es folgt:
+\begin{align*}
+f_{*}\left(\mathfrak{p}\right) & =\mathfrak{p}A_{\mathfrak{p}}
+\end{align*}
+Wäre $1\in\mathfrak{m}=\mathfrak{p}A_{\mathfrak{p}}$, so folgte:
+\begin{align*}
+\frac{1}{1} & =\frac{b}{s}
+\end{align*}
+für geeignete $b\in\mathfrak{p}$ und $s\in S$. Also gibt es ein
+$t\in A\setminus\mathfrak{p}$ mit:
+\begin{align*}
+t\left(s-b\right) & =0\\
+ts & =tb\in\mathfrak{p}
+\end{align*}
+Dies ist ein Widerspruch, da $s,t\not\in\mathfrak{p}$ sind. Also
+gilt $1\not\in\mathfrak{m}$ und damit ist $\mathfrak{m}\subsetneq A_{\mathfrak{p}}$.
+
+Jedes $x\in A_{\mathfrak{p}}\setminus\mathfrak{p}A_{\mathfrak{p}}$
+schreibt sich mit geeigneten $a\in A$ und $s\in A\setminus\mathfrak{p}$
+als:
+\begin{align*}
+x & =\frac{a}{s}
+\end{align*}
+Wegen $x\not\in\mathfrak{p}A_{\mathfrak{p}}$ gilt $a\in A\setminus\mathfrak{p}$
+und es folgt ${\displaystyle A_{\mathfrak{p}}\ni\frac{s}{a}=x^{-1}}$.
+Also ist $x\in A_{\mathfrak{p}}^{*}$.
+
+Insgesamt ist $\mathfrak{m}\subsetneq A_{\mathfrak{p}}$ und $A_{\mathfrak{p}}\setminus\mathfrak{m}\subseteq A_{\mathfrak{p}}^{*}$,
+also ist nach \ref{sec:Prop-HinreichendLokalerRing} $\left(A_{\mathfrak{p}},\mathfrak{m}\right)$
+ein lokaler Ring.\qqed[\roman{ale2})]
+
+
+\subsubsection*{Bemerkung}
+
+Es gilt:
+\begin{align*}
+\modulo{A\mathfrak{p}}{\mathfrak{p}A_{\mathfrak{p}}} & \stackrel{\sim}{=}\text{Quot}\left(\modulo A{\mathfrak{p}}\right)\left(=\kappa\left(\mathfrak{p}\right)\right)
+\end{align*}
+
+
+\iii Für $a\in A$ ist $S:=\left\{ a^{n}\big|n\in\mathbb{N}\right\} \subseteq A$
+multiplikativ abgeschlossen (und die kleinste multiplikativ abgeschlossene
+Menge, die $a$ enthält).
+
+Man schreibt in diesem Fall:
+\begin{align*}
+S^{-1}A & =:A\left[a^{-1}\right]
+\end{align*}
+Es gilt:
+\begin{align*}
+A\left[a^{-1}\right] & \stackrel{\sim}{=}\modulo{A\left[X\right]}{\left(aX-1\right)}
+\end{align*}
+(vergleiche \ref{sec:Bem-Quotientenring-Darstellung})
+
+Zum Beispiel ist für ein $n\in\mathbb{N}_{\ge1}$:
+\begin{align*}
+\mathbb{Z}\left[\frac{1}{n}\right] & =\left\{ \frac{a}{n^{b}}\bigg|a\in\mathbb{Z},b\in\mathbb{N}\right\} \subseteq\mathbb{Q}
+\end{align*}
+\iii Für einen Körper $k$ gelten:
+\begin{align*}
+A & :=k\left[t\right]\subseteq A_{\left(t\right)}=\left\{ \frac{f\left(t\right)}{g\left(t\right)}\bigg|f,g\in k\left[t\right]\wedge g\not\in\left(t\right)\right\} =\\
+ & =\left\{ \frac{f\left(t\right)}{g\left(t\right)}\bigg|f,g\in k\left[t\right]\wedge g\left(0\right)\not=0\right\} \subseteq\\
+ & \subseteq Q\left(A\right)=\left\{ \frac{f\left(t\right)}{g\left(t\right)}\bigg|f,g\in k\left[t\right]\wedge g\not=0\right\} =:k\left(t\right)
+\end{align*}
+Der Körper $k\left(t\right)$ heißt \emph{der Funktionenkörper in
+einer Variablen $t$ über $k$}.
+
+
+\subsubsection*{Beispiel}
+
+Für $\mathfrak{p}:=\left(0\right)\in\text{Spec}\left(\mathbb{C}\left[t\right]\right)$
+ist:
+\begin{align*}
+\kappa\left(\mathfrak{p}\right) & =\mathbb{C}\left(t\right)
+\end{align*}
+
+
+\end{iiilist}
+
+
+\section{Konstruktion \textmd{(Modul-Lokalisierung)}\label{sec:Kon-Modul-Lokalisierung}}
+
+Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
+$M$ ein $A$-Modul.
+
+Auf $M\times S$ ist die Relation
+\begin{align*}
+\left(x,s\right)\sim\left(y,t\right) & \quad:\Leftrightarrow\quad\exs_{u\in S}:u\left(xt-ys\right)=0
+\end{align*}
+eine Äquivalenzrelation und
+\begin{align*}
+S^{-1}M & :=\modulo{S\times M}{\sim}
+\end{align*}
+wird ein $S^{-1}A$-Modul vermöge für alle $s,t\in S$, $x,y\in M$
+und $a\in A$:
+\begin{align*}
+\frac{x}{s}+\frac{y}{t} & :=\frac{tx+sy}{st}\\
+\frac{a}{s}\cdot\frac{x}{t} & :=\frac{ax}{st}
+\end{align*}
+Hier ist ${\displaystyle \frac{x}{s}:=\left[\left(x,s\right)\right]}$.
+
+Ist $f:M\to N$ eine $A$-lineare Abbildung, so ist
+\begin{align*}
+\left(S^{-1}f\right):S^{-1}M & \to S^{-1}N\\
+\frac{x}{s} & \mapsto\frac{f\left(x\right)}{s}
+\end{align*}
+wohldefiniert und $S^{-1}A$-linear.
+
+
+\section{Satz \textmd{(Lokalisierung ist exakt)\label{sec:Satz-Lokalisierung-exakt}}}
+
+Sei $A$ ein Ring und $S\subseteq A$ multiplikativ abgeschlossen.
+Ist dann
+\begin{align*}
+M' & \stackrel{f}{\to}M\stackrel{g}{\to}M''
+\end{align*}
+eine exakte Folge von $A$-Moduln, so ist auch die Folge
+\begin{align*}
+S^{-1}M' & \stackrel{S^{-1}f}{\to}S^{-1}M\stackrel{S^{-1}g}{\to}S^{-1}M''
+\end{align*}
+von $S^{-1}A$-Moduln exakt.
+
+
+\subsubsection*{Beweis}
+
+Zunächst gilt:
+\begin{align*}
+\left(S^{-1}g\right)\circ\left(S^{-1}f\right) & =S^{-1}\left(g\circ f\right)=S^{-1}\left(0\right)=0
+\end{align*}
+Also ist $\text{im}\left(S^{-1}f\right)\subseteq\ker\left(S^{-1}g\right)$.
+
+Sei $x\in\ker\left(S^{-1}g\right)\subseteq S^{-1}M$. Dann gilt für
+geeignete $m\in M$ und $s\in S$:
+\begin{align*}
+x & =\frac{m}{s}
+\end{align*}
+Es gilt:
+\begin{align*}
+0 & =\left(S^{-1}g\right)\left(x\right)\stackrel{\ref{sec:Kon-Modul-Lokalisierung}}{=}\frac{g\left(m\right)}{s}\in S^{-1}M''
+\end{align*}
+Aus \ref{sec:Kon-Modul-Lokalisierung} folgt insbesondere, dass ein
+$u\in S$ existiert mit:
+\begin{align*}
+ug\left(m\right) & =0\in M''
+\end{align*}
+Also ist:
+\begin{align*}
+0 & =g\left(um\right)
+\end{align*}
+Daher ist $um\in\ker\left(g\right)=\text{im}\left(f\right)$ und man
+kann für ein geeignetes $m'\in M'$ schreiben:
+\begin{align*}
+um & =f\left(m'\right)
+\end{align*}
+Das heißt:
+\begin{align*}
+x & =\frac{m}{s}\stackrel{u\in S}{=}\frac{um}{us}=\frac{f\left(m'\right)}{us}=\left(S^{-1}f\right)\left(\frac{m'}{us}\right)\in\text{im}\left(S^{-1}f\right)
+\end{align*}
+\qqed
+
+
+\section{Korollar}
+
+Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
+$N\subseteq M$ zwei $A$-Moduln. Dann gilt
+\begin{align*}
+\modulo{\left(S^{-1}M\right)}{\left(S^{-1}N\right)} & \stackrel{\sim}{=}S^{-1}\left(\modulo MN\right)
+\end{align*}
+als $S^{-1}A$-Moduln.
+
+(Allgemein vertauscht Quotientenbildung mit jeder exakten Operation.)
+
+
+\subsubsection*{Beweis}
+
+Nach Voraussetzung ist die Folge
+\begin{align*}
+0 & \to N\to M\to\modulo MN\to0
+\end{align*}
+exakt. Nach \ref{sec:Satz-Lokalisierung-exakt} also auch:
+\begin{align*}
+0 & \to S^{-1}N\to S^{-1}M\to S^{-1}\left(\modulo MN\right)\to0
+\end{align*}
+Insbesondere ist $S^{-1}N\subseteq S^{-1}M$ ein $S^{-1}A$-Untermodul.
+Betrachte:
+\begin{align*}
+0 & \to S^{-1}N\to S^{-1}M\to\modulo{\left(S^{-1}M\right)}{\left(S^{-1}N\right)}\to0
+\end{align*}
+
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=2.5ex, text depth=0.75ex]
+   { 0 & S^{-1}N & S^{-1}M & S^{-1}\left(\modulo{M}{N}\right) & 0 \\
+     0 & S^{-1}N & S^{-1}M & \modulo{(S^{-1}M)}{(S^{-1}N)} & 0 \\};
+  \path[->,font=\scriptsize] (m-1-1) edge (m-1-2)
+                             (m-1-2) edge (m-1-3)
+                             (m-1-3) edge (m-1-4)
+                             (m-1-4) edge (m-1-5);
+  \path[->,font=\scriptsize] (m-2-1) edge (m-2-2)
+                             (m-2-2) edge (m-2-3)
+                             (m-2-3) edge (m-2-4)
+                             (m-2-4) edge (m-2-5);
+  \path[->,font=\scriptsize] (m-1-1) edge (m-2-1)
+                             (m-1-2) edge node[left]{\text{id}} (m-2-2)
+                             (m-1-3) edge node[left]{\text{id}} (m-2-3)
+                             (m-1-5) edge (m-2-5);
+  \path[->,font=\scriptsize,dashed] (m-1-4) edge node[left]{$\varphi$} (m-2-4);
+  \path (m-1-3) -- node[circle,draw=black]{1} (m-2-4);
+\end{tikzpicture}
+\par\end{center}
+
+Man sieht leicht, dass genau eine $S^{-1}A$-lineare Abbildung $\varphi$
+existiert, sodass \tikz{\node at (0,0) [circle,draw=black]{1};} kommutiert,
+und dass $\varphi$ bijektiv ist.\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}

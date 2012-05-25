@@ -234,7 +234,7 @@ frac{km}{h}}$
 
 \begin_layout Standard
 \begin_inset Note Note
-status collapsed
+status open
 
 \begin_layout Plain Layout
 Vorlage: Kommutatives Diagramm
@@ -248,7 +248,7 @@ status open
 
 
 \backslash
-begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
+begin{tikzpicture}
 \end_layout
 
 \begin_layout Plain Layout
@@ -256,11 +256,21 @@ begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
   
 \backslash
 matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
-, text depth=0.25ex] { G & & G' 
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { G &   & G' 
 \backslash
 
 \backslash
-  & a & 
+
+\end_layout
+
+\begin_layout Plain Layout
+
+       & a & 
 \backslash
 
 \backslash
@@ -3046,6 +3056,13 @@ end{iiilist}
 Definition und Bemerkung 
 \series medium
 (Einheit, Einheitengruppe)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:DuB-Einheit"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7164,6 +7181,13 @@ qqed
 Satz 
 \series medium
 (Chinesischer Restsatz)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Chinesischer-Restsatz"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -7706,6 +7730,13 @@ end{abclist}
 Definition und Bemerkung 
 \series medium
 (Bild und Urbild eines Ideals)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:DuB-Bild-Urbild-Ideal"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -14816,7 +14847,7 @@ otimes_A m
 \backslash
  f(m)
 \backslash
-otimes f(n) & f(n) 
+otimes g(n) & g(n) 
 \backslash
 otimes f(m) 
 \backslash
@@ -18028,7 +18059,7 @@ abc
 \end_inset
 
  für 
-\begin_inset Formula $j\in I$
+\begin_inset Formula $j\in J$
 \end_inset
 
 , die fast alle Null sind, und 
@@ -18036,14 +18067,18 @@ abc
 \end_inset
 
  für 
-\begin_inset Formula $i,j\in I$
+\begin_inset Formula $i\in I$
+\end_inset
+
+ und 
+\begin_inset Formula $j\in J$
 \end_inset
 
 , die fast alle Null sind, mit:
 \end_layout
 
 \begin_layout Enumerate
-\begin_inset Formula ${\displaystyle m_{i}=\sum_{j\in I}a_{ij}m_{j}'}$
+\begin_inset Formula ${\displaystyle m_{i}=\sum_{j\in J}a_{ij}m_{j}'}$
 \end_inset
 
  für alle 
@@ -18058,7 +18093,7 @@ abc
 \end_inset
 
  für alle 
-\begin_inset Formula $j\in I$
+\begin_inset Formula $j\in J$
 \end_inset
 
 .
@@ -18311,8 +18346,8 @@ iii
  a)“:
 \begin_inset Formula 
 \begin{align*}
-x & =\sum_{i\in I}m_{i}\otimes n_{i}\stackrel{\text{1.}}{=}\sum_{i\in I}\left(\sum_{j\in I}a_{ij}m_{j}'\right)\otimes n_{i}=\sum_{i,j\in I}\left(a_{ij}m_{j}'\right)\otimes n_{i}=\\
- & =\sum_{i,j\in I}m_{j}'\otimes\left(a_{ij}n_{i}\right)=\sum_{j\in I}m_{j}'\otimes\underbrace{\left(\sum_{i\in I}a_{ij}n_{i}\right)}_{=0}\stackrel{\text{2.}}{=}0
+x & =\sum_{i\in I}m_{i}\otimes n_{i}\stackrel{\text{1.}}{=}\sum_{i\in I}\left(\sum_{j\in J}a_{ij}m_{j}'\right)\otimes n_{i}=\sum_{i\in I,j\in J}\left(a_{ij}m_{j}'\right)\otimes n_{i}=\\
+ & =\sum_{i\in I,j\in J}m_{j}'\otimes\left(a_{ij}n_{i}\right)=\sum_{j\in J}m_{j}'\otimes\underbrace{\left(\sum_{i\in I}a_{ij}n_{i}\right)}_{=0}\stackrel{\text{2.}}{=}0
 \end{align*}
 
 \end_inset
@@ -18643,7 +18678,7 @@ Also ist
 , das heißt
 \begin_inset Formula 
 \begin{align*}
-y & =\left(\text{id}\otimes g\right)\left(\sum_{j\in I}m_{j}'\otimes f_{j}\right)=\sum_{j\in I}m_{j}'\otimes g\left(f_{j}\right)
+y & =\left(\text{id}\otimes g\right)\left(\sum_{j\in J}m_{j}'\otimes f_{j}\right)=\sum_{j\in J}m_{j}'\otimes g\left(f_{j}\right)
 \end{align*}
 
 \end_inset
@@ -18676,8 +18711,8 @@ mit geeigneten
  und erhalte:
 \begin_inset Formula 
 \begin{align*}
-0 & =y-y=\sum_{i\in I}m_{i}\otimes g_{i}-\sum_{j\in I}m_{j}'\otimes\left(\sum_{i\in I}a_{ij}g_{i}\right)=\\
- & =\sum_{i\in I}\left(m_{i}-\sum_{j\in I}a_{ij}m_{j}'\right)\otimes g_{i}\in M\otimes_{A}G
+0 & =y-y=\sum_{i\in I}m_{i}\otimes g_{i}-\sum_{j\in J}m_{j}'\otimes\left(\sum_{i\in I}a_{ij}g_{i}\right)=\\
+ & =\sum_{i\in I}\left(m_{i}-\sum_{j\in J}a_{ij}m_{j}'\right)\otimes g_{i}\in M\otimes_{A}G
 \end{align*}
 
 \end_inset
@@ -18710,7 +18745,7 @@ quad
  gilt:
 \begin_inset Formula 
 \begin{align*}
-m_{i} & =\sum_{j\in I}a_{ij}m_{j}'
+m_{i} & =\sum_{j\in J}a_{ij}m_{j}'
 \end{align*}
 
 \end_inset
@@ -18730,7 +18765,7 @@ quad
 
 2.
  Für alle 
-\begin_inset Formula $j\in I$
+\begin_inset Formula $j\in J$
 \end_inset
 
  gilt:
@@ -19004,8 +19039,20 @@ mit
 \begin_inset Formula $m_{j}'\in M$
 \end_inset
 
+ für 
+\begin_inset Formula $j\in J$
+\end_inset
+
  und 
 \begin_inset Formula $a_{ij}\in A$
+\end_inset
+
+ für 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ und 
+\begin_inset Formula $j\in J$
 \end_inset
 
 , sodass für alle 
@@ -19015,7 +19062,7 @@ mit
  schon
 \begin_inset Formula 
 \begin{align*}
-m_{i} & =\sum_{j\in I}a_{ij}m_{j}'
+m_{i} & =\sum_{j\in J}a_{ij}m_{j}'
 \end{align*}
 
 \end_inset
@@ -19856,7 +19903,18 @@ end{iiilist}
 \end_layout
 
 \begin_layout Section
-Konstruktion
+Konstruktion 
+\series medium
+(Multiplikation im Tensorprodukt)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Konstr-Algebrenmultiplikation"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -19935,6 +19993,4054 @@ ist
 \begin{align*}
 \mu\left(b\otimes c,b'\otimes c'\right) & =\left(bb'\right)\otimes\left(cc'\right)
 \end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 22.5.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-BtensorC"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In der Situation von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Konstr-Algebrenmultiplikation"
+
+\end_inset
+
+ gelten:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Das Tupel 
+\begin_inset Formula $\left(D,+,\mu,0\otimes0,1\otimes1\right)$
+\end_inset
+
+ ist ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Abbildungen
+\begin_inset Formula 
+\begin{align*}
+\iota_{B}:B & \to D\\
+b & \mapsto b\otimes1
+\end{align*}
+
+\end_inset
+
+und
+\begin_inset Formula 
+\begin{align*}
+\iota_{C}:C & \to D\\
+c & \mapsto1\otimes c
+\end{align*}
+
+\end_inset
+
+sind Ringhomomorphismen und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\iota_{B}\circ\beta & =\iota_{C}\circ\gamma
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $\left(T,\tau\right)$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra und 
+\begin_inset Formula $f:B\to T$
+\end_inset
+
+ und 
+\begin_inset Formula $g:C\to T$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismen, so existiert genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus
+\begin_inset Formula 
+\begin{align*}
+f\otimes g:D=B\otimes_{A}C & \to T
+\end{align*}
+
+\end_inset
+
+mit:
+\begin_inset Formula 
+\begin{align*}
+\left(f\otimes g\right)\circ\iota_{B} & =f & \left(f\otimes g\right)\circ\iota_{C} & =g
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Skizze
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace -11mm
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2.5em, column sep=3.5em, text height=1.5e
+x, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+    {  & B & & 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     A &   & 
+\backslash
+color{orange}{D=B
+\backslash
+otimes_A C} & 
+\backslash
+color{blue}{T} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+       & C & & 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above] {$ 
+\backslash
+beta $} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                                     edge node[below] {$ 
+\backslash
+gamma $} (m-3-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[<-,font=
+\backslash
+scriptsize,orange] (m-2-3) edge node[above] {$ 
+\backslash
+iota_B $} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                                     edge node[below] {$ 
+\backslash
+iota_C $} (m-3-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[<-,font=
+\backslash
+scriptsize,blue] (m-2-4) ..
+ controls +(-0.0,0.85) and +(0.75,4)..
+ node[above] {$ 
+\backslash
+tau $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[<-,font=
+\backslash
+scriptsize,blue] (m-2-4) ..controls +(-0.5,0.5) and +(0.5,0.7)..
+ node[above] {$ f $} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[<-,font=
+\backslash
+scriptsize,blue] (m-2-4) ..
+ controls +(-0.5,-0.3) and +(0.5,-0.5)..
+ node[below] {$ g $} (m-3-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->,font=
+\backslash
+scriptsize,green,dashed] (m-2-3) edge node[above] {$ 
+\backslash
+exsg f
+\backslash
+otimes g $} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $D$
+\end_inset
+
+ ist ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und somit insbesondere 
+\begin_inset Formula $\left(D,+\right)$
+\end_inset
+
+ eine abelsche Gruppe.
+ Dass 
+\begin_inset Formula $0\otimes0$
+\end_inset
+
+ das neutrale Element der Addition ist, ist klar.
+\end_layout
+
+\begin_layout Standard
+Da für alle 
+\begin_inset Formula $b,b',b''\in B$
+\end_inset
+
+ und 
+\begin_inset Formula $c,c',c''\in C$
+\end_inset
+
+ nun
+\begin_inset Formula 
+\begin{align*}
+\mu\left(\mu\left(b\otimes c,b'\otimes c'\right),b''\otimes c''\right) & =\mu\left(\left(bb'\right)\otimes\left(cc'\right),b''\otimes c''\right)=\left(bb'b''\right)\otimes\left(cc'c''\right)=\\
+ & =\mu\left(b\otimes c,\left(b'b''\right)\otimes\left(c'c''\right)\right)=\mu\left(b\otimes c,\mu\left(b'\otimes c',b''\otimes c''\right)\right)
+\end{align*}
+
+\end_inset
+
+gilt, ist 
+\begin_inset Formula $\mu$
+\end_inset
+
+ assoziativ, und wegen
+\begin_inset Formula 
+\begin{align*}
+\mu\left(b\otimes c,b'\otimes c'\right) & =\left(bb'\right)\otimes\left(cc'\right)=\left(b'b\right)\otimes\left(c'c\right)=\mu\left(b'\otimes c',b\otimes c\right)
+\end{align*}
+
+\end_inset
+
+ist 
+\begin_inset Formula $\mu$
+\end_inset
+
+ kommutativ.
+ Weiter gilt:
+\begin_inset Formula 
+\begin{align*}
+\mu\left(b\otimes c,1\otimes1\right) & =\left(b\cdot1\right)\otimes\left(c\cdot1\right)=b\otimes c
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $1\otimes1$
+\end_inset
+
+ das neutrale Element der Multiplikation.
+ Die Distributivgesetze folgen direkt aus der 
+\begin_inset Formula $A$
+\end_inset
+
+-Bilinearität von 
+\begin_inset Formula $\mu$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Dass 
+\begin_inset Formula $\iota_{B}$
+\end_inset
+
+ und 
+\begin_inset Formula $\iota_{C}$
+\end_inset
+
+ Ringhomomorphismen sind, ist klar.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ rechne in 
+\begin_inset Formula $D=B\otimes_{A}C$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(\iota_{B}\circ\beta\right)\left(a\right) & =\iota_{B}\left(\beta\left(a\right)\right)=\beta\left(a\right)\otimes1\sr ={A\text{-Modulstruktur}}{\text{auf }B}\left(a\cdot1\right)\otimes1=\\
+ & \sr ={\text{Bilinearität}}{\text{des Tensorprodukts}}1\otimes\left(a\cdot1\right)=\sr ={A\text{-Modulstruktur}}{\text{auf }C}1\otimes\gamma\left(a\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eindeutigkeit:
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $x\in D$
+\end_inset
+
+ beliebig, so gibt es ein geeignetes 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und geeignete 
+\begin_inset Formula $b_{i}\in B$
+\end_inset
+
+ und 
+\begin_inset Formula $c_{i}\in C$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+x & =\sum_{i=1}^{n}b_{i}\otimes c_{i}
+\end{align*}
+
+\end_inset
+
+Es folgt:
+\begin_inset Formula 
+\begin{align*}
+\left(f\otimes g\right)\left(x\right) & =\sum_{i=1}^{n}\left(f\otimes g\right)\bigg(\underbrace{\left(b_{i}\otimes1\right)}_{=\iota_{B}\left(b_{i}\right)}\cdot\underbrace{\left(1\otimes c_{i}\right)}_{\iota_{C}\left(c_{i}\right)}\bigg)=\\
+ & =\sum_{i=1}^{n}\underbrace{\left(f\otimes g\right)\left(\iota_{B}\left(b_{i}\right)\right)}_{\stackrel{\text{Vor.}}{=}f\left(b_{i}\right)}\cdot\underbrace{\left(f\otimes g\right)\left(\iota_{C}\left(c_{i}\right)\right)}_{\stackrel{\text{Vor.}}{=}g\left(c_{i}\right)}=\sum_{i=1}^{n}f\left(b_{i}\right)\cdot g\left(c_{i}\right)
+\end{align*}
+
+\end_inset
+
+Existenz:
+\end_layout
+
+\begin_layout Standard
+Die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\Phi:B\times C & \to T\\
+\left(b,c\right) & \mapsto f\left(b\right)\cdot g\left(c\right)
+\end{align*}
+
+\end_inset
+
+ist 
+\begin_inset Formula $A$
+\end_inset
+
+-bilinear, denn zum Beispiel gilt für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+, 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ und 
+\begin_inset Formula $c\in C$
+\end_inset
+
+ in 
+\begin_inset Formula $T$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\Phi\left(ab,c\right) & =f\left(ab\right)\cdot g\left(c\right)=f\left(\beta\left(a\right)b\right)\cdot g\left(c\right)=\\
+ & =\underbrace{f\left(\beta\left(a\right)\right)}_{\stackrel{\text{Vor.}}{=}\tau\left(a\right)}\cdot\underbrace{f\left(b\right)\cdot g\left(c\right)}_{=\Phi\left(b,c\right)}\sr ={A\text{-Modulstruktur}}{\text{auf }T}a\cdot\Phi\left(b,c\right)
+\end{align*}
+
+\end_inset
+
+Also existiert eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung
+\begin_inset Formula 
+\begin{align*}
+f\otimes g:D & \to T
+\end{align*}
+
+\end_inset
+
+mit
+\begin_inset Formula 
+\begin{align*}
+\left(f\otimes g\right)\left(b\otimes c\right) & =f\left(b\right)\cdot g\left(c\right)
+\end{align*}
+
+\end_inset
+
+für alle 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ und 
+\begin_inset Formula $c\in C$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Man sieht leicht, dass 
+\begin_inset Formula $f\otimes g$
+\end_inset
+
+ ein Ringhomomorphismus ist und rechnet dann zum Beispiel für 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ in 
+\begin_inset Formula $T$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(\left(f\otimes g\right)\circ\iota_{B}\right)\left(b\right) & =\left(f\otimes g\right)\left(b\otimes1\right)=f\left(b\right)\cdot\underbrace{g\left(1\right)}_{=1}=f\left(b\right)
+\end{align*}
+
+\end_inset
+
+Ebenso gilt für 
+\begin_inset Formula $c\in C$
+\end_inset
+
+ in 
+\begin_inset Formula $T$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(\left(f\otimes g\right)\circ\iota_{C}\right)\left(c\right) & =\left(f\otimes g\right)\left(1\otimes c\right)=\underbrace{f\left(1\right)}_{=1}\cdot g\left(c\right)=g\left(c\right)
+\end{align*}
+
+\end_inset
+
+Insbesondere ist damit
+\begin_inset Formula 
+\begin{align*}
+f\otimes g:\left(D,\iota_{B}\circ\beta=\iota_{C}\circ\gamma\right) & \to\left(T,\tau\right)
+\end{align*}
+
+\end_inset
+
+ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel und Definition 
+\series medium
+(Basiswechsel)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, so besteht eine Isomorphie von 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebren:
+\begin_inset Formula 
+\begin{align*}
+A\left[X,Y\right] & \stackrel{\sim}{=}A\left[X\right]\otimes_{A}A\left[Y\right]\\
+A\text{-Modul-Basen: }\left\{ X^{i}Y^{j}\right\}  & \qquad\left\{ X^{i}\right\} \cdot\left\{ Y^{j}\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Die Inklusionen
+\begin_inset Formula 
+\begin{align*}
+A\left[X\right],A\left[Y\right] & \hookrightarrow A\left[X,Y\right]=A\left[X\right]\left[Y\right]=A\left[Y\right]\left[X\right]
+\end{align*}
+
+\end_inset
+
+sind 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismen.
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-BtensorC"
+
+\end_inset
+
+ gibt es also genau einen 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus
+\begin_inset Formula 
+\begin{align*}
+F:A\left[X\right]\otimes_{A}A\left[Y\right] & \to A\left[X,Y\right]
+\end{align*}
+
+\end_inset
+
+mit
+\begin_inset Formula 
+\begin{align*}
+F\left(f\left(X\right)\otimes g\left(Y\right)\right) & =f\left(X\right)\cdot g\left(Y\right)
+\end{align*}
+
+\end_inset
+
+für alle 
+\begin_inset Formula $f\in A\left[X\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $g\in A\left[Y\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wegen der universellen Eigenschaft der 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $A\left[X,Y\right]$
+\end_inset
+
+ existiert genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+"=
+\end_layout
+
+\end_inset
+
+Algebrenhomomorphismus
+\begin_inset Formula 
+\begin{align*}
+G:A\left[X,Y\right] & \to A\left[X\right]\otimes_{A}A\left[Y\right]
+\end{align*}
+
+\end_inset
+
+mit folgenden Bildern der Variablen:
+\begin_inset Formula 
+\begin{align*}
+G\left(X\right) & =X\otimes1 & G\left(Y\right) & =1\otimes Y
+\end{align*}
+
+\end_inset
+
+Man sieht leicht 
+\begin_inset Formula $F=G^{-1}$
+\end_inset
+
+.
+ Zum Beispiel gilt:
+\begin_inset Formula 
+\begin{align*}
+F\circ G & \stackrel{\left(!\right)}{=}\text{id}_{A\left[X,Y\right]}
+\end{align*}
+
+\end_inset
+
+Dazu ist zu prüfen, dass
+\begin_inset Formula 
+\begin{align*}
+\left(F\circ G\right)\left(X\right) & =X
+\end{align*}
+
+\end_inset
+
+und
+\begin_inset Formula 
+\begin{align*}
+\left(F\circ G\right)\left(Y\right) & =Y
+\end{align*}
+
+\end_inset
+
+gelten:
+\begin_inset Formula 
+\begin{align*}
+\left(F\circ G\right)\left(X\right) & =F\left(X\otimes1\right)=X\cdot1=X\\
+\left(F\circ G\right)\left(Y\right) & =F\left(1\otimes Y\right)=1\cdot Y=Y
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jeden Ring 
+\begin_inset Formula $A$
+\end_inset
+
+ besteht eine in 
+\begin_inset Formula $A$
+\end_inset
+
+ natürliche Isomorphie von 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebren
+\begin_inset Formula 
+\begin{align*}
+\varphi:A\left[X\right] & \stackrel{\sim}{\to}A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]
+\end{align*}
+
+\end_inset
+
+mit
+\begin_inset Formula 
+\begin{align*}
+\varphi\left(a\right) & =a\otimes1
+\end{align*}
+
+\end_inset
+
+für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+
+\color green
+TODO: Beweis als Übung einfügen.
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus und 
+\begin_inset Formula $C$
+\end_inset
+
+ eine endliche (beziehungsweise endlich erzeugte) 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra, so ist die 
+\begin_inset Formula $B$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $B\otimes_{A}C$
+\end_inset
+
+ endlich (beziehungsweise endlich erzeugt).
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { A & C 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     B & B 
+\backslash
+otimes_A C
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left] {$ f $} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                                     edge (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge (m-2-2); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B\otimes_{A}C$
+\end_inset
+
+ nennt man 
+\emph on
+den Basiswechsel der 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $C$
+\end_inset
+
+ entlang 
+\begin_inset Formula $f$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+
+\color green
+TODO: Beweis als Übung einfügen.
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel 
+\series medium
+(Die Fasern von 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\text{Spec}\left(\mathbb{Z}\left[\ii\right]\right)\to\text{Spec}\left(\mathbb{Z}\right)$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+}{Spec(Z[i])->Spec(Z)}
+\end_layout
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Vergleiche mit 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:DuB-Bild-Urbild-Ideal"
+
+\end_inset
+
+ v).
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=0.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 
+\backslash
+text{Spec}(
+\backslash
+mathbb{Z}[
+\backslash
+ii])
+\backslash
+setminus
+\backslash
+{0
+\backslash
+} : & (1+
+\backslash
+ii) & (3) & (1+2
+\backslash
+ii,1-2
+\backslash
+ii) & (7) & (11) & (3+2
+\backslash
+ii),(3-2
+\backslash
+ii) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+text{Spec}(
+\backslash
+mathbb{Z})
+\backslash
+setminus
+\backslash
+{0
+\backslash
+} :      & (2) & (3) & (5) & (7) & (11) & (13)
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left] {$ 
+\backslash
+pi $} node[right]{$
+\backslash
+mathfrak{p}
+\backslash
+mapsto (
+\backslash
+mathfrak{p}
+\backslash
+cap 
+\backslash
+mathbb{Z})$} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-2) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-3) edge (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-4) edge (m-2-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-5) edge (m-2-5)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-6) edge (m-2-6)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-7) edge (m-2-7); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es gilt
+\begin_inset Formula 
+\begin{align*}
+\left(\mathbb{Z}\hookrightarrow\mathbb{Z}\left[\ii\right]\right)^{*}\left(\mathfrak{p}\right) & =\mathfrak{p}\cap\mathbb{Z}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+und:
+\begin_inset Formula 
+\begin{align*}
+\abs{\pi^{-1}\left(\left(p\right)\right)} & =\begin{cases}
+1 & \text{falls }p=2\text{ oder }p\equiv3\mod4\\
+2 & \text{falls }p\equiv1\mod4
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Genauer ist die Menge 
+\begin_inset Formula $\pi^{-1}\left(\left(p\right)\right)$
+\end_inset
+
+ sogar das Spektrum eines Ringes, nämlich
+\begin_inset Formula 
+\begin{align*}
+\pi^{-1}\left(\left(p\right)\right) & =\text{Spec}\left(\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p}\right)
+\end{align*}
+
+\end_inset
+
+und für die 
+\begin_inset Formula $\mathbb{F}_{p}$
+\end_inset
+
+-Algebra
+\begin_inset Formula 
+\begin{align*}
+\mathbb{F}_{p} & \to\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p}
+\end{align*}
+
+\end_inset
+
+kommutiert das Diagramm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 
+\backslash
+mathbb{Z} & 
+\backslash
+mathbb{Z}[
+\backslash
+ii] 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+modulo{
+\backslash
+mathbb{Z}}{(p)}=
+\backslash
+mathbb{F}_p & 
+\backslash
+mathbb{Z}[
+\backslash
+ii] 
+\backslash
+otimes_
+\backslash
+mathbb{Z} 
+\backslash
+mathbb{F}_p
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                                     edge (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge (m-2-2); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p} & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+1\right)}\otimes_{\mathbb{Z}}\modlo{\mathbb{Z}}p\sr ={\sim}{(\text{Blatt 5 Aufgabe 1 i)})}\modulo{\mathbb{Z}\left[X\right]}{\left(p,X^{2}+1\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\modulo{\mathbb{F}_{p}\left[X\right]}{\left(X^{2}+1\right)}\sr ={\sim}{\left(*\right)}\begin{cases}
+\modulo{\mathbb{F}_{2}\left[X\right]}{\left(\left(X+1\right)^{2}\right)} & ;\ p=2\\
+\mathbb{F}_{p}\times\mathbb{F}_{p} & ;\ p\equiv1\mod4\\
+\mathbb{F}_{p^{2}} & ;\ p=3\mod4
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Denn die Zerlegung in irreduzible Faktoren ist gegeben durch
+\begin_inset Formula 
+\begin{align*}
+\mathbb{F}_{p}\left[X\right] & \ni X^{2}+1=\begin{cases}
+\left(X+1\right)^{2} & ;\ p=2\\
+\left(X-\alpha\right)\left(X+\alpha\right)=X^{2}-\alpha^{2} & ;\ p\equiv1\mod4,\ \left(\alpha\in\mathbb{F}_{p}^{*}\text{ geeignet}\right)\\
+X^{2}+1 & ;\ p\equiv3\mod4
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Dann folgt 
+\begin_inset Formula $\left(*\right)$
+\end_inset
+
+ im Fall 
+\begin_inset Formula $p\equiv1\mod4$
+\end_inset
+
+ aus dem Chinesischen Restsatz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Chinesischer-Restsatz"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Chapter
+Lokalisierung
+\end_layout
+
+\begin_layout Section
+Satz und Definition 
+\series medium
+(multiplikativ abgeschlossen, Quotientenring)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:SuD-Quotientenring"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus und 
+\begin_inset Formula $S:=f^{-1}\left(B^{*}\right)$
+\end_inset
+
+.
+ Dann gelten:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $1\in S$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $s,t\in S$
+\end_inset
+
+ gilt 
+\begin_inset Formula $st\in S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Eine Teilmenge 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ mit den Eigenschaften a) und b) heißt 
+\emph on
+multiplikativ abgeschlossen
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen.
+ Dann existiert eine bis auf eindeutige Isomorphie eindeutige 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra
+\begin_inset Formula 
+\begin{align*}
+f:A & \to S^{-1}A
+\end{align*}
+
+\end_inset
+
+so, dass für alle 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebren 
+\begin_inset Formula $g:A\to B$
+\end_inset
+
+ äquivalent sind:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $g\left(S\right)\subseteq B^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Es existiert genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus 
+\begin_inset Formula $\varphi:S^{-1}A\to B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { S
+\backslash
+subseteq A & B 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+      S^{-1}A & 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left]{$f$} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                                     edge node[above]{$g$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-2-1) edge node[below right]{$
+\backslash
+exsg_
+\backslash
+varphi 
+\backslash
+quad
+\backslash
+Leftrightarrow
+\backslash
+quad g(S)
+\backslash
+subseteq B^*$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dabei gilt:
+\begin_inset Formula 
+\begin{align*}
+f\left(S\right) & \subseteq\left(S^{-1}A\right)^{*}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $\left(A\stackrel{f}{\to}\right)S^{-1}A$
+\end_inset
+
+ heißt 
+\emph on
+der Quotientenring von 
+\begin_inset Formula $A$
+\end_inset
+
+ bezüglich 
+\begin_inset Formula $S$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Wegen 
+\begin_inset Formula $f\left(1\right)=1\in B^{*}$
+\end_inset
+
+ ist 
+\begin_inset Formula $1\in S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $s,t\in S$
+\end_inset
+
+, also 
+\begin_inset Formula $f\left(s\right),f\left(t\right)\in B^{*}$
+\end_inset
+
+, dann folgt nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:DuB-Einheit"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+B^{*}\ni & f\left(s\right)\cdot f\left(t\right)=f\left(st\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $st\in S$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Konstruktion:
+\end_layout
+
+\begin_layout Standard
+Definiere auf der Menge 
+\begin_inset Formula $A\times S$
+\end_inset
+
+ die Relation:
+\begin_inset Formula 
+\begin{align}
+\left(a,s\right)\sim\left(b,t\right) & \quad:\Leftrightarrow\quad\exs_{u\in S}:u\left(at-bs\right)=0\in A\label{eq:Bruchrelation}
+\end{align}
+
+\end_inset
+
+Man prüft, dass 
+\begin_inset Formula $\sim$
+\end_inset
+
+ eine Äquivalenzrelation ist und schreibt:
+\begin_inset Formula 
+\begin{align*}
+\frac{a}{s} & :=\left[\left(a,s\right)\right]\in\modulo{A\times S}{\sim}=:S^{-1}A
+\end{align*}
+
+\end_inset
+
+Man setzt in 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+0 & :=\frac{0}{1} & 1 & :=\frac{1}{1}
+\end{align*}
+
+\end_inset
+
+und für alle 
+\begin_inset Formula ${\displaystyle \frac{a}{s},\frac{b}{t}\in S^{-1}A}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\frac{a}{s}+\frac{b}{t} & :=\frac{at+bs}{st}\\
+\frac{a}{s}\cdot\frac{b}{t} & :=\frac{ab}{st}
+\end{align*}
+
+\end_inset
+
+Man prüft, dass 
+\begin_inset Formula $+$
+\end_inset
+
+ und 
+\begin_inset Formula $\cdot$
+\end_inset
+
+ wohldefiniert sind, 
+\begin_inset Formula $\left(S^{-1}A,+,\cdot,0,1\right)$
+\end_inset
+
+ ein kommutativer Ring ist und
+\begin_inset Formula 
+\begin{align*}
+f:A & \to S^{-1}A\\
+a & \mapsto\frac{a}{1}
+\end{align*}
+
+\end_inset
+
+ein Ringhomomorphismus ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 25.5.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„a) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ b)“: Zeige, dass genau ein Ringhomomorphismus 
+\begin_inset Formula $\varphi:S^{-1}A\to B$
+\end_inset
+
+ existiert, sodass das Diagramm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { A & S^{-1}A 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     B & 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above] {$ f $} (m-1-2) edge node[left] {$
+ g $} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge node[below right] {$ 
+\backslash
+varphi $} (m-2-1); 
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+kommutiert.
+\end_layout
+
+\begin_layout Standard
+Eindeutigkeit:
+\end_layout
+
+\begin_layout Standard
+Für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ rechne:
+\begin_inset Formula 
+\begin{align*}
+\varphi\left(\frac{a}{s}\right) & =\varphi\left(\frac{a}{1}\cdot\left(\frac{s}{1}\right)^{-1}\right)=\varphi\left(f\left(a\right)\cdot f\left(s\right)^{-1}\right)=\varphi\left(f\left(a\right)\right)\cdot\varphi\left(f\left(s\right)\right)^{-1}=g\left(a\right)\cdot g\left(s\right)^{-1}
+\end{align*}
+
+\end_inset
+
+Existenz:
+\end_layout
+
+\begin_layout Standard
+Für ein beliebiges 
+\begin_inset Formula ${\displaystyle \frac{a}{s}}\in S^{-1}A$
+\end_inset
+
+ setze:
+\begin_inset Formula 
+\begin{align*}
+\varphi\left(\frac{a}{s}\right) & :=g\left(a\right)\cdot g\left(s\right)^{-1}
+\end{align*}
+
+\end_inset
+
+Beachte, dass nach Voraussetzung 
+\begin_inset Formula $g\left(S\right)\subseteq B^{*}$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Standard
+Man prüft, dass 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ wohldefiniert und ein Ringhomomorphismus ist.
+ Dann folgt für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\varphi\left(f\left(a\right)\right) & =\varphi\left(\frac{a}{1}\right)=g\left(a\right)\cdot\underbrace{g\left(1\right)^{-1}}_{=1}=g\left(a\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[a) $
+\backslash
+Rightarrow$ b)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„b) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ a)“: Für alle 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ gilt in 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+f\left(s\right)\cdot\frac{1}{s} & =\frac{s}{1}\cdot\frac{1}{s}=\frac{1}{1}=1
+\end{align*}
+
+\end_inset
+
+Also gilt 
+\begin_inset Formula $f\left(S\right)\subseteq\left(S^{-1}A\right)^{*}$
+\end_inset
+
+ und es folgt:
+\begin_inset Formula 
+\begin{align*}
+g\left(S\right) & \stackrel{\text{b)}}{=}\varphi\left(f\left(S\right)\right)\subseteq\varphi\left(\left(S^{-1}A\right)^{*}\right)\subseteq B^{*}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[b) $
+\backslash
+Rightarrow$ a)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei nun 
+\begin_inset Formula $\tilde{f}:A\to\tilde{A}$
+\end_inset
+
+ eine weitere 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra neben 
+\begin_inset Formula $f:A\to S^{-1}A$
+\end_inset
+
+, für die gilt:
+\end_layout
+
+\begin_layout Standard
+Für alle 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebren 
+\begin_inset Formula $g:A\to B$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Description
+
+\series medium
+a')
+\series default
+ 
+\begin_inset Formula $g\left(S\right)\subseteq B^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+
+\series medium
+b') 
+\series default
+Es existiert genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus 
+\begin_inset Formula $\varphi:\tilde{A}\to B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Behauptung Es existiert genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenisomorphismus 
+\begin_inset Formula $\alpha:S^{-1}A\stackrel{\sim}{\to}\tilde{A}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Beweis Da 
+\begin_inset Formula $\text{id}_{\tilde{A}}$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus ist, folgt aus „b') 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ a')“ für 
+\begin_inset Formula $B=\tilde{A}$
+\end_inset
+
+, dass 
+\begin_inset Formula $\tilde{f}\left(S\right)\subseteq\left(\tilde{A}\right)^{*}$
+\end_inset
+
+ gilt.
+ Damit folgt aus „a) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ b)“, dass genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+"=
+\end_layout
+
+\end_inset
+
+Algebrenhomomorphismus 
+\begin_inset Formula $\alpha:S^{-1}A\to\tilde{A}$
+\end_inset
+
+ existiert.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Analog existiert genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus 
+\begin_inset Formula $\beta:\tilde{A}\to S^{-1}A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Die Komposition 
+\begin_inset Formula $\beta\circ\alpha:S^{-1}A\to S^{-1}A$
+\end_inset
+
+ ist ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus.
+\end_layout
+
+\begin_layout Standard
+Wegen „a) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ b)“ für 
+\begin_inset Formula $B:=S^{-1}A$
+\end_inset
+
+ existiert aber genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus 
+\begin_inset Formula $S^{-1}A\to S^{-1}A$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $\text{id}_{S^{-1}A}$
+\end_inset
+
+ ein solcher ist, folgt 
+\begin_inset Formula $\beta\circ\alpha=\text{id}_{S^{-1}A}$
+\end_inset
+
+.
+ Analog folgt 
+\begin_inset Formula $\alpha\circ\beta=\text{id}_{\tilde{A}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bem-Quotientenring-Darstellung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen und für alle 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ sei 
+\begin_inset Formula $X_{s}$
+\end_inset
+
+ eine Variable.
+\end_layout
+
+\begin_layout Standard
+Dann existiert genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus
+\begin_inset Formula 
+\begin{align*}
+\alpha:S^{-1}A & \to\tilde{A}:=\modulo{A\left[X_{s}\big|s\in S\right]}{\left(s\cdot X_{s}-1\big|s\in S\right)}
+\end{align*}
+
+\end_inset
+
+und 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ ist ein Isomorphismus.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\tilde{A}$
+\end_inset
+
+ hat die universelle Eigenschaft hat von 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+.
+ Daher folgt aus der Eindeutigkeit von 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+ schon die Behauptung.
+\end_layout
+
+\begin_layout Standard
+
+\color green
+TODO: Beweis als Übung ergänzen.
+\color inherit
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung, Beispiel und Definition 
+\series medium
+(Quotientenkörper)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring und gilt 
+\begin_inset Formula $0\not\in S$
+\end_inset
+
+, so ist 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Bruchrelation"
+
+\end_inset
+
+ in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SuD-Quotientenring"
+
+\end_inset
+
+ äquivalent zu:
+\begin_inset Formula 
+\begin{align*}
+\left(a,s\right)\sim\left(b,t\right) & \quad\Leftrightarrow\quad at-bs=0\in A
+\end{align*}
+
+\end_inset
+
+Dies ist die naheliegende Definition von „
+\begin_inset Formula ${\displaystyle \frac{a}{s}=\frac{b}{t}}$
+\end_inset
+
+“.
+ Im Allgemeinen ist dies jedoch keine Äquivalenzrelation.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring, so ist 
+\begin_inset Formula $S:=A\setminus\left\{ 0\right\} \subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen, da 
+\begin_inset Formula $1\not=0$
+\end_inset
+
+ ist und für 
+\begin_inset Formula $a,b\in S$
+\end_inset
+
+ schon 
+\begin_inset Formula $ab\not=0$
+\end_inset
+
+, also 
+\begin_inset Formula $ab\in S$
+\end_inset
+
+ folgt.
+\begin_inset Formula 
+\begin{align*}
+Q\left(A\right) & :=\text{Quot}\left(A\right):=\left(A\setminus\left\{ 0\right\} \right)^{-1}A=\left\{ \frac{a}{b}\bigg|a,b\in A,b\not=0\right\} 
+\end{align*}
+
+\end_inset
+
+heißt 
+\emph on
+der Quotientenkörper von 
+\begin_inset Formula $A$
+\end_inset
+
+
+\emph default
+.
+ Es gilt zum Beispiel:
+\begin_inset Formula 
+\begin{align*}
+Q\left(\mathbb{Z}\right) & =\mathbb{Q}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ eine Primzahl, so ist 
+\begin_inset Formula $\mathbb{Z}\setminus\left(p\right)\subseteq\mathbb{Z}$
+\end_inset
+
+ multiplikativ abgeschlossen, da 
+\begin_inset Formula $p\not=1$
+\end_inset
+
+ und für 
+\begin_inset Formula $a,b\in\mathbb{Z}$
+\end_inset
+
+ aus 
+\begin_inset Formula $ab\in\left(p\right)$
+\end_inset
+
+ schon 
+\begin_inset Formula $a\in\left(p\right)$
+\end_inset
+
+ oder 
+\begin_inset Formula $b\in\left(p\right)$
+\end_inset
+
+ gilt.
+\begin_inset Formula 
+\begin{align*}
+\left(\mathbb{Z}\setminus\left(p\right)\right)^{-1}\mathbb{Z} & =\left\{ \frac{a}{b}\bigg|a,b\in\mathbb{Z},p\not|b\right\} =\mathbb{Z}_{\left(p\right)}\subseteq\mathbb{Q}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Es gilt 
+\begin_inset Formula $S^{-1}A=\left\{ 0\right\} $
+\end_inset
+
+ genau dann, wenn 
+\begin_inset Formula $0\in S$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Siehe Algebra.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel und Definition 
+\series medium
+(Lokalisierung, Funktionenkörper)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal, so ist 
+\begin_inset Formula $A\setminus\mathfrak{p}\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen und
+\begin_inset Formula 
+\begin{align*}
+\left(A_{\mathfrak{p}}:=\left(A\setminus\mathfrak{p}\right)^{-1}A,\mathfrak{m}:=f_{*}\left(\mathfrak{p}\right)=\mathfrak{p}A_{\mathfrak{p}}\right)
+\end{align*}
+
+\end_inset
+
+ist ein lokaler Ring, 
+\emph on
+die Lokalisierung von 
+\begin_inset Formula $A$
+\end_inset
+
+ bei 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+
+\emph default
+.
+ Hier ist:
+\begin_inset Formula 
+\begin{align*}
+f:A & \to A_{\mathfrak{p}}\\
+a & \mapsto\frac{a}{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $A\setminus\mathfrak{p}$
+\end_inset
+
+ ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PuD-Prim-maximales-Ideal"
+
+\end_inset
+
+ i) multiplikativ abgeschlossen.
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:DuB-Bild-Urbild-Ideal"
+
+\end_inset
+
+ i) schreibt sich jedes 
+\begin_inset Formula $x\in f_{*}\left(g\right)$
+\end_inset
+
+ als
+\begin_inset Formula 
+\begin{align*}
+x & =\sum_{i=1}^{n}\frac{a_{i}}{s_{i}}b_{i}
+\end{align*}
+
+\end_inset
+
+mit 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und geeigneten 
+\begin_inset Formula $b_{i}\in\mathfrak{p}$
+\end_inset
+
+, 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $s_{i}\in S$
+\end_inset
+
+.
+ Also:
+\begin_inset Formula 
+\begin{align*}
+x & =\frac{\sum_{i=1}^{n}a_{i}b_{i}\prod_{j=1,j\not=1}^{n}s_{j}}{\prod_{i=1}^{n}s_{i}}=:\frac{b}{s}
+\end{align*}
+
+\end_inset
+
+mit 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ und 
+\begin_inset Formula $b\in\mathfrak{p}$
+\end_inset
+
+, da 
+\begin_inset Formula $b_{i}\in\mathfrak{p}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ ein Ideal ist.
+ Es folgt:
+\begin_inset Formula 
+\begin{align*}
+f_{*}\left(\mathfrak{p}\right) & =\mathfrak{p}A_{\mathfrak{p}}
+\end{align*}
+
+\end_inset
+
+Wäre 
+\begin_inset Formula $1\in\mathfrak{m}=\mathfrak{p}A_{\mathfrak{p}}$
+\end_inset
+
+, so folgte:
+\begin_inset Formula 
+\begin{align*}
+\frac{1}{1} & =\frac{b}{s}
+\end{align*}
+
+\end_inset
+
+für geeignete 
+\begin_inset Formula $b\in\mathfrak{p}$
+\end_inset
+
+ und 
+\begin_inset Formula $s\in S$
+\end_inset
+
+.
+ Also gibt es ein 
+\begin_inset Formula $t\in A\setminus\mathfrak{p}$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+t\left(s-b\right) & =0\\
+ts & =tb\in\mathfrak{p}
+\end{align*}
+
+\end_inset
+
+Dies ist ein Widerspruch, da 
+\begin_inset Formula $s,t\not\in\mathfrak{p}$
+\end_inset
+
+ sind.
+ Also gilt 
+\begin_inset Formula $1\not\in\mathfrak{m}$
+\end_inset
+
+ und damit ist 
+\begin_inset Formula $\mathfrak{m}\subsetneq A_{\mathfrak{p}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Jedes 
+\begin_inset Formula $x\in A_{\mathfrak{p}}\setminus\mathfrak{p}A_{\mathfrak{p}}$
+\end_inset
+
+ schreibt sich mit geeigneten 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $s\in A\setminus\mathfrak{p}$
+\end_inset
+
+ als:
+\begin_inset Formula 
+\begin{align*}
+x & =\frac{a}{s}
+\end{align*}
+
+\end_inset
+
+Wegen 
+\begin_inset Formula $x\not\in\mathfrak{p}A_{\mathfrak{p}}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $a\in A\setminus\mathfrak{p}$
+\end_inset
+
+ und es folgt 
+\begin_inset Formula ${\displaystyle A_{\mathfrak{p}}\ni\frac{s}{a}=x^{-1}}$
+\end_inset
+
+.
+ Also ist 
+\begin_inset Formula $x\in A_{\mathfrak{p}}^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Insgesamt ist 
+\begin_inset Formula $\mathfrak{m}\subsetneq A_{\mathfrak{p}}$
+\end_inset
+
+ und 
+\begin_inset Formula $A_{\mathfrak{p}}\setminus\mathfrak{m}\subseteq A_{\mathfrak{p}}^{*}$
+\end_inset
+
+, also ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-HinreichendLokalerRing"
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(A_{\mathfrak{p}},\mathfrak{m}\right)$
+\end_inset
+
+ ein lokaler Ring.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Bemerkung
+\end_layout
+
+\begin_layout Standard
+Es gilt:
+\begin_inset Formula 
+\begin{align*}
+\modulo{A\mathfrak{p}}{\mathfrak{p}A_{\mathfrak{p}}} & \stackrel{\sim}{=}\text{Quot}\left(\modulo A{\mathfrak{p}}\right)\left(=\kappa\left(\mathfrak{p}\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ ist 
+\begin_inset Formula $S:=\left\{ a^{n}\big|n\in\mathbb{N}\right\} \subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen (und die kleinste multiplikativ abgeschlossene
+ Menge, die 
+\begin_inset Formula $a$
+\end_inset
+
+ enthält).
+\end_layout
+
+\begin_layout Standard
+Man schreibt in diesem Fall:
+\begin_inset Formula 
+\begin{align*}
+S^{-1}A & =:A\left[a^{-1}\right]
+\end{align*}
+
+\end_inset
+
+Es gilt:
+\begin_inset Formula 
+\begin{align*}
+A\left[a^{-1}\right] & \stackrel{\sim}{=}\modulo{A\left[X\right]}{\left(aX-1\right)}
+\end{align*}
+
+\end_inset
+
+(vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bem-Quotientenring-Darstellung"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Zum Beispiel ist für ein 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\mathbb{Z}\left[\frac{1}{n}\right] & =\left\{ \frac{a}{n^{b}}\bigg|a\in\mathbb{Z},b\in\mathbb{N}\right\} \subseteq\mathbb{Q}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für einen Körper 
+\begin_inset Formula $k$
+\end_inset
+
+ gelten:
+\begin_inset Formula 
+\begin{align*}
+A & :=k\left[t\right]\subseteq A_{\left(t\right)}=\left\{ \frac{f\left(t\right)}{g\left(t\right)}\bigg|f,g\in k\left[t\right]\wedge g\not\in\left(t\right)\right\} =\\
+ & =\left\{ \frac{f\left(t\right)}{g\left(t\right)}\bigg|f,g\in k\left[t\right]\wedge g\left(0\right)\not=0\right\} \subseteq\\
+ & \subseteq Q\left(A\right)=\left\{ \frac{f\left(t\right)}{g\left(t\right)}\bigg|f,g\in k\left[t\right]\wedge g\not=0\right\} =:k\left(t\right)
+\end{align*}
+
+\end_inset
+
+Der Körper 
+\begin_inset Formula $k\left(t\right)$
+\end_inset
+
+ heißt 
+\emph on
+der Funktionenkörper in einer Variablen 
+\begin_inset Formula $t$
+\end_inset
+
+ über 
+\begin_inset Formula $k$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beispiel
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $\mathfrak{p}:=\left(0\right)\in\text{Spec}\left(\mathbb{C}\left[t\right]\right)$
+\end_inset
+
+ ist:
+\begin_inset Formula 
+\begin{align*}
+\kappa\left(\mathfrak{p}\right) & =\mathbb{C}\left(t\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Konstruktion 
+\series medium
+(Modul-Lokalisierung)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kon-Modul-Lokalisierung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+\end_layout
+
+\begin_layout Standard
+Auf 
+\begin_inset Formula $M\times S$
+\end_inset
+
+ ist die Relation
+\begin_inset Formula 
+\begin{align*}
+\left(x,s\right)\sim\left(y,t\right) & \quad:\Leftrightarrow\quad\exs_{u\in S}:u\left(xt-ys\right)=0
+\end{align*}
+
+\end_inset
+
+eine Äquivalenzrelation und
+\begin_inset Formula 
+\begin{align*}
+S^{-1}M & :=\modulo{S\times M}{\sim}
+\end{align*}
+
+\end_inset
+
+wird ein 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+-Modul vermöge für alle 
+\begin_inset Formula $s,t\in S$
+\end_inset
+
+, 
+\begin_inset Formula $x,y\in M$
+\end_inset
+
+ und 
+\begin_inset Formula $a\in A$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\frac{x}{s}+\frac{y}{t} & :=\frac{tx+sy}{st}\\
+\frac{a}{s}\cdot\frac{x}{t} & :=\frac{ax}{st}
+\end{align*}
+
+\end_inset
+
+Hier ist 
+\begin_inset Formula ${\displaystyle \frac{x}{s}:=\left[\left(x,s\right)\right]}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung, so ist
+\begin_inset Formula 
+\begin{align*}
+\left(S^{-1}f\right):S^{-1}M & \to S^{-1}N\\
+\frac{x}{s} & \mapsto\frac{f\left(x\right)}{s}
+\end{align*}
+
+\end_inset
+
+wohldefiniert und 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+-linear.
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Lokalisierung ist exakt)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Lokalisierung-exakt"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen.
+ Ist dann
+\begin_inset Formula 
+\begin{align*}
+M' & \stackrel{f}{\to}M\stackrel{g}{\to}M''
+\end{align*}
+
+\end_inset
+
+eine exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln, so ist auch die Folge
+\begin_inset Formula 
+\begin{align*}
+S^{-1}M' & \stackrel{S^{-1}f}{\to}S^{-1}M\stackrel{S^{-1}g}{\to}S^{-1}M''
+\end{align*}
+
+\end_inset
+
+von 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+-Moduln exakt.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Zunächst gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(S^{-1}g\right)\circ\left(S^{-1}f\right) & =S^{-1}\left(g\circ f\right)=S^{-1}\left(0\right)=0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\text{im}\left(S^{-1}f\right)\subseteq\ker\left(S^{-1}g\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $x\in\ker\left(S^{-1}g\right)\subseteq S^{-1}M$
+\end_inset
+
+.
+ Dann gilt für geeignete 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ und 
+\begin_inset Formula $s\in S$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x & =\frac{m}{s}
+\end{align*}
+
+\end_inset
+
+Es gilt:
+\begin_inset Formula 
+\begin{align*}
+0 & =\left(S^{-1}g\right)\left(x\right)\stackrel{\ref{sec:Kon-Modul-Lokalisierung}}{=}\frac{g\left(m\right)}{s}\in S^{-1}M''
+\end{align*}
+
+\end_inset
+
+Aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kon-Modul-Lokalisierung"
+
+\end_inset
+
+ folgt insbesondere, dass ein 
+\begin_inset Formula $u\in S$
+\end_inset
+
+ existiert mit:
+\begin_inset Formula 
+\begin{align*}
+ug\left(m\right) & =0\in M''
+\end{align*}
+
+\end_inset
+
+Also ist:
+\begin_inset Formula 
+\begin{align*}
+0 & =g\left(um\right)
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $um\in\ker\left(g\right)=\text{im}\left(f\right)$
+\end_inset
+
+ und man kann für ein geeignetes 
+\begin_inset Formula $m'\in M'$
+\end_inset
+
+ schreiben:
+\begin_inset Formula 
+\begin{align*}
+um & =f\left(m'\right)
+\end{align*}
+
+\end_inset
+
+Das heißt:
+\begin_inset Formula 
+\begin{align*}
+x & =\frac{m}{s}\stackrel{u\in S}{=}\frac{um}{us}=\frac{f\left(m'\right)}{us}=\left(S^{-1}f\right)\left(\frac{m'}{us}\right)\in\text{im}\left(S^{-1}f\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen und 
+\begin_inset Formula $N\subseteq M$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln.
+ Dann gilt
+\begin_inset Formula 
+\begin{align*}
+\modulo{\left(S^{-1}M\right)}{\left(S^{-1}N\right)} & \stackrel{\sim}{=}S^{-1}\left(\modulo MN\right)
+\end{align*}
+
+\end_inset
+
+als 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+-Moduln.
+\end_layout
+
+\begin_layout Standard
+(Allgemein vertauscht Quotientenbildung mit jeder exakten Operation.)
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach Voraussetzung ist die Folge
+\begin_inset Formula 
+\begin{align*}
+0 & \to N\to M\to\modulo MN\to0
+\end{align*}
+
+\end_inset
+
+exakt.
+ Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Lokalisierung-exakt"
+
+\end_inset
+
+ also auch:
+\begin_inset Formula 
+\begin{align*}
+0 & \to S^{-1}N\to S^{-1}M\to S^{-1}\left(\modulo MN\right)\to0
+\end{align*}
+
+\end_inset
+
+Insbesondere ist 
+\begin_inset Formula $S^{-1}N\subseteq S^{-1}M$
+\end_inset
+
+ ein 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+-Untermodul.
+ Betrachte:
+\begin_inset Formula 
+\begin{align*}
+0 & \to S^{-1}N\to S^{-1}M\to\modulo{\left(S^{-1}M\right)}{\left(S^{-1}N\right)}\to0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=2.5ex
+, text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 0 & S^{-1}N & S^{-1}M & S^{-1}
+\backslash
+left(
+\backslash
+modulo{M}{N}
+\backslash
+right) & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     0 & S^{-1}N & S^{-1}M & 
+\backslash
+modulo{(S^{-1}M)}{(S^{-1}N)} & 0 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-3) edge (m-1-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-4) edge (m-1-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-2) edge (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-3) edge (m-2-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-4) edge (m-2-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge node[left]{
+\backslash
+text{id}} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-3) edge node[left]{
+\backslash
+text{id}} (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-5) edge (m-2-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-1-4) edge node[left]{$
+\backslash
+varphi$} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-3) -- node[circle,draw=black]{1} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Man sieht leicht, dass genau eine 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ existiert, sodass 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+tikz{
+\backslash
+node at (0,0) [circle,draw=black]{1};}
+\end_layout
+
+\end_inset
+
+ kommutiert, und dass 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ bijektiv ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
 
 \end_inset
 
