@@ -2448,7 +2448,7 @@ Abbildung $f:M\to N$ mit $f\circ\iota=\text{id}_{N}$ existiert.
 
 Zum Beispiel ist $2\mathbb{Z}\subseteq\mathbb{Z}$ kein direkter Summand
 und $0\to2\mathbb{Z}\to\mathbb{Z}\to\modlo Z2\to0$ spaltet nicht,
-da die einzige $A$-lineare Abbildung von $\modlo Z2\to\mathbb{Z}$
+da die einzige $\mathbb{Z}$-lineare Abbildung von $\modlo Z2\to\mathbb{Z}$
 die Nullabbildung ist.
 
 \end{iiilist}
@@ -3145,15 +3145,63 @@ für alle $i\in\mathbb{Z}$ in kurze exakte Folgen
 und wende $\otimes_{A}M$ an.\qqed
 
 
-\section{Proposition}
+\section{Proposition \textmd{(projektiv impliziert flach)}}
 
 Sei $A$ ein Ring. Jeder projektive (und insbesondere jeder freie)
-$A$-Modul ist flach.
+$A$-Modul $M$ ist flach.
 
 
 \subsubsection*{Beweis}
 
-\textcolor{green}{TODO: Beweis als Übung einfügen.}\qqed
+Sei $\alpha:L'\hookrightarrow L$ eine injektive $A$-lineare Abbildung.
+Zu zeigen ist, dass die Abbildung
+\begin{align*}
+\text{id}_{M}\otimes\alpha:M\otimes_{A}L' & \to M\otimes_{A}L
+\end{align*}
+injektiv ist.
+\begin{enumerate}
+\item Fall: $M$ ist frei, also ${\displaystyle M\stackrel{\sim}{=}A^{\left(I\right)}=\bigoplus_{i\in I}A}$.
+Das Diagramm\\
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1.5em, text height=1.5ex, text depth=0.25ex]
+  { M\otimes_A L' &  M\otimes_A L\\
+    \displaystyle{\bigoplus_{i\in I}} (A\otimes_A L') & \displaystyle{\bigoplus_{i\in I}} (A\otimes_A L) \\
+    \displaystyle{\bigoplus_{i\in I}} L' & \displaystyle{\bigoplus_{i\in I}} L \\
+     (l_i')_{i\in I} & (\alpha(l_i'))_{i\in I} \\};
+  \path[->] (m-1-1) edge (m-1-2)
+            (m-2-1) edge (m-2-2)
+            (m-3-1) edge (m-3-2);
+  \path[|->] (m-4-1) edge (m-4-2);
+  \draw[->] (m-1-1) -- node[above,rotate=90]{$\sim$} (m-2-1);
+  \draw[->] (m-2-1) -- node[above,rotate=90]{$\sim$} (m-3-1);
+  \draw[->] (m-1-2) -- node[above,rotate=90]{$\sim$} (m-2-2);
+  \draw[->] (m-2-2) -- node[above,rotate=90]{$\sim$} (m-3-2);
+\end{tikzpicture}
+\end{center}kommutiert, weil die senkrechten Isomorphismen natürlich sind. Außerdem
+ist die unterste Abbildung injektiv, weil $\alpha$ injektiv ist,
+und eine Abbildung in eine direkte Summe genau dann injektiv ist,
+wenn die Abbildung in die einzelnen Summanden injektiv ist. Also ist
+$M$ flach.
+\item Fall: $M$ ist projektiv, also direkter Summand eines freien $A$-Moduls,
+das heißt es gibt einen $A$-Modul $N$ mit $M+N\stackrel{\sim}{=}A^{\left(I\right)}$.
+Dann ist das Diagramm\\
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1.5em, text height=1.5ex, text depth=0.25ex]
+  { A^{(I)}\otimes_A L' &  A^{(I)}\otimes_A L\\
+    (M\otimes_A L') \oplus (N\otimes_A L') & (M\otimes_A L') \oplus (N\otimes_A L')\\
+     (m\otimes l',n\otimes \tilde l') & (m\otimes \alpha(l'),n\otimes \alpha(\tilde l')) \\};
+  \path[right hook->] (m-1-1) edge (m-1-2);
+  \path[->] (m-2-1) edge (m-2-2);
+  \path[|->] (m-3-1) edge (m-3-2);
+  \draw[->] (m-1-1) -- node[above,rotate=90]{$\sim$} (m-2-1);
+  \draw[->] (m-1-2) -- node[above,rotate=90]{$\sim$} (m-2-2);
+\end{tikzpicture}
+\end{center}kommutativ und somit auch $m\otimes l'\mapsto m\otimes\alpha\left(l'\right)$
+injektiv, also $M$ flach.
+\end{enumerate}
+\qqed
 
 
 \section{Proposition\label{sec:Prop-flach}}
@@ -3598,7 +3646,7 @@ erzeugt.
 vermöge $a\cdot b:=\beta\left(a\right)b$ für alle $a\in A$ und $b\in B$.)
 
 \abc \emph{endlich erzeugt} $:\Leftrightarrow$ Es gibt ein $n\in\mathbb{N}$
-und einen surjektiven $A$-Algebrenhomomorphismus $A\left[X_{1},\ldots,X_{n}\right]\twoheadrightarrow B$,
+und einen surjektiven $A$"=Algebrenhomomorphismus $A\left[X_{1},\ldots,X_{n}\right]\twoheadrightarrow B$,
 das heißt es gibt ein $n\in\mathbb{N}$ und $b_{1},\ldots,b_{n}\in B$
 so, dass sich jedes $b\in B$ schreibt als
 \begin{align*}
@@ -3812,10 +3860,44 @@ A\text{-Modul-Basen: }\left\{ X^{i}Y^{j}\right\}  & \qquad\left\{ X^{i}\right\} 
 \end{align*}
 
 
+\iii Für jeden Ring $A$ besteht eine in $A$ natürliche Isomorphie
+von $A$-Algebren
+\begin{align*}
+\varphi:A\left[X\right] & \stackrel{\sim}{\to}A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]
+\end{align*}
+mit
+\begin{align*}
+\varphi\left(a\right) & =a\otimes1
+\end{align*}
+für alle $a\in A$.
+
+\iii Sind $f:A\to B$ ein Ringhomomorphismus und $C$ eine endliche
+(beziehungsweise endlich erzeugte) $A$-Algebra, so ist die $B$-Algebra
+$B\otimes_{A}C$ endlich (beziehungsweise endlich erzeugt).
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { A & C \\
+     B & B \otimes_A C\\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ f $} (m-2-1)
+                                     edge (m-1-2)
+                             (m-2-1) edge (m-2-2)
+                             (m-1-2) edge (m-2-2); 
+\end{tikzpicture}
+\par\end{center}
+
+$B\otimes_{A}C$ nennt man \emph{den Basiswechsel der $A$-Algebra
+$C$ entlang $f$}.
+
+\end{iiilist}
+
 
 \subsubsection*{Beweis}
 
-Die Inklusionen
+\begin{iiilist}
+
+\iii Die Inklusionen
 \begin{align*}
 A\left[X\right],A\left[Y\right] & \hookrightarrow A\left[X,Y\right]=A\left[X\right]\left[Y\right]=A\left[Y\right]\left[X\right]
 \end{align*}
@@ -3859,45 +3941,117 @@ gelten:
 \end{align*}
 \qqed[\roman{ale2})]
 
-\iii Für jeden Ring $A$ besteht eine in $A$ natürliche Isomorphie
-von $A$-Algebren
+\iii Da $X\in A\left[X\right]$ die $A$-Algebra $A\left[X\right]$
+erzeugt, ist durch
 \begin{align*}
-\varphi:A\left[X\right] & \stackrel{\sim}{\to}A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]
+\alpha\left(X\right) & =1\otimes X
 \end{align*}
-mit
+ein eindeutiger$A$-Algebrenhomomorphismus definiert. Jedes $f\left(X\right)\in A\left[X\right]$
+lässt sich mit $n\in\mathbb{N}$ und $a_{k}\in A$ für $k\in\left\{ 0,1,\ldots,n\right\} $
+als
 \begin{align*}
-\varphi\left(a\right) & =a\otimes1
+f\left(X\right) & =\sum_{k=0}^{n}a_{k}X^{k}
 \end{align*}
-für alle $a\in A$.
-
-
-\subsubsection*{Beweis}
-
-\textcolor{green}{TODO: Beweis als Übung einfügen.}\qqed[\roman{ale2})]
-
-\iii Sind $f:A\to B$ ein Ringhomomorphismus und $C$ eine endliche
-(beziehungsweise endlich erzeugte) $A$-Algebra, so ist die $B$-Algebra
-$B\otimes_{A}C$ endlich (beziehungsweise endlich erzeugt).
-
-\noindent \begin{center}
-\begin{tikzpicture}
+darstellen. Für dieses gilt:
+\begin{align*}
+\alpha\left(f\left(X\right)\right) & =\alpha\left(\sum_{k=0}^{n}a_{k}X^{k}\right)=\sum_{k=0}^{n}a_{k}\cdot\left(\alpha\left(X\right)\right)^{k}=\sum_{k=0}^{n}a_{k}\cdot\left(1\otimes X\right)^{k}=\\
+ & =\sum_{k=0}^{n}a_{k}\cdot\left(1\otimes X^{k}\right)=\sum_{k=0}^{n}a_{k}\otimes X^{k}
+\end{align*}
+Sei $v\in A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]$. Dann kann
+man es mit $n\in\mathbb{N}$, $a_{k}\in A$ und $f_{k}\left(X\right)\in\mathbb{Z}\left[X\right]$
+für $k\in\left\{ 0,\ldots,n\right\} $ darstellen als:
+\begin{align*}
+v & =\sum_{k=0}^{n}a_{k}\otimes f_{k}\left(X\right)
+\end{align*}
+$f_{k}\left(X\right)$ besitzt mit $m_{k}\in\mathbb{N}$ und $z_{k,l}\in\mathbb{Z}$
+eine Darstellung:
+\begin{align*}
+f_{k}\left(X\right) & =\sum_{l=0}^{m_{k}}z_{k,l}X^{l}
+\end{align*}
+Wegen
+\begin{align*}
+A\ni z_{k,l}\cdot a_{k} & :=\text{sgn}\left(z_{k,l}\right)\cdot\sum_{j=1}^{\abs{z_{k,l}}}a_{k}=\begin{cases}
+\sum_{j=1}^{z_{k,l}}a_{k} & \text{falls }z_{k,l}>0\\
+0 & \text{falls }z_{k,l}=0\\
+-\sum_{j=1}^{z_{k,l}}a_{k} & \text{falls }z_{k,l}<0
+\end{cases}
+\end{align*}
+folgt aus der $\mathbb{Z}$-Bilinearität des Tensorprodukts:
+\begin{align*}
+v & =\sum_{k=0}^{n}a_{k}\otimes\left(\sum_{l=0}^{m_{k}}z_{k,l}X^{l}\right)=\sum_{k=0}^{n}\sum_{l=0}^{m_{k}}z_{k,l}\cdot\left(a_{k}\otimes X^{l}\right)=\sum_{k=0}^{n}\sum_{l=0}^{m_{k}}z_{k,l}\cdot a_{k}\cdot\left(1\otimes X\right)^{l}
+\end{align*}
+Daher ist $1\otimes X\in A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]$
+ein Erzeuger der $A$-Algebra $A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]$.
+Deswegen ist durch
+\begin{align*}
+\beta\left(1\otimes X\right) & =X
+\end{align*}
+ein eindeutiger$A$-Algebrenhomomorphismus definiert $\beta:A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]\to A\left[X\right]$
+definiert. Wegen
+\begin{align*}
+\left(\beta\circ\alpha\right)\left(X\right) & =\beta\left(1\otimes X\right)=X\\
+\left(\alpha\circ\beta\right)\left(1\otimes X\right) & =\alpha\left(X\right)=1\otimes X
+\end{align*}
+ist $\beta$ invers zu $\alpha$ und somit $\alpha$ ein Isomorphismus.\\
+Die Natürlichkeit im Ring $A$ bedeutet, dass für einen Ring $B$
+mit einem Ringhomomorphismus $g:A\to B$ das Diagramm\\
+\begin{center}
+\begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
   \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
-   { A & C \\
-     B & B \otimes_A C\\ };
-  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ f $} (m-2-1)
-                                     edge (m-1-2)
-                             (m-2-1) edge (m-2-2)
-                             (m-1-2) edge (m-2-2); 
+  { A[X] & A\otimes_{\mathbb{Z}}\mathbb{Z}[X]\\ B[X] & B\otimes_{\mathbb{Z}}\mathbb{Z}[X] \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above] {$\sim$} node[below]{$\alpha_A$} (m-1-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[left] {$ \tilde{g} $} (m-2-1);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above] {$ \sim $} node[below]{$\alpha_B$} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ g\otimes \text{id} $} (m-2-2);
 \end{tikzpicture}
-\par\end{center}
+\end{center}kommutiert. Dabei sind
+\begin{align*}
+\tilde{g}:A\left[X\right] & \to g_{*}\left(B\left[X\right]\right)\\
+\sum_{i=0}^{n}a_{i}X^{i} & \mapsto\sum_{i=0}^{n}g\left(a_{i}\right)X^{i}
+\end{align*}
+und
+\begin{align*}
+g\otimes\text{id}:A\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right] & \to g_{*}\left(B\otimes_{\mathbb{Z}}\mathbb{Z}\left[X\right]\right)\\
+\sum_{i=0}^{n}a_{i}\otimes f_{i}\left(X\right) & \mapsto\sum_{i=0}^{n}g\left(a_{i}\right)\otimes f_{i}\left(X\right)
+\end{align*}
+zwei $A$-Algebrenhomomorphismen. Nun gilt aber für den Erzeuger $X$
+von $A\left[X\right]$:
+\begin{align*}
+\left(\left(g\otimes\text{id}\right)\circ\alpha_{A}\right)\left(X\right) & =\left(g\otimes\text{id}\right)\left(1\otimes X\right)=g\left(1\right)\otimes X=1\otimes X=\\
+ & =\alpha_{B}\left(X\right)=\alpha_{B}\left(\tilde{g}\left(X\right)\right)=\left(\alpha_{B}\circ\tilde{g}\right)\left(X\right)
+\end{align*}
+Also kommutiert das Diagramm.\qqed[\roman{ale2})]
 
-$B\otimes_{A}C$ nennt man \emph{den Basiswechsel der $A$-Algebra
-$C$ entlang $f$}.
-
-
-\subsubsection*{Beweis}
-
-\textcolor{green}{TODO: Beweis als Übung einfügen.}\qqed[\roman{ale2})]
+\iii Sei $C$ endlich, das heißt der $A$-Modul $C$ ist endlich
+erzeugt, also gibt es ein $n\in\mathbb{N}$ und $c_{1},\ldots,c_{n}\in C$,
+sodass für jedes Element $c\in C$ mit geeigneten $a_{k}\in A$ gilt:
+\begin{align*}
+c & =\sum_{k=1}^{n}a_{k}c_{k}
+\end{align*}
+Jedes Element $v\in B\otimes_{A}C$ lässt sich mit geeigneten $b_{l}\in B$
+und $c_{l}\in C$ darstellen als:
+\begin{align*}
+v & =\sum_{l=1}^{m}b_{l}\otimes c_{l}=\sum_{l=1}^{m}b_{l}\otimes\left(\sum_{k=1}^{n}a_{l,k}c_{k}\right)=\sum_{l=1}^{m}\sum_{k=1}^{n}a_{l,k}\left(b_{l}\otimes c_{k}\right)=\\
+ & =\sum_{l=1}^{m}\sum_{k=1}^{n}a_{l,k}\cdot b_{l}\left(1\otimes c_{k}\right)=\sum_{k=1}^{n}\underbrace{\sum_{l=1}^{m}f\left(a_{l,k}\right)b_{l}}_{\in B}\left(1\otimes c_{k}\right)
+\end{align*}
+Also ist $v$ eine Linearkombination der $1\otimes c_{k}$ und somit
+$B\otimes_{A}C$ endlich.\\
+Sei $C$ endlich erzeugt, das heißt es gibt ein $n\in\mathbb{N}$
+und einen surjektiven $A$"=Algebrenhomomorphismus $f:A\left[X_{1},\ldots,X_{n}\right]\to C$.\\
+Dann ist der durch
+\begin{align*}
+g\left(X_{i}\right) & =1\otimes f\left(X_{i}\right)
+\end{align*}
+eindeutig definierte $B$-Algebrenhomomorphismus
+\begin{align*}
+g:B\left[X_{1},\ldots,X_{n}\right] & \to B\otimes_{A}C
+\end{align*}
+ebenfalls surjektiv, denn für ein $v\in B\otimes_{A}C$ gilt mit geeigneten
+$\alpha_{l}\in A\left[X_{1},\ldots,X_{n}\right]$:
+\begin{align*}
+v & =\sum_{l=1}^{m}b_{l}\otimes c_{l}=\sum_{l=1}^{m}b_{l}\otimes f\left(\alpha_{l}\right)=\sum_{l=1}^{m}b_{l}\cdot\left(1\otimes f\left(\alpha_{l}\right)\right)=\sum_{l=1}^{m}b_{l}\cdot g\left(\alpha_{l}\right)=g\left(\sum_{l=1}^{m}b_{l}\alpha_{l}\right)
+\end{align*}
+Daher ist $B\otimes_{A}C$ endlich erzeugt.\qqed[\roman{ale2})]
 
 \end{iiilist}
 
@@ -4233,7 +4387,7 @@ ist.
 Siehe Algebra.\qqed
 
 
-\section{Beispiel und Definition \textmd{(Lokalisierung, Funktionenkörper)}}
+\section{Beispiel und Definition \textmd{(Lokalisierung, Funktionenkörper)\label{sec:BuD-Lokalisierung}}}
 
 Sei $A$ ein Ring.
 
@@ -4305,7 +4459,7 @@ ein lokaler Ring.\qqed[\roman{ale2})]
 
 Es gilt:
 \begin{align*}
-\modulo{A\mathfrak{p}}{\mathfrak{p}A_{\mathfrak{p}}} & \stackrel{\sim}{=}\text{Quot}\left(\modulo A{\mathfrak{p}}\right)\left(=\kappa\left(\mathfrak{p}\right)\right)
+\modulo{A_{\mathfrak{p}}}{\mathfrak{p}A_{\mathfrak{p}}} & \stackrel{\sim}{=}\text{Quot}\left(\modulo A{\mathfrak{p}}\right)\left(=\kappa\left(\mathfrak{p}\right)\right)
 \end{align*}
 
 
@@ -4430,7 +4584,7 @@ x & =\frac{m}{s}\stackrel{u\in S}{=}\frac{um}{us}=\frac{f\left(m'\right)}{us}=\l
 \qqed
 
 
-\section{Korollar}
+\section{Korollar\label{sec:Kor-Quotientenbildung-Lokalisierung-vertauscht}}
 
 Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
 $N\subseteq M$ zwei $A$-Moduln. Dann gilt
@@ -4477,13 +4631,393 @@ Betrachte:
                              (m-1-3) edge node[left]{\text{id}} (m-2-3)
                              (m-1-5) edge (m-2-5);
   \path[->,font=\scriptsize,dashed] (m-1-4) edge node[left]{$\varphi$} (m-2-4);
-  \path (m-1-3) -- node[circle,draw=black]{1} (m-2-4);
+  \path (m-1-3) -- node[circle,draw=black,inner sep=1.5pt,font=\scriptsize]{1} (m-2-4);
 \end{tikzpicture}
 \par\end{center}
 
 Man sieht leicht, dass genau eine $S^{-1}A$-lineare Abbildung $\varphi$
-existiert, sodass \tikz{\node at (0,0) [circle,draw=black]{1};} kommutiert,
-und dass $\varphi$ bijektiv ist.\qqed
+existiert, sodass \begin{minipage}[c]{5mm}
+\tikz{\node [inner sep=1.5pt] at (0,0) [circle,draw=black,font=\scriptsize]{1};}\end{minipage} kommutiert, und dass $\varphi$ bijektiv ist.\qqed
+
+%DATE: Fr 1.6.12
+
+
+\section{Satz \textmd{(Lokalisierung als Tensorprodukt)}\label{sec:Satz-Lokalisierung-Tensorprodukt}}
+
+Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
+$M$ ein $A$-Modul. Dann existiert genau eine $A$-lineare Abbildung
+\begin{align*}
+\varphi_{M}:S^{-1}A\otimes_{A}M & \stackrel{\sim}{\to}S^{-1}M
+\end{align*}
+mit
+\begin{align*}
+\varphi_{M}\left(\frac{a}{s}\otimes m\right) & =\frac{am}{s}
+\end{align*}
+für alle $a\in A$, $s\in S$ und $m\in M$, und $\varphi_{M}$ ist
+ein in $M$ natürlicher $S^{-1}A$-linearer Isomorphismus.
+
+Also ist die Lokalisierung eines Moduls ein Spezialfall eines Basiswechsels.
+
+
+\subsubsection*{Beweis}
+
+Für die erste Aussage ist wegen \ref{sec:SuD-Tensorprodukt} nur die
+$A$-Bilinearität der Abbildung
+\begin{align*}
+S^{-1}A\times M & \to S^{-1}M\\
+\left(\frac{a}{s},m\right) & \mapsto\frac{am}{s}
+\end{align*}
+zu zeigen und diese ist klar. Folgende Rechnung zeigt, dass $\varphi_{M}$
+sogar $S^{-1}A$-linear ist:
+\begin{align*}
+\varphi_{M}\left(\frac{a}{s}\cdot\left(\frac{a'}{s'}\otimes m\right)\right) & =\varphi_{M}\left(\frac{aa'}{ss'}\otimes m\right)=\frac{\left(aa'\right)m}{ss'}=\frac{a}{s}\cdot\frac{a'm}{s'}=\frac{a}{s}\cdot\varphi_{M}\left(\frac{a'}{s'}\otimes m\right)
+\end{align*}
+Es ist klar, dass $\varphi_{M}$ surjektiv ist, denn für $m\in M$
+und $s\in S$ gilt:
+\begin{align*}
+\frac{m}{s} & =\varphi_{M}\left(\frac{1}{s}\otimes m\right)
+\end{align*}
+Sei nun $x\in\ker\left(\varphi_{M}\right)\subseteq S^{-1}A\otimes_{A}M$.
+Wie im Beweis von \ref{sec:BuD-Lokalisierung} i) (\quotedblbase{}Hauptnenner\textquotedblleft{})
+sieht man, dass für geeignete $s\in S$ und $ $$m\in M$ schon $x=\frac{1}{s}\otimes m$
+gilt. Es folgt:
+\begin{align*}
+0 & =\varphi_{M}\left(x\right)=\frac{m}{s}\in S^{-1}M
+\end{align*}
+Daher existiert ein $u\in S$ mit $u\cdot m=0$ in $M$. Also ist
+\begin{align*}
+x & =\frac{1}{s}\otimes m=\frac{u}{su}\otimes m=\frac{1}{us}\otimes\underbrace{\left(um\right)}_{=0}=0
+\end{align*}
+ein $S^{-1}A$-linearer Isomorphismus, dessen Natürlichkeit in $M$
+dann klar ist.\qqed
+
+
+\section{Korollar und Definition \textmd{(flache Algebra)}}
+
+Sind $A$ ein Ring und $S\subseteq A$ multiplikativ abgeschlossen,
+so ist
+\begin{align*}
+A & \to S^{-1}A\\
+a & \mapsto\frac{a}{1}
+\end{align*}
+\emph{eine flache $A$-Algebra}, das heißt eine $A$-Algebra, deren
+zugrunde liegender $A$-Modul flach ist.
+
+
+\subsubsection*{Beweis}
+
+Ist $\mathscr{E}$ eine exakte Folge von $A$-Moduln, so ist die Folge
+$S^{-1}A\otimes_{A}\mathscr{E}\sr ={\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}S^{-1}\mathscr{E}$
+von $S^{-1}A$-Moduln nach \ref{sec:Satz-Lokalisierung-exakt} exakt.\qqed
+
+
+\section{Beispiel}
+
+Es folgt nochmal, dass $\mathbb{Q}=\left(\mathbb{Z}\setminus\left\{ 0\right\} \right)^{-1}\mathbb{Z}$
+ein flacher $\mathbb{Z}$-Modul ist. (vergleiche \ref{sec:KuD-flach-torsionsfrei},
+ii))
+
+Genauso ist für einen Körper $k$ nun $k\left(T\right)$ ein flacher
+$k\left[T\right]$-Modul.
+
+Diese Aussagen folgen auch direkt, da $\mathbb{Z}$ und $k\left[T\right]$
+torsionsfreie Hauptidealringe sind.
+
+Allgemeiner ist $k\left(T_{1},\ldots,T_{n}\right):=\text{Quot}\left(k\left[T_{1},\ldots,T_{n}\right]\right)$
+ein flacher $k\left[T_{1},\ldots,T_{n}\right]$-Modul. Beachte, dass
+$k\left[T_{1},\ldots,T_{n}\right]$ für $n\ge2$ kein Hauptidealring
+ist.
+
+
+\section{Proposition\label{sec:Prop-Tensorprodukt-Lokalisierung-vertauschen}}
+
+Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
+$M$ und $N$ zwei $A$-Moduln.
+
+Dann existiert genau eine $S^{-1}A$-lineare Abbildung
+\begin{align*}
+S^{-1}M\otimes_{S^{-1}A}S^{-1}N & \stackrel{\sim}{\to}S^{-1}\left(M\otimes_{A}N\right)
+\end{align*}
+mit
+\begin{align*}
+\left(\frac{m}{s}\otimes\frac{n}{t}\right) & \mapsto\frac{m\otimes n}{st}
+\end{align*}
+für alle $m\in M$, $n\in N$ und $s,t\in S$, und dieser ist ein
+natürlicher Isomorphismus.
+
+
+\subsubsection*{Beweis}
+
+Benutze, dass es für eine $A$-Algebra $f:A\to B$ bei $B$-Moduln
+$\tilde{M},\tilde{N}$, die vermöge $f$ auch $A$-Moduln sind, egal
+ist, über welchem Ring tensoriert wird, denn $\tilde{M}\otimes_{A}\tilde{N}$
+ist vermöge
+\begin{align*}
+b\cdot\left(m\otimes n\right) & :=\left(bm\right)\otimes n
+\end{align*}
+ein $B$-Modul und $\tilde{M}\otimes_{B}\tilde{N}$ vermöge
+\begin{align*}
+a\cdot\left(m\otimes n\right) & :=\left(f\left(a\right)m\right)\otimes n
+\end{align*}
+ein $A$-Modul und die Abbildung
+\begin{align*}
+\psi:\tilde{M}\otimes_{A}\tilde{N} & \stackrel{\sim}{\to}\tilde{M}\otimes_{B}\tilde{N}\\
+m\otimes n & \mapsto m\otimes n
+\end{align*}
+ist ein $A,B$-linearer Isomorphismus, denn es gilt
+\begin{align*}
+\psi\left(a\left(m\otimes n\right)\right) & =\psi\left(\left(a\cdot m\right)\otimes n\right)=\left(a\cdot m\right)\otimes n=\left(f\left(a\right)m\right)\otimes n=a\cdot\left(m\otimes n\right)=a\psi\left(m\otimes n\right)\\
+\psi\left(b\left(m\otimes n\right)\right) & =\psi\left(\left(bm\right)\otimes n\right)=\left(bm\right)\otimes n=b\cdot\left(m\otimes n\right)=b\psi\left(m\otimes n\right)
+\end{align*}
+und
+\begin{align*}
+\varphi:\tilde{M}\otimes_{B}\tilde{N} & \stackrel{\sim}{\to}\tilde{M}\otimes_{A}\tilde{N}\\
+m\otimes n & \mapsto m\otimes n
+\end{align*}
+ist wegen
+\begin{align*}
+\varphi\left(a\left(m\otimes n\right)\right) & =\varphi\left(\left(f\left(a\right)m\right)\otimes n\right)=\left(f\left(a\right)m\right)\otimes n=\left(a\cdot m\right)\otimes n=a\cdot\left(m\otimes n\right)=a\varphi\left(m\otimes n\right)\\
+\varphi\left(b\left(m\otimes n\right)\right) & =\varphi\left(\left(bm\right)\otimes n\right)=\left(bm\right)\otimes n=b\cdot\left(m\otimes n\right)=b\varphi\left(m\otimes n\right)
+\end{align*}
+$A,B$-linear und offenbar die Umkehrabbildung zu $\psi$. Damit folgt:
+\begin{align*}
+S^{-1}M\otimes_{S^{-1}A}S^{-1}N & \sr{\to}{\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}\left(S^{-1}A\otimes_{A}M\right)\otimes_{S^{-1}A}\left(S^{-1}A\otimes_{A}N\right)\stackrel{\sim}{\to}\\
+ & \sr{\to}{\sim}{}\left(S^{-1}A\otimes_{A}M\right)\otimes_{A}\left(S^{-1}A\otimes_{A}N\right)\stackrel{\sim}{\to}\\
+ & \sr{\to}{\sim}{\ref{sec:Satz-natuerliche-Isomorphismen}\text{ i), ii)}}M\otimes_{A}\left(S^{-1}A\otimes_{A}S^{-1}A\right)\otimes_{A}N\stackrel{\sim}{\to}\\
+ & \sr{\to}{\sim}{}M\otimes_{A}\left(S^{-1}A\otimes_{S^{-1}A}S^{-1}A\right)\otimes_{A}N\stackrel{\sim}{\to}\\
+ & \sr{\to}{\sim}{\ref{sec:Satz-natuerliche-Isomorphismen}\text{ v)}}M\otimes_{A}S^{-1}A\otimes_{A}N\stackrel{\sim}{\to}\\
+ & \stackrel{\sim}{\to}S^{-1}A\otimes_{A}\left(M\otimes_{A}N\right)\stackrel{\sim}{\to}\\
+ & \sr{\to}{\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}S^{-1}\left(M\otimes_{A}N\right)
+\end{align*}
+Man prüft noch, dass die Komposition der Isomorphismen wie angegeben
+ist.\qqed
+
+
+\subsubsection*{Bemerkung}
+
+Allgemeiner zeigt derselbe Beweis:
+
+Für eine $A$-Algebra $f:A\to B$ und zwei $A$-Moduln $M$ und $N$,
+dann ist:
+\begin{align*}
+f^{*}M\otimes_{B}f^{*}N & \stackrel{\sim}{=}f^{*}\left(M\otimes_{A}N\right)
+\end{align*}
+Hier ist $f:A\to B:=S^{-1}A$.
+
+
+\subsubsection*{Beweis}
+
+\begin{align*}
+f^{*}M\otimes_{B}f^{*}N & \stackrel{\sim}{=}\left(B\otimes_{A}M\right)\otimes_{B}\left(B\otimes_{A}N\right)\stackrel{\sim}{=}\left(B\otimes_{A}M\right)\otimes_{A}\left(B\otimes_{A}N\right)\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}M\otimes_{A}\left(B\otimes_{A}B\right)\otimes_{A}N\stackrel{\sim}{=}M\otimes_{A}\underbrace{B\otimes_{B}B}_{=B}\otimes_{A}N\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}B\otimes_{A}\left(M\otimes_{A}N\right)\stackrel{\sim}{=}f^{*}\left(M\otimes_{A}N\right)
+\end{align*}
+
+
+\qqed
+
+
+\section{Korollar\label{sec:Kor-Tensorprodukt-LokalisierungBeiP-vertauschen}}
+
+Sind $A$ ein Ring, $\mathfrak{p}\subseteq A$ ein Primideal und $M$
+und $N$ zwei $A$-Moduln, so existiert ein kanonischer Isomorphismus
+\begin{align*}
+M_{\mathfrak{p}}\otimes_{A_{\mathfrak{p}}}N_{\mathfrak{p}} & \stackrel{\sim}{\to}\left(M\otimes_{A}N\right)_{\mathfrak{p}}
+\end{align*}
+von $A_{\mathfrak{p}}$-Moduln.
+
+
+\subsubsection*{Beweis}
+
+Wähle $S=A\setminus\mathfrak{p}$ in \ref{sec:Prop-Tensorprodukt-Lokalisierung-vertauschen}.\qqed
+
+
+\section{Definition \textmd{(lokale Eigenschaft)}}
+
+Sei $A$ ein Ring. Eine Eigenschaft $\mathcal{P}$ von $A$-Moduln
+heißt \emph{lokal}, falls gilt:
+
+Jeder $A$-Moduln $M$ besitzt $\mathcal{P}$ genau dann, wenn für
+alle Primideale $\mathfrak{p}\subseteq A$ der $A_{\mathfrak{p}}$-Modul
+$M_{\mathfrak{p}}$ die Eigenschaft $\mathcal{P}$ besitzt.
+
+
+\section{Proposition \textmd{(Null zu sein ist lokal)\label{sec:Prop-Null-lokal}}}
+
+Seien $A$ ein Ring und $M$ ein $A$-Modul, dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $M=0$
+
+\iii Für alle Primideale $\mathfrak{p}\subseteq A$ gilt $M_{\mathfrak{p}}=0$.
+
+\iii Für alle maximalen Ideale $\mathfrak{m}\subseteq A$ gilt $M_{\mathfrak{m}}=0$.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+i) $\Rightarrow$ ii) folgt, da der einzige mögliche Zähler eines
+Elements von $M_{\mathfrak{p}}$ Null ist.
+
+ii) $\Rightarrow$ iii) ist klar, da jedes maximale Ideal ein Primideal
+ist.
+
+iii) $\Rightarrow$ i): Sei $x\in M$. Dann ist $I:=\left\{ a\in A\big|ax=0\right\} \subseteq A$
+ein Ideal.
+
+Ist $\mathfrak{m}\subseteq A$ ein maximales Ideal, so gilt $0=\frac{x}{1}$
+in $0=M_{\mathfrak{m}}=\left(A\setminus\mathfrak{m}\right)^{-1}M$.\\
+Also gibt es ein $a\in A\setminus\mathfrak{m}$ mit $ax=0\in M$.
+Es folgt $a\in I\setminus\mathfrak{m}$, also $I\not\subseteq\mathfrak{m}$.
+
+Da $\mathfrak{m}$ beliebig ist, folgt aus \ref{sec:Kor-ExistenzMaximalesIdealenthaeltI},
+dass $I=A$ gilt. Es folgt:
+\begin{align*}
+x & =1\cdot x\stackrel{1\in I}{=}0
+\end{align*}
+\qqed
+
+
+\section{Proposition \textmd{(Mono- oder Epimorphimus zu sein ist lokal)\label{sec:Prop-Mono-Epi-lokal}}}
+
+Seien $A$ ein Ring, $M$ und $N$ zwei $A$-Moduln und $f:M\to N$
+eine $A$-lineare Abbildung.
+
+Dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $f$ ist injektiv (beziehungsweise surjektiv).
+
+\iii Für alle Primideale $\mathfrak{p}\subseteq A$ ist
+\begin{align*}
+f_{\mathfrak{p}}:=\left(A\setminus\mathfrak{p}\right)^{-1}\left(f\right):M_{\mathfrak{p}} & \to N_{\mathfrak{p}}
+\end{align*}
+injektiv (beziehungsweise surjektiv).
+
+\iii Für alle maximalen Ideale $\mathfrak{m}\subseteq A$ ist
+\begin{align*}
+f_{\mathfrak{m}}:=\left(A\setminus\mathfrak{m}\right)^{-1}\left(f\right):M_{\mathfrak{m}} & \to N_{\mathfrak{m}}
+\end{align*}
+injektiv (beziehungsweise surjektiv).
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+i) $\Rightarrow$ ii) folgt aus der Exaktheit der Lokalisierung \ref{sec:Satz-Lokalisierung-exakt}.
+
+ii) $\Rightarrow$ iii): Jedes maximale Ideal ist nach \ref{sec:Bsp-Prim-maximales-Ideal}
+ein Primideal.
+
+iii) $\Rightarrow$ i): Betrachte die exakte Folge von $A$-Moduln
+\begin{align*}
+0\to\ker\left(f\right)\to M & \stackrel{f}{\to}N\to\text{koker}\left(f\right)=\modulo N{\text{im}\left(f\right)}\to0
+\end{align*}
+Für jedes maximale Ideal $\mathfrak{m}\subseteq A$ ist dann nach
+\ref{sec:Satz-Lokalisierung-exakt} die Folge von $A_{\mathfrak{m}}$-Moduln
+\begin{align*}
+0\to\ker\left(f\right)_{\mathfrak{m}}\to M_{\mathfrak{m}} & \stackrel{f}{\to}N_{\mathfrak{m}}\to\text{koker}\left(f\right)_{\mathfrak{m}}\to0
+\end{align*}
+exakt, und es folgt wie im Beweis von 3.7:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=2.5ex, text depth=0.75ex]
+   { 0 & \ker\left(f\right)_{\mathfrak{m}} & M_{\mathfrak{m}} & N_{\mathfrak{m}} & \text{koker}\left(f\right)_{\mathfrak{m}} & 0 \\
+     0 & \ker\left(f_{\mathfrak{m}}\right) & M_{\mathfrak{m}} & N_{\mathfrak{m}} & \text{koker}\left(f_{\mathfrak{m}}\right) & 0 \\};
+  \path[->,font=\scriptsize] (m-1-1) edge (m-1-2)
+                             (m-1-2) edge (m-1-3)
+                             (m-1-3) edge (m-1-4)
+                             (m-1-4) edge (m-1-5)
+                             (m-1-5) edge (m-1-6);
+  \path[->,font=\scriptsize] (m-2-1) edge (m-2-2)
+                             (m-2-2) edge (m-2-3)
+                             (m-2-3) edge (m-2-4)
+                             (m-2-4) edge (m-2-5)
+                             (m-2-5) edge (m-2-6);
+  \path[->,font=\scriptsize] (m-1-1) edge (m-2-1)
+                             (m-1-6) edge (m-2-6)
+                             (m-1-3) edge node[left]{\text{id}} (m-2-3)
+                             (m-1-4) edge node[left]{\text{id}} (m-2-4);
+  \path[->,font=\scriptsize,dashed] (m-1-5) edge node[left]{$\stackrel{\sim}{=}$} (m-2-5);
+  \path[->,font=\scriptsize,dashed] (m-1-2) edge node[left]{$\stackrel{\sim}{=}$} (m-2-2);
+\end{tikzpicture}
+\begin{align*}
+\ker\left(f\right)_{\mathfrak{m}} & =\ker\left(f_{\mathfrak{m}}\right)\\
+\text{koker}\left(f\right)_{\mathfrak{m}} & =\text{koker}\left(f_{\mathfrak{m}}\right)
+\end{align*}
+
+\par\end{center}
+
+Ist $f_{\mathfrak{m}}$ injektiv (bzw. surjektiv), so folgt $\ker\left(f\right)_{\mathfrak{m}}=0$
+(bzw. $\text{koker}\left(f\right)_{\mathfrak{m}}=0$) für alle maximalen
+Ideale $\mathfrak{m}\subseteq A$ nach \ref{sec:Prop-Null-lokal}
+iii) $\Rightarrow$ i), also $\ker\left(f\right)=0$ (bzw. $\text{koker}\left(f\right)=0$),
+das heißt $f$ ist injektiv (bzw. surjektiv).\qqed
+
+
+\section{Proposition \textmd{(Flachheit ist eine lokale Eigenschaft)}}
+
+Seien $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $M$ ist ein flacher $A$-Modul.
+
+\iii Für alle Primideale $\mathfrak{p}\subseteq A$ ist $M_{\mathfrak{p}}$
+ein flacher $A_{\mathfrak{p}}$-Modul.
+
+\iii Für alle maximalen Ideale $\mathfrak{m}\subseteq A$ ist $M_{\mathfrak{m}}$
+ein flacher $A_{\mathfrak{m}}$-Modul.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+i) $\Rightarrow$ ii): Für eine exakte Folge $\mathscr{E}$ von $A_{\mathfrak{p}}$-Moduln
+gilt:
+\begin{align*}
+\mathscr{E}\otimes_{A_{\mathfrak{p}}}M_{\mathfrak{p}} & \sr ={\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}\mathscr{E}\otimes_{A_{\mathfrak{p}}}\left(A_{\mathfrak{p}}\otimes_{A}M\right)\stackrel{\sim}{=}\mathscr{E}\otimes_{A}M
+\end{align*}
+und diese Folge ist exakt, da $\mathscr{E}$ auch aufgefasst als Folge
+von $A$-Moduln vermöge $A\to A_{\mathfrak{p}}$ exakt ist, und $M$
+ein flacher $A$-Modul ist.
+
+ii) $\Rightarrow$ iii) ist klar.
+
+iii) $\Rightarrow$ i): Wegen \ref{sec:PuD-flacherModul} iii) zeige:
+
+Ist $\iota:N'\hookrightarrow N$ ein $A$-linearer Monomorphismus,
+so ist $\iota\otimes\text{id}:N'\otimes_{A}M\to N\otimes_{A}M$ injektiv.
+
+Wegen \ref{sec:Prop-Mono-Epi-lokal} iii) $\Rightarrow$ i) genügt
+es zu zeigen, dass für alle maximalen Ideale $\mathfrak{m}\subseteq A$
+die $A_{\mathfrak{m}}$-lineare Abbildung $\left(\iota\otimes\text{id}\right)_{\mathfrak{m}}:\left(N'\otimes_{A}M\right)_{\mathfrak{m}}\to\left(N\otimes_{A}M\right)_{\mathfrak{m}}$
+injektiv ist.
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { \left(\iota\otimes\text{id}\right)_{\mathfrak{m}}: & \left(N'\otimes_{A}M\right)_{\mathfrak{m}} & \left(N\otimes_{A}M\right)_{\mathfrak{m}} \\
+     \iota_{\mathfrak{m}}\otimes\text{id}_{M_\mathfrak{m}}: & N'_{\mathfrak{m}}\otimes_{A_{\mathfrak{m}}}M_{\mathfrak{m}} & N_{\mathfrak{m}}\otimes_{A_{\mathfrak{m}}}M_{\mathfrak{m}} \\ };
+  \path[->,font=\scriptsize] (m-1-2) edge (m-1-3)
+                             (m-2-2) edge (m-2-3);
+  \path[->,font=\scriptsize] (m-1-2) edge node[above,rotate=90]{$\sim$} node[right]{\ref{sec:Kor-Tensorprodukt-LokalisierungBeiP-vertauschen}} (m-2-2)
+                             (m-1-3) edge node[above,rotate=90]{$\sim$} node[right]{\ref{sec:Kor-Tensorprodukt-LokalisierungBeiP-vertauschen}} (m-2-3);
+\end{tikzpicture}
+\par\end{center}
+
+Nun ist mit $\iota$ auch $\iota_{\mathfrak{m}}$ nach \ref{sec:Satz-Lokalisierung-exakt}
+injektiv, und da $M_{\mathfrak{m}}$ ein flacher $A_{\mathfrak{m}}$-Modul
+ist, ist auch $\iota_{\mathfrak{m}}\otimes\text{id}_{M_{\mathfrak{m}}}$
+und damit $\left(\iota\otimes\text{id}_{M}\right)_{\mathfrak{m}}$
+injektiv.\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}
