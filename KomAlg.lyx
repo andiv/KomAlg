@@ -40,6 +40,13 @@
 \end{tikzpicture}
 }
 
+% Zahlen im Kreis
+\newcommand{\encircle}[1]{\tikz{\node [inner sep=1.5pt] at (0,0) [circle,draw=black,font=\scriptsize]{#1};}}
+\newlength{\breite}
+\newcommand{\encirc}[1]{
+\settowidth{\breite}{\encircle{#1}}
+\begin{minipage}[c]{\breite}\encircle{#1}\end{minipage}}
+
 %QED-Zeichen (Box)
 \newcommand{\qed}{\ensuremath{\Box}}
 \newcommand{\qqed}[1][\arabic{chapter}.\arabic{section}\ifnum\arabic{subsection}>0{.\arabic{subsection}}\fi]{\hfill\qed\ensuremath{_{\text{#1}}}}
@@ -5325,15 +5332,23 @@ iii
 
 \end_inset
 
- Gilt 
+ 
 \begin_inset Formula $A\setminus\mathfrak{m}\subseteq A^{*}$
 \end_inset
 
-, so ist 
+ gilt genau dann, wenn 
 \begin_inset Formula $\left(A,\mathfrak{m}\right)$
 \end_inset
 
- ein lokaler Ring.
+ ein lokaler Ring ist.
+\end_layout
+
+\begin_layout Standard
+In diesem Fall ist 
+\begin_inset Formula $A\setminus\mathfrak{m}=A^{*}$
+\end_inset
+
+.
 \end_layout
 
 \begin_layout Standard
@@ -5413,7 +5428,52 @@ iii
 
 \end_inset
 
- Ist 
+ Da 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ ein echtes Ideal ist, gilt für alle 
+\begin_inset Formula $u\in A^{*}$
+\end_inset
+
+ schon 
+\begin_inset Formula $u\in A\setminus\mathfrak{m}$
+\end_inset
+
+, denn sonst wäre mit 
+\begin_inset Formula $u\in\mathfrak{m}$
+\end_inset
+
+ auch:
+\begin_inset Formula 
+\begin{align*}
+u^{-1}\cdot u=1 & \in\mathfrak{m}
+\end{align*}
+
+\end_inset
+
+Das hieße 
+\begin_inset Formula $\mathfrak{m}=\left(1\right)$
+\end_inset
+
+ im Widerspruch zu 
+\begin_inset Formula $\mathfrak{m}\subsetneq A$
+\end_inset
+
+.
+ Daher gilt 
+\begin_inset Formula $A^{*}\subseteq A\setminus\mathfrak{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+“: Ist 
 \begin_inset Formula $I\subseteq A$
 \end_inset
 
@@ -5474,6 +5534,84 @@ Angenommen es gilt
 
  im Widerspruch zur Maximalität von 
 \begin_inset Formula $\mathfrak{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“: Ist 
+\begin_inset Formula $\left(A,\mathfrak{m}\right)$
+\end_inset
+
+ ein lokaler Ring, und sei 
+\begin_inset Formula $u\in A\setminus\mathfrak{m}$
+\end_inset
+
+.
+ Dann ist 
+\begin_inset Formula $\left(u\right)\subseteq A$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left(u\right)\not\subseteq\mathfrak{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wäre 
+\begin_inset Formula $\left(u\right)\not=\left(1\right)$
+\end_inset
+
+, so gäbe es nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-ExistenzMaximalesIdealenthaeltI"
+
+\end_inset
+
+ ein maximales Ideal 
+\begin_inset Formula $\mathfrak{n}\subseteq A$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left(u\right)\subseteq\mathfrak{n}$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ das einzige maximale Ideal ist, folgt 
+\begin_inset Formula $\mathfrak{m}=\mathfrak{n}$
+\end_inset
+
+ und somit der Widerspruch 
+\begin_inset Formula $\left(u\right)\subseteq\mathfrak{m}$
+\end_inset
+
+.
+ Also ist 
+\begin_inset Formula $\left(u\right)=\left(1\right)$
+\end_inset
+
+ und somit gibt es ein 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ mit 
+\begin_inset Formula $au=1$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $u\in A^{*}$
 \end_inset
 
 .
@@ -10090,6 +10228,13 @@ end{iiilist}
 Proposition 
 \series medium
 (Isomorphiesätze)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-Isomorphiesaetze"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -14051,7 +14196,15 @@ Seien
 \end_inset
 
 -Moduln.
- Dann existiert eine 
+ Dann existiert ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $M\otimes_{A}N$
+\end_inset
+
+ und eine 
 \begin_inset Formula $A$
 \end_inset
 
@@ -14132,7 +14285,7 @@ Schreibe
 \end_inset
 
  für alle 
-\begin_inset Formula $\left(m,n\right)\in M\times n$
+\begin_inset Formula $\left(m,n\right)\in M\times N$
 \end_inset
 
 .
@@ -17044,6 +17197,13 @@ qqed
 Proposition 
 \series medium
 (projektiv impliziert flach)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-projektiv-impliziert-flach"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -22174,6 +22334,400 @@ end{iiilist}
 \end_layout
 
 \begin_layout Section
+Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lem-AmodIdealIsomorphMmodIM"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+\end_layout
+
+\begin_layout Standard
+Dann ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\varphi^{-1}:\modulo AI\otimes_{A}M & \stackrel{\sim}{\to}\modulo M{IM}
+\end{align*}
+
+\end_inset
+
+ein in dem 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $M$
+\end_inset
+
+ natürlicher Isomorphismus.
+\end_layout
+
+\begin_layout Subsubsection*
+
+\shape italic
+\emph on
+Beweis
+\end_layout
+
+\begin_layout Standard
+Betrachte die kurze exakte Folge:
+\begin_inset Formula 
+\begin{align*}
+0 & \to I\stackrel{\iota}{\hookrightarrow}A\stackrel{\pi}{\twoheadrightarrow}\modulo AI\to0
+\end{align*}
+
+\end_inset
+
+Aufgrund der Rechtsexaktheit des Tensorprodukts ist auch die Folge
+\begin_inset Formula 
+\begin{align*}
+I\otimes_{A}M\stackrel{\iota\otimes\text{id}}{\to}A\otimes_{A}M\stackrel{\pi\otimes\text{id}}{\to}\modulo AI\otimes_{A}M\to0
+\end{align*}
+
+\end_inset
+
+exakt, also insbesondere:
+\begin_inset Formula 
+\begin{align*}
+\ker\left(\pi\otimes\text{id}\right) & =\text{im}\left(\iota\otimes\text{id}\right)
+\end{align*}
+
+\end_inset
+
+Nun ist aber
+\begin_inset Formula 
+\begin{align*}
+\alpha:M & \stackrel{\sim}{\to}A\otimes_{A}M\\
+m & \mapsto1\otimes m
+\end{align*}
+
+\end_inset
+
+ein Isomorphismus mit der Umkehrabbildung:
+\begin_inset Formula 
+\begin{align*}
+\alpha^{-1}:A\otimes_{A}M & \stackrel{\sim}{\to}M\\
+a\otimes m & \mapsto a\cdot m
+\end{align*}
+
+\end_inset
+
+Betrachte nun
+\begin_inset Formula 
+\begin{align*}
+I\otimes_{A}M\stackrel{\iota\otimes\text{id}}{\to}A\otimes_{A}M\sr{\to}{\sim}{\alpha^{-1}}M\sr{\to}{\sim}{\alpha}A\otimes_{A}M\stackrel{\pi\otimes\text{id}}{\twoheadrightarrow}\modulo AI\otimes_{A}M\to0
+\end{align*}
+
+\end_inset
+
+also:
+\begin_inset Formula 
+\begin{align*}
+I\otimes_{A}M\stackrel{f:=\alpha^{-1}\circ\left(\iota\otimes\text{id}\right)}{\to}M\stackrel{g:=\left(\pi\otimes\text{id}\right)\circ\alpha}{\twoheadrightarrow}\modulo AI\otimes_{A}M\to0
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ ein Isomorphismus ist, gilt noch immer:
+\begin_inset Formula 
+\begin{align*}
+\ker\left(g\right) & =\text{im}\left(f\right)=f\left(I\otimes_{A}M\right)=IM
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $g$
+\end_inset
+
+ surjektiv ist folgt damit aus dem Homomorphiesatz, dass
+\begin_inset Formula 
+\begin{align*}
+\varphi:\modulo M{IM} & \stackrel{\sim}{\to}\modulo AI\otimes_{A}M\\
+m+IM & \mapsto g\left(m\right)=\left(1+I\right)\otimes_{A}m
+\end{align*}
+
+\end_inset
+
+ein Isomorphismus von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln ist.
+\end_layout
+
+\begin_layout Standard
+Sei nun 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modulhomomorphismus, so kommutiert das Diagramm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2.5em, column sep=2em, text height=2ex,
+ text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { 
+\backslash
+modulo{A}{I}
+\backslash
+otimes_{A}M & 
+\backslash
+modulo{M}{IM}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+modulo{A}{I}
+\backslash
+otimes_{A}N & 
+\backslash
+modulo{N}{IN}
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge node[above]{$
+\backslash
+varphi_M$} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-1) edge node[above]{$
+\backslash
+varphi_N$} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-1) edge node[left]{$
+\backslash
+text{id}
+\backslash
+otimes f$} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-2) edge node[left]{$ 
+\backslash
+overline{f}$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+wegen:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2.5em, column sep=2em, text height=2ex,
+ text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { (a+I)
+\backslash
+otimes m & am + IM
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    (a+I)
+\backslash
+otimes f(m) & a
+\backslash
+cdot f(m) + IN
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[|->] (m-1-1) edge node[above]{$
+\backslash
+varphi_M$} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-1) edge node[above]{$
+\backslash
+varphi_N$} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-1) edge node[left]{$
+\backslash
+text{id}
+\backslash
+otimes f$} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-2) edge node[left]{$ 
+\backslash
+overline{f}$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also ist die Isomorphie natürlich.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Beispiel 
 \series medium
 (Die Fasern von 
@@ -22205,6 +22759,13 @@ status open
 \end_inset
 
 )
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-Fasern-SpecZi->SpecZ"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -22506,7 +23067,7 @@ end{tikzpicture}
 und es gilt:
 \begin_inset Formula 
 \begin{align*}
-\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p} & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+1\right)}\otimes_{\mathbb{Z}}\modlo{\mathbb{Z}}p\sr ={\sim}{(\text{Blatt 5 Aufgabe 1 i)})}\modulo{\mathbb{Z}\left[X\right]}{\left(p,X^{2}+1\right)}\stackrel{\sim}{=}\\
+\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p} & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+1\right)}\otimes_{\mathbb{Z}}\modlo{\mathbb{Z}}p\sr ={\sim}{\ref{sec:Lem-AmodIdealIsomorphMmodIM}}\modulo{\mathbb{Z}\left[X\right]}{\left(p,X^{2}+1\right)}\stackrel{\sim}{=}\\
  & \stackrel{\sim}{=}\modulo{\mathbb{F}_{p}\left[X\right]}{\left(X^{2}+1\right)}\sr ={\sim}{\left(*\right)}\begin{cases}
 \modulo{\mathbb{F}_{2}\left[X\right]}{\left(\left(X+1\right)^{2}\right)} & ;\ p=2\\
 \mathbb{F}_{p}\times\mathbb{F}_{p} & ;\ p\equiv1\mod4\\
@@ -24896,7 +25457,9 @@ scriptsize] (m-1-1) edge (m-1-2)
 
 \begin_layout Plain Layout
 
-                             (m-1-3) edge (m-1-4)
+                             (m-1-3) edge node[above]{$
+\backslash
+alpha$} (m-1-4)
 \end_layout
 
 \begin_layout Plain Layout
@@ -24971,9 +25534,9 @@ varphi$} (m-2-4);
 
   
 \backslash
-path (m-1-3) -- node[circle,draw=black,inner sep=1.5pt,font=
+path (m-1-3) -- node{
 \backslash
-scriptsize]{1} (m-2-4);
+encircle{1}} (m-2-4);
 \end_layout
 
 \begin_layout Plain Layout
@@ -24989,45 +25552,27 @@ end{tikzpicture}
 \end_layout
 
 \begin_layout Standard
-Man sieht leicht, dass genau eine 
+Aus dem Homomorphiesatz folgt, dass genau ein 
 \begin_inset Formula $S^{-1}A$
 \end_inset
 
--lineare Abbildung 
+-linearer Isomorphismus 
 \begin_inset Formula $\varphi$
 \end_inset
 
  existiert, sodass 
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-begin{minipage}[c]{5mm}
-\end_layout
-
-\begin_layout Plain Layout
-
-
-\backslash
-tikz{
-\backslash
-node [inner sep=1.5pt] at (0,0) [circle,draw=black,font=
-\backslash
-scriptsize]{1};}
-\backslash
-end{minipage}
-\end_layout
-
+\begin_inset Formula $\encirc{1}$
 \end_inset
 
- kommutiert, und dass 
-\begin_inset Formula $\varphi$
+ kommutiert, denn 
+\begin_inset Formula $\alpha$
 \end_inset
 
- bijektiv ist.
+ ist surjektiv und 
+\begin_inset Formula $\ker\left(\alpha\right)\stackrel{\sim}{=}S^{-1}N$
+\end_inset
+
+.
 \begin_inset ERT
 status open
 
@@ -25446,6 +25991,489 @@ Allgemeiner ist
 \end_layout
 
 \begin_layout Section
+Proposition 
+\series medium
+(Projektionsformel)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-Projektionsformel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus, 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und 
+\begin_inset Formula $N$
+\end_inset
+
+ ein 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul.
+\end_layout
+
+\begin_layout Standard
+Dann existiert ein natürlicher Isomorphismus von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln:
+\begin_inset Formula 
+\begin{align*}
+N\otimes_{B}\left(B\otimes_{A}M\right)\stackrel{\text{Def.}}{=}f_{*}\left(N\otimes_{B}f^{*}\left(M\right)\right) & \stackrel{\sim}{=}f_{*}\left(N\right)\otimes_{A}M\stackrel{\text{Def.}}{=}N\otimes_{A}M
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+Für jedes 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ ist
+\begin_inset Formula 
+\begin{align*}
+N\times M & \to N\otimes_{A}M\\
+\left(n,m\right) & \mapsto\left(bn\right)\otimes m
+\end{align*}
+
+\end_inset
+
+eine 
+\begin_inset Formula $A$
+\end_inset
+
+-bilineare Abbildung, induziert also eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung:
+\begin_inset Formula 
+\begin{align*}
+\cdot b:N\otimes_{A}M & \to N\otimes_{A}M
+\end{align*}
+
+\end_inset
+
+Mit diesen Abbildungen als Skalarmultiplikation ist 
+\begin_inset Formula $N\otimes_{A}M$
+\end_inset
+
+ ein 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul.
+ Betrachte nun die Abbildung:
+\begin_inset Formula 
+\begin{align*}
+\varphi:N\times\left(B\times M\right) & \to N\otimes_{A}M\\
+\left(n,b,m\right) & \mapsto\left(bn\right)\otimes m
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=4.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { N
+\backslash
+times B 
+\backslash
+times M &   N
+\backslash
+otimes_A M 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     N
+\backslash
+times (B
+\backslash
+otimes_A M)  & 
+\backslash
+
+\backslash
+ 
+\end_layout
+
+\begin_layout Plain Layout
+
+     N
+\backslash
+otimes_B (B
+\backslash
+otimes_A M)  & 
+\backslash
+
+\backslash
+ };
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$ 
+\backslash
+varphi $} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left]{$
+\backslash
+text{id}
+\backslash
+times 
+\backslash
+tau$} (m-2-1) (m-2-1) edge (m-3-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,dashed,font=
+\backslash
+scriptsize] (m-2-1) edge node[above]{$
+\backslash
+psi$} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                                    (m-3-1) edge node[below]{$f$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path ($0.5*(m-2-1)+0.5*(m-1-1)$) -- node{
+\backslash
+encircle{1}} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path ($0.5*(m-3-1)+0.5*(m-2-1)$) -- node{
+\backslash
+encircle{2}} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zu 
+\begin_inset Formula $\encirc{1}$
+\end_inset
+
+: Für jedes 
+\begin_inset Formula $n\in N$
+\end_inset
+
+ ist 
+\begin_inset Formula $\varphi\left(n,.,.\right)$
+\end_inset
+
+ schon 
+\begin_inset Formula $A$
+\end_inset
+
+-bilinear, also faktorisiert 
+\begin_inset Formula $\varphi$
+\end_inset
+
+ eindeutig über ein 
+\begin_inset Formula $\psi$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Zu 
+\begin_inset Formula $\encirc{2}$
+\end_inset
+
+: 
+\begin_inset Formula $\psi$
+\end_inset
+
+ ist 
+\begin_inset Formula $B$
+\end_inset
+
+-bilinear nach Definition der 
+\begin_inset Formula $B$
+\end_inset
+
+-Modulstruktur auf 
+\begin_inset Formula $N\otimes_{A}M$
+\end_inset
+
+.
+ Also faktorisiert 
+\begin_inset Formula $\psi$
+\end_inset
+
+ eindeutig über eine 
+\begin_inset Formula $B$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Die Abbildung
+\begin_inset Formula 
+\begin{align*}
+N\times M & \to N\otimes_{B}\left(B\otimes_{A}N\right)\\
+\left(n,m\right) & \mapsto n\otimes1\otimes m
+\end{align*}
+
+\end_inset
+
+ist 
+\begin_inset Formula $A$
+\end_inset
+
+-bilinear, faktorisiert also über eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung:
+\begin_inset Formula 
+\begin{align*}
+g:N\otimes_{A}M & \to N\otimes_{B}\left(B\otimes_{A}N\right)
+\end{align*}
+
+\end_inset
+
+Um zu sehen, dass 
+\begin_inset Formula $f$
+\end_inset
+
+ und 
+\begin_inset Formula $g$
+\end_inset
+
+ zueinander invers sind, rechne auf den Erzeugern einerseits
+\begin_inset Formula 
+\begin{align*}
+f\left(g\left(n\otimes m\right)\right) & =f\left(n\otimes1\otimes m\right)=\left(1\cdot n\right)\otimes m=n\otimes m
+\end{align*}
+
+\end_inset
+
+und andererseits:
+\begin_inset Formula 
+\begin{align*}
+g\left(f\left(n\otimes b\otimes m\right)\right) & =g\left(\left(bn\right)\otimes m\right)=\left(bn\right)\otimes1\otimes m=n\otimes b\otimes m\in N\otimes_{B}\left(B\otimes_{A}M\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar 
+\series medium
+(Basiswechsel vertauscht mit Tensorprodukt)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-Tensorprodukt-Basiswechsel-vertauschen"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus und 
+\begin_inset Formula $M_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $M_{2}$
+\end_inset
+
+ zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln, so existiert ein natürlicher Isomorphismus von 
+\begin_inset Formula $B$
+\end_inset
+
+-Moduln:
+\begin_inset Formula 
+\begin{align*}
+\left(B\otimes_{A}M_{1}\right)\otimes_{B}\left(B\otimes M_{2}\right)=f^{*}\left(M_{1}\right)\otimes_{f^{*}\left(A\right)}f^{*}\left(M_{2}\right) & \stackrel{\sim}{=}f^{*}\left(M_{1}\otimes_{A}M_{2}\right)=B\otimes_{A}\left(M_{1}\otimes_{A}M_{2}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Beachte 
+\begin_inset Formula $f^{*}\left(A\right)\stackrel{\sim}{=}B\otimes_{A}A\stackrel{\sim}{=}B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Erhalte aus der Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Projektionsformel"
+
+\end_inset
+
+ mit 
+\begin_inset Formula $M:=M_{2}$
+\end_inset
+
+ und 
+\begin_inset Formula $N:=f^{*}\left(M_{1}\right)$
+\end_inset
+
+ einen 
+\begin_inset Formula $A$
+\end_inset
+
+-linearen Isomorphismus:
+\begin_inset Formula 
+\begin{align*}
+f_{*}\left(f^{*}\left(M_{1}\right)\otimes_{B}f^{*}\left(M_{2}\right)\right) & \stackrel{\sim}{\to}f_{*}\left(f^{*}\left(M_{1}\right)\right)\otimes_{A}M_{2}\stackrel{\sim}{=}\left(B\otimes_{A}M_{1}\right)\otimes_{A}M_{2}\stackrel{\sim}{=}\\
+ & \qquad\stackrel{\sim}{=}B\otimes_{A}\left(M_{1}\otimes_{A}M_{2}\right)\stackrel{\sim}{=}f_{*}\left(f^{*}\left(M_{1}\otimes_{A}M_{2}\right)\right)
+\end{align*}
+
+\end_inset
+
+Dieser ist 
+\begin_inset Formula $B$
+\end_inset
+
+-linear.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
 Proposition
 \begin_inset CommandInset label
 LatexCommand label
@@ -25521,203 +26549,30 @@ Beweis
 \end_layout
 
 \begin_layout Standard
-Benutze, dass es für eine 
-\begin_inset Formula $A$
-\end_inset
-
--Algebra 
-\begin_inset Formula $f:A\to B$
-\end_inset
-
- bei 
-\begin_inset Formula $B$
-\end_inset
-
--Moduln 
-\begin_inset Formula $\tilde{M},\tilde{N}$
-\end_inset
-
-, die vermöge 
-\begin_inset Formula $f$
-\end_inset
-
- auch 
-\begin_inset Formula $A$
-\end_inset
-
--Moduln sind, egal ist, über welchem Ring tensoriert wird, denn 
-\begin_inset Formula $\tilde{M}\otimes_{A}\tilde{N}$
-\end_inset
-
- ist vermöge
-\begin_inset Formula 
-\begin{align*}
-b\cdot\left(m\otimes n\right) & :=\left(bm\right)\otimes n
-\end{align*}
+Dies ist ein Spezialfall von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Tensorprodukt-Basiswechsel-vertauschen"
 
 \end_inset
 
-ein 
-\begin_inset Formula $B$
+ mit 
+\begin_inset Formula $f:A\to S^{-1}A=:B$
 \end_inset
 
--Modul und 
-\begin_inset Formula $\tilde{M}\otimes_{B}\tilde{N}$
-\end_inset
-
- vermöge
-\begin_inset Formula 
-\begin{align*}
-a\cdot\left(m\otimes n\right) & :=\left(f\left(a\right)m\right)\otimes n
-\end{align*}
-
-\end_inset
-
-ein 
-\begin_inset Formula $A$
-\end_inset
-
--Modul und die Abbildung
-\begin_inset Formula 
-\begin{align*}
-\psi:\tilde{M}\otimes_{A}\tilde{N} & \stackrel{\sim}{\to}\tilde{M}\otimes_{B}\tilde{N}\\
-m\otimes n & \mapsto m\otimes n
-\end{align*}
-
-\end_inset
-
-ist ein 
-\begin_inset Formula $A,B$
-\end_inset
-
--linearer Isomorphismus, denn es gilt
-\begin_inset Formula 
-\begin{align*}
-\psi\left(a\left(m\otimes n\right)\right) & =\psi\left(\left(a\cdot m\right)\otimes n\right)=\left(a\cdot m\right)\otimes n=\left(f\left(a\right)m\right)\otimes n=a\cdot\left(m\otimes n\right)=a\psi\left(m\otimes n\right)\\
-\psi\left(b\left(m\otimes n\right)\right) & =\psi\left(\left(bm\right)\otimes n\right)=\left(bm\right)\otimes n=b\cdot\left(m\otimes n\right)=b\psi\left(m\otimes n\right)
-\end{align*}
-
-\end_inset
-
-und
-\begin_inset Formula 
-\begin{align*}
-\varphi:\tilde{M}\otimes_{B}\tilde{N} & \stackrel{\sim}{\to}\tilde{M}\otimes_{A}\tilde{N}\\
-m\otimes n & \mapsto m\otimes n
-\end{align*}
-
-\end_inset
-
-ist wegen
-\begin_inset Formula 
-\begin{align*}
-\varphi\left(a\left(m\otimes n\right)\right) & =\varphi\left(\left(f\left(a\right)m\right)\otimes n\right)=\left(f\left(a\right)m\right)\otimes n=\left(a\cdot m\right)\otimes n=a\cdot\left(m\otimes n\right)=a\varphi\left(m\otimes n\right)\\
-\varphi\left(b\left(m\otimes n\right)\right) & =\varphi\left(\left(bm\right)\otimes n\right)=\left(bm\right)\otimes n=b\cdot\left(m\otimes n\right)=b\varphi\left(m\otimes n\right)
-\end{align*}
-
-\end_inset
-
-
-\begin_inset Formula $A,B$
-\end_inset
-
--linear und offenbar die Umkehrabbildung zu 
-\begin_inset Formula $\psi$
-\end_inset
-
-.
- Damit folgt:
-\begin_inset Formula 
-\begin{align*}
-S^{-1}M\otimes_{S^{-1}A}S^{-1}N & \sr{\to}{\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}\left(S^{-1}A\otimes_{A}M\right)\otimes_{S^{-1}A}\left(S^{-1}A\otimes_{A}N\right)\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{}\left(S^{-1}A\otimes_{A}M\right)\otimes_{A}\left(S^{-1}A\otimes_{A}N\right)\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{\ref{sec:Satz-natuerliche-Isomorphismen}\text{ i), ii)}}M\otimes_{A}\left(S^{-1}A\otimes_{A}S^{-1}A\right)\otimes_{A}N\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{}M\otimes_{A}\left(S^{-1}A\otimes_{S^{-1}A}S^{-1}A\right)\otimes_{A}N\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{\ref{sec:Satz-natuerliche-Isomorphismen}\text{ v)}}M\otimes_{A}S^{-1}A\otimes_{A}N\stackrel{\sim}{\to}\\
- & \stackrel{\sim}{\to}S^{-1}A\otimes_{A}\left(M\otimes_{A}N\right)\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}S^{-1}\left(M\otimes_{A}N\right)
-\end{align*}
-
-\end_inset
-
-Man prüft noch, dass die Komposition der Isomorphismen wie angegeben ist.
-\begin_inset ERT
-status open
-
-\begin_layout Plain Layout
-
-
-\backslash
-qqed
-\end_layout
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Subsubsection*
-Bemerkung
-\end_layout
-
-\begin_layout Standard
-Allgemeiner zeigt derselbe Beweis:
-\end_layout
-
-\begin_layout Standard
-Für eine 
-\begin_inset Formula $A$
-\end_inset
-
--Algebra 
-\begin_inset Formula $f:A\to B$
-\end_inset
-
- und zwei 
-\begin_inset Formula $A$
-\end_inset
-
--Moduln 
-\begin_inset Formula $M$
+, 
+\begin_inset Formula $M_{1}:=M$
 \end_inset
 
  und 
-\begin_inset Formula $N$
-\end_inset
-
-, dann ist:
-\begin_inset Formula 
-\begin{align*}
-f^{*}M\otimes_{B}f^{*}N & \stackrel{\sim}{=}f^{*}\left(M\otimes_{A}N\right)
-\end{align*}
-
-\end_inset
-
-Hier ist 
-\begin_inset Formula $f:A\to B:=S^{-1}A$
+\begin_inset Formula $M_{2}:=N$
 \end_inset
 
 .
 \end_layout
 
-\begin_layout Subsubsection*
-Beweis
-\end_layout
-
 \begin_layout Standard
-\begin_inset Formula 
-\begin{align*}
-f^{*}M\otimes_{B}f^{*}N & \stackrel{\sim}{=}\left(B\otimes_{A}M\right)\otimes_{B}\left(B\otimes_{A}N\right)\stackrel{\sim}{=}\left(B\otimes_{A}M\right)\otimes_{A}\left(B\otimes_{A}N\right)\stackrel{\sim}{=}\\
- & \stackrel{\sim}{=}M\otimes_{A}\left(B\otimes_{A}B\right)\otimes_{A}N\stackrel{\sim}{=}M\otimes_{A}\underbrace{B\otimes_{B}B}_{=B}\otimes_{A}N\stackrel{\sim}{=}\\
- & \stackrel{\sim}{=}B\otimes_{A}\left(M\otimes_{A}N\right)\stackrel{\sim}{=}f^{*}\left(M\otimes_{A}N\right)
-\end{align*}
-
-\end_inset
-
-
-\end_layout
-
-\begin_layout Standard
+Man prüft noch, dass die Komposition der Isomorphismen wie angegeben ist.
 \begin_inset ERT
 status open
 
@@ -25874,7 +26729,7 @@ Jeder
 \begin_layout Section
 Proposition 
 \series medium
-(Null zu sein ist lokal)
+(Null zu sein ist eine lokale Eigenschaft)
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Prop-Null-lokal"
@@ -26050,7 +26905,7 @@ Ist
 \begin_inset Formula $0=\frac{x}{1}$
 \end_inset
 
- in 
+ im Modul 
 \begin_inset Formula $0=M_{\mathfrak{m}}=\left(A\setminus\mathfrak{m}\right)^{-1}M$
 \end_inset
 
@@ -26062,12 +26917,15 @@ Also gibt es ein
 \begin_inset Formula $a\in A\setminus\mathfrak{m}$
 \end_inset
 
- mit 
-\begin_inset Formula $ax=0\in M$
+ mit:
+\begin_inset Formula 
+\begin{align*}
+0 & =a\left(1\cdot x-1\cdot0\right)=ax\in M
+\end{align*}
+
 \end_inset
 
-.
- Es folgt 
+Es folgt 
 \begin_inset Formula $a\in I\setminus\mathfrak{m}$
 \end_inset
 
@@ -26122,7 +26980,8 @@ qqed
 \begin_layout Section
 Proposition 
 \series medium
-(Mono- oder Epimorphimus zu sein ist lokal)
+(Mono- bzw.
+ Epimorphimus zu sein ist eine lokale Eigenschaft)
 \begin_inset CommandInset label
 LatexCommand label
 name "sec:Prop-Mono-Epi-lokal"
@@ -26288,7 +27147,23 @@ reference "sec:Satz-Lokalisierung-exakt"
 
 \end_inset
 
-.
+ angewandt auf die exakte Folge
+\begin_inset Formula 
+\begin{align*}
+0\to M\stackrel{f}{\to}N
+\end{align*}
+
+\end_inset
+
+beziehungsweise:
+\begin_inset Formula 
+\begin{align*}
+M\stackrel{f}{\to}N\to0
+\end{align*}
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -26311,11 +27186,7 @@ iii)
 \begin_inset Formula $\Rightarrow$
 \end_inset
 
- i): Betrachte die exakte Folge von 
-\begin_inset Formula $A$
-\end_inset
-
--Moduln
+ i): Betrachte die exakte Folge
 \begin_inset Formula 
 \begin{align*}
 0\to\ker\left(f\right)\to M & \stackrel{f}{\to}N\to\text{koker}\left(f\right)=\modulo N{\text{im}\left(f\right)}\to0
@@ -26323,7 +27194,12 @@ iii)
 
 \end_inset
 
-Für jedes maximale Ideal 
+ von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln.
+ Für jedes maximale Ideal 
 \begin_inset Formula $\mathfrak{m}\subseteq A$
 \end_inset
 
@@ -26334,11 +27210,7 @@ reference "sec:Satz-Lokalisierung-exakt"
 
 \end_inset
 
- die Folge von 
-\begin_inset Formula $A_{\mathfrak{m}}$
-\end_inset
-
--Moduln
+ die Folge
 \begin_inset Formula 
 \begin{align*}
 0\to\ker\left(f\right)_{\mathfrak{m}}\to M_{\mathfrak{m}} & \stackrel{f}{\to}N_{\mathfrak{m}}\to\text{koker}\left(f\right)_{\mathfrak{m}}\to0
@@ -26346,7 +27218,18 @@ reference "sec:Satz-Lokalisierung-exakt"
 
 \end_inset
 
-exakt, und es folgt wie im Beweis von 3.7:
+von 
+\begin_inset Formula $A_{\mathfrak{m}}$
+\end_inset
+
+-Moduln exakt, und wie im Beweis von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-Quotientenbildung-Lokalisierung-vertauscht"
+
+\end_inset
+
+ ergibt der Homomorphiesatz angewandt auf das Diagramm
 \end_layout
 
 \begin_layout Standard
@@ -26550,10 +27433,16 @@ end{tikzpicture}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align left
+die Isomorphien:
 \begin_inset Formula 
 \begin{align*}
-\ker\left(f\right)_{\mathfrak{m}} & =\ker\left(f_{\mathfrak{m}}\right)\\
-\text{koker}\left(f\right)_{\mathfrak{m}} & =\text{koker}\left(f_{\mathfrak{m}}\right)
+\ker\left(f\right)_{\mathfrak{m}} & \stackrel{\sim}{=}\ker\left(f_{\mathfrak{m}}\right)\\
+\text{koker}\left(f\right)_{\mathfrak{m}} & \stackrel{\sim}{=}\text{koker}\left(f_{\mathfrak{m}}\right)
 \end{align*}
 
 \end_inset
@@ -26580,7 +27469,8 @@ Ist
 \begin_inset Formula $\mathfrak{m}\subseteq A$
 \end_inset
 
- nach 
+.
+ Nach 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Prop-Null-lokal"
@@ -26591,7 +27481,7 @@ reference "sec:Prop-Null-lokal"
 \begin_inset Formula $\Rightarrow$
 \end_inset
 
- i), also 
+ i) ist daher 
 \begin_inset Formula $\ker\left(f\right)=0$
 \end_inset
 
@@ -26624,7 +27514,14 @@ qqed
 \begin_layout Section
 Proposition 
 \series medium
-(Flachheit ist eine lokale Eigenschaft)
+(Flach zu sein ist eine lokale Eigenschaft)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-flach-lokal"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -26776,7 +27673,7 @@ i)
 -Moduln gilt:
 \begin_inset Formula 
 \begin{align*}
-\mathscr{E}\otimes_{A_{\mathfrak{p}}}M_{\mathfrak{p}} & \sr ={\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}\mathscr{E}\otimes_{A_{\mathfrak{p}}}\left(A_{\mathfrak{p}}\otimes_{A}M\right)\stackrel{\sim}{=}\mathscr{E}\otimes_{A}M
+\mathscr{E}\otimes_{A_{\mathfrak{p}}}M_{\mathfrak{p}} & \sr ={\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}\mathscr{E}\otimes_{A_{\mathfrak{p}}}\left(A_{\mathfrak{p}}\otimes_{A}M\right)\sr ={\sim}{\ref{sec:Prop-Projektionsformel}}\mathscr{E}\otimes_{A}M
 \end{align*}
 
 \end_inset
@@ -26785,15 +27682,15 @@ und diese Folge ist exakt, da
 \begin_inset Formula $\mathscr{E}$
 \end_inset
 
- auch aufgefasst als Folge von 
-\begin_inset Formula $A$
-\end_inset
-
--Moduln vermöge 
+ auch vermöge 
 \begin_inset Formula $A\to A_{\mathfrak{p}}$
 \end_inset
 
- exakt ist, und 
+ aufgefasst als Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln exakt ist, und 
 \begin_inset Formula $M$
 \end_inset
 
@@ -26817,7 +27714,7 @@ iii)
 \begin_inset Formula $\Rightarrow$
 \end_inset
 
- i): Wegen 
+ i): Wegen dem Flachheitskriterium 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:PuD-flacherModul"
@@ -26844,7 +27741,7 @@ Ist
 \end_layout
 
 \begin_layout Standard
-Wegen 
+Da Monomorphismus zu sein eine lokale Eigenschaft ist, genügt es nach 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Prop-Mono-Epi-lokal"
@@ -26855,7 +27752,7 @@ reference "sec:Prop-Mono-Epi-lokal"
 \begin_inset Formula $\Rightarrow$
 \end_inset
 
- i) genügt es zu zeigen, dass für alle maximalen Ideale 
+ i) zu zeigen, dass für alle maximalen Ideale 
 \begin_inset Formula $\mathfrak{m}\subseteq A$
 \end_inset
 
@@ -26863,11 +27760,15 @@ reference "sec:Prop-Mono-Epi-lokal"
 \begin_inset Formula $A_{\mathfrak{m}}$
 \end_inset
 
--lineare Abbildung 
-\begin_inset Formula $\left(\iota\otimes\text{id}\right)_{\mathfrak{m}}:\left(N'\otimes_{A}M\right)_{\mathfrak{m}}\to\left(N\otimes_{A}M\right)_{\mathfrak{m}}$
+-lineare Abbildung
+\begin_inset Formula 
+\begin{align*}
+\left(\iota\otimes\text{id}\right)_{\mathfrak{m}}:\left(N'\otimes_{A}M\right)_{\mathfrak{m}} & \to\left(N\otimes_{A}M\right)_{\mathfrak{m}}
+\end{align*}
+
 \end_inset
 
- injektiv ist.
+injektiv ist.
 \end_layout
 
 \begin_layout Standard
@@ -27020,14 +27921,14 @@ Nun ist mit
 \begin_inset Formula $\iota_{\mathfrak{m}}$
 \end_inset
 
- nach 
+ injektiv, da Lokalisierung nach 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Satz-Lokalisierung-exakt"
 
 \end_inset
 
- injektiv, und da 
+ exakt ist, und da 
 \begin_inset Formula $M_{\mathfrak{m}}$
 \end_inset
 
@@ -27053,6 +27954,4606 @@ status open
 \backslash
 qqed
 \end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 5.6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Idealtheorie von 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}{S^(-1)A}
+\end_layout
+
+\end_inset
+
+)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Idealtheorie-Lokalisierung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring, 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen und 
+\begin_inset Formula $f:A\to S^{-1}A$
+\end_inset
+
+ der kanonische Ringhomomorphismus.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jedes Ideal 
+\begin_inset Formula $J\subseteq S^{-1}A$
+\end_inset
+
+ gilt 
+\begin_inset Formula $J=f_{*}\left(f^{*}\left(J\right)\right)$
+\end_inset
+
+.
+ Insbesondere ist jedes Ideal von 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+ Bild eines Ideals von 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jedes Ideal 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ gilt 
+\begin_inset Formula $f^{*}\left(f_{*}\left(I\right)\right)=\bigcup_{s\in S}\left\{ x\in A\big|sx\in I\right\} $
+\end_inset
+
+.
+ Insbesondere gilt:
+\begin_inset Formula 
+\begin{align*}
+f_{*}\left(I\right) & =\left(1\right)\quad\Leftrightarrow\quad I\cap S\not=\emptyset
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für ein Ideal 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ gilt 
+\begin_inset Formula $I=f^{*}\left(f_{*}\left(I\right)\right)$
+\end_inset
+
+ genau dann, wenn kein Element aus 
+\begin_inset Formula $S$
+\end_inset
+
+ ein Nullteiler in 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+ wird.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Abbildungen
+\begin_inset Formula 
+\begin{align*}
+f^{*}:\text{Spec}\left(S^{-1}A\right) & \sr{\rightleftarrows}{\sim}{\sim}\left\{ \mathfrak{p}\in\text{Spec}\left(A\right)|\mbox{\mathfrak{p}}\cap S=\emptyset\right\} :f_{*}
+\end{align*}
+
+\end_inset
+
+sind wohldefiniert und zueinander inverse Bijektionen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Allgemein gilt 
+\begin_inset Formula $f_{*}\left(f^{*}\left(J\right)\right)\subseteq J$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f_{*}\left(f^{*}\left(J\right)\right)=\left(f\left(f^{-1}\left(J\right)\right)\right)$
+\end_inset
+
+ ist das von 
+\begin_inset Formula $f\left(f^{*}\left(J\right)\right)$
+\end_inset
+
+ erzeugte Ideal in 
+\begin_inset Formula $B:=S^{-1}A$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Sei 
+\begin_inset Formula $y\in f_{*}\left(f^{*}\left(J\right)\right)$
+\end_inset
+
+, so gibt es ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und für 
+\begin_inset Formula $0\le k\le n$
+\end_inset
+
+ Elemente 
+\begin_inset Formula $x_{k}\in f^{*}\left(J\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $b_{k}\in B$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+y & =\sum_{k=0}^{n}b_{k}f\left(x_{k}\right)
+\end{align*}
+
+\end_inset
+
+Wegen 
+\begin_inset Formula $x_{k}\in f^{*}\left(J\right)$
+\end_inset
+
+ gibt es Elemente 
+\begin_inset Formula $z_{k}\in J$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(x_{k}\right)=z_{k}$
+\end_inset
+
+.
+ Also gilt, weil 
+\begin_inset Formula $J$
+\end_inset
+
+ ein Ideal ist:
+\begin_inset Formula 
+\begin{align*}
+y & =\sum_{k=0}^{n}b_{k}f\left(x_{k}\right)=\sum_{k=0}^{n}b_{k}z_{k}\in J
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $f_{*}\left(f^{*}\left(J\right)\right)\subseteq J$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei nun 
+\begin_inset Formula $x\in J\subseteq S^{-1}A$
+\end_inset
+
+.
+ Schreibe 
+\begin_inset Formula $x=\frac{a}{s}$
+\end_inset
+
+ mit geeigneten 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $s\in S$
+\end_inset
+
+.
+ Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+f\left(a\right) & =\frac{a}{1}=\frac{s}{1}\cdot\frac{a}{s}=\frac{s}{1}\cdot x\in J
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $a\in f^{*}\left(J\right)$
+\end_inset
+
+ und somit:
+\begin_inset Formula 
+\begin{align*}
+\frac{a}{1} & =f\left(a\right)\in f_{*}\left(f^{*}\left(J\right)\right)
+\end{align*}
+
+\end_inset
+
+Weil 
+\begin_inset Formula $J$
+\end_inset
+
+ ein Ideal ist, folgt:
+\begin_inset Formula 
+\begin{align*}
+x & =\frac{a}{1}\cdot\frac{1}{s}\in f_{*}\left(f^{*}\left(J\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+a\in f^{*}\left(f_{*}\left(I\right)\right) & \quad\Leftrightarrow\quad\frac{a}{1}=f\left(a\right)\in f_{*}\left(I\right)\stackrel{\encirc{1}}{=}\left\{ \left.\frac{x}{s}\right|x\in I,s\in S\right\} \quad\Leftrightarrow\\
+ & \quad\Leftrightarrow\quad\exs_{x\in I,s\in S}\frac{a}{1}=\frac{x}{s}\in S^{-1}A\quad\Leftrightarrow\\
+ & \quad\Leftrightarrow\quad\exs_{x\in I,s,t\in S}t\left(as-x\right)=0\in A\quad\Leftrightarrow\\
+ & \quad\stackrel{\encirc{2}}{\Leftrightarrow}\quad a\in\bigcup_{\tilde{t}\in S}\left\{ a\in A\big|\tilde{t}a\in I\right\} \supseteq I
+\end{align*}
+
+\end_inset
+
+Zu 
+\begin_inset Formula $\encirc{1}$
+\end_inset
+
+: 
+\begin_inset Formula $\supseteq$
+\end_inset
+
+ ist klar und 
+\begin_inset Formula $\subseteq$
+\end_inset
+
+ folgt mit Bildung des „Hauptnenners“.
+\end_layout
+
+\begin_layout Standard
+Zu 
+\begin_inset Formula $\encirc{2}$
+\end_inset
+
+: „
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+“: Wähle 
+\begin_inset Formula $\tilde{t}:=ts$
+\end_inset
+
+ und beachte 
+\begin_inset Formula $\tilde{t}a=tx\in I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“: Setze 
+\begin_inset Formula $x:=\tilde{t}a\in I$
+\end_inset
+
+, 
+\begin_inset Formula $s:=\tilde{t}\in S$
+\end_inset
+
+ und 
+\begin_inset Formula $t=1\in S$
+\end_inset
+
+.
+ Dann folgt:
+\begin_inset Formula 
+\begin{align*}
+0 & =t\cdot\left(a\cdot\tilde{t}-x\right)
+\end{align*}
+
+\end_inset
+
+Es folgt insbesondere:
+\begin_inset Formula 
+\begin{align*}
+f_{*}\left(I\right)=\left(1\right) & \quad\Leftrightarrow\quad f^{*}\left(f_{*}\left(I\right)\right)=\left(1\right)\quad\Leftrightarrow\\
+ & \quad\stackrel{\text{ii)}}{\Leftrightarrow}\quad1\in\bigcup_{s\in S}\left\{ x\in A\big|sx\in I\right\} \quad\Leftrightarrow\\
+ & \quad\stackrel{\text{ii)}}{\Leftrightarrow}\quad\exs_{s\in S}:s\cdot1\in I\quad\Leftrightarrow\quad S\cap I\not=\emptyset
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Allgemein gilt 
+\begin_inset Formula $I\subseteq f^{*}\left(f_{*}\left(I\right)\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f_{*}\left(I\right)=\left(f\left(I\right)\right)\subseteq S^{-1}A$
+\end_inset
+
+ ist das von 
+\begin_inset Formula $f\left(I\right)$
+\end_inset
+
+ erzeugte Ideal.
+\begin_inset Formula 
+\begin{align*}
+f^{*}\left(f_{*}\left(I\right)\right) & =f^{-1}\left(\left(f\left(I\right)\right)\right)
+\end{align*}
+
+\end_inset
+
+Sei 
+\begin_inset Formula $x\in I$
+\end_inset
+
+, so folgt 
+\begin_inset Formula $y:=f\left(x\right)\in f\left(I\right)\subseteq f_{*}\left(I\right)$
+\end_inset
+
+.
+ Also gilt:
+\begin_inset Formula 
+\begin{align*}
+x & \in f^{-1}\left(f\left(x\right)\right)=f^{-1}\left(y\right)\subseteq f^{-1}\left(f_{*}\left(I\right)\right)=f^{*}\left(f_{*}\left(I\right)\right)
+\end{align*}
+
+\end_inset
+
+Das heißt, es gilt 
+\begin_inset Formula $I\subseteq f^{*}\left(f_{*}\left(I\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Mit der Projektion 
+\begin_inset Formula $\pi:A\twoheadrightarrow\modulo AI$
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\begin{align*}
+I & \subseteq f^{*}\left(f_{*}\left(I\right)\right)\stackrel{\text{ii)}}{=}\bigcup_{s\in S}\left\{ x\in A\big|sx\in I\right\} \stackrel{\encirc{1}}{=}\bigcup_{s\in S}\pi^{-1}\left(\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} \right)
+\end{align*}
+
+\end_inset
+
+ Zu 
+\begin_inset Formula $\encirc{1}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Itemize
+„
+\begin_inset Formula $\subseteq$
+\end_inset
+
+“: Ist 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ und 
+\begin_inset Formula $x\in A$
+\end_inset
+
+ mit 
+\begin_inset Formula $sx\in I$
+\end_inset
+
+, so folgt:
+\begin_inset Formula 
+\begin{align*}
+s\pi\left(x\right) & =\pi\left(sx\right)\stackrel{sx\in I}{=}\overline{0}
+\end{align*}
+
+\end_inset
+
+Also gilt
+\begin_inset Formula 
+\begin{align*}
+\pi\left(x\right) & \in\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} 
+\end{align*}
+
+\end_inset
+
+und somit:
+\begin_inset Formula 
+\begin{align*}
+x & \in\pi^{-1}\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+„
+\begin_inset Formula $\supseteq$
+\end_inset
+
+“: Ist 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ und 
+\begin_inset Formula $x\in\pi^{-1}\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} $
+\end_inset
+
+, das heißt:
+\begin_inset Formula 
+\begin{align*}
+\overline{0} & =s\cdot\pi\left(x\right)=\pi\left(sx\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $sx\in I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ist nun 
+\begin_inset Formula $I=f^{*}\left(f_{*}\left(I\right)\right)$
+\end_inset
+
+, das heißt:
+\begin_inset Formula 
+\begin{align*}
+I & =\bigcup_{s\in S}\pi^{-1}\left(\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} \right)
+\end{align*}
+
+\end_inset
+
+Also folgt aus 
+\begin_inset Formula $s\overline{x}=0$
+\end_inset
+
+ schon 
+\begin_inset Formula $x\in I$
+\end_inset
+
+, also 
+\begin_inset Formula $\overline{x}=0$
+\end_inset
+
+, und daher ist 
+\begin_inset Formula $s$
+\end_inset
+
+ kein Nullteiler in 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ist andererseits kein 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ ein Nullteiler in 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+, so folgt aus 
+\begin_inset Formula $s\overline{x}=0$
+\end_inset
+
+ schon 
+\begin_inset Formula $\overline{x}=0$
+\end_inset
+
+ und somit:
+\begin_inset Formula 
+\begin{align*}
+f^{*}\left(f_{*}\left(I\right)\right) & =\bigcup_{s\in S}\pi^{-1}\left(\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} \right)=\bigcup_{s\in S}\pi^{-1}\left(\left\{ \overline{x}\in\modulo AI\bigg|\overline{x}=\overline{0}\right\} \right)=\\
+ & =\pi^{-1}\left(\left\{ \overline{0}\right\} \right)=\ker\left(\pi\right)=I
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $\mathfrak{q}\subseteq S^{-1}A$
+\end_inset
+
+ ein Primideal, so auch 
+\begin_inset Formula $\mathfrak{p}:=f^{*}\left(\mathfrak{q}\right)\subseteq A$
+\end_inset
+
+.
+ Wäre 
+\begin_inset Formula $\mathfrak{p}\cap S\not=\emptyset$
+\end_inset
+
+, so folgte der Widerspruch:
+\begin_inset Formula 
+\begin{align*}
+\left(1\right) & \stackrel{\text{ii)}}{=}f_{*}\left(\mathfrak{p}\right)=f_{*}\left(f^{*}\left(\mathfrak{q}\right)\right)\stackrel{\text{i)}}{=}\mathfrak{q}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $f^{*}$
+\end_inset
+
+ wohldefiniert.
+\end_layout
+
+\begin_layout Standard
+Für ein Primideal 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{p}\cap S=\emptyset$
+\end_inset
+
+ folgt
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q} & :=f_{*}\left(\mathfrak{p}\right)\stackrel{\text{ii)}}{\not=}\left(1\right)
+\end{align*}
+
+\end_inset
+
+und:
+\begin_inset Formula 
+\begin{align*}
+\left\{ 0\right\}  & \not=\modulo{\left(S^{-1}A\right)}{\mathfrak{q}}\sr ={\sim}{\ref{sec:Kor-Quotientenbildung-Lokalisierung-vertauscht}}S^{-1}\left(\modulo A{\mathfrak{p}}\right)\subseteq\text{Quot}\left(\modulo A{\mathfrak{p}}\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\modulo{\left(S^{-1}A\right)}{\mathfrak{q}}$
+\end_inset
+
+ ein Integritätsring, also 
+\begin_inset Formula $\mathfrak{q}\subseteq S^{-1}A$
+\end_inset
+
+ ein Primideal und somit 
+\begin_inset Formula $f_{*}$
+\end_inset
+
+ wohldefiniert.
+\end_layout
+
+\begin_layout Standard
+Wegen i) gilt 
+\begin_inset Formula $f_{*}\circ f^{*}=\text{id}_{\text{Spec}\left(S^{-1}A\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Für ein Primideal 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{p}\cap S=\emptyset$
+\end_inset
+
+ ist 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ ein Integritätsring und somit nullteilerfrei.
+ Wegen 
+\begin_inset Formula $\mathfrak{p}\cap S=\emptyset$
+\end_inset
+
+ ist für alle 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ nun 
+\begin_inset Formula $\overline{s}\not=\overline{0}$
+\end_inset
+
+ und somit 
+\begin_inset Formula $\overline{s}$
+\end_inset
+
+ kein Nullteiler in 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+.
+ Nach iii) ist also 
+\begin_inset Formula $f^{*}\circ f_{*}=\text{id}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Für ein Primideal 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{p}\cap S=\emptyset$
+\end_inset
+
+ folgt auch direkt:
+\begin_inset Formula 
+\begin{align*}
+\left(f^{*}\circ f_{*}\right)\left(\mathfrak{p}\right) & \stackrel{\text{ii)}}{=}\bigcup_{s\in S}\left\{ x\in A\big|sx\in\mathfrak{p}\right\} \sr ={\mathfrak{p}\text{ PI}}{S\cap\mathfrak{p}=\emptyset}\bigcup_{s\in S}\left\{ x\in A\big|x\in\mathfrak{p}\right\} =\mathfrak{p}
+\end{align*}
+
+\end_inset
+
+Also gilt 
+\begin_inset Formula $f^{*}\circ f_{*}=\text{id}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar 
+\series medium
+(Nilradikal und Lokalisierung vertauschen)
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen, so gilt für das Nilradikal:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{N}\left(S^{-1}A\right) & =S^{-1}\left(\mathfrak{N}\left(A\right)\right)\subseteq S^{-1}A
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\subseteq$
+\end_inset
+
+“: Sei 
+\begin_inset Formula $x\in\mathfrak{N}\left(S^{-1}A\right)$
+\end_inset
+
+, das heißt es gibt ein 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ mit 
+\begin_inset Formula $x^{n}=0$
+\end_inset
+
+.
+ Schreibe 
+\begin_inset Formula $x=\frac{a}{s}$
+\end_inset
+
+ mit 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ und erhalte:
+\begin_inset Formula 
+\begin{align*}
+0 & =x^{n}=\frac{a^{n}}{s^{n}}
+\end{align*}
+
+\end_inset
+
+Also gibt es ein 
+\begin_inset Formula $t\in S$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+0 & =t\left(a^{n}\cdot1-0\cdot s^{n}\right)=ta^{n}\\
+0 & =t^{n}a^{n}=\left(ta\right)^{n}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $ta\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+ und wegen 
+\begin_inset Formula $s,t\in S$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+x=\frac{a}{s}=\frac{ta}{ts} & \in S^{-1}\left(\mathfrak{N}\left(A\right)\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\mathfrak{N}\left(S^{-1}A\right)\subseteq S^{-1}\left(\mathfrak{N}\left(A\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\supseteq$
+\end_inset
+
+“: Sei 
+\begin_inset Formula $x\in S^{-1}\left(\mathfrak{N}\left(A\right)\right)$
+\end_inset
+
+, also gibt es ein 
+\begin_inset Formula $a\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+, ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und ein 
+\begin_inset Formula $s\in S$
+\end_inset
+
+ mit 
+\begin_inset Formula $x=\frac{a}{s}$
+\end_inset
+
+ und 
+\begin_inset Formula $a^{n}=0$
+\end_inset
+
+.
+ Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+x^{n} & =\frac{a^{n}}{s^{n}}=\frac{0}{s^{n}}=0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $s\in\mathfrak{N}\left(S^{-1}A\right)$
+\end_inset
+
+ und somit 
+\begin_inset Formula $S^{-1}\left(\mathfrak{N}\left(A\right)\right)\subseteq\mathfrak{N}\left(S^{-1}A\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal, so ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+f^{*}:\text{Spec}\left(A_{\mathfrak{p}}\right) & \stackrel{\sim}{\to}\left\{ \mathfrak{q}\in\text{Spec}\left(A\right)\big|\mathfrak{q}\subseteq\mathfrak{p}\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Idealtheorie-Lokalisierung"
+
+\end_inset
+
+ iv) für 
+\begin_inset Formula $S=A\setminus\mathfrak{p}$
+\end_inset
+
+ ist
+\begin_inset Formula 
+\begin{align*}
+f^{*}:\text{Spec}\left(A_{\mathfrak{p}}\right) & \stackrel{\sim}{\to}\left\{ \mathfrak{q}\in\text{Spec}\left(A\right)\big|\mathfrak{q}\cap\left(A\setminus\mathfrak{p}\right)=\emptyset\right\} 
+\end{align*}
+
+\end_inset
+
+und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q}\cap\left(A\setminus\mathfrak{p}\right)=\emptyset & \quad\Leftrightarrow\quad\mathfrak{q}\subseteq\mathfrak{p}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition und Definition
+\series medium
+ (endlich präsentiert)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:PuD-endlich-praesentiert"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ heißt genau dann 
+\emph on
+endlich präsentiert
+\emph default
+, wenn eine exakte Folge
+\begin_inset Formula 
+\begin{align*}
+G\to F\stackrel{\pi}{\to}M\to0
+\end{align*}
+
+\end_inset
+
+von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln existiert, wobei 
+\begin_inset Formula $F$
+\end_inset
+
+ und 
+\begin_inset Formula $G$
+\end_inset
+
+ endlich erzeugt und frei sind.
+\end_layout
+
+\begin_layout Standard
+(Also ist 
+\begin_inset Formula $M$
+\end_inset
+
+ insbesondere endlich erzeugt, da 
+\begin_inset Formula $\pi$
+\end_inset
+
+ surjektiv ist.
+ Außerdem gibt es zwischen den Erzeugern nur endlich viele Relationen.)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=1em, column sep=1.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { G & & F & M & 0
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   &
+\backslash
+ker{
+\backslash
+pi}&&&
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   0 & & 0 &&
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-3) edge node[above]{$
+\backslash
+pi$} (m-1-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-4) edge (m-1-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-3-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-2) edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                    edge (m-3-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $M$
+\end_inset
+
+ endlich präsentiert und 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus, so ist der 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul 
+\begin_inset Formula $f^{*}\left(M\right)$
+\end_inset
+
+ endlich präsentiert.
+\end_layout
+
+\begin_layout Standard
+(Das heißt “endlich präsentiert” ist stabil unter Basiswechsel.)
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach der Rechtsexaktheit des Tensorprodukts 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-RechtsexaktheitTensorprodukt"
+
+\end_inset
+
+ ist die Folge
+\begin_inset Formula 
+\begin{align*}
+f^{*}\left(G\right)\to f^{*}\left(F\right)\to f^{*}\left(M\right)\to0
+\end{align*}
+
+\end_inset
+
+von 
+\begin_inset Formula $B$
+\end_inset
+
+-Moduln exakt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $f^{*}\left(G\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $f^{*}\left(F\right)$
+\end_inset
+
+ sind endlich erzeugt und frei, da 
+\begin_inset Formula $f^{*}\left(A^{n}\right)\stackrel{\sim}{=}B^{n}$
+\end_inset
+
+ ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(flach ist stabil unter Basiswechsel)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-flach-stabil-Basiswechsel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein Ringhomomorphismus und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein flacher 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, so ist der 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul 
+\begin_inset Formula $f^{*}\left(M\right)$
+\end_inset
+
+ flach.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ eine exakte Folge von 
+\begin_inset Formula $B$
+\end_inset
+
+-Moduln, so gilt nach der Projektionsformel die Isomorphie:
+\begin_inset Formula 
+\begin{align*}
+f_{*}\left(\mathcal{E}\otimes_{B}f^{*}\left(M\right)\right) & \sr ={\sim}{\ref{sec:Prop-Projektionsformel}}f_{*}\left(\mathcal{E}\right)\otimes_{A}M
+\end{align*}
+
+\end_inset
+
+Nun ist 
+\begin_inset Formula $f_{*}\left(\mathcal{E}\right)\otimes_{A}M$
+\end_inset
+
+ eine exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln, da 
+\begin_inset Formula $f_{*}\left(\mathcal{E}\right)$
+\end_inset
+
+ eine exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein flacher 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul ist.
+ Also ist auch die Folge 
+\begin_inset Formula $\mathcal{E}\otimes_{B}f^{*}\left(M\right)$
+\end_inset
+
+ von 
+\begin_inset Formula $B$
+\end_inset
+
+-Moduln exakt.
+ Beachte, dass Exaktheit eine Eigenschaft der abelschen Gruppe ist und nicht
+ von der Multiplikation abhängt.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lemma 
+\series medium
+(endlich präsentiert und flach impliziert projektiv)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+
+\family roman
+\series medium
+ Es sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ ist flach.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $F$
+\end_inset
+
+ ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, 
+\begin_inset Formula $\alpha:F\to M$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung und 
+\begin_inset Formula $f\in\ker\left(\alpha\right)$
+\end_inset
+
+, so existieren ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $G$
+\end_inset
+
+ und 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen 
+\begin_inset Formula $\beta:G\to M$
+\end_inset
+
+ und 
+\begin_inset Formula $\gamma:F\to G$
+\end_inset
+
+, sodass 
+\begin_inset Formula $\gamma\left(f\right)=0$
+\end_inset
+
+ und 
+\begin_inset Formula $\alpha=\beta\circ\gamma$
+\end_inset
+
+ gelten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $F$
+\end_inset
+
+ ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, 
+\begin_inset Formula $\alpha:F\to M$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung und 
+\begin_inset Formula $K\subseteq\ker\left(\alpha\right)$
+\end_inset
+
+ ein Untermodul, so existieren ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $G$
+\end_inset
+
+ und 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen 
+\begin_inset Formula $\beta:G\to M$
+\end_inset
+
+ und 
+\begin_inset Formula $\gamma:F\to G$
+\end_inset
+
+, sodass 
+\begin_inset Formula $\gamma\left(K\right)=0$
+\end_inset
+
+ und 
+\begin_inset Formula $\alpha=\beta\circ\gamma$
+\end_inset
+
+ gelten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sei 
+\begin_inset Formula $M$
+\end_inset
+
+ ein endlich präsentierter flacher 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+ Dann ist
+\shape italic
+ 
+\family roman
+\series medium
+\shape default
+
+\begin_inset Formula $M$
+\end_inset
+
+ projektiv.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+
+\shape italic
+ 
+\shape default
+„a) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ b)“: Sei 
+\begin_inset Formula $F$
+\end_inset
+
+ ein endlich erzeugter freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, also 
+\begin_inset Formula $F\stackrel{\sim}{=}A^{n}$
+\end_inset
+
+ mit 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, und 
+\begin_inset Formula $\alpha:F\to M$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung, definiert durch 
+\begin_inset Formula $\alpha\left(e_{i}\right)=m_{i}$
+\end_inset
+
+, und 
+\begin_inset Formula $f\in\ker\left(\alpha\right)$
+\end_inset
+
+.
+ Also:
+\begin_inset Formula 
+\begin{align*}
+f & =\sum_{i=1}^{n}\underbrace{\alpha_{i}}_{\in A}e_{i}\\
+0=\alpha\left(f\right) & =\sum_{i=1}^{n}\alpha_{i}\underbrace{f\left(e_{i}\right)}_{=:m_{i}\in M}=\sum_{i=1}^{n}\alpha_{i}m_{i}
+\end{align*}
+
+\end_inset
+
+Dass 
+\begin_inset Formula $M$
+\end_inset
+
+ flach ist, ist äquivalent zur Existenz von einem 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $m_{j}'\in M$
+\end_inset
+
+ für 
+\begin_inset Formula $j\in\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $a_{ij}\in A$
+\end_inset
+
+, sodass für alle 
+\begin_inset Formula $i\in\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+m_{i} & =\sum_{j=1}^{k}a_{ij}m_{j}'
+\end{align*}
+
+\end_inset
+
+gilt und für alle 
+\begin_inset Formula $j\in\left\{ 1,\ldots,k\right\} $
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+0 & =\sum_{i=1}^{n}a_{ij}\alpha_{i}
+\end{align*}
+
+\end_inset
+
+Definiere also 
+\begin_inset Formula $G:=A^{k}$
+\end_inset
+
+ und 
+\begin_inset Formula $\beta:G\to M$
+\end_inset
+
+ mit 
+\begin_inset Formula $\beta\left(e_{j}\right):=m_{j}'$
+\end_inset
+
+ und 
+\begin_inset Formula $\gamma:F\to G$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+\gamma\left(e_{i}\right) & =\sum_{j=1}^{k}a_{ij}e_{j}
+\end{align*}
+
+\end_inset
+
+Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+\gamma\left(f\right) & =\sum_{i=1}^{n}\alpha_{i}\gamma\left(e_{i}\right)=\sum_{i=1}^{n}\alpha_{i}\sum_{j=1}^{k}a_{ij}e_{j}=\sum_{j=1}^{k}\underbrace{\left(\sum_{i=1}^{n}\alpha_{i}a_{ij}\right)}_{=0}e_{j}=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\left(\beta\circ\gamma\right)\left(e_{i}\right) & =\beta\left(\sum_{j=1}^{k}a_{ij}e_{j}\right)=\sum_{j=1}^{k}a_{ij}\underbrace{\beta\left(e_{j}\right)}_{=m_{j}'}=\sum_{j=1}^{k}a_{ij}m_{j}'=m_{i}=\alpha\left(e_{i}\right)
+\end{align*}
+
+\end_inset
+
+„b) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ a)“: Zeige Flachheit über das Gleichungskriterium 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-KriteriumFlach"
+
+\end_inset
+
+: 
+\end_layout
+
+\begin_layout Standard
+Betrachte eine Relation mit 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, 
+\begin_inset Formula $n_{i}\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $m_{i}\in M$
+\end_inset
+
+ für 
+\begin_inset Formula $i\in\left\{ 1,\ldots,n\right\} $
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{n}n_{i}m_{i} & =0\in M
+\end{align*}
+
+\end_inset
+
+Nun sei 
+\begin_inset Formula $\left(b_{1},\ldots,b_{n}\right)$
+\end_inset
+
+ eine Basis von 
+\begin_inset Formula $F\stackrel{\sim}{=}A^{n}$
+\end_inset
+
+ und 
+\begin_inset Formula $\alpha:F\to M$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung, festgelegt durch die Bilder 
+\begin_inset Formula $\alpha\left(b_{i}\right):=m_{i}$
+\end_inset
+
+ der Basiselemente.
+\end_layout
+
+\begin_layout Standard
+Definiere nun:
+\begin_inset Formula 
+\begin{align*}
+f & :=\sum_{i=1}^{n}n_{i}b_{i}\in F\\
+\Rightarrow\quad\alpha\left(f\right) & =\alpha\left(\sum_{i=1}^{n}n_{i}b_{i}\right)=\sum_{i=1}^{n}n_{i}m_{i}=0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $f\in\ker\left(\alpha\right)$
+\end_inset
+
+.
+ Nach Voraussetzung existiert ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $G\stackrel{\sim}{=}A^{m}$
+\end_inset
+
+ mit Basis 
+\begin_inset Formula $\left(c_{1},\ldots,c_{m}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen 
+\begin_inset Formula $\gamma:F\to G$
+\end_inset
+
+ und 
+\begin_inset Formula $\beta:G\to M$
+\end_inset
+
+, sodass 
+\begin_inset Formula $\gamma\left(f\right)=0$
+\end_inset
+
+ ist und folgendes Diagramm kommutiert:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=2.5em, text height=2ex,
+ text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  {F & M
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+   G & 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge node[above]{$
+\backslash
+alpha$} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                    edge node[left]{$
+\backslash
+gamma$} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-1) edge node[below right]{$
+\backslash
+beta$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Stelle nun die Bilder 
+\begin_inset Formula $\gamma\left(b_{i}\right)$
+\end_inset
+
+ in der Basis 
+\begin_inset Formula $\left(c_{1},\ldots,c_{m}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $a_{ij}\in A$
+\end_inset
+
+ dar
+\begin_inset Formula 
+\begin{align*}
+\gamma\left(b_{i}\right) & =\sum_{j=1}^{m}a_{ij}c_{j}
+\end{align*}
+
+\end_inset
+
+und definiere:
+\begin_inset Formula 
+\begin{align*}
+m_{j}' & :=\beta\left(c_{j}\right)
+\end{align*}
+
+\end_inset
+
+Damit folgt:
+\begin_inset Formula 
+\begin{align*}
+\sum_{j=1}^{m}a_{ij}m_{j}' & =\sum_{j=1}^{m}a_{ij}\beta\left(c_{j}\right)=\beta\left(\sum_{j=1}^{m}a_{ij}c_{j}\right)=\beta\left(\gamma\left(b_{i}\right)\right)=\alpha\left(b_{i}\right)=m_{i}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+0 & =\gamma\left(f\right)=\gamma\left(\sum_{i=1}^{n}n_{i}b_{i}\right)=\sum_{i=1}^{n}n_{i}\sum_{j=1}^{m}a_{ij}c_{j}=\sum_{j=1}^{m}\left(\sum_{i=1}^{n}a_{ij}n_{i}\right)c_{j}
+\end{align*}
+
+\end_inset
+
+Da die 
+\begin_inset Formula $c_{1},\ldots,c_{m}$
+\end_inset
+
+ als Basiselemente linear unabhängig sind, folgt für alle 
+\begin_inset Formula $j\in\left\{ 1,\ldots,m\right\} $
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{n}a_{ij}n_{i} & =0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $M$
+\end_inset
+
+ flach.
+\end_layout
+
+\begin_layout Standard
+„b) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ c)“: Induktion über die Dimension 
+\begin_inset Formula $l$
+\end_inset
+
+ des Moduls 
+\begin_inset Formula $K$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+Induktionsanfang bei 
+\begin_inset Formula $l=1$
+\end_inset
+
+
+\emph default
+: Dies ist a) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ b) für 
+\begin_inset Formula $K=\left(f\right)$
+\end_inset
+
+, denn mit 
+\begin_inset Formula $f\in\ker\left(\alpha\right)$
+\end_inset
+
+ ist auch 
+\begin_inset Formula $\left(f\right)\in\ker\left(\alpha\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+
+\emph on
+Induktionsschritt 
+\begin_inset Formula $l\leadsto l+1$
+\end_inset
+
+
+\emph default
+: Sind 
+\begin_inset Formula $F$
+\end_inset
+
+ ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, 
+\begin_inset Formula $\alpha:F\to M$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung und 
+\begin_inset Formula $K=\left(f_{1},\ldots,f_{l+1}\right)\subseteq\ker\left(\alpha\right)$
+\end_inset
+
+ ein Untermodul.
+\begin_inset Newline newline
+\end_inset
+
+Dann hat 
+\begin_inset Formula $\left(f_{1},\ldots,f_{l}\right)\subseteq\ker\left(\alpha\right)$
+\end_inset
+
+ Dimension 
+\begin_inset Formula $l$
+\end_inset
+
+ und nach Induktionsvoraussetzung existiert ein endlich erzeugter, freier
+ 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $G_{1}$
+\end_inset
+
+ und 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen
+\begin_inset Formula 
+\begin{align*}
+\beta_{1}:G_{1} & \to M\\
+\gamma_{1}:F & \to G_{1}
+\end{align*}
+
+\end_inset
+
+mit 
+\begin_inset Formula $\gamma_{1}\left(\left(f_{1},\ldots,f_{l}\right)\right)=0$
+\end_inset
+
+ und 
+\begin_inset Formula $\alpha=\beta_{1}\circ\gamma_{1}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Außerdem hat 
+\begin_inset Formula $\left(\gamma_{1}\left(f_{l+1}\right)\right)\subseteq\ker\left(\beta_{1}\right)$
+\end_inset
+
+ Dimension 
+\begin_inset Formula $1$
+\end_inset
+
+ und nach Induktionsanfang existiert ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $G_{2}$
+\end_inset
+
+ und 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen
+\begin_inset Formula 
+\begin{align*}
+\beta_{2}:G_{2} & \to M\\
+\gamma_{2}:G_{1} & \to G_{2}
+\end{align*}
+
+\end_inset
+
+mit 
+\begin_inset Formula $\gamma_{2}\left(\left(f_{l+1}\right)\right)=0$
+\end_inset
+
+ und 
+\begin_inset Formula $\beta_{1}=\beta_{2}\circ\gamma_{2}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Dann ist 
+\begin_inset Formula $G:=G_{2}$
+\end_inset
+
+ ein freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und
+\begin_inset Formula 
+\begin{align*}
+\beta:=\beta_{2}:G & \to M\\
+g & \mapsto\beta_{2}\left(g\right)
+\end{align*}
+
+\end_inset
+
+und
+\begin_inset Formula 
+\begin{align*}
+\gamma:=\gamma_{2}\circ\gamma_{1}:F & \to G\\
+f & \mapsto\left(\gamma_{2}\circ\gamma_{1}\right)\left(f\right)
+\end{align*}
+
+\end_inset
+
+zwei 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\gamma\left(K\right) & =\gamma_{2}\left(\gamma_{1}\left(\left(f_{1},\ldots,f_{l+1}\right)\right)\right)=\gamma_{2}\left(\left(\gamma_{1}\left(f_{l+1}\right)\right)\right)=0\\
+\left(\beta\circ\gamma\right)\left(f\right) & =\left(\beta_{2}\circ\gamma_{2}\circ\gamma_{1}\right)\left(f\right)=\left(\beta_{1}\circ\gamma_{1}\right)\left(f\right)=\alpha\left(f\right)
+\end{align*}
+
+\end_inset
+
+„c) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ b)“: Dies ist klar, da b) der Spezialfall 
+\begin_inset Formula $K=\left(f\right)$
+\end_inset
+
+ von c) ist, denn mit 
+\begin_inset Formula $f\in\ker\left(\alpha\right)$
+\end_inset
+
+ ist auch 
+\begin_inset Formula $\left(f\right)\in\ker\left(\alpha\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $F$
+\end_inset
+
+ ist ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, 
+\begin_inset Formula $\alpha:F\to M$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung und 
+\begin_inset Formula $K:=a\left(G\right)=\ker\left(\alpha\right)$
+\end_inset
+
+ ein endlich erzeugter Modul, da 
+\begin_inset Formula $G$
+\end_inset
+
+ endlich erzeugt ist.
+\begin_inset Newline newline
+\end_inset
+
+Da 
+\begin_inset Formula $M$
+\end_inset
+
+ flach ist, existieren ein endlich erzeugter, freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $\tilde{G}$
+\end_inset
+
+ und 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen 
+\begin_inset Formula $\beta:\tilde{G}\to M$
+\end_inset
+
+ und 
+\begin_inset Formula $\gamma:F\to\tilde{G}$
+\end_inset
+
+, sodass 
+\begin_inset Formula $\gamma\left(K\right)=0$
+\end_inset
+
+ und 
+\begin_inset Formula $\alpha=\beta\circ\gamma$
+\end_inset
+
+ gelten.
+\begin_inset Newline newline
+\end_inset
+
+Da 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ surjektiv ist und wegen 
+\begin_inset Formula $K=\ker\left(\alpha\right)=\ker\left(\beta\circ\gamma\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\gamma\left(K\right)=0$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\beta\big|_{\gamma\left(F\right)}:\gamma\left(F\right) & \stackrel{\sim}{\to}\alpha\left(F\right)=M
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $\iota:=\left(\beta\big|_{\gamma\left(F\right)}\right)^{-1}:M\to\tilde{G}$
+\end_inset
+
+ injektiv und somit 
+\begin_inset Formula $M$
+\end_inset
+
+ ein Untermodul des freien Moduls 
+\begin_inset Formula $\tilde{G}$
+\end_inset
+
+.
+ Außerdem gibt es die Abbildung 
+\begin_inset Formula $\beta:\tilde{G}\to M$
+\end_inset
+
+ mit 
+\begin_inset Formula $\beta\circ\iota=\text{id}_{M}$
+\end_inset
+
+.
+ Also ist 
+\begin_inset Formula $M$
+\end_inset
+
+ ein direkter Summand von 
+\begin_inset Formula $\tilde{G}$
+\end_inset
+
+ und somit projektiv.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-endlich-praesentiert-projektiv-lokal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für endlich präsentierte Moduln ist die Eigenschaft projektiv zu sein eine
+ lokale Eigenschaft, genauer gilt:
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein endlich präsentierter 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, dann sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ ist projektiv.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $\mathfrak{p}\in\text{Spec}\left(A\right)$
+\end_inset
+
+ ist der 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+-Modul 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ projektiv.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle maximalen Ideale 
+\begin_inset Formula $\mathfrak{m}\in\text{Spec}\left(A\right)$
+\end_inset
+
+ ist der 
+\begin_inset Formula $A_{\mathfrak{m}}$
+\end_inset
+
+-Modul 
+\begin_inset Formula $M_{\mathfrak{m}}$
+\end_inset
+
+ projektiv.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii): Weil projektiv nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-projektiv-impliziert-flach"
+
+\end_inset
+
+ flach impliziert und flach nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-flach-stabil-Basiswechsel"
+
+\end_inset
+
+ stabil unter Basiswechsel ist, ist der 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+-Modul 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ flach.
+ Außerdem ist 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ nach und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PuD-endlich-praesentiert"
+
+\end_inset
+
+ ii) endlich präsentiert.
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv"
+
+\end_inset
+
+ ist 
+\begin_inset Formula $M_{\mathfrak{p}}$
+\end_inset
+
+ projektiv.
+\end_layout
+
+\begin_layout Standard
+ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iii) ist klar.
+\end_layout
+
+\begin_layout Standard
+iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i): Da projektiv nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-projektiv-impliziert-flach"
+
+\end_inset
+
+ flach impliziert, ist 
+\begin_inset Formula $M_{\mathfrak{m}}$
+\end_inset
+
+ flach.
+ Also ist, da flach zu sein nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-flach-lokal"
+
+\end_inset
+
+ iii) eine lokale Eigenschaft ist, die zu prüfen auf maximalen Idealen ausreicht
+, ist 
+\begin_inset Formula $M$
+\end_inset
+
+ ein flacher 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+ Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv"
+
+\end_inset
+
+ folgt, da 
+\begin_inset Formula $M$
+\end_inset
+
+ endlich präsentiert und flach ist, dass 
+\begin_inset Formula $M$
+\end_inset
+
+ bereits ein projektiver 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lem-Ideal-IR--HI=frei"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $B$
+\end_inset
+
+ ein Integritätsring und 
+\begin_inset Formula $J\subseteq B$
+\end_inset
+
+ ein Ideal.
+\end_layout
+
+\begin_layout Standard
+Dann ist 
+\begin_inset Formula $J$
+\end_inset
+
+ genau dann ein freier 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul, wenn 
+\begin_inset Formula $J$
+\end_inset
+
+ ein Hauptideal ist.
+ In diesem Fall ist 
+\begin_inset Formula $J$
+\end_inset
+
+ frei vom Rang 0 oder 1.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Sei ohne Einschränkung 
+\begin_inset Formula $J\not=\left(0\right)$
+\end_inset
+
+, da für 
+\begin_inset Formula $\left(0\right)$
+\end_inset
+
+ vom Rang 0 die Behauptung klar ist.
+\begin_inset Newline newline
+\end_inset
+
+„
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“: Ist 
+\begin_inset Formula $J$
+\end_inset
+
+ ein Hauptideal, so gilt 
+\begin_inset Formula $J=\left(b\right)$
+\end_inset
+
+ mit einem geeignete 
+\begin_inset Formula $b\in B\setminus\left\{ 0\right\} $
+\end_inset
+
+.
+ Dann ist
+\begin_inset Formula 
+\begin{align*}
+B & \stackrel{\sim}{\to}\left(b\right)=J\\
+x & \mapsto bx
+\end{align*}
+
+\end_inset
+
+ein 
+\begin_inset Formula $B$
+\end_inset
+
+-linearer Isomorphismus, denn Linearität und Surjektivität sind klar und
+ die Injektivität folgt, da 
+\begin_inset Formula $B$
+\end_inset
+
+ ein Integritätsring ist.
+ Also ist 
+\begin_inset Formula $J$
+\end_inset
+
+ ein freier 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul vom Rang 1.
+\begin_inset Newline newline
+\end_inset
+
+„
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+“: Sei umgekehrt 
+\begin_inset Formula $J$
+\end_inset
+
+ frei, so existiert ein 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul-Isomorphismus 
+\begin_inset Formula $J\stackrel{\sim}{=}B^{\left(X\right)}$
+\end_inset
+
+ für eine geeignete Menge 
+\begin_inset Formula $X$
+\end_inset
+
+.
+ Wäre 
+\begin_inset Formula $\abs X\ge2$
+\end_inset
+
+, so gäbe es zwei 
+\begin_inset Formula $a,b\in J\setminus\left\{ 0\right\} $
+\end_inset
+
+, die 
+\begin_inset Formula $B$
+\end_inset
+
+-linear unabhängig sind.
+ Dies ist ein Widerspruch zur linearen Relation:
+\begin_inset Formula 
+\begin{align*}
+a\cdot b+\left(-b\right)\cdot a & =0
+\end{align*}
+
+\end_inset
+
+Also gilt 
+\begin_inset Formula $\abs X\le1$
+\end_inset
+
+ und wegen 
+\begin_inset Formula $J\not=\left(0\right)$
+\end_inset
+
+ sogar 
+\begin_inset Formula $\abs X=1$
+\end_inset
+
+.
+ Insbesondere existiert ein 
+\begin_inset Formula $b\in J$
+\end_inset
+
+ mit 
+\begin_inset Formula $J=B\cdot b=\left(b\right)$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $J$
+\end_inset
+
+ ist ein Hauptideal.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel 
+\series medium
+(frei zu sein ist keine lokale Eigenschaft)
+\end_layout
+
+\begin_layout Standard
+Die Teilmenge 
+\begin_inset Formula $A:=\mathbb{Z}\left[\sqrt{-5}\right]:=\left\{ a+b\sqrt{-5}\big|a,b\in\mathbb{Z}\right\} \subseteq\mathbb{C}$
+\end_inset
+
+ ist ein Unterring, was leicht nachzurechnen ist.
+\end_layout
+
+\begin_layout Standard
+Das Ideal 
+\begin_inset Formula $I:=\left(2,1+\sqrt{-5}\right)\subseteq A$
+\end_inset
+
+ ist ein endlich präsentierter 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul so, dass für alle maximalen Ideale 
+\begin_inset Formula $\mathfrak{m}\subseteq A$
+\end_inset
+
+ der 
+\begin_inset Formula $A_{\mathfrak{m}}$
+\end_inset
+
+-Modul 
+\begin_inset Formula $I_{\mathfrak{m}}$
+\end_inset
+
+ frei ist, daher ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv"
+
+\end_inset
+
+ iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i) 
+\begin_inset Formula $I$
+\end_inset
+
+ projektiv.
+ Aber 
+\begin_inset Formula $I$
+\end_inset
+
+ selbst ist nicht frei.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 8.6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach Definition ist 
+\begin_inset Formula $I$
+\end_inset
+
+ durch 
+\begin_inset Formula $2,1+\sqrt{-5}$
+\end_inset
+
+ erzeugt, also endlich erzeugt, und daher ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\varphi:A^{2} & \twoheadrightarrow I\\
+\left(a,b\right) & \mapsto2a+b\sqrt{-5}
+\end{align*}
+
+\end_inset
+
+surjektiv und offenbar 
+\begin_inset Formula $A$
+\end_inset
+
+-linear.
+ Sei 
+\begin_inset Formula $\left(a,b\right)\in\ker\left(\varphi\right)$
+\end_inset
+
+, dann gilt:
+\begin_inset Formula 
+\begin{align*}
+2a+\sqrt{-5}\cdot b & =0\\
+2a & =-\sqrt{-5}\cdot b
+\end{align*}
+
+\end_inset
+
+Daher ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\psi:A & \twoheadrightarrow\ker\left(\varphi\right)\\
+u & \mapsto\left(-\sqrt{-5}u,2u\right)
+\end{align*}
+
+\end_inset
+
+wohldefiniert und surjektiv und offenbar 
+\begin_inset Formula $A$
+\end_inset
+
+-linear und somit ist
+\begin_inset Formula 
+\begin{align*}
+A\stackrel{\psi}{\to} & A^{2}\stackrel{\varphi}{\to}I\to0
+\end{align*}
+
+\end_inset
+
+eine exakte Folge, und, da 
+\begin_inset Formula $A$
+\end_inset
+
+ und 
+\begin_inset Formula $A^{2}$
+\end_inset
+
+ endlich erzeugt und frei sind, ist 
+\begin_inset Formula $I$
+\end_inset
+
+ endlich präsentiert.
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $A\subseteq A_{\mathfrak{m}}\subseteq\text{Quot}\left(A\right)\subseteq\mathbb{C}$
+\end_inset
+
+ Unterringe sind, sind 
+\begin_inset Formula $A$
+\end_inset
+
+ und alle Lokalisierungen 
+\begin_inset Formula $A_{\mathfrak{m}}$
+\end_inset
+
+ Integritätsringe und man kann die Behauptung anwenden.
+\end_layout
+
+\begin_layout Standard
+Zeige zunächst, dass für alle maximalen Ideale 
+\begin_inset Formula $\mathfrak{m}\subseteq A$
+\end_inset
+
+ das Ideal 
+\begin_inset Formula $I_{\mathfrak{m}}=\left(2,1+\sqrt{-5}\right)_{\mathfrak{m}}\subseteq A_{\mathfrak{m}}$
+\end_inset
+
+ ein Hauptideal ist, denn dann ist 
+\begin_inset Formula $I_{\mathfrak{m}}$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-Ideal-IR--HI=frei"
+
+\end_inset
+
+ ein freier 
+\begin_inset Formula $A_{\mathfrak{m}}$
+\end_inset
+
+-Modul:
+\end_layout
+
+\begin_layout Standard
+Es gilt 
+\begin_inset Formula $\mathfrak{m}\cap\mathbb{Z}=\left(p\right)$
+\end_inset
+
+ mit einer geeigneten Primzahl 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+, denn für die 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-lineare Abbildung
+\begin_inset Formula 
+\begin{align*}
+f:A & \to\mathbb{Z}\\
+a+b\sqrt{-5} & \mapsto a
+\end{align*}
+
+\end_inset
+
+ist 
+\begin_inset Formula $f_{*}\left(\mathfrak{m}\right)=\mathfrak{m}\cap\mathbb{Z}$
+\end_inset
+
+ als Bild eines Primideals ein Primideal (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-Fasern-SpecZi->SpecZ"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $p\not=2$
+\end_inset
+
+, so folgt 
+\begin_inset Formula $2\not\in\mathfrak{m}$
+\end_inset
+
+.
+ Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-HinreichendLokalerRing"
+
+\end_inset
+
+ i) „
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“ ist also 
+\begin_inset Formula $2\in A\setminus\mathfrak{m}\subseteq A_{\mathfrak{m}}^{*}$
+\end_inset
+
+, da 
+\begin_inset Formula $\left(A_{\mathfrak{m}},\mathfrak{m}\right)$
+\end_inset
+
+ ein lokaler Ring ist, und es folgt, dass
+\begin_inset Formula 
+\begin{align*}
+I_{\mathfrak{m}} & =\left(2,1+\sqrt{-5}\right)_{\mathfrak{m}}=\left(1\right)_{\mathfrak{m}}=A_{\mathfrak{m}}
+\end{align*}
+
+\end_inset
+
+ein Hauptideal ist.
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $p=2$
+\end_inset
+
+, so behaupten wir:
+\begin_inset Formula 
+\begin{align*}
+\frac{\left(1+\sqrt{-5}\right)^{2}}{2} & =\frac{1-5+2\sqrt{-5}}{2}=-2+\sqrt{-5}=:u\not\in\mathfrak{m}
+\end{align*}
+
+\end_inset
+
+Andernfalls gelten 
+\begin_inset Formula $2=p\in\mathfrak{m}$
+\end_inset
+
+ und 
+\begin_inset Formula $u=-2+\sqrt{-5}\in\mathfrak{m}$
+\end_inset
+
+, also auch
+\begin_inset Formula 
+\begin{align*}
+\sqrt{-5} & =2+\left(-2+\sqrt{5}\right)\in\mathfrak{m}\\
+-5 & =\left(\sqrt{-5}\right)^{2}\in\mathfrak{m}
+\end{align*}
+
+\end_inset
+
+und damit folgt der Widerspruch 
+\begin_inset Formula $-5+3\cdot2=1\in\mathfrak{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset Formula $u\not\in\mathfrak{m}$
+\end_inset
+
+ gilt nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-HinreichendLokalerRing"
+
+\end_inset
+
+ i) „
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“ schon 
+\begin_inset Formula $u\in A^{*}$
+\end_inset
+
+ und somit auch 
+\begin_inset Formula $u\in A_{\mathfrak{m}}^{*}$
+\end_inset
+
+.
+ Also gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(1+\sqrt{-5}\right)^{2} & =-4+2\sqrt{-5}=2\cdot\left(-2+\sqrt{-5}\right)\\
+2 & =\underbrace{u^{-1}}_{\in A_{\mathfrak{m}}}\left(1+\sqrt{-5}\right)^{2}\in\left(1+\sqrt{-5}\right)\cdot A_{\mathfrak{m}}
+\end{align*}
+
+\end_inset
+
+Daher ist
+\begin_inset Formula 
+\begin{align*}
+I_{\mathfrak{m}}=\left(2,1+\sqrt{-5}\right)A_{\mathfrak{m}} & =\left(1+\sqrt{-5}\right)A_{\mathfrak{m}}
+\end{align*}
+
+\end_inset
+
+wieder ein Hauptideal.
+\end_layout
+
+\begin_layout Standard
+Zeige noch, dass 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ selbst kein Hauptideal ist.
+ Dann folgt nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-Ideal-IR--HI=frei"
+
+\end_inset
+
+, dass 
+\begin_inset Formula $I$
+\end_inset
+
+ nicht frei ist.
+\end_layout
+
+\begin_layout Standard
+Angenommen
+\begin_inset Formula 
+\begin{align*}
+I & =\left(2,1+\sqrt{-5}\right)=\left(a+b\cdot\sqrt{-5}\right)\subseteq A=\mathbb{Z}\left[\sqrt{-5}\right]
+\end{align*}
+
+\end_inset
+
+wäre ein Hauptideal mit geeigneten 
+\begin_inset Formula $a,b\in\mathbb{Z}$
+\end_inset
+
+.
+ Berechne zunächst den Quotienten:
+\begin_inset Formula 
+\begin{align*}
+\modulo AI & =\modulo{\mathbb{Z}\left[\sqrt{-5}\right]}{\left(2,1+\sqrt{-5}\right)}\stackrel{\sim}{=}\modulo{\left(\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+5\right)}\right)}{\left(2,1+\overline{X}\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(2,1+X,X^{2}+5\right)}\stackrel{\sim}{=}\modulo{\mathbb{Z}}{\left(2,\left(-1\right)^{2}+5=6\right)}\stackrel{\sim}{=}\modlo Z2=\mathbb{F}_{2}
+\end{align*}
+
+\end_inset
+
+Andererseits sieht man leicht, dass gilt für 
+\begin_inset Formula $a+b\sqrt{-5}\in A\setminus\left\{ 0\right\} $
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\modulo A{\left(a+b\sqrt{-5}\right)} & =\modulo{\mathbb{Z}\left[\sqrt{-5}\right]}{\left(a+b\sqrt{-5}\right)}\stackrel{\sim}{=}\modulo{\left(\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+5\right)}\right)}{\left(a+b\overline{X}\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(a+bX,X^{2}+5\right)}\stackrel{\sim}{=}\modulo{\mathbb{Z}}{\left(\left(-a\right)^{2}+5b^{2}=a^{2}+5b^{2}\right)}
+\end{align*}
+
+\end_inset
+
+Also gilt:
+\begin_inset Formula 
+\begin{align*}
+\abs{\modulo A{\left(a+b\sqrt{-5}\right)}} & =\abs{\modulo{\mathbb{Z}}{\left(a^{2}+5b^{2}\right)}}=a^{2}+5b^{2}
+\end{align*}
+
+\end_inset
+
+Es folgte 
+\begin_inset Formula $a^{2}+5b^{2}=2$
+\end_inset
+
+ im Widerspruch zu 
+\begin_inset Formula $a,b\in\mathbb{Z}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+Wie kann man 
+\begin_inset Formula $\text{Spec}\left(\mathbb{C}\left[X\right]\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\text{Spec}\left(\mathbb{R}\left[X\right]\right)$
+\end_inset
+
+ skizzieren?
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{C}\left[X\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathbb{R}\left[X\right]$
+\end_inset
+
+ sind Hauptidealringe, also sind die Primideale außer dem Nullideal normierte
+ irreduzible Polynome.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ ist algebraisch abgeschlossen, das heißt die irreduziblen Polynome sind
+ linear, also gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{Spec}\left(\mathbb{C}\left[X\right]\right) & =\left\{ \left(X-\alpha\right)\big|\alpha\in\mathbb{C}\right\} \cup\left\{ \left(0\right)\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Bemerkung: Ist 
+\begin_inset Formula $k$
+\end_inset
+
+ ein beliebiger Körper, dann gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{Spec}\left(k\left[X\right]\right) & \stackrel{\sim}{=}\left\{ 0\right\} \cup\modulo{\overline{k}}{G_{k}}
+\end{align*}
+
+\end_inset
+
+Für 
+\begin_inset Formula $k=\mathbb{C}$
+\end_inset
+
+ ist die absolute Galoisgruppe
+\begin_inset Formula 
+\begin{align*}
+G_{\mathbb{C}} & =\text{Gal}\left(\modulo{\mathbb{C}}{\mathbb{C}}\right)=\left\{ 1\right\} 
+\end{align*}
+
+\end_inset
+
+und für 
+\begin_inset Formula $k=\mathbb{R}$
+\end_inset
+
+ ist
+\begin_inset Formula 
+\begin{align*}
+G_{\mathbb{R}} & =\text{Gal}\left(\modulo{\mathbb{C}}{\mathbb{R}}\right)=\left\{ 1,\overline{\vphantom{|}\,.\,}\right\} 
+\end{align*}
+
+\end_inset
+
+mit der komplexen Konjugation 
+\begin_inset Formula $\overline{\vphantom{|}\,.\,}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $f\in\mathbb{R}\left[X\right]$
+\end_inset
+
+ normiert, dann gilt in 
+\begin_inset Formula $\mathbb{C}\left[X\right]$
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+f\left(x\right) & =\prod_{i=1}^{n}\left(X-\alpha_{i}\right)\prod_{j=1}^{m}\left(X-\beta_{i}\right)\left(X-\overline{\beta_{i}}\right)
+\end{align*}
+
+\end_inset
+
+mit geeigneten 
+\begin_inset Formula $\alpha_{i}\in\mathbb{R}$
+\end_inset
+
+ und 
+\begin_inset Formula $\beta_{i}\in\mathbb{C}\setminus\mathbb{R}$
+\end_inset
+
+.
+ Ist 
+\begin_inset Formula $f\in\mathbb{R}\left[X\right]$
+\end_inset
+
+ irreduzibel, so folgt:
+\begin_inset Formula 
+\begin{align*}
+f\left(X\right) & =\begin{cases}
+X-\alpha & \alpha\in\mathbb{R}\\
+\left(X-\beta\right)\left(X-\overline{\beta}\right)=X^{2}-2\text{Re}\left(\beta\right)X+\abs{\beta}^{2} & \beta\in\mathbb{C}\setminus\mathbb{R}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Also gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{Spec}\left(\mathbb{R}\left[X\right]\right) & =\left\{ \left(X-\alpha\right),\left(X^{2}-2\text{Re}\left(\beta\right)X+\abs{\beta}^{2}\right)\big|\alpha\in\mathbb{R},\beta\in\mathbb{C}\setminus\mathbb{R}\right\} \cup\left\{ \left(0\right)\right\} =\\
+ & =\left\{ \left(X-\alpha\right),\left(X^{2}-2\text{Re}\left(\overline{\beta}\right)X+\abs{\overline{\beta}}^{2}\right)\big|\alpha\in\mathbb{R},\beta\in\mathbb{C}\setminus\mathbb{R}\right\} \cup\left\{ \left(0\right)\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Behauptung: Die abgeschlossenen Teilmengen von 
+\begin_inset Formula $Z=\text{Spec}\left(A:=\mathbb{C}\left[X\right]\right)$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $Z=\text{Spec}\left(A:=\mathbb{R}\left[X\right]\right)$
+\end_inset
+
+ sind genau die endlichen Teilmengen und 
+\begin_inset Formula $X$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Beweis: Sei 
+\begin_inset Formula $Y\subseteq X$
+\end_inset
+
+ abgeschlossen, so gibt es nach der Definition der Zariski-Topologie ein
+ Ideal 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+Y & =V\left(I\right):=\left\{ \mathfrak{p}\subseteq A\text{ Primideal}\big|I\subseteq\mathfrak{p}\right\} 
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Hauptidealring ist, gibt es ein 
+\begin_inset Formula $f\in A$
+\end_inset
+
+ mit 
+\begin_inset Formula $\left(f\right)=I$
+\end_inset
+
+.
+ Für ein Primideal 
+\begin_inset Formula $\mathfrak{p}=\left(g\right)$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $g$
+\end_inset
+
+ ist irreduzibel, gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(f\right)=I\subseteq\mathfrak{p}=\left(g\right) & \quad\Leftrightarrow\quad g\big|f
+\end{align*}
+
+\end_inset
+
+Dann folgt:
+\begin_inset Newline newline
+\end_inset
+
+Ist 
+\begin_inset Formula $f=0$
+\end_inset
+
+, so ist 
+\begin_inset Formula $Y=Z$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Ist 
+\begin_inset Formula $f\not=0$
+\end_inset
+
+, so ist 
+\begin_inset Formula $f=\prod_{i}g_{i}$
+\end_inset
+
+ mit irreduziblen 
+\begin_inset Formula $g_{i}$
+\end_inset
+
+ und 
+\begin_inset Formula $Y=V\left(\left(f\right)\right)=\left\{ \left(g_{i}\right)\right\} $
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Berechne die Restklassenkörper:
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\mathfrak{p}\in\text{Spec}\left(\mathbb{C}\left[X\right]\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Fall: 
+\begin_inset Formula $\mathfrak{p}=\left(0\right)$
+\end_inset
+
+, dann gilt:
+\begin_inset Formula 
+\begin{align*}
+\kappa\left(\left(0\right)\right) & =\text{Quot}\left(\modulo{\mathbb{C}\left[X\right]}{\left(0\right)}\right)=\text{Quot}\left(\mathbb{C}\left[X\right]\right)=\mathbb{C}\left(X\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fall: 
+\begin_inset Formula $\mathfrak{p}=\left(X-\alpha\right)$
+\end_inset
+
+ für ein 
+\begin_inset Formula $\alpha\in\mathbb{C}$
+\end_inset
+
+, so gilt:
+\begin_inset Formula 
+\begin{align*}
+\kappa\left(\mathfrak{p}\right) & =\text{Quot}\bigg(\underbrace{\modulo{\mathbb{C}\left[X\right]}{\left(X-\alpha\right)}}_{=\mathbb{C}}\bigg)=\mathbb{C}
+\end{align*}
+
+\end_inset
+
+Für
+\begin_inset Formula 
+\begin{align*}
+\modulo{\mathbb{C}\left[X\right]}{\left(X-\alpha\right)} & \stackrel{\sim}{=}\mathbb{C}
+\end{align*}
+
+\end_inset
+
+betrachte den Einsetzungshomomorphismus:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2ex,
+ text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { 
+\backslash
+mathbb{C}[X] & 
+\backslash
+mathbb{C}, & X & 
+\backslash
+alpha
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+modulo{
+\backslash
+mathbb{C}[X]}{(X-
+\backslash
+alpha)} &&&
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[|->] (m-1-3) edge (m-1-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>] (m-1-1) edge (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                     edge (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge node[rotate=40,above]{$
+\backslash
+sim$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nun sei 
+\begin_inset Formula $\mathfrak{p}\in\text{Spec}\left(\mathbb{R}\left[X\right]\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Enumerate
+Fall: 
+\begin_inset Formula $\mathfrak{p}=\left(0\right)$
+\end_inset
+
+, so folgt wie oben 
+\begin_inset Formula $\kappa\left(\left(0\right)\right)=\mathbb{R}\left[X\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Fall: 
+\begin_inset Formula $\mathfrak{p}=\left(X-\alpha\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\alpha\in\mathbb{R}$
+\end_inset
+
+, so folgt wie oben 
+\begin_inset Formula $\kappa\left(\mathfrak{p}\right)=\mathbb{R}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Fall: 
+\begin_inset Formula $\mathfrak{p}=\left(f\left(X\right):=X^{2}-2\text{Re}\left(\beta\right)+\abs{\beta}^{2}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\beta\in\mathbb{C}\setminus\mathbb{R}$
+\end_inset
+
+, dann folgt:
+\begin_inset Formula 
+\begin{align*}
+\kappa\left(\mathfrak{p}\right) & =\text{Quot}\left(\modulo{\mathbb{R}\left[X\right]}{\left(f\right)}\right)
+\end{align*}
+
+\end_inset
+
+Betrachte den Einsetzungshomomorphismus:
+\begin_inset Formula 
+\begin{align*}
+\varphi:\mathbb{R}\left[X\right] & \to\mathbb{C}\\
+X & \mapsto\beta
+\end{align*}
+
+\end_inset
+
+Dieser ist wegen 
+\begin_inset Formula $\beta\not\in\mathbb{R}$
+\end_inset
+
+ surjektiv und es ist 
+\begin_inset Formula $\text{ker}\left(\varphi\right)=\left(f\right)$
+\end_inset
+
+, denn betrachte:
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2ex,
+ text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { 
+\backslash
+mathbb{R}[X] & 
+\backslash
+mathbb{C}
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+modulo{
+\backslash
+mathbb{R}[X]}{(f)} &
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>] (m-1-1) edge (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                     edge (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge node[rotate=45,above]{$
+\backslash
+sim$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+Da 
+\begin_inset Formula $f=\text{Mipo}_{\mathbb{R}}\left(\beta\right)$
+\end_inset
+
+ vom Grad 2 ist, ist 
+\begin_inset Formula $\text{dim}_{\mathbb{R}}\left(\modulo{\mathbb{R}\left[X\right]}{\left(f\right)}\right)=2$
+\end_inset
+
+, also folgt Isomorphie.
+ Daher gilt:
+\begin_inset Formula 
+\begin{align*}
+\kappa\left(\mathfrak{p}\right) & =\text{Quot}\left(\mathbb{C}\right)=\mathbb{C}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Berechne nun die Fasern:
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\mathfrak{p}\in\text{Spec}\left(A\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2ex,
+ text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { A=
+\backslash
+mathbb{C}[X] & B=
+\backslash
+modulo{
+\backslash
+mathbb{C}[X,Y]}{(Y^2-X)} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    
+\backslash
+kappa(
+\backslash
+mathfrak{p}) & 
+\backslash
+kappa(
+\backslash
+mathfrak{p})
+\backslash
+otimes_A B=:B_
+\backslash
+mathfrak{p}
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                    edge (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-2) edge (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fall: 
+\begin_inset Formula $\mathfrak{p}=\left(0\right)$
+\end_inset
+
+, 
+\begin_inset Formula $\kappa\left(\mathfrak{p}\right)=\mathbb{C}\left(X\right)$
+\end_inset
+
+ und mit 
+\begin_inset Formula $\mathbb{C}\left(X\right)=S^{-1}A$
+\end_inset
+
+ für 
+\begin_inset Formula $A:=\mathbb{C}\left[X\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $S:=A\setminus\left\{ 0\right\} $
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+B_{\mathfrak{p}} & =\underbrace{\mathbb{C}\left(X\right)}_{=S^{-1}A}\otimes_{\mathbb{C}\left[X\right]}\underbrace{\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}}_{=M}\stackrel{\sim}{=}S^{-1}\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)\stackrel{\sim}{=}\\
+ & \sr ={\sim}{S^{-1}\text{ exakt}}\modulo{\left(S^{-1}\left(\mathbb{C}\left[X,Y\right]\right)\right)}{\left(Y^{2}-X\right)}\stackrel{\sim}{=}\modulo{\mathbb{C}\left(X\right)\left[Y\right]}{\left(Y^{2}-X\right)}
+\end{align*}
+
+\end_inset
+
+Das Polynom 
+\begin_inset Formula $Y^{2}-X\in\mathbb{C}\left(X\right)\left[Y\right]$
+\end_inset
+
+ ist irreduzibel, da es Eisenstein bezüglich dem Primelement 
+\begin_inset Formula $X$
+\end_inset
+
+ ist.
+\begin_inset Newline newline
+\end_inset
+
+Also ist 
+\begin_inset Formula $\kappa\left(\mathfrak{p}\right)=\mathbb{C}\left(X\right)\subseteq B_{\mathfrak{p}}$
+\end_inset
+
+ eine Körpererweiterung vom Grad 2.
+\end_layout
+
+\begin_layout Enumerate
+Fall: 
+\begin_inset Formula $\mathfrak{p}=\left(X-\alpha\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $\alpha\in\mathbb{C}$
+\end_inset
+
+.
+ Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+B_{\mathfrak{p}} & =\underbrace{\text{Quot}\left(\modulo{\mathbb{C}\left[X\right]}{\left(X-\alpha\right)}\right)}_{=\kappa\left(\mathfrak{p}\right)\stackrel{\sim}{=}\mathbb{C}}\otimes_{\mathbb{C}\left[X\right]}\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{\left(X-\alpha\right)\text{ maximal}}\modulo{A:=\mathbb{C}\left[X\right]}{I:=\left(X-\alpha\right)}\otimes_{\mathbb{C}\left[X\right]}\underbrace{\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}}_{=:M}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{\ref{sec:Lem-AmodIdealIsomorphMmodIM}}\modulo{\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)}{\left(X-\alpha\right)\cdot\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{}\modulo{\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)}{\left(\modulo{\left(X-\alpha\right)}{\left(X-\alpha\right)\cdot\left(Y^{2}-X\right)}\right)}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{\ref{sec:Prop-Isomorphiesaetze}\text{ ii)}}\modulo{\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)}{\left(\modulo{\left(Y^{2}-X,X-\alpha\right)}{\left(Y^{2}-X\right)}\right)}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{\ref{sec:Prop-Isomorphiesaetze}\text{ i)}}\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X,X-\alpha\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\modulo{\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(X-\alpha\right)}\right)}{\big(Y^{2}-\underbrace{\overline{X}}_{=\alpha}\big)}\stackrel{\sim}{=}\modulo{\mathbb{C}\left[Y\right]}{\left(Y^{2}-\alpha\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\begin{cases}
+\modulo{\mathbb{C}\left[Y\right]}{\left(Y-\sqrt{\alpha}\right)\left(Y+\sqrt{\alpha}\right)}\stackrel{\sim}{=}\mathbb{C}\times\mathbb{C} & \alpha\not=0\\
+\modulo{\mathbb{C}\left[Y\right]}{Y^{2}} & \alpha=0
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Für die 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Isomorphiesaetze"
+
+\end_inset
+
+ ii)
+\begin_inset Formula 
+\begin{align*}
+\modulo{M_{2}}{M_{1}\cap M_{2}} & \stackrel{\sim}{\to}\modulo{M_{1}+M_{2}}{M_{1}}
+\end{align*}
+
+\end_inset
+
+verwende hier
+\begin_inset Formula 
+\begin{align*}
+M_{1} & :=\left(Y^{2}-X\right) & M_{2} & :=\left(X-\alpha\right)
+\end{align*}
+
+\end_inset
+
+und
+\begin_inset Formula 
+\begin{align*}
+M_{1}\cap M_{2} & =M_{1}\cdot M_{2} & M_{1}+M_{2} & =\left(Y^{2}-X,X-\alpha\right)
+\end{align*}
+
+\end_inset
+
+und für 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Isomorphiesaetze"
+
+\end_inset
+
+ i) 
+\begin_inset Formula 
+\begin{align*}
+\modulo{\left(\modulo LM\right)}{\left(\modulo NM\right)} & \stackrel{\sim}{=}\modulo LN
+\end{align*}
+
+\end_inset
+
+verwende hier:
+\begin_inset Formula 
+\begin{align*}
+L & :=\mathbb{C}\left[X,Y\right] & M & :=\left(Y^{2}-X\right) & N & :=\left(Y^{2}-X,X-\alpha\right)
+\end{align*}
+
+\end_inset
+
+Beachte:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{N}\left(\mathbb{C}\times\mathbb{C}\right) & =\left(0\right)\\
+\mathfrak{N}\left(\modulo{\mathbb{C}\left[Y\right]}{Y^{2}}\right) & =\left(Y\right)\not=\left(0\right)
+\end{align*}
+
+\end_inset
+
+Skizze:
+\begin_inset Newline newline
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}[domain=-1.7:1.7]
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (-1.2,0) -- (3.2,0) node[right] {$X
+\backslash
+in
+\backslash
+mathbb{C}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->] (0,-2.2) -- (0,2.2) node[above] {$Y
+\backslash
+in
+\backslash
+mathbb{C}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw plot ({(
+\backslash
+x)^2},
+\backslash
+x) node[right] {$Y^2-X=0$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[blue] (0,0) circle (0.3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-0.5,-0.5) {$
+\backslash
+alpha=0$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[fill=black] (0,0) circle (0.07)
+\end_layout
+
+\begin_layout Plain Layout
+
+                    (1,1) circle (0.07)
+\end_layout
+
+\begin_layout Plain Layout
+
+                    (1,-1) circle (0.07);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[dashed] (1,1) node[above]{$
+\backslash
+mathbb{C}$} -- (1,-1) node[below]{$
+\backslash
+mathbb{C}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[line width=1.2] (1,0.2) -- (1,-0.2) node[below right]{$X=
+\backslash
+alpha$};
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\text{Spec}\left(A\to B\right) & =\pi_{X}
+\end{align*}
 
 \end_inset
 

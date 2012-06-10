@@ -71,6 +71,13 @@
 \end{tikzpicture}
 }
 
+% Zahlen im Kreis
+\newcommand{\encircle}[1]{\tikz{\node [inner sep=1.5pt] at (0,0) [circle,draw=black,font=\scriptsize]{#1};}}
+\newlength{\breite}
+\newcommand{\encirc}[1]{
+\settowidth{\breite}{\encircle{#1}}
+\begin{minipage}[c]{\breite}\encircle{#1}\end{minipage}}
+
 %QED-Zeichen (Box)
 \newcommand{\qed}{\ensuremath{\Box}}
 \newcommand{\qqed}[1][\arabic{chapter}.\arabic{section}\ifnum\arabic{subsection}>0{.\arabic{subsection}}\fi]{\hfill\qed\ensuremath{_{\text{#1}}}}
@@ -1062,8 +1069,10 @@ Seien $A$ ein Ring und $\mathfrak{m}\subsetneq A$ ein Ideal.
 
 \begin{iiilist}
 
-\iii Gilt $A\setminus\mathfrak{m}\subseteq A^{*}$, so ist $\left(A,\mathfrak{m}\right)$
-ein lokaler Ring.
+\iii $A\setminus\mathfrak{m}\subseteq A^{*}$ gilt genau dann, wenn
+$\left(A,\mathfrak{m}\right)$ ein lokaler Ring ist.
+
+In diesem Fall ist $A\setminus\mathfrak{m}=A^{*}$.
 
 \iii Ist $\mathfrak{m}$ maximal und gilt $1+\mathfrak{m}:=\left\{ 1+x\big|x\in\mathfrak{m}\right\} \subseteq A^{*}$,
 so ist $\left(A,\mathfrak{m}\right)$ ein lokaler Ring.
@@ -1075,8 +1084,17 @@ so ist $\left(A,\mathfrak{m}\right)$ ein lokaler Ring.
 
 \begin{iiilist}
 
-\iii Ist $I\subseteq A$ ein Ideal mit $\mathfrak{m}\subseteq I$,
-so existiert ein $u\in I\setminus\mathfrak{m}\subseteq A\setminus\mathfrak{m}\subseteq A^{*}$,
+\iii Da $\mathfrak{m}$ ein echtes Ideal ist, gilt für alle $u\in A^{*}$
+schon $u\in A\setminus\mathfrak{m}$, denn sonst wäre mit $u\in\mathfrak{m}$
+auch:
+\begin{align*}
+u^{-1}\cdot u=1 & \in\mathfrak{m}
+\end{align*}
+Das hieße $\mathfrak{m}=\left(1\right)$ im Widerspruch zu $\mathfrak{m}\subsetneq A$.
+Daher gilt $A^{*}\subseteq A\setminus\mathfrak{m}$.
+
+\quotedblbase{}$\Rightarrow$\textquotedblleft{}: Ist $I\subseteq A$
+ein Ideal mit $\mathfrak{m}\subseteq I$, so existiert ein $u\in I\setminus\mathfrak{m}\subseteq A\setminus\mathfrak{m}\subseteq A^{*}$,
 weswegen $I=\left(1\right)$ ist. Also ist $\mathfrak{m}\subseteq A$
 ein maximales Ideal.
 
@@ -1088,7 +1106,18 @@ $\mathfrak{m}\subseteq A$ ist das einzige maximale Ideal.
 Angenommen es gilt $\mathfrak{n}\subsetneq\mathfrak{m}$, dann existiert
 ein $x\in\mathfrak{n}\setminus\mathfrak{m}\subseteq A\setminus\mathfrak{m}\subseteq A^{*}$.
 Deswegen ist $\mathfrak{n}=\left(1\right)$ im Widerspruch zur Maximalität
-von $\mathfrak{n}$.\qqed[i)]
+von $\mathfrak{n}$.
+
+\quotedblbase{}$\Leftarrow$\textquotedblleft{}: Ist $\left(A,\mathfrak{m}\right)$
+ein lokaler Ring, und sei $u\in A\setminus\mathfrak{m}$. Dann ist
+$\left(u\right)\subseteq A$ mit $\left(u\right)\not\subseteq\mathfrak{m}$.
+
+Wäre $\left(u\right)\not=\left(1\right)$, so gäbe es nach \ref{sec:Kor-ExistenzMaximalesIdealenthaeltI}
+ein maximales Ideal $\mathfrak{n}\subseteq A$ mit $\left(u\right)\subseteq\mathfrak{n}$.
+Da $\mathfrak{m}$ das einzige maximale Ideal ist, folgt $\mathfrak{m}=\mathfrak{n}$
+und somit der Widerspruch $\left(u\right)\subseteq\mathfrak{m}$.
+Also ist $\left(u\right)=\left(1\right)$ und somit gibt es ein $a\in A$
+mit $au=1$, das heißt $u\in A^{*}$.\qqed[i)]
 
 \iii Wegen i) ist nur $A\setminus\mathfrak{m}\subseteq A^{*}$ zu
 zeigen.
@@ -1857,7 +1886,7 @@ nicht endlich erzeugt.
 \end{iiilist}
 
 
-\section{Proposition \textmd{(Isomorphiesätze)}}
+\section{Proposition \textmd{(Isomorphiesätze)\label{sec:Prop-Isomorphiesaetze}}}
 
 Sei $A$ ein Ring.
 
@@ -2599,8 +2628,8 @@ beide $A$-linear sind.
 
 \section{Satz und Definition \textmd{(Tensorprodukt)\label{sec:SuD-Tensorprodukt}}}
 
-Seien $A$ ein Ring und $M,N$ zwei $A$-Moduln. Dann existiert eine
-$A$-bilineare Abbildung
+Seien $A$ ein Ring und $M,N$ zwei $A$-Moduln. Dann existiert ein
+$A$-Modul $M\otimes_{A}N$ und eine $A$-bilineare Abbildung
 \begin{align*}
 \tau:M\times N & \to M\otimes_{A}N
 \end{align*}
@@ -2612,7 +2641,7 @@ Der $A$-Modul $M\otimes_{A}N$, genauer die $A$-bilineare Abbildung
 $ $$\tau$, heißt \emph{das Tensorprodukt von $M$ und $N$ (über
 $A$)}.
 
-Schreibe $m\otimes n:=\tau\left(m,n\right)$ für alle $\left(m,n\right)\in M\times n$.
+Schreibe $m\otimes n:=\tau\left(m,n\right)$ für alle $\left(m,n\right)\in M\times N$.
 Dann kann man jedes $x\in M\otimes_{A}N$ als
 \begin{align*}
 x & =\sum_{i=1}^{n}m_{i}\otimes n_{i}
@@ -3145,7 +3174,7 @@ für alle $i\in\mathbb{Z}$ in kurze exakte Folgen
 und wende $\otimes_{A}M$ an.\qqed
 
 
-\section{Proposition \textmd{(projektiv impliziert flach)}}
+\section{Proposition \textmd{(projektiv impliziert flach)\label{sec:Prop-projektiv-impliziert-flach}}}
 
 Sei $A$ ein Ring. Jeder projektive (und insbesondere jeder freie)
 $A$-Modul $M$ ist flach.
@@ -4056,7 +4085,97 @@ Daher ist $B\otimes_{A}C$ endlich erzeugt.\qqed[\roman{ale2})]
 \end{iiilist}
 
 
-\section{Beispiel \textmd{(Die Fasern von \texorpdfstring{$\text{Spec}\left(\mathbb{Z}\left[\ii\right]\right)\to\text{Spec}\left(\mathbb{Z}\right)$}{Spec(Z[i])->Spec(Z)})}}
+\section{Lemma\label{sec:Lem-AmodIdealIsomorphMmodIM}}
+
+Seien $A$ ein Ring, $I\subseteq A$ ein Ideal und $M$ ein $A$-Modul.
+
+Dann ist die Abbildung
+\begin{align*}
+\varphi^{-1}:\modulo AI\otimes_{A}M & \stackrel{\sim}{\to}\modulo M{IM}
+\end{align*}
+ein in dem $A$-Modul $M$ natürlicher Isomorphismus.
+
+
+\subsubsection*{\textit{\emph{Beweis}}}
+
+Betrachte die kurze exakte Folge:
+\begin{align*}
+0 & \to I\stackrel{\iota}{\hookrightarrow}A\stackrel{\pi}{\twoheadrightarrow}\modulo AI\to0
+\end{align*}
+Aufgrund der Rechtsexaktheit des Tensorprodukts ist auch die Folge
+\begin{align*}
+I\otimes_{A}M\stackrel{\iota\otimes\text{id}}{\to}A\otimes_{A}M\stackrel{\pi\otimes\text{id}}{\to}\modulo AI\otimes_{A}M\to0
+\end{align*}
+exakt, also insbesondere:
+\begin{align*}
+\ker\left(\pi\otimes\text{id}\right) & =\text{im}\left(\iota\otimes\text{id}\right)
+\end{align*}
+Nun ist aber
+\begin{align*}
+\alpha:M & \stackrel{\sim}{\to}A\otimes_{A}M\\
+m & \mapsto1\otimes m
+\end{align*}
+ein Isomorphismus mit der Umkehrabbildung:
+\begin{align*}
+\alpha^{-1}:A\otimes_{A}M & \stackrel{\sim}{\to}M\\
+a\otimes m & \mapsto a\cdot m
+\end{align*}
+Betrachte nun
+\begin{align*}
+I\otimes_{A}M\stackrel{\iota\otimes\text{id}}{\to}A\otimes_{A}M\sr{\to}{\sim}{\alpha^{-1}}M\sr{\to}{\sim}{\alpha}A\otimes_{A}M\stackrel{\pi\otimes\text{id}}{\twoheadrightarrow}\modulo AI\otimes_{A}M\to0
+\end{align*}
+also:
+\begin{align*}
+I\otimes_{A}M\stackrel{f:=\alpha^{-1}\circ\left(\iota\otimes\text{id}\right)}{\to}M\stackrel{g:=\left(\pi\otimes\text{id}\right)\circ\alpha}{\twoheadrightarrow}\modulo AI\otimes_{A}M\to0
+\end{align*}
+Da $\alpha$ ein Isomorphismus ist, gilt noch immer:
+\begin{align*}
+\ker\left(g\right) & =\text{im}\left(f\right)=f\left(I\otimes_{A}M\right)=IM
+\end{align*}
+Da $g$ surjektiv ist folgt damit aus dem Homomorphiesatz, dass
+\begin{align*}
+\varphi:\modulo M{IM} & \stackrel{\sim}{\to}\modulo AI\otimes_{A}M\\
+m+IM & \mapsto g\left(m\right)=\left(1+I\right)\otimes_{A}m
+\end{align*}
+ein Isomorphismus von $A$-Moduln ist.
+
+Sei nun $f:M\to N$ ein $A$-Modulhomomorphismus, so kommutiert das
+Diagramm
+
+\noindent \begin{center}
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2.5em, column sep=2em, text height=2ex, text depth=0.25ex]
+  { \modulo{A}{I}\otimes_{A}M & \modulo{M}{IM}\\
+    \modulo{A}{I}\otimes_{A}N & \modulo{N}{IN}\\};
+  \path[->] (m-1-1) edge node[above]{$\varphi_M$} (m-1-2)
+            (m-2-1) edge node[above]{$\varphi_N$} (m-2-2)
+            (m-1-1) edge node[left]{$\text{id}\otimes f$} (m-2-1)
+            (m-1-2) edge node[left]{$ \overline{f}$} (m-2-2);
+\end{tikzpicture}
+\end{center}
+\par\end{center}
+
+wegen:
+
+\noindent \begin{center}
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2.5em, column sep=2em, text height=2ex, text depth=0.25ex]
+  { (a+I)\otimes m & am + IM\\
+    (a+I)\otimes f(m) & a\cdot f(m) + IN\\};
+  \path[|->] (m-1-1) edge node[above]{$\varphi_M$} (m-1-2)
+            (m-2-1) edge node[above]{$\varphi_N$} (m-2-2)
+            (m-1-1) edge node[left]{$\text{id}\otimes f$} (m-2-1)
+            (m-1-2) edge node[left]{$ \overline{f}$} (m-2-2);
+\end{tikzpicture}
+\end{center}
+\par\end{center}
+
+Also ist die Isomorphie natürlich.\qqed
+
+
+\section{Beispiel \textmd{(Die Fasern von \texorpdfstring{$\text{Spec}\left(\mathbb{Z}\left[\ii\right]\right)\to\text{Spec}\left(\mathbb{Z}\right)$}{Spec(Z[i])->Spec(Z)})\label{sec:Bsp-Fasern-SpecZi->SpecZ}}}
 
 Vergleiche mit \ref{sec:DuB-Bild-Urbild-Ideal} v).
 
@@ -4113,7 +4232,7 @@ kommutiert das Diagramm
 
 und es gilt:
 \begin{align*}
-\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p} & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+1\right)}\otimes_{\mathbb{Z}}\modlo{\mathbb{Z}}p\sr ={\sim}{(\text{Blatt 5 Aufgabe 1 i)})}\modulo{\mathbb{Z}\left[X\right]}{\left(p,X^{2}+1\right)}\stackrel{\sim}{=}\\
+\mathbb{Z}\left[\ii\right]\otimes_{\mathbb{Z}}\mathbb{F}_{p} & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+1\right)}\otimes_{\mathbb{Z}}\modlo{\mathbb{Z}}p\sr ={\sim}{\ref{sec:Lem-AmodIdealIsomorphMmodIM}}\modulo{\mathbb{Z}\left[X\right]}{\left(p,X^{2}+1\right)}\stackrel{\sim}{=}\\
  & \stackrel{\sim}{=}\modulo{\mathbb{F}_{p}\left[X\right]}{\left(X^{2}+1\right)}\sr ={\sim}{\left(*\right)}\begin{cases}
 \modulo{\mathbb{F}_{2}\left[X\right]}{\left(\left(X+1\right)^{2}\right)} & ;\ p=2\\
 \mathbb{F}_{p}\times\mathbb{F}_{p} & ;\ p\equiv1\mod4\\
@@ -4620,7 +4739,7 @@ Betrachte:
      0 & S^{-1}N & S^{-1}M & \modulo{(S^{-1}M)}{(S^{-1}N)} & 0 \\};
   \path[->,font=\scriptsize] (m-1-1) edge (m-1-2)
                              (m-1-2) edge (m-1-3)
-                             (m-1-3) edge (m-1-4)
+                             (m-1-3) edge node[above]{$\alpha$} (m-1-4)
                              (m-1-4) edge (m-1-5);
   \path[->,font=\scriptsize] (m-2-1) edge (m-2-2)
                              (m-2-2) edge (m-2-3)
@@ -4631,13 +4750,13 @@ Betrachte:
                              (m-1-3) edge node[left]{\text{id}} (m-2-3)
                              (m-1-5) edge (m-2-5);
   \path[->,font=\scriptsize,dashed] (m-1-4) edge node[left]{$\varphi$} (m-2-4);
-  \path (m-1-3) -- node[circle,draw=black,inner sep=1.5pt,font=\scriptsize]{1} (m-2-4);
+  \path (m-1-3) -- node{\encircle{1}} (m-2-4);
 \end{tikzpicture}
 \par\end{center}
 
-Man sieht leicht, dass genau eine $S^{-1}A$-lineare Abbildung $\varphi$
-existiert, sodass \begin{minipage}[c]{5mm}
-\tikz{\node [inner sep=1.5pt] at (0,0) [circle,draw=black,font=\scriptsize]{1};}\end{minipage} kommutiert, und dass $\varphi$ bijektiv ist.\qqed
+Aus dem Homomorphiesatz folgt, dass genau ein $S^{-1}A$-linearer
+Isomorphismus $\varphi$ existiert, sodass $\encirc{1}$ kommutiert,
+denn $\alpha$ ist surjektiv und $\ker\left(\alpha\right)\stackrel{\sim}{=}S^{-1}N$.\qqed
 
 %DATE: Fr 1.6.12
 
@@ -4729,6 +4848,107 @@ $k\left[T_{1},\ldots,T_{n}\right]$ für $n\ge2$ kein Hauptidealring
 ist.
 
 
+\section{Proposition \textmd{(Projektionsformel)\label{sec:Prop-Projektionsformel}}}
+
+Seien $f:A\to B$ ein Ringhomomorphismus, $M$ ein $A$-Modul und
+$N$ ein $B$-Modul.
+
+Dann existiert ein natürlicher Isomorphismus von $A$-Moduln:
+\begin{align*}
+N\otimes_{B}\left(B\otimes_{A}M\right)\stackrel{\text{Def.}}{=}f_{*}\left(N\otimes_{B}f^{*}\left(M\right)\right) & \stackrel{\sim}{=}f_{*}\left(N\right)\otimes_{A}M\stackrel{\text{Def.}}{=}N\otimes_{A}M
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+\noindent \begin{flushleft}
+Für jedes $b\in B$ ist
+\begin{align*}
+N\times M & \to N\otimes_{A}M\\
+\left(n,m\right) & \mapsto\left(bn\right)\otimes m
+\end{align*}
+eine $A$-bilineare Abbildung, induziert also eine $A$-lineare Abbildung:
+\begin{align*}
+\cdot b:N\otimes_{A}M & \to N\otimes_{A}M
+\end{align*}
+Mit diesen Abbildungen als Skalarmultiplikation ist $N\otimes_{A}M$
+ein $B$-Modul. Betrachte nun die Abbildung:
+\begin{align*}
+\varphi:N\times\left(B\times M\right) & \to N\otimes_{A}M\\
+\left(n,b,m\right) & \mapsto\left(bn\right)\otimes m
+\end{align*}
+
+\par\end{flushleft}
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=4.5em, text height=1.5ex, text depth=0.25ex]
+   { N\times B \times M &   N\otimes_A M \\
+     N\times (B\otimes_A M)  & \\ 
+     N\otimes_B (B\otimes_A M)  & \\ };
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$ \varphi $} (m-1-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[left]{$\text{id}\times \tau$} (m-2-1) (m-2-1) edge (m-3-1);
+  \path[->,dashed,font=\scriptsize] (m-2-1) edge node[above]{$\psi$} (m-1-2)
+                                    (m-3-1) edge node[below]{$f$} (m-1-2);
+  \path ($0.5*(m-2-1)+0.5*(m-1-1)$) -- node{\encircle{1}} (m-1-2);
+  \path ($0.5*(m-3-1)+0.5*(m-2-1)$) -- node{\encircle{2}} (m-1-2);
+\end{tikzpicture}
+\par\end{center}
+
+Zu $\encirc{1}$: Für jedes $n\in N$ ist $\varphi\left(n,.,.\right)$
+schon $A$-bilinear, also faktorisiert $\varphi$ eindeutig über ein
+$\psi$.
+
+Zu $\encirc{2}$: $\psi$ ist $B$-bilinear nach Definition der $B$-Modulstruktur
+auf $N\otimes_{A}M$. Also faktorisiert $\psi$ eindeutig über eine
+$B$-lineare Abbildung $f$.
+
+Die Abbildung
+\begin{align*}
+N\times M & \to N\otimes_{B}\left(B\otimes_{A}N\right)\\
+\left(n,m\right) & \mapsto n\otimes1\otimes m
+\end{align*}
+ist $A$-bilinear, faktorisiert also über eine $A$-lineare Abbildung:
+\begin{align*}
+g:N\otimes_{A}M & \to N\otimes_{B}\left(B\otimes_{A}N\right)
+\end{align*}
+Um zu sehen, dass $f$ und $g$ zueinander invers sind, rechne auf
+den Erzeugern einerseits
+\begin{align*}
+f\left(g\left(n\otimes m\right)\right) & =f\left(n\otimes1\otimes m\right)=\left(1\cdot n\right)\otimes m=n\otimes m
+\end{align*}
+und andererseits:
+\begin{align*}
+g\left(f\left(n\otimes b\otimes m\right)\right) & =g\left(\left(bn\right)\otimes m\right)=\left(bn\right)\otimes1\otimes m=n\otimes b\otimes m\in N\otimes_{B}\left(B\otimes_{A}M\right)
+\end{align*}
+\qqed
+
+
+\section{Korollar \textmd{(Basiswechsel vertauscht mit Tensorprodukt)}\label{sec:Prop-Tensorprodukt-Basiswechsel-vertauschen}}
+
+Sind $f:A\to B$ ein Ringhomomorphismus und $M_{1}$ und $M_{2}$
+zwei $A$-Moduln, so existiert ein natürlicher Isomorphismus von $B$-Moduln:
+\begin{align*}
+\left(B\otimes_{A}M_{1}\right)\otimes_{B}\left(B\otimes M_{2}\right)=f^{*}\left(M_{1}\right)\otimes_{f^{*}\left(A\right)}f^{*}\left(M_{2}\right) & \stackrel{\sim}{=}f^{*}\left(M_{1}\otimes_{A}M_{2}\right)=B\otimes_{A}\left(M_{1}\otimes_{A}M_{2}\right)
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+Beachte $f^{*}\left(A\right)\stackrel{\sim}{=}B\otimes_{A}A\stackrel{\sim}{=}B$.
+
+Erhalte aus der Proposition \ref{sec:Prop-Projektionsformel} mit
+$M:=M_{2}$ und $N:=f^{*}\left(M_{1}\right)$ einen $A$-linearen
+Isomorphismus:
+\begin{align*}
+f_{*}\left(f^{*}\left(M_{1}\right)\otimes_{B}f^{*}\left(M_{2}\right)\right) & \stackrel{\sim}{\to}f_{*}\left(f^{*}\left(M_{1}\right)\right)\otimes_{A}M_{2}\stackrel{\sim}{=}\left(B\otimes_{A}M_{1}\right)\otimes_{A}M_{2}\stackrel{\sim}{=}\\
+ & \qquad\stackrel{\sim}{=}B\otimes_{A}\left(M_{1}\otimes_{A}M_{2}\right)\stackrel{\sim}{=}f_{*}\left(f^{*}\left(M_{1}\otimes_{A}M_{2}\right)\right)
+\end{align*}
+Dieser ist $B$-linear.\qqed
+
+
 \section{Proposition\label{sec:Prop-Tensorprodukt-Lokalisierung-vertauschen}}
 
 Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
@@ -4748,73 +4968,11 @@ natürlicher Isomorphismus.
 
 \subsubsection*{Beweis}
 
-Benutze, dass es für eine $A$-Algebra $f:A\to B$ bei $B$-Moduln
-$\tilde{M},\tilde{N}$, die vermöge $f$ auch $A$-Moduln sind, egal
-ist, über welchem Ring tensoriert wird, denn $\tilde{M}\otimes_{A}\tilde{N}$
-ist vermöge
-\begin{align*}
-b\cdot\left(m\otimes n\right) & :=\left(bm\right)\otimes n
-\end{align*}
-ein $B$-Modul und $\tilde{M}\otimes_{B}\tilde{N}$ vermöge
-\begin{align*}
-a\cdot\left(m\otimes n\right) & :=\left(f\left(a\right)m\right)\otimes n
-\end{align*}
-ein $A$-Modul und die Abbildung
-\begin{align*}
-\psi:\tilde{M}\otimes_{A}\tilde{N} & \stackrel{\sim}{\to}\tilde{M}\otimes_{B}\tilde{N}\\
-m\otimes n & \mapsto m\otimes n
-\end{align*}
-ist ein $A,B$-linearer Isomorphismus, denn es gilt
-\begin{align*}
-\psi\left(a\left(m\otimes n\right)\right) & =\psi\left(\left(a\cdot m\right)\otimes n\right)=\left(a\cdot m\right)\otimes n=\left(f\left(a\right)m\right)\otimes n=a\cdot\left(m\otimes n\right)=a\psi\left(m\otimes n\right)\\
-\psi\left(b\left(m\otimes n\right)\right) & =\psi\left(\left(bm\right)\otimes n\right)=\left(bm\right)\otimes n=b\cdot\left(m\otimes n\right)=b\psi\left(m\otimes n\right)
-\end{align*}
-und
-\begin{align*}
-\varphi:\tilde{M}\otimes_{B}\tilde{N} & \stackrel{\sim}{\to}\tilde{M}\otimes_{A}\tilde{N}\\
-m\otimes n & \mapsto m\otimes n
-\end{align*}
-ist wegen
-\begin{align*}
-\varphi\left(a\left(m\otimes n\right)\right) & =\varphi\left(\left(f\left(a\right)m\right)\otimes n\right)=\left(f\left(a\right)m\right)\otimes n=\left(a\cdot m\right)\otimes n=a\cdot\left(m\otimes n\right)=a\varphi\left(m\otimes n\right)\\
-\varphi\left(b\left(m\otimes n\right)\right) & =\varphi\left(\left(bm\right)\otimes n\right)=\left(bm\right)\otimes n=b\cdot\left(m\otimes n\right)=b\varphi\left(m\otimes n\right)
-\end{align*}
-$A,B$-linear und offenbar die Umkehrabbildung zu $\psi$. Damit folgt:
-\begin{align*}
-S^{-1}M\otimes_{S^{-1}A}S^{-1}N & \sr{\to}{\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}\left(S^{-1}A\otimes_{A}M\right)\otimes_{S^{-1}A}\left(S^{-1}A\otimes_{A}N\right)\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{}\left(S^{-1}A\otimes_{A}M\right)\otimes_{A}\left(S^{-1}A\otimes_{A}N\right)\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{\ref{sec:Satz-natuerliche-Isomorphismen}\text{ i), ii)}}M\otimes_{A}\left(S^{-1}A\otimes_{A}S^{-1}A\right)\otimes_{A}N\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{}M\otimes_{A}\left(S^{-1}A\otimes_{S^{-1}A}S^{-1}A\right)\otimes_{A}N\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{\ref{sec:Satz-natuerliche-Isomorphismen}\text{ v)}}M\otimes_{A}S^{-1}A\otimes_{A}N\stackrel{\sim}{\to}\\
- & \stackrel{\sim}{\to}S^{-1}A\otimes_{A}\left(M\otimes_{A}N\right)\stackrel{\sim}{\to}\\
- & \sr{\to}{\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}S^{-1}\left(M\otimes_{A}N\right)
-\end{align*}
+Dies ist ein Spezialfall von \ref{sec:Prop-Tensorprodukt-Basiswechsel-vertauschen}
+mit $f:A\to S^{-1}A=:B$, $M_{1}:=M$ und $M_{2}:=N$.
+
 Man prüft noch, dass die Komposition der Isomorphismen wie angegeben
 ist.\qqed
-
-
-\subsubsection*{Bemerkung}
-
-Allgemeiner zeigt derselbe Beweis:
-
-Für eine $A$-Algebra $f:A\to B$ und zwei $A$-Moduln $M$ und $N$,
-dann ist:
-\begin{align*}
-f^{*}M\otimes_{B}f^{*}N & \stackrel{\sim}{=}f^{*}\left(M\otimes_{A}N\right)
-\end{align*}
-Hier ist $f:A\to B:=S^{-1}A$.
-
-
-\subsubsection*{Beweis}
-
-\begin{align*}
-f^{*}M\otimes_{B}f^{*}N & \stackrel{\sim}{=}\left(B\otimes_{A}M\right)\otimes_{B}\left(B\otimes_{A}N\right)\stackrel{\sim}{=}\left(B\otimes_{A}M\right)\otimes_{A}\left(B\otimes_{A}N\right)\stackrel{\sim}{=}\\
- & \stackrel{\sim}{=}M\otimes_{A}\left(B\otimes_{A}B\right)\otimes_{A}N\stackrel{\sim}{=}M\otimes_{A}\underbrace{B\otimes_{B}B}_{=B}\otimes_{A}N\stackrel{\sim}{=}\\
- & \stackrel{\sim}{=}B\otimes_{A}\left(M\otimes_{A}N\right)\stackrel{\sim}{=}f^{*}\left(M\otimes_{A}N\right)
-\end{align*}
-
-
-\qqed
 
 
 \section{Korollar\label{sec:Kor-Tensorprodukt-LokalisierungBeiP-vertauschen}}
@@ -4842,7 +5000,7 @@ alle Primideale $\mathfrak{p}\subseteq A$ der $A_{\mathfrak{p}}$-Modul
 $M_{\mathfrak{p}}$ die Eigenschaft $\mathcal{P}$ besitzt.
 
 
-\section{Proposition \textmd{(Null zu sein ist lokal)\label{sec:Prop-Null-lokal}}}
+\section{Proposition \textmd{(Null zu sein ist eine lokale Eigenschaft)\label{sec:Prop-Null-lokal}}}
 
 Seien $A$ ein Ring und $M$ ein $A$-Modul, dann sind äquivalent:
 
@@ -4869,8 +5027,11 @@ iii) $\Rightarrow$ i): Sei $x\in M$. Dann ist $I:=\left\{ a\in A\big|ax=0\right\
 ein Ideal.
 
 Ist $\mathfrak{m}\subseteq A$ ein maximales Ideal, so gilt $0=\frac{x}{1}$
-in $0=M_{\mathfrak{m}}=\left(A\setminus\mathfrak{m}\right)^{-1}M$.\\
-Also gibt es ein $a\in A\setminus\mathfrak{m}$ mit $ax=0\in M$.
+im Modul $0=M_{\mathfrak{m}}=\left(A\setminus\mathfrak{m}\right)^{-1}M$.\\
+Also gibt es ein $a\in A\setminus\mathfrak{m}$ mit:
+\begin{align*}
+0 & =a\left(1\cdot x-1\cdot0\right)=ax\in M
+\end{align*}
 Es folgt $a\in I\setminus\mathfrak{m}$, also $I\not\subseteq\mathfrak{m}$.
 
 Da $\mathfrak{m}$ beliebig ist, folgt aus \ref{sec:Kor-ExistenzMaximalesIdealenthaeltI},
@@ -4881,7 +5042,8 @@ x & =1\cdot x\stackrel{1\in I}{=}0
 \qqed
 
 
-\section{Proposition \textmd{(Mono- oder Epimorphimus zu sein ist lokal)\label{sec:Prop-Mono-Epi-lokal}}}
+\section{Proposition \textmd{(Mono- bzw. Epimorphimus zu sein ist eine lokale
+Eigenschaft)\label{sec:Prop-Mono-Epi-lokal}}}
 
 Seien $A$ ein Ring, $M$ und $N$ zwei $A$-Moduln und $f:M\to N$
 eine $A$-lineare Abbildung.
@@ -4909,21 +5071,31 @@ injektiv (beziehungsweise surjektiv).
 
 \subsubsection*{Beweis}
 
-i) $\Rightarrow$ ii) folgt aus der Exaktheit der Lokalisierung \ref{sec:Satz-Lokalisierung-exakt}.
+i) $\Rightarrow$ ii) folgt aus der Exaktheit der Lokalisierung \ref{sec:Satz-Lokalisierung-exakt}
+angewandt auf die exakte Folge
+\begin{align*}
+0\to M\stackrel{f}{\to}N
+\end{align*}
+beziehungsweise:
+\begin{align*}
+M\stackrel{f}{\to}N\to0
+\end{align*}
+
 
 ii) $\Rightarrow$ iii): Jedes maximale Ideal ist nach \ref{sec:Bsp-Prim-maximales-Ideal}
 ein Primideal.
 
-iii) $\Rightarrow$ i): Betrachte die exakte Folge von $A$-Moduln
+iii) $\Rightarrow$ i): Betrachte die exakte Folge
 \begin{align*}
 0\to\ker\left(f\right)\to M & \stackrel{f}{\to}N\to\text{koker}\left(f\right)=\modulo N{\text{im}\left(f\right)}\to0
 \end{align*}
-Für jedes maximale Ideal $\mathfrak{m}\subseteq A$ ist dann nach
-\ref{sec:Satz-Lokalisierung-exakt} die Folge von $A_{\mathfrak{m}}$-Moduln
+ von $A$-Moduln. Für jedes maximale Ideal $\mathfrak{m}\subseteq A$
+ist dann nach \ref{sec:Satz-Lokalisierung-exakt} die Folge
 \begin{align*}
 0\to\ker\left(f\right)_{\mathfrak{m}}\to M_{\mathfrak{m}} & \stackrel{f}{\to}N_{\mathfrak{m}}\to\text{koker}\left(f\right)_{\mathfrak{m}}\to0
 \end{align*}
-exakt, und es folgt wie im Beweis von 3.7:
+von $A_{\mathfrak{m}}$-Moduln exakt, und wie im Beweis von \ref{sec:Kor-Quotientenbildung-Lokalisierung-vertauscht}
+ergibt der Homomorphiesatz angewandt auf das Diagramm
 
 \noindent \begin{center}
 \begin{tikzpicture}
@@ -4947,21 +5119,25 @@ exakt, und es folgt wie im Beweis von 3.7:
   \path[->,font=\scriptsize,dashed] (m-1-5) edge node[left]{$\stackrel{\sim}{=}$} (m-2-5);
   \path[->,font=\scriptsize,dashed] (m-1-2) edge node[left]{$\stackrel{\sim}{=}$} (m-2-2);
 \end{tikzpicture}
+\par\end{center}
+
+\noindent \begin{flushleft}
+die Isomorphien:
 \begin{align*}
-\ker\left(f\right)_{\mathfrak{m}} & =\ker\left(f_{\mathfrak{m}}\right)\\
-\text{koker}\left(f\right)_{\mathfrak{m}} & =\text{koker}\left(f_{\mathfrak{m}}\right)
+\ker\left(f\right)_{\mathfrak{m}} & \stackrel{\sim}{=}\ker\left(f_{\mathfrak{m}}\right)\\
+\text{koker}\left(f\right)_{\mathfrak{m}} & \stackrel{\sim}{=}\text{koker}\left(f_{\mathfrak{m}}\right)
 \end{align*}
 
-\par\end{center}
+\par\end{flushleft}
 
 Ist $f_{\mathfrak{m}}$ injektiv (bzw. surjektiv), so folgt $\ker\left(f\right)_{\mathfrak{m}}=0$
 (bzw. $\text{koker}\left(f\right)_{\mathfrak{m}}=0$) für alle maximalen
-Ideale $\mathfrak{m}\subseteq A$ nach \ref{sec:Prop-Null-lokal}
-iii) $\Rightarrow$ i), also $\ker\left(f\right)=0$ (bzw. $\text{koker}\left(f\right)=0$),
+Ideale $\mathfrak{m}\subseteq A$. Nach \ref{sec:Prop-Null-lokal}
+iii) $\Rightarrow$ i) ist daher $\ker\left(f\right)=0$ (bzw. $\text{koker}\left(f\right)=0$),
 das heißt $f$ ist injektiv (bzw. surjektiv).\qqed
 
 
-\section{Proposition \textmd{(Flachheit ist eine lokale Eigenschaft)}}
+\section{Proposition \textmd{(Flach zu sein ist eine lokale Eigenschaft)\label{sec:Prop-flach-lokal}}}
 
 Seien $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
 
@@ -4983,22 +5159,27 @@ ein flacher $A_{\mathfrak{m}}$-Modul.
 i) $\Rightarrow$ ii): Für eine exakte Folge $\mathscr{E}$ von $A_{\mathfrak{p}}$-Moduln
 gilt:
 \begin{align*}
-\mathscr{E}\otimes_{A_{\mathfrak{p}}}M_{\mathfrak{p}} & \sr ={\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}\mathscr{E}\otimes_{A_{\mathfrak{p}}}\left(A_{\mathfrak{p}}\otimes_{A}M\right)\stackrel{\sim}{=}\mathscr{E}\otimes_{A}M
+\mathscr{E}\otimes_{A_{\mathfrak{p}}}M_{\mathfrak{p}} & \sr ={\sim}{\ref{sec:Satz-Lokalisierung-Tensorprodukt}}\mathscr{E}\otimes_{A_{\mathfrak{p}}}\left(A_{\mathfrak{p}}\otimes_{A}M\right)\sr ={\sim}{\ref{sec:Prop-Projektionsformel}}\mathscr{E}\otimes_{A}M
 \end{align*}
-und diese Folge ist exakt, da $\mathscr{E}$ auch aufgefasst als Folge
-von $A$-Moduln vermöge $A\to A_{\mathfrak{p}}$ exakt ist, und $M$
-ein flacher $A$-Modul ist.
+und diese Folge ist exakt, da $\mathscr{E}$ auch vermöge $A\to A_{\mathfrak{p}}$
+aufgefasst als Folge von $A$-Moduln exakt ist, und $M$ ein flacher
+$A$-Modul ist.
 
 ii) $\Rightarrow$ iii) ist klar.
 
-iii) $\Rightarrow$ i): Wegen \ref{sec:PuD-flacherModul} iii) zeige:
+iii) $\Rightarrow$ i): Wegen dem Flachheitskriterium \ref{sec:PuD-flacherModul}
+iii) zeige:
 
 Ist $\iota:N'\hookrightarrow N$ ein $A$-linearer Monomorphismus,
 so ist $\iota\otimes\text{id}:N'\otimes_{A}M\to N\otimes_{A}M$ injektiv.
 
-Wegen \ref{sec:Prop-Mono-Epi-lokal} iii) $\Rightarrow$ i) genügt
-es zu zeigen, dass für alle maximalen Ideale $\mathfrak{m}\subseteq A$
-die $A_{\mathfrak{m}}$-lineare Abbildung $\left(\iota\otimes\text{id}\right)_{\mathfrak{m}}:\left(N'\otimes_{A}M\right)_{\mathfrak{m}}\to\left(N\otimes_{A}M\right)_{\mathfrak{m}}$
+Da Monomorphismus zu sein eine lokale Eigenschaft ist, genügt es nach
+\ref{sec:Prop-Mono-Epi-lokal} iii) $\Rightarrow$ i) zu zeigen, dass
+für alle maximalen Ideale $\mathfrak{m}\subseteq A$ die $A_{\mathfrak{m}}$-lineare
+Abbildung
+\begin{align*}
+\left(\iota\otimes\text{id}\right)_{\mathfrak{m}}:\left(N'\otimes_{A}M\right)_{\mathfrak{m}} & \to\left(N\otimes_{A}M\right)_{\mathfrak{m}}
+\end{align*}
 injektiv ist.
 
 \noindent \begin{center}
@@ -5013,12 +5194,948 @@ injektiv ist.
 \end{tikzpicture}
 \par\end{center}
 
-Nun ist mit $\iota$ auch $\iota_{\mathfrak{m}}$ nach \ref{sec:Satz-Lokalisierung-exakt}
-injektiv, und da $M_{\mathfrak{m}}$ ein flacher $A_{\mathfrak{m}}$-Modul
-ist, ist auch $\iota_{\mathfrak{m}}\otimes\text{id}_{M_{\mathfrak{m}}}$
+Nun ist mit $\iota$ auch $\iota_{\mathfrak{m}}$ injektiv, da Lokalisierung
+nach \ref{sec:Satz-Lokalisierung-exakt} exakt ist, und da $M_{\mathfrak{m}}$
+ein flacher $A_{\mathfrak{m}}$-Modul ist, ist auch $\iota_{\mathfrak{m}}\otimes\text{id}_{M_{\mathfrak{m}}}$
 und damit $\left(\iota\otimes\text{id}_{M}\right)_{\mathfrak{m}}$
 injektiv.\qqed
 
+%DATE: Di 5.6.12
+
+
+\section{Satz \textmd{(Idealtheorie von \texorpdfstring{$S^{-1}A$}{S^(-1)A})\label{sec:Satz-Idealtheorie-Lokalisierung}}}
+
+Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
+$f:A\to S^{-1}A$ der kanonische Ringhomomorphismus.
+
+\begin{iiilist}
+
+\iii Für jedes Ideal $J\subseteq S^{-1}A$ gilt $J=f_{*}\left(f^{*}\left(J\right)\right)$.
+Insbesondere ist jedes Ideal von $S^{-1}A$ Bild eines Ideals von
+$A$.
+
+\iii Für jedes Ideal $I\subseteq A$ gilt $f^{*}\left(f_{*}\left(I\right)\right)=\bigcup_{s\in S}\left\{ x\in A\big|sx\in I\right\} $.
+Insbesondere gilt:
+\begin{align*}
+f_{*}\left(I\right) & =\left(1\right)\quad\Leftrightarrow\quad I\cap S\not=\emptyset
+\end{align*}
+\iii Für ein Ideal $I\subseteq A$ gilt $I=f^{*}\left(f_{*}\left(I\right)\right)$
+genau dann, wenn kein Element aus $S$ ein Nullteiler in $\modulo AI$
+wird.
+
+\iii Die Abbildungen
+\begin{align*}
+f^{*}:\text{Spec}\left(S^{-1}A\right) & \sr{\rightleftarrows}{\sim}{\sim}\left\{ \mathfrak{p}\in\text{Spec}\left(A\right)|\mbox{\ensuremath{\mathfrak{p}}}\cap S=\emptyset\right\} :f_{*}
+\end{align*}
+sind wohldefiniert und zueinander inverse Bijektionen.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Allgemein gilt $f_{*}\left(f^{*}\left(J\right)\right)\subseteq J$:
+
+$f_{*}\left(f^{*}\left(J\right)\right)=\left(f\left(f^{-1}\left(J\right)\right)\right)$
+ist das von $f\left(f^{*}\left(J\right)\right)$ erzeugte Ideal in
+$B:=S^{-1}A$.\\
+Sei $y\in f_{*}\left(f^{*}\left(J\right)\right)$, so gibt es ein
+$n\in\mathbb{N}$ und für $0\le k\le n$ Elemente $x_{k}\in f^{*}\left(J\right)$
+und $b_{k}\in B$ mit:
+\begin{align*}
+y & =\sum_{k=0}^{n}b_{k}f\left(x_{k}\right)
+\end{align*}
+Wegen $x_{k}\in f^{*}\left(J\right)$ gibt es Elemente $z_{k}\in J$
+mit $f\left(x_{k}\right)=z_{k}$. Also gilt, weil $J$ ein Ideal ist:
+\begin{align*}
+y & =\sum_{k=0}^{n}b_{k}f\left(x_{k}\right)=\sum_{k=0}^{n}b_{k}z_{k}\in J
+\end{align*}
+Daher ist $f_{*}\left(f^{*}\left(J\right)\right)\subseteq J$.
+
+Sei nun $x\in J\subseteq S^{-1}A$. Schreibe $x=\frac{a}{s}$ mit
+geeigneten $a\in A$ und $s\in S$. Dann gilt:
+\begin{align*}
+f\left(a\right) & =\frac{a}{1}=\frac{s}{1}\cdot\frac{a}{s}=\frac{s}{1}\cdot x\in J
+\end{align*}
+Also ist $a\in f^{*}\left(J\right)$ und somit:
+\begin{align*}
+\frac{a}{1} & =f\left(a\right)\in f_{*}\left(f^{*}\left(J\right)\right)
+\end{align*}
+Weil $J$ ein Ideal ist, folgt:
+\begin{align*}
+x & =\frac{a}{1}\cdot\frac{1}{s}\in f_{*}\left(f^{*}\left(J\right)\right)
+\end{align*}
+\qqed[\roman{ale2})]
+
+\iii Für alle $a\in A$ gilt:
+\begin{align*}
+a\in f^{*}\left(f_{*}\left(I\right)\right) & \quad\Leftrightarrow\quad\frac{a}{1}=f\left(a\right)\in f_{*}\left(I\right)\stackrel{\encirc{1}}{=}\left\{ \left.\frac{x}{s}\right|x\in I,s\in S\right\} \quad\Leftrightarrow\\
+ & \quad\Leftrightarrow\quad\exs_{x\in I,s\in S}\frac{a}{1}=\frac{x}{s}\in S^{-1}A\quad\Leftrightarrow\\
+ & \quad\Leftrightarrow\quad\exs_{x\in I,s,t\in S}t\left(as-x\right)=0\in A\quad\Leftrightarrow\\
+ & \quad\stackrel{\encirc{2}}{\Leftrightarrow}\quad a\in\bigcup_{\tilde{t}\in S}\left\{ a\in A\big|\tilde{t}a\in I\right\} \supseteq I
+\end{align*}
+Zu $\encirc{1}$: $\supseteq$ ist klar und $\subseteq$ folgt mit
+Bildung des \quotedblbase{}Hauptnenners\textquotedblleft{}.
+
+Zu $\encirc{2}$: \quotedblbase{}$\Rightarrow$\textquotedblleft{}:
+Wähle $\tilde{t}:=ts$ und beachte $\tilde{t}a=tx\in I$.
+
+\quotedblbase{}$\Leftarrow$\textquotedblleft{}: Setze $x:=\tilde{t}a\in I$,
+$s:=\tilde{t}\in S$ und $t=1\in S$. Dann folgt:
+\begin{align*}
+0 & =t\cdot\left(a\cdot\tilde{t}-x\right)
+\end{align*}
+Es folgt insbesondere:
+\begin{align*}
+f_{*}\left(I\right)=\left(1\right) & \quad\Leftrightarrow\quad f^{*}\left(f_{*}\left(I\right)\right)=\left(1\right)\quad\Leftrightarrow\\
+ & \quad\stackrel{\text{ii)}}{\Leftrightarrow}\quad1\in\bigcup_{s\in S}\left\{ x\in A\big|sx\in I\right\} \quad\Leftrightarrow\\
+ & \quad\stackrel{\text{ii)}}{\Leftrightarrow}\quad\exs_{s\in S}:s\cdot1\in I\quad\Leftrightarrow\quad S\cap I\not=\emptyset
+\end{align*}
+\qqed[\roman{ale2})]
+
+\iii Allgemein gilt $I\subseteq f^{*}\left(f_{*}\left(I\right)\right)$:
+
+$f_{*}\left(I\right)=\left(f\left(I\right)\right)\subseteq S^{-1}A$
+ist das von $f\left(I\right)$ erzeugte Ideal.
+\begin{align*}
+f^{*}\left(f_{*}\left(I\right)\right) & =f^{-1}\left(\left(f\left(I\right)\right)\right)
+\end{align*}
+Sei $x\in I$, so folgt $y:=f\left(x\right)\in f\left(I\right)\subseteq f_{*}\left(I\right)$.
+Also gilt:
+\begin{align*}
+x & \in f^{-1}\left(f\left(x\right)\right)=f^{-1}\left(y\right)\subseteq f^{-1}\left(f_{*}\left(I\right)\right)=f^{*}\left(f_{*}\left(I\right)\right)
+\end{align*}
+Das heißt, es gilt $I\subseteq f^{*}\left(f_{*}\left(I\right)\right)$.
+
+Mit der Projektion $\pi:A\twoheadrightarrow\modulo AI$ folgt:
+\begin{align*}
+I & \subseteq f^{*}\left(f_{*}\left(I\right)\right)\stackrel{\text{ii)}}{=}\bigcup_{s\in S}\left\{ x\in A\big|sx\in I\right\} \stackrel{\encirc{1}}{=}\bigcup_{s\in S}\pi^{-1}\left(\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} \right)
+\end{align*}
+ Zu $\encirc{1}$:
+\begin{itemize}
+\item \quotedblbase{}$\subseteq$\textquotedblleft{}: Ist $s\in S$ und
+$x\in A$ mit $sx\in I$, so folgt:
+\begin{align*}
+s\pi\left(x\right) & =\pi\left(sx\right)\stackrel{sx\in I}{=}\overline{0}
+\end{align*}
+Also gilt
+\begin{align*}
+\pi\left(x\right) & \in\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} 
+\end{align*}
+und somit:
+\begin{align*}
+x & \in\pi^{-1}\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} 
+\end{align*}
+
+\item \quotedblbase{}$\supseteq$\textquotedblleft{}: Ist $s\in S$ und
+$x\in\pi^{-1}\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} $,
+das heißt:
+\begin{align*}
+\overline{0} & =s\cdot\pi\left(x\right)=\pi\left(sx\right)
+\end{align*}
+Also ist $sx\in I$.
+\end{itemize}
+Ist nun $I=f^{*}\left(f_{*}\left(I\right)\right)$, das heißt:
+\begin{align*}
+I & =\bigcup_{s\in S}\pi^{-1}\left(\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} \right)
+\end{align*}
+Also folgt aus $s\overline{x}=0$ schon $x\in I$, also $\overline{x}=0$,
+und daher ist $s$ kein Nullteiler in $\modulo AI$.
+
+Ist andererseits kein $s\in S$ ein Nullteiler in $\modulo AI$, so
+folgt aus $s\overline{x}=0$ schon $\overline{x}=0$ und somit:
+\begin{align*}
+f^{*}\left(f_{*}\left(I\right)\right) & =\bigcup_{s\in S}\pi^{-1}\left(\left\{ \overline{x}\in\modulo AI\bigg|s\overline{x}=\overline{0}\right\} \right)=\bigcup_{s\in S}\pi^{-1}\left(\left\{ \overline{x}\in\modulo AI\bigg|\overline{x}=\overline{0}\right\} \right)=\\
+ & =\pi^{-1}\left(\left\{ \overline{0}\right\} \right)=\ker\left(\pi\right)=I
+\end{align*}
+
+
+\qqed[\roman{ale2})]
+
+\iii Ist $\mathfrak{q}\subseteq S^{-1}A$ ein Primideal, so auch
+$\mathfrak{p}:=f^{*}\left(\mathfrak{q}\right)\subseteq A$. Wäre $\mathfrak{p}\cap S\not=\emptyset$,
+so folgte der Widerspruch:
+\begin{align*}
+\left(1\right) & \stackrel{\text{ii)}}{=}f_{*}\left(\mathfrak{p}\right)=f_{*}\left(f^{*}\left(\mathfrak{q}\right)\right)\stackrel{\text{i)}}{=}\mathfrak{q}
+\end{align*}
+Also ist $f^{*}$ wohldefiniert.
+
+Für ein Primideal $\mathfrak{p}\subseteq A$ mit $\mathfrak{p}\cap S=\emptyset$
+folgt
+\begin{align*}
+\mathfrak{q} & :=f_{*}\left(\mathfrak{p}\right)\stackrel{\text{ii)}}{\not=}\left(1\right)
+\end{align*}
+und:
+\begin{align*}
+\left\{ 0\right\}  & \not=\modulo{\left(S^{-1}A\right)}{\mathfrak{q}}\sr ={\sim}{\ref{sec:Kor-Quotientenbildung-Lokalisierung-vertauscht}}S^{-1}\left(\modulo A{\mathfrak{p}}\right)\subseteq\text{Quot}\left(\modulo A{\mathfrak{p}}\right)
+\end{align*}
+Also ist $\modulo{\left(S^{-1}A\right)}{\mathfrak{q}}$ ein Integritätsring,
+also $\mathfrak{q}\subseteq S^{-1}A$ ein Primideal und somit $f_{*}$
+wohldefiniert.
+
+Wegen i) gilt $f_{*}\circ f^{*}=\text{id}_{\text{Spec}\left(S^{-1}A\right)}$.
+
+Für ein Primideal $\mathfrak{p}\subseteq A$ mit $\mathfrak{p}\cap S=\emptyset$
+ist $\modulo A{\mathfrak{p}}$ ein Integritätsring und somit nullteilerfrei.
+Wegen $\mathfrak{p}\cap S=\emptyset$ ist für alle $s\in S$ nun $\overline{s}\not=\overline{0}$
+und somit $\overline{s}$ kein Nullteiler in $\modulo A{\mathfrak{p}}$.
+Nach iii) ist also $f^{*}\circ f_{*}=\text{id}$.
+
+Für ein Primideal $\mathfrak{p}\subseteq A$ mit $\mathfrak{p}\cap S=\emptyset$
+folgt auch direkt:
+\begin{align*}
+\left(f^{*}\circ f_{*}\right)\left(\mathfrak{p}\right) & \stackrel{\text{ii)}}{=}\bigcup_{s\in S}\left\{ x\in A\big|sx\in\mathfrak{p}\right\} \sr ={\mathfrak{p}\text{ PI}}{S\cap\mathfrak{p}=\emptyset}\bigcup_{s\in S}\left\{ x\in A\big|x\in\mathfrak{p}\right\} =\mathfrak{p}
+\end{align*}
+Also gilt $f^{*}\circ f_{*}=\text{id}$.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Korollar \textmd{(Nilradikal und Lokalisierung vertauschen)}}
+
+Sind $A$ ein Ring und $S\subseteq A$ multiplikativ abgeschlossen,
+so gilt für das Nilradikal:
+\begin{align*}
+\mathfrak{N}\left(S^{-1}A\right) & =S^{-1}\left(\mathfrak{N}\left(A\right)\right)\subseteq S^{-1}A
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}$\subseteq$\textquotedblleft{}: Sei $x\in\mathfrak{N}\left(S^{-1}A\right)$,
+das heißt es gibt ein $n\in\mathbb{N}_{\ge1}$ mit $x^{n}=0$. Schreibe
+$x=\frac{a}{s}$ mit $a\in A$ und $s\in S$ und erhalte:
+\begin{align*}
+0 & =x^{n}=\frac{a^{n}}{s^{n}}
+\end{align*}
+Also gibt es ein $t\in S$ mit:
+\begin{align*}
+0 & =t\left(a^{n}\cdot1-0\cdot s^{n}\right)=ta^{n}\\
+0 & =t^{n}a^{n}=\left(ta\right)^{n}
+\end{align*}
+Also ist $ta\in\mathfrak{N}\left(A\right)$ und wegen $s,t\in S$
+gilt:
+\begin{align*}
+x=\frac{a}{s}=\frac{ta}{ts} & \in S^{-1}\left(\mathfrak{N}\left(A\right)\right)
+\end{align*}
+Also ist $\mathfrak{N}\left(S^{-1}A\right)\subseteq S^{-1}\left(\mathfrak{N}\left(A\right)\right)$.
+
+\quotedblbase{}$\supseteq$\textquotedblleft{}: Sei $x\in S^{-1}\left(\mathfrak{N}\left(A\right)\right)$,
+also gibt es ein $a\in\mathfrak{N}\left(A\right)$, ein $n\in\mathbb{N}$
+und ein $s\in S$ mit $x=\frac{a}{s}$ und $a^{n}=0$. Dann gilt:
+\begin{align*}
+x^{n} & =\frac{a^{n}}{s^{n}}=\frac{0}{s^{n}}=0
+\end{align*}
+Also ist $s\in\mathfrak{N}\left(S^{-1}A\right)$ und somit $S^{-1}\left(\mathfrak{N}\left(A\right)\right)\subseteq\mathfrak{N}\left(S^{-1}A\right)$.\qqed
+
+
+\section{Korollar}
+
+Sind $A$ ein Ring und $\mathfrak{p}\subseteq A$ ein Primideal, so
+ist die Abbildung
+\begin{align*}
+f^{*}:\text{Spec}\left(A_{\mathfrak{p}}\right) & \stackrel{\sim}{\to}\left\{ \mathfrak{q}\in\text{Spec}\left(A\right)\big|\mathfrak{q}\subseteq\mathfrak{p}\right\} 
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+Nach \ref{sec:Satz-Idealtheorie-Lokalisierung} iv) für $S=A\setminus\mathfrak{p}$
+ist
+\begin{align*}
+f^{*}:\text{Spec}\left(A_{\mathfrak{p}}\right) & \stackrel{\sim}{\to}\left\{ \mathfrak{q}\in\text{Spec}\left(A\right)\big|\mathfrak{q}\cap\left(A\setminus\mathfrak{p}\right)=\emptyset\right\} 
+\end{align*}
+und es gilt:
+\begin{align*}
+\mathfrak{q}\cap\left(A\setminus\mathfrak{p}\right)=\emptyset & \quad\Leftrightarrow\quad\mathfrak{q}\subseteq\mathfrak{p}
+\end{align*}
+\qqed
+
+
+\section{Proposition und Definition\textmd{ (endlich präsentiert)\label{sec:PuD-endlich-praesentiert}}}
+
+Seien $A$ ein Ring und $M$ ein $A$-Modul.
+
+\begin{iiilist}
+
+\iii $M$ heißt genau dann \emph{endlich präsentiert}, wenn eine
+exakte Folge
+\begin{align*}
+G\to F\stackrel{\pi}{\to}M\to0
+\end{align*}
+von $A$-Moduln existiert, wobei $F$ und $G$ endlich erzeugt und
+frei sind.
+
+(Also ist $M$ insbesondere endlich erzeugt, da $\pi$ surjektiv ist.
+Außerdem gibt es zwischen den Erzeugern nur endlich viele Relationen.)
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=1em, column sep=1.5em, text height=1.5ex, text depth=0.25ex]
+  { G & & F & M & 0\\
+   &\ker{\pi}&&&\\
+   0 & & 0 &&\\};
+  \path[->] (m-1-1) edge (m-1-3)
+            (m-1-3) edge node[above]{$\pi$} (m-1-4)
+            (m-1-4) edge (m-1-5);
+  \path[->] (m-1-1) edge (m-2-2)
+            (m-3-1) edge (m-2-2)
+            (m-2-2) edge (m-1-3)
+                    edge (m-3-3);
+\end{tikzpicture}
+\par\end{center}
+
+\iii Ist $M$ endlich präsentiert und $f:A\to B$ ein Ringhomomorphismus,
+so ist der $B$-Modul $f^{*}\left(M\right)$ endlich präsentiert.
+
+(Das heißt \textquotedblleft{}endlich präsentiert\textquotedblright{}
+ist stabil unter Basiswechsel.)
+
+
+\subsubsection*{Beweis}
+
+Nach der Rechtsexaktheit des Tensorprodukts \ref{sec:Satz-RechtsexaktheitTensorprodukt}
+ist die Folge
+\begin{align*}
+f^{*}\left(G\right)\to f^{*}\left(F\right)\to f^{*}\left(M\right)\to0
+\end{align*}
+von $B$-Moduln exakt.
+
+$f^{*}\left(G\right)$ und $f^{*}\left(F\right)$ sind endlich erzeugt
+und frei, da $f^{*}\left(A^{n}\right)\stackrel{\sim}{=}B^{n}$ ist.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Proposition \textmd{(flach ist stabil unter Basiswechsel)\label{sec:Prop-flach-stabil-Basiswechsel}}}
+
+Sind $f:A\to B$ ein Ringhomomorphismus und $M$ ein flacher $A$-Modul,
+so ist der $B$-Modul $f^{*}\left(M\right)$ flach.
+
+
+\subsubsection*{Beweis}
+
+Ist $\mathcal{E}$ eine exakte Folge von $B$-Moduln, so gilt nach
+der Projektionsformel die Isomorphie:
+\begin{align*}
+f_{*}\left(\mathcal{E}\otimes_{B}f^{*}\left(M\right)\right) & \sr ={\sim}{\ref{sec:Prop-Projektionsformel}}f_{*}\left(\mathcal{E}\right)\otimes_{A}M
+\end{align*}
+Nun ist $f_{*}\left(\mathcal{E}\right)\otimes_{A}M$ eine exakte Folge
+von $A$-Moduln, da $f_{*}\left(\mathcal{E}\right)$ eine exakte Folge
+von $A$-Moduln und $M$ ein flacher $A$-Modul ist. Also ist auch
+die Folge $\mathcal{E}\otimes_{B}f^{*}\left(M\right)$ von $B$-Moduln
+exakt. Beachte, dass Exaktheit eine Eigenschaft der abelschen Gruppe
+ist und nicht von der Multiplikation abhängt.\qqed
+
+
+\section{Lemma \textmd{(endlich präsentiert und flach impliziert projektiv)\label{sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv}}}
+
+Seien $A$ ein Ring und $M$ ein $A$-Modul.
+
+\begin{iiilist}
+
+\iii Es sind äquivalent:
+
+\begin{abclist}
+
+\abc $M$ ist flach.
+
+\abc Sind $F$ ein endlich erzeugter, freier $A$-Modul, $\alpha:F\to M$
+eine $A$-lineare Abbildung und $f\in\ker\left(\alpha\right)$, so
+existieren ein endlich erzeugter, freier $A$-Modul $G$ und $A$-lineare
+Abbildungen $\beta:G\to M$ und $\gamma:F\to G$, sodass $\gamma\left(f\right)=0$
+und $\alpha=\beta\circ\gamma$ gelten.
+
+\abc Sind $F$ ein endlich erzeugter, freier $A$-Modul, $\alpha:F\to M$
+eine $A$-lineare Abbildung und $K\subseteq\ker\left(\alpha\right)$
+ein Untermodul, so existieren ein endlich erzeugter, freier $A$-Modul
+$G$ und $A$-lineare Abbildungen $\beta:G\to M$ und $\gamma:F\to G$,
+sodass $\gamma\left(K\right)=0$ und $\alpha=\beta\circ\gamma$ gelten.
+
+\end{abclist}
+
+\iii Sei $M$ ein endlich präsentierter flacher $A$-Modul. Dann
+ist\textit{ }$M$ projektiv.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii\textit{ }\quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{}:
+Sei $F$ ein endlich erzeugter freier $A$-Modul, also $F\stackrel{\sim}{=}A^{n}$
+mit $n\in\mathbb{N}$, und $\alpha:F\to M$ eine $A$-lineare Abbildung,
+definiert durch $\alpha\left(e_{i}\right)=m_{i}$, und $f\in\ker\left(\alpha\right)$.
+Also:
+\begin{align*}
+f & =\sum_{i=1}^{n}\underbrace{\alpha_{i}}_{\in A}e_{i}\\
+0=\alpha\left(f\right) & =\sum_{i=1}^{n}\alpha_{i}\underbrace{f\left(e_{i}\right)}_{=:m_{i}\in M}=\sum_{i=1}^{n}\alpha_{i}m_{i}
+\end{align*}
+Dass $M$ flach ist, ist äquivalent zur Existenz von einem $k\in\mathbb{N}$,
+$m_{j}'\in M$ für $j\in\left\{ 1,\ldots,k\right\} $ und $a_{ij}\in A$,
+sodass für alle $i\in\left\{ 1,\ldots,n\right\} $
+\begin{align*}
+m_{i} & =\sum_{j=1}^{k}a_{ij}m_{j}'
+\end{align*}
+gilt und für alle $j\in\left\{ 1,\ldots,k\right\} $:
+\begin{align*}
+0 & =\sum_{i=1}^{n}a_{ij}\alpha_{i}
+\end{align*}
+Definiere also $G:=A^{k}$ und $\beta:G\to M$ mit $\beta\left(e_{j}\right):=m_{j}'$
+und $\gamma:F\to G$ mit:
+\begin{align*}
+\gamma\left(e_{i}\right) & =\sum_{j=1}^{k}a_{ij}e_{j}
+\end{align*}
+Dann gilt:
+\begin{align*}
+\gamma\left(f\right) & =\sum_{i=1}^{n}\alpha_{i}\gamma\left(e_{i}\right)=\sum_{i=1}^{n}\alpha_{i}\sum_{j=1}^{k}a_{ij}e_{j}=\sum_{j=1}^{k}\underbrace{\left(\sum_{i=1}^{n}\alpha_{i}a_{ij}\right)}_{=0}e_{j}=0
+\end{align*}
+\begin{align*}
+\left(\beta\circ\gamma\right)\left(e_{i}\right) & =\beta\left(\sum_{j=1}^{k}a_{ij}e_{j}\right)=\sum_{j=1}^{k}a_{ij}\underbrace{\beta\left(e_{j}\right)}_{=m_{j}'}=\sum_{j=1}^{k}a_{ij}m_{j}'=m_{i}=\alpha\left(e_{i}\right)
+\end{align*}
+\quotedblbase{}b) $\Rightarrow$ a)\textquotedblleft{}: Zeige Flachheit
+über das Gleichungskriterium \ref{sec:Kor-KriteriumFlach}: 
+
+Betrachte eine Relation mit $n\in\mathbb{N}$, $n_{i}\in A$ und $m_{i}\in M$
+für $i\in\left\{ 1,\ldots,n\right\} $:
+\begin{align*}
+\sum_{i=1}^{n}n_{i}m_{i} & =0\in M
+\end{align*}
+Nun sei $\left(b_{1},\ldots,b_{n}\right)$ eine Basis von $F\stackrel{\sim}{=}A^{n}$
+und $\alpha:F\to M$ eine $A$-lineare Abbildung, festgelegt durch
+die Bilder $\alpha\left(b_{i}\right):=m_{i}$ der Basiselemente.
+
+Definiere nun:
+\begin{align*}
+f & :=\sum_{i=1}^{n}n_{i}b_{i}\in F\\
+\Rightarrow\quad\alpha\left(f\right) & =\alpha\left(\sum_{i=1}^{n}n_{i}b_{i}\right)=\sum_{i=1}^{n}n_{i}m_{i}=0
+\end{align*}
+Also ist $f\in\ker\left(\alpha\right)$. Nach Voraussetzung existiert
+ein endlich erzeugter, freier $A$-Modul $G\stackrel{\sim}{=}A^{m}$
+mit Basis $\left(c_{1},\ldots,c_{m}\right)$ und $A$-lineare Abbildungen
+$\gamma:F\to G$ und $\beta:G\to M$, sodass $\gamma\left(f\right)=0$
+ist und folgendes Diagramm kommutiert:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=2.5em, text height=2ex, text depth=0.25ex]
+  {F & M\\
+   G & \\};
+  \path[->] (m-1-1) edge node[above]{$\alpha$} (m-1-2)
+                    edge node[left]{$\gamma$} (m-2-1)
+            (m-2-1) edge node[below right]{$\beta$} (m-1-2);
+\end{tikzpicture}
+\par\end{center}
+
+Stelle nun die Bilder $\gamma\left(b_{i}\right)$ in der Basis $\left(c_{1},\ldots,c_{m}\right)$
+mit $a_{ij}\in A$ dar
+\begin{align*}
+\gamma\left(b_{i}\right) & =\sum_{j=1}^{m}a_{ij}c_{j}
+\end{align*}
+und definiere:
+\begin{align*}
+m_{j}' & :=\beta\left(c_{j}\right)
+\end{align*}
+Damit folgt:
+\begin{align*}
+\sum_{j=1}^{m}a_{ij}m_{j}' & =\sum_{j=1}^{m}a_{ij}\beta\left(c_{j}\right)=\beta\left(\sum_{j=1}^{m}a_{ij}c_{j}\right)=\beta\left(\gamma\left(b_{i}\right)\right)=\alpha\left(b_{i}\right)=m_{i}
+\end{align*}
+\begin{align*}
+0 & =\gamma\left(f\right)=\gamma\left(\sum_{i=1}^{n}n_{i}b_{i}\right)=\sum_{i=1}^{n}n_{i}\sum_{j=1}^{m}a_{ij}c_{j}=\sum_{j=1}^{m}\left(\sum_{i=1}^{n}a_{ij}n_{i}\right)c_{j}
+\end{align*}
+Da die $c_{1},\ldots,c_{m}$ als Basiselemente linear unabhängig sind,
+folgt für alle $j\in\left\{ 1,\ldots,m\right\} $:
+\begin{align*}
+\sum_{i=1}^{n}a_{ij}n_{i} & =0
+\end{align*}
+Also ist $M$ flach.
+
+\quotedblbase{}b) $\Rightarrow$ c)\textquotedblleft{}: Induktion
+über die Dimension $l$ des Moduls $K$.\\
+\emph{Induktionsanfang bei $l=1$}: Dies ist a) $\Rightarrow$ b)
+für $K=\left(f\right)$, denn mit $f\in\ker\left(\alpha\right)$ ist
+auch $\left(f\right)\in\ker\left(\alpha\right)$.\\
+\emph{Induktionsschritt $l\leadsto l+1$}: Sind $F$ ein endlich erzeugter,
+freier $A$-Modul, $\alpha:F\to M$ eine $A$-lineare Abbildung und
+$K=\left(f_{1},\ldots,f_{l+1}\right)\subseteq\ker\left(\alpha\right)$
+ein Untermodul.\\
+Dann hat $\left(f_{1},\ldots,f_{l}\right)\subseteq\ker\left(\alpha\right)$
+Dimension $l$ und nach Induktionsvoraussetzung existiert ein endlich
+erzeugter, freier $A$-Modul $G_{1}$ und $A$-lineare Abbildungen
+\begin{align*}
+\beta_{1}:G_{1} & \to M\\
+\gamma_{1}:F & \to G_{1}
+\end{align*}
+mit $\gamma_{1}\left(\left(f_{1},\ldots,f_{l}\right)\right)=0$ und
+$\alpha=\beta_{1}\circ\gamma_{1}$.\\
+Außerdem hat $\left(\gamma_{1}\left(f_{l+1}\right)\right)\subseteq\ker\left(\beta_{1}\right)$
+Dimension $1$ und nach Induktionsanfang existiert ein endlich erzeugter,
+freier $A$-Modul $G_{2}$ und $A$-lineare Abbildungen
+\begin{align*}
+\beta_{2}:G_{2} & \to M\\
+\gamma_{2}:G_{1} & \to G_{2}
+\end{align*}
+mit $\gamma_{2}\left(\left(f_{l+1}\right)\right)=0$ und $\beta_{1}=\beta_{2}\circ\gamma_{2}$.\\
+Dann ist $G:=G_{2}$ ein freier $A$-Modul und
+\begin{align*}
+\beta:=\beta_{2}:G & \to M\\
+g & \mapsto\beta_{2}\left(g\right)
+\end{align*}
+und
+\begin{align*}
+\gamma:=\gamma_{2}\circ\gamma_{1}:F & \to G\\
+f & \mapsto\left(\gamma_{2}\circ\gamma_{1}\right)\left(f\right)
+\end{align*}
+zwei $A$-lineare Abbildungen und es gilt:
+\begin{align*}
+\gamma\left(K\right) & =\gamma_{2}\left(\gamma_{1}\left(\left(f_{1},\ldots,f_{l+1}\right)\right)\right)=\gamma_{2}\left(\left(\gamma_{1}\left(f_{l+1}\right)\right)\right)=0\\
+\left(\beta\circ\gamma\right)\left(f\right) & =\left(\beta_{2}\circ\gamma_{2}\circ\gamma_{1}\right)\left(f\right)=\left(\beta_{1}\circ\gamma_{1}\right)\left(f\right)=\alpha\left(f\right)
+\end{align*}
+\quotedblbase{}c) $\Rightarrow$ b)\textquotedblleft{}: Dies ist klar,
+da b) der Spezialfall $K=\left(f\right)$ von c) ist, denn mit $f\in\ker\left(\alpha\right)$
+ist auch $\left(f\right)\in\ker\left(\alpha\right)$.\qqed[\roman{ale2})]
+
+\iii $F$ ist ein endlich erzeugter, freier $A$-Modul, $\alpha:F\to M$
+eine $A$-lineare Abbildung und $K:=a\left(G\right)=\ker\left(\alpha\right)$
+ein endlich erzeugter Modul, da $G$ endlich erzeugt ist.\\
+Da $M$ flach ist, existieren ein endlich erzeugter, freier $A$-Modul
+$\tilde{G}$ und $A$-lineare Abbildungen $\beta:\tilde{G}\to M$
+und $\gamma:F\to\tilde{G}$, sodass $\gamma\left(K\right)=0$ und
+$\alpha=\beta\circ\gamma$ gelten.\\
+Da $\alpha$ surjektiv ist und wegen $K=\ker\left(\alpha\right)=\ker\left(\beta\circ\gamma\right)$
+und $\gamma\left(K\right)=0$ gilt:
+\begin{align*}
+\beta\big|_{\gamma\left(F\right)}:\gamma\left(F\right) & \stackrel{\sim}{\to}\alpha\left(F\right)=M
+\end{align*}
+Daher ist $\iota:=\left(\beta\big|_{\gamma\left(F\right)}\right)^{-1}:M\to\tilde{G}$
+injektiv und somit $M$ ein Untermodul des freien Moduls $\tilde{G}$.
+Außerdem gibt es die Abbildung $\beta:\tilde{G}\to M$ mit $\beta\circ\iota=\text{id}_{M}$.
+Also ist $M$ ein direkter Summand von $\tilde{G}$ und somit projektiv.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Satz\label{sec:Satz-endlich-praesentiert-projektiv-lokal}}
+
+Für endlich präsentierte Moduln ist die Eigenschaft projektiv zu sein
+eine lokale Eigenschaft, genauer gilt:
+
+Sind $A$ ein Ring und $M$ ein endlich präsentierter $A$-Modul,
+dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $M$ ist projektiv.
+
+\iii Für alle $\mathfrak{p}\in\text{Spec}\left(A\right)$ ist der
+$A_{\mathfrak{p}}$-Modul $M_{\mathfrak{p}}$ projektiv.
+
+\iii Für alle maximalen Ideale $\mathfrak{m}\in\text{Spec}\left(A\right)$
+ist der $A_{\mathfrak{m}}$-Modul $M_{\mathfrak{m}}$ projektiv.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+i) $\Rightarrow$ ii): Weil projektiv nach \ref{sec:Prop-projektiv-impliziert-flach}
+flach impliziert und flach nach \ref{sec:Prop-flach-stabil-Basiswechsel}
+stabil unter Basiswechsel ist, ist der $A_{\mathfrak{p}}$-Modul $M_{\mathfrak{p}}$
+flach. Außerdem ist $M_{\mathfrak{p}}$ nach und \ref{sec:PuD-endlich-praesentiert}
+ii) endlich präsentiert.
+
+Nach \ref{sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv}
+ist $M_{\mathfrak{p}}$ projektiv.
+
+ii) $\Rightarrow$ iii) ist klar.
+
+iii) $\Rightarrow$ i): Da projektiv nach \ref{sec:Prop-projektiv-impliziert-flach}
+flach impliziert, ist $M_{\mathfrak{m}}$ flach. Also ist, da flach
+zu sein nach \ref{sec:Prop-flach-lokal} iii) eine lokale Eigenschaft
+ist, die zu prüfen auf maximalen Idealen ausreicht, ist $M$ ein flacher
+$A$-Modul. Nach \ref{sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv}
+folgt, da $M$ endlich präsentiert und flach ist, dass $M$ bereits
+ein projektiver $A$-Modul ist.\qqed
+
+
+\section{Lemma\label{sec:Lem-Ideal-IR--HI=00003Dfrei}}
+
+Seien $B$ ein Integritätsring und $J\subseteq B$ ein Ideal.
+
+Dann ist $J$ genau dann ein freier $B$-Modul, wenn $J$ ein Hauptideal
+ist. In diesem Fall ist $J$ frei vom Rang 0 oder 1.
+
+
+\subsubsection*{Beweis}
+
+Sei ohne Einschränkung $J\not=\left(0\right)$, da für $\left(0\right)$
+vom Rang 0 die Behauptung klar ist.\\
+\quotedblbase{}$\Leftarrow$\textquotedblleft{}: Ist $J$ ein Hauptideal,
+so gilt $J=\left(b\right)$ mit einem geeignete $b\in B\setminus\left\{ 0\right\} $.
+Dann ist
+\begin{align*}
+B & \stackrel{\sim}{\to}\left(b\right)=J\\
+x & \mapsto bx
+\end{align*}
+ein $B$-linearer Isomorphismus, denn Linearität und Surjektivität
+sind klar und die Injektivität folgt, da $B$ ein Integritätsring
+ist. Also ist $J$ ein freier $B$-Modul vom Rang 1.\\
+\quotedblbase{}$\Rightarrow$\textquotedblleft{}: Sei umgekehrt $J$
+frei, so existiert ein $B$-Modul-Isomorphismus $J\stackrel{\sim}{=}B^{\left(X\right)}$
+für eine geeignete Menge $X$. Wäre $\abs X\ge2$, so gäbe es zwei
+$a,b\in J\setminus\left\{ 0\right\} $, die $B$-linear unabhängig
+sind. Dies ist ein Widerspruch zur linearen Relation:
+\begin{align*}
+a\cdot b+\left(-b\right)\cdot a & =0
+\end{align*}
+Also gilt $\abs X\le1$ und wegen $J\not=\left(0\right)$ sogar $\abs X=1$.
+Insbesondere existiert ein $b\in J$ mit $J=B\cdot b=\left(b\right)$,
+das heißt $J$ ist ein Hauptideal.\qqed
+
+
+\section{Beispiel \textmd{(frei zu sein ist keine lokale Eigenschaft)}}
+
+Die Teilmenge $A:=\mathbb{Z}\left[\sqrt{-5}\right]:=\left\{ a+b\sqrt{-5}\big|a,b\in\mathbb{Z}\right\} \subseteq\mathbb{C}$
+ist ein Unterring, was leicht nachzurechnen ist.
+
+Das Ideal $I:=\left(2,1+\sqrt{-5}\right)\subseteq A$ ist ein endlich
+präsentierter $A$-Modul so, dass für alle maximalen Ideale $\mathfrak{m}\subseteq A$
+der $A_{\mathfrak{m}}$-Modul $I_{\mathfrak{m}}$ frei ist, daher
+ist nach \ref{sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv}
+iii) $\Rightarrow$ i) $I$ projektiv. Aber $I$ selbst ist nicht
+frei.
+
+%DATE: Fr 8.6.12
+
+
+\subsubsection*{Beweis}
+
+Nach Definition ist $I$ durch $2,1+\sqrt{-5}$ erzeugt, also endlich
+erzeugt, und daher ist die Abbildung
+\begin{align*}
+\varphi:A^{2} & \twoheadrightarrow I\\
+\left(a,b\right) & \mapsto2a+b\sqrt{-5}
+\end{align*}
+surjektiv und offenbar $A$-linear. Sei $\left(a,b\right)\in\ker\left(\varphi\right)$,
+dann gilt:
+\begin{align*}
+2a+\sqrt{-5}\cdot b & =0\\
+2a & =-\sqrt{-5}\cdot b
+\end{align*}
+Daher ist die Abbildung
+\begin{align*}
+\psi:A & \twoheadrightarrow\ker\left(\varphi\right)\\
+u & \mapsto\left(-\sqrt{-5}u,2u\right)
+\end{align*}
+wohldefiniert und surjektiv und offenbar $A$-linear und somit ist
+\begin{align*}
+A\stackrel{\psi}{\to} & A^{2}\stackrel{\varphi}{\to}I\to0
+\end{align*}
+eine exakte Folge, und, da $A$ und $A^{2}$ endlich erzeugt und frei
+sind, ist $I$ endlich präsentiert.
+
+Da $A\subseteq A_{\mathfrak{m}}\subseteq\text{Quot}\left(A\right)\subseteq\mathbb{C}$
+Unterringe sind, sind $A$ und alle Lokalisierungen $A_{\mathfrak{m}}$
+Integritätsringe und man kann die Behauptung anwenden.
+
+Zeige zunächst, dass für alle maximalen Ideale $\mathfrak{m}\subseteq A$
+das Ideal $I_{\mathfrak{m}}=\left(2,1+\sqrt{-5}\right)_{\mathfrak{m}}\subseteq A_{\mathfrak{m}}$
+ein Hauptideal ist, denn dann ist $I_{\mathfrak{m}}$ nach \ref{sec:Lem-Ideal-IR--HI=00003Dfrei}
+ein freier $A_{\mathfrak{m}}$-Modul:
+
+Es gilt $\mathfrak{m}\cap\mathbb{Z}=\left(p\right)$ mit einer geeigneten
+Primzahl $p\in\mathbb{Z}$, denn für die $\mathbb{Z}$-lineare Abbildung
+\begin{align*}
+f:A & \to\mathbb{Z}\\
+a+b\sqrt{-5} & \mapsto a
+\end{align*}
+ist $f_{*}\left(\mathfrak{m}\right)=\mathfrak{m}\cap\mathbb{Z}$ als
+Bild eines Primideals ein Primideal (vergleiche \ref{sec:Bsp-Fasern-SpecZi->SpecZ}).
+
+Ist $p\not=2$, so folgt $2\not\in\mathfrak{m}$. Nach \ref{sec:Prop-HinreichendLokalerRing}
+i) \quotedblbase{}$\Leftarrow$\textquotedblleft{} ist also $2\in A\setminus\mathfrak{m}\subseteq A_{\mathfrak{m}}^{*}$,
+da $\left(A_{\mathfrak{m}},\mathfrak{m}\right)$ ein lokaler Ring
+ist, und es folgt, dass
+\begin{align*}
+I_{\mathfrak{m}} & =\left(2,1+\sqrt{-5}\right)_{\mathfrak{m}}=\left(1\right)_{\mathfrak{m}}=A_{\mathfrak{m}}
+\end{align*}
+ein Hauptideal ist.
+
+Ist $p=2$, so behaupten wir:
+\begin{align*}
+\frac{\left(1+\sqrt{-5}\right)^{2}}{2} & =\frac{1-5+2\sqrt{-5}}{2}=-2+\sqrt{-5}=:u\not\in\mathfrak{m}
+\end{align*}
+Andernfalls gelten $2=p\in\mathfrak{m}$ und $u=-2+\sqrt{-5}\in\mathfrak{m}$,
+also auch
+\begin{align*}
+\sqrt{-5} & =2+\left(-2+\sqrt{5}\right)\in\mathfrak{m}\\
+-5 & =\left(\sqrt{-5}\right)^{2}\in\mathfrak{m}
+\end{align*}
+und damit folgt der Widerspruch $-5+3\cdot2=1\in\mathfrak{m}$.
+
+Wegen $u\not\in\mathfrak{m}$ gilt nach \ref{sec:Prop-HinreichendLokalerRing}
+i) \quotedblbase{}$\Leftarrow$\textquotedblleft{} schon $u\in A^{*}$
+und somit auch $u\in A_{\mathfrak{m}}^{*}$. Also gilt:
+\begin{align*}
+\left(1+\sqrt{-5}\right)^{2} & =-4+2\sqrt{-5}=2\cdot\left(-2+\sqrt{-5}\right)\\
+2 & =\underbrace{u^{-1}}_{\in A_{\mathfrak{m}}}\left(1+\sqrt{-5}\right)^{2}\in\left(1+\sqrt{-5}\right)\cdot A_{\mathfrak{m}}
+\end{align*}
+Daher ist
+\begin{align*}
+I_{\mathfrak{m}}=\left(2,1+\sqrt{-5}\right)A_{\mathfrak{m}} & =\left(1+\sqrt{-5}\right)A_{\mathfrak{m}}
+\end{align*}
+wieder ein Hauptideal.
+
+Zeige noch, dass $I\subseteq A$ selbst kein Hauptideal ist. Dann
+folgt nach \ref{sec:Lem-Ideal-IR--HI=00003Dfrei}, dass $I$ nicht
+frei ist.
+
+Angenommen
+\begin{align*}
+I & =\left(2,1+\sqrt{-5}\right)=\left(a+b\cdot\sqrt{-5}\right)\subseteq A=\mathbb{Z}\left[\sqrt{-5}\right]
+\end{align*}
+wäre ein Hauptideal mit geeigneten $a,b\in\mathbb{Z}$. Berechne zunächst
+den Quotienten:
+\begin{align*}
+\modulo AI & =\modulo{\mathbb{Z}\left[\sqrt{-5}\right]}{\left(2,1+\sqrt{-5}\right)}\stackrel{\sim}{=}\modulo{\left(\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+5\right)}\right)}{\left(2,1+\overline{X}\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(2,1+X,X^{2}+5\right)}\stackrel{\sim}{=}\modulo{\mathbb{Z}}{\left(2,\left(-1\right)^{2}+5=6\right)}\stackrel{\sim}{=}\modlo Z2=\mathbb{F}_{2}
+\end{align*}
+Andererseits sieht man leicht, dass gilt für $a+b\sqrt{-5}\in A\setminus\left\{ 0\right\} $:
+\begin{align*}
+\modulo A{\left(a+b\sqrt{-5}\right)} & =\modulo{\mathbb{Z}\left[\sqrt{-5}\right]}{\left(a+b\sqrt{-5}\right)}\stackrel{\sim}{=}\modulo{\left(\modulo{\mathbb{Z}\left[X\right]}{\left(X^{2}+5\right)}\right)}{\left(a+b\overline{X}\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\modulo{\mathbb{Z}\left[X\right]}{\left(a+bX,X^{2}+5\right)}\stackrel{\sim}{=}\modulo{\mathbb{Z}}{\left(\left(-a\right)^{2}+5b^{2}=a^{2}+5b^{2}\right)}
+\end{align*}
+Also gilt:
+\begin{align*}
+\abs{\modulo A{\left(a+b\sqrt{-5}\right)}} & =\abs{\modulo{\mathbb{Z}}{\left(a^{2}+5b^{2}\right)}}=a^{2}+5b^{2}
+\end{align*}
+Es folgte $a^{2}+5b^{2}=2$ im Widerspruch zu $a,b\in\mathbb{Z}$.\qqed
+
+
+\section{Beispiel}
+
+Wie kann man $\text{Spec}\left(\mathbb{C}\left[X\right]\right)$ und
+$\text{Spec}\left(\mathbb{R}\left[X\right]\right)$ skizzieren?
+
+$\mathbb{C}\left[X\right]$ und $\mathbb{R}\left[X\right]$ sind Hauptidealringe,
+also sind die Primideale außer dem Nullideal normierte irreduzible
+Polynome.
+
+$\mathbb{C}$ ist algebraisch abgeschlossen, das heißt die irreduziblen
+Polynome sind linear, also gilt:
+\begin{align*}
+\text{Spec}\left(\mathbb{C}\left[X\right]\right) & =\left\{ \left(X-\alpha\right)\big|\alpha\in\mathbb{C}\right\} \cup\left\{ \left(0\right)\right\} 
+\end{align*}
+
+
+Bemerkung: Ist $k$ ein beliebiger Körper, dann gilt:
+\begin{align*}
+\text{Spec}\left(k\left[X\right]\right) & \stackrel{\sim}{=}\left\{ 0\right\} \cup\modulo{\overline{k}}{G_{k}}
+\end{align*}
+Für $k=\mathbb{C}$ ist die absolute Galoisgruppe
+\begin{align*}
+G_{\mathbb{C}} & =\text{Gal}\left(\modulo{\mathbb{C}}{\mathbb{C}}\right)=\left\{ 1\right\} 
+\end{align*}
+und für $k=\mathbb{R}$ ist
+\begin{align*}
+G_{\mathbb{R}} & =\text{Gal}\left(\modulo{\mathbb{C}}{\mathbb{R}}\right)=\left\{ 1,\overline{\vphantom{|}\,.\,}\right\} 
+\end{align*}
+mit der komplexen Konjugation $\overline{\vphantom{|}\,.\,}$.
+
+Sei $f\in\mathbb{R}\left[X\right]$ normiert, dann gilt in $\mathbb{C}\left[X\right]$
+\begin{align*}
+f\left(x\right) & =\prod_{i=1}^{n}\left(X-\alpha_{i}\right)\prod_{j=1}^{m}\left(X-\beta_{i}\right)\left(X-\overline{\beta_{i}}\right)
+\end{align*}
+mit geeigneten $\alpha_{i}\in\mathbb{R}$ und $\beta_{i}\in\mathbb{C}\setminus\mathbb{R}$.
+Ist $f\in\mathbb{R}\left[X\right]$ irreduzibel, so folgt:
+\begin{align*}
+f\left(X\right) & =\begin{cases}
+X-\alpha & \alpha\in\mathbb{R}\\
+\left(X-\beta\right)\left(X-\overline{\beta}\right)=X^{2}-2\text{Re}\left(\beta\right)X+\abs{\beta}^{2} & \beta\in\mathbb{C}\setminus\mathbb{R}
+\end{cases}
+\end{align*}
+Also gilt:
+\begin{align*}
+\text{Spec}\left(\mathbb{R}\left[X\right]\right) & =\left\{ \left(X-\alpha\right),\left(X^{2}-2\text{Re}\left(\beta\right)X+\abs{\beta}^{2}\right)\big|\alpha\in\mathbb{R},\beta\in\mathbb{C}\setminus\mathbb{R}\right\} \cup\left\{ \left(0\right)\right\} =\\
+ & =\left\{ \left(X-\alpha\right),\left(X^{2}-2\text{Re}\left(\overline{\beta}\right)X+\abs{\overline{\beta}}^{2}\right)\big|\alpha\in\mathbb{R},\beta\in\mathbb{C}\setminus\mathbb{R}\right\} \cup\left\{ \left(0\right)\right\} 
+\end{align*}
+
+\begin{description}
+\item [{Behauptung:}] Die abgeschlossenen Teilmengen von $Z=\text{Spec}\left(A:=\mathbb{C}\left[X\right]\right)$
+beziehungsweise $Z=\text{Spec}\left(A:=\mathbb{R}\left[X\right]\right)$
+sind genau die endlichen Teilmengen und $X$.
+\item [{Beweis:}] Sei $Y\subseteq X$ abgeschlossen, so gibt es nach der
+Definition der Zariski-Topologie ein Ideal $I\subseteq A$ mit:
+\begin{align*}
+Y & =V\left(I\right):=\left\{ \mathfrak{p}\subseteq A\text{ Primideal}\big|I\subseteq\mathfrak{p}\right\} 
+\end{align*}
+Da $A$ ein Hauptidealring ist, gibt es ein $f\in A$ mit $\left(f\right)=I$.
+Für ein Primideal $\mathfrak{p}=\left(g\right)$, das heißt $g$ ist
+irreduzibel, gilt:
+\begin{align*}
+\left(f\right)=I\subseteq\mathfrak{p}=\left(g\right) & \quad\Leftrightarrow\quad g\big|f
+\end{align*}
+Dann folgt:\\
+Ist $f=0$, so ist $Y=Z$.\\
+Ist $f\not=0$, so ist $f=\prod_{i}g_{i}$ mit irreduziblen $g_{i}$
+und $Y=V\left(\left(f\right)\right)=\left\{ \left(g_{i}\right)\right\} $.\qqed[Behauptung]
+\end{description}
+Berechne die Restklassenkörper:
+
+Sei $\mathfrak{p}\in\text{Spec}\left(\mathbb{C}\left[X\right]\right)$.
+\begin{enumerate}
+\item Fall: $\mathfrak{p}=\left(0\right)$, dann gilt:
+\begin{align*}
+\kappa\left(\left(0\right)\right) & =\text{Quot}\left(\modulo{\mathbb{C}\left[X\right]}{\left(0\right)}\right)=\text{Quot}\left(\mathbb{C}\left[X\right]\right)=\mathbb{C}\left(X\right)
+\end{align*}
+
+\item Fall: $\mathfrak{p}=\left(X-\alpha\right)$ für ein $\alpha\in\mathbb{C}$,
+so gilt:
+\begin{align*}
+\kappa\left(\mathfrak{p}\right) & =\text{Quot}\bigg(\underbrace{\modulo{\mathbb{C}\left[X\right]}{\left(X-\alpha\right)}}_{=\mathbb{C}}\bigg)=\mathbb{C}
+\end{align*}
+Für
+\begin{align*}
+\modulo{\mathbb{C}\left[X\right]}{\left(X-\alpha\right)} & \stackrel{\sim}{=}\mathbb{C}
+\end{align*}
+betrachte den Einsetzungshomomorphismus:\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2ex, text depth=0.25ex]
+  { \mathbb{C}[X] & \mathbb{C}, & X & \alpha\\
+    \modulo{\mathbb{C}[X]}{(X-\alpha)} &&&\\};
+  \path[|->] (m-1-3) edge (m-1-4);
+  \path[->>] (m-1-1) edge (m-2-1)
+                     edge (m-1-2);
+  \path[->] (m-2-1) edge node[rotate=40,above]{$\sim$} (m-1-2);
+\end{tikzpicture}
+\end{center}
+\end{enumerate}
+Nun sei $\mathfrak{p}\in\text{Spec}\left(\mathbb{R}\left[X\right]\right)$:
+\begin{enumerate}
+\item Fall: $\mathfrak{p}=\left(0\right)$, so folgt wie oben $\kappa\left(\left(0\right)\right)=\mathbb{R}\left[X\right]$.
+\item Fall: $\mathfrak{p}=\left(X-\alpha\right)$ mit $\alpha\in\mathbb{R}$,
+so folgt wie oben $\kappa\left(\mathfrak{p}\right)=\mathbb{R}$.
+\item Fall: $\mathfrak{p}=\left(f\left(X\right):=X^{2}-2\text{Re}\left(\beta\right)+\abs{\beta}^{2}\right)$
+mit $\beta\in\mathbb{C}\setminus\mathbb{R}$, dann folgt:
+\begin{align*}
+\kappa\left(\mathfrak{p}\right) & =\text{Quot}\left(\modulo{\mathbb{R}\left[X\right]}{\left(f\right)}\right)
+\end{align*}
+Betrachte den Einsetzungshomomorphismus:
+\begin{align*}
+\varphi:\mathbb{R}\left[X\right] & \to\mathbb{C}\\
+X & \mapsto\beta
+\end{align*}
+Dieser ist wegen $\beta\not\in\mathbb{R}$ surjektiv und es ist $\text{ker}\left(\varphi\right)=\left(f\right)$,
+denn betrachte:\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2ex, text depth=0.25ex]
+  { \mathbb{R}[X] & \mathbb{C}\\
+    \modulo{\mathbb{R}[X]}{(f)} &\\};
+  \path[->>] (m-1-1) edge (m-2-1)
+                     edge (m-1-2);
+  \path[->] (m-2-1) edge node[rotate=45,above]{$\sim$} (m-1-2);
+\end{tikzpicture}
+\end{center}Da $f=\text{Mipo}_{\mathbb{R}}\left(\beta\right)$ vom Grad 2 ist,
+ist $\text{dim}_{\mathbb{R}}\left(\modulo{\mathbb{R}\left[X\right]}{\left(f\right)}\right)=2$,
+also folgt Isomorphie. Daher gilt:
+\begin{align*}
+\kappa\left(\mathfrak{p}\right) & =\text{Quot}\left(\mathbb{C}\right)=\mathbb{C}
+\end{align*}
+
+\end{enumerate}
+Berechne nun die Fasern:
+
+Sei $\mathfrak{p}\in\text{Spec}\left(A\right)$.
+
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2ex, text depth=0.25ex]
+  { A=\mathbb{C}[X] & B=\modulo{\mathbb{C}[X,Y]}{(Y^2-X)} \\
+    \kappa(\mathfrak{p}) & \kappa(\mathfrak{p})\otimes_A B=:B_\mathfrak{p}\\};
+  \path[->] (m-1-1) edge (m-1-2)
+                    edge (m-2-1);
+  \path[->] (m-2-1) edge (m-2-2)
+            (m-1-2) edge (m-2-2);
+\end{tikzpicture}
+\end{center}
+\begin{enumerate}
+\item Fall: $\mathfrak{p}=\left(0\right)$, $\kappa\left(\mathfrak{p}\right)=\mathbb{C}\left(X\right)$
+und mit $\mathbb{C}\left(X\right)=S^{-1}A$ für $A:=\mathbb{C}\left[X\right]$
+und $S:=A\setminus\left\{ 0\right\} $ gilt:
+\begin{align*}
+B_{\mathfrak{p}} & =\underbrace{\mathbb{C}\left(X\right)}_{=S^{-1}A}\otimes_{\mathbb{C}\left[X\right]}\underbrace{\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}}_{=M}\stackrel{\sim}{=}S^{-1}\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)\stackrel{\sim}{=}\\
+ & \sr ={\sim}{S^{-1}\text{ exakt}}\modulo{\left(S^{-1}\left(\mathbb{C}\left[X,Y\right]\right)\right)}{\left(Y^{2}-X\right)}\stackrel{\sim}{=}\modulo{\mathbb{C}\left(X\right)\left[Y\right]}{\left(Y^{2}-X\right)}
+\end{align*}
+Das Polynom $Y^{2}-X\in\mathbb{C}\left(X\right)\left[Y\right]$ ist
+irreduzibel, da es Eisenstein bezüglich dem Primelement $X$ ist.\\
+Also ist $\kappa\left(\mathfrak{p}\right)=\mathbb{C}\left(X\right)\subseteq B_{\mathfrak{p}}$
+eine Körpererweiterung vom Grad 2.
+\item Fall: $\mathfrak{p}=\left(X-\alpha\right)$ mit $\alpha\in\mathbb{C}$.
+Dann gilt:
+\begin{align*}
+B_{\mathfrak{p}} & =\underbrace{\text{Quot}\left(\modulo{\mathbb{C}\left[X\right]}{\left(X-\alpha\right)}\right)}_{=\kappa\left(\mathfrak{p}\right)\stackrel{\sim}{=}\mathbb{C}}\otimes_{\mathbb{C}\left[X\right]}\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{\left(X-\alpha\right)\text{ maximal}}\modulo{A:=\mathbb{C}\left[X\right]}{I:=\left(X-\alpha\right)}\otimes_{\mathbb{C}\left[X\right]}\underbrace{\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}}_{=:M}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{\ref{sec:Lem-AmodIdealIsomorphMmodIM}}\modulo{\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)}{\left(X-\alpha\right)\cdot\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{}\modulo{\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)}{\left(\modulo{\left(X-\alpha\right)}{\left(X-\alpha\right)\cdot\left(Y^{2}-X\right)}\right)}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{\ref{sec:Prop-Isomorphiesaetze}\text{ ii)}}\modulo{\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X\right)}\right)}{\left(\modulo{\left(Y^{2}-X,X-\alpha\right)}{\left(Y^{2}-X\right)}\right)}\stackrel{\sim}{=}\\
+ & \sr ={\sim}{\ref{sec:Prop-Isomorphiesaetze}\text{ i)}}\modulo{\mathbb{C}\left[X,Y\right]}{\left(Y^{2}-X,X-\alpha\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\modulo{\left(\modulo{\mathbb{C}\left[X,Y\right]}{\left(X-\alpha\right)}\right)}{\big(Y^{2}-\underbrace{\overline{X}}_{=\alpha}\big)}\stackrel{\sim}{=}\modulo{\mathbb{C}\left[Y\right]}{\left(Y^{2}-\alpha\right)}\stackrel{\sim}{=}\\
+ & \stackrel{\sim}{=}\begin{cases}
+\modulo{\mathbb{C}\left[Y\right]}{\left(Y-\sqrt{\alpha}\right)\left(Y+\sqrt{\alpha}\right)}\stackrel{\sim}{=}\mathbb{C}\times\mathbb{C} & \alpha\not=0\\
+\modulo{\mathbb{C}\left[Y\right]}{Y^{2}} & \alpha=0
+\end{cases}
+\end{align*}
+Für die \ref{sec:Prop-Isomorphiesaetze} ii)
+\begin{align*}
+\modulo{M_{2}}{M_{1}\cap M_{2}} & \stackrel{\sim}{\to}\modulo{M_{1}+M_{2}}{M_{1}}
+\end{align*}
+verwende hier
+\begin{align*}
+M_{1} & :=\left(Y^{2}-X\right) & M_{2} & :=\left(X-\alpha\right)
+\end{align*}
+und
+\begin{align*}
+M_{1}\cap M_{2} & =M_{1}\cdot M_{2} & M_{1}+M_{2} & =\left(Y^{2}-X,X-\alpha\right)
+\end{align*}
+und für \ref{sec:Prop-Isomorphiesaetze} i) 
+\begin{align*}
+\modulo{\left(\modulo LM\right)}{\left(\modulo NM\right)} & \stackrel{\sim}{=}\modulo LN
+\end{align*}
+verwende hier:
+\begin{align*}
+L & :=\mathbb{C}\left[X,Y\right] & M & :=\left(Y^{2}-X\right) & N & :=\left(Y^{2}-X,X-\alpha\right)
+\end{align*}
+Beachte:
+\begin{align*}
+\mathfrak{N}\left(\mathbb{C}\times\mathbb{C}\right) & =\left(0\right)\\
+\mathfrak{N}\left(\modulo{\mathbb{C}\left[Y\right]}{Y^{2}}\right) & =\left(Y\right)\not=\left(0\right)
+\end{align*}
+Skizze:\\
+\begin{center}
+\begin{tikzpicture}[domain=-1.7:1.7]
+  \draw[->] (-1.2,0) -- (3.2,0) node[right] {$X\in\mathbb{C}$};
+  \draw[->] (0,-2.2) -- (0,2.2) node[above] {$Y\in\mathbb{C}$};
+  \draw plot ({(\x)^2},\x) node[right] {$Y^2-X=0$};
+  \draw[blue] (0,0) circle (0.3);
+  \node at (-0.5,-0.5) {$\alpha=0$};
+  \draw[fill=black] (0,0) circle (0.07)
+                    (1,1) circle (0.07)
+                    (1,-1) circle (0.07);
+  \draw[dashed] (1,1) node[above]{$\mathbb{C}$} -- (1,-1) node[below]{$\mathbb{C}$};
+  \draw[line width=1.2] (1,0.2) -- (1,-0.2) node[below right]{$X=\alpha$};
+\end{tikzpicture}
+\end{center}
+\begin{align*}
+\text{Spec}\left(A\to B\right) & =\pi_{X}
+\end{align*}
+
+\end{enumerate}
 
 \part*{Anhang\thispagestyle{empty}}
 
