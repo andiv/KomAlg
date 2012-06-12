@@ -1,5 +1,7 @@
-%% LyX 2.0.3 created this file.  For more info, see http://www.lyx.org/.
-%% Do not edit unless you really know what you are doing.
+\batchmode
+\makeatletter
+\def\input@path{{\string"/home/andreas/Dokumente/Uni/Aktuell/Mathe/Kommutative Algebra/KomAlg/\string"/}}
+\makeatother
 \documentclass[11pt,english,ngerman]{report}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
@@ -237,7 +239,7 @@
 \textit{\small Überarbeitung und Textsatz in \LyX{} von}\\
 \textit{\noun{\small Andreas Völklein}}\\
 {\small \vspace*{10mm}}\\
-{\small \includegraphics[clip,width=15cm]{unir}}\textit{\noun{\small }}\\
+{\small \includegraphics[clip,width=15cm]{0_home_andreas_Dokumente_Uni_Aktuell_Mathe_Kommutative_Algebra_KomAlg_unir.png}}\textit{\noun{\small }}\\
 {\small \vspace*{3mm}}\\
 Stand: \today}
 
@@ -3020,7 +3022,7 @@ alle $m\in M$ gilt:
 \end{iiilist}
 
 
-\section{Proposition}
+\section{Proposition\label{sec:Prop-endlichErzeugtTransitiv}}
 
 Seien $f:A\to B$ ein Ringhomomorphismus, $M$ ein $A$-Modul und
 $N$ ein $B$-Modul.
@@ -5807,9 +5809,8 @@ ist ein Unterring, was leicht nachzurechnen ist.
 Das Ideal $I:=\left(2,1+\sqrt{-5}\right)\subseteq A$ ist ein endlich
 präsentierter $A$-Modul so, dass für alle maximalen Ideale $\mathfrak{m}\subseteq A$
 der $A_{\mathfrak{m}}$-Modul $I_{\mathfrak{m}}$ frei ist, daher
-ist nach \ref{sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv}
-iii) $\Rightarrow$ i) $I$ projektiv. Aber $I$ selbst ist nicht
-frei.
+ist nach \ref{sec:Satz-endlich-praesentiert-projektiv-lokal} iii)
+$\Rightarrow$ i) $I$ projektiv. Aber $I$ selbst ist nicht frei.
 
 %DATE: Fr 8.6.12
 
@@ -6091,7 +6092,7 @@ B_{\mathfrak{p}} & =\underbrace{\text{Quot}\left(\modulo{\mathbb{C}\left[X\right
 \modulo{\mathbb{C}\left[Y\right]}{Y^{2}} & \alpha=0
 \end{cases}
 \end{align*}
-Für die \ref{sec:Prop-Isomorphiesaetze} ii)
+Für \ref{sec:Prop-Isomorphiesaetze} ii)
 \begin{align*}
 \modulo{M_{2}}{M_{1}\cap M_{2}} & \stackrel{\sim}{\to}\modulo{M_{1}+M_{2}}{M_{1}}
 \end{align*}
@@ -6099,9 +6100,9 @@ verwende hier
 \begin{align*}
 M_{1} & :=\left(Y^{2}-X\right) & M_{2} & :=\left(X-\alpha\right)
 \end{align*}
-und
+und beachte
 \begin{align*}
-M_{1}\cap M_{2} & =M_{1}\cdot M_{2} & M_{1}+M_{2} & =\left(Y^{2}-X,X-\alpha\right)
+M_{1}\cap M_{2} & =\left(Y^{2}-X\right)\cdot\left(X-\alpha\right)=M_{1}\cdot M_{2} & M_{1}+M_{2} & =\left(Y^{2}-X,X-\alpha\right)
 \end{align*}
 und für \ref{sec:Prop-Isomorphiesaetze} i) 
 \begin{align*}
@@ -6131,11 +6132,374 @@ Skizze:\\
   \draw[line width=1.2] (1,0.2) -- (1,-0.2) node[below right]{$X=\alpha$};
 \end{tikzpicture}
 \end{center}
-\begin{align*}
-\text{Spec}\left(A\to B\right) & =\pi_{X}
-\end{align*}
-
 \end{enumerate}
+%DATE: Di 12.6.12
+
+
+\chapter{Ganze Ringerweiterungen}
+
+
+\section{Definition \textmd{(ganz)}}
+
+Ein Ringhomomorphismus $f:A\to B$ (und die $A$-Algebra $B$) heißt
+genau dann \emph{ganz}, wenn für alle $b\in B$ ein $n\in\mathbb{N}_{\ge1}$
+und $a_{0},\ldots,a_{n-1}\in A$ mit
+\begin{align*}
+b^{n}+a_{n-1}b^{n-1}+\ldots+a_{0} & =0
+\end{align*}
+existieren, das heißt es existiert ein normiertes $f\in A\left[X\right]$
+mit $f\left(b\right)=0$.
+
+(Vergleiche mit algebraischen Körpererweiterungen aus der Algebra.)
+
+
+\section{Bemerkung und Definition \textmd{(Ringerweiterung)}}
+
+\begin{iiilist}
+
+\iii $f:A\to B$ ist genau dann ganz, wenn die Inklusion $f\left(A\right)\subseteq B$
+ganz ist.
+
+\iii Eine \emph{Ringerweiterung} ist ein Ring $B$ zusammen mit einem
+Unterring $A\subseteq B$ oder äquivalent ein injektiver Ringhomomorphismus.
+
+Eine Ringerweiterung heißt \emph{ganz}, falls die Inklusion $A\subseteq B$
+ganz ist.
+
+\iii Ist $k$ ein Körper, so gilt für eine $k$-Algebra $B$:
+
+$B$ ist eine ganze $k$-Algebra. $\Leftrightarrow$ $B$ ist algebraisch
+über $k$.
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}$\Rightarrow$\textquotedblleft{}: Ganz bedeutet, dass
+es für alle $b\in B$ ein normiertes Polynom $f\in k\left[X\right]$
+mit $f\left(b\right)=0$ gibt. Algebraisch heißt, dass es für alle
+$b\in B$ ein (nicht notwendig normiertes) Polynom $f\in k\left[X\right]\setminus\left\{ 0\right\} $
+mit $f\left(b\right)=0$ gibt.
+
+Dies ist offenbar erfüllt, da das Nullpolynom nicht normiert ist.
+
+\quotedblbase{}$\Leftarrow$\textquotedblleft{}: Sei $b\in B$, so
+gibt es ein $f\in k\left[X\right]\setminus\left\{ 0\right\} $ mit
+$f\left(b\right)=0$. Schreibe mit geeigneten $a_{i}\in k$ für $i\in\left\{ 0,\ldots,n\right\} $
+und $a_{n}\not=0$:
+\begin{align*}
+f\left(X\right) & =a_{n}X^{n}+\ldots+a_{0}
+\end{align*}
+Also gilt:
+\begin{align*}
+\left(a_{n}^{-1}f\right)\left(b\right) & =a_{n}^{-1}\cdot f\left(b\right)=0
+\end{align*}
+Da $a_{n}^{-1}f\in k\left[X\right]$ normiert ist, ist $b$ ganz über
+$k$.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Definition \textmd{(ganz abgeschlossen, normal)\label{sec:Def-ganz-abgeschlossen-normal}}}
+
+Sei $A\subseteq B$ eine Ringerweiterung.
+
+\begin{iiilist}
+
+\iii Ein Element $b\in B$ heißt genau dann \emph{ganz über $A$},
+wenn ein normiertes $f\in A\left[X\right]$ mit $f\left(b\right)=0$
+existiert.
+
+\iii $A\subseteq B$ heißt genau dann \emph{ganz abgeschlossen},
+falls gilt:
+\begin{align*}
+\left\{ b\in B\big|b\text{ ist ganz über }A\right\}  & =A
+\end{align*}
+(\quotedblbase{}$\supseteq$\textquotedblleft{} gilt immer!)
+
+\iii Ein Integritätsring $A$ heißt genau dann \emph{ganz abgeschlossen}
+(oder \emph{normal}), wenn die Ringerweiterung $A\subseteq\text{Quot}\left(A\right)$
+ganz abgeschlossen ist.
+
+\end{iiilist}
+
+
+\section{Proposition \textmd{(\texorpdfstring{$\mathbb{Z}$}{Z} ist normal)\label{sec:Proposition-Znormal}}}
+
+$\mathbb{Z}$ ist normal.
+
+
+\subsubsection*{Beweis}
+
+Nach \ref{sec:Def-ganz-abgeschlossen-normal} iii) und ii) ist zu
+zeigen: Ist $x\in\mathbb{Q}$ ganz über $\mathbb{Z}$, so ist $x\in\mathbb{Z}$.
+
+Sei also $x\in\mathbb{Q}$ ganz über $\mathbb{Z}$. Schreibe $x=\frac{a}{b}$
+mit $a,b\in\mathbb{Z}$ und $\text{ggT}\left(a,b\right)=1$.
+
+Da $x$ ganz über $\mathbb{Z}$ ist, gibt es geeignete $a_{i}\in\mathbb{Z}$
+mit:
+\begin{align*}
+0 & =x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}=\frac{a^{n}}{b^{n}}+a_{n-1}\frac{a^{n-1}}{b^{n-1}}+\ldots+a_{0}\qquad/\cdot b^{n}\\
+0 & =a^{n}+\left(ba_{n-1}\right)a^{n-1}+\ldots+\left(b^{n}a_{0}\right)\\
+a^{n} & =-b\left(a_{n-1}a^{n-1}+\ldots+b^{n-1}a_{0}\right)
+\end{align*}
+Angenommen es existiert eine Primzahl $p\in\mathbb{Z}$ mit $p|b$,
+so folgt $p|a^{n}$ und somit $p|a$, da $p$ eine Primzahl ist. Dies
+ist ein Widerspruch, da $a$ und $b$ teilerfremd sind. Also gilt
+$b\in\mathbb{Z}^{*}=\left\{ \pm1\right\} $ und es folgt:
+\begin{align*}
+x & =\frac{a}{b}=\pm a\in\mathbb{Z}
+\end{align*}
+\qqed
+
+
+\section{Bemerkung}
+
+\begin{iiilist}
+
+\iii Für alle $\alpha\in\mathbb{Q}$ gibt es ein $f\in\mathbb{Z}\left[X\right]\setminus\left\{ 0\right\} $
+mit $f\left(\alpha\right)=0$, denn für $\alpha=\frac{a}{b}$ gilt:
+\begin{align*}
+\left(bX-a\right)\left(\alpha\right) & =0
+\end{align*}
+Aber $bX-a$ ist nicht normiert.
+
+\iii \ref{sec:Proposition-Znormal} gilt mit demselben Beweis allgemeiner
+für alle faktoriellen Ringe anstelle von $\mathbb{Z}$, zum Beispiel
+für $k\left[X_{1},\ldots,X_{n}\right]$ mit einem Körper $k$ und
+$n\in\mathbb{N}$, das heißt faktorielle Ringe sind normal.
+
+\end{iiilist}
+
+$\ii,\sqrt{5},\sqrt{7},\sqrt{11}\in\mathbb{C}$ sind ganz über $\mathbb{R}$,
+mit den Minimalpolynomen $X^{2}+1$, $X^{2}-5$, $X^{2}-7$ und $X^{2}-11$.
+Was ist mit $\ii+\sqrt{5}$ oder $\ii+\sqrt{5}+\sqrt{7}-\sqrt{11}$?
+
+
+\section{Proposition \textmd{(Charakterisierung von ganz)}\label{sec:Prop-CharakterisierungGanz}}
+
+Sind $A\subseteq B$ eine Ringerweiterung und $b\in B$ ein Element,
+so sind äquivalent:
+
+\begin{iiilist}
+
+\iii $b$ ist ganz über $A$.
+
+\iii Die von $b$ erzeugte $A$-Unteralgebra $A\subseteq A\left[b\right]\subseteq B$
+ist endlich.
+
+\iii Es existiert ein Ring $C$ mit $A\subseteq C\subseteq B$ und
+$b\in C$, der endlich über $A$ ist.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Betrachte
+den Einsetzungshomomorphismus:
+\begin{align*}
+\varphi:A\left[X\right] & \to B\\
+X & \mapsto b
+\end{align*}
+Nun gilt:
+\begin{align*}
+A\left[b\right]=\text{im}\left(\varphi\right) & \stackrel{\sim}{=}\modulo{A\left[X\right]}{\ker\left(\varphi\right)}
+\end{align*}
+Da $b$ ganz über $A$ ist, existiert ein normiertes $f\in A\left[X\right]$
+mit $f\left(b\right)=0$, das heißt $\left(f\right)\subseteq\ker\left(\varphi\right)$
+und
+\begin{align*}
+A\left[b\right] & \stackrel{\sim}{=}\modulo{A\left[X\right]}{\ker\left(\varphi\right)}\stackrel{\overline{\text{id}}}{\twoheadleftarrow}\modulo{A\left[X\right]}{\left(f\right)}
+\end{align*}
+ist ein Quotient des $A$-Moduls $\modulo{A\left[X\right]}{\left(f\right)}$.
+
+Ist $n:=\text{deg}\left(f\right)$, so folgt aus Division mit Rest
+durch das normierte (!) Polynom $f$, dass $\modulo{A\left[X\right]}{\left(f\right)}$
+ein freier $A$-Modul mit Basis $\left\{ \overline{X}^{i}\right\} _{0\le i\le n-1}$
+ist. Also ist mit $\modulo{A\left[X\right]}{\left(f\right)}$ auch
+der Quotient $\modulo{A\left[X\right]}{\ker\left(\varphi\right)}\stackrel{\sim}{=}A\left[b\right]$
+endlich, das heißt die $A$-Algebra $A\left[b\right]$ ist endlich.\qqed[i) $\Rightarrow$ ii)]
+
+\quotedblbase{}ii) $\Rightarrow$ iii)\textquotedblleft{}: Wähle $C:=A\left[b\right]$.
+
+\quotedblbase{}iii) $\Rightarrow$ i)\textquotedblleft{}: Die Abbildung
+\begin{align*}
+\varphi:C & \to C\\
+c & \mapsto bc
+\end{align*}
+ist $A$-linear. Nach dem Satz von Cayley-Hamilton \ref{sec:Satz-Cayley-Hamilton}
+existiert ein normiertes $f\in A\left[X\right]$ mit $f\left(\varphi\right)=0$
+in $\text{End}_{A}\left(C\right)$. Es folgt in $B$:
+\begin{align*}
+f\left(b\right) & =f\left(\varphi\right)\left(1\right)=0
+\end{align*}
+Also ist $b$ ganz über $A$.\qqed
+
+
+\section{Bemerkung \textmd{(Beziehung zwischen endlich und ganz)}}
+
+Wegen \ref{sec:Prop-CharakterisierungGanz} \quotedblbase{}iii) $\Rightarrow$
+i)\textquotedblleft{} ist jede endliche Ringerweiterung ganz.
+
+Die Umkehrung gilt im Allgemeinen nicht, aber man kann zeigen, dass
+eine Ringerweiterung genau dann ganz ist, wenn sie Vereinigung ihrer
+endlichen Teilerweiterungen ist.
+
+\textcolor{green}{TODO: Beweis als Übung einfügen.}
+
+
+\section{Korollar\label{sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich}}
+
+Seien $A\subseteq B$ eine Ringerweiterung, $n\in\mathbb{N}_{\ge1}$
+und $b_{1},\ldots,b_{n}\in B$ ganz über $A$. Dann ist die $A$-Algebra
+$A\left[b_{1},\ldots,b_{n}\right]$ endlich.
+
+
+\subsubsection*{Beweis}
+
+Induktion über $n$:
+
+Induktionsanfang bei $n=1$: \ref{sec:Prop-CharakterisierungGanz}
+i) $\Rightarrow$ ii).
+
+Induktionsschritt $n-1\leadsto n$: Schreibe $A\subseteq A_{r}:=A\left[b_{1},\ldots,b_{r}\right]\subseteq B$
+für $1\le r\le n$.
+
+Nach Induktionsvoraussetzung ist $A_{n-1}$ eine endliche $A$-Algebra.
+Da $b_{n}$ ganz über $A$ ist, ist $b_{n}$ auch ganz über $A_{n-1}$,
+denn es gilt $A\subseteq A_{n-1}$ und somit ist jedes $f\in A\left[X\right]$
+schon Element von $A_{n-1}\left[X\right]$.
+
+Also ist $A_{n}$ eine endliche $A_{n-1}$-Algebra nach \ref{sec:Prop-CharakterisierungGanz}
+i) $\Rightarrow$ ii) für $\left(A\subseteq B\right):=\left(A_{n-1}\subseteq A_{n}\right)$.
+
+Wegen \ref{sec:Prop-endlichErzeugtTransitiv} i) für $B:=A_{n-1}$
+und den $B$-Modul $N:=A_{n}$ ist $A_{n}$ eine endliche $A$-Algebra.
+\begin{align*}
+A\stackrel{\text{endlich}}{\subseteq}A_{n-1}\stackrel{\text{endlich}}{\subseteq}A_{n}
+\end{align*}
+\begin{align*}
+\Rightarrow\quad A & \stackrel{\text{endlich}}{\subseteq}A_{n}
+\end{align*}
+\qqed
+
+
+\section{Korollar und Definition \textmd{(ganzer Abschluss)\label{sec:KuD-ganzerAbschluss}}}
+
+Ist $A\subseteq B$ eine Ringerweiterung, so ist
+\begin{align*}
+A\subseteq C:=\left\{ b\in B\big|b\text{ ganz über }A\right\}  & \subseteq B
+\end{align*}
+eine $A$-Unteralgebra, \emph{der ganze Abschluss von $A$ in $B$}.
+Schreibweise:
+\begin{align*}
+\overline{A}^{B} & :=C
+\end{align*}
+Zum Beispiel ist $\overline{A}^{A}=A$.
+
+
+\subsubsection*{Beweis}
+
+Für $a\in A$ ist
+\begin{align*}
+f\left(X\right) & :=X-a\in A\left[X\right]
+\end{align*}
+normiert und erfüllt $f\left(a\right)=0$. Es folgt $A\subseteq C$.
+Wegen $1,0\in A\subseteq C$ ist nur noch die Stabilität von $C$
+unter Addition und Multiplikation zu zeigen:
+
+Seien also $x,y\in C$. Wegen \ref{sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich}
+ist $A\subset A\left[x,y\right]$ eine endliche $A$-Algebra, also
+ganz, und es folgt $C\supseteq A\left[x,y\right]\ni x-y,xy$.\qqed
+
+
+\section{Beispiel}
+
+Der ganze Abschluss von $\mathbb{Z}$ in $\mathbb{Q}\left[\ii\right]$
+ist $\mathbb{Z}\left[\ii\right]$.
+
+\begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2ex, text depth=0.25ex]
+  { \mathbb{Z}[\ii] & \mathbb{Z}[\ii] & \mathbb{Q}[\ii] \\
+    &\mathbb{Z}[\ii] & \mathbb{Q}\\};
+  \path[right hook->] (m-1-2) edge (m-1-3)
+                     (m-2-2) edge (m-2-3)
+                     (m-2-2) edge (m-1-2)
+                     (m-2-3) edge (m-1-3)
+                     (m-2-2) edge (m-1-1);
+  \path (m-1-1) -- node{$\subsetneq$} (m-1-2);
+\end{tikzpicture}
+\end{center}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}$\supseteq$\textquotedblleft{}: Für $x=a+b\ii\in\mathbb{Z}\left[\ii\right]$
+mit geeigneten $a,b\in\mathbb{Z}$ gilt in $\mathbb{Z}\left[\ii\right]\left[X\right]$:
+\begin{align*}
+f\left(X\right) & :=\left(X-x\right)\left(X-\overline{x}\right)=X^{2}-\left(x+\overline{x}\right)X+\left(x\overline{x}\right)=X^{2}-\left(2a\right)X+\left(a^{2}+b^{2}\right)
+\end{align*}
+Also ist $f\in\mathbb{Z}\left[X\right]$ normiert und $f\left(x\right)=0$.
+Also ist $x$ ganz über $\mathbb{Z}$.
+
+\quotedblbase{}$\subseteq$\textquotedblleft{}: Sei $x=a+b\ii\in\mathbb{Q}\left[\ii\right]$
+mit geeigneten $a,b\in\mathbb{Q}$ ganz über $\mathbb{Z}$. Zu zeigen
+ist $a,b\in\mathbb{Z}$.
+
+Es existiert ein normiertes $f\in\mathbb{Z}\left[X\right]$ mit $f\left(x\right)=0$
+und es folgt:
+\begin{align*}
+0 & =\overline{f\left(x\right)}=\overline{f}\left(\overline{x}\right)\stackrel{f\in\mathbb{Z}\left[X\right]}{=}f\left(\overline{x}\right)
+\end{align*}
+Also ist $\overline{x}$ ganz über $\mathbb{Z}$. Wegen \ref{sec:KuD-ganzerAbschluss}
+sind dann auch $x+\overline{x}=2a\in\mathbb{Q}$ und $x\cdot\overline{x}=a^{2}+b^{2}\in\mathbb{Q}$
+ganz über $\mathbb{Z}$.
+
+Da $\mathbb{Z}$ nach \ref{sec:Proposition-Znormal} normal ist, folgen
+$a':=2a\in\mathbb{Z}$ und $z:=a^{2}+b^{2}\in\mathbb{Z}$. Schreibe
+\begin{align*}
+a & =\frac{a'}{2} & b & =\frac{c}{d}
+\end{align*}
+mit $c,d\in\mathbb{Z}$, $\text{ggT}\left(c,d\right)=1$ und $d>0$.
+Es folgt:
+\begin{align*}
+z=a^{2}+b^{2} & =\frac{\left(a'\right)^{2}}{4}+\frac{c^{2}}{d^{2}}=\frac{\left(a'\right)^{2}d^{2}+4c^{2}}{4d^{2}}\in\mathbb{Z}
+\end{align*}
+Daher ist $4$ ein Teiler von $\left(a'\right)^{2}d^{2}$ und somit
+gilt $2|a'$ oder $2|d$.
+\begin{enumerate}
+\item Fall: Aus $2|a'$ folgt $a=\frac{a'}{2}\in\mathbb{Z}$ und somit ist
+$b^{2}=z-a^{2}\in\mathbb{Z}$, also ist $b\in\mathbb{Q}$ ganz über
+$\mathbb{Z}$ mit dem Polynom $X^{2}-b^{2}\in\mathbb{Z}\left[X\right]$.
+Da $\mathbb{Z}$ normal ist, folgt $b\in\mathbb{Z}$.
+\item Fall: Für $2|d$ schreibe $d=2d'$ mit geeignetem $d'\in\mathbb{Z}$.
+Es gilt:
+\begin{align*}
+\mathbb{Z}\ni z=a^{2}+b^{2} & =\frac{\left(a'\right)^{2}}{4}+\frac{c^{2}}{4\left(d'\right)^{2}}=\frac{1}{4}\left(\left(a'\right)^{2}+\frac{c^{2}}{\left(d'\right)^{2}}\right)\stackrel{a'\in\mathbb{Z}}{\Rightarrow}\frac{c^{2}}{\left(d'\right)^{2}}\in\mathbb{Z}
+\end{align*}
+Wegen $\text{ggT}\left(c,d\right)=1$ gilt auch $\text{ggT}\left(c^{2},\left(d'\right)^{2}\right)=1$
+und somit $\left(d'\right)^{2}\in\mathbb{Z}^{*}$, also $\left(d'\right)^{2}=1$.
+Mit $d>0$ folgt $d'>0$, also $d'=1$. Dann gilt $4\mathbb{Z}\ni\left(a'\right)^{2}+c^{2}$.
+Wegen
+\begin{align*}
+\left(\modlo Z4\right)^{2} & :=\left\{ x^{2}\big|x\in\modlo Z4\right\} =\left\{ \overline{0},\overline{1}\right\} 
+\end{align*}
+folgt aus
+\begin{align*}
+\left(a'\right)^{2}+c^{2} & \equiv0\mod4
+\end{align*}
+schon:
+\begin{align*}
+\left(a'\right)^{2}\equiv c^{2} & \equiv0\mod4\\
+\Rightarrow\qquad a'\equiv c & \equiv0\mod2
+\end{align*}
+Insbesondere gilt $2|a'$ und damit $a,b\in\mathbb{Z}$ nach Fall
+1.
+\end{enumerate}
+\qqed
+
 
 \part*{Anhang\thispagestyle{empty}}
 

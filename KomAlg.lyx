@@ -16273,6 +16273,13 @@ end{iiilist}
 
 \begin_layout Section
 Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-endlichErzeugtTransitiv"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -31182,7 +31189,7 @@ Das Ideal
  frei ist, daher ist nach 
 \begin_inset CommandInset ref
 LatexCommand ref
-reference "sec:Lemma-endlich-praesentiert-flach-impliziert-projektiv"
+reference "sec:Satz-endlich-praesentiert-projektiv-lokal"
 
 \end_inset
 
@@ -32362,7 +32369,7 @@ B_{\mathfrak{p}} & =\underbrace{\text{Quot}\left(\modulo{\mathbb{C}\left[X\right
 
 \end_inset
 
-Für die 
+Für 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Prop-Isomorphiesaetze"
@@ -32385,10 +32392,10 @@ M_{1} & :=\left(Y^{2}-X\right) & M_{2} & :=\left(X-\alpha\right)
 
 \end_inset
 
-und
+und beachte
 \begin_inset Formula 
 \begin{align*}
-M_{1}\cap M_{2} & =M_{1}\cdot M_{2} & M_{1}+M_{2} & =\left(Y^{2}-X,X-\alpha\right)
+M_{1}\cap M_{2} & =\left(Y^{2}-X\right)\cdot\left(X-\alpha\right)=M_{1}\cdot M_{2} & M_{1}+M_{2} & =\left(Y^{2}-X,X-\alpha\right)
 \end{align*}
 
 \end_inset
@@ -32550,10 +32557,2054 @@ end{center}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 12.6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Ganze Ringerweiterungen
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(ganz)
+\end_layout
+
+\begin_layout Standard
+Ein Ringhomomorphismus 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ (und die 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $B$
+\end_inset
+
+) heißt genau dann 
+\emph on
+ganz
+\emph default
+, wenn für alle 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ ein 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und 
+\begin_inset Formula $a_{0},\ldots,a_{n-1}\in A$
+\end_inset
+
+ mit
 \begin_inset Formula 
 \begin{align*}
-\text{Spec}\left(A\to B\right) & =\pi_{X}
+b^{n}+a_{n-1}b^{n-1}+\ldots+a_{0} & =0
 \end{align*}
+
+\end_inset
+
+existieren, das heißt es existiert ein normiertes 
+\begin_inset Formula $f\in A\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(b\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(Vergleiche mit algebraischen Körpererweiterungen aus der Algebra.)
+\end_layout
+
+\begin_layout Section
+Bemerkung und Definition 
+\series medium
+(Ringerweiterung)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ist genau dann ganz, wenn die Inklusion 
+\begin_inset Formula $f\left(A\right)\subseteq B$
+\end_inset
+
+ ganz ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine 
+\emph on
+Ringerweiterung
+\emph default
+ ist ein Ring 
+\begin_inset Formula $B$
+\end_inset
+
+ zusammen mit einem Unterring 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ oder äquivalent ein injektiver Ringhomomorphismus.
+\end_layout
+
+\begin_layout Standard
+Eine Ringerweiterung heißt 
+\emph on
+ganz
+\emph default
+, falls die Inklusion 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ ganz ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper, so gilt für eine 
+\begin_inset Formula $k$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $B$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $B$
+\end_inset
+
+ ist eine ganze 
+\begin_inset Formula $k$
+\end_inset
+
+-Algebra.
+ 
+\begin_inset Formula $\Leftrightarrow$
+\end_inset
+
+ 
+\begin_inset Formula $B$
+\end_inset
+
+ ist algebraisch über 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+“: Ganz bedeutet, dass es für alle 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ ein normiertes Polynom 
+\begin_inset Formula $f\in k\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(b\right)=0$
+\end_inset
+
+ gibt.
+ Algebraisch heißt, dass es für alle 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ ein (nicht notwendig normiertes) Polynom 
+\begin_inset Formula $f\in k\left[X\right]\setminus\left\{ 0\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(b\right)=0$
+\end_inset
+
+ gibt.
+\end_layout
+
+\begin_layout Standard
+Dies ist offenbar erfüllt, da das Nullpolynom nicht normiert ist.
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“: Sei 
+\begin_inset Formula $b\in B$
+\end_inset
+
+, so gibt es ein 
+\begin_inset Formula $f\in k\left[X\right]\setminus\left\{ 0\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(b\right)=0$
+\end_inset
+
+.
+ Schreibe mit geeigneten 
+\begin_inset Formula $a_{i}\in k$
+\end_inset
+
+ für 
+\begin_inset Formula $i\in\left\{ 0,\ldots,n\right\} $
+\end_inset
+
+ und 
+\begin_inset Formula $a_{n}\not=0$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+f\left(X\right) & =a_{n}X^{n}+\ldots+a_{0}
+\end{align*}
+
+\end_inset
+
+Also gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(a_{n}^{-1}f\right)\left(b\right) & =a_{n}^{-1}\cdot f\left(b\right)=0
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $a_{n}^{-1}f\in k\left[X\right]$
+\end_inset
+
+ normiert ist, ist 
+\begin_inset Formula $b$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(ganz abgeschlossen, normal)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Def-ganz-abgeschlossen-normal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine Ringerweiterung.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ein Element 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ heißt genau dann 
+\emph on
+ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+
+\emph default
+, wenn ein normiertes 
+\begin_inset Formula $f\in A\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(b\right)=0$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ heißt genau dann 
+\emph on
+ganz abgeschlossen
+\emph default
+, falls gilt:
+\begin_inset Formula 
+\begin{align*}
+\left\{ b\in B\big|b\text{ ist ganz über }A\right\}  & =A
+\end{align*}
+
+\end_inset
+
+(„
+\begin_inset Formula $\supseteq$
+\end_inset
+
+“ gilt immer!)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ein Integritätsring 
+\begin_inset Formula $A$
+\end_inset
+
+ heißt genau dann 
+\emph on
+ganz abgeschlossen
+\emph default
+ (oder 
+\emph on
+normal
+\emph default
+), wenn die Ringerweiterung 
+\begin_inset Formula $A\subseteq\text{Quot}\left(A\right)$
+\end_inset
+
+ ganz abgeschlossen ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+\series medium
+
+\backslash
+texorpdfstring{
+\end_layout
+
+\end_inset
+
+
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+}{Z}
+\end_layout
+
+\end_inset
+
+ ist normal)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Proposition-Znormal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ ist normal.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Def-ganz-abgeschlossen-normal"
+
+\end_inset
+
+ iii) und ii) ist zu zeigen: Ist 
+\begin_inset Formula $x\in\mathbb{Q}$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+, so ist 
+\begin_inset Formula $x\in\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei also 
+\begin_inset Formula $x\in\mathbb{Q}$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ Schreibe 
+\begin_inset Formula $x=\frac{a}{b}$
+\end_inset
+
+ mit 
+\begin_inset Formula $a,b\in\mathbb{Z}$
+\end_inset
+
+ und 
+\begin_inset Formula $\text{ggT}\left(a,b\right)=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $x$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ ist, gibt es geeignete 
+\begin_inset Formula $a_{i}\in\mathbb{Z}$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+0 & =x^{n}+a_{n-1}x^{n-1}+\ldots+a_{0}=\frac{a^{n}}{b^{n}}+a_{n-1}\frac{a^{n-1}}{b^{n-1}}+\ldots+a_{0}\qquad/\cdot b^{n}\\
+0 & =a^{n}+\left(ba_{n-1}\right)a^{n-1}+\ldots+\left(b^{n}a_{0}\right)\\
+a^{n} & =-b\left(a_{n-1}a^{n-1}+\ldots+b^{n-1}a_{0}\right)
+\end{align*}
+
+\end_inset
+
+Angenommen es existiert eine Primzahl 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ mit 
+\begin_inset Formula $p|b$
+\end_inset
+
+, so folgt 
+\begin_inset Formula $p|a^{n}$
+\end_inset
+
+ und somit 
+\begin_inset Formula $p|a$
+\end_inset
+
+, da 
+\begin_inset Formula $p$
+\end_inset
+
+ eine Primzahl ist.
+ Dies ist ein Widerspruch, da 
+\begin_inset Formula $a$
+\end_inset
+
+ und 
+\begin_inset Formula $b$
+\end_inset
+
+ teilerfremd sind.
+ Also gilt 
+\begin_inset Formula $b\in\mathbb{Z}^{*}=\left\{ \pm1\right\} $
+\end_inset
+
+ und es folgt:
+\begin_inset Formula 
+\begin{align*}
+x & =\frac{a}{b}=\pm a\in\mathbb{Z}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $\alpha\in\mathbb{Q}$
+\end_inset
+
+ gibt es ein 
+\begin_inset Formula $f\in\mathbb{Z}\left[X\right]\setminus\left\{ 0\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(\alpha\right)=0$
+\end_inset
+
+, denn für 
+\begin_inset Formula $\alpha=\frac{a}{b}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(bX-a\right)\left(\alpha\right) & =0
+\end{align*}
+
+\end_inset
+
+Aber 
+\begin_inset Formula $bX-a$
+\end_inset
+
+ ist nicht normiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Proposition-Znormal"
+
+\end_inset
+
+ gilt mit demselben Beweis allgemeiner für alle faktoriellen Ringe anstelle
+ von 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+, zum Beispiel für 
+\begin_inset Formula $k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+ mit einem Körper 
+\begin_inset Formula $k$
+\end_inset
+
+ und 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+, das heißt faktorielle Ringe sind normal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\ii,\sqrt{5},\sqrt{7},\sqrt{11}\in\mathbb{C}$
+\end_inset
+
+ sind ganz über 
+\begin_inset Formula $\mathbb{R}$
+\end_inset
+
+, mit den Minimalpolynomen 
+\begin_inset Formula $X^{2}+1$
+\end_inset
+
+, 
+\begin_inset Formula $X^{2}-5$
+\end_inset
+
+, 
+\begin_inset Formula $X^{2}-7$
+\end_inset
+
+ und 
+\begin_inset Formula $X^{2}-11$
+\end_inset
+
+.
+ Was ist mit 
+\begin_inset Formula $\ii+\sqrt{5}$
+\end_inset
+
+ oder 
+\begin_inset Formula $\ii+\sqrt{5}+\sqrt{7}-\sqrt{11}$
+\end_inset
+
+?
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(Charakterisierung von ganz)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-CharakterisierungGanz"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine Ringerweiterung und 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ ein Element, so sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $b$
+\end_inset
+
+ ist ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die von 
+\begin_inset Formula $b$
+\end_inset
+
+ erzeugte 
+\begin_inset Formula $A$
+\end_inset
+
+-Unteralgebra 
+\begin_inset Formula $A\subseteq A\left[b\right]\subseteq B$
+\end_inset
+
+ ist endlich.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Es existiert ein Ring 
+\begin_inset Formula $C$
+\end_inset
+
+ mit 
+\begin_inset Formula $A\subseteq C\subseteq B$
+\end_inset
+
+ und 
+\begin_inset Formula $b\in C$
+\end_inset
+
+, der endlich über 
+\begin_inset Formula $A$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Betrachte den Einsetzungshomomorphismus:
+\begin_inset Formula 
+\begin{align*}
+\varphi:A\left[X\right] & \to B\\
+X & \mapsto b
+\end{align*}
+
+\end_inset
+
+Nun gilt:
+\begin_inset Formula 
+\begin{align*}
+A\left[b\right]=\text{im}\left(\varphi\right) & \stackrel{\sim}{=}\modulo{A\left[X\right]}{\ker\left(\varphi\right)}
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $b$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+ ist, existiert ein normiertes 
+\begin_inset Formula $f\in A\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(b\right)=0$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $\left(f\right)\subseteq\ker\left(\varphi\right)$
+\end_inset
+
+ und
+\begin_inset Formula 
+\begin{align*}
+A\left[b\right] & \stackrel{\sim}{=}\modulo{A\left[X\right]}{\ker\left(\varphi\right)}\stackrel{\overline{\text{id}}}{\twoheadleftarrow}\modulo{A\left[X\right]}{\left(f\right)}
+\end{align*}
+
+\end_inset
+
+ist ein Quotient des 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduls 
+\begin_inset Formula $\modulo{A\left[X\right]}{\left(f\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $n:=\text{deg}\left(f\right)$
+\end_inset
+
+, so folgt aus Division mit Rest durch das normierte (!) Polynom 
+\begin_inset Formula $f$
+\end_inset
+
+, dass 
+\begin_inset Formula $\modulo{A\left[X\right]}{\left(f\right)}$
+\end_inset
+
+ ein freier 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul mit Basis 
+\begin_inset Formula $\left\{ \overline{X}^{i}\right\} _{0\le i\le n-1}$
+\end_inset
+
+ ist.
+ Also ist mit 
+\begin_inset Formula $\modulo{A\left[X\right]}{\left(f\right)}$
+\end_inset
+
+ auch der Quotient 
+\begin_inset Formula $\modulo{A\left[X\right]}{\ker\left(\varphi\right)}\stackrel{\sim}{=}A\left[b\right]$
+\end_inset
+
+ endlich, das heißt die 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $A\left[b\right]$
+\end_inset
+
+ ist endlich.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[i) $
+\backslash
+Rightarrow$ ii)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iii)“: Wähle 
+\begin_inset Formula $C:=A\left[b\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+„iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\varphi:C & \to C\\
+c & \mapsto bc
+\end{align*}
+
+\end_inset
+
+ist 
+\begin_inset Formula $A$
+\end_inset
+
+-linear.
+ Nach dem Satz von Cayley-Hamilton 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Cayley-Hamilton"
+
+\end_inset
+
+ existiert ein normiertes 
+\begin_inset Formula $f\in A\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(\varphi\right)=0$
+\end_inset
+
+ in 
+\begin_inset Formula $\text{End}_{A}\left(C\right)$
+\end_inset
+
+.
+ Es folgt in 
+\begin_inset Formula $B$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+f\left(b\right) & =f\left(\varphi\right)\left(1\right)=0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $b$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung 
+\series medium
+(Beziehung zwischen endlich und ganz)
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-CharakterisierungGanz"
+
+\end_inset
+
+ „iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“ ist jede endliche Ringerweiterung ganz.
+\end_layout
+
+\begin_layout Standard
+Die Umkehrung gilt im Allgemeinen nicht, aber man kann zeigen, dass eine
+ Ringerweiterung genau dann ganz ist, wenn sie Vereinigung ihrer endlichen
+ Teilerweiterungen ist.
+\end_layout
+
+\begin_layout Standard
+
+\color green
+TODO: Beweis als Übung einfügen.
+\end_layout
+
+\begin_layout Section
+Korollar
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine Ringerweiterung, 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und 
+\begin_inset Formula $b_{1},\ldots,b_{n}\in B$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Dann ist die 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $A\left[b_{1},\ldots,b_{n}\right]$
+\end_inset
+
+ endlich.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Induktion über 
+\begin_inset Formula $n$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Induktionsanfang bei 
+\begin_inset Formula $n=1$
+\end_inset
+
+: 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-CharakterisierungGanz"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii).
+\end_layout
+
+\begin_layout Standard
+Induktionsschritt 
+\begin_inset Formula $n-1\leadsto n$
+\end_inset
+
+: Schreibe 
+\begin_inset Formula $A\subseteq A_{r}:=A\left[b_{1},\ldots,b_{r}\right]\subseteq B$
+\end_inset
+
+ für 
+\begin_inset Formula $1\le r\le n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Nach Induktionsvoraussetzung ist 
+\begin_inset Formula $A_{n-1}$
+\end_inset
+
+ eine endliche 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra.
+ Da 
+\begin_inset Formula $b_{n}$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+ ist, ist 
+\begin_inset Formula $b_{n}$
+\end_inset
+
+ auch ganz über 
+\begin_inset Formula $A_{n-1}$
+\end_inset
+
+, denn es gilt 
+\begin_inset Formula $A\subseteq A_{n-1}$
+\end_inset
+
+ und somit ist jedes 
+\begin_inset Formula $f\in A\left[X\right]$
+\end_inset
+
+ schon Element von 
+\begin_inset Formula $A_{n-1}\left[X\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Also ist 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ eine endliche 
+\begin_inset Formula $A_{n-1}$
+\end_inset
+
+-Algebra nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-CharakterisierungGanz"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii) für 
+\begin_inset Formula $\left(A\subseteq B\right):=\left(A_{n-1}\subseteq A_{n}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlichErzeugtTransitiv"
+
+\end_inset
+
+ i) für 
+\begin_inset Formula $B:=A_{n-1}$
+\end_inset
+
+ und den 
+\begin_inset Formula $B$
+\end_inset
+
+-Modul 
+\begin_inset Formula $N:=A_{n}$
+\end_inset
+
+ ist 
+\begin_inset Formula $A_{n}$
+\end_inset
+
+ eine endliche 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra.
+\begin_inset Formula 
+\begin{align*}
+A\stackrel{\text{endlich}}{\subseteq}A_{n-1}\stackrel{\text{endlich}}{\subseteq}A_{n}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+\Rightarrow\quad A & \stackrel{\text{endlich}}{\subseteq}A_{n}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar und Definition 
+\series medium
+(ganzer Abschluss)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:KuD-ganzerAbschluss"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine Ringerweiterung, so ist
+\begin_inset Formula 
+\begin{align*}
+A\subseteq C:=\left\{ b\in B\big|b\text{ ganz über }A\right\}  & \subseteq B
+\end{align*}
+
+\end_inset
+
+eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Unteralgebra, 
+\emph on
+der ganze Abschluss von 
+\begin_inset Formula $A$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+
+\emph default
+.
+ Schreibweise:
+\begin_inset Formula 
+\begin{align*}
+\overline{A}^{B} & :=C
+\end{align*}
+
+\end_inset
+
+Zum Beispiel ist 
+\begin_inset Formula $\overline{A}^{A}=A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ ist
+\begin_inset Formula 
+\begin{align*}
+f\left(X\right) & :=X-a\in A\left[X\right]
+\end{align*}
+
+\end_inset
+
+normiert und erfüllt 
+\begin_inset Formula $f\left(a\right)=0$
+\end_inset
+
+.
+ Es folgt 
+\begin_inset Formula $A\subseteq C$
+\end_inset
+
+.
+ Wegen 
+\begin_inset Formula $1,0\in A\subseteq C$
+\end_inset
+
+ ist nur noch die Stabilität von 
+\begin_inset Formula $C$
+\end_inset
+
+ unter Addition und Multiplikation zu zeigen:
+\end_layout
+
+\begin_layout Standard
+Seien also 
+\begin_inset Formula $x,y\in C$
+\end_inset
+
+.
+ Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich"
+
+\end_inset
+
+ ist 
+\begin_inset Formula $A\subset A\left[x,y\right]$
+\end_inset
+
+ eine endliche 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra, also ganz, und es folgt 
+\begin_inset Formula $C\supseteq A\left[x,y\right]\ni x-y,xy$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+Der ganze Abschluss von 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ in 
+\begin_inset Formula $\mathbb{Q}\left[\ii\right]$
+\end_inset
+
+ ist 
+\begin_inset Formula $\mathbb{Z}\left[\ii\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{center}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2ex,
+ text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { 
+\backslash
+mathbb{Z}[
+\backslash
+ii] & 
+\backslash
+mathbb{Z}[
+\backslash
+ii] & 
+\backslash
+mathbb{Q}[
+\backslash
+ii] 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    &
+\backslash
+mathbb{Z}[
+\backslash
+ii] & 
+\backslash
+mathbb{Q}
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->] (m-1-2) edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                     (m-2-2) edge (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                     (m-2-2) edge (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                     (m-2-3) edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                     (m-2-2) edge (m-1-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-1) -- node{$
+\backslash
+subsetneq$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{center}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\supseteq$
+\end_inset
+
+“: Für 
+\begin_inset Formula $x=a+b\ii\in\mathbb{Z}\left[\ii\right]$
+\end_inset
+
+ mit geeigneten 
+\begin_inset Formula $a,b\in\mathbb{Z}$
+\end_inset
+
+ gilt in 
+\begin_inset Formula $\mathbb{Z}\left[\ii\right]\left[X\right]$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+f\left(X\right) & :=\left(X-x\right)\left(X-\overline{x}\right)=X^{2}-\left(x+\overline{x}\right)X+\left(x\overline{x}\right)=X^{2}-\left(2a\right)X+\left(a^{2}+b^{2}\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $f\in\mathbb{Z}\left[X\right]$
+\end_inset
+
+ normiert und 
+\begin_inset Formula $f\left(x\right)=0$
+\end_inset
+
+.
+ Also ist 
+\begin_inset Formula $x$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\subseteq$
+\end_inset
+
+“: Sei 
+\begin_inset Formula $x=a+b\ii\in\mathbb{Q}\left[\ii\right]$
+\end_inset
+
+ mit geeigneten 
+\begin_inset Formula $a,b\in\mathbb{Q}$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ Zu zeigen ist 
+\begin_inset Formula $a,b\in\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Es existiert ein normiertes 
+\begin_inset Formula $f\in\mathbb{Z}\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(x\right)=0$
+\end_inset
+
+ und es folgt:
+\begin_inset Formula 
+\begin{align*}
+0 & =\overline{f\left(x\right)}=\overline{f}\left(\overline{x}\right)\stackrel{f\in\mathbb{Z}\left[X\right]}{=}f\left(\overline{x}\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\overline{x}$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+ Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:KuD-ganzerAbschluss"
+
+\end_inset
+
+ sind dann auch 
+\begin_inset Formula $x+\overline{x}=2a\in\mathbb{Q}$
+\end_inset
+
+ und 
+\begin_inset Formula $x\cdot\overline{x}=a^{2}+b^{2}\in\mathbb{Q}$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Proposition-Znormal"
+
+\end_inset
+
+ normal ist, folgen 
+\begin_inset Formula $a':=2a\in\mathbb{Z}$
+\end_inset
+
+ und 
+\begin_inset Formula $z:=a^{2}+b^{2}\in\mathbb{Z}$
+\end_inset
+
+.
+ Schreibe
+\begin_inset Formula 
+\begin{align*}
+a & =\frac{a'}{2} & b & =\frac{c}{d}
+\end{align*}
+
+\end_inset
+
+mit 
+\begin_inset Formula $c,d\in\mathbb{Z}$
+\end_inset
+
+, 
+\begin_inset Formula $\text{ggT}\left(c,d\right)=1$
+\end_inset
+
+ und 
+\begin_inset Formula $d>0$
+\end_inset
+
+.
+ Es folgt:
+\begin_inset Formula 
+\begin{align*}
+z=a^{2}+b^{2} & =\frac{\left(a'\right)^{2}}{4}+\frac{c^{2}}{d^{2}}=\frac{\left(a'\right)^{2}d^{2}+4c^{2}}{4d^{2}}\in\mathbb{Z}
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $4$
+\end_inset
+
+ ein Teiler von 
+\begin_inset Formula $\left(a'\right)^{2}d^{2}$
+\end_inset
+
+ und somit gilt 
+\begin_inset Formula $2|a'$
+\end_inset
+
+ oder 
+\begin_inset Formula $2|d$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Fall: Aus 
+\begin_inset Formula $2|a'$
+\end_inset
+
+ folgt 
+\begin_inset Formula $a=\frac{a'}{2}\in\mathbb{Z}$
+\end_inset
+
+ und somit ist 
+\begin_inset Formula $b^{2}=z-a^{2}\in\mathbb{Z}$
+\end_inset
+
+, also ist 
+\begin_inset Formula $b\in\mathbb{Q}$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ mit dem Polynom 
+\begin_inset Formula $X^{2}-b^{2}\in\mathbb{Z}\left[X\right]$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ normal ist, folgt 
+\begin_inset Formula $b\in\mathbb{Z}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Enumerate
+Fall: Für 
+\begin_inset Formula $2|d$
+\end_inset
+
+ schreibe 
+\begin_inset Formula $d=2d'$
+\end_inset
+
+ mit geeignetem 
+\begin_inset Formula $d'\in\mathbb{Z}$
+\end_inset
+
+.
+ Es gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathbb{Z}\ni z=a^{2}+b^{2} & =\frac{\left(a'\right)^{2}}{4}+\frac{c^{2}}{4\left(d'\right)^{2}}=\frac{1}{4}\left(\left(a'\right)^{2}+\frac{c^{2}}{\left(d'\right)^{2}}\right)\stackrel{a'\in\mathbb{Z}}{\Rightarrow}\frac{c^{2}}{\left(d'\right)^{2}}\in\mathbb{Z}
+\end{align*}
+
+\end_inset
+
+Wegen 
+\begin_inset Formula $\text{ggT}\left(c,d\right)=1$
+\end_inset
+
+ gilt auch 
+\begin_inset Formula $\text{ggT}\left(c^{2},\left(d'\right)^{2}\right)=1$
+\end_inset
+
+ und somit 
+\begin_inset Formula $\left(d'\right)^{2}\in\mathbb{Z}^{*}$
+\end_inset
+
+, also 
+\begin_inset Formula $\left(d'\right)^{2}=1$
+\end_inset
+
+.
+ Mit 
+\begin_inset Formula $d>0$
+\end_inset
+
+ folgt 
+\begin_inset Formula $d'>0$
+\end_inset
+
+, also 
+\begin_inset Formula $d'=1$
+\end_inset
+
+.
+ Dann gilt 
+\begin_inset Formula $4\mathbb{Z}\ni\left(a'\right)^{2}+c^{2}$
+\end_inset
+
+.
+ Wegen
+\begin_inset Formula 
+\begin{align*}
+\left(\modlo Z4\right)^{2} & :=\left\{ x^{2}\big|x\in\modlo Z4\right\} =\left\{ \overline{0},\overline{1}\right\} 
+\end{align*}
+
+\end_inset
+
+folgt aus
+\begin_inset Formula 
+\begin{align*}
+\left(a'\right)^{2}+c^{2} & \equiv0\mod4
+\end{align*}
+
+\end_inset
+
+schon:
+\begin_inset Formula 
+\begin{align*}
+\left(a'\right)^{2}\equiv c^{2} & \equiv0\mod4\\
+\Rightarrow\qquad a'\equiv c & \equiv0\mod2
+\end{align*}
+
+\end_inset
+
+Insbesondere gilt 
+\begin_inset Formula $2|a'$
+\end_inset
+
+ und damit 
+\begin_inset Formula $a,b\in\mathbb{Z}$
+\end_inset
+
+ nach Fall 1.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
 
 \end_inset
 
