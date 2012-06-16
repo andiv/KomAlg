@@ -1,7 +1,5 @@
-\batchmode
-\makeatletter
-\def\input@path{{\string"/home/andreas/Dokumente/Uni/Aktuell/Mathe/Kommutative Algebra/KomAlg/\string"/}}
-\makeatother
+%% LyX 2.0.3 created this file.  For more info, see http://www.lyx.org/.
+%% Do not edit unless you really know what you are doing.
 \documentclass[11pt,english,ngerman]{report}
 \usepackage[T1]{fontenc}
 \usepackage[latin9]{inputenc}
@@ -239,7 +237,7 @@
 \textit{\small Überarbeitung und Textsatz in \LyX{} von}\\
 \textit{\noun{\small Andreas Völklein}}\\
 {\small \vspace*{10mm}}\\
-{\small \includegraphics[clip,width=15cm]{0_home_andreas_Dokumente_Uni_Aktuell_Mathe_Kommutative_Algebra_KomAlg_unir.png}}\textit{\noun{\small }}\\
+{\small \includegraphics[clip,width=15cm]{unir}}\textit{\noun{\small }}\\
 {\small \vspace*{3mm}}\\
 Stand: \today}
 
@@ -4448,17 +4446,76 @@ für alle $s\in S$ sei $X_{s}$ eine Variable.
 
 Dann existiert genau ein $A$-Algebrenhomomorphismus
 \begin{align*}
-\alpha:S^{-1}A & \to\tilde{A}:=\modulo{A\left[X_{s}\big|s\in S\right]}{\left(s\cdot X_{s}-1\big|s\in S\right)}
+\alpha:S^{-1}A & \to\tilde{A}:=\modulo{A\left[X_{s}\big|s\in S\right]}{I:=\left(s\cdot X_{s}-1\big|s\in S\right)}
 \end{align*}
 und $\alpha$ ist ein Isomorphismus.
 
 
 \subsubsection*{Beweis}
 
-$\tilde{A}$ hat die universelle Eigenschaft hat von $S^{-1}A$. Daher
-folgt aus der Eindeutigkeit von $S^{-1}A$ schon die Behauptung.
+Die universelle Eigenschaft der $A$-Algebra $f:A\to S^{-1}A$ ist:
 
-\textcolor{green}{TODO: Beweis als Übung ergänzen.}\qqed
+Für alle $A$-Algebren $g:A\to B$ ist äquivalent:
+
+\begin{abclist}
+
+\abc $g\left(S\right)\subseteq B^{*}$
+
+\abc Es existiert genau ein $A$-Algebrenhomomorphismus $\varphi:S^{-1}A\to B$
+mit $g=\varphi\circ f$.
+
+\end{abclist}
+
+Zeige nun, dass auch die $A$-Algebra
+\begin{align*}
+\tilde{f}:A & \to\tilde{A}\\
+a & \mapsto\overline{a}=a+I
+\end{align*}
+diese universelle Eigenschaft erfüllt. Sei also $g:A\to B$ eine $A$-Algebra.\\
+\quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{}: Es gelte $g\left(S\right)\subseteq B^{*}$.\\
+Exsitenz: Es gibt aufgrund der universellen Eigenschaft des Polynomrings
+genau ein $A$-Algebrenhomomorphismus:
+\begin{align*}
+\psi:A\left[X_{s}\big|s\in S\right] & \to B\\
+X_{s} & \mapsto\left(g\left(s\right)\right)^{-1}
+\end{align*}
+Dieser ist wegen $g\left(s\right)\in B^{*}$ wohldefiniert. Sei nun
+$f_{s}=sX_{s}-1\in I$, so folgt:
+\begin{align*}
+\psi\left(f_{s}\right) & =f_{s}\left(\left(g\left(s\right)\right)^{-1}|s\in S\right)=s\cdot\left(g\left(s\right)\right)^{-1}-1=g\left(s\right)\left(g\left(s\right)\right)^{-1}-1=0
+\end{align*}
+Also gilt $I=\left(f_{s}|s\in S\right)\subseteq\ker\left(\psi\right)$
+und somit ist die Abbildung
+\begin{align*}
+\tilde{\varphi}:\tilde{A} & \to B\\
+f\left(X_{s}|s\in S\right)+I & \mapsto f\left(\left(g\left(s\right)\right)^{-1}|s\in S\right)
+\end{align*}
+wohldefiniert und ein $A$-Algebrenhomomorphismus ist. Zudem gilt:
+\begin{align*}
+\left(\tilde{\varphi}\circ\tilde{f}\right)\left(a\right) & =\tilde{\varphi}\left(a+I\right)=a\cdot\tilde{\varphi}\left(1+I\right)=a\cdot1=g\left(a\right)
+\end{align*}
+Eindeutigkeit: Sei $\tilde{\varphi}':\tilde{A}\to B$ ein weiterer
+$A$-Algebrenhomomorphismus. Es gilt für alle $s\in S$:
+\begin{align*}
+0 & =\tilde{\varphi}'\left(\overline{0}\right)=\tilde{\varphi}'\left(\overline{sX_{s}-1}\right)=s\cdot\tilde{\varphi}'\left(\overline{X_{s}}\right)-\tilde{\varphi}'\left(\overline{1}\right)=g\left(s\right)\tilde{\varphi}'\left(\overline{X_{s}}\right)-1\\
+1 & =g\left(s\right)\\
+\tilde{\varphi}'\left(\overline{X_{s}}\right) & =\left(g\left(s\right)\right)^{-1}=\varphi\left(\overline{X}_{s}\right)
+\end{align*}
+Da die $\overline{X_{s}}$ die $A$-Algebra $\tilde{A}$ erzeugen,
+ist $\tilde{\varphi}'$ durch die Bilder der $\overline{X_{s}}$ eindeutig
+festgelegt.\\
+\quotedblbase{}b) $\Rightarrow$ a)\textquotedblleft{}: Sei $\varphi:\tilde{A}\to B$
+mit $\tilde{\varphi}\circ\tilde{f}=g$. Dann gilt für alle $s\in S$:
+\begin{align*}
+0 & =\tilde{\varphi}\left(\overline{0}\right)=\tilde{\varphi}\left(\overline{sX_{s}-1}\right)=\tilde{\varphi}\left(\overline{sX_{s}}\right)-\tilde{\varphi}\left(\overline{1}\right)\\
+\tilde{\varphi}\left(\overline{1}\right) & =\tilde{\varphi}\left(\overline{sX_{s}}\right)
+\end{align*}
+\begin{align*}
+1 & =g\left(1\right)=\left(\tilde{\varphi}\circ\tilde{f}\right)\left(1\right)=\tilde{\varphi}\left(\overline{1}\right)=\tilde{\varphi}\left(\overline{sX_{s}}\right)=s\cdot\tilde{\varphi}\left(\overline{X_{s}}\right)=g\left(s\right)\tilde{\varphi}\left(\overline{X_{s}}\right)
+\end{align*}
+Also ist $g\left(s\right)\in B^{*}$und somit hat $\tilde{A}$ die
+universelle Eigenschaft hat von $S^{-1}A$. Daher folgt aus der Eindeutigkeit
+von $S^{-1}A$ schon die Behauptung.\qqed
 
 
 \section{Bemerkung, Beispiel und Definition \textmd{(Quotientenkörper)}}
@@ -6414,7 +6471,7 @@ ist $A\subset A\left[x,y\right]$ eine endliche $A$-Algebra, also
 ganz, und es folgt $C\supseteq A\left[x,y\right]\ni x-y,xy$.\qqed
 
 
-\section{Beispiel}
+\section{Beispiel\label{sec:Bsp-ganzerAbschlussZ}}
 
 Der ganze Abschluss von $\mathbb{Z}$ in $\mathbb{Q}\left[\ii\right]$
 ist $\mathbb{Z}\left[\ii\right]$.
@@ -6499,6 +6556,367 @@ Insbesondere gilt $2|a'$ und damit $a,b\in\mathbb{Z}$ nach Fall
 1.
 \end{enumerate}
 \qqed
+
+%DATE: Fr 15.6.12
+
+
+\section{Korollar \textmd{(Transitivität der Ganzheit)\label{sec:Kor-Ganz-transitiv}}}
+
+Seien $A\subseteq B$ eine ganze Ringerweiterung, $B\subseteq C$
+eine Ringerweiterung und $x\in C$ ganz über $B$, so ist $x$ ganz
+über $A$.
+
+
+\subsubsection*{Beweis}
+
+Da $x$ ganz über $B$ ist, gilt für ein $n\in\mathbb{N}$ und geeignete
+$b_{0},\ldots,b_{n-1}\in B$:
+\begin{align*}
+x^{n}+b_{n-1}x^{n-1}+\ldots+b_{0} & =0
+\end{align*}
+Also ist $x$ ganz über $A':=A\left[b_{0},\ldots,b_{n-1}\right]$
+und $A'\left[x\right]$ ist endlich über $A'$ nach \ref{sec:Prop-CharakterisierungGanz}
+i) $\Rightarrow$ ii).
+
+Nach \ref{sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich}
+ist $A'$ endlich über $A$ und es folgt aus der Transitivität der
+Endlichkeit \ref{sec:Prop-endlichErzeugtTransitiv} i), dass $A'\left[x\right]$
+endlich über $A$ ist. Also folgt aus \ref{sec:Prop-CharakterisierungGanz}
+iii) $\Rightarrow$ i) mit $C:=A'\left[x\right]$, dass $x$ ganz
+über $A$ ist.
+
+
+\section{Korollar \textmd{(ganzer Abschluss ist ganz abgeschlossen)}}
+
+Sind $A\subseteq B$ eine Ringerweiterung und $A\subseteq C:=\overline{A}^{B}\subseteq B$
+der ganze Abschluss von $A$ in $B$, so ist $C\subseteq B$ ganz
+abgeschlossen, in Zeichen:
+\begin{align*}
+\overline{\left(\overline{A}^{B}\right)}^{B} & =\overline{A}^{B}
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+Ist $x$ in $B$ ganz über $C$, so ist $x$ nach \ref{sec:Kor-Ganz-transitiv}
+auch ganz über $A$, denn $A\subseteq C$ ist ganz. Somit folgt $x\in C$.\qqed
+
+
+\section{Proposition \textmd{(ganz stabil unter Quotientenbildung und Basiswechsel)}\label{sec:Prop-ganz-stabil-unter-Basiswechsel}}
+
+Sei $A\subseteq B$ eine ganze Ringerweiterung.
+
+\begin{iiilist}
+
+\iii Ist $J\subseteq B$ ein Ideal, so ist $\modulo A{J\cap A}\subseteq\modulo BJ$
+eine ganze Ringerweiterung.
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=7em, text height=2.5ex, text depth=0.75ex]
+   { A & B \\
+     \modulo{A}{(J\cap A)} & \modulo{B}{J} \\};
+  \path[->,font=\scriptsize] (m-1-1) edge (m-2-1)
+                             (m-1-2) edge node[right]{$\pi$} (m-2-2);
+  \path[right hook->,font=\scriptsize] (m-1-1) edge node[above]{$\iota$} (m-1-2);
+  \path[->,font=\scriptsize,dashed] (m-2-1) edge node[above]{$\ker\left(\pi\circ\iota\right)=J\cap A$} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+\iii Ist $A\to C$ eine $A$-Algebra, so ist der Basiswechsel
+\begin{align*}
+f:C & \to C\otimes_{A}B\\
+c & \mapsto c\otimes1
+\end{align*}
+eine ganze $C$-Algebra.
+
+\iii Ist $I\subseteq A$ ein Ideal, so ist
+\begin{align*}
+\modulo AI & \to\modulo B{BI}
+\end{align*}
+ganz.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Ist $x\in\modulo BJ$, so existiert ein $b\in B$ mit $x=b+J$.
+Da $A\subseteq B$ ganz ist, existiert ein normiertes Polynom $f\in A\left[X\right]$
+mit $f\left(b\right)=0$ in $B$. Es folgt in $\modulo BJ$:
+\begin{align*}
+0 & =\overline{f\left(b\right)}=\overline{f}\left(b+J\right)=\overline{f}\left(x\right)
+\end{align*}
+Dabei ist $\overline{f}\in\left(\modulo A{A\cap J}\right)\left[X\right]$
+normiert. Also ist $x=b+J$ ganz über $\modulo A{A\cap J}$.\qqed[\roman{ale2})]
+
+\iii Da die Summe ganzer Elemente nach \ref{sec:Def-ganz-abgeschlossen-normal}
+ganz ist, genügt es zu zeigen, dass jeder elementare Tensor $c\otimes b\in C\otimes_{A}B$
+ganz über $C$ ist. Wegen\ref{sec:Prop-CharakterisierungGanz} i)
+$\Rightarrow$ ii) ist $A\subseteq A\left[b\right]$ endlich. Also
+ist nach \ref{sec:Prop-endlichErzeugtTransitiv} ii) auch der Basiswechsel
+$C\to C_{A}A\left[b\right]$ ein endlicher $C$-Modul. Damit ist das
+Bild $\text{im}\left(\varphi\right)\subseteq C\otimes_{A}B$ der $C$-linearen
+Abbildung
+\begin{align*}
+\varphi:\text{id}_{C}\otimes\left(A\left[b\right]\hookrightarrow B\right):C\otimes_{A}A\left[b\right] & \to C\otimes_{A}B
+\end{align*}
+ein endlich erzeugter $C$-Modul, der offenbar $c=c\otimes b$ enthält.
+Also ist $x$ ganz über $C$ nach \ref{sec:Prop-CharakterisierungGanz}
+iii) $\Rightarrow$ i).\qqed[\roman{ale2})]
+
+\iii Wähle in ii) $A\twoheadrightarrow C:=\modulo AI$ und beachte
+die Rechenregeln für das Tensorprodukt.
+\begin{align*}
+C=\modulo AI & \to C\otimes_{A}B=\modulo AI\otimes_{A}B\stackrel{\sim}{=}\modulo B{IB}
+\end{align*}
+\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Korollar \textmd{(ganz stabil unter Lokalisierung)\label{sec:Kor-ganz-stabil-Lokalisierung}}}
+
+Sind $A\subseteq B$ eine ganze Ringerweiterung und $S\subseteq A$
+multiplikativ abgeschlossen, so ist auch die Ringerweiterung $S^{-1}A\subseteq S^{-1}B$
+ganz.
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=2.5ex, text depth=0.75ex]
+   { A & B \\
+     C=S^{-1}A & S^{-1}A\otimes_{A}B \stackrel{\sim}{=}S^{-1}B\\};
+  \path[->,font=\scriptsize] (m-1-1) edge (m-2-1)
+                             (m-1-2) edge (m-2-2);
+  \path[right hook->,font=\scriptsize] (m-1-1) edge (m-1-2);
+  \path[right hook->,font=\scriptsize] (m-2-1) edge node[above]{ganz} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+
+\subsubsection*{Beweis}
+
+Nach \ref{sec:Satz-Lokalisierung-exakt} ist die Lokalisierung exakt
+und somit $S^{-1}A\hookrightarrow S^{-1}A\otimes_{A}B$ injektiv,
+also eine Ringerweiterung. Nach \ref{sec:Satz-Lokalisierung-Tensorprodukt}
+gilt:
+\begin{align*}
+S^{-1}A\otimes_{A}B & \stackrel{\sim}{=}S^{-1}B
+\end{align*}
+
+
+Nach \ref{sec:Prop-ganz-stabil-unter-Basiswechsel} ii) mit $C:=S^{-1}A$
+ist also die Ringerweiterung $S^{-1}A\subseteq S^{-1}B$ ganz.\qqed
+
+
+\section{Proposition\label{sec:Prop-ganzeRingerweiterungIR-KoerperAequivalent}}
+
+Sind $A\subseteq B$ eine ganze Ringerweiterung von Integritätsringen,
+so sind äquivalent.
+
+\begin{iiilist}
+
+\iii $A$ ist ein Körper.
+
+\iii $B$ ist ein Körper.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Zu zeigen
+ist $B\setminus\left\{ 0\right\} \subseteq B^{*}$.
+
+Sei $0\not=b\in B$, so gibt es ein minimales $n\in\mathbb{N}$ und
+geeignete $a_{0},\ldots,a_{n-1}\in A$ mit:
+\begin{align*}
+b^{n}+a_{n-1}b^{n-1}+\ldots+a_{0} & =0
+\end{align*}
+Damit folgt:
+\begin{align*}
+-a_{0} & =b\cdot\underbrace{\left(b^{n-1}+a_{n-1}b^{n-2}+\ldots+a_{1}\right)}_{=:c}\in B
+\end{align*}
+Wäre $a_{0}=0$, so folgte aus $b\not=0$, weil $B$ ein Integritätsring
+ist, dass $c=0$ ist. Dies ist ein Widerspruch zur Minimalität von
+$n$.
+
+Also gilt $a_{0}\not=0$ und wegen i) gilt $a_{0}\in A^{*}\subseteq B^{*}$.
+Es folgt:
+\begin{align*}
+b\cdot\left(-a_{0}\right)^{-1}\cdot c & =1\in B
+\end{align*}
+Daher ist $b\in B^{*}$.\qqed[i) $\Rightarrow$ ii)]
+
+\quotedblbase{}ii) $\Rightarrow$ ii)\textquotedblleft{}: Zu zeigen
+ist $A\setminus\left\{ 0\right\} \subseteq A^{*}$.
+
+Sei $0\not=a\in A$, so folgt aus ii) schon $a\in B^{*}$, das heißt
+es existiert ein $b\in B$ mit:
+\begin{align*}
+ab & =1\in B
+\end{align*}
+Zeige nun $b\in A$, womit 
+\begin{align*}
+ab & =1\in A
+\end{align*}
+folgt. Da $A\subseteq B$ ganz ist, gibt es ein $n\in\mathbb{N}$
+und geeignete $a_{i}\in A$ mit:
+\begin{align*}
+b^{n}+a_{n-1}b^{n-1}+\ldots+a_{0} & =0
+\end{align*}
+Es folgt:
+\begin{align*}
+b & \stackrel{ab=1}{=}b^{n}a^{n-1}=-\left(a_{n-1}\underbrace{b^{n-1}a^{n-1}}_{=1}+a_{n-2}\underbrace{b^{n-2}a^{n-1}}_{=a}+\ldots+a_{0}a^{n-1}\right)\in A
+\end{align*}
+\qqed
+
+
+\section{Korollar\label{sec:Kor-maximalAequivalentRingerweiterung}}
+
+Seien $A\subseteq B$ eine ganze Ringerweiterung und $\mathfrak{q}\subseteq B$
+ein Primideal, so betrachte das Primideal $\mathfrak{p}:=A\cap\mathfrak{q}\subseteq A$.
+
+Dann ist $\mathfrak{q}\subseteq B$ genau dann maximal, wenn $\mathfrak{p}\subseteq A$
+maximal ist.
+
+
+\subsubsection*{Beweis}
+
+$\modulo A{\mathfrak{p}}\subseteq\modulo B{\mathfrak{q}}$ ist nach
+\ref{sec:Prop-ganz-stabil-unter-Basiswechsel} i) eine ganze Ringerweiterung
+von Integritätsringen (nach \ref{sec:PuD-Prim-maximales-Ideal} i)),
+also gilt:
+\begin{align*}
+\mathfrak{q}\subseteq B\text{ maximal} & \quad\stackrel{\ref{sec:PuD-Prim-maximales-Ideal}\text{ ii)}}{\Leftrightarrow}\quad\modulo B{\mathfrak{q}}\text{ Körper}\quad\stackrel{\ref{sec:Prop-ganzeRingerweiterungIR-KoerperAequivalent}}{\Leftrightarrow}\modulo A{\mathfrak{p}}\text{ Körper}\stackrel{\ref{sec:PuD-Prim-maximales-Ideal}\text{ ii)}}{\Leftrightarrow}\mathfrak{p}\subseteq A\text{ maximal}
+\end{align*}
+\qqed
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Die Erweiterung $\mathbb{Z}\subseteq\mathbb{Z}\left[\ii\right]$
+ist nach \ref{sec:Bsp-ganzerAbschlussZ} ganz.
+
+$\mathbb{Z}\left[\ii\right]$ ist ein Hauptidealring, also ist jedes
+von Null verschiedene Primideal $0\not=\mathfrak{p}\subseteq\mathbb{Z}\left[\ii\right]$
+maximal.
+
+Aus \ref{sec:Kor-maximalAequivalentRingerweiterung} folgt, dass $\mathfrak{p}\cap\mathbb{Z}\subseteq\mathbb{Z}$
+maximal ist, das heißt es gilt $\mathfrak{p}\cap\mathbb{Z}=\left(p\right)$
+für eine Primzahl $p$ und \emph{nicht} $\mathfrak{p}\cap\mathbb{Z}=\left(0\right)$.
+(vergleiche \ref{sec:Bsp-Fasern-SpecZi->SpecZ})
+
+\iii Für die Erweiterung $A:=\mathbb{Z}\subseteq B:=\mathbb{Q}$
+ist $\mathfrak{q}:=\left(0\right)$ in $B$ maximal, aber $\mathfrak{q}\cap A=\left(0\right)\subseteq\mathbb{Z}$
+ist nicht maximal. Also kann man auf die Voraussetzung ganz nicht
+verzichten. ($\mathbb{Z}\subseteq\mathbb{Q}$ ist nach \ref{sec:Bsp-ganzerAbschlussZ}
+nicht ganz.)
+
+\end{iiilist}
+
+
+\section{Korollar}
+
+Seien $A\subseteq B$ eine ganze Ringerweiterung, $\mathfrak{q}\subseteq\mathfrak{q}'\subseteq B$
+Primideale, und es gelte $\mathfrak{q}\cap A=\mathfrak{q}'\cap A$.
+Dann folgt $\mathfrak{q}=\mathfrak{q}'$. (Dies ist klar, wenn $\mathfrak{q}\cap A$
+maximal ist.)
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=1em, column sep=0.5em, text height=2.5ex, text depth=0.75ex]
+   { \mathfrak{q}  && \mathfrak{q}' & B \\
+     & \mathfrak{p} && A\\};
+  \path (m-2-2) edge (m-1-1)
+                edge (m-1-3)
+        (m-1-4) edge node[right]{ganz} (m-2-4);
+  \path (m-1-1) -- node{$\subseteq$} (m-1-3);
+  \path (m-1-3) -- node{$\subseteq$} (m-1-4);
+  \path (m-2-2) -- node{$\subseteq$} (m-2-4);
+\end{tikzpicture}
+\par\end{center}
+
+
+\subsubsection*{Beweis}
+
+Für $\mathfrak{p}:=\mathfrak{q}\cap A\subseteq A$ ist $A_{\mathfrak{p}}\subseteq B_{\mathfrak{p}}:=\left(A\setminus\mathfrak{p}\right)^{-1}B$
+eine ganze Ringerweiterung, da nach \ref{sec:Satz-Lokalisierung-exakt}
+Lokalisieren exakt ist und nach \ref{sec:Kor-ganz-stabil-Lokalisierung}
+Ganzheit erhält. Nach \ref{sec:Satz-Idealtheorie-Lokalisierung} iv)
+sind 
+\begin{align*}
+\mathfrak{q}_{1} & :=\mathfrak{q}B_{\mathfrak{p}}\subseteq\mathfrak{q}_{2}:=\mathfrak{q}'B_{\mathfrak{p}}
+\end{align*}
+Primideale, denn aus $\mathfrak{p}=\mathfrak{q}\cap A=\mathfrak{q}'\cap A$
+folgt:
+\begin{align*}
+\mathfrak{q}\cap\left(A\setminus\mathfrak{p}\right) & =\emptyset=\mathfrak{q}'\cap\left(A\setminus\mathfrak{p}\right)
+\end{align*}
+Weiter ist
+\begin{align*}
+\mathfrak{q}_{1}\cap A_{\mathfrak{p}} & =\left(\mathfrak{q}B_{\mathfrak{p}}\right)\cap A_{\mathfrak{p}}=\left(\mathfrak{q}\cap A\right)A_{\mathfrak{p}}=\mathfrak{p}A_{\mathfrak{p}}\subseteq A_{\mathfrak{p}}
+\end{align*}
+maximal nach \ref{sec:BuD-Lokalisierung} i). Ebenso folgt $\mathfrak{q}_{2}\cap A_{\mathfrak{p}}=\mathfrak{p}A_{\mathfrak{p}}$
+und aus \ref{sec:Kor-maximalAequivalentRingerweiterung} folgt nun,
+dass $\mathfrak{q}_{1}\subseteq\mathfrak{q}_{2}\subseteq B_{\mathfrak{p}}$
+beide maximal sind, also gilt $\mathfrak{q}_{1}=\mathfrak{q}_{2}$
+und es folgt:
+\begin{align*}
+\mathfrak{q} & \stackrel{\ref{sec:Satz-Idealtheorie-Lokalisierung}\text{ i)}}{=}\left(\mathfrak{q}B_{\mathfrak{p}}\right)\cap B=\mathfrak{q}_{1}\cap B=\mathfrak{q}_{2}\cap B=\left(\mathfrak{q}'B_{\mathfrak{p}}\right)\cap B\stackrel{\ref{sec:Satz-Idealtheorie-Lokalisierung}\text{ i)}}{=}\mathfrak{q}'
+\end{align*}
+\qqed
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Seien $A=k$ ein Körper und $k=A\subseteq B:=k\left[X\right]$.
+Dann sind $\mathfrak{q}:=\left(0\right)\subsetneq\mathfrak{q}':=\left(X\right)$
+Primideale mit $\mathfrak{q}\cap A=\mathfrak{q}'\cap A=\left(0\right)$.
+Die Erweiterung $k\subseteq k\left[X\right]$ ist nicht ganz.
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=1em, column sep=0.5em, text height=2.5ex, text depth=0.75ex]
+   { (0) && (X) & k[X] \\
+     & (0) && k\\};
+  \path (m-2-2) edge (m-1-1)
+                edge (m-1-3)
+        (m-1-4) edge (m-2-4);
+  \path (m-1-1) -- node{$\subsetneq$} (m-1-3);
+  \path (m-1-3) -- node{$\subseteq$} (m-1-4);
+  \path (m-2-2) -- node{$\subseteq$} (m-2-4);
+\end{tikzpicture}
+\par\end{center}
+
+\iii Die Ringerweiterung $A:=\mathbb{Z}\subseteq B:=\mathbb{Z}\left[\ii\right]$
+ist ganz. $\mathfrak{q}:=\left(1+2\ii\right)\subseteq B$ und $\mathfrak{q}':=\left(1-2\ii\right)\subseteq B$
+sind Primideale mit $\mathfrak{q}\cap A=\mathfrak{q}'\cap A=\left(5\right)\subseteq\mathbb{Z}$,
+aber es gilt $\mathfrak{q}\not=\mathfrak{q}'$ und weder $\mathfrak{q}\subseteq\mathfrak{q}'$
+noch $\mathfrak{q}'\subseteq\mathfrak{q}$.
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=1em, column sep=0.5em, text height=2.5ex, text depth=0.75ex]
+   { \mathfrak{q} && \mathfrak{q}' & \mathbb{Z}\left[\ii\right] \\
+     & (5) && \mathbb{Z}\\};
+  \path (m-2-2) edge (m-1-1)
+                edge (m-1-3)
+        (m-1-4) edge node[right]{ganz} (m-2-4);
+  \path (m-1-1) -- node{$\not =$} (m-1-3);
+  \path (m-1-3) -- node{$\subseteq$} (m-1-4);
+  \path (m-2-2) -- node{$\subseteq$} (m-2-4);
+\end{tikzpicture}
+\par\end{center}
+
+\end{iiilist}
 
 
 \part*{Anhang\thispagestyle{empty}}

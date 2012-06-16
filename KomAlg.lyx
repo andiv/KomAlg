@@ -24233,7 +24233,7 @@ Dann existiert genau ein
 -Algebrenhomomorphismus
 \begin_inset Formula 
 \begin{align*}
-\alpha:S^{-1}A & \to\tilde{A}:=\modulo{A\left[X_{s}\big|s\in S\right]}{\left(s\cdot X_{s}-1\big|s\in S\right)}
+\alpha:S^{-1}A & \to\tilde{A}:=\modulo{A\left[X_{s}\big|s\in S\right]}{I:=\left(s\cdot X_{s}-1\big|s\in S\right)}
 \end{align*}
 
 \end_inset
@@ -24250,10 +24250,295 @@ Beweis
 \end_layout
 
 \begin_layout Standard
+Die universelle Eigenschaft der 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $f:A\to S^{-1}A$
+\end_inset
+
+ ist:
+\end_layout
+
+\begin_layout Standard
+Für alle 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebren 
+\begin_inset Formula $g:A\to B$
+\end_inset
+
+ ist äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $g\left(S\right)\subseteq B^{*}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ Es existiert genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus 
+\begin_inset Formula $\varphi:S^{-1}A\to B$
+\end_inset
+
+ mit 
+\begin_inset Formula $g=\varphi\circ f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zeige nun, dass auch die 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra
+\begin_inset Formula 
+\begin{align*}
+\tilde{f}:A & \to\tilde{A}\\
+a & \mapsto\overline{a}=a+I
+\end{align*}
+
+\end_inset
+
+diese universelle Eigenschaft erfüllt.
+ Sei also 
+\begin_inset Formula $g:A\to B$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra.
+\begin_inset Newline newline
+\end_inset
+
+„a) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ b)“: Es gelte 
+\begin_inset Formula $g\left(S\right)\subseteq B^{*}$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Exsitenz: Es gibt aufgrund der universellen Eigenschaft des Polynomrings
+ genau ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus:
+\begin_inset Formula 
+\begin{align*}
+\psi:A\left[X_{s}\big|s\in S\right] & \to B\\
+X_{s} & \mapsto\left(g\left(s\right)\right)^{-1}
+\end{align*}
+
+\end_inset
+
+Dieser ist wegen 
+\begin_inset Formula $g\left(s\right)\in B^{*}$
+\end_inset
+
+ wohldefiniert.
+ Sei nun 
+\begin_inset Formula $f_{s}=sX_{s}-1\in I$
+\end_inset
+
+, so folgt:
+\begin_inset Formula 
+\begin{align*}
+\psi\left(f_{s}\right) & =f_{s}\left(\left(g\left(s\right)\right)^{-1}|s\in S\right)=s\cdot\left(g\left(s\right)\right)^{-1}-1=g\left(s\right)\left(g\left(s\right)\right)^{-1}-1=0
+\end{align*}
+
+\end_inset
+
+Also gilt 
+\begin_inset Formula $I=\left(f_{s}|s\in S\right)\subseteq\ker\left(\psi\right)$
+\end_inset
+
+ und somit ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\tilde{\varphi}:\tilde{A} & \to B\\
+f\left(X_{s}|s\in S\right)+I & \mapsto f\left(\left(g\left(s\right)\right)^{-1}|s\in S\right)
+\end{align*}
+
+\end_inset
+
+wohldefiniert und ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus ist.
+ Zudem gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(\tilde{\varphi}\circ\tilde{f}\right)\left(a\right) & =\tilde{\varphi}\left(a+I\right)=a\cdot\tilde{\varphi}\left(1+I\right)=a\cdot1=g\left(a\right)
+\end{align*}
+
+\end_inset
+
+Eindeutigkeit: Sei 
+\begin_inset Formula $\tilde{\varphi}':\tilde{A}\to B$
+\end_inset
+
+ ein weiterer 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenhomomorphismus.
+ Es gilt für alle 
+\begin_inset Formula $s\in S$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+0 & =\tilde{\varphi}'\left(\overline{0}\right)=\tilde{\varphi}'\left(\overline{sX_{s}-1}\right)=s\cdot\tilde{\varphi}'\left(\overline{X_{s}}\right)-\tilde{\varphi}'\left(\overline{1}\right)=g\left(s\right)\tilde{\varphi}'\left(\overline{X_{s}}\right)-1\\
+1 & =g\left(s\right)\\
+\tilde{\varphi}'\left(\overline{X_{s}}\right) & =\left(g\left(s\right)\right)^{-1}=\varphi\left(\overline{X}_{s}\right)
+\end{align*}
+
+\end_inset
+
+Da die 
+\begin_inset Formula $\overline{X_{s}}$
+\end_inset
+
+ die 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
 \begin_inset Formula $\tilde{A}$
 \end_inset
 
- hat die universelle Eigenschaft hat von 
+ erzeugen, ist 
+\begin_inset Formula $\tilde{\varphi}'$
+\end_inset
+
+ durch die Bilder der 
+\begin_inset Formula $\overline{X_{s}}$
+\end_inset
+
+ eindeutig festgelegt.
+\begin_inset Newline newline
+\end_inset
+
+„b) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ a)“: Sei 
+\begin_inset Formula $\varphi:\tilde{A}\to B$
+\end_inset
+
+ mit 
+\begin_inset Formula $\tilde{\varphi}\circ\tilde{f}=g$
+\end_inset
+
+.
+ Dann gilt für alle 
+\begin_inset Formula $s\in S$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+0 & =\tilde{\varphi}\left(\overline{0}\right)=\tilde{\varphi}\left(\overline{sX_{s}-1}\right)=\tilde{\varphi}\left(\overline{sX_{s}}\right)-\tilde{\varphi}\left(\overline{1}\right)\\
+\tilde{\varphi}\left(\overline{1}\right) & =\tilde{\varphi}\left(\overline{sX_{s}}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula 
+\begin{align*}
+1 & =g\left(1\right)=\left(\tilde{\varphi}\circ\tilde{f}\right)\left(1\right)=\tilde{\varphi}\left(\overline{1}\right)=\tilde{\varphi}\left(\overline{sX_{s}}\right)=s\cdot\tilde{\varphi}\left(\overline{X_{s}}\right)=g\left(s\right)\tilde{\varphi}\left(\overline{X_{s}}\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $g\left(s\right)\in B^{*}$
+\end_inset
+
+und somit hat 
+\begin_inset Formula $\tilde{A}$
+\end_inset
+
+ die universelle Eigenschaft hat von 
 \begin_inset Formula $S^{-1}A$
 \end_inset
 
@@ -24263,14 +24548,6 @@ Beweis
 \end_inset
 
  schon die Behauptung.
-\end_layout
-
-\begin_layout Standard
-
-\color green
-TODO: Beweis als Übung ergänzen.
-\color inherit
-
 \begin_inset ERT
 status open
 
@@ -33072,7 +33349,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 
 \backslash
 texorpdfstring{
@@ -34139,6 +34415,13 @@ qqed
 
 \begin_layout Section
 Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-ganzerAbschlussZ"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -34604,6 +34887,2099 @@ status open
 
 \backslash
 qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 15.6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar 
+\series medium
+(Transitivität der Ganzheit)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-Ganz-transitiv"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung, 
+\begin_inset Formula $B\subseteq C$
+\end_inset
+
+ eine Ringerweiterung und 
+\begin_inset Formula $x\in C$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $B$
+\end_inset
+
+, so ist 
+\begin_inset Formula $x$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $x$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $B$
+\end_inset
+
+ ist, gilt für ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und geeignete 
+\begin_inset Formula $b_{0},\ldots,b_{n-1}\in B$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x^{n}+b_{n-1}x^{n-1}+\ldots+b_{0} & =0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $x$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A':=A\left[b_{0},\ldots,b_{n-1}\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $A'\left[x\right]$
+\end_inset
+
+ ist endlich über 
+\begin_inset Formula $A'$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-CharakterisierungGanz"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii).
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich"
+
+\end_inset
+
+ ist 
+\begin_inset Formula $A'$
+\end_inset
+
+ endlich über 
+\begin_inset Formula $A$
+\end_inset
+
+ und es folgt aus der Transitivität der Endlichkeit 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlichErzeugtTransitiv"
+
+\end_inset
+
+ i), dass 
+\begin_inset Formula $A'\left[x\right]$
+\end_inset
+
+ endlich über 
+\begin_inset Formula $A$
+\end_inset
+
+ ist.
+ Also folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-CharakterisierungGanz"
+
+\end_inset
+
+ iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i) mit 
+\begin_inset Formula $C:=A'\left[x\right]$
+\end_inset
+
+, dass 
+\begin_inset Formula $x$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Section
+Korollar 
+\series medium
+(ganzer Abschluss ist ganz abgeschlossen)
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine Ringerweiterung und 
+\begin_inset Formula $A\subseteq C:=\overline{A}^{B}\subseteq B$
+\end_inset
+
+ der ganze Abschluss von 
+\begin_inset Formula $A$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+, so ist 
+\begin_inset Formula $C\subseteq B$
+\end_inset
+
+ ganz abgeschlossen, in Zeichen:
+\begin_inset Formula 
+\begin{align*}
+\overline{\left(\overline{A}^{B}\right)}^{B} & =\overline{A}^{B}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $x$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $C$
+\end_inset
+
+, so ist 
+\begin_inset Formula $x$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-Ganz-transitiv"
+
+\end_inset
+
+ auch ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+, denn 
+\begin_inset Formula $A\subseteq C$
+\end_inset
+
+ ist ganz.
+ Somit folgt 
+\begin_inset Formula $x\in C$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(ganz stabil unter Quotientenbildung und Basiswechsel)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-ganz-stabil-unter-Basiswechsel"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $J\subseteq B$
+\end_inset
+
+ ein Ideal, so ist 
+\begin_inset Formula $\modulo A{J\cap A}\subseteq\modulo BJ$
+\end_inset
+
+ eine ganze Ringerweiterung.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=7em, text height=2.5ex,
+ text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { A & B 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+modulo{A}{(J
+\backslash
+cap A)} & 
+\backslash
+modulo{B}{J} 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge node[right]{$
+\backslash
+pi$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+iota$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-2-1) edge node[above]{$
+\backslash
+ker
+\backslash
+left(
+\backslash
+pi
+\backslash
+circ
+\backslash
+iota
+\backslash
+right)=J
+\backslash
+cap A$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A\to C$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra, so ist der Basiswechsel
+\begin_inset Formula 
+\begin{align*}
+f:C & \to C\otimes_{A}B\\
+c & \mapsto c\otimes1
+\end{align*}
+
+\end_inset
+
+eine ganze 
+\begin_inset Formula $C$
+\end_inset
+
+-Algebra.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal, so ist
+\begin_inset Formula 
+\begin{align*}
+\modulo AI & \to\modulo B{BI}
+\end{align*}
+
+\end_inset
+
+ganz.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $x\in\modulo BJ$
+\end_inset
+
+, so existiert ein 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ mit 
+\begin_inset Formula $x=b+J$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ ganz ist, existiert ein normiertes Polynom 
+\begin_inset Formula $f\in A\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\left(b\right)=0$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Es folgt in 
+\begin_inset Formula $\modulo BJ$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+0 & =\overline{f\left(b\right)}=\overline{f}\left(b+J\right)=\overline{f}\left(x\right)
+\end{align*}
+
+\end_inset
+
+Dabei ist 
+\begin_inset Formula $\overline{f}\in\left(\modulo A{A\cap J}\right)\left[X\right]$
+\end_inset
+
+ normiert.
+ Also ist 
+\begin_inset Formula $x=b+J$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $\modulo A{A\cap J}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Da die Summe ganzer Elemente nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Def-ganz-abgeschlossen-normal"
+
+\end_inset
+
+ ganz ist, genügt es zu zeigen, dass jeder elementare Tensor 
+\begin_inset Formula $c\otimes b\in C\otimes_{A}B$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $C$
+\end_inset
+
+ ist.
+ Wegen
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-CharakterisierungGanz"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii) ist 
+\begin_inset Formula $A\subseteq A\left[b\right]$
+\end_inset
+
+ endlich.
+ Also ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlichErzeugtTransitiv"
+
+\end_inset
+
+ ii) auch der Basiswechsel 
+\begin_inset Formula $C\to C_{A}A\left[b\right]$
+\end_inset
+
+ ein endlicher 
+\begin_inset Formula $C$
+\end_inset
+
+-Modul.
+ Damit ist das Bild 
+\begin_inset Formula $\text{im}\left(\varphi\right)\subseteq C\otimes_{A}B$
+\end_inset
+
+ der 
+\begin_inset Formula $C$
+\end_inset
+
+-linearen Abbildung
+\begin_inset Formula 
+\begin{align*}
+\varphi:\text{id}_{C}\otimes\left(A\left[b\right]\hookrightarrow B\right):C\otimes_{A}A\left[b\right] & \to C\otimes_{A}B
+\end{align*}
+
+\end_inset
+
+ein endlich erzeugter 
+\begin_inset Formula $C$
+\end_inset
+
+-Modul, der offenbar 
+\begin_inset Formula $c=c\otimes b$
+\end_inset
+
+ enthält.
+ Also ist 
+\begin_inset Formula $x$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $C$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-CharakterisierungGanz"
+
+\end_inset
+
+ iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i).
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Wähle in ii) 
+\begin_inset Formula $A\twoheadrightarrow C:=\modulo AI$
+\end_inset
+
+ und beachte die Rechenregeln für das Tensorprodukt.
+\begin_inset Formula 
+\begin{align*}
+C=\modulo AI & \to C\otimes_{A}B=\modulo AI\otimes_{A}B\stackrel{\sim}{=}\modulo B{IB}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar 
+\series medium
+(ganz stabil unter Lokalisierung)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-ganz-stabil-Lokalisierung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung und 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen, so ist auch die Ringerweiterung 
+\begin_inset Formula $S^{-1}A\subseteq S^{-1}B$
+\end_inset
+
+ ganz.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=2.5ex
+, text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { A & B 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     C=S^{-1}A & S^{-1}A
+\backslash
+otimes_{A}B 
+\backslash
+stackrel{
+\backslash
+sim}{=}S^{-1}B
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above]{ganz} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Lokalisierung-exakt"
+
+\end_inset
+
+ ist die Lokalisierung exakt und somit 
+\begin_inset Formula $S^{-1}A\hookrightarrow S^{-1}A\otimes_{A}B$
+\end_inset
+
+ injektiv, also eine Ringerweiterung.
+ Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Lokalisierung-Tensorprodukt"
+
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+S^{-1}A\otimes_{A}B & \stackrel{\sim}{=}S^{-1}B
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-ganz-stabil-unter-Basiswechsel"
+
+\end_inset
+
+ ii) mit 
+\begin_inset Formula $C:=S^{-1}A$
+\end_inset
+
+ ist also die Ringerweiterung 
+\begin_inset Formula $S^{-1}A\subseteq S^{-1}B$
+\end_inset
+
+ ganz.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-ganzeRingerweiterungIR-KoerperAequivalent"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung von Integritätsringen, so sind äquivalent.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ ist ein Körper.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $B$
+\end_inset
+
+ ist ein Körper.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Zu zeigen ist 
+\begin_inset Formula $B\setminus\left\{ 0\right\} \subseteq B^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $0\not=b\in B$
+\end_inset
+
+, so gibt es ein minimales 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und geeignete 
+\begin_inset Formula $a_{0},\ldots,a_{n-1}\in A$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+b^{n}+a_{n-1}b^{n-1}+\ldots+a_{0} & =0
+\end{align*}
+
+\end_inset
+
+Damit folgt:
+\begin_inset Formula 
+\begin{align*}
+-a_{0} & =b\cdot\underbrace{\left(b^{n-1}+a_{n-1}b^{n-2}+\ldots+a_{1}\right)}_{=:c}\in B
+\end{align*}
+
+\end_inset
+
+Wäre 
+\begin_inset Formula $a_{0}=0$
+\end_inset
+
+, so folgte aus 
+\begin_inset Formula $b\not=0$
+\end_inset
+
+, weil 
+\begin_inset Formula $B$
+\end_inset
+
+ ein Integritätsring ist, dass 
+\begin_inset Formula $c=0$
+\end_inset
+
+ ist.
+ Dies ist ein Widerspruch zur Minimalität von 
+\begin_inset Formula $n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Also gilt 
+\begin_inset Formula $a_{0}\not=0$
+\end_inset
+
+ und wegen i) gilt 
+\begin_inset Formula $a_{0}\in A^{*}\subseteq B^{*}$
+\end_inset
+
+.
+ Es folgt:
+\begin_inset Formula 
+\begin{align*}
+b\cdot\left(-a_{0}\right)^{-1}\cdot c & =1\in B
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $b\in B^{*}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[i) $
+\backslash
+Rightarrow$ ii)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Zu zeigen ist 
+\begin_inset Formula $A\setminus\left\{ 0\right\} \subseteq A^{*}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $0\not=a\in A$
+\end_inset
+
+, so folgt aus ii) schon 
+\begin_inset Formula $a\in B^{*}$
+\end_inset
+
+, das heißt es existiert ein 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+ab & =1\in B
+\end{align*}
+
+\end_inset
+
+Zeige nun 
+\begin_inset Formula $b\in A$
+\end_inset
+
+, womit 
+\begin_inset Formula 
+\begin{align*}
+ab & =1\in A
+\end{align*}
+
+\end_inset
+
+folgt.
+ Da 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ ganz ist, gibt es ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ und geeignete 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+b^{n}+a_{n-1}b^{n-1}+\ldots+a_{0} & =0
+\end{align*}
+
+\end_inset
+
+Es folgt:
+\begin_inset Formula 
+\begin{align*}
+b & \stackrel{ab=1}{=}b^{n}a^{n-1}=-\left(a_{n-1}\underbrace{b^{n-1}a^{n-1}}_{=1}+a_{n-2}\underbrace{b^{n-2}a^{n-1}}_{=a}+\ldots+a_{0}a^{n-1}\right)\in A
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-maximalAequivalentRingerweiterung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung und 
+\begin_inset Formula $\mathfrak{q}\subseteq B$
+\end_inset
+
+ ein Primideal, so betrachte das Primideal 
+\begin_inset Formula $\mathfrak{p}:=A\cap\mathfrak{q}\subseteq A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dann ist 
+\begin_inset Formula $\mathfrak{q}\subseteq B$
+\end_inset
+
+ genau dann maximal, wenn 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ maximal ist.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\modulo A{\mathfrak{p}}\subseteq\modulo B{\mathfrak{q}}$
+\end_inset
+
+ ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-ganz-stabil-unter-Basiswechsel"
+
+\end_inset
+
+ i) eine ganze Ringerweiterung von Integritätsringen (nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PuD-Prim-maximales-Ideal"
+
+\end_inset
+
+ i)), also gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q}\subseteq B\text{ maximal} & \quad\stackrel{\ref{sec:PuD-Prim-maximales-Ideal}\text{ ii)}}{\Leftrightarrow}\quad\modulo B{\mathfrak{q}}\text{ Körper}\quad\stackrel{\ref{sec:Prop-ganzeRingerweiterungIR-KoerperAequivalent}}{\Leftrightarrow}\modulo A{\mathfrak{p}}\text{ Körper}\stackrel{\ref{sec:PuD-Prim-maximales-Ideal}\text{ ii)}}{\Leftrightarrow}\mathfrak{p}\subseteq A\text{ maximal}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Erweiterung 
+\begin_inset Formula $\mathbb{Z}\subseteq\mathbb{Z}\left[\ii\right]$
+\end_inset
+
+ ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-ganzerAbschlussZ"
+
+\end_inset
+
+ ganz.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{Z}\left[\ii\right]$
+\end_inset
+
+ ist ein Hauptidealring, also ist jedes von Null verschiedene Primideal
+ 
+\begin_inset Formula $0\not=\mathfrak{p}\subseteq\mathbb{Z}\left[\ii\right]$
+\end_inset
+
+ maximal.
+\end_layout
+
+\begin_layout Standard
+Aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-maximalAequivalentRingerweiterung"
+
+\end_inset
+
+ folgt, dass 
+\begin_inset Formula $\mathfrak{p}\cap\mathbb{Z}\subseteq\mathbb{Z}$
+\end_inset
+
+ maximal ist, das heißt es gilt 
+\begin_inset Formula $\mathfrak{p}\cap\mathbb{Z}=\left(p\right)$
+\end_inset
+
+ für eine Primzahl 
+\begin_inset Formula $p$
+\end_inset
+
+ und 
+\emph on
+nicht
+\emph default
+ 
+\begin_inset Formula $\mathfrak{p}\cap\mathbb{Z}=\left(0\right)$
+\end_inset
+
+.
+ (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-Fasern-SpecZi->SpecZ"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für die Erweiterung 
+\begin_inset Formula $A:=\mathbb{Z}\subseteq B:=\mathbb{Q}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\mathfrak{q}:=\left(0\right)$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+ maximal, aber 
+\begin_inset Formula $\mathfrak{q}\cap A=\left(0\right)\subseteq\mathbb{Z}$
+\end_inset
+
+ ist nicht maximal.
+ Also kann man auf die Voraussetzung ganz nicht verzichten.
+ (
+\begin_inset Formula $\mathbb{Z}\subseteq\mathbb{Q}$
+\end_inset
+
+ ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-ganzerAbschlussZ"
+
+\end_inset
+
+ nicht ganz.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung, 
+\begin_inset Formula $\mathfrak{q}\subseteq\mathfrak{q}'\subseteq B$
+\end_inset
+
+ Primideale, und es gelte 
+\begin_inset Formula $\mathfrak{q}\cap A=\mathfrak{q}'\cap A$
+\end_inset
+
+.
+ Dann folgt 
+\begin_inset Formula $\mathfrak{q}=\mathfrak{q}'$
+\end_inset
+
+.
+ (Dies ist klar, wenn 
+\begin_inset Formula $\mathfrak{q}\cap A$
+\end_inset
+
+ maximal ist.)
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=1em, column sep=0.5em, text height=2.5ex
+, text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 
+\backslash
+mathfrak{q}  && 
+\backslash
+mathfrak{q}' & B 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     & 
+\backslash
+mathfrak{p} && A
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-2) edge (m-1-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (m-1-4) edge node[right]{ganz} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-1) -- node{$
+\backslash
+subseteq$} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-3) -- node{$
+\backslash
+subseteq$} (m-1-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-2) -- node{$
+\backslash
+subseteq$} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $\mathfrak{p}:=\mathfrak{q}\cap A\subseteq A$
+\end_inset
+
+ ist 
+\begin_inset Formula $A_{\mathfrak{p}}\subseteq B_{\mathfrak{p}}:=\left(A\setminus\mathfrak{p}\right)^{-1}B$
+\end_inset
+
+ eine ganze Ringerweiterung, da nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Lokalisierung-exakt"
+
+\end_inset
+
+ Lokalisieren exakt ist und nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-ganz-stabil-Lokalisierung"
+
+\end_inset
+
+ Ganzheit erhält.
+ Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Idealtheorie-Lokalisierung"
+
+\end_inset
+
+ iv) sind 
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q}_{1} & :=\mathfrak{q}B_{\mathfrak{p}}\subseteq\mathfrak{q}_{2}:=\mathfrak{q}'B_{\mathfrak{p}}
+\end{align*}
+
+\end_inset
+
+Primideale, denn aus 
+\begin_inset Formula $\mathfrak{p}=\mathfrak{q}\cap A=\mathfrak{q}'\cap A$
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q}\cap\left(A\setminus\mathfrak{p}\right) & =\emptyset=\mathfrak{q}'\cap\left(A\setminus\mathfrak{p}\right)
+\end{align*}
+
+\end_inset
+
+Weiter ist
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q}_{1}\cap A_{\mathfrak{p}} & =\left(\mathfrak{q}B_{\mathfrak{p}}\right)\cap A_{\mathfrak{p}}=\left(\mathfrak{q}\cap A\right)A_{\mathfrak{p}}=\mathfrak{p}A_{\mathfrak{p}}\subseteq A_{\mathfrak{p}}
+\end{align*}
+
+\end_inset
+
+maximal nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:BuD-Lokalisierung"
+
+\end_inset
+
+ i).
+ Ebenso folgt 
+\begin_inset Formula $\mathfrak{q}_{2}\cap A_{\mathfrak{p}}=\mathfrak{p}A_{\mathfrak{p}}$
+\end_inset
+
+ und aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-maximalAequivalentRingerweiterung"
+
+\end_inset
+
+ folgt nun, dass 
+\begin_inset Formula $\mathfrak{q}_{1}\subseteq\mathfrak{q}_{2}\subseteq B_{\mathfrak{p}}$
+\end_inset
+
+ beide maximal sind, also gilt 
+\begin_inset Formula $\mathfrak{q}_{1}=\mathfrak{q}_{2}$
+\end_inset
+
+ und es folgt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q} & \stackrel{\ref{sec:Satz-Idealtheorie-Lokalisierung}\text{ i)}}{=}\left(\mathfrak{q}B_{\mathfrak{p}}\right)\cap B=\mathfrak{q}_{1}\cap B=\mathfrak{q}_{2}\cap B=\left(\mathfrak{q}'B_{\mathfrak{p}}\right)\cap B\stackrel{\ref{sec:Satz-Idealtheorie-Lokalisierung}\text{ i)}}{=}\mathfrak{q}'
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $A=k$
+\end_inset
+
+ ein Körper und 
+\begin_inset Formula $k=A\subseteq B:=k\left[X\right]$
+\end_inset
+
+.
+ Dann sind 
+\begin_inset Formula $\mathfrak{q}:=\left(0\right)\subsetneq\mathfrak{q}':=\left(X\right)$
+\end_inset
+
+ Primideale mit 
+\begin_inset Formula $\mathfrak{q}\cap A=\mathfrak{q}'\cap A=\left(0\right)$
+\end_inset
+
+.
+ Die Erweiterung 
+\begin_inset Formula $k\subseteq k\left[X\right]$
+\end_inset
+
+ ist nicht ganz.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=1em, column sep=0.5em, text height=2.5ex
+, text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { (0) && (X) & k[X] 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     & (0) && k
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-2) edge (m-1-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (m-1-4) edge (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-1) -- node{$
+\backslash
+subsetneq$} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-3) -- node{$
+\backslash
+subseteq$} (m-1-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-2) -- node{$
+\backslash
+subseteq$} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Ringerweiterung 
+\begin_inset Formula $A:=\mathbb{Z}\subseteq B:=\mathbb{Z}\left[\ii\right]$
+\end_inset
+
+ ist ganz.
+ 
+\begin_inset Formula $\mathfrak{q}:=\left(1+2\ii\right)\subseteq B$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{q}':=\left(1-2\ii\right)\subseteq B$
+\end_inset
+
+ sind Primideale mit 
+\begin_inset Formula $\mathfrak{q}\cap A=\mathfrak{q}'\cap A=\left(5\right)\subseteq\mathbb{Z}$
+\end_inset
+
+, aber es gilt 
+\begin_inset Formula $\mathfrak{q}\not=\mathfrak{q}'$
+\end_inset
+
+ und weder 
+\begin_inset Formula $\mathfrak{q}\subseteq\mathfrak{q}'$
+\end_inset
+
+ noch 
+\begin_inset Formula $\mathfrak{q}'\subseteq\mathfrak{q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=1em, column sep=0.5em, text height=2.5ex
+, text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 
+\backslash
+mathfrak{q} && 
+\backslash
+mathfrak{q}' & 
+\backslash
+mathbb{Z}
+\backslash
+left[
+\backslash
+ii
+\backslash
+right] 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     & (5) && 
+\backslash
+mathbb{Z}
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-2) edge (m-1-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+        (m-1-4) edge node[right]{ganz} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-1) -- node{$
+\backslash
+not =$} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-3) -- node{$
+\backslash
+subseteq$} (m-1-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-2) -- node{$
+\backslash
+subseteq$} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
 \end_layout
 
 \end_inset
