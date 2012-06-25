@@ -6060,7 +6060,7 @@ Satz
 
 \begin_inset CommandInset label
 LatexCommand label
-name "sec:Satz-NullidealIstSchnittPrimideale"
+name "sec:Satz-NilradikalIstSchnittPrimideale"
 
 \end_inset
 
@@ -6494,7 +6494,7 @@ Für den kanonischen Ringhomomorphismus
 \begin_inset Formula 
 \begin{align*}
 \sqrt{I} & =\pi^{-1}\left(\pi\left(\sqrt{I}\right)\right)=\pi^{-1}\left(\mathfrak{N}\left(\modulo AI\right)\right)=\\
- & \stackrel{\ref{sec:Satz-NullidealIstSchnittPrimideale}}{=}\pi^{-1}\left(\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\overline{\mathfrak{p}}\right)=\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\pi^{-1}\left(\overline{\mathfrak{p}}\right)=\\
+ & \stackrel{\ref{sec:Satz-NilradikalIstSchnittPrimideale}}{=}\pi^{-1}\left(\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\overline{\mathfrak{p}}\right)=\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\pi^{-1}\left(\overline{\mathfrak{p}}\right)=\\
  & \sr ={\ref{sec:Prop-UrbildPrimideal}}{\ref{sec:Prop-IdealeQuotientenring}}\sr{\bigcap_{\mathfrak{p}\subseteq A\text{ PI}}}{}{I\subseteq\mathfrak{p}}\mathfrak{p}
 \end{align*}
 
@@ -31867,6 +31867,13 @@ qqed
 
 \begin_layout Section
 Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-SpecC[X]-SpecR[X]"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -34050,15 +34057,188 @@ reference "sec:Prop-CharakterisierungGanz"
 \end_layout
 
 \begin_layout Standard
-Die Umkehrung gilt im Allgemeinen nicht, aber man kann zeigen, dass eine
- Ringerweiterung genau dann ganz ist, wenn sie Vereinigung ihrer endlichen
- Teilerweiterungen ist.
+Die Umkehrung gilt im Allgemeinen nicht.
+ Eine Ringerweiterung genau dann ganz ist, wenn sie Vereinigung ihrer endlichen
+ Teilerweiterungen ist:
 \end_layout
 
 \begin_layout Standard
+Seien 
+\begin_inset Formula $A\subseteq B$
+\end_inset
 
-\color green
-TODO: Beweis als Übung einfügen.
+ eine Ringerweiterung.
+\begin_inset Formula 
+\begin{align*}
+M & :=\left\{ C\subseteq B\big|C\text{ ist endliche }A\text{-Algebra}\right\} \\
+V & :=\bigcup_{C\in M}C
+\end{align*}
+
+\end_inset
+
+
+\family roman
+\series medium
+
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ ist genau dann ganz, wenn 
+\begin_inset Formula $B$
+\end_inset
+
+ die Vereinigung aller endlichen 
+\begin_inset Formula $A$
+\end_inset
+
+-Unteralgebren von 
+\begin_inset Formula $B$
+\end_inset
+
+ ist, in Zeichen:
+\begin_inset Formula 
+\begin{align*}
+A\subseteq B\text{ ganz} & \quad\Leftrightarrow\quad B=V
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+“: Sei 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ ganz.
+ Dann ist jedes 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Daher ist die 
+\begin_inset Formula $A$
+\end_inset
+
+-Unteralgebra 
+\begin_inset Formula $A\left[b\right]\subseteq B$
+\end_inset
+
+ endlich und es gilt 
+\begin_inset Formula $b\in A\left[b\right]$
+\end_inset
+
+.
+ Somit folgt 
+\begin_inset Formula $A\left[b\right]\in M$
+\end_inset
+
+ und es gilt für alle 
+\begin_inset Formula $\tilde{b}\in B$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\tilde{b}\in A\left[\tilde{b}\right]\subseteq & \bigcup_{b\in B}A\left[b\right]\subseteq\bigcup_{C\in M}C=V\subseteq B
+\end{align*}
+
+\end_inset
+
+Also folgt 
+\begin_inset Formula $B\subseteq V\subseteq B$
+\end_inset
+
+ und somit 
+\begin_inset Formula $B=V$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+„
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“: Sei 
+\begin_inset Formula $B=V$
+\end_inset
+
+.
+ Dann gilt für alle 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ schon:
+\begin_inset Formula 
+\begin{align*}
+b & \in V=\bigcup_{C\in M}C
+\end{align*}
+
+\end_inset
+
+Also gibt es ein 
+\begin_inset Formula $C\in M$
+\end_inset
+
+ mit 
+\begin_inset Formula $b\in C$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $A\subseteq C\subseteq B$
+\end_inset
+
+ gilt und 
+\begin_inset Formula $C$
+\end_inset
+
+ endlich ist, folgt, dass 
+\begin_inset Formula $b$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A$
+\end_inset
+
+ ist.
+ Da dies für alle 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ gilt, ist 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ ganz.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Section
@@ -36200,10 +36380,7 @@ Seien
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-Dann ist 
+ Dann ist 
 \begin_inset Formula $\mathfrak{q}\subseteq B$
 \end_inset
 
@@ -36313,7 +36490,7 @@ reference "sec:Bsp-ganzerAbschlussZ"
 
  ist ein Hauptidealring, also ist jedes von Null verschiedene Primideal
  
-\begin_inset Formula $0\not=\mathfrak{p}\subseteq\mathbb{Z}\left[\ii\right]$
+\begin_inset Formula $\left(0\right)\not=\mathfrak{p}\subseteq\mathbb{Z}\left[\ii\right]$
 \end_inset
 
  maximal.
@@ -36421,6 +36598,13 @@ end{iiilist}
 
 \begin_layout Section
 Korollar
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-PrimidealGleich"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -36980,6 +37164,3665 @@ status open
 
 \backslash
 end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 19.6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-ExistenzErweitertesPrimideal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $\iota:A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung und 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal.
+ Dann existiert ein Primideal 
+\begin_inset Formula $\mathfrak{q}\subseteq B$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{p}=\mathfrak{q}\cap A$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+(Äquivalent: Die Abbildung 
+\begin_inset Formula $\text{Spec}\left(\iota\right):\text{Spec}\left(B\right)\twoheadrightarrow\text{Spec}\left(A\right)$
+\end_inset
+
+ ist surjektiv.)
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Betrachte folgendes kommutatives Diagramm von Ringen:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=1em, column sep=1.5em, text height=2.5ex
+, text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { A & B 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     A_
+\backslash
+mathfrak{p}& B_
+\backslash
+mathfrak{p}:=
+\backslash
+left(A
+\backslash
+setminus
+\backslash
+mathfrak{p}
+\backslash
+right)^{-1}B
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+iota$} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                      (m-2-1) edge node[above]{$
+\backslash
+iota_
+\backslash
+mathfrak{p}$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[left]{$
+\backslash
+iota_A^{(A_
+\backslash
+mathfrak{p})}$} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[left]{$
+\backslash
+iota_B^{(A_
+\backslash
+mathfrak{p})}$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset Formula $A_{\mathfrak{p}}\not=\left(0\right)$
+\end_inset
+
+, da 
+\begin_inset Formula $0\in\mathfrak{p}$
+\end_inset
+
+ ist 
+\begin_inset Formula $B_{\mathfrak{p}}\not=\left(0\right)$
+\end_inset
+
+, also existiert nach dem Lemma von Zorn ein maximales Ideal 
+\begin_inset Formula $\mathfrak{m}\subseteq B_{\mathfrak{p}}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $A_{\mathfrak{p}}\subseteq B_{\mathfrak{p}}$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-ganz-stabil-Lokalisierung"
+
+\end_inset
+
+ ganz ist, ist 
+\begin_inset Formula $\iota_{\mathfrak{p}}^{-1}\left(\mathfrak{m}\right)\subseteq A_{\mathfrak{p}}$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-maximalAequivalentRingerweiterung"
+
+\end_inset
+
+ maximal.
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+ lokal ist, folgt 
+\begin_inset Formula $\iota_{\mathfrak{p}}^{-1}\left(\mathfrak{m}\right)=\mathfrak{p}A_{\mathfrak{p}}\subseteq A_{\mathfrak{p}}$
+\end_inset
+
+.
+ Nun ist
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q} & :=\left(\iota_{B}^{\left(A\setminus\mathfrak{p}\right)}\right)^{-1}\left(\mathfrak{m}\right)\subseteq B
+\end{align*}
+
+\end_inset
+
+ein Primideal mit:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q}\cap A & =\left(\iota_{A}^{\left(A\setminus\mathfrak{p}\right)}\right)^{-1}\left(\iota_{\mathfrak{p}}^{-1}\left(\mathfrak{m}\right)\right)=\left(\iota_{A}^{\left(A\setminus\mathfrak{p}\right)}\right)^{-1}\left(\mathfrak{p}A_{\mathfrak{p}}\right)=\mathfrak{p}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(„Going-up theorem“)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Going-up-theorem"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung, 
+\begin_inset Formula $\mathfrak{p}_{1}\subseteq\mathfrak{p}_{2}\subseteq\ldots\subseteq\mathfrak{p}_{n}\subseteq A$
+\end_inset
+
+ Primideale, 
+\begin_inset Formula $0\le m<n$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{q}_{1}\subseteq\ldots\subseteq\mathfrak{q}_{m}\subseteq B$
+\end_inset
+
+ Primideale mit 
+\begin_inset Formula $\mathfrak{q}_{i}\cap A=\mathfrak{p}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dann existieren Primideale 
+\begin_inset Formula $\mathfrak{q}_{m}\subseteq\mathfrak{q}_{m+1}\subseteq\ldots\subseteq\mathfrak{q}_{n}\subseteq B$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{q}_{i}\cap A=\mathfrak{p}_{i}$
+\end_inset
+
+ für alle Indizes 
+\begin_inset Formula $i\in\left\{ m+1,\ldots,n\right\} $
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Skizze:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2.5ex,
+ text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 
+\backslash
+mathfrak{q}_{1} & 
+\backslash
+ldots &  
+\backslash
+mathfrak{q}_{m} & 
+\backslash
+color{red}{
+\backslash
+mathfrak{q}_{m+1}} & 
+\backslash
+color{red}{
+\backslash
+ldots} &
+\backslash
+color{red}{
+\backslash
+mathfrak{q}_{n}} & B 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+mathfrak{p}_1 & 
+\backslash
+ldots & 
+\backslash
+mathfrak{p}_m & 
+\backslash
+mathfrak{p}_{m+1} & 
+\backslash
+ldots & 
+\backslash
+mathfrak{p}_n & A 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->,font=
+\backslash
+scriptsize] (m-2-7) edge node[right]{ganz} (m-1-7);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-1) -- node{$
+\backslash
+subseteq$} (m-1-2) -- node{$
+\backslash
+subseteq$} (m-1-3) -- node[color=red]{$
+\backslash
+subseteq$} (m-1-4) -- node[color=red]{$
+\backslash
+subseteq$} (m-1-5) -- node[color=red]{$
+\backslash
+subseteq$} (m-1-6) -- node[color=red]{$
+\backslash
+subseteq$} (m-1-7);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-1) -- node{$
+\backslash
+subseteq$} (m-2-2) -- node{$
+\backslash
+subseteq$} (m-2-3) -- node{$
+\backslash
+subseteq$} (m-2-4) -- node{$
+\backslash
+subseteq$} (m-2-5) -- node{$
+\backslash
+subseteq$} (m-2-6) -- node{$
+\backslash
+subseteq$} (m-2-7);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (m-1-1) -- (m-2-1) (m-1-3) -- (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[color=red] (m-1-4) -- (m-2-4) (m-1-6) -- (m-2-6);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Der Fall 
+\begin_inset Formula $m=0$
+\end_inset
+
+ und 
+\begin_inset Formula $n=1$
+\end_inset
+
+ folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-ExistenzErweitertesPrimideal"
+
+\end_inset
+
+.
+ Durch Induktion kann man 
+\begin_inset Formula $m=1$
+\end_inset
+
+ und 
+\begin_inset Formula $n=2$
+\end_inset
+
+ angenommen werden, das heißt:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2.5ex,
+ text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 
+\backslash
+mathfrak{q}_1 &  
+\backslash
+color{red}{
+\backslash
+mathfrak{q}_{2}} & B 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+mathfrak{p}_1 & 
+\backslash
+mathfrak{p}_2 & A 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->,font=
+\backslash
+scriptsize] (m-2-3) edge node[right]{ganz} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-1) -- node[color=red]{$
+\backslash
+subseteq$} (m-1-2) -- node[color=red]{$
+\backslash
+subseteq$} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-1) -- node{$
+\backslash
+subseteq$} (m-2-2) -- node{$
+\backslash
+subseteq$} (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (m-1-1) -- (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[color=red] (m-1-2) -- (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Ringerweiterung 
+\begin_inset Formula $\overline{A}:=\modulo A{\mathfrak{p}_{1}}\subseteq\overline{B}:=\modulo B{\mathfrak{q}_{1}}$
+\end_inset
+
+ ist wegen 
+\begin_inset Formula $\mathfrak{p}_{1}=A\cap\mathfrak{q}_{1}$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-ganz-stabil-unter-Basiswechsel"
+
+\end_inset
+
+ i) ganz.
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-ExistenzErweitertesPrimideal"
+
+\end_inset
+
+ existiert ein Primideal 
+\begin_inset Formula $\overline{\mathfrak{q}_{2}}\subseteq\overline{B}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\overline{\mathfrak{q}_{2}}\cap\overline{A}=\overline{\mathfrak{p}_{2}}:=\modulo{\mathfrak{p}_{2}}{\mathfrak{p}_{1}}\subseteq\overline{A}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Das Urbild 
+\begin_inset Formula $\mathfrak{q}_{2}:=\left(B\twoheadrightarrow\overline{B}\right)^{-1}\left(\overline{\mathfrak{q}_{2}}\right)\subseteq B$
+\end_inset
+
+ ist ein Primideal mit:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q}_{2}\cap A & =\left(A\twoheadrightarrow\overline{A}\right)^{-1}\left(\overline{\mathfrak{p}_{2}}\right)=\mathfrak{p}_{2}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Der Hilbertsche Nullstellensatz
+\end_layout
+
+\begin_layout Section
+Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-NullstellensatzFuerC"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-4,5) {Algebra};   
+\backslash
+node at (2,5) {Geometrie};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node at (-4,4) {$
+\backslash
+mathbb{C}[X]$}; 
+\backslash
+node at (2,4) {$
+\backslash
+mathbb{C}=
+\backslash
+mathbb{R}
+\backslash
+oplus 
+\backslash
+ii 
+\backslash
+mathbb{R}
+\backslash
+stackrel{
+\backslash
+sim}{=}
+\backslash
+mathbb{R}^2$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+node (L) at (-4,3) {$
+\backslash
+mathbb{C}[X] 
+\backslash
+ni f$}; 
+\backslash
+node (R) at (2,3) {$
+\backslash
+mathcal{N}(f):=
+\backslash
+{z
+\backslash
+in
+\backslash
+mathbb{C}
+\backslash
+big| f(z)=0
+\backslash
+}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[|->] (L) -- (R);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+node (L2) at (-4,2) {$
+\backslash
+mathbb{C}[X]
+\backslash
+supseteq 
+\backslash
+{ f
+\backslash
+in
+\backslash
+mathbb{C}[X] 
+\backslash
+big|
+\backslash
+fall_{x
+\backslash
+in M} f(x)=0
+\backslash
+}=:I(M)$}; 
+\backslash
+node (R2) at (2,2) {$M 
+\backslash
+subseteq 
+\backslash
+mathbb{C}$};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[|->] (R2) -- (L2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Allgemeiner: Sei 
+\begin_inset Formula $I\subseteq\mathbb{C}\left[X\right]$
+\end_inset
+
+ ein Ideal, so ist die Nullstellenmenge:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{N}\left(I\right) & :=\left\{ z\in\mathbb{C}\bigg|\fall_{f\in I}\ f\left(z\right)=0\right\} 
+\end{align*}
+
+\end_inset
+
+Dann gilt 
+\begin_inset Formula $\mathcal{N}\left(f\right)=\mathcal{N}\left(\left(f\right)\right)$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Man sieht leicht:
+\end_layout
+
+\begin_layout Itemize
+Ist 
+\begin_inset Formula $M\subseteq\mathbb{C}$
+\end_inset
+
+ unendlich, so gilt:
+\begin_inset Formula 
+\begin{align*}
+I\left(M\right) & =\left(0\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+Ist 
+\begin_inset Formula $M=\left\{ z_{1},\ldots,z_{n}\right\} \subseteq\mathbb{C}$
+\end_inset
+
+ endlich, so gilt:
+\begin_inset Formula 
+\begin{align*}
+I\left(M\right) & =\left(\prod_{i=1}^{n}\left(X-z_{i}\right)\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es folgt:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{N}\left(I\left(M\right)\right) & =\begin{cases}
+M & \text{falls }M\text{ endlich}\\
+\mathbb{C} & \text{falls }M\text{ unendlich}
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-SpecC[X]-SpecR[X]"
+
+\end_inset
+
+ ist also 
+\begin_inset Formula $\mathcal{N}\left(I\left(M\right)\right)$
+\end_inset
+
+ genau der Abschluss von 
+\begin_inset Formula $M$
+\end_inset
+
+ in der Zariski-Topologie auf:
+\begin_inset Formula 
+\begin{align*}
+\text{MaxSpec}\left(\mathbb{C}\left[X\right]\right):=\left\{ \mathfrak{m}\subseteq\mathbb{C}\left[X\right]\big|\mathfrak{m}\text{ ist maximles Ideal}\right\}  & \stackrel{\sim}{=}\mathbb{C}\\
+X-\alpha & \mapsto\alpha
+\end{align*}
+
+\end_inset
+
+Sei 
+\begin_inset Formula $f\in\mathbb{C}\left[X\right]$
+\end_inset
+
+.
+ Für 
+\begin_inset Formula $f=0$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+I\left(\mathcal{N}\left(\left(0\right)\right)\right) & =I\left(\mathbb{C}\right)=\left(0\right)
+\end{align*}
+
+\end_inset
+
+Sei 
+\begin_inset Formula $f\in\mathbb{C}\left[X\right]^{*}=\mathbb{C}^{*}=\mathbb{C}\setminus\left\{ 0\right\} $
+\end_inset
+
+, so gilt:
+\begin_inset Formula 
+\begin{align*}
+I\left(\mathcal{N}\left(\left(f\right)\right)\right) & =I\left(\emptyset\right)=\left(1\right)=\left(f\right)
+\end{align*}
+
+\end_inset
+
+Andernfalls betrachte die Primfaktorzerlegung von 
+\begin_inset Formula $f$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+f\left(X\right) & =\alpha\cdot\prod_{i=1}^{n}\left(X-z_{i}\right)^{n_{i}}
+\end{align*}
+
+\end_inset
+
+Dabei sind 
+\begin_inset Formula $\alpha\in\mathbb{C}^{*}$
+\end_inset
+
+, 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+, 
+\begin_inset Formula $z_{i}\in\mathbb{C}$
+\end_inset
+
+ und 
+\begin_inset Formula $n_{i}\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ geeignet gewählt.
+\end_layout
+
+\begin_layout Standard
+Dann gilt 
+\begin_inset Formula $\mathcal{N}\left(\left(f\right)\right)=\left\{ z_{1},\ldots,z_{n}\right\} $
+\end_inset
+
+, also folgt:
+\begin_inset Formula 
+\begin{align*}
+I\left(\mathcal{N}\left(\left(f\right)\right)\right) & =\left(\prod_{i=1}^{n}\left(X-z_{i}\right)\right)=\sqrt{\left(f\right)}
+\end{align*}
+
+\end_inset
+
+Denn ist 
+\begin_inset Formula $g\in\left(\prod_{i=1}^{n}\left(X-z_{i}\right)\right)$
+\end_inset
+
+, so folgt mit 
+\begin_inset Formula $m:=\text{max}\left\{ n_{i}|1\le i\le n\right\} $
+\end_inset
+
+ schon 
+\begin_inset Formula $g^{m}\in\left(f\right)$
+\end_inset
+
+, also 
+\begin_inset Formula $g\in\sqrt{\left(f\right)}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ist hingegen 
+\begin_inset Formula $g\in\sqrt{\left(f\right)}$
+\end_inset
+
+, so gibt es ein 
+\begin_inset Formula $m\in\mathbb{N}$
+\end_inset
+
+ mit 
+\begin_inset Formula $g^{m}\in\left(f\right)$
+\end_inset
+
+.
+ Insbesondere sind alle 
+\begin_inset Formula $\left(X-z_{i}\right)$
+\end_inset
+
+ Teiler von 
+\begin_inset Formula $g^{m}$
+\end_inset
+
+ und da dies irreduzible Faktoren, also Primfaktoren sind, da 
+\begin_inset Formula $\mathbb{C}\left[X\right]$
+\end_inset
+
+ faktoriell ist, sind dies auch Teiler von 
+\begin_inset Formula $g$
+\end_inset
+
+.
+ Also folgt 
+\begin_inset Formula $g\in\left(\prod_{i=1}^{n}\left(X-z_{i}\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+In jedem Fall gilt:
+\begin_inset Formula 
+\begin{align*}
+I\left(\mathcal{N}\left(\left(f\right)\right)\right) & =\sqrt{\left(f\right)}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Nullstellenmenge, Verschwindungsideal)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper, 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und 
+\begin_inset Formula $A:=k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für ein Ideal 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ heißt
+\begin_inset Formula 
+\begin{align*}
+k^{n}\supseteq\mathcal{N}\left(I\right) & :=\left\{ \left(\alpha_{1},\ldots,\alpha_{n}\right)\in k^{n}\bigg|\fall_{f\in I}\,:\, f\left(\alpha_{1},\ldots,\alpha_{n}\right)=0\right\} 
+\end{align*}
+
+\end_inset
+
+
+\emph on
+die Nullstellenmenge von 
+\begin_inset Formula $I$
+\end_inset
+
+
+\emph default
+.
+ Eine Teilmenge 
+\begin_inset Formula $M\subseteq k^{n}$
+\end_inset
+
+ heißt 
+\emph on
+algebraisch
+\emph default
+, falls 
+\begin_inset Formula $M=\mathcal{N}\left(I\right)$
+\end_inset
+
+ für ein geeignetes Ideal 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für eine Teilmenge 
+\begin_inset Formula $M\subseteq k^{n}$
+\end_inset
+
+ ist
+\begin_inset Formula 
+\begin{align*}
+A\supseteq I\left(M\right) & :=\left\{ f\in A\bigg|\fall_{x\in M}\,:\, f\left(x\right)=0\right\} 
+\end{align*}
+
+\end_inset
+
+ein Ideal und heißt 
+\emph on
+das Verschwindungsideal von 
+\begin_inset Formula $M$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Hilbertscher Nullstellensatz)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Hilbertscher-Nullstellensatz"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $k$
+\end_inset
+
+ ein algebraisch abgeschlossener Körper und 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dann gilt für jedes Ideal 
+\begin_inset Formula $J\subseteq A:=k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+I\left(\mathcal{N}\left(J\right)\right) & =\sqrt{J}
+\end{align*}
+
+\end_inset
+
+Die Abbildungen
+\begin_inset Formula 
+\begin{align*}
+\left\{ J\big|J\subseteq A\text{ Ideal mit }J=\sqrt{J}\right\}  & \sr{\leftrightarrows}{\sim}{\sim}\left\{ M\big|M\subseteq k^{n}\text{ algebraisch}\right\} \\
+J & \mapsto\mathcal{N}\left(J\right)\\
+I\left(M\right) & \mapsfrom M
+\end{align*}
+
+\end_inset
+
+sind wohldefiniert und zueinander invers.
+ Insbesondere sind beide bijektiv.
+\end_layout
+
+\begin_layout Standard
+Der Beweis benötigt erhebliche Vorarbeit.
+\end_layout
+
+\begin_layout Section
+Bemerkung und Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jede Teilmenge 
+\begin_inset Formula $M\subseteq k^{n}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\sqrt{I\left(M\right)} & =I\left(M\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach Definition des Radikals gilt:
+\begin_inset Formula 
+\begin{align*}
+\sqrt{I\left(M\right)} & =\left\{ f\in k\left[X_{1},\ldots,X_{n}\right]\bigg|\exs_{n\in\mathbb{N}}\,:\, f^{n}\in I\left(M\right)\right\} \supseteq I\left(M\right)
+\end{align*}
+
+\end_inset
+
+Sei nun 
+\begin_inset Formula $f\in\sqrt{I\left(M\right)}$
+\end_inset
+
+, also gibt es ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ mit 
+\begin_inset Formula $f^{n}\in I\left(M\right)$
+\end_inset
+
+.
+ Es folgt für alle 
+\begin_inset Formula $x\in M$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+0 & =\left(f^{n}\right)\left(x\right)=\left(f\left(x\right)\right)^{n}\in k
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper ist, folgt 
+\begin_inset Formula $f\left(x\right)=0$
+\end_inset
+
+, also 
+\begin_inset Formula $f\in I\left(M\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für 
+\begin_inset Formula $k=\mathbb{C}$
+\end_inset
+
+ ist die Teilmenge
+\begin_inset Formula 
+\begin{align*}
+\mathbb{C}\supseteq S^{1} & :=\left\{ z\in\mathbb{C}\big|\abs z^{2}=1\right\} 
+\end{align*}
+
+\end_inset
+
+nicht algebraisch, denn nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-NullstellensatzFuerC"
+
+\end_inset
+
+ ist die einzige unendliche algebraische Teilmenge von 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ schon 
+\begin_inset Formula $\mathbb{C}$
+\end_inset
+
+ selbst.
+\end_layout
+
+\begin_layout Standard
+Betrachte nun 
+\begin_inset Formula $\mathbb{C}\stackrel{\sim}{=}\mathbb{R}+\ii\mathbb{R}$
+\end_inset
+
+.
+ Für 
+\begin_inset Formula $k=\mathbb{R}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathbb{R}^{2}\supseteq\mathcal{N}\left(\left(X^{2}+Y^{2}-1\right)\right) & =\left\{ \left(x,y\right)\in\mathbb{R}^{2}\big|x^{2}+y^{2}=1\right\} \stackrel{\sim}{=}S^{1}\\
+\mathbb{R}^{2}\stackrel{\sim}{=}\mathbb{C} & \hookleftarrow S^{1}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für 
+\begin_inset Formula $k=\mathbb{R}$
+\end_inset
+
+ und 
+\begin_inset Formula $n=1$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+I\left(\mathcal{N}\left(\left(X^{2}+1\right)\right)\right) & =I\left(\left\{ x\in\mathbb{R}\big|x^{2}+1=0\right\} \right)=I\left(\emptyset\right)=\\
+ & =\left(1\right)=\mathbb{R}\left[X\right]\not=\sqrt{\left(X^{2}+1\right)}=\left(X^{2}+1\right)
+\end{align*}
+
+\end_inset
+
+Also kann man im Hilbertschen Nullstellensatz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Hilbertscher-Nullstellensatz"
+
+\end_inset
+
+ nicht auf die Voraussetzung „
+\begin_inset Formula $k$
+\end_inset
+
+ algebraisch abgeschlossen“ verzichten.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $k$
+\end_inset
+
+ ein algebraisch abgeschlossener Körper, 
+\begin_inset Formula $n,m\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und 
+\begin_inset Formula $f_{1},\ldots,f_{m}\in k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+.
+ Dann sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Es gibt ein 
+\begin_inset Formula $\left(\alpha_{1},\ldots,\alpha_{n}\right)\in k^{n}$
+\end_inset
+
+ mit 
+\begin_inset Formula $f_{i}\left(\alpha_{1},\ldots,\alpha_{n}\right)=0$
+\end_inset
+
+ für alle 
+\begin_inset Formula $1\le i\le m$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Keine Linearkombination mit beliebigen 
+\begin_inset Formula $g_{i}\in k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+ erfüllt: 
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{n}g_{i}f_{i} & =1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Aus
+\begin_inset Formula 
+\begin{align*}
+\sum_{i=1}^{n}g_{i}f_{i} & =1
+\end{align*}
+
+\end_inset
+
+folgte der Widerspruch:
+\begin_inset Formula 
+\begin{align*}
+1 & =\left(\sum_{i=1}^{n}g_{i}f_{i}\right)\left(\alpha_{1},\ldots,\alpha_{n}\right)=\sum_{i=1}^{n}g_{i}\left(\alpha_{1},\ldots,\alpha_{n}\right)\underbrace{f_{i}\left(\alpha_{1},\ldots,\alpha_{n}\right)}_{=0}=0
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Die Voraussetzung besagt:
+\begin_inset Formula 
+\begin{align*}
+J & :=\left(f_{1},\ldots,f_{m}\right)\not=\left(1\right)
+\end{align*}
+
+\end_inset
+
+Zu zeigen ist, dass 
+\begin_inset Formula $\mathcal{N}\left(J\right)\not=\emptyset$
+\end_inset
+
+.
+ Andernfalls hätte man:
+\begin_inset Formula 
+\begin{align*}
+\sqrt{J} & \stackrel{\ref{sec:Satz-Hilbertscher-Nullstellensatz}}{=}I\left(\mathcal{N}\left(J\right)\right)=I\left(\emptyset\right)=\left(1\right)
+\end{align*}
+
+\end_inset
+
+Also folgte auch 
+\begin_inset Formula $J=\left(1\right)$
+\end_inset
+
+, denn aus 
+\begin_inset Formula $1\in\sqrt{J}$
+\end_inset
+
+ folgt 
+\begin_inset Formula $1^{n}=1\in J$
+\end_inset
+
+ für ein geeignetes 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+ Dies ist ein Widerspruch.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Jacobsen)
+\end_layout
+
+\begin_layout Standard
+Ein Ring heißt 
+\emph on
+Jacobsen
+\emph default
+, falls jedes seiner Primideale Durchschnitt von maximalen Idealen ist.
+\end_layout
+
+\begin_layout Section
+Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-JacobsonQuotientenring"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jeder Körper ist Jacobsen, da das einzige Primideal 
+\begin_inset Formula $\left(0\right)$
+\end_inset
+
+ schon maximal ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ ist Jacobsen.
+ Das einzige nicht-maximale Primideal ist 
+\begin_inset Formula $\left(0\right)$
+\end_inset
+
+ und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(0\right) & =\bigcap_{p\text{ Primzahl}}\left(p\right)
+\end{align*}
+
+\end_inset
+
+Außerdem ist jedes 
+\begin_inset Formula $\left(p\right)\subseteq\mathbb{Z}$
+\end_inset
+
+ maximal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $A$
+\end_inset
+
+ Jacobsen und 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal, so ist 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+ Jacobsen.
+\end_layout
+
+\begin_layout Standard
+Dies folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:DuB-Ideal"
+
+\end_inset
+
+ iii).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein lokaler Integritätsring, so gilt:
+\begin_inset Formula 
+\begin{align*}
+A\text{ Jacobsen} & \Leftrightarrow A\text{ Körper}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Leftarrow$
+\end_inset
+
+“: i).
+\end_layout
+
+\begin_layout Standard
+„
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+“: Sei 
+\begin_inset Formula $\mathfrak{m}\subseteq A$
+\end_inset
+
+ das einzige maximale Ideal.
+ Da 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring ist, ist 
+\begin_inset Formula $\left(0\right)\subseteq A$
+\end_inset
+
+ ein Primideal.
+ Da 
+\begin_inset Formula $A$
+\end_inset
+
+ Jacobsen ist, folgt 
+\begin_inset Formula $\left(0\right)=\mathfrak{m}$
+\end_inset
+
+, da 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ das einzige maximale Ideal ist.
+ Also ist 
+\begin_inset Formula $A\stackrel{\sim}{=}\modulo A{\left(0\right)}=\modulo A{\mathfrak{m}}$
+\end_inset
+
+ ein Körper.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 22.6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(Charakterisierung Jacobson)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-Charakterisierung-Jacobson"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für einen Ring 
+\begin_inset Formula $A$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ ist Jacobsen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Es gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{Jac}\left(A\right) & =\mathfrak{N}\left(A\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jedes Ideal 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{Jac}\left(\modulo AI\right) & =\mathfrak{N}\left(\modulo AI\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für jedes 
+\begin_inset Formula $\mathfrak{p}\in\text{Spec}\left(A\right)$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{Jac}\left(\modulo A{\mathfrak{p}}\right) & =\left(0\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Es gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{N}\left(A\right) & \stackrel{\ref{sec:Satz-NilradikalIstSchnittPrimideale}}{=}\bigcap_{\mathfrak{p}\in\text{Spec}\left(A\right)}\mathfrak{p}\stackrel{\text{i)}}{=}\bigcap_{\mathfrak{p}\in\text{Spec}\left(A\right)}\left(\bigcap_{\mathfrak{p}\subseteq\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\mathfrak{m}\right)=\bigcap_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\mathfrak{m}\stackrel{\text{Definition}}{=}\text{Jac}\left(A\right)
+\end{align*}
+
+\end_inset
+
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iii)“: Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-JacobsonQuotientenring"
+
+\end_inset
+
+ iii) ist 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+ auch Jacobson und die Behauptung folgt aus ii).
+\end_layout
+
+\begin_layout Standard
+„iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iv)“: Ist 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal, so ist 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ ein Integritätsring, also folgt aus iii):
+\begin_inset Formula 
+\begin{align*}
+\text{Jac}\left(\modulo A{\mathfrak{p}}\right) & =\mathfrak{N}\left(\modulo A{\mathfrak{p}}\right)=\left(0\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„iv) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Ist 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal, so gilt nach der Korrespondenz von Primidealen im Ring und
+ Quotientenring:
+\begin_inset Formula 
+\begin{align*}
+\modulo{\left(\bigcap_{\mathfrak{p}\subseteq\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\mathfrak{m}\right)}{\mathfrak{p}} & \stackrel{\sim}{=}\bigcap_{\overline{\mathfrak{m}}\in\text{MaxSpec}\left(\modulo A{\mathfrak{p}}\right)}\overline{\mathfrak{m}}=\text{Jac}\left(\modulo A{\mathfrak{p}}\right)\stackrel{\text{iv)}}{=}\left(0\right)
+\end{align*}
+
+\end_inset
+
+Also gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{p} & =\bigcap_{\mathfrak{p}\subseteq\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\mathfrak{m}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-HauptidealringJacobson"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für einen Hauptidealring 
+\begin_inset Formula $A$
+\end_inset
+
+, der kein Körper ist, sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ ist Jacobsen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\abs{\text{Spec}\left(A\right)}=\infty$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+(vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-JacobsonQuotientenring"
+
+\end_inset
+
+ ii))
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{Z}_{\left(p\right)}$
+\end_inset
+
+ ist ein Hauptidealring mit 
+\begin_inset Formula $\abs{\text{Spec}\left(\mathbb{Z}_{\left(p\right)}\right)}=2$
+\end_inset
+
+, also nicht Jacobsen.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $A$
+\end_inset
+
+ kein Körper ist, gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{Spec}\left(A\right) & =\left\{ \left(0\right)\right\} \dot{\cup}\left\{ \mathfrak{m}\big|\mathfrak{m}\subseteq A\text{ maximales Ideal}\right\} =\left\{ \left(0\right)\right\} \dot{\cup}\underbrace{\text{MaxSpec}\left(A\right)}_{\not=\emptyset}
+\end{align*}
+
+\end_inset
+
+Schreibe 
+\begin_inset Formula $\mathfrak{m}=\left(f_{m}\right)\in\text{MaxSpec}\left(A\right)$
+\end_inset
+
+ für geeignetes 
+\begin_inset Formula $f_{m}\in A$
+\end_inset
+
+, was möglich ist, da 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Hauptidealring ist.
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Wäre 
+\begin_inset Formula $\abs{\text{Spec}\left(A\right)}<\infty$
+\end_inset
+
+, so folgte mit dem Chinesischen Restsatz:
+\begin_inset Formula 
+\begin{align*}
+\left(0\right) & \stackrel{\text{i)}}{=}\bigcap_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(f_{m}\right)\sr ={\abs{\text{Spec}\left(A\right)}<\infty}{\ref{sec:Satz-Chinesischer-Restsatz}}\left(\prod_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}f_{m}\right)
+\end{align*}
+
+\end_inset
+
+Also folgte:
+\begin_inset Formula 
+\begin{align*}
+\prod_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}f_{m} & =0
+\end{align*}
+
+\end_inset
+
+Dies ist ein Widerspruch zu 
+\begin_inset Formula $f_{m}\not=0$
+\end_inset
+
+, da 
+\begin_inset Formula $A$
+\end_inset
+
+ als Hauptidealring ein Integritätsring ist.
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Offenbar ist jedes maximale Ideal Durchschnitt maximaler Ideale.
+ Zeige also nur:
+\begin_inset Formula 
+\begin{align*}
+\left(0\right) & =\bigcap_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(f_{m}\right)=\text{Jac}\left(A\right)
+\end{align*}
+
+\end_inset
+
+Ein 
+\begin_inset Formula $f\in\text{Jac}\left(A\right)$
+\end_inset
+
+ hat wegen ii) unendlich viele Primteiler, also gilt 
+\begin_inset Formula $f=0$
+\end_inset
+
+, da jeder Hauptidealring faktoriell ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\end_layout
+
+\begin_layout Standard
+Sind 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ ein ganzer Ringhomomorphismus und 
+\begin_inset Formula $A$
+\end_inset
+
+ Jacobsen, so ist 
+\begin_inset Formula $B$
+\end_inset
+
+ auch Jacobsen.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Es ist 
+\begin_inset Formula $\text{im}\left(f\right)\stackrel{\sim}{=}\modulo A{\text{ker}\left(f\right)}$
+\end_inset
+
+ Jacobsen nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-JacobsonQuotientenring"
+
+\end_inset
+
+ iii) und die Ringerweiterung 
+\begin_inset Formula $\text{im}\left(f\right)\subseteq B$
+\end_inset
+
+ ist ganz.
+\end_layout
+
+\begin_layout Standard
+Sei also ohne Einschränkung 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine ganze Ringerweiterung.
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\mathfrak{p}\subseteq B$
+\end_inset
+
+ ein Primideal, so ist 
+\begin_inset Formula $\mathfrak{q}:=A\cap\mathfrak{p}$
+\end_inset
+
+ ein Primideal und da 
+\begin_inset Formula $A$
+\end_inset
+
+ Jacobsen ist, gibt es eine Menge 
+\begin_inset Formula $\left\{ \mathfrak{m}_{i}\right\} _{i\in I}$
+\end_inset
+
+ von maximalen Idealen von 
+\begin_inset Formula $A$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q} & =\bigcap_{i\in I}\mathfrak{m}_{i}
+\end{align*}
+
+\end_inset
+
+Bildchen:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=1.5em, column sep=1em, text height=2.5ex
+, text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 
+\backslash
+mathfrak{p} &  
+\backslash
+tilde{
+\backslash
+mathfrak{p}} & 
+\backslash
+mathfrak{p}_i & B 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+mathfrak{q} && 
+\backslash
+mathfrak{m}_i & A 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[right hook->,font=
+\backslash
+scriptsize] (m-2-4) edge node[right]{ganz} (m-1-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-1) -- node{$
+\backslash
+subseteq$} (m-1-2) -- node{$
+\backslash
+subseteq$} (m-1-3) -- node{$
+\backslash
+subseteq$} (m-1-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-2-1) -- node{$
+\backslash
+subseteq$} (m-2-3) -- node{$
+\backslash
+subseteq$} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (m-1-1) -- (m-2-1) -- (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw (m-1-3) -- (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nach dem 
+\lang english
+Going-up theorem
+\lang ngerman
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Going-up-theorem"
+
+\end_inset
+
+ existiert für jedes 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ ein Primideal 
+\begin_inset Formula $\mathfrak{p}_{i}\subseteq B$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{p}\subseteq\mathfrak{p}_{i}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{p}_{i}\cap A=\mathfrak{m}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-maximalAequivalentRingerweiterung"
+
+\end_inset
+
+ ist jedes 
+\begin_inset Formula $\mathfrak{p}_{i}\subseteq B$
+\end_inset
+
+ sogar ein maximales Ideal.
+\end_layout
+
+\begin_layout Standard
+Nun gelten
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{p} & \subseteq\tilde{\mathfrak{p}}:=\bigcap_{i\in I}\mathfrak{p}_{i}\subseteq B
+\end{align*}
+
+\end_inset
+
+und:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{q} & =\mathfrak{p}\cap A\subseteq\tilde{\mathfrak{p}}\cap A=\bigcap_{i\in I}\left(\mathfrak{p}_{i}\cap A\right)=\bigcap_{i\in I}\mathfrak{m}_{i}=\mathfrak{q}
+\end{align*}
+
+\end_inset
+
+Daher gilt 
+\begin_inset Formula $\mathfrak{p}\cap A=\tilde{\mathfrak{p}}\cap A$
+\end_inset
+
+.
+ Aus einer leichten Verallgemeinerung (für 
+\begin_inset Formula $\mathfrak{q}'$
+\end_inset
+
+ kein Primideal) von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-PrimidealGleich"
+
+\end_inset
+
+ folgt, dass 
+\begin_inset Formula $\mathfrak{p}=\tilde{\mathfrak{p}}$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Standard
+Also ist 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ Durchschnitt maximaler Ideale von 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Hauptsatz über Jacobson-Ringe)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Hauptsatz-Jacobson"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ Jacobson und 
+\begin_inset Formula $f:A\to B$
+\end_inset
+
+ eine endlich erzeugte 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra, dann gelten:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $B$
+\end_inset
+
+ ist Jacobson.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $\mathfrak{m}'\subseteq B$
+\end_inset
+
+ ein maximales Ideal, so ist auch 
+\begin_inset Formula $\mathfrak{m}:=f^{-1}\left(\mathfrak{m}'\right)\subseteq A$
+\end_inset
+
+ ein maximales Ideal und die Erweiterung der Restklassenkörper
+\begin_inset Formula 
+\begin{align*}
+\kappa\left(\mathfrak{m}\right) & =\modulo A{\mathfrak{m}}\subseteq\kappa\left(\mathfrak{m}'\right)=\modulo B{\mathfrak{m}'}
+\end{align*}
+
+\end_inset
+
+ist endlich.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Bemerkung
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ ist Jacobson und jeder Ring ist eine 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-Algebra, aber nicht notwendigerweise Jacobson.
+ Also kann man auf die Voraussetzung „endlich erzeugt“ nicht verzichten.
+\end_layout
+
+\begin_layout Standard
+Insbesondere ist 
+\begin_inset Formula $\mathbb{Z}_{\left(p\right)}$
+\end_inset
+
+ als 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+-Algebra nicht endlich erzeugt, da 
+\begin_inset Formula $\mathbb{Z}_{\left(p\right)}$
+\end_inset
+
+ nicht Jacobson ist.
+\end_layout
+
+\begin_layout Section
+Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lem-HauptsatzFuerKoerperPolynomring"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Hauptsatz-Jacobson"
+
+\end_inset
+
+ gilt, für 
+\begin_inset Formula $\left(f:A\to B\right):=\left(k\subseteq k\left[X\right]\right)$
+\end_inset
+
+ für einen Körper 
+\begin_inset Formula $k$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Da 
+\begin_inset Formula $k\left[X\right]$
+\end_inset
+
+ ein Hauptidealring ist, zeige wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-HauptidealringJacobson"
+
+\end_inset
+
+ ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i) nur, dass 
+\begin_inset Formula $\abs{\text{Spec}\left(k\left[X\right]\right)}=\infty$
+\end_inset
+
+ gilt, das heißt es gibt unendlich viele normierte irreduzible Polynome,
+ denn zwei Polynome erzeugen genau dann dasselbe Hauptideal, wenn sie sich
+ um einen konstanten Faktor unterscheiden.
+\end_layout
+
+\begin_layout Standard
+Angenommen es gäbe nur die endlich vielen normierten irreduziblen Polynome
+ 
+\begin_inset Formula $f_{1},\ldots,f_{n}$
+\end_inset
+
+.
+ Sei ohne Einschränkung 
+\begin_inset Formula $f_{1}=X$
+\end_inset
+
+.
+ Dann folgte für
+\begin_inset Formula 
+\begin{align*}
+F & :=\left(\prod_{i=1}^{n}f_{i}\right)+1
+\end{align*}
+
+\end_inset
+
+schon:
+\begin_inset Formula 
+\begin{align*}
+\text{deg}\left(F\right) & \ge\deg\left(f_{1}\right)=1
+\end{align*}
+
+\end_inset
+
+Also gilt 
+\begin_inset Formula $F\not\in\left(k\left[X\right]\right)^{*}$
+\end_inset
+
+.
+ Daher gibt es ein normiertes irreduzibles 
+\begin_inset Formula $f\in k\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $f\big|F$
+\end_inset
+
+.
+ Wäre 
+\begin_inset Formula $f=f_{i}$
+\end_inset
+
+, so folgte aus der Definition von 
+\begin_inset Formula $F$
+\end_inset
+
+, dass 
+\begin_inset Formula $f_{i}\big|1$
+\end_inset
+
+ gelten würde.
+ Dies ist aber ein Widerspruch dazu, dass 
+\begin_inset Formula $f_{i}$
+\end_inset
+
+ prim ist.
+ Also ist 
+\begin_inset Formula $f\not\in\left\{ f_{1},\ldots,f_{n}\right\} $
+\end_inset
+
+ ein normiertes irreduzibles Polynom.
+ Dies ist ein Widerspruch dazu, dass dies die einzigen Primelemente sind.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $\mathfrak{m}'\subseteq k\left[X\right]$
+\end_inset
+
+ maximal, so gilt 
+\begin_inset Formula $\mathfrak{m}':=\left(f\right)$
+\end_inset
+
+ für ein normiertes irreduzibles 
+\begin_inset Formula $f\in k\left[X\right]$
+\end_inset
+
+ und es folgt, dass für die Erweiterung
+\begin_inset Formula 
+\begin{align*}
+\kappa(\underbrace{\mathfrak{m}'\cap k}_{=\left(0\right)})=k & \subseteq\kappa\left(\mathfrak{m}'\right)=\modulo{k\left[X\right]}{\left(f\right)}
+\end{align*}
+
+\end_inset
+
+gilt:
+\begin_inset Formula 
+\begin{align*}
+\dim_{k}\left(E\right) & =\deg\left(f\right)<\infty
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lem-Charakterisierung2-Jacobson"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für einen Ring 
+\begin_inset Formula $A$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ ist Jacobsen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal und 
+\begin_inset Formula $x\in\modulo A{\mathfrak{p}}$
+\end_inset
+
+ so, dass 
+\begin_inset Formula $\left(\modulo A{\mathfrak{p}}\right)\left[x^{-1}\right]$
+\end_inset
+
+ ein Körper ist, so ist 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ ein Körper.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Bemerkung
+\end_layout
+
+\begin_layout Standard
+Für alle 
+\begin_inset Formula $x\in\mathbb{Z}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathbb{Z}\left[x^{-1}\right]\subsetneq\mathbb{Q}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $\mathbb{Z}_{\left(p\right)}\left[p^{-1}\right]=\mathbb{Q}=\text{Quot}\left(\mathbb{Z}_{\left(p\right)}\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Wäre 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ kein Körper, so müsste 
+\begin_inset Formula $x\not\in\left(\modulo A{\mathfrak{p}}\right)^{*}$
+\end_inset
+
+ gelten, da sonst 
+\begin_inset Formula $\modulo A{\mathfrak{p}}=\modulo A{\mathfrak{p}}\left[x^{-1}\right]$
+\end_inset
+
+ ein Körper wäre.
+\end_layout
+
+\begin_layout Standard
+Da der Nullring kein Körper ist, ist 
+\begin_inset Formula $x\not=0$
+\end_inset
+
+.
+ Also läge 
+\begin_inset Formula $x$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-EinheitMaximalesIdeal"
+
+\end_inset
+
+ in einem maximalen Ideal 
+\begin_inset Formula $\left(0\right)\not=\mathfrak{m}\subseteq\modulo A{\mathfrak{p}}$
+\end_inset
+
+ und das Primideal 
+\begin_inset Formula $\left(0\right)\subseteq\modulo A{\mathfrak{p}}$
+\end_inset
+
+ wäre nicht maximal, da 
+\begin_inset Formula $\left(0\right)\subsetneq\mathfrak{m}$
+\end_inset
+
+ gilt.
+ Da 
+\begin_inset Formula $\left(0\right)$
+\end_inset
+
+ das einzige Primideal in 
+\begin_inset Formula $\modulo A{\mathfrak{p}}\left[x^{-1}\right]$
+\end_inset
+
+ ist, da dies ein Körper ist, muss nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Idealtheorie-Lokalisierung"
+
+\end_inset
+
+ iv) (mit 
+\begin_inset Formula $S:=\left\{ x^{n}\big|n\ge0\right\} $
+\end_inset
+
+) schon ein 
+\begin_inset Formula $x^{n}$
+\end_inset
+
+, also auch 
+\begin_inset Formula $x$
+\end_inset
+
+, in alle maximalen Idealen von 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ liegen.
+ Es folgt:
+\begin_inset Formula 
+\begin{align*}
+x\in\text{Jac}\left(\modulo A{\mathfrak{p}}\right) & \sr ={\text{i)}}{\ref{sec:Prop-Charakterisierung-Jacobson}\text{ i) \ensuremath{\Rightarrow}iv)}}\left(0\right)
+\end{align*}
+
+\end_inset
+
+Dies ist wegen 
+\begin_inset Formula $x\not=0$
+\end_inset
+
+ ein Widerspruch.
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Charakterisierung-Jacobson"
+
+\end_inset
+
+5.8 iv) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i) zeige für alle 
+\begin_inset Formula $\mathfrak{p}\in\text{Spec}\left(A\right)$
+\end_inset
+
+ nun 
+\begin_inset Formula $\text{Jac}\left(\modulo A{\mathfrak{p}}\right)=\left(0\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Angenommen dies gilt nicht, dann ist 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ ein Integritätsring und es gibt ein 
+\begin_inset Formula $0\not=x\in\text{Jac}\left(\modulo A{\mathfrak{p}}\right)$
+\end_inset
+
+.
+ Insbesondere ist 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ kein Körper.
+\end_layout
+
+\begin_layout Standard
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Idealtheorie-Lokalisierung"
+
+\end_inset
+
+ iv) besitzt 
+\begin_inset Formula $\left(\modulo A{\mathfrak{p}}\right)\left[x^{-1}\right]$
+\end_inset
+
+ keine von Null verschiedenen maximalen Ideale, ist also ein Körper.
+ Dies ist ein Widerspruch zu ii).
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Jacobsen Integritätsring und 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine von einem Element erzeugte 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra, die auch ein Integritätsring ist, und in der ein Element 
+\begin_inset Formula $b\in B$
+\end_inset
+
+ existiert, sodass 
+\begin_inset Formula $B\left[b^{-1}\right]$
+\end_inset
+
+ ein Körper ist.
+\end_layout
+
+\begin_layout Standard
+Dann ist 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ eine endliche Körpererweiterung.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Nach Voraussetzung gilt
+\begin_inset Formula 
+\begin{align*}
+B & \stackrel{\sim}{=}\modulo{A\left[X\right]}Q
+\end{align*}
+
+\end_inset
+
+als 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra für ein geeignetes Ideal 
+\begin_inset Formula $Q\subseteq A\left[X\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=1.5em, column sep=3em, text height=2.5ex
+, text depth=0.75ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { A[X] & B 
+\backslash
+ni x 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     A & 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$X
+\backslash
+mapsto x$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge (m-1-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Behauptung
+\begin_inset space ~
+\end_inset
+
+I: 
+\begin_inset Formula $Q\not=\left(0\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Beweis: Sonst wäre 
+\begin_inset Formula $B\stackrel{\sim}{=}A\left[X\right]$
+\end_inset
+
+ und 
+\begin_inset Formula $b=f\left(X\right)\in A\left[X\right]$
+\end_inset
+
+ so, dass 
+\begin_inset Formula $B\left[b^{-1}\right]=A\left[X\right]\left[\left(f\left(X\right)\right)^{-1}\right]$
+\end_inset
+
+ ein Körper ist.
+\begin_inset Newline newline
+\end_inset
+
+Es gilt 
+\begin_inset Formula $A\subseteq B\stackrel{B\text{ Integritätsring}}{\subseteq}B\left[b^{-1}\right]$
+\end_inset
+
+ und es folgt:
+\begin_inset Formula 
+\begin{align*}
+K & :=\text{Quot}\left(A\right)\subseteq B\left[b^{-1}\right]
+\end{align*}
+
+\end_inset
+
+Daher gilt:
+\begin_inset Formula 
+\begin{align*}
+A\left[X\right]\left[\left(f\left(X\right)\right)^{-1}\right] & =K\left[X\right]\left[\left(f\left(X\right)\right)^{-1}\right]
+\end{align*}
+
+\end_inset
+
+Dies ist ein Körper.
+ Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-HauptsatzFuerKoerperPolynomring"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-Charakterisierung2-Jacobson"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii) (mit 
+\begin_inset Formula $\mathfrak{p}=\left(0\right)$
+\end_inset
+
+) ist 
+\begin_inset Formula $K\left[X\right]$
+\end_inset
+
+ ein Körper.
+ Dies ist ein Widerspruch, da 
+\begin_inset Formula $0\not=X\not\in\left(K\left[X\right]\right)^{*}=K^{*}$
+\end_inset
+
+ ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung I]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
 \end_layout
 
 \end_inset

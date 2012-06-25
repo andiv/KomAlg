@@ -1194,7 +1194,7 @@ in $A$, weshalb $x\in\mathfrak{N}\left(A\right)$ ist, also $\overline{x}=0$
 ist.\qqed
 
 
-\section{Satz \textmd{(Nilradikal ist Schnitt aller Primideale)}\label{sec:Satz-NullidealIstSchnittPrimideale}}
+\section{Satz \textmd{(Nilradikal ist Schnitt aller Primideale)}\label{sec:Satz-NilradikalIstSchnittPrimideale}}
 
 Sei $A$ ein Ring. Dann gilt:
 \begin{align*}
@@ -1278,7 +1278,7 @@ surjektiv ist. Zudem ist offenbar $\pi\left(\sqrt{I}\right)=\mathfrak{N}\left(\m
 Nach der Definition von $\sqrt{I}$ folgt:
 \begin{align*}
 \sqrt{I} & =\pi^{-1}\left(\pi\left(\sqrt{I}\right)\right)=\pi^{-1}\left(\mathfrak{N}\left(\modulo AI\right)\right)=\\
- & \stackrel{\ref{sec:Satz-NullidealIstSchnittPrimideale}}{=}\pi^{-1}\left(\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\overline{\mathfrak{p}}\right)=\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\pi^{-1}\left(\overline{\mathfrak{p}}\right)=\\
+ & \stackrel{\ref{sec:Satz-NilradikalIstSchnittPrimideale}}{=}\pi^{-1}\left(\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\overline{\mathfrak{p}}\right)=\bigcap_{\overline{\mathfrak{p}}\subseteq\moduloScript AI\text{ PI}}\pi^{-1}\left(\overline{\mathfrak{p}}\right)=\\
  & \sr ={\ref{sec:Prop-UrbildPrimideal}}{\ref{sec:Prop-IdealeQuotientenring}}\sr{\bigcap_{\mathfrak{p}\subseteq A\text{ PI}}}{}{I\subseteq\mathfrak{p}}\mathfrak{p}
 \end{align*}
 \qqed
@@ -5976,7 +5976,7 @@ Also gilt:
 Es folgte $a^{2}+5b^{2}=2$ im Widerspruch zu $a,b\in\mathbb{Z}$.\qqed
 
 
-\section{Beispiel}
+\section{Beispiel\label{sec:Bsp-SpecC[X]-SpecR[X]}}
 
 Wie kann man $\text{Spec}\left(\mathbb{C}\left[X\right]\right)$ und
 $\text{Spec}\left(\mathbb{R}\left[X\right]\right)$ skizzieren?
@@ -6399,11 +6399,41 @@ Also ist $b$ ganz über $A$.\qqed
 Wegen \ref{sec:Prop-CharakterisierungGanz} \quotedblbase{}iii) $\Rightarrow$
 i)\textquotedblleft{} ist jede endliche Ringerweiterung ganz.
 
-Die Umkehrung gilt im Allgemeinen nicht, aber man kann zeigen, dass
-eine Ringerweiterung genau dann ganz ist, wenn sie Vereinigung ihrer
-endlichen Teilerweiterungen ist.
+Die Umkehrung gilt im Allgemeinen nicht. Eine Ringerweiterung genau
+dann ganz ist, wenn sie Vereinigung ihrer endlichen Teilerweiterungen
+ist:
 
-\textcolor{green}{TODO: Beweis als Übung einfügen.}
+Seien $A\subseteq B$ eine Ringerweiterung.
+\begin{align*}
+M & :=\left\{ C\subseteq B\big|C\text{ ist endliche }A\text{-Algebra}\right\} \\
+V & :=\bigcup_{C\in M}C
+\end{align*}
+$A\subseteq B$ ist genau dann ganz, wenn $B$ die Vereinigung aller
+endlichen $A$-Unteralgebren von $B$ ist, in Zeichen:
+\begin{align*}
+A\subseteq B\text{ ganz} & \quad\Leftrightarrow\quad B=V
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}$\Rightarrow$\textquotedblleft{}: Sei $A\subseteq B$
+ganz. Dann ist jedes $b\in B$ ganz über $A$. Daher ist die $A$-Unteralgebra
+$A\left[b\right]\subseteq B$ endlich und es gilt $b\in A\left[b\right]$.
+Somit folgt $A\left[b\right]\in M$ und es gilt für alle $\tilde{b}\in B$:
+\begin{align*}
+\tilde{b}\in A\left[\tilde{b}\right]\subseteq & \bigcup_{b\in B}A\left[b\right]\subseteq\bigcup_{C\in M}C=V\subseteq B
+\end{align*}
+Also folgt $B\subseteq V\subseteq B$ und somit $B=V$.\\
+\quotedblbase{}$\Leftarrow$\textquotedblleft{}: Sei $B=V$. Dann
+gilt für alle $b\in B$ schon:
+\begin{align*}
+b & \in V=\bigcup_{C\in M}C
+\end{align*}
+Also gibt es ein $C\in M$ mit $b\in C$. Da $A\subseteq C\subseteq B$
+gilt und $C$ endlich ist, folgt, dass $b$ ganz über $A$ ist. Da
+dies für alle $b\in B$ gilt, ist $A\subseteq B$ ganz.\qqed
 
 
 \section{Korollar\label{sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich}}
@@ -6779,7 +6809,6 @@ b & \stackrel{ab=1}{=}b^{n}a^{n-1}=-\left(a_{n-1}\underbrace{b^{n-1}a^{n-1}}_{=1
 
 Seien $A\subseteq B$ eine ganze Ringerweiterung und $\mathfrak{q}\subseteq B$
 ein Primideal, so betrachte das Primideal $\mathfrak{p}:=A\cap\mathfrak{q}\subseteq A$.
-
 Dann ist $\mathfrak{q}\subseteq B$ genau dann maximal, wenn $\mathfrak{p}\subseteq A$
 maximal ist.
 
@@ -6804,7 +6833,7 @@ also gilt:
 ist nach \ref{sec:Bsp-ganzerAbschlussZ} ganz.
 
 $\mathbb{Z}\left[\ii\right]$ ist ein Hauptidealring, also ist jedes
-von Null verschiedene Primideal $0\not=\mathfrak{p}\subseteq\mathbb{Z}\left[\ii\right]$
+von Null verschiedene Primideal $\left(0\right)\not=\mathfrak{p}\subseteq\mathbb{Z}\left[\ii\right]$
 maximal.
 
 Aus \ref{sec:Kor-maximalAequivalentRingerweiterung} folgt, dass $\mathfrak{p}\cap\mathbb{Z}\subseteq\mathbb{Z}$
@@ -6821,7 +6850,7 @@ nicht ganz.)
 \end{iiilist}
 
 
-\section{Korollar}
+\section{Korollar\label{sec:Kor-PrimidealGleich}}
 
 Seien $A\subseteq B$ eine ganze Ringerweiterung, $\mathfrak{q}\subseteq\mathfrak{q}'\subseteq B$
 Primideale, und es gelte $\mathfrak{q}\cap A=\mathfrak{q}'\cap A$.
@@ -6917,6 +6946,745 @@ noch $\mathfrak{q}'\subseteq\mathfrak{q}$.
 \par\end{center}
 
 \end{iiilist}
+
+%DATE: Di 19.6.12
+
+
+\section{Satz\label{sec:Satz-ExistenzErweitertesPrimideal}}
+
+Seien $\iota:A\subseteq B$ eine ganze Ringerweiterung und $\mathfrak{p}\subseteq A$
+ein Primideal. Dann existiert ein Primideal $\mathfrak{q}\subseteq B$
+mit $\mathfrak{p}=\mathfrak{q}\cap A$.
+
+(Äquivalent: Die Abbildung $\text{Spec}\left(\iota\right):\text{Spec}\left(B\right)\twoheadrightarrow\text{Spec}\left(A\right)$
+ist surjektiv.)
+
+
+\subsubsection*{Beweis}
+
+Betrachte folgendes kommutatives Diagramm von Ringen:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=1em, column sep=1.5em, text height=2.5ex, text depth=0.75ex]
+   { A & B \\
+     A_\mathfrak{p}& B_\mathfrak{p}:=\left(A\setminus\mathfrak{p}\right)^{-1}B\\};
+  \path[right hook->,font=\scriptsize] (m-1-1) edge node[above]{$\iota$} (m-1-2)
+                      (m-2-1) edge node[above]{$\iota_\mathfrak{p}$} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[left]{$\iota_A^{(A_\mathfrak{p})}$} (m-2-1);
+  \path[->,font=\scriptsize] (m-1-2) edge node[left]{$\iota_B^{(A_\mathfrak{p})}$} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+Wegen $A_{\mathfrak{p}}\not=\left(0\right)$, da $0\in\mathfrak{p}$
+ist $B_{\mathfrak{p}}\not=\left(0\right)$, also existiert nach dem
+Lemma von Zorn ein maximales Ideal $\mathfrak{m}\subseteq B_{\mathfrak{p}}$.
+
+Da $A_{\mathfrak{p}}\subseteq B_{\mathfrak{p}}$ nach \ref{sec:Kor-ganz-stabil-Lokalisierung}
+ganz ist, ist $\iota_{\mathfrak{p}}^{-1}\left(\mathfrak{m}\right)\subseteq A_{\mathfrak{p}}$
+nach \ref{sec:Kor-maximalAequivalentRingerweiterung} maximal.
+
+Da $A_{\mathfrak{p}}$ lokal ist, folgt $\iota_{\mathfrak{p}}^{-1}\left(\mathfrak{m}\right)=\mathfrak{p}A_{\mathfrak{p}}\subseteq A_{\mathfrak{p}}$.
+Nun ist
+\begin{align*}
+\mathfrak{q} & :=\left(\iota_{B}^{\left(A\setminus\mathfrak{p}\right)}\right)^{-1}\left(\mathfrak{m}\right)\subseteq B
+\end{align*}
+ein Primideal mit:
+\begin{align*}
+\mathfrak{q}\cap A & =\left(\iota_{A}^{\left(A\setminus\mathfrak{p}\right)}\right)^{-1}\left(\iota_{\mathfrak{p}}^{-1}\left(\mathfrak{m}\right)\right)=\left(\iota_{A}^{\left(A\setminus\mathfrak{p}\right)}\right)^{-1}\left(\mathfrak{p}A_{\mathfrak{p}}\right)=\mathfrak{p}
+\end{align*}
+\qqed
+
+
+\section{Satz \textmd{(\quotedblbase{}Going-up theorem\textquotedblleft{})\label{sec:Satz-Going-up-theorem}}}
+
+Seien $A\subseteq B$ eine ganze Ringerweiterung, $\mathfrak{p}_{1}\subseteq\mathfrak{p}_{2}\subseteq\ldots\subseteq\mathfrak{p}_{n}\subseteq A$
+Primideale, $0\le m<n$ und $\mathfrak{q}_{1}\subseteq\ldots\subseteq\mathfrak{q}_{m}\subseteq B$
+Primideale mit $\mathfrak{q}_{i}\cap A=\mathfrak{p}_{i}$.
+
+Dann existieren Primideale $\mathfrak{q}_{m}\subseteq\mathfrak{q}_{m+1}\subseteq\ldots\subseteq\mathfrak{q}_{n}\subseteq B$
+mit $\mathfrak{q}_{i}\cap A=\mathfrak{p}_{i}$ für alle Indizes $i\in\left\{ m+1,\ldots,n\right\} $.
+
+Skizze:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2.5ex, text depth=0.75ex]
+   { \mathfrak{q}_{1} & \ldots &  \mathfrak{q}_{m} & \color{red}{\mathfrak{q}_{m+1}} & \color{red}{\ldots} &\color{red}{\mathfrak{q}_{n}} & B \\
+     \mathfrak{p}_1 & \ldots & \mathfrak{p}_m & \mathfrak{p}_{m+1} & \ldots & \mathfrak{p}_n & A \\};
+  \path[right hook->,font=\scriptsize] (m-2-7) edge node[right]{ganz} (m-1-7);
+  \path (m-1-1) -- node{$\subseteq$} (m-1-2) -- node{$\subseteq$} (m-1-3) -- node[color=red]{$\subseteq$} (m-1-4) -- node[color=red]{$\subseteq$} (m-1-5) -- node[color=red]{$\subseteq$} (m-1-6) -- node[color=red]{$\subseteq$} (m-1-7);
+  \path (m-2-1) -- node{$\subseteq$} (m-2-2) -- node{$\subseteq$} (m-2-3) -- node{$\subseteq$} (m-2-4) -- node{$\subseteq$} (m-2-5) -- node{$\subseteq$} (m-2-6) -- node{$\subseteq$} (m-2-7);
+  \draw (m-1-1) -- (m-2-1) (m-1-3) -- (m-2-3);
+  \draw[color=red] (m-1-4) -- (m-2-4) (m-1-6) -- (m-2-6);
+\end{tikzpicture}
+\par\end{center}
+
+
+\subsubsection*{Beweis}
+
+Der Fall $m=0$ und $n=1$ folgt aus \ref{sec:Satz-ExistenzErweitertesPrimideal}.
+Durch Induktion kann man $m=1$ und $n=2$ angenommen werden, das
+heißt:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2em, column sep=1em, text height=2.5ex, text depth=0.75ex]
+   { \mathfrak{q}_1 &  \color{red}{\mathfrak{q}_{2}} & B \\
+     \mathfrak{p}_1 & \mathfrak{p}_2 & A \\};
+  \path[right hook->,font=\scriptsize] (m-2-3) edge node[right]{ganz} (m-1-3);
+  \path (m-1-1) -- node[color=red]{$\subseteq$} (m-1-2) -- node[color=red]{$\subseteq$} (m-1-3);
+  \path (m-2-1) -- node{$\subseteq$} (m-2-2) -- node{$\subseteq$} (m-2-3);
+  \draw (m-1-1) -- (m-2-1);
+  \draw[color=red] (m-1-2) -- (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+Die Ringerweiterung $\overline{A}:=\modulo A{\mathfrak{p}_{1}}\subseteq\overline{B}:=\modulo B{\mathfrak{q}_{1}}$
+ist wegen $\mathfrak{p}_{1}=A\cap\mathfrak{q}_{1}$ nach \ref{sec:Prop-ganz-stabil-unter-Basiswechsel}
+i) ganz.
+
+Wegen \ref{sec:Satz-ExistenzErweitertesPrimideal} existiert ein Primideal
+$\overline{\mathfrak{q}_{2}}\subseteq\overline{B}$ mit $\overline{\mathfrak{q}_{2}}\cap\overline{A}=\overline{\mathfrak{p}_{2}}:=\modulo{\mathfrak{p}_{2}}{\mathfrak{p}_{1}}\subseteq\overline{A}$.
+
+Das Urbild $\mathfrak{q}_{2}:=\left(B\twoheadrightarrow\overline{B}\right)^{-1}\left(\overline{\mathfrak{q}_{2}}\right)\subseteq B$
+ist ein Primideal mit:
+\begin{align*}
+\mathfrak{q}_{2}\cap A & =\left(A\twoheadrightarrow\overline{A}\right)^{-1}\left(\overline{\mathfrak{p}_{2}}\right)=\mathfrak{p}_{2}
+\end{align*}
+\qqed
+
+
+\chapter{Der Hilbertsche Nullstellensatz}
+
+
+\section{Beispiel\label{sec:Bsp-NullstellensatzFuerC}}
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \node at (-4,5) {Algebra};   \node at (2,5) {Geometrie};
+  \node at (-4,4) {$\mathbb{C}[X]$}; \node at (2,4) {$\mathbb{C}=\mathbb{R}\oplus \ii \mathbb{R}\stackrel{\sim}{=}\mathbb{R}^2$};
+  \node (L) at (-4,3) {$\mathbb{C}[X] \ni f$}; \node (R) at (2,3) {$\mathcal{N}(f):=\{z\in\mathbb{C}\big| f(z)=0\}$};
+  \draw[|->] (L) -- (R);
+\node (L2) at (-4,2) {$\mathbb{C}[X]\supseteq \{ f\in\mathbb{C}[X] \big|\fall_{x\in M} f(x)=0\}=:I(M)$}; \node (R2) at (2,2) {$M \subseteq \mathbb{C}$};
+  \draw[|->] (R2) -- (L2);
+
+\end{tikzpicture}
+\par\end{center}
+
+Allgemeiner: Sei $I\subseteq\mathbb{C}\left[X\right]$ ein Ideal,
+so ist die Nullstellenmenge:
+\begin{align*}
+\mathcal{N}\left(I\right) & :=\left\{ z\in\mathbb{C}\bigg|\fall_{f\in I}\ f\left(z\right)=0\right\} 
+\end{align*}
+Dann gilt $\mathcal{N}\left(f\right)=\mathcal{N}\left(\left(f\right)\right)$. 
+
+Man sieht leicht:
+\begin{itemize}
+\item Ist $M\subseteq\mathbb{C}$ unendlich, so gilt:
+\begin{align*}
+I\left(M\right) & =\left(0\right)
+\end{align*}
+
+\item Ist $M=\left\{ z_{1},\ldots,z_{n}\right\} \subseteq\mathbb{C}$ endlich,
+so gilt:
+\begin{align*}
+I\left(M\right) & =\left(\prod_{i=1}^{n}\left(X-z_{i}\right)\right)
+\end{align*}
+
+\end{itemize}
+Es folgt:
+\begin{align*}
+\mathcal{N}\left(I\left(M\right)\right) & =\begin{cases}
+M & \text{falls }M\text{ endlich}\\
+\mathbb{C} & \text{falls }M\text{ unendlich}
+\end{cases}
+\end{align*}
+Nach \ref{sec:Bsp-SpecC[X]-SpecR[X]} ist also $\mathcal{N}\left(I\left(M\right)\right)$
+genau der Abschluss von $M$ in der Zariski-Topologie auf:
+\begin{align*}
+\text{MaxSpec}\left(\mathbb{C}\left[X\right]\right):=\left\{ \mathfrak{m}\subseteq\mathbb{C}\left[X\right]\big|\mathfrak{m}\text{ ist maximles Ideal}\right\}  & \stackrel{\sim}{=}\mathbb{C}\\
+X-\alpha & \mapsto\alpha
+\end{align*}
+Sei $f\in\mathbb{C}\left[X\right]$. Für $f=0$ gilt:
+\begin{align*}
+I\left(\mathcal{N}\left(\left(0\right)\right)\right) & =I\left(\mathbb{C}\right)=\left(0\right)
+\end{align*}
+Sei $f\in\mathbb{C}\left[X\right]^{*}=\mathbb{C}^{*}=\mathbb{C}\setminus\left\{ 0\right\} $,
+so gilt:
+\begin{align*}
+I\left(\mathcal{N}\left(\left(f\right)\right)\right) & =I\left(\emptyset\right)=\left(1\right)=\left(f\right)
+\end{align*}
+Andernfalls betrachte die Primfaktorzerlegung von $f$:
+\begin{align*}
+f\left(X\right) & =\alpha\cdot\prod_{i=1}^{n}\left(X-z_{i}\right)^{n_{i}}
+\end{align*}
+Dabei sind $\alpha\in\mathbb{C}^{*}$, $n\in\mathbb{N}_{\ge1}$, $z_{i}\in\mathbb{C}$
+und $n_{i}\in\mathbb{N}_{\ge1}$ geeignet gewählt.
+
+Dann gilt $\mathcal{N}\left(\left(f\right)\right)=\left\{ z_{1},\ldots,z_{n}\right\} $,
+also folgt:
+\begin{align*}
+I\left(\mathcal{N}\left(\left(f\right)\right)\right) & =\left(\prod_{i=1}^{n}\left(X-z_{i}\right)\right)=\sqrt{\left(f\right)}
+\end{align*}
+Denn ist $g\in\left(\prod_{i=1}^{n}\left(X-z_{i}\right)\right)$,
+so folgt mit $m:=\text{max}\left\{ n_{i}|1\le i\le n\right\} $ schon
+$g^{m}\in\left(f\right)$, also $g\in\sqrt{\left(f\right)}$.
+
+Ist hingegen $g\in\sqrt{\left(f\right)}$, so gibt es ein $m\in\mathbb{N}$
+mit $g^{m}\in\left(f\right)$. Insbesondere sind alle $\left(X-z_{i}\right)$
+Teiler von $g^{m}$ und da dies irreduzible Faktoren, also Primfaktoren
+sind, da $\mathbb{C}\left[X\right]$ faktoriell ist, sind dies auch
+Teiler von $g$. Also folgt $g\in\left(\prod_{i=1}^{n}\left(X-z_{i}\right)\right)$.
+
+In jedem Fall gilt:
+\begin{align*}
+I\left(\mathcal{N}\left(\left(f\right)\right)\right) & =\sqrt{\left(f\right)}
+\end{align*}
+
+
+
+\section{Definition \textmd{(Nullstellenmenge, Verschwindungsideal)}}
+
+Seien $k$ ein Körper, $n\in\mathbb{N}_{\ge1}$ und $A:=k\left[X_{1},\ldots,X_{n}\right]$.
+
+\begin{iiilist}
+
+\iii Für ein Ideal $I\subseteq A$ heißt
+\begin{align*}
+k^{n}\supseteq\mathcal{N}\left(I\right) & :=\left\{ \left(\alpha_{1},\ldots,\alpha_{n}\right)\in k^{n}\bigg|\fall_{f\in I}\,:\, f\left(\alpha_{1},\ldots,\alpha_{n}\right)=0\right\} 
+\end{align*}
+\emph{die Nullstellenmenge von $I$}. Eine Teilmenge $M\subseteq k^{n}$
+heißt \emph{algebraisch}, falls $M=\mathcal{N}\left(I\right)$ für
+ein geeignetes Ideal $I\subseteq A$ gilt.
+
+\iii Für eine Teilmenge $M\subseteq k^{n}$ ist
+\begin{align*}
+A\supseteq I\left(M\right) & :=\left\{ f\in A\bigg|\fall_{x\in M}\,:\, f\left(x\right)=0\right\} 
+\end{align*}
+ein Ideal und heißt \emph{das Verschwindungsideal von $M$}.
+
+\end{iiilist}
+
+
+\section{Satz \textmd{(Hilbertscher Nullstellensatz)\label{sec:Satz-Hilbertscher-Nullstellensatz}}}
+
+Seien $k$ ein algebraisch abgeschlossener Körper und $n\in\mathbb{N}_{\ge1}$.
+
+Dann gilt für jedes Ideal $J\subseteq A:=k\left[X_{1},\ldots,X_{n}\right]$:
+\begin{align*}
+I\left(\mathcal{N}\left(J\right)\right) & =\sqrt{J}
+\end{align*}
+Die Abbildungen
+\begin{align*}
+\left\{ J\big|J\subseteq A\text{ Ideal mit }J=\sqrt{J}\right\}  & \sr{\leftrightarrows}{\sim}{\sim}\left\{ M\big|M\subseteq k^{n}\text{ algebraisch}\right\} \\
+J & \mapsto\mathcal{N}\left(J\right)\\
+I\left(M\right) & \mapsfrom M
+\end{align*}
+sind wohldefiniert und zueinander invers. Insbesondere sind beide
+bijektiv.
+
+Der Beweis benötigt erhebliche Vorarbeit.
+
+
+\section{Bemerkung und Beispiel}
+
+\begin{iiilist}
+
+\iii Für jede Teilmenge $M\subseteq k^{n}$ gilt:
+\begin{align*}
+\sqrt{I\left(M\right)} & =I\left(M\right)
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+Nach Definition des Radikals gilt:
+\begin{align*}
+\sqrt{I\left(M\right)} & =\left\{ f\in k\left[X_{1},\ldots,X_{n}\right]\bigg|\exs_{n\in\mathbb{N}}\,:\, f^{n}\in I\left(M\right)\right\} \supseteq I\left(M\right)
+\end{align*}
+Sei nun $f\in\sqrt{I\left(M\right)}$, also gibt es ein $n\in\mathbb{N}$
+mit $f^{n}\in I\left(M\right)$. Es folgt für alle $x\in M$:
+\begin{align*}
+0 & =\left(f^{n}\right)\left(x\right)=\left(f\left(x\right)\right)^{n}\in k
+\end{align*}
+Da $k$ ein Körper ist, folgt $f\left(x\right)=0$, also $f\in I\left(M\right)$.\qqed[\roman{ale2})]
+
+\iii Für $k=\mathbb{C}$ ist die Teilmenge
+\begin{align*}
+\mathbb{C}\supseteq S^{1} & :=\left\{ z\in\mathbb{C}\big|\abs z^{2}=1\right\} 
+\end{align*}
+nicht algebraisch, denn nach \ref{sec:Bsp-NullstellensatzFuerC} ist
+die einzige unendliche algebraische Teilmenge von $\mathbb{C}$ schon
+$\mathbb{C}$ selbst.
+
+Betrachte nun $\mathbb{C}\stackrel{\sim}{=}\mathbb{R}+\ii\mathbb{R}$.
+Für $k=\mathbb{R}$ gilt:
+\begin{align*}
+\mathbb{R}^{2}\supseteq\mathcal{N}\left(\left(X^{2}+Y^{2}-1\right)\right) & =\left\{ \left(x,y\right)\in\mathbb{R}^{2}\big|x^{2}+y^{2}=1\right\} \stackrel{\sim}{=}S^{1}\\
+\mathbb{R}^{2}\stackrel{\sim}{=}\mathbb{C} & \hookleftarrow S^{1}
+\end{align*}
+
+
+\iii Für $k=\mathbb{R}$ und $n=1$ gilt:
+\begin{align*}
+I\left(\mathcal{N}\left(\left(X^{2}+1\right)\right)\right) & =I\left(\left\{ x\in\mathbb{R}\big|x^{2}+1=0\right\} \right)=I\left(\emptyset\right)=\\
+ & =\left(1\right)=\mathbb{R}\left[X\right]\not=\sqrt{\left(X^{2}+1\right)}=\left(X^{2}+1\right)
+\end{align*}
+Also kann man im Hilbertschen Nullstellensatz \ref{sec:Satz-Hilbertscher-Nullstellensatz}
+nicht auf die Voraussetzung \quotedblbase{}$k$ algebraisch abgeschlossen\textquotedblleft{}
+verzichten.
+
+\end{iiilist}
+
+
+\section{Korollar}
+
+Seien $k$ ein algebraisch abgeschlossener Körper, $n,m\in\mathbb{N}_{\ge1}$
+und $f_{1},\ldots,f_{m}\in k\left[X_{1},\ldots,X_{n}\right]$. Dann
+sind äquivalent:
+
+\begin{iiilist}
+
+\iii Es gibt ein $\left(\alpha_{1},\ldots,\alpha_{n}\right)\in k^{n}$
+mit $f_{i}\left(\alpha_{1},\ldots,\alpha_{n}\right)=0$ für alle $1\le i\le m$.
+
+\iii Keine Linearkombination mit beliebigen $g_{i}\in k\left[X_{1},\ldots,X_{n}\right]$
+erfüllt: 
+\begin{align*}
+\sum_{i=1}^{n}g_{i}f_{i} & =1
+\end{align*}
+
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Aus
+\begin{align*}
+\sum_{i=1}^{n}g_{i}f_{i} & =1
+\end{align*}
+folgte der Widerspruch:
+\begin{align*}
+1 & =\left(\sum_{i=1}^{n}g_{i}f_{i}\right)\left(\alpha_{1},\ldots,\alpha_{n}\right)=\sum_{i=1}^{n}g_{i}\left(\alpha_{1},\ldots,\alpha_{n}\right)\underbrace{f_{i}\left(\alpha_{1},\ldots,\alpha_{n}\right)}_{=0}=0
+\end{align*}
+
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Die Voraussetzung
+besagt:
+\begin{align*}
+J & :=\left(f_{1},\ldots,f_{m}\right)\not=\left(1\right)
+\end{align*}
+Zu zeigen ist, dass $\mathcal{N}\left(J\right)\not=\emptyset$. Andernfalls
+hätte man:
+\begin{align*}
+\sqrt{J} & \stackrel{\ref{sec:Satz-Hilbertscher-Nullstellensatz}}{=}I\left(\mathcal{N}\left(J\right)\right)=I\left(\emptyset\right)=\left(1\right)
+\end{align*}
+Also folgte auch $J=\left(1\right)$, denn aus $1\in\sqrt{J}$ folgt
+$1^{n}=1\in J$ für ein geeignetes $n\in\mathbb{N}$. Dies ist ein
+Widerspruch.\qqed
+
+
+\section{Definition \textmd{(Jacobsen)}}
+
+Ein Ring heißt \emph{Jacobsen}, falls jedes seiner Primideale Durchschnitt
+von maximalen Idealen ist.
+
+
+\section{Beispiel\label{sec:Bsp-JacobsonQuotientenring}}
+
+\begin{iiilist}
+
+\iii Jeder Körper ist Jacobsen, da das einzige Primideal $\left(0\right)$
+schon maximal ist.
+
+\iii $\mathbb{Z}$ ist Jacobsen. Das einzige nicht-maximale Primideal
+ist $\left(0\right)$ und es gilt:
+\begin{align*}
+\left(0\right) & =\bigcap_{p\text{ Primzahl}}\left(p\right)
+\end{align*}
+Außerdem ist jedes $\left(p\right)\subseteq\mathbb{Z}$ maximal.
+
+\iii Sind $A$ Jacobsen und $I\subseteq A$ ein Ideal, so ist $\modulo AI$
+Jacobsen.
+
+Dies folgt aus \ref{sec:DuB-Ideal} iii).
+
+\iii Ist $A$ ein lokaler Integritätsring, so gilt:
+\begin{align*}
+A\text{ Jacobsen} & \Leftrightarrow A\text{ Körper}
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}$\Leftarrow$\textquotedblleft{}: i).
+
+\quotedblbase{}$\Rightarrow$\textquotedblleft{}: Sei $\mathfrak{m}\subseteq A$
+das einzige maximale Ideal. Da $A$ ein Integritätsring ist, ist $\left(0\right)\subseteq A$
+ein Primideal. Da $A$ Jacobsen ist, folgt $\left(0\right)=\mathfrak{m}$,
+da $\mathfrak{m}$ das einzige maximale Ideal ist. Also ist $A\stackrel{\sim}{=}\modulo A{\left(0\right)}=\modulo A{\mathfrak{m}}$
+ein Körper.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+%DATE: Fr 22.6.12
+
+
+\section{Proposition \textmd{(Charakterisierung Jacobson)\label{sec:Prop-Charakterisierung-Jacobson}}}
+
+Für einen Ring $A$ sind äquivalent:
+
+\begin{iiilist}
+
+\iii $A$ ist Jacobsen.
+
+\iii Es gilt:
+\begin{align*}
+\text{Jac}\left(A\right) & =\mathfrak{N}\left(A\right)
+\end{align*}
+
+
+\iii Für jedes Ideal $I\subseteq A$ gilt:
+\begin{align*}
+\text{Jac}\left(\modulo AI\right) & =\mathfrak{N}\left(\modulo AI\right)
+\end{align*}
+\iii Für jedes $\mathfrak{p}\in\text{Spec}\left(A\right)$ gilt:
+\begin{align*}
+\text{Jac}\left(\modulo A{\mathfrak{p}}\right) & =\left(0\right)
+\end{align*}
+
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Es gilt:
+\begin{align*}
+\mathfrak{N}\left(A\right) & \stackrel{\ref{sec:Satz-NilradikalIstSchnittPrimideale}}{=}\bigcap_{\mathfrak{p}\in\text{Spec}\left(A\right)}\mathfrak{p}\stackrel{\text{i)}}{=}\bigcap_{\mathfrak{p}\in\text{Spec}\left(A\right)}\left(\bigcap_{\mathfrak{p}\subseteq\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\mathfrak{m}\right)=\bigcap_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\mathfrak{m}\stackrel{\text{Definition}}{=}\text{Jac}\left(A\right)
+\end{align*}
+\quotedblbase{}ii) $\Rightarrow$ iii)\textquotedblleft{}: Wegen \ref{sec:Bsp-JacobsonQuotientenring}
+iii) ist $\modulo AI$ auch Jacobson und die Behauptung folgt aus
+ii).
+
+\quotedblbase{}iii) $\Rightarrow$ iv)\textquotedblleft{}: Ist $\mathfrak{p}\subseteq A$
+ein Primideal, so ist $\modulo A{\mathfrak{p}}$ ein Integritätsring,
+also folgt aus iii):
+\begin{align*}
+\text{Jac}\left(\modulo A{\mathfrak{p}}\right) & =\mathfrak{N}\left(\modulo A{\mathfrak{p}}\right)=\left(0\right)
+\end{align*}
+
+
+\quotedblbase{}iv) $\Rightarrow$ i)\textquotedblleft{}: Ist $\mathfrak{p}\subseteq A$
+ein Primideal, so gilt nach der Korrespondenz von Primidealen im Ring
+und Quotientenring:
+\begin{align*}
+\modulo{\left(\bigcap_{\mathfrak{p}\subseteq\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\mathfrak{m}\right)}{\mathfrak{p}} & \stackrel{\sim}{=}\bigcap_{\overline{\mathfrak{m}}\in\text{MaxSpec}\left(\modulo A{\mathfrak{p}}\right)}\overline{\mathfrak{m}}=\text{Jac}\left(\modulo A{\mathfrak{p}}\right)\stackrel{\text{iv)}}{=}\left(0\right)
+\end{align*}
+Also gilt:
+\begin{align*}
+\mathfrak{p} & =\bigcap_{\mathfrak{p}\subseteq\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\mathfrak{m}
+\end{align*}
+\qqed
+
+
+\section{Beispiel\label{sec:Bsp-HauptidealringJacobson}}
+
+Für einen Hauptidealring $A$, der kein Körper ist, sind äquivalent:
+
+\begin{iiilist}
+
+\iii $A$ ist Jacobsen.
+
+\iii $\abs{\text{Spec}\left(A\right)}=\infty$
+
+\end{iiilist}
+
+(vergleiche \ref{sec:Bsp-JacobsonQuotientenring} ii))
+
+$\mathbb{Z}_{\left(p\right)}$ ist ein Hauptidealring mit $\abs{\text{Spec}\left(\mathbb{Z}_{\left(p\right)}\right)}=2$,
+also nicht Jacobsen.
+
+
+\subsubsection*{Beweis}
+
+Da $A$ kein Körper ist, gilt:
+\begin{align*}
+\text{Spec}\left(A\right) & =\left\{ \left(0\right)\right\} \dot{\cup}\left\{ \mathfrak{m}\big|\mathfrak{m}\subseteq A\text{ maximales Ideal}\right\} =\left\{ \left(0\right)\right\} \dot{\cup}\underbrace{\text{MaxSpec}\left(A\right)}_{\not=\emptyset}
+\end{align*}
+Schreibe $\mathfrak{m}=\left(f_{m}\right)\in\text{MaxSpec}\left(A\right)$
+für geeignetes $f_{m}\in A$, was möglich ist, da $A$ ein Hauptidealring
+ist.
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Wäre $\abs{\text{Spec}\left(A\right)}<\infty$,
+so folgte mit dem Chinesischen Restsatz:
+\begin{align*}
+\left(0\right) & \stackrel{\text{i)}}{=}\bigcap_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(f_{m}\right)\sr ={\abs{\text{Spec}\left(A\right)}<\infty}{\ref{sec:Satz-Chinesischer-Restsatz}}\left(\prod_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}f_{m}\right)
+\end{align*}
+Also folgte:
+\begin{align*}
+\prod_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}f_{m} & =0
+\end{align*}
+Dies ist ein Widerspruch zu $f_{m}\not=0$, da $A$ als Hauptidealring
+ein Integritätsring ist.
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Offenbar
+ist jedes maximale Ideal Durchschnitt maximaler Ideale. Zeige also
+nur:
+\begin{align*}
+\left(0\right) & =\bigcap_{\mathfrak{m}\in\text{MaxSpec}\left(A\right)}\left(f_{m}\right)=\text{Jac}\left(A\right)
+\end{align*}
+Ein $f\in\text{Jac}\left(A\right)$ hat wegen ii) unendlich viele
+Primteiler, also gilt $f=0$, da jeder Hauptidealring faktoriell ist.\qqed
+
+
+\section{Proposition}
+
+Sind $f:A\to B$ ein ganzer Ringhomomorphismus und $A$ Jacobsen,
+so ist $B$ auch Jacobsen.
+
+
+\subsubsection*{Beweis}
+
+Es ist $\text{im}\left(f\right)\stackrel{\sim}{=}\modulo A{\text{ker}\left(f\right)}$
+Jacobsen nach \ref{sec:Bsp-JacobsonQuotientenring} iii) und die Ringerweiterung
+$\text{im}\left(f\right)\subseteq B$ ist ganz.
+
+Sei also ohne Einschränkung $A\subseteq B$ eine ganze Ringerweiterung.
+
+Sei $\mathfrak{p}\subseteq B$ ein Primideal, so ist $\mathfrak{q}:=A\cap\mathfrak{p}$
+ein Primideal und da $A$ Jacobsen ist, gibt es eine Menge $\left\{ \mathfrak{m}_{i}\right\} _{i\in I}$
+von maximalen Idealen von $A$ mit:
+\begin{align*}
+\mathfrak{q} & =\bigcap_{i\in I}\mathfrak{m}_{i}
+\end{align*}
+Bildchen:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=1.5em, column sep=1em, text height=2.5ex, text depth=0.75ex]
+   { \mathfrak{p} &  \tilde{\mathfrak{p}} & \mathfrak{p}_i & B \\
+     \mathfrak{q} && \mathfrak{m}_i & A \\};
+  \path[right hook->,font=\scriptsize] (m-2-4) edge node[right]{ganz} (m-1-4);
+  \path (m-1-1) -- node{$\subseteq$} (m-1-2) -- node{$\subseteq$} (m-1-3) -- node{$\subseteq$} (m-1-4);
+  \path (m-2-1) -- node{$\subseteq$} (m-2-3) -- node{$\subseteq$} (m-2-4);
+  \draw (m-1-1) -- (m-2-1) -- (m-1-2);
+  \draw (m-1-3) -- (m-2-3);
+\end{tikzpicture}
+\par\end{center}
+
+Nach dem \foreignlanguage{english}{Going-up theorem} \ref{sec:Satz-Going-up-theorem}
+existiert für jedes $i\in I$ ein Primideal $\mathfrak{p}_{i}\subseteq B$
+mit $\mathfrak{p}\subseteq\mathfrak{p}_{i}$ und $\mathfrak{p}_{i}\cap A=\mathfrak{m}_{i}$.
+
+Wegen \ref{sec:Kor-maximalAequivalentRingerweiterung} ist jedes $\mathfrak{p}_{i}\subseteq B$
+sogar ein maximales Ideal.
+
+Nun gelten
+\begin{align*}
+\mathfrak{p} & \subseteq\tilde{\mathfrak{p}}:=\bigcap_{i\in I}\mathfrak{p}_{i}\subseteq B
+\end{align*}
+und:
+\begin{align*}
+\mathfrak{q} & =\mathfrak{p}\cap A\subseteq\tilde{\mathfrak{p}}\cap A=\bigcap_{i\in I}\left(\mathfrak{p}_{i}\cap A\right)=\bigcap_{i\in I}\mathfrak{m}_{i}=\mathfrak{q}
+\end{align*}
+Daher gilt $\mathfrak{p}\cap A=\tilde{\mathfrak{p}}\cap A$. Aus einer
+leichten Verallgemeinerung (für $\mathfrak{q}'$ kein Primideal) von
+\ref{sec:Kor-PrimidealGleich} folgt, dass $\mathfrak{p}=\tilde{\mathfrak{p}}$
+gilt.
+
+Also ist $\mathfrak{p}$ Durchschnitt maximaler Ideale von $B$.\qqed
+
+
+\section{Satz \textmd{(Hauptsatz über Jacobson-Ringe)\label{sec:Satz-Hauptsatz-Jacobson}}}
+
+Seien $A$ Jacobson und $f:A\to B$ eine endlich erzeugte $A$-Algebra,
+dann gelten:
+
+\begin{iiilist}
+
+\iii $B$ ist Jacobson.
+
+\iii Ist $\mathfrak{m}'\subseteq B$ ein maximales Ideal, so ist
+auch $\mathfrak{m}:=f^{-1}\left(\mathfrak{m}'\right)\subseteq A$
+ein maximales Ideal und die Erweiterung der Restklassenkörper
+\begin{align*}
+\kappa\left(\mathfrak{m}\right) & =\modulo A{\mathfrak{m}}\subseteq\kappa\left(\mathfrak{m}'\right)=\modulo B{\mathfrak{m}'}
+\end{align*}
+ist endlich.
+
+\end{iiilist}
+
+
+\subsubsection*{Bemerkung}
+
+$\mathbb{Z}$ ist Jacobson und jeder Ring ist eine $\mathbb{Z}$-Algebra,
+aber nicht notwendigerweise Jacobson. Also kann man auf die Voraussetzung
+\quotedblbase{}endlich erzeugt\textquotedblleft{} nicht verzichten.
+
+Insbesondere ist $\mathbb{Z}_{\left(p\right)}$ als $\mathbb{Z}$-Algebra
+nicht endlich erzeugt, da $\mathbb{Z}_{\left(p\right)}$ nicht Jacobson
+ist.
+
+
+\section{Lemma\label{sec:Lem-HauptsatzFuerKoerperPolynomring}}
+
+\ref{sec:Satz-Hauptsatz-Jacobson} gilt, für $\left(f:A\to B\right):=\left(k\subseteq k\left[X\right]\right)$
+für einen Körper $k$.
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Da $k\left[X\right]$ ein Hauptidealring ist, zeige wegen \ref{sec:Bsp-HauptidealringJacobson}
+ii) $\Rightarrow$ i) nur, dass $\abs{\text{Spec}\left(k\left[X\right]\right)}=\infty$
+gilt, das heißt es gibt unendlich viele normierte irreduzible Polynome,
+denn zwei Polynome erzeugen genau dann dasselbe Hauptideal, wenn sie
+sich um einen konstanten Faktor unterscheiden.
+
+Angenommen es gäbe nur die endlich vielen normierten irreduziblen
+Polynome $f_{1},\ldots,f_{n}$. Sei ohne Einschränkung $f_{1}=X$.
+Dann folgte für
+\begin{align*}
+F & :=\left(\prod_{i=1}^{n}f_{i}\right)+1
+\end{align*}
+schon:
+\begin{align*}
+\text{deg}\left(F\right) & \ge\deg\left(f_{1}\right)=1
+\end{align*}
+Also gilt $F\not\in\left(k\left[X\right]\right)^{*}$. Daher gibt
+es ein normiertes irreduzibles $f\in k\left[X\right]$ mit $f\big|F$.
+Wäre $f=f_{i}$, so folgte aus der Definition von $F$, dass $f_{i}\big|1$
+gelten würde. Dies ist aber ein Widerspruch dazu, dass $f_{i}$ prim
+ist. Also ist $f\not\in\left\{ f_{1},\ldots,f_{n}\right\} $ ein normiertes
+irreduzibles Polynom. Dies ist ein Widerspruch dazu, dass dies die
+einzigen Primelemente sind.\qqed[\roman{ale2})]
+
+\iii Ist $\mathfrak{m}'\subseteq k\left[X\right]$ maximal, so gilt
+$\mathfrak{m}':=\left(f\right)$ für ein normiertes irreduzibles $f\in k\left[X\right]$
+und es folgt, dass für die Erweiterung
+\begin{align*}
+\kappa(\underbrace{\mathfrak{m}'\cap k}_{=\left(0\right)})=k & \subseteq\kappa\left(\mathfrak{m}'\right)=\modulo{k\left[X\right]}{\left(f\right)}
+\end{align*}
+gilt:
+\begin{align*}
+\dim_{k}\left(E\right) & =\deg\left(f\right)<\infty
+\end{align*}
+\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Lemma\label{sec:Lem-Charakterisierung2-Jacobson}}
+
+Für einen Ring $A$ sind äquivalent:
+
+\begin{iiilist}
+
+\iii $A$ ist Jacobsen.
+
+\iii Sind $\mathfrak{p}\subseteq A$ ein Primideal und $x\in\modulo A{\mathfrak{p}}$
+so, dass $\left(\modulo A{\mathfrak{p}}\right)\left[x^{-1}\right]$
+ein Körper ist, so ist $\modulo A{\mathfrak{p}}$ ein Körper.
+
+\end{iiilist}
+
+
+\subsubsection*{Bemerkung}
+
+Für alle $x\in\mathbb{Z}$ gilt $\mathbb{Z}\left[x^{-1}\right]\subsetneq\mathbb{Q}$.
+
+$\mathbb{Z}_{\left(p\right)}\left[p^{-1}\right]=\mathbb{Q}=\text{Quot}\left(\mathbb{Z}_{\left(p\right)}\right)$
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Wäre $\modulo A{\mathfrak{p}}$
+kein Körper, so müsste $x\not\in\left(\modulo A{\mathfrak{p}}\right)^{*}$
+gelten, da sonst $\modulo A{\mathfrak{p}}=\modulo A{\mathfrak{p}}\left[x^{-1}\right]$
+ein Körper wäre.
+
+Da der Nullring kein Körper ist, ist $x\not=0$. Also läge $x$ nach
+\ref{sec:Kor-EinheitMaximalesIdeal} in einem maximalen Ideal $\left(0\right)\not=\mathfrak{m}\subseteq\modulo A{\mathfrak{p}}$
+und das Primideal $\left(0\right)\subseteq\modulo A{\mathfrak{p}}$
+wäre nicht maximal, da $\left(0\right)\subsetneq\mathfrak{m}$ gilt.
+Da $\left(0\right)$ das einzige Primideal in $\modulo A{\mathfrak{p}}\left[x^{-1}\right]$
+ist, da dies ein Körper ist, muss nach \ref{sec:Satz-Idealtheorie-Lokalisierung}
+iv) (mit $S:=\left\{ x^{n}\big|n\ge0\right\} $) schon ein $x^{n}$,
+also auch $x$, in alle maximalen Idealen von $\modulo A{\mathfrak{p}}$
+liegen. Es folgt:
+\begin{align*}
+x\in\text{Jac}\left(\modulo A{\mathfrak{p}}\right) & \sr ={\text{i)}}{\ref{sec:Prop-Charakterisierung-Jacobson}\text{ i) \ensuremath{\Rightarrow}iv)}}\left(0\right)
+\end{align*}
+Dies ist wegen $x\not=0$ ein Widerspruch.
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Wegen \ref{sec:Prop-Charakterisierung-Jacobson}5.8
+iv) $\Rightarrow$ i) zeige für alle $\mathfrak{p}\in\text{Spec}\left(A\right)$
+nun $\text{Jac}\left(\modulo A{\mathfrak{p}}\right)=\left(0\right)$.
+
+Angenommen dies gilt nicht, dann ist $\modulo A{\mathfrak{p}}$ ein
+Integritätsring und es gibt ein $0\not=x\in\text{Jac}\left(\modulo A{\mathfrak{p}}\right)$.
+Insbesondere ist $\modulo A{\mathfrak{p}}$ kein Körper.
+
+Nach \ref{sec:Satz-Idealtheorie-Lokalisierung} iv) besitzt $\left(\modulo A{\mathfrak{p}}\right)\left[x^{-1}\right]$
+keine von Null verschiedenen maximalen Ideale, ist also ein Körper.
+Dies ist ein Widerspruch zu ii).\qqed
+
+
+\section{Proposition}
+
+Seien $A$ ein Jacobsen Integritätsring und $A\subseteq B$ eine von
+einem Element erzeugte $A$-Algebra, die auch ein Integritätsring
+ist, und in der ein Element $b\in B$ existiert, sodass $B\left[b^{-1}\right]$
+ein Körper ist.
+
+Dann ist $A\subseteq B$ eine endliche Körpererweiterung.
+
+
+\subsubsection*{Beweis}
+
+Nach Voraussetzung gilt
+\begin{align*}
+B & \stackrel{\sim}{=}\modulo{A\left[X\right]}Q
+\end{align*}
+als $A$-Algebra für ein geeignetes Ideal $Q\subseteq A\left[X\right]$.
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=1.5em, column sep=3em, text height=2.5ex, text depth=0.75ex]
+   { A[X] & B \ni x \\
+     A & \\};
+  \path[->>,font=\scriptsize] (m-1-1) edge node[above]{$X\mapsto x$} (m-1-2);
+  \path[->] (m-2-1) edge (m-1-1);
+  \path[->] (m-2-1) edge (m-1-2);
+\end{tikzpicture}
+\par\end{center}
+\begin{description}
+\item [{Behauptung~I:}] $Q\not=\left(0\right)$
+\item [{Beweis:}] Sonst wäre $B\stackrel{\sim}{=}A\left[X\right]$ und
+$b=f\left(X\right)\in A\left[X\right]$ so, dass $B\left[b^{-1}\right]=A\left[X\right]\left[\left(f\left(X\right)\right)^{-1}\right]$
+ein Körper ist.\\
+Es gilt $A\subseteq B\stackrel{B\text{ Integritätsring}}{\subseteq}B\left[b^{-1}\right]$
+und es folgt:
+\begin{align*}
+K & :=\text{Quot}\left(A\right)\subseteq B\left[b^{-1}\right]
+\end{align*}
+Daher gilt:
+\begin{align*}
+A\left[X\right]\left[\left(f\left(X\right)\right)^{-1}\right] & =K\left[X\right]\left[\left(f\left(X\right)\right)^{-1}\right]
+\end{align*}
+Dies ist ein Körper. Wegen \ref{sec:Lem-HauptsatzFuerKoerperPolynomring}
+und \ref{sec:Lem-Charakterisierung2-Jacobson} i) $\Rightarrow$ ii)
+(mit $\mathfrak{p}=\left(0\right)$) ist $K\left[X\right]$ ein Körper.
+Dies ist ein Widerspruch, da $0\not=X\not\in\left(K\left[X\right]\right)^{*}=K^{*}$
+ist.\qqed[Behauptung I]
+\end{description}
+\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}
