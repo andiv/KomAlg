@@ -7636,7 +7636,7 @@ keine von Null verschiedenen maximalen Ideale, ist also ein Körper.
 Dies ist ein Widerspruch zu ii).\qqed
 
 
-\section{Proposition}
+\section{Proposition\label{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}}
 
 Seien $A$ ein Jacobsen Integritätsring und $A\subseteq B$ eine von
 einem Element erzeugte $A$-Algebra, die auch ein Integritätsring
@@ -7682,9 +7682,273 @@ Dies ist ein Körper. Wegen \ref{sec:Lem-HauptsatzFuerKoerperPolynomring}
 und \ref{sec:Lem-Charakterisierung2-Jacobson} i) $\Rightarrow$ ii)
 (mit $\mathfrak{p}=\left(0\right)$) ist $K\left[X\right]$ ein Körper.
 Dies ist ein Widerspruch, da $0\not=X\not\in\left(K\left[X\right]\right)^{*}=K^{*}$
-ist.\qqed[Behauptung I]
+ist.\qqed[Behauptung I]%DATE: Di 26.6.12
+\item [{Behauptung~II:}] Es existiert ein $a\in A\setminus\left\{ 0\right\} $
+so, dass $A\left[a^{-1}\right]\subseteq B\left[b^{-1}\right]$ ganz
+ist.\\
+(Bemerke, dass $B\left[b^{-1}\right]$ ein Körper ist, also $A\left[a^{-1}\right]\subseteq B\left[b^{-1}\right]$.)
+\item [{Beweis:}] Wir haben mit $x:=X+Q$:
+\begin{align}
+A\subseteq B & \stackrel{\sim}{=}\modulo{A\left[X\right]}Q=A\left[x\right]\subseteq B\left[b^{-1}\right]=A\left[x,b^{-1}\right]\label{eq:BbAxb}
+\end{align}
+Nach Behauptung I existiert ein $0\not=p\in Q\subseteq A\left[X\right]$
+mit $p\left(x\right)=0$ in $B$. Wegen $n:=\deg\left(p\right)\ge1$
+kann man mit $a_{n}\not=0$ schreiben:
+\begin{align*}
+p\left(X\right) & =a_{n}X^{^{n}}+\ldots+a_{0}
+\end{align*}
+Es folgt in $B\left[b^{-1}\right]$:
+\begin{align}
+x^{n}+\left(a_{n-1}a_{n}^{-1}\right)x^{n-1}+\ldots+\left(a_{0}a_{n}^{-1}\right) & =0\label{eq:Ganzheitx}
+\end{align}
+Dies ist eine Ganzheitsgleichung für $x$ über $A\left[a_{n}^{-1}\right]$,
+also ist $A\left[a_{n}^{-1}\right]\subseteq A\left[x\right]$ eine
+ganze Ringerweiterung.\\
+Wegen $B=A\left[x\right]\ni b$ ist also ebenfalls $b$ ganz über
+$A\left[a_{n}^{-1}\right]$\inputencoding{latin1}{, schreibe also
+\begin{align*}
+b^{m}+\alpha_{m-1}b^{m-1}+\ldots+\alpha_{0} & =0
+\end{align*}
+mit einem minimalen $m\in\mathbb{N}_{\ge1}$ und geeigneten $\alpha_{i}\in A\left[a_{n}^{-1}\right]$.}\inputencoding{latin9}
+Es gilt $\alpha_{0}\not=0$, denn sonst wäre
+\begin{align*}
+b^{m-1}+\alpha_{m-1}b^{m-2}+\ldots+\alpha_{1} & =0
+\end{align*}
+im Widerspruch zur Minimalität von $m$. Nach Division durch $b^{m}\cdot\alpha_{0}$
+gilt in $B\left[b^{-1}\right]$:
+\begin{align}
+\left(b^{-1}\right)^{m}+\left(\alpha_{1}\alpha_{0}^{-1}\right)\left(b^{-1}\right)^{m-1}+\ldots+\left(\alpha_{m-1}\alpha_{0}^{-1}\right)b^{-1}+\alpha_{0}^{-1} & =0\label{eq:Ganzheitb-1}
+\end{align}
+Dies ist eine Ganzheitsgleichung für $b^{-1}$ über $A\left[a_{n}^{-1},\alpha_{0}^{-1}\right]$
+und für ein geeignetes $a\in A$ gilt:
+\begin{align*}
+A\left[a_{n}^{-1},\alpha_{0}^{-1}\right] & =A\left[a^{-1}\right]
+\end{align*}
+(Dies geht analog zu $\mathbb{Z}\left[\frac{1}{2},\frac{1}{3}\right]=\mathbb{Z}\left[\frac{1}{6}\right]$.)\\
+Aus \eqref{eq:BbAxb}, \eqref{eq:Ganzheitx} und \eqref{eq:Ganzheitb-1}\inputencoding{latin1}{
+folgt die Behauptung.}\inputencoding{latin9}\qqed[Behauptung II]
 \end{description}
-\qqed
+Da $A\left[a^{-1}\right]\subseteq B\left[b^{-1}\right]$ eine ganze
+Ringerweiterung von Integritätsringen und $B\left[b^{-1}\right]$
+ein Körper ist, folgt nach \eqref{sec:Prop-ganzeRingerweiterungIR-KoerperAequivalent}
+ii) $\Rightarrow$ i), dass $A\left[a^{-1}\right]$ ein Körper ist.
+
+Weil $A$ Jacobson ist ist, folgt aus \ref{sec:Lem-Charakterisierung2-Jacobson}
+ii) $\Rightarrow$ i) mit $\mathfrak{p}:=\left(0\right)$ und $x:=a$,
+dass $A$ ein Körper ist. Damit ist sogar $B\left[b^{-1}\right]\supseteq A\left[a^{-1}\right]=A$
+ganz, insbesondere ist $A\subseteq B$ ganz. Wegen \ref{sec:Prop-ganzeRingerweiterungIR-KoerperAequivalent}
+i) $\Rightarrow$ ii) ist $B$ ein Körper, und es folgt $B=B\left[b^{-1}\right]$.
+Da
+\begin{align*}
+A\subseteq B & \stackrel{\eqref{eq:BbAxb}}{=}A\left[x,b^{-1}\right]
+\end{align*}
+gilt, folgt aus \ref{sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich},
+dass $A\subseteq B$ endlich ist.\qqed
+
+
+\subsubsection*{Beweis von \ref{sec:Satz-Hauptsatz-Jacobson}}
+
+Induktion über die Anzahl $n$ von $A$-Algebrenerzeugern von $B$.
+\begin{itemize}
+\item $n=0$: Dann gilt $A=B$ und die Aussage ist trivial.
+\item $n=1$: \begin{iiilist}\iii Wir verifizieren \ref{sec:Lem-Charakterisierung2-Jacobson}
+ii) für $B$, womit folgt, dass $B$ Jacobson ist:\\
+Sind $\mathfrak{p}\subseteq B$ ein Primideal und $x\in\modulo B{\mathfrak{p}}$
+so, dass $\left(\modulo B{\mathfrak{p}}\right)\left[x^{-1}\right]$
+ein Körper ist, so ist $\modulo B{\mathfrak{p}}$ ein Körper.\\
+Zeige: $\modulo B{\mathfrak{p}}$ ist ein Körper. Es ist
+\begin{align*}
+A':=\modulo A{f^{-1}\left(\mathfrak{p}\right)} & \subseteq B':=\modulo B{\mathfrak{p}}
+\end{align*}
+eine von einem einzigen Element erzeugte $A'$-Algebra (wegen $n=1$).
+$A'$ und $B'$ sind Integritätsringe, $A'$ ist Jacobson, was aus
+\ref{sec:Bsp-JacobsonQuotientenring} folgt, da $A$ Jacobson ist\inputencoding{latin1}{,
+und für $b:=x\in B'$ ist $B'\left[b^{-1}\right]$ ein Körper.}\inputencoding{latin9}
+Aus \ref{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}
+folgt insbesondere, dass $B'$ ein Körper ist.\qqed[\roman{ale2})]\iii
+Seien $\mathfrak{m}'\subseteq B$ ein maximales Ideal, dann ist wie
+oben \ref{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}
+auf
+\begin{align*}
+\modulo A{f^{-1}\left(\mathfrak{m}'\right)} & \subseteq\modulo B{\mathfrak{m}'}
+\end{align*}
+anwendbar, und es folgt, dass $\modulo A{f^{-1}\left(\mathfrak{m}'\right)}$
+ein Körper ist. Also ist $\mathfrak{m}:=f^{-1}\left(\mathfrak{m}'\right)\subseteq A$
+maximal. Nach \ref{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}
+ist
+\begin{align*}
+\kappa\left(\mathfrak{m}\right) & =\modulo A{\mathfrak{m}}\subseteq\modulo B{\mathfrak{m}'}=\kappa\left(\mathfrak{m}'\right)
+\end{align*}
+endlich.\qqed[\roman{ale2})]\end{iiilist}
+\item $n>1$: Es gelte $B=A\left[b_{1},\ldots,b_{n}\right]$. Faktorisiere:
+\begin{align*}
+f & =\left(A\stackrel{f_{1}}{\to}A':=A\left[b_{1},\ldots,b_{n-1}\right]\stackrel{f_{2}}{\to}B=A'\left[b_{n}\right]\right)
+\end{align*}
+\begin{iiilist}\iii Nach Induktionsvoraussetzung ist $A'$ Jacobson,
+also nach Fall $n=1$ auch $B$.\qqed[\roman{ale2})]\iii Ist $\mathfrak{m}'\subseteq B$
+maximal, so nach Fall $n=1$ auch $\tilde{\mathfrak{m}}:=f_{2}^{-1}\left(\mathfrak{m}\right)\subseteq A'$
+und damit nach Induktionsvoraussetzung auch:
+\begin{align*}
+A\supseteq f_{1}^{-1}\left(\tilde{\mathfrak{m}}\right)=f^{-1}\left(\mathfrak{m}'\right) & =:\mathfrak{m}
+\end{align*}
+Nach Induktionsvoraussetzung beziehungsweise Fall $n=1$ ist die Erweiterung
+$\kappa\left(\mathfrak{m}\right)$ ist die Erweiterung $\kappa\left(\mathfrak{m}\right)\subseteq\kappa\left(\tilde{\mathfrak{m}}\right)$
+beziehungsweise $\kappa\left(\tilde{\mathfrak{m}}\right)\subseteq\kappa\left(\mathfrak{m}'\right)$
+endlich. Nach der Transitivität der Endlichkeit \ref{sec:Prop-endlichErzeugtTransitiv}
+i) ist $\kappa\left(\mathfrak{m}\right)\subseteq\kappa\left(\mathfrak{m}'\right)$
+endlich. \qqed[\roman{ale2})]\end{iiilist}
+\end{itemize}
+\qqed[\ref{sec:Satz-Hauptsatz-Jacobson}]
+
+
+\section{Proposition\label{sec:Prop-knMaximaleIdealePolynomring}}
+
+Seien $k$ ein algebraisch abgeschlossener Körper und $n\in\mathbb{N}_{\ge1}$.
+Dann sind die Abbildungen
+\begin{align*}
+k^{n} & \sr{\leftrightarrows}{\sim}{\sim}\left\{ \mathfrak{m}\big|\mathfrak{m}\subseteq k\left[X_{1},\ldots,X_{n}\right]\text{ maximales Ideal}\right\} \\
+\underline{\alpha}=\left(\alpha_{1},\ldots,\alpha_{n}\right) & \mapsto\mathfrak{m}_{\underline{\alpha}}:=\left(X_{1}-\alpha_{1},\ldots,X_{n}-\alpha_{n}\right)\\
+\mathcal{N}\left(\mathfrak{m}\right) & \mapsfrom\mathfrak{m}
+\end{align*}
+wohldefiniert und zueinander inverse Bijektionen.
+
+
+\subsubsection*{Beweis}
+
+Für $\underline{\alpha}\in k^{n}$ ist der Einsetzungshomomorphismus
+\begin{align*}
+k\left[X_{1},\ldots,X_{n}\right] & \twoheadrightarrow k\\
+X_{i} & \mapsto\alpha_{i}
+\end{align*}
+surjektiv und der Kern ist $\mathfrak{m}_{\underline{\alpha}}$, also
+gilt:
+\begin{align*}
+\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\mathfrak{m}_{\underline{\alpha}}} & \stackrel{\sim}{=}k
+\end{align*}
+Daher ist $\mathfrak{m}_{\underline{\alpha}}$ ein maximales Ideal,
+das heißt $\underline{\alpha}\mapsto\mathfrak{m}_{\underline{\alpha}}$
+ist wohldefiniert.
+
+Ist $\mathfrak{m}\subseteq k\left[X_{1},\ldots,X_{n}\right]$, so
+folgt aus \ref{sec:Satz-Hauptsatz-Jacobson} mit $\left(f:A\to B\right):=\left(k\to k\left[X_{1},\ldots,X_{n}\right]\right)$,
+dass
+\begin{align*}
+k & \stackrel{\sim}{=}\modulo k{\underbrace{\left(k\cap\mathfrak{m}\right)}_{=\left(0\right)}}\subseteq\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\mathfrak{m}}=:E
+\end{align*}
+eine endliche Körpererweiterung ist.
+
+Da $k$ algebraisch abgeschlossen ist, ist $k=E$ und wir definieren
+für $1\le i\le n$:
+\begin{align*}
+\alpha_{i} & :=\left(k\left[X_{1},\ldots,X_{n}\right]\twoheadrightarrow\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\mathfrak{m}}\stackrel{\sim}{=}k\right)\left(X_{i}\right)\in k
+\end{align*}
+Für $\underline{\alpha}:=\left(\alpha_{1},\ldots,\alpha_{n}\right)$
+folgt $\mathfrak{m}_{\underline{\alpha}}\subseteq\mathfrak{m}$. Da
+$\mathfrak{m}_{\underline{\alpha}}$ und $\mathfrak{m}$ maximal sind,
+folgt $\mathfrak{m}=\mathfrak{m}_{\underline{\alpha}}$. Daher gilt:
+\begin{align*}
+\mathcal{N}\left(\mathfrak{m}\right) & =\mathcal{N}\left(\mathfrak{m}_{\underline{\alpha}}\right)=\left\{ \underline{\alpha}\right\} 
+\end{align*}
+Also ist $\mathfrak{m}\mapsto\mathcal{N}\left(\mathfrak{m}\right)$
+wohldefiniert. Die Abbildungen sind zueinander invers.\qqed
+
+
+\subsubsection*{Beweis von \ref{sec:Satz-Hilbertscher-Nullstellensatz}}
+
+Für ein Ideal $J\subseteq A:=k\left[X_{1},\ldots,X_{n}\right]$ ist
+die Relation $J\subseteq I\left(\mathcal{N}\left(J\right)\right)$
+nach Definition klar. Aus \ref{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}
+ii) mit $M:=\mathcal{N}\left(J\right)$ folgt $\sqrt{J}\subseteq I\left(\mathcal{N}\left(J\right)\right)$.
+
+Zeige: $I\left(\mathcal{N}\left(J\right)\right)\subseteq\sqrt{J}$
+
+Die Abbildung
+\begin{align*}
+\mathcal{N}\left(J\right) & \stackrel{\sim}{\to}\text{MaxSpec}\left(\modulo AJ\right):=\left\{ \text{maximale Ideale von }\modulo AJ\right\} \\
+\underline{\alpha} & \mapsto\modulo{\mathfrak{m}_{\underline{\alpha}}}J
+\end{align*}
+Dabei ist $\mathfrak{m}_{\underline{\alpha}}$ wie in \ref{sec:Prop-knMaximaleIdealePolynomring}
+wohldefiniert, denn $\mathfrak{m}_{\underline{\alpha}}\subseteq A$
+ist ein maximales Ideal und es gilt:
+\begin{align*}
+J\subseteq\mathfrak{m}_{\underline{\alpha}} & =\left\{ f\in A\big|f\left(\underline{\alpha}\right)=0\right\} 
+\end{align*}
+Denn $f\left(\underline{\alpha}\right)=0$ gilt für $f\in J$ und
+$\underline{\alpha}\in\mathcal{N}\left(J\right)$. Aus \ref{sec:Prop-knMaximaleIdealePolynomring}
+folgt die Bijektivität.
+
+(Beachte: Für alle $\underline{\alpha}\in k^{n}$ gilt: $J\subseteq\mathfrak{m}_{\underline{\alpha}}\Leftrightarrow\underline{\alpha}\in\mathcal{N}\left(J\right)$)
+
+Nun ist \ref{sec:Bsp-JacobsonQuotientenring} i), \ref{sec:Satz-Hauptsatz-Jacobson}
+und \ref{sec:Bsp-JacobsonQuotientenring} ii) ist der Ring $\modulo AJ$
+Jacobson, und es folgt:
+\begin{align*}
+\mathfrak{N}\left(\modulo AJ\right) & \stackrel{\ref{sec:Prop-Charakterisierung-Jacobson}\text{ ii)}}{=}\text{Jac}\left(\modulo AJ\right)=\bigcap_{\underline{\alpha}\in\mathcal{N}\left(J\right)}\modulo{\mathfrak{m}_{\underline{\alpha}}}J
+\end{align*}
+Damit folgt:
+\begin{align*}
+\sqrt{J} & =\left(A\twoheadrightarrow\modulo AJ\right)^{-1}\left(\mathfrak{N}\left(\modulo AJ\right)\right)=\bigcap_{\underline{\alpha}\in\mathcal{N}\left(J\right)}\mathfrak{m}_{\underline{\alpha}}=\\
+ & \stackrel{\text{Def. von }\mathfrak{m}_{\underline{\alpha}}}{=}\bigcap_{\underline{\alpha}\in\mathcal{N}\left(J\right)}\left\{ f\in A\bigg|\fall_{\underline{\alpha}\in\mathcal{N}\left(J\right)}\,:\, f\left(\underline{\alpha}\right)=0\right\} =I\left(\mathcal{N}\left(J\right)\right)
+\end{align*}
+Der Rest ist dann klar.\qqed[\ref{sec:Satz-Hilbertscher-Nullstellensatz}]
+
+
+\chapter{Endlichkeitsbedingungen}
+
+
+\section{Erinnerung \textmd{(teilweise geordnete Menge)}}
+
+Eine \emph{teilweise geordnete Menge} ist ein Paar $\left(\Sigma,\le\right)$
+bestehend aus einer Menge $\Sigma$ und einer Relation $\le$, sodass
+für alle $x,y,z\in\Sigma$ gelten:
+
+\begin{iiilist}
+
+\iii $x\le x$
+
+\iii $\left(x\le y\right)\wedge\left(y\le z\right)\Rightarrow x\le z$
+
+\iii $\left(x\le y\right)\wedge\left(y\le x\right)\Rightarrow x=y$
+
+\end{iiilist}
+
+
+\section{Proposition und Definition}
+
+Für eine teilweise geordnete Menge $\left(\Sigma,\le\right)$ sind
+äquivalent:
+
+\begin{iiilist}
+
+\iii Jede \emph{aufsteigende Folge in $\Sigma$}, das heißt für alle
+$n\in\mathbb{N}$ ist $x_{n}\in\Sigma$ und es gilt $x_{n}\le x_{n+1}$,
+ist \emph{stationär}, das heißt es gibt ein $N\in\mathbb{N}$, sodass
+für alle $n\ge N$ schon $x_{n}=x_{n}$ gilt.
+
+\iii Jede nicht-leere Teilmenge $\Sigma$ hat ein maximales Element.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Angenommen
+$\emptyset\not=\Sigma'\subseteq\Sigma$ besitzt kein maximales Element.
+Dann wähle induktiv $x_{n}\in\Sigma'$ für $n\in\mathbb{N}$ wie folgt:
+
+$n=0$: Wähle $x_{0}\in\Sigma'$ beliebig, was möglich ist, da $\Sigma'$
+beliebig ist.
+
+$n>0$: Da $x_{n-1}\in\Sigma'$ nicht maximal ist, gibt es ein Element
+$x_{n}\in\Sigma'$ mit $x_{n-1}\le x_{n}$ und $x_{n-1}\not=x_{n}$.
+Offenbar ist $x_{0},x_{1},\ldots\in\Sigma$ eine nicht-stationäre
+aufsteigende Folge im Widerspruch zu i).\qqed[i) $\Rightarrow$ ii)]
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Die Teilmenge
+$\emptyset\not=\Sigma':=\left\{ x_{n}\big|n\ge0\right\} \subseteq\Sigma$
+besitzt ein maximales Element $X_{N}$. Für alle $n\ge N$ folgt dann
+aus $x_{n}\ge x_{N}$ bereits $x_{n}=x_{N}$, also ist die Folge $x_{0}\le x_{1}\le\ldots$
+stationär.\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}

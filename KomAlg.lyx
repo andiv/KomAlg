@@ -40581,6 +40581,13 @@ qqed
 
 \begin_layout Section
 Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -40812,9 +40819,1535 @@ qqed[Behauptung I]
 \end_inset
 
 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 26.6.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Behauptung
+\begin_inset space ~
+\end_inset
+
+II: Es existiert ein 
+\begin_inset Formula $a\in A\setminus\left\{ 0\right\} $
+\end_inset
+
+ so, dass 
+\begin_inset Formula $A\left[a^{-1}\right]\subseteq B\left[b^{-1}\right]$
+\end_inset
+
+ ganz ist.
+\begin_inset Newline newline
+\end_inset
+
+(Bemerke, dass 
+\begin_inset Formula $B\left[b^{-1}\right]$
+\end_inset
+
+ ein Körper ist, also 
+\begin_inset Formula $A\left[a^{-1}\right]\subseteq B\left[b^{-1}\right]$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Description
+Beweis: Wir haben mit 
+\begin_inset Formula $x:=X+Q$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align}
+A\subseteq B & \stackrel{\sim}{=}\modulo{A\left[X\right]}Q=A\left[x\right]\subseteq B\left[b^{-1}\right]=A\left[x,b^{-1}\right]\label{eq:BbAxb}
+\end{align}
+
+\end_inset
+
+Nach Behauptung I existiert ein 
+\begin_inset Formula $0\not=p\in Q\subseteq A\left[X\right]$
+\end_inset
+
+ mit 
+\begin_inset Formula $p\left(x\right)=0$
+\end_inset
+
+ in 
+\begin_inset Formula $B$
+\end_inset
+
+.
+ Wegen 
+\begin_inset Formula $n:=\deg\left(p\right)\ge1$
+\end_inset
+
+ kann man mit 
+\begin_inset Formula $a_{n}\not=0$
+\end_inset
+
+ schreiben:
+\begin_inset Formula 
+\begin{align*}
+p\left(X\right) & =a_{n}X^{^{n}}+\ldots+a_{0}
+\end{align*}
+
+\end_inset
+
+Es folgt in 
+\begin_inset Formula $B\left[b^{-1}\right]$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align}
+x^{n}+\left(a_{n-1}a_{n}^{-1}\right)x^{n-1}+\ldots+\left(a_{0}a_{n}^{-1}\right) & =0\label{eq:Ganzheitx}
+\end{align}
+
+\end_inset
+
+Dies ist eine Ganzheitsgleichung für 
+\begin_inset Formula $x$
+\end_inset
+
+ über 
+\begin_inset Formula $A\left[a_{n}^{-1}\right]$
+\end_inset
+
+, also ist 
+\begin_inset Formula $A\left[a_{n}^{-1}\right]\subseteq A\left[x\right]$
+\end_inset
+
+ eine ganze Ringerweiterung.
+\begin_inset Newline newline
+\end_inset
+
+Wegen 
+\begin_inset Formula $B=A\left[x\right]\ni b$
+\end_inset
+
+ ist also ebenfalls 
+\begin_inset Formula $b$
+\end_inset
+
+ ganz über 
+\begin_inset Formula $A\left[a_{n}^{-1}\right]$
+\end_inset
+
+
+, schreibe also
+\begin_inset Formula 
+\begin{align*}
+b^{m}+\alpha_{m-1}b^{m-1}+\ldots+\alpha_{0} & =0
+\end{align*}
+
+\end_inset
+
+mit einem minimalen 
+\begin_inset Formula $m\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und geeigneten 
+\begin_inset Formula $\alpha_{i}\in A\left[a_{n}^{-1}\right]$
+\end_inset
+
+.
+
+\lang ngerman
+ Es gilt 
+\begin_inset Formula $\alpha_{0}\not=0$
+\end_inset
+
+, denn sonst wäre
+\begin_inset Formula 
+\begin{align*}
+b^{m-1}+\alpha_{m-1}b^{m-2}+\ldots+\alpha_{1} & =0
+\end{align*}
+
+\end_inset
+
+im Widerspruch zur Minimalität von 
+\begin_inset Formula $m$
+\end_inset
+
+.
+ Nach Division durch 
+\begin_inset Formula $b^{m}\cdot\alpha_{0}$
+\end_inset
+
+ gilt in 
+\begin_inset Formula $B\left[b^{-1}\right]$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align}
+\left(b^{-1}\right)^{m}+\left(\alpha_{1}\alpha_{0}^{-1}\right)\left(b^{-1}\right)^{m-1}+\ldots+\left(\alpha_{m-1}\alpha_{0}^{-1}\right)b^{-1}+\alpha_{0}^{-1} & =0\label{eq:Ganzheitb-1}
+\end{align}
+
+\end_inset
+
+Dies ist eine Ganzheitsgleichung für 
+\begin_inset Formula $b^{-1}$
+\end_inset
+
+ über 
+\begin_inset Formula $A\left[a_{n}^{-1},\alpha_{0}^{-1}\right]$
+\end_inset
+
+ und für ein geeignetes 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+A\left[a_{n}^{-1},\alpha_{0}^{-1}\right] & =A\left[a^{-1}\right]
+\end{align*}
+
+\end_inset
+
+(Dies geht analog zu 
+\begin_inset Formula $\mathbb{Z}\left[\frac{1}{2},\frac{1}{3}\right]=\mathbb{Z}\left[\frac{1}{6}\right]$
+\end_inset
+
+.)
+\begin_inset Newline newline
+\end_inset
+
+Aus 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:BbAxb"
+
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Ganzheitx"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:Ganzheitb-1"
+
+\end_inset
+
+
+ folgt die Behauptung.
+\lang ngerman
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung II]
+\end_layout
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
+Da 
+\begin_inset Formula $A\left[a^{-1}\right]\subseteq B\left[b^{-1}\right]$
+\end_inset
+
+ eine ganze Ringerweiterung von Integritätsringen und 
+\begin_inset Formula $B\left[b^{-1}\right]$
+\end_inset
+
+ ein Körper ist, folgt nach 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "sec:Prop-ganzeRingerweiterungIR-KoerperAequivalent"
+
+\end_inset
+
+ ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i), dass 
+\begin_inset Formula $A\left[a^{-1}\right]$
+\end_inset
+
+ ein Körper ist.
+\end_layout
+
+\begin_layout Standard
+Weil 
+\begin_inset Formula $A$
+\end_inset
+
+ Jacobson ist ist, folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-Charakterisierung2-Jacobson"
+
+\end_inset
+
+ ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i) mit 
+\begin_inset Formula $\mathfrak{p}:=\left(0\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $x:=a$
+\end_inset
+
+, dass 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Körper ist.
+ Damit ist sogar 
+\begin_inset Formula $B\left[b^{-1}\right]\supseteq A\left[a^{-1}\right]=A$
+\end_inset
+
+ ganz, insbesondere ist 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ ganz.
+ Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-ganzeRingerweiterungIR-KoerperAequivalent"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii) ist 
+\begin_inset Formula $B$
+\end_inset
+
+ ein Körper, und es folgt 
+\begin_inset Formula $B=B\left[b^{-1}\right]$
+\end_inset
+
+.
+ Da
+\begin_inset Formula 
+\begin{align*}
+A\subseteq B & \stackrel{\eqref{eq:BbAxb}}{=}A\left[x,b^{-1}\right]
+\end{align*}
+
+\end_inset
+
+gilt, folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-endlichVieleGanzeErweiterungenImpliziertEndlich"
+
+\end_inset
+
+, dass 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ endlich ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Hauptsatz-Jacobson"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Induktion über die Anzahl 
+\begin_inset Formula $n$
+\end_inset
+
+ von 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebrenerzeugern von 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n=0$
+\end_inset
+
+: Dann gilt 
+\begin_inset Formula $A=B$
+\end_inset
+
+ und die Aussage ist trivial.
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n=1$
+\end_inset
+
+: 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Wir verifizieren 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-Charakterisierung2-Jacobson"
+
+\end_inset
+
+ ii) für 
+\begin_inset Formula $B$
+\end_inset
+
+, womit folgt, dass 
+\begin_inset Formula $B$
+\end_inset
+
+ Jacobson ist:
+\begin_inset Newline newline
+\end_inset
+
+Sind 
+\begin_inset Formula $\mathfrak{p}\subseteq B$
+\end_inset
+
+ ein Primideal und 
+\begin_inset Formula $x\in\modulo B{\mathfrak{p}}$
+\end_inset
+
+ so, dass 
+\begin_inset Formula $\left(\modulo B{\mathfrak{p}}\right)\left[x^{-1}\right]$
+\end_inset
+
+ ein Körper ist, so ist 
+\begin_inset Formula $\modulo B{\mathfrak{p}}$
+\end_inset
+
+ ein Körper.
+\begin_inset Newline newline
+\end_inset
+
+Zeige: 
+\begin_inset Formula $\modulo B{\mathfrak{p}}$
+\end_inset
+
+ ist ein Körper.
+ Es ist
+\begin_inset Formula 
+\begin{align*}
+A':=\modulo A{f^{-1}\left(\mathfrak{p}\right)} & \subseteq B':=\modulo B{\mathfrak{p}}
+\end{align*}
+
+\end_inset
+
+eine von einem einzigen Element erzeugte 
+\begin_inset Formula $A'$
+\end_inset
+
+-Algebra (wegen 
+\begin_inset Formula $n=1$
+\end_inset
+
+).
+ 
+\begin_inset Formula $A'$
+\end_inset
+
+ und 
+\begin_inset Formula $B'$
+\end_inset
+
+ sind Integritätsringe, 
+\begin_inset Formula $A'$
+\end_inset
+
+ ist Jacobson, was aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-JacobsonQuotientenring"
+
+\end_inset
+
+ folgt, da 
+\begin_inset Formula $A$
+\end_inset
+
+ Jacobson ist
+, und für 
+\begin_inset Formula $b:=x\in B'$
+\end_inset
+
+ ist 
+\begin_inset Formula $B'\left[b^{-1}\right]$
+\end_inset
+
+ ein Körper.
+
+\lang ngerman
+ Aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung"
+
+\end_inset
+
+ folgt insbesondere, dass 
+\begin_inset Formula $B'$
+\end_inset
+
+ ein Körper ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $\mathfrak{m}'\subseteq B$
+\end_inset
+
+ ein maximales Ideal, dann ist wie oben 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung"
+
+\end_inset
+
+ auf
+\begin_inset Formula 
+\begin{align*}
+\modulo A{f^{-1}\left(\mathfrak{m}'\right)} & \subseteq\modulo B{\mathfrak{m}'}
+\end{align*}
+
+\end_inset
+
+anwendbar, und es folgt, dass 
+\begin_inset Formula $\modulo A{f^{-1}\left(\mathfrak{m}'\right)}$
+\end_inset
+
+ ein Körper ist.
+ Also ist 
+\begin_inset Formula $\mathfrak{m}:=f^{-1}\left(\mathfrak{m}'\right)\subseteq A$
+\end_inset
+
+ maximal.
+ Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung"
+
+\end_inset
+
+ ist
+\begin_inset Formula 
+\begin{align*}
+\kappa\left(\mathfrak{m}\right) & =\modulo A{\mathfrak{m}}\subseteq\modulo B{\mathfrak{m}'}=\kappa\left(\mathfrak{m}'\right)
+\end{align*}
+
+\end_inset
+
+endlich.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Itemize
+\begin_inset Formula $n>1$
+\end_inset
+
+: Es gelte 
+\begin_inset Formula $B=A\left[b_{1},\ldots,b_{n}\right]$
+\end_inset
+
+.
+ Faktorisiere:
+\begin_inset Formula 
+\begin{align*}
+f & =\left(A\stackrel{f_{1}}{\to}A':=A\left[b_{1},\ldots,b_{n-1}\right]\stackrel{f_{2}}{\to}B=A'\left[b_{n}\right]\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Nach Induktionsvoraussetzung ist 
+\begin_inset Formula $A'$
+\end_inset
+
+ Jacobson, also nach Fall 
+\begin_inset Formula $n=1$
+\end_inset
+
+ auch 
+\begin_inset Formula $B$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $\mathfrak{m}'\subseteq B$
+\end_inset
+
+ maximal, so nach Fall 
+\begin_inset Formula $n=1$
+\end_inset
+
+ auch 
+\begin_inset Formula $\tilde{\mathfrak{m}}:=f_{2}^{-1}\left(\mathfrak{m}\right)\subseteq A'$
+\end_inset
+
+ und damit nach Induktionsvoraussetzung auch:
+\begin_inset Formula 
+\begin{align*}
+A\supseteq f_{1}^{-1}\left(\tilde{\mathfrak{m}}\right)=f^{-1}\left(\mathfrak{m}'\right) & =:\mathfrak{m}
+\end{align*}
+
+\end_inset
+
+Nach Induktionsvoraussetzung beziehungsweise Fall 
+\begin_inset Formula $n=1$
+\end_inset
+
+ ist die Erweiterung 
+\begin_inset Formula $\kappa\left(\mathfrak{m}\right)$
+\end_inset
+
+ ist die Erweiterung 
+\begin_inset Formula $\kappa\left(\mathfrak{m}\right)\subseteq\kappa\left(\tilde{\mathfrak{m}}\right)$
+\end_inset
+
+ beziehungsweise 
+\begin_inset Formula $\kappa\left(\tilde{\mathfrak{m}}\right)\subseteq\kappa\left(\mathfrak{m}'\right)$
+\end_inset
+
+ endlich.
+ Nach der Transitivität der Endlichkeit 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlichErzeugtTransitiv"
+
+\end_inset
+
+ i) ist 
+\begin_inset Formula $\kappa\left(\mathfrak{m}\right)\subseteq\kappa\left(\mathfrak{m}'\right)$
+\end_inset
+
+ endlich.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+ref{sec:Satz-Hauptsatz-Jacobson}]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-knMaximaleIdealePolynomring"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $k$
+\end_inset
+
+ ein algebraisch abgeschlossener Körper und 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+.
+ Dann sind die Abbildungen
+\begin_inset Formula 
+\begin{align*}
+k^{n} & \sr{\leftrightarrows}{\sim}{\sim}\left\{ \mathfrak{m}\big|\mathfrak{m}\subseteq k\left[X_{1},\ldots,X_{n}\right]\text{ maximales Ideal}\right\} \\
+\underline{\alpha}=\left(\alpha_{1},\ldots,\alpha_{n}\right) & \mapsto\mathfrak{m}_{\underline{\alpha}}:=\left(X_{1}-\alpha_{1},\ldots,X_{n}-\alpha_{n}\right)\\
+\mathcal{N}\left(\mathfrak{m}\right) & \mapsfrom\mathfrak{m}
+\end{align*}
+
+\end_inset
+
+wohldefiniert und zueinander inverse Bijektionen.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $\underline{\alpha}\in k^{n}$
+\end_inset
+
+ ist der Einsetzungshomomorphismus
+\begin_inset Formula 
+\begin{align*}
+k\left[X_{1},\ldots,X_{n}\right] & \twoheadrightarrow k\\
+X_{i} & \mapsto\alpha_{i}
+\end{align*}
+
+\end_inset
+
+surjektiv und der Kern ist 
+\begin_inset Formula $\mathfrak{m}_{\underline{\alpha}}$
+\end_inset
+
+, also gilt:
+\begin_inset Formula 
+\begin{align*}
+\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\mathfrak{m}_{\underline{\alpha}}} & \stackrel{\sim}{=}k
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $\mathfrak{m}_{\underline{\alpha}}$
+\end_inset
+
+ ein maximales Ideal, das heißt 
+\begin_inset Formula $\underline{\alpha}\mapsto\mathfrak{m}_{\underline{\alpha}}$
+\end_inset
+
+ ist wohldefiniert.
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $\mathfrak{m}\subseteq k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+, so folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Hauptsatz-Jacobson"
+
+\end_inset
+
+ mit 
+\begin_inset Formula $\left(f:A\to B\right):=\left(k\to k\left[X_{1},\ldots,X_{n}\right]\right)$
+\end_inset
+
+, dass
+\begin_inset Formula 
+\begin{align*}
+k & \stackrel{\sim}{=}\modulo k{\underbrace{\left(k\cap\mathfrak{m}\right)}_{=\left(0\right)}}\subseteq\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\mathfrak{m}}=:E
+\end{align*}
+
+\end_inset
+
+eine endliche Körpererweiterung ist.
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $k$
+\end_inset
+
+ algebraisch abgeschlossen ist, ist 
+\begin_inset Formula $k=E$
+\end_inset
+
+ und wir definieren für 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\alpha_{i} & :=\left(k\left[X_{1},\ldots,X_{n}\right]\twoheadrightarrow\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\mathfrak{m}}\stackrel{\sim}{=}k\right)\left(X_{i}\right)\in k
+\end{align*}
+
+\end_inset
+
+Für 
+\begin_inset Formula $\underline{\alpha}:=\left(\alpha_{1},\ldots,\alpha_{n}\right)$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\mathfrak{m}_{\underline{\alpha}}\subseteq\mathfrak{m}$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $\mathfrak{m}_{\underline{\alpha}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ maximal sind, folgt 
+\begin_inset Formula $\mathfrak{m}=\mathfrak{m}_{\underline{\alpha}}$
+\end_inset
+
+.
+ Daher gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{N}\left(\mathfrak{m}\right) & =\mathcal{N}\left(\mathfrak{m}_{\underline{\alpha}}\right)=\left\{ \underline{\alpha}\right\} 
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\mathfrak{m}\mapsto\mathcal{N}\left(\mathfrak{m}\right)$
+\end_inset
+
+ wohldefiniert.
+ Die Abbildungen sind zueinander invers.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Hilbertscher-Nullstellensatz"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für ein Ideal 
+\begin_inset Formula $J\subseteq A:=k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+ ist die Relation 
+\begin_inset Formula $J\subseteq I\left(\mathcal{N}\left(J\right)\right)$
+\end_inset
+
+ nach Definition klar.
+ Aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung"
+
+\end_inset
+
+ ii) mit 
+\begin_inset Formula $M:=\mathcal{N}\left(J\right)$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\sqrt{J}\subseteq I\left(\mathcal{N}\left(J\right)\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Zeige: 
+\begin_inset Formula $I\left(\mathcal{N}\left(J\right)\right)\subseteq\sqrt{J}$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\mathcal{N}\left(J\right) & \stackrel{\sim}{\to}\text{MaxSpec}\left(\modulo AJ\right):=\left\{ \text{maximale Ideale von }\modulo AJ\right\} \\
+\underline{\alpha} & \mapsto\modulo{\mathfrak{m}_{\underline{\alpha}}}J
+\end{align*}
+
+\end_inset
+
+Dabei ist 
+\begin_inset Formula $\mathfrak{m}_{\underline{\alpha}}$
+\end_inset
+
+ wie in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-knMaximaleIdealePolynomring"
+
+\end_inset
+
+ wohldefiniert, denn 
+\begin_inset Formula $\mathfrak{m}_{\underline{\alpha}}\subseteq A$
+\end_inset
+
+ ist ein maximales Ideal und es gilt:
+\begin_inset Formula 
+\begin{align*}
+J\subseteq\mathfrak{m}_{\underline{\alpha}} & =\left\{ f\in A\big|f\left(\underline{\alpha}\right)=0\right\} 
+\end{align*}
+
+\end_inset
+
+Denn 
+\begin_inset Formula $f\left(\underline{\alpha}\right)=0$
+\end_inset
+
+ gilt für 
+\begin_inset Formula $f\in J$
+\end_inset
+
+ und 
+\begin_inset Formula $\underline{\alpha}\in\mathcal{N}\left(J\right)$
+\end_inset
+
+.
+ Aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-knMaximaleIdealePolynomring"
+
+\end_inset
+
+ folgt die Bijektivität.
+\end_layout
+
+\begin_layout Standard
+(Beachte: Für alle 
+\begin_inset Formula $\underline{\alpha}\in k^{n}$
+\end_inset
+
+ gilt: 
+\begin_inset Formula $J\subseteq\mathfrak{m}_{\underline{\alpha}}\Leftrightarrow\underline{\alpha}\in\mathcal{N}\left(J\right)$
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Nun ist 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-JacobsonQuotientenring"
+
+\end_inset
+
+ i), 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Hauptsatz-Jacobson"
+
+\end_inset
+
+ und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-JacobsonQuotientenring"
+
+\end_inset
+
+ ii) ist der Ring 
+\begin_inset Formula $\modulo AJ$
+\end_inset
+
+ Jacobson, und es folgt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{N}\left(\modulo AJ\right) & \stackrel{\ref{sec:Prop-Charakterisierung-Jacobson}\text{ ii)}}{=}\text{Jac}\left(\modulo AJ\right)=\bigcap_{\underline{\alpha}\in\mathcal{N}\left(J\right)}\modulo{\mathfrak{m}_{\underline{\alpha}}}J
+\end{align*}
+
+\end_inset
+
+Damit folgt:
+\begin_inset Formula 
+\begin{align*}
+\sqrt{J} & =\left(A\twoheadrightarrow\modulo AJ\right)^{-1}\left(\mathfrak{N}\left(\modulo AJ\right)\right)=\bigcap_{\underline{\alpha}\in\mathcal{N}\left(J\right)}\mathfrak{m}_{\underline{\alpha}}=\\
+ & \stackrel{\text{Def. von }\mathfrak{m}_{\underline{\alpha}}}{=}\bigcap_{\underline{\alpha}\in\mathcal{N}\left(J\right)}\left\{ f\in A\bigg|\fall_{\underline{\alpha}\in\mathcal{N}\left(J\right)}\,:\, f\left(\underline{\alpha}\right)=0\right\} =I\left(\mathcal{N}\left(J\right)\right)
+\end{align*}
+
+\end_inset
+
+Der Rest ist dann klar.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+ref{sec:Satz-Hilbertscher-Nullstellensatz}]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Endlichkeitsbedingungen
+\end_layout
+
+\begin_layout Section
+Erinnerung 
+\series medium
+(teilweise geordnete Menge)
+\end_layout
+
+\begin_layout Standard
+Eine 
+\emph on
+teilweise geordnete Menge
+\emph default
+ ist ein Paar 
+\begin_inset Formula $\left(\Sigma,\le\right)$
+\end_inset
+
+ bestehend aus einer Menge 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ und einer Relation 
+\begin_inset Formula $\le$
+\end_inset
+
+, sodass für alle 
+\begin_inset Formula $x,y,z\in\Sigma$
+\end_inset
+
+ gelten:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $x\le x$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(x\le y\right)\wedge\left(y\le z\right)\Rightarrow x\le z$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(x\le y\right)\wedge\left(y\le x\right)\Rightarrow x=y$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition und Definition
+\end_layout
+
+\begin_layout Standard
+Für eine teilweise geordnete Menge 
+\begin_inset Formula $\left(\Sigma,\le\right)$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jede 
+\emph on
+aufsteigende Folge in 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+
+\emph default
+, das heißt für alle 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ ist 
+\begin_inset Formula $x_{n}\in\Sigma$
+\end_inset
+
+ und es gilt 
+\begin_inset Formula $x_{n}\le x_{n+1}$
+\end_inset
+
+, ist 
+\emph on
+stationär
+\emph default
+, das heißt es gibt ein 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+, sodass für alle 
+\begin_inset Formula $n\ge N$
+\end_inset
+
+ schon 
+\begin_inset Formula $x_{n}=x_{n}$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jede nicht-leere Teilmenge 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ hat ein maximales Element.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Angenommen 
+\begin_inset Formula $\emptyset\not=\Sigma'\subseteq\Sigma$
+\end_inset
+
+ besitzt kein maximales Element.
+ Dann wähle induktiv 
+\begin_inset Formula $x_{n}\in\Sigma'$
+\end_inset
+
+ für 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ wie folgt:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n=0$
+\end_inset
+
+: Wähle 
+\begin_inset Formula $x_{0}\in\Sigma'$
+\end_inset
+
+ beliebig, was möglich ist, da 
+\begin_inset Formula $\Sigma'$
+\end_inset
+
+ beliebig ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n>0$
+\end_inset
+
+: Da 
+\begin_inset Formula $x_{n-1}\in\Sigma'$
+\end_inset
+
+ nicht maximal ist, gibt es ein Element 
+\begin_inset Formula $x_{n}\in\Sigma'$
+\end_inset
+
+ mit 
+\begin_inset Formula $x_{n-1}\le x_{n}$
+\end_inset
+
+ und 
+\begin_inset Formula $x_{n-1}\not=x_{n}$
+\end_inset
+
+.
+ Offenbar ist 
+\begin_inset Formula $x_{0},x_{1},\ldots\in\Sigma$
+\end_inset
+
+ eine nicht-stationäre aufsteigende Folge im Widerspruch zu i).
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[i) $
+\backslash
+Rightarrow$ ii)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Die Teilmenge 
+\begin_inset Formula $\emptyset\not=\Sigma':=\left\{ x_{n}\big|n\ge0\right\} \subseteq\Sigma$
+\end_inset
+
+ besitzt ein maximales Element 
+\begin_inset Formula $X_{N}$
+\end_inset
+
+.
+ Für alle 
+\begin_inset Formula $n\ge N$
+\end_inset
+
+ folgt dann aus 
+\begin_inset Formula $x_{n}\ge x_{N}$
+\end_inset
+
+ bereits 
+\begin_inset Formula $x_{n}=x_{N}$
+\end_inset
+
+, also ist die Folge 
+\begin_inset Formula $x_{0}\le x_{1}\le\ldots$
+\end_inset
+
+ stationär.
 \begin_inset ERT
 status open
 
