@@ -4139,7 +4139,7 @@ m+IM & \mapsto g\left(m\right)=\left(1+I\right)\otimes_{A}m
 \end{align*}
 ein Isomorphismus von $A$-Moduln ist.
 
-Sei nun $f:M\to N$ ein $A$-Modulhomomorphismus, so kommutiert das
+Sei nun $f:M\to N$ eine $A$-lineare Abbildung, so kommutiert das
 Diagramm
 
 \noindent \begin{center}
@@ -7287,9 +7287,9 @@ $1^{n}=1\in J$ für ein geeignetes $n\in\mathbb{N}$. Dies ist ein
 Widerspruch.\qqed
 
 
-\section{Definition \textmd{(Jacobsen)}}
+\section{Definition \textmd{(Jacobson)}}
 
-Ein Ring heißt \emph{Jacobsen}, falls jedes seiner Primideale Durchschnitt
+Ein Ring heißt \emph{Jacobson}, falls jedes seiner Primideale Durchschnitt
 von maximalen Idealen ist.
 
 
@@ -7297,18 +7297,18 @@ von maximalen Idealen ist.
 
 \begin{iiilist}
 
-\iii Jeder Körper ist Jacobsen, da das einzige Primideal $\left(0\right)$
+\iii Jeder Körper ist Jacobson, da das einzige Primideal $\left(0\right)$
 schon maximal ist.
 
-\iii $\mathbb{Z}$ ist Jacobsen. Das einzige nicht-maximale Primideal
+\iii $\mathbb{Z}$ ist Jacobson. Das einzige nicht-maximale Primideal
 ist $\left(0\right)$ und es gilt:
 \begin{align*}
 \left(0\right) & =\bigcap_{p\text{ Primzahl}}\left(p\right)
 \end{align*}
 Außerdem ist jedes $\left(p\right)\subseteq\mathbb{Z}$ maximal.
 
-\iii Sind $A$ Jacobsen und $I\subseteq A$ ein Ideal, so ist $\modulo AI$
-Jacobsen.
+\iii Sind $A$ Jacobson und $I\subseteq A$ ein Ideal, so ist $\modulo AI$
+Jacobson.
 
 Dies folgt aus \ref{sec:DuB-Ideal} iii).
 
@@ -7325,7 +7325,7 @@ A\text{ Jacobsen} & \Leftrightarrow A\text{ Körper}
 
 \quotedblbase{}$\Rightarrow$\textquotedblleft{}: Sei $\mathfrak{m}\subseteq A$
 das einzige maximale Ideal. Da $A$ ein Integritätsring ist, ist $\left(0\right)\subseteq A$
-ein Primideal. Da $A$ Jacobsen ist, folgt $\left(0\right)=\mathfrak{m}$,
+ein Primideal. Da $A$ Jacobson ist, folgt $\left(0\right)=\mathfrak{m}$,
 da $\mathfrak{m}$ das einzige maximale Ideal ist. Also ist $A\stackrel{\sim}{=}\modulo A{\left(0\right)}=\modulo A{\mathfrak{m}}$
 ein Körper.\qqed[\roman{ale2})]
 
@@ -7340,7 +7340,7 @@ Für einen Ring $A$ sind äquivalent:
 
 \begin{iiilist}
 
-\iii $A$ ist Jacobsen.
+\iii $A$ ist Jacobson.
 
 \iii Es gilt:
 \begin{align*}
@@ -7398,7 +7398,7 @@ Für einen Hauptidealring $A$, der kein Körper ist, sind äquivalent:
 
 \begin{iiilist}
 
-\iii $A$ ist Jacobsen.
+\iii $A$ ist Jacobson.
 
 \iii $\abs{\text{Spec}\left(A\right)}=\infty$
 
@@ -7407,7 +7407,7 @@ Für einen Hauptidealring $A$, der kein Körper ist, sind äquivalent:
 (vergleiche \ref{sec:Bsp-JacobsonQuotientenring} ii))
 
 $\mathbb{Z}_{\left(p\right)}$ ist ein Hauptidealring mit $\abs{\text{Spec}\left(\mathbb{Z}_{\left(p\right)}\right)}=2$,
-also nicht Jacobsen.
+also nicht Jacobson.
 
 
 \subsubsection*{Beweis}
@@ -7444,20 +7444,20 @@ Primteiler, also gilt $f=0$, da jeder Hauptidealring faktoriell ist.\qqed
 
 \section{Proposition}
 
-Sind $f:A\to B$ ein ganzer Ringhomomorphismus und $A$ Jacobsen,
-so ist $B$ auch Jacobsen.
+Sind $f:A\to B$ ein ganzer Ringhomomorphismus und $A$ Jacobson,
+so ist $B$ auch Jacobson.
 
 
 \subsubsection*{Beweis}
 
 Es ist $\text{im}\left(f\right)\stackrel{\sim}{=}\modulo A{\text{ker}\left(f\right)}$
-Jacobsen nach \ref{sec:Bsp-JacobsonQuotientenring} iii) und die Ringerweiterung
+Jacobson nach \ref{sec:Bsp-JacobsonQuotientenring} iii) und die Ringerweiterung
 $\text{im}\left(f\right)\subseteq B$ ist ganz.
 
 Sei also ohne Einschränkung $A\subseteq B$ eine ganze Ringerweiterung.
 
 Sei $\mathfrak{p}\subseteq B$ ein Primideal, so ist $\mathfrak{q}:=A\cap\mathfrak{p}$
-ein Primideal und da $A$ Jacobsen ist, gibt es eine Menge $\left\{ \mathfrak{m}_{i}\right\} _{i\in I}$
+ein Primideal und da $A$ Jacobson ist, gibt es eine Menge $\left\{ \mathfrak{m}_{i}\right\} _{i\in I}$
 von maximalen Idealen von $A$ mit:
 \begin{align*}
 \mathfrak{q} & =\bigcap_{i\in I}\mathfrak{m}_{i}
@@ -7586,7 +7586,7 @@ Für einen Ring $A$ sind äquivalent:
 
 \begin{iiilist}
 
-\iii $A$ ist Jacobsen.
+\iii $A$ ist Jacobson.
 
 \iii Sind $\mathfrak{p}\subseteq A$ ein Primideal und $x\in\modulo A{\mathfrak{p}}$
 so, dass $\left(\modulo A{\mathfrak{p}}\right)\left[x^{-1}\right]$
@@ -7598,8 +7598,11 @@ ein Körper ist, so ist $\modulo A{\mathfrak{p}}$ ein Körper.
 \subsubsection*{Bemerkung}
 
 Für alle $x\in\mathbb{Z}$ gilt $\mathbb{Z}\left[x^{-1}\right]\subsetneq\mathbb{Q}$.
+Also ist $\mathbb{Z}$ Jacobson.
 
-$\mathbb{Z}_{\left(p\right)}\left[p^{-1}\right]=\mathbb{Q}=\text{Quot}\left(\mathbb{Z}_{\left(p\right)}\right)$
+Für alle Primzahlen $p\in\mathbb{Z}$ gilt $\mathbb{Z}_{\left(p\right)}\left[p^{-1}\right]=\mathbb{Q}=\text{Quot}\left(\mathbb{Z}_{\left(p\right)}\right)$,
+aber $\mathbb{Z}_{\left(p\right)}\subsetneq\mathbb{Q}$, weswegen
+$\mathbb{Z}_{\left(p\right)}$ nicht Jacobson ist.
 
 
 \subsubsection*{Beweis}
@@ -7638,7 +7641,7 @@ Dies ist ein Widerspruch zu ii).\qqed
 
 \section{Proposition\label{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}}
 
-Seien $A$ ein Jacobsen Integritätsring und $A\subseteq B$ eine von
+Seien $A$ ein Jacobson Integritätsring und $A\subseteq B$ eine von
 einem Element erzeugte $A$-Algebra, die auch ein Integritätsring
 ist, und in der ein Element $b\in B$ existiert, sodass $B\left[b^{-1}\right]$
 ein Körper ist.
@@ -7705,11 +7708,11 @@ Dies ist eine Ganzheitsgleichung für $x$ über $A\left[a_{n}^{-1}\right]$,
 also ist $A\left[a_{n}^{-1}\right]\subseteq A\left[x\right]$ eine
 ganze Ringerweiterung.\\
 Wegen $B=A\left[x\right]\ni b$ ist also ebenfalls $b$ ganz über
-$A\left[a_{n}^{-1}\right]$\inputencoding{latin1}{, schreibe also
+$A\left[a_{n}^{-1}\right]$, schreibe also
 \begin{align*}
 b^{m}+\alpha_{m-1}b^{m-1}+\ldots+\alpha_{0} & =0
 \end{align*}
-mit einem minimalen $m\in\mathbb{N}_{\ge1}$ und geeigneten $\alpha_{i}\in A\left[a_{n}^{-1}\right]$.}\inputencoding{latin9}
+mit einem minimalen $m\in\mathbb{N}_{\ge1}$ und geeigneten $\alpha_{i}\in A\left[a_{n}^{-1}\right]$.
 Es gilt $\alpha_{0}\not=0$, denn sonst wäre
 \begin{align*}
 b^{m-1}+\alpha_{m-1}b^{m-2}+\ldots+\alpha_{1} & =0
@@ -7725,8 +7728,8 @@ und für ein geeignetes $a\in A$ gilt:
 A\left[a_{n}^{-1},\alpha_{0}^{-1}\right] & =A\left[a^{-1}\right]
 \end{align*}
 (Dies geht analog zu $\mathbb{Z}\left[\frac{1}{2},\frac{1}{3}\right]=\mathbb{Z}\left[\frac{1}{6}\right]$.)\\
-Aus \eqref{eq:BbAxb}, \eqref{eq:Ganzheitx} und \eqref{eq:Ganzheitb-1}\inputencoding{latin1}{
-folgt die Behauptung.}\inputencoding{latin9}\qqed[Behauptung II]
+Aus \eqref{eq:BbAxb}, \eqref{eq:Ganzheitx} und \eqref{eq:Ganzheitb-1}
+folgt die Behauptung.\qqed[Behauptung II]
 \end{description}
 Da $A\left[a^{-1}\right]\subseteq B\left[b^{-1}\right]$ eine ganze
 Ringerweiterung von Integritätsringen und $B\left[b^{-1}\right]$
@@ -7762,9 +7765,9 @@ A':=\modulo A{f^{-1}\left(\mathfrak{p}\right)} & \subseteq B':=\modulo B{\mathfr
 \end{align*}
 eine von einem einzigen Element erzeugte $A'$-Algebra (wegen $n=1$).
 $A'$ und $B'$ sind Integritätsringe, $A'$ ist Jacobson, was aus
-\ref{sec:Bsp-JacobsonQuotientenring} folgt, da $A$ Jacobson ist\inputencoding{latin1}{,
-und für $b:=x\in B'$ ist $B'\left[b^{-1}\right]$ ein Körper.}\inputencoding{latin9}
-Aus \ref{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}
+\ref{sec:Bsp-JacobsonQuotientenring} folgt, da $A$ Jacobson ist,
+und für $b:=x\in B'$ ist $B'\left[b^{-1}\right]$ ein Körper. Aus
+\ref{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}
 folgt insbesondere, dass $B'$ ein Körper ist.\qqed[\roman{ale2})]\iii
 Seien $\mathfrak{m}'\subseteq B$ ein maximales Ideal, dann ist wie
 oben \ref{sec:Prop-JacIReinElemetErzeugteAlgebra--AinBKoerpererweiterung}
@@ -7913,7 +7916,7 @@ für alle $x,y,z\in\Sigma$ gelten:
 \end{iiilist}
 
 
-\section{Proposition und Definition}
+\section{Proposition und Definition \textmd{(aufsteigende Folge, stationär)}\label{sec:PuD-ACC}}
 
 Für eine teilweise geordnete Menge $\left(\Sigma,\le\right)$ sind
 äquivalent:
@@ -7937,7 +7940,7 @@ $\emptyset\not=\Sigma'\subseteq\Sigma$ besitzt kein maximales Element.
 Dann wähle induktiv $x_{n}\in\Sigma'$ für $n\in\mathbb{N}$ wie folgt:
 
 $n=0$: Wähle $x_{0}\in\Sigma'$ beliebig, was möglich ist, da $\Sigma'$
-beliebig ist.
+nicht-leer ist.
 
 $n>0$: Da $x_{n-1}\in\Sigma'$ nicht maximal ist, gibt es ein Element
 $x_{n}\in\Sigma'$ mit $x_{n-1}\le x_{n}$ und $x_{n-1}\not=x_{n}$.
@@ -7946,9 +7949,514 @@ aufsteigende Folge im Widerspruch zu i).\qqed[i) $\Rightarrow$ ii)]
 
 \quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Die Teilmenge
 $\emptyset\not=\Sigma':=\left\{ x_{n}\big|n\ge0\right\} \subseteq\Sigma$
-besitzt ein maximales Element $X_{N}$. Für alle $n\ge N$ folgt dann
+besitzt ein maximales Element $x_{N}$. Für alle $n\ge N$ folgt dann
 aus $x_{n}\ge x_{N}$ bereits $x_{n}=x_{N}$, also ist die Folge $x_{0}\le x_{1}\le\ldots$
 stationär.\qqed
+
+%DATE: Fr 19.6.12
+
+
+\section{Definition \textmd{(Noethersch, Artinsch)\label{sec:Def-Noethersch-Artinsch}}}
+
+Seien $A$ ein Ring und $M$ ein $A$-Modul.
+
+\begin{iiilist}
+
+\iii $M$ heißt \emph{Noethersch} (bzw. \emph{Artinsch}), wenn
+\begin{align*}
+\left(\Sigma,\le\right) & :=\left(\left\{ M'\big|M'\subseteq M\text{ ist }A\text{-Untermodul}\right\} ,\left(M'\le M''\right):=\left(M'\subseteq M''\right)\right)\\
+(\text{bzw. }\left(\Sigma,\le\right) & :=\left(\left\{ M'\big|M'\subseteq M\text{ ist }A\text{-Untermodul}\right\} ,\left(M'\le M''\right):=\left(M'\supseteq M''\right)\right))
+\end{align*}
+die Bedingung in \ref{sec:PuD-ACC} erfüllt.
+
+\iii Der Ring $A$ heißt \emph{Noethersch} (bzw. \emph{Artinsch}),
+wenn $A$ als $A$-Modul Noethersch (bzw. Artinsch) ist.
+
+(Erinnerung: Die $A$-Untermodul von $A$ sind genau die Ideale von
+$A$.)
+
+\end{iiilist}
+
+
+\section{Beispiel\label{sec:Bsp-ZNoethersch}}
+
+\begin{iiilist}
+
+\iii Jeder endliche Modul ist sowohl Artinsch als auch Noethersch,
+zum Beispiel $\modlo Zn$ für $n\in\mathbb{N}_{\ge1}$.
+
+\iii Der Ring $\mathbb{Z}$ ist (wie jeder Hauptidealring) Noethersch,
+aber $\mathbb{Z}$ ist nicht Artinsch.
+
+
+\subsubsection*{Beweis}
+
+Ist $\left(a_{0}\right)\subsetneq\left(a_{1}\right)\subsetneq\ldots$
+eine echt aufsteigende Folge von Idealen in $\mathbb{Z}$, die alle
+Hauptideale sind, da $\mathbb{Z}$ ein Hauptidealring ist, so gilt
+für alle $a_{0},a_{1},\ldots\in\mathbb{Z}$, dass $a_{n+1}$ ein echter
+Teiler von $a_{n}$ ist. Da $a_{0}$ Produkt endlich vieler Primfaktoren
+und einer Einheit ist, weil jeder Hauptidealring faktoriell ist, existiert
+ein $n$ mit $\left(a_{n}\right)=\left(1\right)$. Also ist $\mathbb{Z}$
+(wie jeder Hauptidealring) Noethersch.
+
+Da
+\begin{align*}
+\left(2\right) & \supsetneq\left(2^{2}\right)\supsetneq\left(2^{3}\right)\supsetneq\ldots
+\end{align*}
+eine unendlich lange, echt absteigende Folge von Idealen in $\mathbb{Z}$
+ist, ist $\mathbb{Z}$ nicht Artinsch.\qqed[\roman{ale2})]
+
+\iii Für eine Primzahl $p$ ist der $\mathbb{Z}$-Modul
+\begin{align*}
+G & :=\modulo{\mathbb{Z}\left[p^{-1}\right]}{\mathbb{Z}}
+\end{align*}
+nicht Noethersch, aber Artinsch.
+
+
+\subsubsection*{Beweis}
+
+Die Folge von $\mathbb{Z}$-Untermoduln
+\begin{align*}
+G_{n} & :=\modulo{\mathbb{Z}\cdot p^{-n}}{\mathbb{Z}}=\left\{ \frac{a}{p^{n}}+\mathbb{Z}\bigg|a\in\mathbb{Z}\right\} \subseteq G
+\end{align*}
+ist strikt aufsteigend, denn es ist ${\displaystyle \frac{1}{p^{n}}+\mathbb{Z}\in G_{n}\setminus G_{n-1}}$,
+also ist $G$ nicht Noethersch.
+
+Man kann zeigen, dass die $G_{n}\subsetneq G$ die einzigen echten
+$\mathbb{Z}$-Untermoduln sind.
+
+Also ist $G$ Artinsch, denn jede absteigende Folge von Untermoduln
+ist
+\begin{align*}
+\left(G_{n}\right)\supsetneq\left(G_{k}\right)\supsetneq\ldots\supsetneq\left(G_{0}\right)
+\end{align*}
+mit $k<n$. Wegen $G_{0}=\left(0\right)$ muss diese Folge abbrechen.\qqed[\roman{ale2})]
+
+\iii Mit ii), iii) und der exakten Folge von $\mathbb{Z}$-Moduln
+\begin{align*}
+0\to\mathbb{Z}\to\mathbb{Z}\left[p^{-1}\right]\to G\to0
+\end{align*}
+folgt aus \ref{sec:Prop-ExakteFolge-NoetherschArtinsch}, dass der
+$\mathbb{Z}$-Modul ${\displaystyle \mathbb{Z}\left[p^{-1}\right]}$
+weder Noethersch noch Artinsch ist.
+
+Beachte: ${\displaystyle \mathbb{Z}\left[p^{-1}\right]}$ aufgefasst
+als ${\displaystyle \mathbb{Z}\left[p^{-1}\right]}$-Modul \emph{ist}
+nach ii) Noethersch, da dies ein Hauptidealring ist.
+
+\end{iiilist}
+
+
+\section{Proposition \textmd{(Hinreichende Bedingungen für Isomorphismen)}}
+
+Seien $A$ ein Ring, $M$ ein $A$-Modul und $\varphi\in\text{End}_{A}\left(M\right)$.
+
+\begin{iiilist}
+
+\iii Ist $\varphi$ surjektiv und $M$ Noethersch, so ist $\varphi$
+ein Isomorphismus.
+
+\iii Ist $\varphi$ injektiv und $M$ Artinsch, so ist $\varphi$
+ein Isomorphismus.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Die aufsteigende Folge von $A$-Untermoduln
+\begin{align*}
+\ker\left(\varphi\right)\subseteq\ker\left(\varphi^{2}\right)\subseteq\ker\left(\varphi^{3}\right)\subseteq\ldots\subseteq M
+\end{align*}
+ist, da $M$ Noethersch ist, stationär, das heißt es gibt es ein $n\in\mathbb{N}_{\ge1}$
+mit:
+\begin{align}
+\ker\left(\varphi^{n}\right) & =\ker\left(\varphi^{n+1}\right)\label{eq:kerphi}
+\end{align}
+Sei $x_{1}\in\ker\left(\varphi\right)$. Da $\varphi$ surjektiv ist,
+existiert eine Folge $x_{1},x_{2},\ldots\in M$ mit $\varphi\left(x_{m+1}\right)=x_{m}$
+für alle $m\in\mathbb{N}_{\ge1}$. Es folgt:
+\begin{align*}
+x_{1} & =\varphi\left(x_{2}\right)=\varphi^{2}\left(x_{3}\right)=\ldots=\varphi^{n}\left(x_{n+1}\right)
+\end{align*}
+Also gilt:
+\begin{align*}
+0 & \stackrel{x_{1}\in\ker\left(\varphi\right)}{=}\varphi\left(x_{1}\right)=\varphi\left(\varphi^{n}\left(x_{n+1}\right)\right)=\varphi^{n+1}\left(x_{n+1}\right)
+\end{align*}
+Daher gilt wegen \eqref{eq:kerphi}:
+\begin{align*}
+0 & =\varphi^{n}\left(x_{n+1}\right)=x_{1}
+\end{align*}
+Also ist $\ker\left(\varphi\right)=0$, das heißt $\varphi$ ist injektiv
+und damit ein Isomorphismus.\qqed[\roman{ale2})]
+
+\iii Die absteigende Folge von $A$-Untermoduln
+\begin{align*}
+M\supseteq\text{im}\left(\varphi\right)\supseteq\text{im}\left(\varphi^{2}\right)\supseteq\text{im}\left(\varphi^{3}\right)\supseteq\ldots
+\end{align*}
+ist, da $M$ Artinsch ist, stationär, das heißt es gibt es ein $n\in\mathbb{N}_{\ge1}$
+mit:
+\begin{align}
+\text{im}\left(\varphi^{n}\right) & =\text{im}\left(\varphi^{n+1}\right)\label{eq:imphi}
+\end{align}
+Sei $x_{1}\in M$. Definiere eine Folge $x_{1},x_{2},\ldots\in M$
+durch $x_{m+1}:=\varphi\left(x_{m}\right)$ für alle $m\in\mathbb{N}_{\ge1}$.
+Es folgt:
+\begin{align*}
+\varphi^{n}\left(x_{1}\right) & =\varphi^{n-1}\left(x_{2}\right)=\varphi^{n-2}\left(x_{3}\right)=\ldots=\varphi\left(x_{n}\right)=x_{n+1}\in\text{im}\left(\varphi^{n}\right)
+\end{align*}
+Daher gilt wegen \eqref{eq:imphi}:
+\begin{align*}
+x_{n+1} & \in\text{im}\left(\varphi^{n+1}\right)
+\end{align*}
+Daher gibt es ein $x\in M$ mit $\varphi^{n+1}\left(x\right)=x_{n+1}$.
+Also gilt:
+\begin{align*}
+\varphi^{n}\left(\varphi\left(x\right)\right) & =\varphi^{n+1}\left(x\right)=x_{n+1}=\varphi^{n}\left(x_{1}\right)
+\end{align*}
+
+
+Da mit $\varphi$ auch $\varphi^{n}$ injektiv ist, folgt $x_{1}=\varphi\left(x\right)$
+und somit $x_{1}\in\text{im}\left(\varphi\right)$.
+
+Also ist $M=\text{im}\left(\varphi\right)$, das heißt $\varphi$
+ist surjektiv und damit ein Isomorphismus.\qqed[\roman{ale2})]
+
+\end{iiilist}
+
+
+\section{Proposition \textmd{(Charakterisierung von Noethersch)\label{sec:Prop-Charakterisierung-Noethersch}}}
+
+Seien $A$ ein Ring und $M$ ein $A$-Modul. Dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $M$ ist Noethersch.
+
+\iii Jeder $A$-Untermodul von $M$ ist endlich erzeugt.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Seien $M'\subseteq M$
+ein Untermodul und:
+\begin{align*}
+\Sigma & :=\left\{ M''\big|M''\subseteq M'\text{ endlich erzeugter Untermodul}\right\} 
+\end{align*}
+Wegen $0\in\Sigma$ ist $\Sigma$ nicht leer und nach \eqref{sec:PuD-ACC}
+ii) existiert ein maximales $M''\in\Sigma$.
+
+Wäre $M''\subsetneq M'$, so existierte ein $x\in M'\setminus M''$
+und wir hätten:
+\begin{align*}
+M'' & \subsetneq M''+Ax\subseteq M'
+\end{align*}
+Da $M''+Ax$ endlich erzeugt ist, wäre dies ein Widerspruch zur Maximalität
+von $M''$.
+
+Somit gilt $M'=M''$.\qqed[i) $\Rightarrow$ ii)]
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Sei
+\begin{align*}
+M_{1}\subseteq M_{2}\subseteq\ldots\subseteq M
+\end{align*}
+eine Folge von $A$-Untermoduln. Dann ist
+\begin{align*}
+M' & :=\bigcup_{n\ge1}M_{n}\subseteq M
+\end{align*}
+ein $A$-Untermodul, also endlich erzeugt nach ii), das heißt es gibt
+ein $n\in\mathbb{N}$ und geeignete $x_{i}\in M'$ mit:
+\begin{align*}
+M' & =\sum_{i=1}^{n}Ax_{i}
+\end{align*}
+Offenbar existiert ein $N\in\mathbb{N}$ mit $x_{1},\ldots,x_{n}\in M_{N}$,
+und es folgt $M_{N}=M'$.
+
+Also gilt $M_{N+k}=M_{N}$ für alle $k\in\mathbb{N}$ und die Folge
+ist daher stationär.\qqed
+
+
+\section{Proposition\label{sec:Prop-ExakteFolge-NoetherschArtinsch}}
+
+Seien $A$ ein Ring und
+\begin{align*}
+0\to M'\stackrel{f}{\to}M\stackrel{g}{\to}M''\to0
+\end{align*}
+eine kurze exakte Folge von $A$-Moduln. Dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $M$ ist Noethersch (bzw. Artinsch).
+
+\iii $M'$ und $M''$ sind Noethersch (bzw. Artinsch).
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Sei $\left(M_{k}'\right)_{k\in\mathbb{N}}$
+eine aufsteigende (bzw. absteigende) Folge von $A$-Untermoduln von
+$M'$, dann ist $\left(f\left(M_{k}'\right)\right)_{k\in\mathbb{N}}$
+eine aufsteigende (bzw. absteigende) Folge von $A$-Untermoduln von
+$M$ und somit stationär. Da $f$ injektiv ist, gilt $f^{-1}\left(f\left(M_{k}'\right)\right)=M_{k}'$,
+also ist auch $\left(M_{k}'\right)_{k\in\mathbb{N}}$ stationär und
+daher ist $M'$ Noethersch (bzw. Artinsch).
+
+Sei $\left(M_{k}''\right)_{k\in\mathbb{N}}$ eine aufsteigende (bzw.
+absteigende) Folge von $A$-Untermoduln von $M''$, dann ist $\left(g^{-1}\left(M_{k}''\right)\right)_{k\in\mathbb{N}}$
+eine aufsteigende (bzw. absteigende) Folge von $A$-Untermoduln von
+$M$ und somit stationär. Da $g$ surjektiv ist, gilt $g\left(g^{-1}\left(M_{k}''\right)\right)=M_{k}''$,
+also ist auch $\left(M_{k}''\right)_{k\in\mathbb{N}}$ stationär und
+somit ist $M''$ Noethersch (bzw. Artinsch).
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Sei $\left(M_{k}\right)_{k\in\mathbb{N}}$
+eine aufsteigende (bzw. absteigende) Folge von $A$-Untermoduln von
+$M$, dann sind $\left(f^{-1}\left(M_{k}\right)\right)_{k\in\mathbb{N}}\subseteq M'$
+und $\left(g\left(M_{k}\right)\right)_{k\in\mathbb{N}}\subseteq M''$
+aufsteigende (bzw. absteigende) Folgen von $A$-Untermoduln und somit
+stationär, also gibt es $n_{1},n_{2}\in\mathbb{N}$, sodass für alle
+$m_{1}\ge n_{1}$ (bzw. $m_{1}\le n_{1}$) und alle $m_{2}\ge n_{2}$
+(bzw. $m_{2}\le n_{2}$) gilt:
+\begin{align*}
+g\left(M_{n_{1}}\right) & =g\left(M_{m}\right) & f^{-1}\left(M_{n_{2}}\right) & =f^{-1}\left(M_{m}\right)
+\end{align*}
+Sei nun $n=\text{max}\left\{ n_{1},n_{2}\right\} $ (bzw. $n=\text{min}\left\{ n_{1},n_{2}\right\} $),
+so gilt für alle $m\ge n$ (bzw. $m\le n$):
+\begin{align*}
+g\left(M_{m}\right) & =g\left(M_{n}\right) & f^{-1}\left(M_{m}\right) & =f^{-1}\left(M_{n}\right)
+\end{align*}
+Sei $x\in M_{m}$ für ein $m\ge n$ (bzw. $m\le n$). Falls $x\in\text{im}\left(f\right)$
+liegt, gibt es ein $x'\in M'$ mit $f\left(x'\right)=x$. Wegen $f^{-1}\left(M_{m}\right)=f^{-1}\left(M_{n}\right)$
+gilt $x'\in f^{-1}\left(M_{n}\right)$ und somit $x=f\left(x'\right)\in M_{n}$.
+
+Falls $x\not\in\text{im}\left(f\right)=\ker\left(g\right)$ liegt,
+folgt $0\not=g\left(x\right)\in g\left(M_{m}\right)=g\left(M_{n}\right)$.
+Also gibt es ein $y\in M_{n}$ mit:
+\begin{align*}
+g\left(x\right) & =g\left(y\right)\\
+g\left(x-x\right) & =0\\
+x-y & \in\ker\left(g\right)=\text{im}\left(f\right)
+\end{align*}
+Wie oben gezeigt, gilt dann $x-y\in M_{n}$. Somit ist auch $x=y+\left(x-y\right)\in M_{n}$.
+Also gilt $M_{m}=M_{n}$ und somit ist $M$ Noethersch (bzw. Artinsch).\qqed
+
+
+\section{Korollar \textmd{(stabil unter direkter Summe)}\label{sec:Kor-NoetherschArtinsch-stabil-direkteSumme}}
+
+Seien $A$ ein Ring, $n\in\mathbb{N}_{\ge1}$ und $M_{1},\ldots,M_{n}$
+Noethersche (bzw. Artinsche) $A$-Moduln.
+
+Dann ist der $A$-Modul ${\displaystyle \bigoplus_{i=1}^{n}M_{i}}$
+Noethersch (bzw. Artinsch).
+
+
+\subsubsection*{Beweis}
+
+Führe eine Induktion über $n$ durch:
+
+Der Induktionsanfang bei $n=1$ ist wegen ${\displaystyle \bigoplus_{i=1}^{1}M_{i}}={\displaystyle M_{i}}$
+klar.
+
+Induktionsschritt $n-1\leadsto n$: Nach Induktionsvoraussetzung ist
+${\displaystyle \bigoplus_{i=1}^{n-1}M_{i}}$ ein Noetherscher (bzw.
+Artinsche) $A$-Modul und nach Voraussetzung gilt dies auch für $M_{n}$.
+Daher folgt die Behauptung für $n$ aus \ref{sec:Prop-ExakteFolge-NoetherschArtinsch}
+angewandt auf die exakte Folge:
+\begin{align*}
+0\to\bigoplus_{i=1}^{n-1}M_{i}\stackrel{f}{\to}\bigoplus_{i=1}^{n}M_{i}\stackrel{g}{\to}M_{n}\to0
+\end{align*}
+\begin{align*}
+f\left(x_{1},\ldots,x_{n-1}\right) & :=\left(x_{1},\ldots,x_{n-1},0\right)\\
+g\left(x_{1},\ldots,x_{n}\right) & :=x_{n}
+\end{align*}
+\qqed
+
+
+\section{Beispiel\label{sec:Bsp-HIR-Noethersch}}
+
+\begin{iiilist}
+
+\iii Wegen \ref{sec:Def-Noethersch-Artinsch} ii) und \ref{sec:Prop-Charakterisierung-Noethersch}
+mit $A=M$ ist ein Ring $A$ genau dann Noethersch, wenn jedes seiner
+Ideale endlich erzeugt ist.
+
+\iii Wegen i) ist jeder Hauptidealring Noethersch.
+
+Ist $k$ ein Körper, so ist der Polynomring $k\left[X_{n}\big|n\in\mathbb{N}\right]$
+nicht Noethersch, denn 
+\begin{align*}
+\mathfrak{m} & :=\left(X_{n}\big|n\in\mathbb{N}\right)
+\end{align*}
+ist nicht endlich erzeugt.
+
+\iii Ein Körper ist sowohl Artinsch, als auch Noethersch, da der
+einzige echte $A$-Untermodul $\left(0\right)$ ist.
+
+\end{iiilist}
+
+
+\section{Proposition}
+
+Sind $A$ ein Noetherscher (bzw. Artinscher) Ring und $M$ ein endlich
+erzeugter $A$-Modul, so ist der Modul $M$ auch Noethersch (bzw.
+Artinsch).
+
+
+\subsubsection*{Beweis}
+
+Da $M$ endlich erzeugt ist, existiert ein $n\in\mathbb{N}$ und eine
+kurze exakte Folge von $A$-Moduln:
+\begin{align*}
+0\to K\to A^{n}=\bigoplus_{i=1}^{n}A\to M\to0
+\end{align*}
+Nach \ref{sec:Kor-NoetherschArtinsch-stabil-direkteSumme} (mit $M_{1}=\ldots=M_{n}=A$)
+ist $A^{n}$ als direkte Summe Noethersch (bzw. Artinsch) und nach
+\ref{sec:Prop-ExakteFolge-NoetherschArtinsch} \quotedblbase{}i) $\Rightarrow$
+ii)\textquotedblleft{} gilt dies auch für $K$ und $M$.\qqed
+
+
+\section{Proposition\label{sec:Prop-QuotientenringNoethersch}}
+
+Seien $A$ ein Noetherscher (bzw. Artinscher) Ring und $I\subseteq A$
+ein Ideal, dann ist der Ring $\modulo AI$ Noethersch (bzw. Artinsch).
+
+
+\subsubsection*{Beweis}
+
+Wegen der kurzen exakten Folge von $A$-Moduln
+\begin{align*}
+0\to I\to A\to\modulo AI\to0
+\end{align*}
+und \ref{sec:Prop-ExakteFolge-NoetherschArtinsch} \quotedblbase{}i)
+$\Rightarrow$ ii)\textquotedblleft{} ist der $A$-Modul $\modulo AI$
+Noethersch (bzw. Artinsch).
+
+Dasselbe gilt dann für den $\modulo AI$-Modul $\modulo AI$, denn
+die $A$-Untermoduln von $\modulo AI$ und die $\modulo AI$-Untermoduln
+von $\modulo AI$ sind dieselben, da die Multiplikation in $\modulo AI$
+gerade über die Multiplikation in $A$ definiert ist.\qqed
+
+
+\section{Proposition\label{sec:Prop-endlichDimVR-NoetherschArtinsch}}
+
+Seien $A=k$ ein Körper und $M=V$ ein $A$-Modul, das heißt ein $k$-Vektorraum.
+Dann sind äquivalent:
+
+\begin{iiilist}
+
+\iii $\text{dim}_{k}\left(V\right)<\infty$
+
+\iii $V$ ist Noethersch.
+
+\iii $V$ ist Artinsch.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+Ein Vektorraum ist genau dann endlich erzeugt, wenn er endlich-dimensional
+ist. Damit folgt die Äquivalenz von i) und ii) aus \ref{sec:Prop-Charakterisierung-Noethersch}
+und Linearer Algebra I, denn jeder Untervektorraum von $V$ ist endlich-dimensional,
+wenn $V$ endlich-dimensional ist.
+
+\quotedblbase{}i) $\Rightarrow$ iii)\textquotedblleft{}: Eine strikt
+fallende Folge von Untervektorräumen $V\supseteq V_{1}\supsetneq V_{2}\supsetneq\ldots$
+erfüllt:
+\begin{align*}
+0\le\dim_{k}\left(V_{i+1}\right) & \le\dim_{k}\left(V_{i}\right)-1
+\end{align*}
+Also ist die Folge endlich, da der einzige Vektorraum mit Dimension
+0 schon $V_{n}=\left\{ 0\right\} $ ist.
+
+\quotedblbase{}iii) $\Rightarrow$ i)\textquotedblleft{}: Wäre $\text{dim}_{k}\left(V\right)=\infty$,
+so existierte eine unendliche linear unabhängige Teilmenge $\left\{ v_{n}\big|n\in\mathbb{N}\right\} \subseteq V$
+und
+\begin{align*}
+V_{n} & :=\sum_{m\ge n}k\cdot v_{m}
+\end{align*}
+wäre eine unendlich lange Folge von strikt fallenden Untervektorräumen
+von $V$.\qqed
+
+
+\section{Korollar\label{sec:Kor-HinreichendFuerNoetherschAequivalentArtinsch}}
+
+Sei $A$ ein Ring, in dem das Nullideal Produkt endlich vieler maximaler
+Ideale ist. Dann ist $A$ genau dann Noethersch, wenn $A$ Artinsch
+ist.
+
+
+\subsubsection*{Beweis}
+
+Schreibe:
+\begin{align*}
+\left(0\right) & =\mathfrak{m}_{1}\cdot\ldots\cdot\mathfrak{m}_{n}\subseteq A
+\end{align*}
+Dabei müssen die maximalen Ideale $\mathfrak{m}_{i}$ nicht paarweise
+verschieden sein. Erhalte eine absteigende Folge von $A$-Untermoduln:
+\begin{align*}
+I_{0}:=A & \supseteq I_{1}:=\mathfrak{m}_{1}\supseteq I_{2}:=\mathfrak{m}_{1}\cdot\mathfrak{m}_{2}\supseteq\ldots\supseteq I_{n}:=\mathfrak{m}_{1}\cdot\ldots\cdot\mathfrak{m}_{n}=\left(0\right)
+\end{align*}
+Dann ist für alle $0\le k\le n-1$ der Quotient $\modulo{I_{k}}{I_{k+1}}$
+ein $\modulo A{\mathfrak{m}_{k+1}}$-Vektorraum, denn es gilt $\mathfrak{m}_{k+1}\cdot I_{k}\subseteq I_{k+1}$.
+
+Es folgt:
+\begin{align*}
+A\text{ Noethersch} & \quad\stackrel{\ref{sec:Prop-ExakteFolge-NoetherschArtinsch}}{\Leftrightarrow}\quad\fall_{0\le k\le n-1}:\text{ der }A\text{-Modul }\modulo{I_{k}}{I_{k+1}}\text{ ist Noethersch}\\
+ & \quad\stackrel{\text{Beweis von }\ref{sec:Prop-QuotientenringNoethersch}}{\Leftrightarrow}\quad\fall_{0\le k\le n-1}:\text{ der }\modulo A{\mathfrak{m}_{k+1}}\text{-Vektorraum }\modulo{I_{k}}{I_{k+1}}\text{ ist Noethersch}\\
+ & \quad\stackrel{\ref{sec:Prop-endlichDimVR-NoetherschArtinsch}\text{ ii)}\Leftrightarrow\text{iii)}}{\Leftrightarrow}\quad\fall_{0\le k\le n-1}:\text{ der }\modulo A{\mathfrak{m}_{k+1}}\text{-Vektorraum }\modulo{I_{k}}{I_{k+1}}\text{ ist Artinsch}\\
+ & \quad\stackrel{\ref{sec:Prop-ExakteFolge-NoetherschArtinsch}}{\Leftrightarrow}A\text{ ist Artinsch}
+\end{align*}
+\qqed
+
+
+\section{Beispiel}
+
+Sind $A$ ein Hauptidealring und $0\not=I\subseteq A$ ein Ideal,
+so ist $\modulo AI$ Artinsch.
+
+Zum Beispiel: $\modulo{k\left[X\right]}{\left(X^{n}\right)}$
+
+
+\subsubsection*{Beweis}
+
+Da $A$ ein Hauptidealring ist, ist $A$ nach \ref{sec:Bsp-ZNoethersch}
+oder auch \ref{sec:Bsp-HIR-Noethersch} Noethersch. Nach \ref{sec:Prop-QuotientenringNoethersch}
+ist dann auch $\modulo AI$ Noethersch.
+
+Da $A$ ein Hauptidealring ist, gibt es ein $a\in A\setminus\left\{ 0\right\} $
+mit $\left(0\right)\not=I=\left(a\right)$. Aus demselben Grund ist
+$A$ faktoriell und somit gibt es endlich viele Primfaktoren $p_{1},\ldots,p_{n}$
+(nicht notwendig paarweise verschieden) und eine Einheit $e\in A^{*}$
+mit:
+\begin{align*}
+a & =e\prod_{i=1}^{n}p_{n}
+\end{align*}
+Nun ist $\left(p_{k}\right)\subseteq A$ ein Primideal und da $A$
+ein Hauptidealring ist, auch ein maximales Ideal, denn aus $\left(p_{k}\right)\subsetneq\left(m\right)$
+folgt $m|p_{k}$, also $m\in A^{*}$ und somit $\left(m\right)=A$.
+Zudem gilt:
+\begin{align*}
+\left(a\right) & =\left(p_{1}\right)\cdot\ldots\cdot\left(p_{n}\right)
+\end{align*}
+In $\modulo AI$ folgt:
+\begin{align*}
+\left(0\right) & =\modulo{\left(a\right)}{\left(a\right)}=\modulo{\left(p_{1}\right)\cdot\ldots\cdot\left(p_{n}\right)}{\left(a\right)}=\modulo{\left(p_{1}\right)}{\left(a\right)}\cdot\ldots\cdot\modulo{\left(p_{n}\right)}{\left(a\right)}
+\end{align*}
+Zudem sind die Ideale $\modulo{\left(p_{k}\right)}{\left(a\right)}\subseteq\modulo A{\left(a\right)}$
+maximal, denn
+\begin{align*}
+\modulo{\modulo A{\left(a\right)}}{\modulo{\left(p_{k}\right)}{\left(a\right)}} & \stackrel{\sim}{=}\modulo A{\left(p_{k}\right)}
+\end{align*}
+ist ein Körper, da $\left(p_{k}\right)\subseteq A$ maximal ist. Nach
+\ref{sec:Kor-HinreichendFuerNoetherschAequivalentArtinsch} ist also
+$\modulo AI$ auch Artinsch, da der Ring Noethersch ist.\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}
