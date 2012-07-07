@@ -1,4 +1,4 @@
-%% LyX 2.0.3 created this file.  For more info, see http://www.lyx.org/.
+%% LyX 2.0.4 created this file.  For more info, see http://www.lyx.org/.
 %% Do not edit unless you really know what you are doing.
 \documentclass[11pt,english,ngerman]{report}
 \usepackage[T1]{fontenc}
@@ -7870,9 +7870,10 @@ Die Abbildung
 \mathcal{N}\left(J\right) & \stackrel{\sim}{\to}\text{MaxSpec}\left(\modulo AJ\right):=\left\{ \text{maximale Ideale von }\modulo AJ\right\} \\
 \underline{\alpha} & \mapsto\modulo{\mathfrak{m}_{\underline{\alpha}}}J
 \end{align*}
-Dabei ist $\mathfrak{m}_{\underline{\alpha}}$ wie in \ref{sec:Prop-knMaximaleIdealePolynomring}
-wohldefiniert, denn $\mathfrak{m}_{\underline{\alpha}}\subseteq A$
-ist ein maximales Ideal und es gilt:
+ist wohldefiniert und bijektiv. Dabei ist $\mathfrak{m}_{\underline{\alpha}}$
+wie in \ref{sec:Prop-knMaximaleIdealePolynomring} wohldefiniert,
+denn $\mathfrak{m}_{\underline{\alpha}}\subseteq A$ ist ein maximales
+Ideal und es gilt:
 \begin{align*}
 J\subseteq\mathfrak{m}_{\underline{\alpha}} & =\left\{ f\in A\big|f\left(\underline{\alpha}\right)=0\right\} 
 \end{align*}
@@ -8301,7 +8302,7 @@ einzige echte $A$-Untermodul $\left(0\right)$ ist.
 \end{iiilist}
 
 
-\section{Proposition}
+\section{Proposition\label{sec:Prop-endlicherzUnterModulNoethersch}}
 
 Sind $A$ ein Noetherscher (bzw. Artinscher) Ring und $M$ ein endlich
 erzeugter $A$-Modul, so ist der Modul $M$ auch Noethersch (bzw.
@@ -8457,6 +8458,689 @@ maximal, denn
 ist ein Körper, da $\left(p_{k}\right)\subseteq A$ maximal ist. Nach
 \ref{sec:Kor-HinreichendFuerNoetherschAequivalentArtinsch} ist also
 $\modulo AI$ auch Artinsch, da der Ring Noethersch ist.\qqed
+
+%DATE: Di 3.7.12
+
+
+\chapter{Noethersche Ringe}
+
+
+\section{Erinnerung\label{sec:Erin-Noethersch}}
+
+Für einen Ring $A$ sind äquivalent:
+
+\begin{iiilist}
+
+\iii Jede nicht-leere Menge von Idealen besitzt ein maximales Element
+(bezüglich der Inklusion).
+
+\iii Jede aufsteigende Folge von Idealen in $A$ ist stationär.
+
+\iii Jedes Ideal von $A$ ist endlich erzeugt.
+
+\end{iiilist}
+
+Ein solcher Ring $A$ heißt Noethersch.
+
+
+\subsubsection*{Beweis}
+
+Vergleiche mit den Definitionen \ref{sec:Def-Noethersch-Artinsch}
+ii) und \ref{sec:PuD-ACC} und der Proposition \ref{sec:Prop-Charakterisierung-Noethersch}.\qqed
+
+
+\section{Satz \textmd{(endlich viele minimale Primideale)\label{sec:Satz-Noethersch-endlichvieleMinimalePrimideale}}}
+
+Die Menge der minimalen Primideale eines Noetherschen Ringes $A$
+ist endlich.
+
+
+\subsubsection*{Beweis}
+
+Angenommen $A$ wäre ein Noetherscher Ring mit unendlich vielen minimalen
+Primidealen.
+
+Betrachte die Menge:
+\begin{align*}
+\Sigma & :=\left\{ I\subseteq A\Big|I\text{ ist Ideal und }\modulo AI\text{ besitzt unendlich viele minimale Primideale}\right\} 
+\end{align*}
+Da $\modulo A{\left(0\right)}\stackrel{\sim}{=}A$ nach Annahme unendlich
+vielen minimalen Primidealen besitzt, ist $\left(0\right)\in\Sigma$
+und somit $\Sigma$ nicht leer. Wegen \ref{sec:Erin-Noethersch} i)
+existiert ein maximales Element $I\in\Sigma$.
+
+Für den Ring $A':=\modulo AI$ gelten:
+\begin{enumerate}
+\item $A'$ ist nach \ref{sec:Prop-QuotientenringNoethersch} Noethersch.
+\item $A'$ besitzt wegen $I\in\Sigma$ unendlich viele minimale Primideale.
+\item Für jedes Ideal $\left(0\right)\not=J\subseteq A'$ besitzt $\modulo{A'}J$
+wegen der Maximalität von $I\in\Sigma$ nur endlich viele minimale
+Primideale.
+\end{enumerate}
+Offenbar ist wegen 2. das Ideal $\left(0\right)\subseteq A'$ kein
+Primideal, da es sonst das einzige minimale Primideal wäre. Das heißt
+$A'$ ist kein Integritätsring und daher gibt es $x,y\in A'\setminus\left\{ 0\right\} $
+mit $xy=0$. Ist $\mathcal{P}\subseteq A'$ ein Primideal, so folgt
+$xy=0\in\mathcal{P}$ und da $\mathcal{P}$ ein Primideal ist, folgt
+$x\in\mathcal{P}$ oder $y\in\mathcal{P}$.
+
+Da dies für jedes der unendlich vielen minimalen Primideal gilt, können
+wir ohne Einschränkung annehmen, dass $x\in\mathcal{P}$ für unendlich
+viele minimale Primideale $\mathcal{P}\subseteq A'$ gilt.
+
+Offenbar ist für jedes solche $\mathcal{P}$ nun $\modulo{\mathcal{P}}{\left(x\right)}\subseteq\modulo{A'}{\left(x\right)}$
+ein minimales Primideal, also besitzt $\modulo{A'}{\left(x\right)}$
+unendlich viele minimale Primideale im Widerspruch zu 3. und $x\not=0$.\qqed
+
+
+\section{Beispiel }
+
+Seien $k$ ein algebraisch abgeschlossener Körper, $n,m\in\mathbb{N}_{\ge1}$
+und $f_{1},\ldots,f_{m}\in k\left[X_{1},\ldots,X_{n}\right]$.
+
+Für $J:=\left(f_{1},\ldots,f_{m}\right)$ ist die Abbildung
+\begin{align*}
+\mathcal{N}\left(J\right):=\left\{ \underline{\alpha}\in k^{n}\bigg|\fall_{1\le i\le m}f_{i}\left(\underline{\alpha}\right)=0\right\}  & \stackrel{\sim}{\to}\text{MaxSpec}\left(\modulo{k\left[X_{1},\ldots,X_{n}\right]}J\right)\\
+\underline{\alpha} & \mapsto\modulo{\mathfrak{m}_{\underline{\alpha}}}J
+\end{align*}
+bijektiv. (vergleiche Beweis von \ref{sec:Satz-Hilbertscher-Nullstellensatz})
+
+Der Ring $\modulo{k\left[X_{1},\ldots,X_{n}\right]}J$ ist eine endlich
+erzeugte $k$-Algebra, also nach \ref{sec:Kor-endlichErzeugteAlgebraNoethersch}
+ii) Noethersch.
+
+Seien $\left\{ \mathcal{P}_{1},\ldots,\mathcal{P}_{N}\right\} $ seine
+minimalen Primideale. Dann gilt:
+\begin{align*}
+\mathcal{N}\left(J\right) & =\bigcup_{i=1}^{N}\mathcal{N}\left(\mathcal{P}_{i}\right)
+\end{align*}
+Dies ist eine Verallgemeinerung der Zerlegung eines Polynoms in irreduzible
+Faktoren, also des Falls $n=1$.
+
+
+\section{Satz \textmd{(Stabilitätseigenschaften)}\label{sec:Satz-StabilitaetseigenschaftenNoethersch}}
+
+Sei $A$ ein Noetherscher Ring.
+
+\begin{iiilist}
+
+\iii Ist $I\subseteq A$ ein Ideal, so ist $\modulo AI$ Noethersch.
+
+\iii Jede endliche $A$-Algebra $B$ ist Noethersch.
+
+\iii Ist $S\subseteq A$ multiplikativ abgeschlossen, so ist $S^{-1}A$
+Noethersch.
+
+\iii Ist $\mathfrak{p}\subseteq A$ ein Primideal, so ist $A_{\mathfrak{p}}$
+Noethersch.
+
+\iii Ist $M$ ein endlich erzeugter $A$-Modul, so ist $M$ Noethersch
+und endlich präsentiert.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii \ref{sec:Prop-QuotientenringNoethersch}
+
+\iii Jedes Ideal von $B$ ist insbesondere ein $A$-Untermodul von
+$B$ und der $A$-Modul $B$ ist nach \ref{sec:Prop-endlicherzUnterModulNoethersch}
+Noethersch.
+
+\iii \ref{sec:Erin-Noethersch} ii) und \ref{sec:Satz-Idealtheorie-Lokalisierung}.
+
+\iii Wähle $S:=\left(A\setminus\mathfrak{p}\right)$ in iii).
+
+\iii Die erste Aussage ist \ref{sec:Prop-endlicherzUnterModulNoethersch}.
+Nach Voraussetzung existiert ein $n\ge0$ und ein $A$-linearer Epimorphismus
+$\pi:A^{n}\twoheadrightarrow M$. Erhalte eine kurze exakte Folge:
+\begin{align*}
+0\to K:=\ker\left(\pi\right)\to A^{n}\stackrel{\pi}{\to}M\to0
+\end{align*}
+Da $A^{n}$ nach \ref{sec:Prop-endlicherzUnterModulNoethersch} Noethersch
+ist und nach \ref{sec:Prop-Charakterisierung-Noethersch} i) $\Rightarrow$
+ii) folgt, dass der $A$-Modul $K\hookrightarrow A^{n}$ endlich erzeugt
+ist, also ist obige Folge eine endliche Präsentation von $M$.\qqed 
+
+\end{iiilist}
+
+
+\section{Satz \textmd{(Hilbertscher Basissatz)\label{sec:Satz-Hilbertscher-Basissatz}}}
+
+Ist $A$ ein Noetherscher Ring, so auch $A\left[X\right]$.
+
+
+\subsubsection*{Beweis}
+
+Sei $I\subseteq A\left[X\right]$ ein Ideal. Wegen \ref{sec:Erin-Noethersch}
+iii) ist zu zeigen, dass $I$ endlich erzeugt ist.
+
+Für ein Polynom $f\in A\left[X\right]$ schreibe:
+\begin{align*}
+l\left(f\right) & :=\left.\begin{cases}
+\text{höchster Koeffizient von }f & \text{falls }f\not=0\\
+0 & \text{sonst}
+\end{cases}\right\} \in A
+\end{align*}
+
+\begin{description}
+\item [{Behauptung~I:}] $J:=\left\{ l\left(f\right)\big|f\in I\right\} \subseteq A$
+ist ein Ideal.
+\item [{Beweis:}] Es gilt
+\begin{align*}
+l\left(f\right)-l\left(g\right) & =l\underbrace{\left(f\cdot X^{\deg\left(g\right)-\deg\left(f\right)}-g\right)}_{\in I}
+\end{align*}
+falls $\deg\left(g\right)\ge\deg\left(f\right)$, sonst analog. Für
+alle $a\in A$ ist:
+\begin{align*}
+a\cdot l\left(f\right) & =l\underbrace{\left(af\right)}_{\in I}
+\end{align*}
+\qqed[Behauptung I]
+\end{description}
+Da $A$ Noethersch ist, folgt nach \ref{sec:Prop-Charakterisierung-Noethersch}
+nun $J=\left(a_{1},\ldots,a_{n}\right)$ für ein $n\in\mathbb{N}_{\ge1}$
+und geeignete $a_{i}\in A$. 
+
+Nach Definition gibt es $f_{i}\in I$ ($1\le i\le n$) mit $a_{i}=l\left(f_{i}\right)$.
+Setze:
+\begin{align*}
+r & :=\max_{1\le i\le m}\left(\deg\left(f_{i}\right)\right)\\
+M & :=\sum_{i=0}^{r-1}A\cdot X^{i}\subseteq A\left[X\right]\\
+I' & :=\left(f_{1},\ldots,f_{n}\right)\subseteq A\left[X\right]
+\end{align*}
+
+\begin{description}
+\item [{Behauptung~II:}] $I=\left(I\cap M\right)+I'$
+\item [{Beweis:}] \quotedblbase{}$\supseteq$\textquotedblleft{}: Dies
+ist wegen $f_{i}\in I$, also $I'\subseteq I$ und $I\cap M\subseteq I$
+klar.\\
+\quotedblbase{}$\subseteq$\textquotedblleft{}: Ansonsten sei $f\in I\setminus\left(\left(I\cap M\right)+I'\right)$
+von minimalem Grad $N\in\mathbb{N}$ gewählt. Nach Definition von
+$M$ gilt:
+\begin{align*}
+n & \ge r=\max_{1\le i\le m}\left(\deg\left(f_{i}\right)\right)
+\end{align*}
+Es folgt $N\ge\deg\left(f_{i}\right)$ für alle $1\le i\le m$. Wegen
+$f\in I$ gilt mit geeigneten $\alpha_{i}\in A$:
+\begin{align*}
+J\ni l\left(f\right) & =\sum_{i=1}^{n}\alpha_{i}a_{i}
+\end{align*}
+Betrachte:
+\begin{align*}
+g & :=\sum_{i=1}^{N}\alpha_{i}f_{i}X^{n-\deg\left(f_{i}\right)} & h & :=f-g\\
+\deg\left(g\right) & =N
+\end{align*}
+Damit folgt:
+\begin{align*}
+l\left(h\right)=l\left(f-g\right) & =l\left(f\right)-\sum_{i=1}^{n}\alpha_{i}\underbrace{l\left(f_{i}\cdot X^{N-\deg\left(f_{i}\right)}\right)}_{=l\left(f_{i}\right)=a_{i}}=0
+\end{align*}
+Also gilt:
+\begin{align*}
+N> & \deg\left(h\right)
+\end{align*}
+Nun gelten $f\in I$ und $f_{i}\in I$ und somit auch $h\in I$. Wegen
+$N>\deg\left(h\right)$ und der Minimalität von $N$ folgt $h\in I'+\left(I\cap M\right)$.
+Wegen $g\in I'$ folgt $f=h+g\in I'+\left(I\cap M\right)$. Dies ist
+ein Widerspruch zu $f\in I\setminus\left(\left(I\cap M\right)+I'\right)$.\qqed[Behauptung II]
+\end{description}
+Da $A$ Noethersch ist und $M$ ein endlich erzeugter $A$-Modul ist,
+also auch Noethersch ist. Somit ist auch der $A$-Modul $M\cap I\subseteq M$
+endlich erzeugt. Sind $g_{1},\ldots,g_{m}\in I\cap M$ nun $A$-Modul-Erzeuger
+von $M\cap I$, so folgt:
+\begin{align*}
+I & \stackrel{\text{Beh. II}}{=}\left(g_{1},\ldots,g_{m}\right)+\left(f_{1},\ldots,f_{n}\right)
+\end{align*}
+Somit ist $I$ endlich erzeugt.\qqed
+
+
+\section{Korollar \textmd{(endlich erzeugte Algebra Noethersch)}\label{sec:Kor-endlichErzeugteAlgebraNoethersch}}
+
+\begin{iiilist}
+
+\iii Ist $A$ ein Noetherscher Ring, so ist jede endlich erzeugte
+$A$-Algebra $B$ Noethersch. (vergleiche \ref{sec:Satz-StabilitaetseigenschaftenNoethersch}
+iii))
+
+\iii Jeder endlich erzeugter Ring und jede über einem Körper endlich
+erzeugte Algebra ist Noethersch.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Als $A$-Algebra gilt für ein geeignetes $n\in\mathbb{N}_{\ge1}$
+und einem geeigneten $Q\subseteq A\left[X_{1},\ldots,X_{n}\right]$:
+\begin{align*}
+B & \stackrel{\sim}{=}\modulo{A\left[X_{1},\ldots,X_{n}\right]}Q
+\end{align*}
+Induktiv folgt aus \ref{sec:Satz-Hilbertscher-Basissatz}, dass $A\left[X_{1},\ldots,X_{n}\right]=A\left[X_{1},\ldots,X_{n-1}\right]\left[X_{n}\right]$,
+und damit nach \ref{sec:Satz-StabilitaetseigenschaftenNoethersch}
+i) auch $B$, Noethersch ist.
+
+\iii Da $\mathbb{Z}$ und jeder Körper Noethersch sind, folgt dies
+direkt aus i).
+
+\end{iiilist}
+
+
+\section{Korollar}
+
+Seien $k$ ein Körper, $n\in\mathbb{N}_{\ge1}$, $I$ eine Menge und
+für jedes $i\in I$ sei $f_{i}\in k\left[X_{1},\ldots,X_{n}\right]$.
+
+Dann existiert eine \emph{endliche} Teilmenge $I_{0}\subseteq I$
+so, dass für alle $\underline{\alpha}\in k^{n}$ gilt:
+\begin{align*}
+\left(\fall_{i\in I_{0}}\,:\, f_{i}\left(\underline{\alpha}\right)=0\right) & \Rightarrow\left(\fall_{i\in I}\,:\, f_{i}\left(\underline{\alpha}\right)=0\right)
+\end{align*}
+Das heißt, die Nullstellenmenge $\mathcal{N}\left(f_{i}\big|i\in I\right)$
+kann durch endlich viele Gleichungen beschrieben werden.
+
+
+\subsubsection*{Beweis}
+
+Da $k$ Noethersch ist, gilt dies nach \ref{sec:Kor-endlichErzeugteAlgebraNoethersch}
+auch für die endlich erzeugte $k$-Algebra $k\left[X_{1},\ldots,X_{n}\right]$.
+
+Betrachte das Ideal $J:=\left(f_{i}\big|i\in I\right)\subseteq k\left[X_{1},\ldots,X_{n}\right]$.
+Dieses ist nach \ref{sec:Prop-Charakterisierung-Noethersch} endlich
+erzeugt, es gibt also eine endliche Menge $I_{0}\subseteq I$ mit
+$J=\left(f_{i}\big|i\in I_{0}\right)$. Sei $\underline{\alpha}\in k^{n}$
+mit $f_{i}\left(\underline{\alpha}\right)=0$ für alle $i\in I_{0}$.
+Ist $f\in J$, so gibt es $a_{i}\in k$ für alle $i\in I_{0}$ mit:
+\begin{align*}
+f & =\sum_{i\in I_{0}}a_{i}f_{i}
+\end{align*}
+Es folgt:
+\begin{align*}
+f\left(\underline{\alpha}\right) & =\sum_{i\in I_{0}}a_{i}\underbrace{f_{i}\left(\underline{\alpha}\right)}_{=0}=0
+\end{align*}
+\qqed
+
+
+\chapter{Artinsche Ringe}
+
+
+\section{Proposition\label{sec:Prop-RechenregelnPrimideale}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Sind $n\in\mathbb{N}_{\ge1}$, $\mathfrak{p}_{1},\ldots,\mathfrak{p}_{n}\subseteq A$
+Primideale und $I\subseteq A$ ein Ideal mit ${\displaystyle I\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}}$,
+so existiert ein $1\le i\le n$ mit $I\subseteq\mathfrak{p}_{i}$.
+
+\iii Sind $n\in\mathbb{N}_{\ge1}$, $I_{1},\ldots,I_{n}\subseteq A$
+und $\mathfrak{p}\subseteq A$ ein Primideal mit ${\displaystyle \bigcap_{i=1}^{n}I_{i}\subseteq\mathfrak{p}}$,
+so existiert ein $1\le i\le n$ mit $I_{i}\subseteq\mathfrak{p}$.
+
+Im Fall ${\displaystyle \mathfrak{p}=\bigcap_{i=1}^{n}I_{i}}$ existiert
+ein $1\le i\le n$ mit $\mathfrak{p}=I$.
+
+\end{iiilist}
+
+%DATE: Fr 6.7.12
+
+
+\subsubsection*{Beweis}
+
+\begin{iiilist}
+
+\iii Durch Induktion über $n\ge1$ zeigen wir die äquivalente Aussage:
+\begin{align*}
+\left(\fall_{1\le i\le n}:I\not\subseteq\mathfrak{p}_{i}\right) & \Rightarrow\left(I\not\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}\right)
+\end{align*}
+$n=1$: Ist klar.
+
+$n>1$: Für alle $1\le i\le n$ existiert nach Induktionsvoraussetzung
+angewendet auf die $\left(n-1\right)$ Primideale $\mathfrak{p}_{1},\ldots,\widehat{\mathfrak{p}_{i}},\ldots,\mathfrak{p}_{n}$
+ein
+\begin{align}
+x_{i} & \in I\label{eq:xi1}
+\end{align}
+mit:
+\begin{align}
+x_{i} & \not\in\mathfrak{p}_{j}\fall_{1\le j\le n,j\not=i}\label{eq:xi2}
+\end{align}
+
+\begin{enumerate}
+\item Fall: Es gilt $x_{i_{0}}\not\in\mathfrak{p}_{i_{0}}$ für ein $1\le i_{0}\le n$.
+Dann gelten $x_{i_{0}}\in I$ und $x_{i_{0}}\not\in\mathfrak{p}_{j}\fall_{1\le j\le n}$,
+also $I\subsetneq\bigcup_{i=1}^{n}\mathfrak{p}_{i}$.\qqed[1. Fall]
+\item Fall: Es gilt $x_{i}\in\mathfrak{p}_{i}$ für alle $1\le i\le n$.
+Betrachte für alle $1\le i\le n$:
+\begin{align*}
+p_{i} & :=x_{1}\cdot\ldots\cdot\hat{x}_{i}\cdot\ldots\cdot x_{n}
+\end{align*}
+Dann gelten:
+\begin{align}
+\fall_{1\le i\le n}\ :\  & p_{i}\in I\quad(\text{wegen }n\ge2\text{ und }\eqref{eq:xi1})\label{eq:pi1}\\
+\fall_{1\le i\not=j\le n}\ :\  & p_{i}\in\mathfrak{p}_{j}\quad(\text{wegen }x_{j}\in\mathfrak{p}_{j}\text{ und }p_{i}\in\left(x_{j}\right))\label{eq:pi2}\\
+\fall_{1\le i\le n}\ :\  & p_{i}\not\in\mathfrak{p}_{i}\label{eq:pi3}
+\end{align}
+Letzteres gilt, denn sonst müsste, da $\mathfrak{p}_{i}$ ein Primideal
+ist und wegen der Definition von $p_{i}$ schon $x_{j}\in\mathfrak{p_{i}}$
+für ein $i\not=j$ gelten. (vergleiche \eqref{eq:xi2})\\
+Es folgt
+\begin{align*}
+y & :=\sum_{i=1}^{n}p_{i}\stackrel{\eqref{eq:pi1}}{\in}I
+\end{align*}
+und für alle $1\le i\le n$ schon $y\not\in\mathfrak{p}_{i}$, denn
+sonst folgt ${\displaystyle \mathfrak{p}_{i}\ni y=\sum_{i=1}^{n}p_{i}}$
+und mit \eqref{eq:pi2} schon $p_{i}\in\mathfrak{p}_{i}$ im Widerspruch
+zu \eqref{eq:pi3}.
+\end{enumerate}
+Also gilt ${\displaystyle \mathfrak{p}\in I\setminus\bigcup_{i=1}^{n}\mathfrak{p}_{i}}$
+und damit ${\displaystyle I\not\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}}$.
+\qqed[\roman{ale2})]
+
+\iii Angenommen dies gilt nicht, das heißt es gelte:
+\begin{align*}
+\fall_{1\le i\le n}:I_{i}\not\subseteq\mathfrak{p} & \Rightarrow\fall_{1\le i\le n}\exs_{x_{i}\in I_{i}}x_{i}\not\in\mathfrak{p}\Rightarrow x:=\prod_{i=1}^{n}x_{i}\in\prod_{i=1}^{n}I_{i}\subseteq\bigcap_{i=1}^{n}I_{i}
+\end{align*}
+Da $\mathfrak{p}$ ein Primideal ist und wegen $x_{i}\not\in\mathfrak{p}$
+gilt $x\not\in\mathfrak{p}$. Es folgt $x\in\left(\bigcap_{i=1}^{n}I_{i}\right)\setminus\mathfrak{p}$.
+Dies ist ein Widerspruch zu $\bigcap_{i=1}^{n}I_{i}\subseteq\mathfrak{p}$.
+
+Gilt nun sogar $\bigcap_{i=1}^{n}I_{i}=\mathfrak{p}$, so existiert
+wieder ein $1\le i\le n$ mit $I_{i}\subseteq\mathfrak{p}=\bigcap_{i=1}^{n}I_{i}\subseteq I_{i}$
+und es folgt $\mathfrak{p}=I_{i}$.
+
+\end{iiilist}
+
+\qqed
+
+
+\section{Proposition \textmd{(jedes Primideal maximal)\label{sec:Prop-PrimidealMaximal}}}
+
+In einem Artinschen Ring ist jedes Primideal maximal.
+
+
+\subsubsection*{Beweis}
+
+Sei $\mathfrak{p}\subseteq A$ ein Primideal. Wegen \ref{sec:Prop-ExakteFolge-NoetherschArtinsch}
+i) $\Rightarrow$ ii) ist $\modulo A{\mathfrak{p}}$ ein Artinscher
+Integritätsring.
+
+Für $0\not=x\in\modulo A{\mathfrak{p}}$ erhalte die stationäre Folge
+mit geeignetem $n\in\mathbb{N}_{\ge1}$:
+\begin{align*}
+\left(x\right) & \supseteq\left(x^{2}\right)\supseteq\ldots\supseteq\left(x^{n}\right)=\left(x^{n+1}\right)
+\end{align*}
+Es folgt mit geeignetem $y\in\modulo A{\mathfrak{p}}$:
+\begin{align*}
+x^{n} & =y\cdot x^{n+1}
+\end{align*}
+Da $\modulo A{\mathfrak{p}}$ ein Integritätsring ist, kann man durch
+$x^{n}$ teilen und es folgt:
+\begin{align*}
+1 & =xy
+\end{align*}
+Also ist $x\in\left(\modulo A{\mathfrak{p}}\right)^{*}$. Insgesamt
+gilt $\left(\modulo A{\mathfrak{p}}\right)\setminus\left\{ 0\right\} \subseteq\left(\modulo A{\mathfrak{p}}\right)^{*}$
+und somit ist $\modulo A{\mathfrak{p}}$ ein Körper, das heißt $\mathfrak{p}\subseteq A$
+ist maximal.\qqed
+
+
+\section{Proposition \textmd{(endlich viele maximale Ideale)\label{sec:Prop-endlich-viele-MaxIdeale}}}
+
+Ein Artinscher Ring besitzt nur endlich viele maximale Ideale.
+
+
+\subsubsection*{Beweis}
+
+Sei ohne Einschränkung $A\not=\left\{ 0\right\} $. Betrachte die
+Menge von Idealen:
+\begin{align*}
+\Sigma & :=\left\{ \text{endliche Durchschnitte maximaler Ideale von }A\right\} 
+\end{align*}
+Wegen $A\not=\left\{ 0\right\} $ ist $\Sigma\not=\emptyset$, da
+es dann ein maximales Ideal gibt, und dieses sein eigener Durchschnitt
+ist.
+
+Da $A$ Artinsch ist, existiert ein bezüglich der Inklusion minimales
+$I\in\Sigma$.
+
+Schreibe $I=\mathfrak{m}_{1}\cap\ldots\cap\mathfrak{m}_{n}$ für $n\ge1$
+und geeignete maximale Ideale $\mathfrak{m}_{i}\subseteq A$. Ist
+nun $\mathfrak{m}\subseteq A$ ein beliebiges maximales Ideal, so
+folgt aus der Minimalität von $I$:
+\begin{align*}
+\mathfrak{m}\cap I & =I
+\end{align*}
+Denn $I$ ist Durchschnitt endlich vieler maximaler Ideale, also auch
+$\mathfrak{m}\cap I$, aber $I$ ist minimal mit dieser Eigenschaft.
+Also gilt $I\subseteq\mathfrak{m}$.
+
+Aus \ref{sec:Prop-RechenregelnPrimideale} ii) mit $I_{i}:=\mathfrak{m}_{i}$
+und $\mathfrak{p}:=\mathfrak{m}$ folgt $\mathfrak{m}_{i}\subseteq\mathfrak{m}$
+für ein $1\le i\le n$.
+
+Da $\mathfrak{m}_{i}$ und $\mathfrak{m}$ beide maximal sind, folgt
+$\mathfrak{m}_{i}=\mathfrak{m}$. Also sind $\mathfrak{m}_{1},\ldots,\mathfrak{m}_{n}$
+bereits alle maximalen Ideale von $A$.\qqed
+
+
+\section{Proposition\label{sec:Prop-NilradikalNilpotent}}
+
+Ist $A$ ein Artinscher Ring, so existiert ein $N\ge1$ mit $\mathfrak{N}\left(A\right)^{N}=\left(0\right)$.
+
+
+\subsubsection*{Beweis}
+
+Schreibe $\mathfrak{N}:=\mathfrak{N}\left(A\right)$. Wir haben die
+stationäre Folge mit geeignetem $N\in\mathbb{N}_{\ge1}$.
+\begin{align*}
+\mathfrak{N} & \supseteq\mathfrak{N}^{2}\supseteq\ldots\supseteq\mathfrak{N}^{N}=\mathfrak{N}^{N+1}=:I
+\end{align*}
+Beachte, dass für alle $k\in\mathbb{N}$ schon $\mathfrak{N}^{N+k}=\mathfrak{N}^{N}$
+gilt.
+
+Angenommen es wäre $I\not=\left(0\right)$. Betrachte:
+\begin{align*}
+\Sigma & :=\left\{ J\subseteq A\big|J\text{ ist Ideal }JI\not=\left(0\right)\right\} 
+\end{align*}
+Wegen
+\begin{align*}
+I\cdot I & =\mathfrak{N}^{2N}=\mathfrak{N}^{N}=I
+\end{align*}
+gilt $I\in\Sigma$, also $\Sigma\not=\emptyset$. Da $A$ Artinsch
+ist, existiert ein minimales $J\in\Sigma$. Aus $IJ\not=\left(0\right)$
+folgt, dass es ein $x\in J$ mit $I\cdot\left(x\right)\not=\left(0\right)$
+gibt. Aus der Minimalität von $J$ folgt $J=\left(x\right)$. Weiter
+gilt:
+\begin{align*}
+\left(\left(x\right)I\right)I & =\left(x\right)I^{2}=\left(x\right)I\not=\left(0\right)
+\end{align*}
+Also ist $\left(x\right)I\in\Sigma$. Aus $\left(x\right)I\subseteq\left(x\right)$
+und der Minimalität von $\left(x\right)\in\Sigma$ folgt $\left(x\right)I=\left(x\right)$
+und damit $x=xy$ für ein geeignetes $y\in I$. Es folgt für alle
+$n\in\mathbb{N}$:
+\begin{align*}
+x & =xy=xy^{2}=\ldots=xy^{n}
+\end{align*}
+Wegen $y\in I\subseteq\mathfrak{N}\left(A\right)$ gibt es ein $n\in\mathbb{N}$
+mit $y^{n}=0$ und es folgt $x=0$. Also ist $J=\left(x\right)=\left(0\right)$
+im Widerspruch zu $JI\not=\left(0\right)$.\qqed
+
+
+\section{Definition und Beispiel \textmd{(Krull-Dimension)}}
+
+Sei $A$ ein Ring.
+
+\begin{iiilist}
+
+\iii Eine \emph{Kette von Primidealen in $A$} ist eine strikt aufsteigende
+Folge $\mathfrak{p}_{0}\subsetneq\mathfrak{p}_{1}\subsetneq\ldots\subsetneq\mathfrak{p}_{n}$
+von Primidealen.
+
+$n\in\mathbb{N}$ heißt \emph{die Länge der Kette}.
+
+\iii Die \emph{(Krull-)Dimension} ist das Supremum über die Länge
+aller Ketten von Primidealen in $A$, geschrieben:
+\begin{align*}
+\text{dim}\left(A\right) & \in\mathbb{N}\cup\left\{ \infty\right\} 
+\end{align*}
+
+
+\iii Für einen Körper $k$ gilt $\text{dim}\left(k\right)=0$.
+
+Für einen Hauptidealring $A$, der kein Körper ist, gilt $\text{dim}\left(A\right)=1$,
+denn jedes von $\left(0\right)$ verschiedene Primideal ist maximal.
+
+Ist $k$ ein Körper, so gilt $\dim\left(k\left[X_{n}\big|n\in\mathbb{N}\right]\right)=\infty$,
+denn die Kette
+\begin{align*}
+\left(X_{1}\right) & \subsetneq\left(X_{1},X_{2}\right)\subsetneq\left(X_{1},X_{2},X_{3}\right)\subsetneq\ldots
+\end{align*}
+von Primidealen ist unendlich lang.
+
+Es existieren sogar Noethersche Ringe $A$ mit $\dim\left(A\right)=\infty$.
+(ohne Beweis)
+
+\iii Für eine ganze Ringerweiterung $A\subseteq B$ gilt nach dem
+\quotedblbase{}Going-up-theorem\textquotedblleft{} \ref{sec:Satz-Going-up-theorem}:
+\begin{align*}
+\text{dim}\left(A\right) & \le\text{dim}\left(B\right)
+\end{align*}
+
+
+\iii Die Primidealkette
+\begin{align*}
+\left(0\right)\subsetneq\left(X\right)\subsetneq\left(2,X\right)\subseteq\mathbb{Z}\left[X\right]
+\end{align*}
+zeigt $\dim\left(\mathbb{Z}\left[X\right]\right)\ge2$. Es gilt sogar
+$\dim\left(\mathbb{Z}\left[X\right]\right)=2$ und allgemeiner:
+
+Ist $A$ Noethersch, so ist $\text{dim}\left(A\left[X\right]\right)=\dim\left(A\right)+1$.
+(ohne Beweis)
+
+\end{iiilist}
+
+
+\section{Satz \textmd{(Charakterisierung Artinscher Ring)\label{sec:Satz-Charakterisierung-Artinsch}}}
+
+Für einen Ring $A$ sind äquivalent:
+
+\begin{iiilist}
+
+\iii $A$ ist Artinsch.
+
+\iii $A$ ist Noethersch und es gilt $\text{dim}\left(A\right)=0$.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: Wegen \ref{sec:Prop-PrimidealMaximal}
+gilt $\dim\left(A\right)=0$. Damit sind die endlich vielen (vergleiche
+\ref{sec:Prop-endlich-viele-MaxIdeale}) maximalen Ideale $\mathfrak{m}_{1},\ldots,\mathfrak{m}_{n}$
+bereits alle Primideale von $A$ und es gilt:
+\begin{align*}
+\prod_{i=1}^{n}\mathfrak{m}_{i} & \subseteq\bigcap_{i=1}^{n}\mathfrak{m}_{i}\stackrel{\ref{sec:Satz-NilradikalIstSchnittPrimideale}}{=}\mathfrak{N}\left(A\right)
+\end{align*}
+Nach \ref{sec:Prop-NilradikalNilpotent} existiert ein $N\in\mathbb{N}_{\ge1}$
+mit:
+\begin{align*}
+\left(0\right) & =\left(\mathfrak{N}\left(A\right)\right)^{N}\supseteq\left(\prod_{i=1}^{n}\mathfrak{m}_{i}\right)^{N}=\prod_{i=1}^{n}\mathfrak{m}_{i}^{N}
+\end{align*}
+ Also gilt:
+\begin{align*}
+\prod_{i=1}^{n}\mathfrak{m}_{i}^{N} & =0
+\end{align*}
+Daher ist $\left(0\right)\subseteq A$ ein Produkt maximaler Ideale
+und aus \ref{sec:Kor-HinreichendFuerNoetherschAequivalentArtinsch}
+folgt, dass $A$ Noethersch ist.\qqed[i) $\Rightarrow$ ii)]
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Seien $\mathfrak{m}_{1},\ldots,\mathfrak{m}_{n}\subseteq A$
+die minimalen Primideale (vergleiche \ref{sec:Satz-Noethersch-endlichvieleMinimalePrimideale}).
+Wegen $\text{dim}\left(A\right)=0$ sind diese Ideale sogar maximal
+und bilden damit sogar alle Primideale von $A$. Also gilt:
+\begin{align*}
+\mathfrak{N}\left(A\right) & \stackrel{\ref{sec:Satz-NilradikalIstSchnittPrimideale}}{=}\bigcap_{i=1}^{n}\mathfrak{m}_{i}
+\end{align*}
+Nun ist $\mathfrak{N}\left(A\right)\subseteq A$ endlich erzeugt,
+da $A$ Noethersch ist, also $\mathfrak{N}\left(A\right)=\left(a_{1},\ldots,a_{m}\right)$.
+
+Für $1\le k\le m$ ist $a_{k}\in\mathfrak{N}\left(A\right)$, also
+nilpotent, das heißt es gibt ein $n_{k}\in\mathbb{N}$ mit $a_{k}^{n_{k}}=0$.
+Für
+\begin{align*}
+n_{x} & :=\max\left\{ n_{1},\ldots,n_{m}\right\}  & N & :=n_{x}\cdot m
+\end{align*}
+gilt dann für alle $a_{k}$ schon $a_{k}^{N}=a_{k}^{n_{x}}=0$. Sei
+$a\in\mathfrak{N}\left(A\right)$, so gibt es $\alpha_{1},\ldots,\alpha_{m}\in A$
+mit:
+\begin{align}
+a & =\sum_{k=1}^{m}\alpha_{k}a_{k}\nonumber \\
+a^{N} & =\left(\sum_{k=1}^{m}\alpha_{k}a_{k}\right)^{N}=\sum_{i_{1}+\ldots+i_{m}=N}c_{i_{1}\ldots i_{m}}a_{1}^{i_{1}}a_{2}^{i_{2}}\ldots a_{m}^{i_{m}}\label{eq:aNsum}
+\end{align}
+Dabei sind $c_{i_{1}\ldots i_{m}}\in A$ geeignet gewählt. Wegen $i_{1}+\ldots+i_{m}=N=n_{x}\cdot m$
+gilt:
+\begin{align*}
+i_{k} & :=\max\left\{ i_{1},\ldots,i_{m}\right\} \ge n_{x}
+\end{align*}
+Denn andernfalls würde gelten:
+\begin{align*}
+N=i_{1}+\ldots+i_{m} & \le m\cdot i_{k}<m\cdot n_{x}=N
+\end{align*}
+Dann ist aber $a_{k}^{i_{k}}=0$ und somit verschwindet jeder Summand
+in \eqref{eq:aNsum}, das heißt es gilt $a^{N}=0$.
+
+Insgesamt ist $\left(\mathfrak{N}\left(A\right)\right)^{N}=\left(\sqrt{\left(0\right)}\right)^{N}\subseteq\left(0\right)$,
+das heißt:
+\begin{align*}
+\left(0\right)=\left(\mathfrak{N}\left(A\right)\right)^{N} & =\left(\bigcap_{i=1}^{n}\mathfrak{m}_{i}\right)^{N}\supseteq\left(\prod_{i=1}^{n}\mathfrak{m}_{i}\right)^{N}=\prod_{i=1}^{n}\mathfrak{m}_{i}^{N}
+\end{align*}
+Also ist $\left(0\right)\subseteq A$ Produkt maximaler Ideale und
+aus \ref{sec:Kor-HinreichendFuerNoetherschAequivalentArtinsch} folgt,
+dass $A$ Artinsch ist.\qqed
+
+
+\section{Proposition}
+
+Sei $\left(A,\mathfrak{m}\right)$ ein Noetherscher lokaler Ring.
+Dann gilt genau eine der folgenden Aussage:
+
+\begin{iiilist}
+
+\iii Für alle $n\in\mathbb{N}$ gilt $\mathfrak{m}^{n+1}\subsetneq\mathfrak{m}^{n}$.
+
+\iii Es gibt ein $n\in\mathbb{N}$ mit $\mathfrak{m}^{n}=\left(0\right)$.
+In diesem Fall ist $A$ Artinsch.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+Gelte i) nicht, das heißt es gibt ein $n\in\mathbb{N}$ mit $\mathfrak{m}^{n+1}=\mathfrak{m}^{n}$.
+Dann folgt:
+\begin{align*}
+\mathfrak{m}\cdot\mathfrak{m}^{n} & =\mathfrak{m}^{n}
+\end{align*}
+Da $A$ Noethersch ist, ist der $A$-Modul $\mathfrak{m}^{n}\subseteq A$
+endlich erzeugt. Wegen $\mathfrak{m}=\text{Jac}\left(A\right)$ folgt
+aus dem Lemma von Nakayama \ref{sec:LuD-Nakayama-Jacobsonradikal}
+schon $\mathfrak{m}^{n}=\left(0\right)$.
+
+Ist nun $\mathfrak{p}\subseteq A$ ein Primideal, so gilt:
+\begin{align*}
+\left(0\right) & =\mathfrak{m}^{n}\subseteq\mathfrak{p}\subseteq\mathfrak{m}\\
+\Rightarrow\quad\mathfrak{m}\subseteq\sqrt{\left(0\right)} & \subseteq\underbrace{\sqrt{\left(\mathfrak{p}\right)}}_{=\mathfrak{p}}\subseteq\underbrace{\sqrt{\left(\mathfrak{m}\right)}}_{=\mathfrak{m}}\\
+\mathfrak{m} & \subseteq\mathfrak{p}\subseteq\mathfrak{m}
+\end{align*}
+Also ist $\mathfrak{m}\in A$ das einzige Primideal und daher gilt
+$\dim\left(A\right)=0$. Aus \ref{sec:Satz-Charakterisierung-Artinsch}
+ii) $\Rightarrow$ i) folgt, dass $A$ Artinsch ist.\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}

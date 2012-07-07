@@ -41882,7 +41882,8 @@ Die Abbildung
 
 \end_inset
 
-Dabei ist 
+ist wohldefiniert und bijektiv.
+ Dabei ist 
 \begin_inset Formula $\mathfrak{m}_{\underline{\alpha}}$
 \end_inset
 
@@ -44293,6 +44294,13 @@ end{iiilist}
 
 \begin_layout Section
 Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-endlicherzUnterModulNoethersch"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -45011,6 +45019,3570 @@ reference "sec:Kor-HinreichendFuerNoetherschAequivalentArtinsch"
 \end_inset
 
  auch Artinsch, da der Ring Noethersch ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 3.7.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Noethersche Ringe
+\end_layout
+
+\begin_layout Section
+Erinnerung
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Erin-Noethersch"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für einen Ring 
+\begin_inset Formula $A$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jede nicht-leere Menge von Idealen besitzt ein maximales Element (bezüglich
+ der Inklusion).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jede aufsteigende Folge von Idealen in 
+\begin_inset Formula $A$
+\end_inset
+
+ ist stationär.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jedes Ideal von 
+\begin_inset Formula $A$
+\end_inset
+
+ ist endlich erzeugt.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ein solcher Ring 
+\begin_inset Formula $A$
+\end_inset
+
+ heißt Noethersch.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Vergleiche mit den Definitionen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Def-Noethersch-Artinsch"
+
+\end_inset
+
+ ii) und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PuD-ACC"
+
+\end_inset
+
+ und der Proposition 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Charakterisierung-Noethersch"
+
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(endlich viele minimale Primideale)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Noethersch-endlichvieleMinimalePrimideale"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Menge der minimalen Primideale eines Noetherschen Ringes 
+\begin_inset Formula $A$
+\end_inset
+
+ ist endlich.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Angenommen 
+\begin_inset Formula $A$
+\end_inset
+
+ wäre ein Noetherscher Ring mit unendlich vielen minimalen Primidealen.
+\end_layout
+
+\begin_layout Standard
+Betrachte die Menge:
+\begin_inset Formula 
+\begin{align*}
+\Sigma & :=\left\{ I\subseteq A\Big|I\text{ ist Ideal und }\modulo AI\text{ besitzt unendlich viele minimale Primideale}\right\} 
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $\modulo A{\left(0\right)}\stackrel{\sim}{=}A$
+\end_inset
+
+ nach Annahme unendlich vielen minimalen Primidealen besitzt, ist 
+\begin_inset Formula $\left(0\right)\in\Sigma$
+\end_inset
+
+ und somit 
+\begin_inset Formula $\Sigma$
+\end_inset
+
+ nicht leer.
+ Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Erin-Noethersch"
+
+\end_inset
+
+ i) existiert ein maximales Element 
+\begin_inset Formula $I\in\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Für den Ring 
+\begin_inset Formula $A':=\modulo AI$
+\end_inset
+
+ gelten:
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A'$
+\end_inset
+
+ ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-QuotientenringNoethersch"
+
+\end_inset
+
+ Noethersch.
+\end_layout
+
+\begin_layout Enumerate
+\begin_inset Formula $A'$
+\end_inset
+
+ besitzt wegen 
+\begin_inset Formula $I\in\Sigma$
+\end_inset
+
+ unendlich viele minimale Primideale.
+\end_layout
+
+\begin_layout Enumerate
+Für jedes Ideal 
+\begin_inset Formula $\left(0\right)\not=J\subseteq A'$
+\end_inset
+
+ besitzt 
+\begin_inset Formula $\modulo{A'}J$
+\end_inset
+
+ wegen der Maximalität von 
+\begin_inset Formula $I\in\Sigma$
+\end_inset
+
+ nur endlich viele minimale Primideale.
+\end_layout
+
+\begin_layout Standard
+Offenbar ist wegen 2.
+ das Ideal 
+\begin_inset Formula $\left(0\right)\subseteq A'$
+\end_inset
+
+ kein Primideal, da es sonst das einzige minimale Primideal wäre.
+ Das heißt 
+\begin_inset Formula $A'$
+\end_inset
+
+ ist kein Integritätsring und daher gibt es 
+\begin_inset Formula $x,y\in A'\setminus\left\{ 0\right\} $
+\end_inset
+
+ mit 
+\begin_inset Formula $xy=0$
+\end_inset
+
+.
+ Ist 
+\begin_inset Formula $\mathcal{P}\subseteq A'$
+\end_inset
+
+ ein Primideal, so folgt 
+\begin_inset Formula $xy=0\in\mathcal{P}$
+\end_inset
+
+ und da 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ ein Primideal ist, folgt 
+\begin_inset Formula $x\in\mathcal{P}$
+\end_inset
+
+ oder 
+\begin_inset Formula $y\in\mathcal{P}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Da dies für jedes der unendlich vielen minimalen Primideal gilt, können
+ wir ohne Einschränkung annehmen, dass 
+\begin_inset Formula $x\in\mathcal{P}$
+\end_inset
+
+ für unendlich viele minimale Primideale 
+\begin_inset Formula $\mathcal{P}\subseteq A'$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Standard
+Offenbar ist für jedes solche 
+\begin_inset Formula $\mathcal{P}$
+\end_inset
+
+ nun 
+\begin_inset Formula $\modulo{\mathcal{P}}{\left(x\right)}\subseteq\modulo{A'}{\left(x\right)}$
+\end_inset
+
+ ein minimales Primideal, also besitzt 
+\begin_inset Formula $\modulo{A'}{\left(x\right)}$
+\end_inset
+
+ unendlich viele minimale Primideale im Widerspruch zu 3.
+ und 
+\begin_inset Formula $x\not=0$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel 
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $k$
+\end_inset
+
+ ein algebraisch abgeschlossener Körper, 
+\begin_inset Formula $n,m\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und 
+\begin_inset Formula $f_{1},\ldots,f_{m}\in k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $J:=\left(f_{1},\ldots,f_{m}\right)$
+\end_inset
+
+ ist die Abbildung
+\begin_inset Formula 
+\begin{align*}
+\mathcal{N}\left(J\right):=\left\{ \underline{\alpha}\in k^{n}\bigg|\fall_{1\le i\le m}f_{i}\left(\underline{\alpha}\right)=0\right\}  & \stackrel{\sim}{\to}\text{MaxSpec}\left(\modulo{k\left[X_{1},\ldots,X_{n}\right]}J\right)\\
+\underline{\alpha} & \mapsto\modulo{\mathfrak{m}_{\underline{\alpha}}}J
+\end{align*}
+
+\end_inset
+
+bijektiv.
+ (vergleiche Beweis von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Hilbertscher-Nullstellensatz"
+
+\end_inset
+
+)
+\end_layout
+
+\begin_layout Standard
+Der Ring 
+\begin_inset Formula $\modulo{k\left[X_{1},\ldots,X_{n}\right]}J$
+\end_inset
+
+ ist eine endlich erzeugte 
+\begin_inset Formula $k$
+\end_inset
+
+-Algebra, also nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-endlichErzeugteAlgebraNoethersch"
+
+\end_inset
+
+ ii) Noethersch.
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $\left\{ \mathcal{P}_{1},\ldots,\mathcal{P}_{N}\right\} $
+\end_inset
+
+ seine minimalen Primideale.
+ Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathcal{N}\left(J\right) & =\bigcup_{i=1}^{N}\mathcal{N}\left(\mathcal{P}_{i}\right)
+\end{align*}
+
+\end_inset
+
+Dies ist eine Verallgemeinerung der Zerlegung eines Polynoms in irreduzible
+ Faktoren, also des Falls 
+\begin_inset Formula $n=1$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Stabilitätseigenschaften)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-StabilitaetseigenschaftenNoethersch"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Noetherscher Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal, so ist 
+\begin_inset Formula $\modulo AI$
+\end_inset
+
+ Noethersch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jede endliche 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $B$
+\end_inset
+
+ ist Noethersch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $S\subseteq A$
+\end_inset
+
+ multiplikativ abgeschlossen, so ist 
+\begin_inset Formula $S^{-1}A$
+\end_inset
+
+ Noethersch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal, so ist 
+\begin_inset Formula $A_{\mathfrak{p}}$
+\end_inset
+
+ Noethersch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $M$
+\end_inset
+
+ ein endlich erzeugter 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, so ist 
+\begin_inset Formula $M$
+\end_inset
+
+ Noethersch und endlich präsentiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-QuotientenringNoethersch"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jedes Ideal von 
+\begin_inset Formula $B$
+\end_inset
+
+ ist insbesondere ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermodul von 
+\begin_inset Formula $B$
+\end_inset
+
+ und der 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $B$
+\end_inset
+
+ ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlicherzUnterModulNoethersch"
+
+\end_inset
+
+ Noethersch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Erin-Noethersch"
+
+\end_inset
+
+ ii) und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Idealtheorie-Lokalisierung"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Wähle 
+\begin_inset Formula $S:=\left(A\setminus\mathfrak{p}\right)$
+\end_inset
+
+ in iii).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die erste Aussage ist 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlicherzUnterModulNoethersch"
+
+\end_inset
+
+.
+ Nach Voraussetzung existiert ein 
+\begin_inset Formula $n\ge0$
+\end_inset
+
+ und ein 
+\begin_inset Formula $A$
+\end_inset
+
+-linearer Epimorphismus 
+\begin_inset Formula $\pi:A^{n}\twoheadrightarrow M$
+\end_inset
+
+.
+ Erhalte eine kurze exakte Folge:
+\begin_inset Formula 
+\begin{align*}
+0\to K:=\ker\left(\pi\right)\to A^{n}\stackrel{\pi}{\to}M\to0
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $A^{n}$
+\end_inset
+
+ nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlicherzUnterModulNoethersch"
+
+\end_inset
+
+ Noethersch ist und nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Charakterisierung-Noethersch"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii) folgt, dass der 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $K\hookrightarrow A^{n}$
+\end_inset
+
+ endlich erzeugt ist, also ist obige Folge eine endliche Präsentation von
+ 
+\begin_inset Formula $M$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Hilbertscher Basissatz)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Hilbertscher-Basissatz"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Noetherscher Ring, so auch 
+\begin_inset Formula $A\left[X\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $I\subseteq A\left[X\right]$
+\end_inset
+
+ ein Ideal.
+ Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Erin-Noethersch"
+
+\end_inset
+
+ iii) ist zu zeigen, dass 
+\begin_inset Formula $I$
+\end_inset
+
+ endlich erzeugt ist.
+\end_layout
+
+\begin_layout Standard
+Für ein Polynom 
+\begin_inset Formula $f\in A\left[X\right]$
+\end_inset
+
+ schreibe:
+\begin_inset Formula 
+\begin{align*}
+l\left(f\right) & :=\left.\begin{cases}
+\text{höchster Koeffizient von }f & \text{falls }f\not=0\\
+0 & \text{sonst}
+\end{cases}\right\} \in A
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Behauptung
+\begin_inset space ~
+\end_inset
+
+I: 
+\begin_inset Formula $J:=\left\{ l\left(f\right)\big|f\in I\right\} \subseteq A$
+\end_inset
+
+ ist ein Ideal.
+\end_layout
+
+\begin_layout Description
+Beweis: Es gilt
+\begin_inset Formula 
+\begin{align*}
+l\left(f\right)-l\left(g\right) & =l\underbrace{\left(f\cdot X^{\deg\left(g\right)-\deg\left(f\right)}-g\right)}_{\in I}
+\end{align*}
+
+\end_inset
+
+falls 
+\begin_inset Formula $\deg\left(g\right)\ge\deg\left(f\right)$
+\end_inset
+
+, sonst analog.
+ Für alle 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ ist:
+\begin_inset Formula 
+\begin{align*}
+a\cdot l\left(f\right) & =l\underbrace{\left(af\right)}_{\in I}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung I]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $A$
+\end_inset
+
+ Noethersch ist, folgt nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Charakterisierung-Noethersch"
+
+\end_inset
+
+ nun 
+\begin_inset Formula $J=\left(a_{1},\ldots,a_{n}\right)$
+\end_inset
+
+ für ein 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und geeignete 
+\begin_inset Formula $a_{i}\in A$
+\end_inset
+
+.
+ 
+\end_layout
+
+\begin_layout Standard
+Nach Definition gibt es 
+\begin_inset Formula $f_{i}\in I$
+\end_inset
+
+ (
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+) mit 
+\begin_inset Formula $a_{i}=l\left(f_{i}\right)$
+\end_inset
+
+.
+ Setze:
+\begin_inset Formula 
+\begin{align*}
+r & :=\max_{1\le i\le m}\left(\deg\left(f_{i}\right)\right)\\
+M & :=\sum_{i=0}^{r-1}A\cdot X^{i}\subseteq A\left[X\right]\\
+I' & :=\left(f_{1},\ldots,f_{n}\right)\subseteq A\left[X\right]
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Behauptung
+\begin_inset space ~
+\end_inset
+
+II: 
+\begin_inset Formula $I=\left(I\cap M\right)+I'$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Beweis: „
+\begin_inset Formula $\supseteq$
+\end_inset
+
+“: Dies ist wegen 
+\begin_inset Formula $f_{i}\in I$
+\end_inset
+
+, also 
+\begin_inset Formula $I'\subseteq I$
+\end_inset
+
+ und 
+\begin_inset Formula $I\cap M\subseteq I$
+\end_inset
+
+ klar.
+\begin_inset Newline newline
+\end_inset
+
+„
+\begin_inset Formula $\subseteq$
+\end_inset
+
+“: Ansonsten sei 
+\begin_inset Formula $f\in I\setminus\left(\left(I\cap M\right)+I'\right)$
+\end_inset
+
+ von minimalem Grad 
+\begin_inset Formula $N\in\mathbb{N}$
+\end_inset
+
+ gewählt.
+ Nach Definition von 
+\begin_inset Formula $M$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+n & \ge r=\max_{1\le i\le m}\left(\deg\left(f_{i}\right)\right)
+\end{align*}
+
+\end_inset
+
+Es folgt 
+\begin_inset Formula $N\ge\deg\left(f_{i}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $1\le i\le m$
+\end_inset
+
+.
+ Wegen 
+\begin_inset Formula $f\in I$
+\end_inset
+
+ gilt mit geeigneten 
+\begin_inset Formula $\alpha_{i}\in A$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+J\ni l\left(f\right) & =\sum_{i=1}^{n}\alpha_{i}a_{i}
+\end{align*}
+
+\end_inset
+
+Betrachte:
+\begin_inset Formula 
+\begin{align*}
+g & :=\sum_{i=1}^{N}\alpha_{i}f_{i}X^{n-\deg\left(f_{i}\right)} & h & :=f-g\\
+\deg\left(g\right) & =N
+\end{align*}
+
+\end_inset
+
+Damit folgt:
+\begin_inset Formula 
+\begin{align*}
+l\left(h\right)=l\left(f-g\right) & =l\left(f\right)-\sum_{i=1}^{n}\alpha_{i}\underbrace{l\left(f_{i}\cdot X^{N-\deg\left(f_{i}\right)}\right)}_{=l\left(f_{i}\right)=a_{i}}=0
+\end{align*}
+
+\end_inset
+
+Also gilt:
+\begin_inset Formula 
+\begin{align*}
+N> & \deg\left(h\right)
+\end{align*}
+
+\end_inset
+
+Nun gelten 
+\begin_inset Formula $f\in I$
+\end_inset
+
+ und 
+\begin_inset Formula $f_{i}\in I$
+\end_inset
+
+ und somit auch 
+\begin_inset Formula $h\in I$
+\end_inset
+
+.
+ Wegen 
+\begin_inset Formula $N>\deg\left(h\right)$
+\end_inset
+
+ und der Minimalität von 
+\begin_inset Formula $N$
+\end_inset
+
+ folgt 
+\begin_inset Formula $h\in I'+\left(I\cap M\right)$
+\end_inset
+
+.
+ Wegen 
+\begin_inset Formula $g\in I'$
+\end_inset
+
+ folgt 
+\begin_inset Formula $f=h+g\in I'+\left(I\cap M\right)$
+\end_inset
+
+.
+ Dies ist ein Widerspruch zu 
+\begin_inset Formula $f\in I\setminus\left(\left(I\cap M\right)+I'\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung II]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $A$
+\end_inset
+
+ Noethersch ist und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein endlich erzeugter 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul ist, also auch Noethersch ist.
+ Somit ist auch der 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $M\cap I\subseteq M$
+\end_inset
+
+ endlich erzeugt.
+ Sind 
+\begin_inset Formula $g_{1},\ldots,g_{m}\in I\cap M$
+\end_inset
+
+ nun 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul-Erzeuger von 
+\begin_inset Formula $M\cap I$
+\end_inset
+
+, so folgt:
+\begin_inset Formula 
+\begin{align*}
+I & \stackrel{\text{Beh. II}}{=}\left(g_{1},\ldots,g_{m}\right)+\left(f_{1},\ldots,f_{n}\right)
+\end{align*}
+
+\end_inset
+
+Somit ist 
+\begin_inset Formula $I$
+\end_inset
+
+ endlich erzeugt.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar 
+\series medium
+(endlich erzeugte Algebra Noethersch)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-endlichErzeugteAlgebraNoethersch"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Noetherscher Ring, so ist jede endlich erzeugte 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $B$
+\end_inset
+
+ Noethersch.
+ (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-StabilitaetseigenschaftenNoethersch"
+
+\end_inset
+
+ iii))
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jeder endlich erzeugter Ring und jede über einem Körper endlich erzeugte
+ Algebra ist Noethersch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Als 
+\begin_inset Formula $A$
+\end_inset
+
+-Algebra gilt für ein geeignetes 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und einem geeigneten 
+\begin_inset Formula $Q\subseteq A\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+B & \stackrel{\sim}{=}\modulo{A\left[X_{1},\ldots,X_{n}\right]}Q
+\end{align*}
+
+\end_inset
+
+Induktiv folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Hilbertscher-Basissatz"
+
+\end_inset
+
+, dass 
+\begin_inset Formula $A\left[X_{1},\ldots,X_{n}\right]=A\left[X_{1},\ldots,X_{n-1}\right]\left[X_{n}\right]$
+\end_inset
+
+, und damit nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-StabilitaetseigenschaftenNoethersch"
+
+\end_inset
+
+ i) auch 
+\begin_inset Formula $B$
+\end_inset
+
+, Noethersch ist.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Da 
+\begin_inset Formula $\mathbb{Z}$
+\end_inset
+
+ und jeder Körper Noethersch sind, folgt dies direkt aus i).
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Korollar
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper, 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+, 
+\begin_inset Formula $I$
+\end_inset
+
+ eine Menge und für jedes 
+\begin_inset Formula $i\in I$
+\end_inset
+
+ sei 
+\begin_inset Formula $f_{i}\in k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Dann existiert eine 
+\emph on
+endliche
+\emph default
+ Teilmenge 
+\begin_inset Formula $I_{0}\subseteq I$
+\end_inset
+
+ so, dass für alle 
+\begin_inset Formula $\underline{\alpha}\in k^{n}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(\fall_{i\in I_{0}}\,:\, f_{i}\left(\underline{\alpha}\right)=0\right) & \Rightarrow\left(\fall_{i\in I}\,:\, f_{i}\left(\underline{\alpha}\right)=0\right)
+\end{align*}
+
+\end_inset
+
+Das heißt, die Nullstellenmenge 
+\begin_inset Formula $\mathcal{N}\left(f_{i}\big|i\in I\right)$
+\end_inset
+
+ kann durch endlich viele Gleichungen beschrieben werden.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $k$
+\end_inset
+
+ Noethersch ist, gilt dies nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-endlichErzeugteAlgebraNoethersch"
+
+\end_inset
+
+ auch für die endlich erzeugte 
+\begin_inset Formula $k$
+\end_inset
+
+-Algebra 
+\begin_inset Formula $k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Betrachte das Ideal 
+\begin_inset Formula $J:=\left(f_{i}\big|i\in I\right)\subseteq k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+.
+ Dieses ist nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Charakterisierung-Noethersch"
+
+\end_inset
+
+ endlich erzeugt, es gibt also eine endliche Menge 
+\begin_inset Formula $I_{0}\subseteq I$
+\end_inset
+
+ mit 
+\begin_inset Formula $J=\left(f_{i}\big|i\in I_{0}\right)$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\underline{\alpha}\in k^{n}$
+\end_inset
+
+ mit 
+\begin_inset Formula $f_{i}\left(\underline{\alpha}\right)=0$
+\end_inset
+
+ für alle 
+\begin_inset Formula $i\in I_{0}$
+\end_inset
+
+.
+ Ist 
+\begin_inset Formula $f\in J$
+\end_inset
+
+, so gibt es 
+\begin_inset Formula $a_{i}\in k$
+\end_inset
+
+ für alle 
+\begin_inset Formula $i\in I_{0}$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+f & =\sum_{i\in I_{0}}a_{i}f_{i}
+\end{align*}
+
+\end_inset
+
+Es folgt:
+\begin_inset Formula 
+\begin{align*}
+f\left(\underline{\alpha}\right) & =\sum_{i\in I_{0}}a_{i}\underbrace{f_{i}\left(\underline{\alpha}\right)}_{=0}=0
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Artinsche Ringe
+\end_layout
+
+\begin_layout Section
+Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-RechenregelnPrimideale"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+, 
+\begin_inset Formula $\mathfrak{p}_{1},\ldots,\mathfrak{p}_{n}\subseteq A$
+\end_inset
+
+ Primideale und 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ ein Ideal mit 
+\begin_inset Formula ${\displaystyle I\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}}$
+\end_inset
+
+, so existiert ein 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ mit 
+\begin_inset Formula $I\subseteq\mathfrak{p}_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+, 
+\begin_inset Formula $I_{1},\ldots,I_{n}\subseteq A$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal mit 
+\begin_inset Formula ${\displaystyle \bigcap_{i=1}^{n}I_{i}\subseteq\mathfrak{p}}$
+\end_inset
+
+, so existiert ein 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ mit 
+\begin_inset Formula $I_{i}\subseteq\mathfrak{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Im Fall 
+\begin_inset Formula ${\displaystyle \mathfrak{p}=\bigcap_{i=1}^{n}I_{i}}$
+\end_inset
+
+ existiert ein 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{p}=I$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 6.7.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Durch Induktion über 
+\begin_inset Formula $n\ge1$
+\end_inset
+
+ zeigen wir die äquivalente Aussage:
+\begin_inset Formula 
+\begin{align*}
+\left(\fall_{1\le i\le n}:I\not\subseteq\mathfrak{p}_{i}\right) & \Rightarrow\left(I\not\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset Formula $n=1$
+\end_inset
+
+: Ist klar.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n>1$
+\end_inset
+
+: Für alle 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ existiert nach Induktionsvoraussetzung angewendet auf die 
+\begin_inset Formula $\left(n-1\right)$
+\end_inset
+
+ Primideale 
+\begin_inset Formula $\mathfrak{p}_{1},\ldots,\widehat{\mathfrak{p}_{i}},\ldots,\mathfrak{p}_{n}$
+\end_inset
+
+ ein
+\begin_inset Formula 
+\begin{align}
+x_{i} & \in I\label{eq:xi1}
+\end{align}
+
+\end_inset
+
+mit:
+\begin_inset Formula 
+\begin{align}
+x_{i} & \not\in\mathfrak{p}_{j}\fall_{1\le j\le n,j\not=i}\label{eq:xi2}
+\end{align}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fall: Es gilt 
+\begin_inset Formula $x_{i_{0}}\not\in\mathfrak{p}_{i_{0}}$
+\end_inset
+
+ für ein 
+\begin_inset Formula $1\le i_{0}\le n$
+\end_inset
+
+.
+ Dann gelten 
+\begin_inset Formula $x_{i_{0}}\in I$
+\end_inset
+
+ und 
+\begin_inset Formula $x_{i_{0}}\not\in\mathfrak{p}_{j}\fall_{1\le j\le n}$
+\end_inset
+
+, also 
+\begin_inset Formula $I\subsetneq\bigcup_{i=1}^{n}\mathfrak{p}_{i}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[1.
+ Fall]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Enumerate
+Fall: Es gilt 
+\begin_inset Formula $x_{i}\in\mathfrak{p}_{i}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+.
+ Betrachte für alle 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+p_{i} & :=x_{1}\cdot\ldots\cdot\hat{x}_{i}\cdot\ldots\cdot x_{n}
+\end{align*}
+
+\end_inset
+
+Dann gelten:
+\begin_inset Formula 
+\begin{align}
+\fall_{1\le i\le n}\ :\  & p_{i}\in I\quad(\text{wegen }n\ge2\text{ und }\eqref{eq:xi1})\label{eq:pi1}\\
+\fall_{1\le i\not=j\le n}\ :\  & p_{i}\in\mathfrak{p}_{j}\quad(\text{wegen }x_{j}\in\mathfrak{p}_{j}\text{ und }p_{i}\in\left(x_{j}\right))\label{eq:pi2}\\
+\fall_{1\le i\le n}\ :\  & p_{i}\not\in\mathfrak{p}_{i}\label{eq:pi3}
+\end{align}
+
+\end_inset
+
+Letzteres gilt, denn sonst müsste, da 
+\begin_inset Formula $\mathfrak{p}_{i}$
+\end_inset
+
+ ein Primideal ist und wegen der Definition von 
+\begin_inset Formula $p_{i}$
+\end_inset
+
+ schon 
+\begin_inset Formula $x_{j}\in\mathfrak{p_{i}}$
+\end_inset
+
+ für ein 
+\begin_inset Formula $i\not=j$
+\end_inset
+
+ gelten.
+ (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:xi2"
+
+\end_inset
+
+)
+\begin_inset Newline newline
+\end_inset
+
+Es folgt
+\begin_inset Formula 
+\begin{align*}
+y & :=\sum_{i=1}^{n}p_{i}\stackrel{\eqref{eq:pi1}}{\in}I
+\end{align*}
+
+\end_inset
+
+und für alle 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ schon 
+\begin_inset Formula $y\not\in\mathfrak{p}_{i}$
+\end_inset
+
+, denn sonst folgt 
+\begin_inset Formula ${\displaystyle \mathfrak{p}_{i}\ni y=\sum_{i=1}^{n}p_{i}}$
+\end_inset
+
+ und mit 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:pi2"
+
+\end_inset
+
+ schon 
+\begin_inset Formula $p_{i}\in\mathfrak{p}_{i}$
+\end_inset
+
+ im Widerspruch zu 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:pi3"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Also gilt 
+\begin_inset Formula ${\displaystyle \mathfrak{p}\in I\setminus\bigcup_{i=1}^{n}\mathfrak{p}_{i}}$
+\end_inset
+
+ und damit 
+\begin_inset Formula ${\displaystyle I\not\subseteq\bigcup_{i=1}^{n}\mathfrak{p}_{i}}$
+\end_inset
+
+.
+ 
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Angenommen dies gilt nicht, das heißt es gelte:
+\begin_inset Formula 
+\begin{align*}
+\fall_{1\le i\le n}:I_{i}\not\subseteq\mathfrak{p} & \Rightarrow\fall_{1\le i\le n}\exs_{x_{i}\in I_{i}}x_{i}\not\in\mathfrak{p}\Rightarrow x:=\prod_{i=1}^{n}x_{i}\in\prod_{i=1}^{n}I_{i}\subseteq\bigcap_{i=1}^{n}I_{i}
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $\mathfrak{p}$
+\end_inset
+
+ ein Primideal ist und wegen 
+\begin_inset Formula $x_{i}\not\in\mathfrak{p}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $x\not\in\mathfrak{p}$
+\end_inset
+
+.
+ Es folgt 
+\begin_inset Formula $x\in\left(\bigcap_{i=1}^{n}I_{i}\right)\setminus\mathfrak{p}$
+\end_inset
+
+.
+ Dies ist ein Widerspruch zu 
+\begin_inset Formula $\bigcap_{i=1}^{n}I_{i}\subseteq\mathfrak{p}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Gilt nun sogar 
+\begin_inset Formula $\bigcap_{i=1}^{n}I_{i}=\mathfrak{p}$
+\end_inset
+
+, so existiert wieder ein 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+ mit 
+\begin_inset Formula $I_{i}\subseteq\mathfrak{p}=\bigcap_{i=1}^{n}I_{i}\subseteq I_{i}$
+\end_inset
+
+ und es folgt 
+\begin_inset Formula $\mathfrak{p}=I_{i}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(jedes Primideal maximal)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-PrimidealMaximal"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+In einem Artinschen Ring ist jedes Primideal maximal.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal.
+ Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-ExakteFolge-NoetherschArtinsch"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii) ist 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ ein Artinscher Integritätsring.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $0\not=x\in\modulo A{\mathfrak{p}}$
+\end_inset
+
+ erhalte die stationäre Folge mit geeignetem 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(x\right) & \supseteq\left(x^{2}\right)\supseteq\ldots\supseteq\left(x^{n}\right)=\left(x^{n+1}\right)
+\end{align*}
+
+\end_inset
+
+Es folgt mit geeignetem 
+\begin_inset Formula $y\in\modulo A{\mathfrak{p}}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x^{n} & =y\cdot x^{n+1}
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ ein Integritätsring ist, kann man durch 
+\begin_inset Formula $x^{n}$
+\end_inset
+
+ teilen und es folgt:
+\begin_inset Formula 
+\begin{align*}
+1 & =xy
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $x\in\left(\modulo A{\mathfrak{p}}\right)^{*}$
+\end_inset
+
+.
+ Insgesamt gilt 
+\begin_inset Formula $\left(\modulo A{\mathfrak{p}}\right)\setminus\left\{ 0\right\} \subseteq\left(\modulo A{\mathfrak{p}}\right)^{*}$
+\end_inset
+
+ und somit ist 
+\begin_inset Formula $\modulo A{\mathfrak{p}}$
+\end_inset
+
+ ein Körper, das heißt 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ist maximal.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition 
+\series medium
+(endlich viele maximale Ideale)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-endlich-viele-MaxIdeale"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ein Artinscher Ring besitzt nur endlich viele maximale Ideale.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Sei ohne Einschränkung 
+\begin_inset Formula $A\not=\left\{ 0\right\} $
+\end_inset
+
+.
+ Betrachte die Menge von Idealen:
+\begin_inset Formula 
+\begin{align*}
+\Sigma & :=\left\{ \text{endliche Durchschnitte maximaler Ideale von }A\right\} 
+\end{align*}
+
+\end_inset
+
+Wegen 
+\begin_inset Formula $A\not=\left\{ 0\right\} $
+\end_inset
+
+ ist 
+\begin_inset Formula $\Sigma\not=\emptyset$
+\end_inset
+
+, da es dann ein maximales Ideal gibt, und dieses sein eigener Durchschnitt
+ ist.
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $A$
+\end_inset
+
+ Artinsch ist, existiert ein bezüglich der Inklusion minimales 
+\begin_inset Formula $I\in\Sigma$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Schreibe 
+\begin_inset Formula $I=\mathfrak{m}_{1}\cap\ldots\cap\mathfrak{m}_{n}$
+\end_inset
+
+ für 
+\begin_inset Formula $n\ge1$
+\end_inset
+
+ und geeignete maximale Ideale 
+\begin_inset Formula $\mathfrak{m}_{i}\subseteq A$
+\end_inset
+
+.
+ Ist nun 
+\begin_inset Formula $\mathfrak{m}\subseteq A$
+\end_inset
+
+ ein beliebiges maximales Ideal, so folgt aus der Minimalität von 
+\begin_inset Formula $I$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{m}\cap I & =I
+\end{align*}
+
+\end_inset
+
+Denn 
+\begin_inset Formula $I$
+\end_inset
+
+ ist Durchschnitt endlich vieler maximaler Ideale, also auch 
+\begin_inset Formula $\mathfrak{m}\cap I$
+\end_inset
+
+, aber 
+\begin_inset Formula $I$
+\end_inset
+
+ ist minimal mit dieser Eigenschaft.
+ Also gilt 
+\begin_inset Formula $I\subseteq\mathfrak{m}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-RechenregelnPrimideale"
+
+\end_inset
+
+ ii) mit 
+\begin_inset Formula $I_{i}:=\mathfrak{m}_{i}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{p}:=\mathfrak{m}$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\mathfrak{m}_{i}\subseteq\mathfrak{m}$
+\end_inset
+
+ für ein 
+\begin_inset Formula $1\le i\le n$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $\mathfrak{m}_{i}$
+\end_inset
+
+ und 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ beide maximal sind, folgt 
+\begin_inset Formula $\mathfrak{m}_{i}=\mathfrak{m}$
+\end_inset
+
+.
+ Also sind 
+\begin_inset Formula $\mathfrak{m}_{1},\ldots,\mathfrak{m}_{n}$
+\end_inset
+
+ bereits alle maximalen Ideale von 
+\begin_inset Formula $A$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-NilradikalNilpotent"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Artinscher Ring, so existiert ein 
+\begin_inset Formula $N\ge1$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{N}\left(A\right)^{N}=\left(0\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Schreibe 
+\begin_inset Formula $\mathfrak{N}:=\mathfrak{N}\left(A\right)$
+\end_inset
+
+.
+ Wir haben die stationäre Folge mit geeignetem 
+\begin_inset Formula $N\in\mathbb{N}_{\ge1}$
+\end_inset
+
+.
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{N} & \supseteq\mathfrak{N}^{2}\supseteq\ldots\supseteq\mathfrak{N}^{N}=\mathfrak{N}^{N+1}=:I
+\end{align*}
+
+\end_inset
+
+Beachte, dass für alle 
+\begin_inset Formula $k\in\mathbb{N}$
+\end_inset
+
+ schon 
+\begin_inset Formula $\mathfrak{N}^{N+k}=\mathfrak{N}^{N}$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Standard
+Angenommen es wäre 
+\begin_inset Formula $I\not=\left(0\right)$
+\end_inset
+
+.
+ Betrachte:
+\begin_inset Formula 
+\begin{align*}
+\Sigma & :=\left\{ J\subseteq A\big|J\text{ ist Ideal }JI\not=\left(0\right)\right\} 
+\end{align*}
+
+\end_inset
+
+Wegen
+\begin_inset Formula 
+\begin{align*}
+I\cdot I & =\mathfrak{N}^{2N}=\mathfrak{N}^{N}=I
+\end{align*}
+
+\end_inset
+
+gilt 
+\begin_inset Formula $I\in\Sigma$
+\end_inset
+
+, also 
+\begin_inset Formula $\Sigma\not=\emptyset$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $A$
+\end_inset
+
+ Artinsch ist, existiert ein minimales 
+\begin_inset Formula $J\in\Sigma$
+\end_inset
+
+.
+ Aus 
+\begin_inset Formula $IJ\not=\left(0\right)$
+\end_inset
+
+ folgt, dass es ein 
+\begin_inset Formula $x\in J$
+\end_inset
+
+ mit 
+\begin_inset Formula $I\cdot\left(x\right)\not=\left(0\right)$
+\end_inset
+
+ gibt.
+ Aus der Minimalität von 
+\begin_inset Formula $J$
+\end_inset
+
+ folgt 
+\begin_inset Formula $J=\left(x\right)$
+\end_inset
+
+.
+ Weiter gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(\left(x\right)I\right)I & =\left(x\right)I^{2}=\left(x\right)I\not=\left(0\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\left(x\right)I\in\Sigma$
+\end_inset
+
+.
+ Aus 
+\begin_inset Formula $\left(x\right)I\subseteq\left(x\right)$
+\end_inset
+
+ und der Minimalität von 
+\begin_inset Formula $\left(x\right)\in\Sigma$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\left(x\right)I=\left(x\right)$
+\end_inset
+
+ und damit 
+\begin_inset Formula $x=xy$
+\end_inset
+
+ für ein geeignetes 
+\begin_inset Formula $y\in I$
+\end_inset
+
+.
+ Es folgt für alle 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+x & =xy=xy^{2}=\ldots=xy^{n}
+\end{align*}
+
+\end_inset
+
+Wegen 
+\begin_inset Formula $y\in I\subseteq\mathfrak{N}\left(A\right)$
+\end_inset
+
+ gibt es ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ mit 
+\begin_inset Formula $y^{n}=0$
+\end_inset
+
+ und es folgt 
+\begin_inset Formula $x=0$
+\end_inset
+
+.
+ Also ist 
+\begin_inset Formula $J=\left(x\right)=\left(0\right)$
+\end_inset
+
+ im Widerspruch zu 
+\begin_inset Formula $JI\not=\left(0\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Definition und Beispiel 
+\series medium
+(Krull-Dimension)
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Ring.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Eine 
+\emph on
+Kette von Primidealen in 
+\begin_inset Formula $A$
+\end_inset
+
+
+\emph default
+ ist eine strikt aufsteigende Folge 
+\begin_inset Formula $\mathfrak{p}_{0}\subsetneq\mathfrak{p}_{1}\subsetneq\ldots\subsetneq\mathfrak{p}_{n}$
+\end_inset
+
+ von Primidealen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ heißt 
+\emph on
+die Länge der Kette
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die 
+\emph on
+(Krull-)Dimension
+\emph default
+ ist das Supremum über die Länge aller Ketten von Primidealen in 
+\begin_inset Formula $A$
+\end_inset
+
+, geschrieben:
+\begin_inset Formula 
+\begin{align*}
+\text{dim}\left(A\right) & \in\mathbb{N}\cup\left\{ \infty\right\} 
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für einen Körper 
+\begin_inset Formula $k$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\text{dim}\left(k\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Für einen Hauptidealring 
+\begin_inset Formula $A$
+\end_inset
+
+, der kein Körper ist, gilt 
+\begin_inset Formula $\text{dim}\left(A\right)=1$
+\end_inset
+
+, denn jedes von 
+\begin_inset Formula $\left(0\right)$
+\end_inset
+
+ verschiedene Primideal ist maximal.
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper, so gilt 
+\begin_inset Formula $\dim\left(k\left[X_{n}\big|n\in\mathbb{N}\right]\right)=\infty$
+\end_inset
+
+, denn die Kette
+\begin_inset Formula 
+\begin{align*}
+\left(X_{1}\right) & \subsetneq\left(X_{1},X_{2}\right)\subsetneq\left(X_{1},X_{2},X_{3}\right)\subsetneq\ldots
+\end{align*}
+
+\end_inset
+
+von Primidealen ist unendlich lang.
+\end_layout
+
+\begin_layout Standard
+Es existieren sogar Noethersche Ringe 
+\begin_inset Formula $A$
+\end_inset
+
+ mit 
+\begin_inset Formula $\dim\left(A\right)=\infty$
+\end_inset
+
+.
+ (ohne Beweis)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für eine ganze Ringerweiterung 
+\begin_inset Formula $A\subseteq B$
+\end_inset
+
+ gilt nach dem „Going-up-theorem“ 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Going-up-theorem"
+
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\text{dim}\left(A\right) & \le\text{dim}\left(B\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Die Primidealkette
+\begin_inset Formula 
+\begin{align*}
+\left(0\right)\subsetneq\left(X\right)\subsetneq\left(2,X\right)\subseteq\mathbb{Z}\left[X\right]
+\end{align*}
+
+\end_inset
+
+zeigt 
+\begin_inset Formula $\dim\left(\mathbb{Z}\left[X\right]\right)\ge2$
+\end_inset
+
+.
+ Es gilt sogar 
+\begin_inset Formula $\dim\left(\mathbb{Z}\left[X\right]\right)=2$
+\end_inset
+
+ und allgemeiner:
+\end_layout
+
+\begin_layout Standard
+Ist 
+\begin_inset Formula $A$
+\end_inset
+
+ Noethersch, so ist 
+\begin_inset Formula $\text{dim}\left(A\left[X\right]\right)=\dim\left(A\right)+1$
+\end_inset
+
+.
+ (ohne Beweis)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Charakterisierung Artinscher Ring)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-Charakterisierung-Artinsch"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für einen Ring 
+\begin_inset Formula $A$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ ist Artinsch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ ist Noethersch und es gilt 
+\begin_inset Formula $\text{dim}\left(A\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Wegen 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-PrimidealMaximal"
+
+\end_inset
+
+ gilt 
+\begin_inset Formula $\dim\left(A\right)=0$
+\end_inset
+
+.
+ Damit sind die endlich vielen (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlich-viele-MaxIdeale"
+
+\end_inset
+
+) maximalen Ideale 
+\begin_inset Formula $\mathfrak{m}_{1},\ldots,\mathfrak{m}_{n}$
+\end_inset
+
+ bereits alle Primideale von 
+\begin_inset Formula $A$
+\end_inset
+
+ und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\prod_{i=1}^{n}\mathfrak{m}_{i} & \subseteq\bigcap_{i=1}^{n}\mathfrak{m}_{i}\stackrel{\ref{sec:Satz-NilradikalIstSchnittPrimideale}}{=}\mathfrak{N}\left(A\right)
+\end{align*}
+
+\end_inset
+
+Nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-NilradikalNilpotent"
+
+\end_inset
+
+ existiert ein 
+\begin_inset Formula $N\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align*}
+\left(0\right) & =\left(\mathfrak{N}\left(A\right)\right)^{N}\supseteq\left(\prod_{i=1}^{n}\mathfrak{m}_{i}\right)^{N}=\prod_{i=1}^{n}\mathfrak{m}_{i}^{N}
+\end{align*}
+
+\end_inset
+
+ Also gilt:
+\begin_inset Formula 
+\begin{align*}
+\prod_{i=1}^{n}\mathfrak{m}_{i}^{N} & =0
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $\left(0\right)\subseteq A$
+\end_inset
+
+ ein Produkt maximaler Ideale und aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-HinreichendFuerNoetherschAequivalentArtinsch"
+
+\end_inset
+
+ folgt, dass 
+\begin_inset Formula $A$
+\end_inset
+
+ Noethersch ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[i) $
+\backslash
+Rightarrow$ ii)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Seien 
+\begin_inset Formula $\mathfrak{m}_{1},\ldots,\mathfrak{m}_{n}\subseteq A$
+\end_inset
+
+ die minimalen Primideale (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Noethersch-endlichvieleMinimalePrimideale"
+
+\end_inset
+
+).
+ Wegen 
+\begin_inset Formula $\text{dim}\left(A\right)=0$
+\end_inset
+
+ sind diese Ideale sogar maximal und bilden damit sogar alle Primideale
+ von 
+\begin_inset Formula $A$
+\end_inset
+
+.
+ Also gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{N}\left(A\right) & \stackrel{\ref{sec:Satz-NilradikalIstSchnittPrimideale}}{=}\bigcap_{i=1}^{n}\mathfrak{m}_{i}
+\end{align*}
+
+\end_inset
+
+Nun ist 
+\begin_inset Formula $\mathfrak{N}\left(A\right)\subseteq A$
+\end_inset
+
+ endlich erzeugt, da 
+\begin_inset Formula $A$
+\end_inset
+
+ Noethersch ist, also 
+\begin_inset Formula $\mathfrak{N}\left(A\right)=\left(a_{1},\ldots,a_{m}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $1\le k\le m$
+\end_inset
+
+ ist 
+\begin_inset Formula $a_{k}\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+, also nilpotent, das heißt es gibt ein 
+\begin_inset Formula $n_{k}\in\mathbb{N}$
+\end_inset
+
+ mit 
+\begin_inset Formula $a_{k}^{n_{k}}=0$
+\end_inset
+
+.
+ Für
+\begin_inset Formula 
+\begin{align*}
+n_{x} & :=\max\left\{ n_{1},\ldots,n_{m}\right\}  & N & :=n_{x}\cdot m
+\end{align*}
+
+\end_inset
+
+gilt dann für alle 
+\begin_inset Formula $a_{k}$
+\end_inset
+
+ schon 
+\begin_inset Formula $a_{k}^{N}=a_{k}^{n_{x}}=0$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $a\in\mathfrak{N}\left(A\right)$
+\end_inset
+
+, so gibt es 
+\begin_inset Formula $\alpha_{1},\ldots,\alpha_{m}\in A$
+\end_inset
+
+ mit:
+\begin_inset Formula 
+\begin{align}
+a & =\sum_{k=1}^{m}\alpha_{k}a_{k}\nonumber \\
+a^{N} & =\left(\sum_{k=1}^{m}\alpha_{k}a_{k}\right)^{N}=\sum_{i_{1}+\ldots+i_{m}=N}c_{i_{1}\ldots i_{m}}a_{1}^{i_{1}}a_{2}^{i_{2}}\ldots a_{m}^{i_{m}}\label{eq:aNsum}
+\end{align}
+
+\end_inset
+
+Dabei sind 
+\begin_inset Formula $c_{i_{1}\ldots i_{m}}\in A$
+\end_inset
+
+ geeignet gewählt.
+ Wegen 
+\begin_inset Formula $i_{1}+\ldots+i_{m}=N=n_{x}\cdot m$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+i_{k} & :=\max\left\{ i_{1},\ldots,i_{m}\right\} \ge n_{x}
+\end{align*}
+
+\end_inset
+
+Denn andernfalls würde gelten:
+\begin_inset Formula 
+\begin{align*}
+N=i_{1}+\ldots+i_{m} & \le m\cdot i_{k}<m\cdot n_{x}=N
+\end{align*}
+
+\end_inset
+
+Dann ist aber 
+\begin_inset Formula $a_{k}^{i_{k}}=0$
+\end_inset
+
+ und somit verschwindet jeder Summand in 
+\begin_inset CommandInset ref
+LatexCommand eqref
+reference "eq:aNsum"
+
+\end_inset
+
+, das heißt es gilt 
+\begin_inset Formula $a^{N}=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Insgesamt ist 
+\begin_inset Formula $\left(\mathfrak{N}\left(A\right)\right)^{N}=\left(\sqrt{\left(0\right)}\right)^{N}\subseteq\left(0\right)$
+\end_inset
+
+, das heißt:
+\begin_inset Formula 
+\begin{align*}
+\left(0\right)=\left(\mathfrak{N}\left(A\right)\right)^{N} & =\left(\bigcap_{i=1}^{n}\mathfrak{m}_{i}\right)^{N}\supseteq\left(\prod_{i=1}^{n}\mathfrak{m}_{i}\right)^{N}=\prod_{i=1}^{n}\mathfrak{m}_{i}^{N}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\left(0\right)\subseteq A$
+\end_inset
+
+ Produkt maximaler Ideale und aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-HinreichendFuerNoetherschAequivalentArtinsch"
+
+\end_inset
+
+ folgt, dass 
+\begin_inset Formula $A$
+\end_inset
+
+ Artinsch ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\left(A,\mathfrak{m}\right)$
+\end_inset
+
+ ein Noetherscher lokaler Ring.
+ Dann gilt genau eine der folgenden Aussage:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\mathfrak{m}^{n+1}\subsetneq\mathfrak{m}^{n}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Es gibt ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{m}^{n}=\left(0\right)$
+\end_inset
+
+.
+ In diesem Fall ist 
+\begin_inset Formula $A$
+\end_inset
+
+ Artinsch.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Gelte i) nicht, das heißt es gibt ein 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ mit 
+\begin_inset Formula $\mathfrak{m}^{n+1}=\mathfrak{m}^{n}$
+\end_inset
+
+.
+ Dann folgt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{m}\cdot\mathfrak{m}^{n} & =\mathfrak{m}^{n}
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $A$
+\end_inset
+
+ Noethersch ist, ist der 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $\mathfrak{m}^{n}\subseteq A$
+\end_inset
+
+ endlich erzeugt.
+ Wegen 
+\begin_inset Formula $\mathfrak{m}=\text{Jac}\left(A\right)$
+\end_inset
+
+ folgt aus dem Lemma von Nakayama 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:LuD-Nakayama-Jacobsonradikal"
+
+\end_inset
+
+ schon 
+\begin_inset Formula $\mathfrak{m}^{n}=\left(0\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Ist nun 
+\begin_inset Formula $\mathfrak{p}\subseteq A$
+\end_inset
+
+ ein Primideal, so gilt:
+\begin_inset Formula 
+\begin{align*}
+\left(0\right) & =\mathfrak{m}^{n}\subseteq\mathfrak{p}\subseteq\mathfrak{m}\\
+\Rightarrow\quad\mathfrak{m}\subseteq\sqrt{\left(0\right)} & \subseteq\underbrace{\sqrt{\left(\mathfrak{p}\right)}}_{=\mathfrak{p}}\subseteq\underbrace{\sqrt{\left(\mathfrak{m}\right)}}_{=\mathfrak{m}}\\
+\mathfrak{m} & \subseteq\mathfrak{p}\subseteq\mathfrak{m}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\mathfrak{m}\in A$
+\end_inset
+
+ das einzige Primideal und daher gilt 
+\begin_inset Formula $\dim\left(A\right)=0$
+\end_inset
+
+.
+ Aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Charakterisierung-Artinsch"
+
+\end_inset
+
+ ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i) folgt, dass 
+\begin_inset Formula $A$
+\end_inset
+
+ Artinsch ist.
 \begin_inset ERT
 status open
 
