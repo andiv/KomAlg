@@ -7934,7 +7934,7 @@ das kleinste Ideal von
 \begin_inset Formula $f\left(I\right)$
 \end_inset
 
-umfasst.
+ umfasst.
  Es heißt 
 \emph on
 das Bild von 
@@ -43865,21 +43865,11 @@ Sei
 \begin_inset Formula $m_{1}\ge n_{1}$
 \end_inset
 
- (bzw.
- 
-\begin_inset Formula $m_{1}\le n_{1}$
-\end_inset
-
-) und alle 
+ und alle 
 \begin_inset Formula $m_{2}\ge n_{2}$
 \end_inset
 
- (bzw.
- 
-\begin_inset Formula $m_{2}\le n_{2}$
-\end_inset
-
-) gilt:
+ gilt:
 \begin_inset Formula 
 \begin{align*}
 g\left(M_{n_{1}}\right) & =g\left(M_{m}\right) & f^{-1}\left(M_{n_{2}}\right) & =f^{-1}\left(M_{m}\right)
@@ -43891,21 +43881,11 @@ Sei nun
 \begin_inset Formula $n=\text{max}\left\{ n_{1},n_{2}\right\} $
 \end_inset
 
- (bzw.
- 
-\begin_inset Formula $n=\text{min}\left\{ n_{1},n_{2}\right\} $
-\end_inset
-
-), so gilt für alle 
+, so gilt für alle 
 \begin_inset Formula $m\ge n$
 \end_inset
 
- (bzw.
- 
-\begin_inset Formula $m\le n$
-\end_inset
-
-):
+:
 \begin_inset Formula 
 \begin{align*}
 g\left(M_{m}\right) & =g\left(M_{n}\right) & f^{-1}\left(M_{m}\right) & =f^{-1}\left(M_{n}\right)
@@ -43921,12 +43901,7 @@ Sei
 \begin_inset Formula $m\ge n$
 \end_inset
 
- (bzw.
- 
-\begin_inset Formula $m\le n$
-\end_inset
-
-).
+.
  Falls 
 \begin_inset Formula $x\in\text{im}\left(f\right)$
 \end_inset
@@ -43940,15 +43915,11 @@ Sei
 \end_inset
 
 .
- Wegen 
-\begin_inset Formula $f^{-1}\left(M_{m}\right)=f^{-1}\left(M_{n}\right)$
+ Also gilt 
+\begin_inset Formula $x'\in f^{-1}\left(M_{m}\right)=f^{-1}\left(M_{n}\right)$
 \end_inset
 
- gilt 
-\begin_inset Formula $x'\in f^{-1}\left(M_{n}\right)$
-\end_inset
-
- und somit 
+ eund somit 
 \begin_inset Formula $x=f\left(x'\right)\in M_{n}$
 \end_inset
 
