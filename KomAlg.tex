@@ -2314,7 +2314,7 @@ surjektiv, da alle $\overline{x}_{i}$ im Bild liegen, also gilt:
 M & =\pi\left(N\right)=N+\mathfrak{m}M
 \end{align*}
 Es folgt $\modulo MN\subseteq\mathfrak{m}\cdot\left(\modulo MN\right)$
-und damit $\modulo MN=\left(0\right)$ nach dem Lemma\ref{sec:LuD-Nakayama-Jacobsonradikal}
+und damit $\modulo MN=\left(0\right)$ nach dem Lemma \ref{sec:LuD-Nakayama-Jacobsonradikal}
 von Nakayama, da $\text{Jac}\left(A\right)=\mathfrak{m}$ ist. Damit
 gilt:
 \begin{align*}
@@ -9141,6 +9141,295 @@ Ist nun $\mathfrak{p}\subseteq A$ ein Primideal, so gilt:
 Also ist $\mathfrak{m}\in A$ das einzige Primideal und daher gilt
 $\dim\left(A\right)=0$. Aus \ref{sec:Satz-Charakterisierung-Artinsch}
 ii) $\Rightarrow$ i) folgt, dass $A$ Artinsch ist.\qqed
+
+%DATE: Di 10.7.12
+
+
+\section{Beispiel}
+
+Für $n\in\mathbb{N}_{>0}$ ist $\modlo Zn$ Artinsch, da $\abs{\modlo Zn}=n<\infty$
+ist. Ist
+\begin{align*}
+n & =\prod_{i=1}^{r}p_{i}^{n_{i}}
+\end{align*}
+die Primfaktorzerlegung, so gilt nach dem Chinesischen Restsatz:
+\begin{align*}
+\modlo Zn & \stackrel{\sim}{=}\prod_{i=1}^{r}\left(\modlo Z{p_{i}^{n_{i}}}\right)
+\end{align*}
+Jeder der Ringe $\modlo Z{p_{i}^{n_{i}}}$ ist Artinsch und lokal
+mit maximalem Ideal $p_{i}\cdot\left(\modlo Z{p_{i}^{n_{i}}}\right)$.
+
+
+\section{Satz \textmd{(Struktur Artinscher Ringe)}}
+
+Jeder Artinsche Ring ist endliches Produkt Artinscher lokaler Ringe.
+
+
+\subsubsection*{Beweis}
+
+Sei $\left\{ \mathfrak{m}_{1},\ldots,\mathfrak{m}_{n}\right\} $ die
+maximalen Ideal von $A$ (vergleiche \ref{sec:Prop-endlich-viele-MaxIdeale}).
+
+Nach dem Beweis von \ref{sec:Satz-Charakterisierung-Artinsch} \quotedblbase{}i)
+$\Rightarrow$ ii)\textquotedblleft{} gilt für geeignetes $N\in\mathbb{N}_{\ge1}$:
+\begin{align*}
+\left(0\right) & =\prod_{i=1}^{n}\mathfrak{m}_{i}^{N}
+\end{align*}
+
+\begin{description}
+\item [{Behauptung:}] Für alle $1\le i,j\le n$ mit $i\not=j$ gilt: $\mathfrak{m}_{i}^{N}+\mathfrak{m}_{j}^{N}=\left(1\right)$
+\item [{Beweis:}] Wegen $\mathfrak{m}_{i}\not=\mathfrak{m}_{j}$ gilt ohne
+Einschränkung für $\mathfrak{m}_{i}$ die echte Inklusion $\mathfrak{m}_{i}\subsetneq\mathfrak{m}_{i}+\mathfrak{m}_{j}$
+und, da $\mathfrak{m}_{i}$ maximal ist, folgt $\mathfrak{m}_{i}+\mathfrak{m}_{j}=\left(1\right)$,
+also $1=x_{i}+x_{j}$ für geeignete $x_{i}\in\mathfrak{m}_{i}$ und
+$x_{j}\in\mathfrak{m}_{j}$. Es folgt:
+\begin{align*}
+1 & =1^{2N}=\left(x_{i}+x_{j}\right)^{2N}=\sum_{k=0}^{2N}\left(\begin{array}{c}
+2N\\
+k
+\end{array}\right)x_{i}^{k}x_{j}^{2N-k}
+\end{align*}
+Für jedes $0\le k\le2N$ gilt:
+\begin{align*}
+x_{i}^{k}x_{j}^{2N-k} & \in\begin{cases}
+\mathfrak{m}_{i}^{N} & \text{falls }k\ge N\\
+\mathfrak{m}_{j}^{N} & \text{falls }k\le N
+\end{cases}
+\end{align*}
+Also folgt $1\in\mathfrak{m}_{i}^{N}+\mathfrak{m}_{j}^{N}$.\qqed[Behauptung]
+\end{description}
+Nach der Behauptung sind die $\mathfrak{m}_{i}^{N},\ldots,\mathfrak{m}_{n}^{N}$
+paarweise komaximal und aus dem Chinesischen Restsatz \ref{sec:Satz-Chinesischer-Restsatz}
+a) i) folgt
+\begin{align*}
+\bigcap_{i=1}^{n}\mathfrak{m}_{i}^{N} & =\prod_{i=1}^{n}\mathfrak{m}_{i}^{N}=\left(0\right)
+\end{align*}
+und aus \ref{sec:Satz-Chinesischer-Restsatz} a) ii) und b) folgt,
+dass
+\begin{align*}
+A & \stackrel{\sim}{\to}\prod_{i=1}^{n}\modulo A{\mathfrak{m}_{i}^{N}}\\
+x & \mapsto\left(x\mod\mathfrak{m}_{i}^{N}\right)_{1\le i\le n}
+\end{align*}
+ein Ringisomorphismus ist. Offenbar ist jeder der Ringe $\modulo A{\mathfrak{m}_{i}^{N}}$
+als Quotient eines Artinschen Rings Artinsch und zudem lokal mit maximalem
+Ideal $\modulo{\mathfrak{m}_{i}}{\mathfrak{m}_{i}^{N}}$, denn das
+Bild der $\mathfrak{m}_{j}$ für $j\not=i$ in $\modulo A{\mathfrak{m}_{i}^{N}}$
+ist das Einsideal: Es gilt $\mathfrak{m}_{j}^{N}\subseteq\mathfrak{m}_{j}$
+und somit:
+\begin{align*}
+\left(1\right) & =\mathfrak{m}_{j}^{N}+\mathfrak{m}_{i}^{N}\subseteq\mathfrak{m}_{j}+\mathfrak{m}_{i}^{N}
+\end{align*}
+Also ist $\mathfrak{m}_{j}+\mathfrak{m}_{i}^{N}=\left(1\right)$ und
+es folgt: 
+\begin{align*}
+\left(\text{Bild von }\mathfrak{m}_{j}\text{ in }\modulo A{\mathfrak{m}_{i}^{N}}\right) & =\modulo{\left(\mathfrak{m}_{j}+\mathfrak{m}_{i}^{N}\right)}{\mathfrak{m}_{i}^{N}}=\modulo{\left(1\right)}{\mathfrak{m}_{i}^{N}}=\modulo A{\mathfrak{m}_{i}^{N}}
+\end{align*}
+\qqed
+
+
+\section{Proposition\label{sec:Prop-Artinsch-Hauptideal-dimension1}}
+
+Seien $\left(A,\mathfrak{m}\right)$ ein Artinscher lokaler Ring mit
+Restklassenkörper $k=\modulo A{\mathfrak{m}}$. Dann sind folgende
+Aussagen äquivalent:
+
+\begin{iiilist}
+
+\iii Jedes Ideal in $A$ ist ein Hauptideal. (Beachte: Im Allgemeinen
+ist $A$ kein Integritätsring und somit kein Hauptidealring, zum Beispiel
+$A=\modlo Z4$.)
+
+\iii Das Ideal $\mathfrak{m}$ ist ein Hauptideal.
+
+\iii Es gilt:
+\begin{align*}
+\text{dim}_{k}\left(\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right) & \le1
+\end{align*}
+
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{} ist klar.
+
+\quotedblbase{}ii) $\Rightarrow$ iii)\textquotedblleft{}: Wegen $\mathfrak{m}\cdot\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}=\left(0\right)$
+ist $\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}$ ein $k=\modulo A{\mathfrak{m}}$-Vektorraum.
+Wegen $\mathfrak{m}=\left(x\right)$ ist $x+\mathfrak{m}^{2}\in\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}$
+ein $k$-Erzeugendensystem und somit folgt iii).
+
+\quotedblbase{}iii) $\Rightarrow$ ii)\textquotedblleft{}: Ist $\dim_{k}\left(\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right)=0$,
+so gilt $\mathfrak{m}=\mathfrak{m}^{2}$, also $\mathfrak{m}=\left(0\right)$
+nach dem Lemma von Nakayama, denn alle Ideale sind endlich erzeugt,
+weil $A$ insbesondere Noethersch ist. Damit ist $A$ ein Körper und
+i) ist klar.
+
+Gelte nun $\dim_{k}\left(\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right)=1$,
+dann gibt es ein $x\in\mathfrak{m}\setminus\mathfrak{m}^{2}$ und
+$0\not=x+\mathfrak{m}^{2}\in\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}$
+ist eine $k$-Basis, das heißt $\mathfrak{m}=\left(x\right)+\mathfrak{m}^{2}$,
+und für den $A$-Untermodul $\left(x\right)\subseteq\mathfrak{m}$
+gilt:
+\begin{align*}
+\mathfrak{m}\cdot\left(\modulo{\mathfrak{m}}{\left(x\right)}\right) & =\modulo{\mathfrak{m}^{2}+\left(x\right)}{\left(x\right)}=\modulo{\mathfrak{m}}{\left(x\right)}
+\end{align*}
+Mit $\mathfrak{m}$ ist auch $\modulo{\mathfrak{m}}{\left(x\right)}$
+endlich erzeugt und zudem ist $\mathfrak{m}=\text{Jac}\left(A\right)$
+und somit folgt aus dem Lemma von Nakayama \ref{sec:LuD-Nakayama-Jacobsonradikal}
+schon $\modulo{\mathfrak{m}}{\left(x\right)}=\left(0\right)$, das
+heißt $\mathfrak{m}=\left(x\right)$ ist ein Hauptideal.
+
+\quotedblbase{}ii) $\Rightarrow$ i)\textquotedblleft{}: Sei nun $\left(0\right)\subsetneq I\subsetneq A$
+ein Ideal.
+
+Wegen $\mathfrak{m}=\mathfrak{N}\left(A\right)$, \ref{sec:Prop-NilradikalNilpotent}
+und $I\not=\left(0\right),\left(1\right)$ existiert ein $n\ge1$
+mit $I\subseteq\mathfrak{m}^{n}=\left(x^{n}\right)$ und $I\not\subseteq\mathfrak{m}^{n+1}=\left(x^{n+1}\right)$.\\
+Also existiert ein $y\in I\setminus\left(x^{n+1}\right)$ und wegen
+$I\subseteq\left(x^{n}\right)$ gilt $y=ax^{n}$ für ein geeignetes
+$a\in A$ und $a\not\in\left(x\right)$, da $y\not\in\left(x^{n+1}\right)$
+ist. Wegen $a\not\in\left(x\right)=\mathfrak{m}\subseteq A$ und weil
+$\left(A,\mathfrak{m}\right)$ lokal ist, folgt $a\in A^{*}$ und
+damit $x^{n}=a^{-1}y\in I$, also $\left(x^{n}\right)\subseteq I$
+und damit $I=\left(x^{n}\right)$, das heißt $I$ ist ein Hauptideal.\qqed
+
+
+\section{Beispiel}
+
+\begin{iiilist}
+
+\iii Ein Artinscher Ring $A$, der ein Hauptidealring ist, ist ein
+Körper.
+
+
+\subsubsection*{Beweis}
+
+Da $A$ Artinsch ist, ist jedes Primideal maximal und somit ist $A$
+Jacobson. Außerdem hat $A$ nur endlich viele maximale Ideale, das
+heißt endlich viele Primideale, also $\abs{\text{Spec}\left(A\right)}<\infty$.
+
+Wäre $A$ kein Körper, so folgt aus \ref{sec:Bsp-HauptidealringJacobson}
+schon $\abs{\text{Spec}\left(A\right)}=\infty$ im Widerspruch zu
+$\abs{\text{Spec}\left(A\right)}<\infty$.\qqed[\roman{ale2})]
+
+\iii Für $A=\modlo Z{p^{n}}$ für eine Primzahl $p\in\mathbb{Z}$
+und $n\in\mathbb{N}_{\ge1}$ gelten die Bedingungen in \ref{sec:Prop-Artinsch-Hauptideal-dimension1}.
+
+\iii Seien $n\in\mathbb{N}_{\ge1}$, $k$ ein Körper und $A=\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\left(X_{1},\ldots,X_{n}\right)^{2}}$.
+Da $\mathfrak{m}:=\left(X_{1},\ldots,X_{n}\right)\subseteq k\left[X_{1},\ldots,X_{n}\right]$
+maximal ist, ist der lokale Ring $\left(A,\overline{\mathfrak{m}}:=\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right)$
+Artinsch, denn er ist Noethersch und $\dim\left(A\right)=0$, und
+es gilt:
+\begin{align*}
+\dim_{k}\left(\modulo{\overline{\mathfrak{m}}}{\overline{\mathfrak{m}}^{2}}\right) & =n
+\end{align*}
+(vergleiche Blatt 2 Aufgabe 2 iii))
+
+\end{iiilist}
+
+
+\chapter{Etwas homologische Algebra}
+
+Sei $A$ stets ein Ring.
+
+
+\section{Bemerkung und Definition \textmd{(Komplex, Differential, Kohomologie)}}
+
+Seien $C_{\bullet}=\left(\ldots\to C_{n}\stackrel{f_{n}}{\to}C_{n-1}\to\ldots\right)$
+eine exakte Folge von $A$-Moduln und $M$ ein $A$-Modul.
+
+Dann ist die Folge
+\begin{align*}
+D_{\bullet} & :=C_{\bullet}\otimes_{A}M:=\left(\ldots\to D_{n}:=C_{n}\otimes_{A}M\stackrel{f_{n}\otimes\text{id}_{M}=:\partial_{n}}{\to}D_{n-1}:=C_{n-1}\to\ldots\right)
+\end{align*}
+ist im Allgemeinen nicht mehr exakt, genauer:
+\begin{align*}
+M\text{ flach} & \quad\Leftrightarrow\quad C_{\bullet}\otimes_{A}M\text{ ist exakt für alle }C_{\bullet}
+\end{align*}
+Aber es gilt immer noch für alle $n\in\mathbb{Z}$:
+\begin{align*}
+\partial_{n-1}\circ\partial_{n} & =\underbrace{\left(f_{n-1}\circ f_{n}\right)}_{=0}\otimes\text{id}_{M}=0
+\end{align*}
+Das heißt:
+\begin{align*}
+\text{im}\left(\partial_{n}\right) & \subseteq\ker\left(\partial_{n-1}\right)
+\end{align*}
+Ferner ist $D_{\bullet}$ an der Stelle $D_{n-1}$ genau dann exakt,
+wenn dies eine Gleichheit ist.
+
+Ein \emph{Komplex (von $A$-Moduln)} ist eine Folge von $A$-Moduln
+$\left(D_{n},\partial_{n}:D_{n}\to D_{n-1}\right)_{n\in\mathbb{Z}}$
+so, dass für alle $n\in\mathbb{Z}$ gilt
+\begin{align*}
+\text{im}\left(\partial_{n}\right) & \subseteq\ker\left(\partial_{n-1}\right)
+\end{align*}
+oder äquivalent $\partial_{n-1}\circ\partial_{n}=0$ für alle $n\in\mathbb{Z}$.
+Die Abbildungen $\partial_{n}$ heißen \emph{Differentiale von $D_{\bullet}$}.
+
+Für alle $n\in\mathbb{Z}$ heißen\emph{
+\begin{align*}
+D_{n}\supseteq Z_{n}\left(D_{\bullet}\right) & :=\ker\left(\partial_{n}\right)
+\end{align*}
+die $n$-Zykel (von $D_{\bullet}$)},\emph{
+\begin{align*}
+D_{n}\supseteq B_{n}\left(D_{\bullet}\right)=B_{n} & :=\text{im}\left(\partial_{n+1}\right)
+\end{align*}
+die $n$-Ränder (von $D_{\bullet}$)} und
+\begin{align*}
+H_{n}\left(D_{\bullet}\right) & =H_{n}:=\modulo{Z_{n}}{B_{n}}
+\end{align*}
+\emph{die $n$-te Homologie (von $D_{\bullet}$)}.
+
+Genau dann ist $D_{\bullet}$ exakt, wenn $H_{n}\left(D_{\bullet}\right)=0$
+für alle $n\in\mathbb{Z}$ gilt.
+
+
+\section{Definition und Bemerkung \textmd{(freie Auflösung)}\label{sec:DuB-freieAufloesung}}
+
+Sei $M$ ein $A$-Modul. \emph{Eine freie Auflösung von $M$} ist
+eine exakte Folge von $A$-Moduln
+\begin{align*}
+\left(\ldots\to F_{1}\stackrel{f_{1}}{\to}F_{0}\to M\to0\right) & =:\left(F_{\bullet}\to M\to0\right)
+\end{align*}
+in der alle $F_{i}$ frei sind. Jeder Modul besitzt (viele verschiedene)
+freie Auflösungen.
+
+Für einen weiteren $A$-Modul $N$ definiere für alle $n\in\mathbb{N}$
+die \emph{höheren Torsionsmodule}:
+\begin{align*}
+\text{Tor}_{n}^{A}\left(M,N\right) & :=H_{n}\left(F_{\bullet}\otimes_{A}N\right)
+\end{align*}
+Es ist \emph{nicht} klar, ob das wohldefiniert, das heißt unabhängig
+von der Wahl von $F_{\bullet}$ ist.
+
+
+\section{Beispiel}
+
+Es gelten die Voraussetzungen von \ref{sec:DuB-freieAufloesung}.
+
+\begin{iiilist}
+
+\iii Ist $N$ flach, so ist $F_{\bullet}\otimes_{A}N$ an allen Stellen
+$n\in\mathbb{N}_{>0}$ exakt, also gilt $\text{Tor}_{n}^{A}\left(M,N\right)=0$.
+
+\iii Berechne $\text{Tor}_{0}^{A}\left(M,N\right)$: Sei
+\begin{align*}
+F_{1}\to F_{0}\to M\to0
+\end{align*}
+eine exakt Folge und $F_{1},F_{0}$ frei. Wegen der Rechtsexaktheit
+des Tensorprodukts \ref{sec:Satz-RechtsexaktheitTensorprodukt} ist
+\begin{align*}
+F_{1}\otimes_{A}N\stackrel{\partial_{1}}{\to}F_{0}\otimes_{A}N\to M\otimes_{A}N\to0
+\end{align*}
+exakt. Es folgt:
+\begin{align*}
+\text{Tor}_{0}^{A}\left(M,N\right) & =H_{0}\left(F_{0}\otimes_{A}N\right)=\modulo{\ker\left(\partial_{0}\right)}{\text{im}\left(\partial_{1}\right)}\stackrel{\sim}{=}M\otimes_{A}N
+\end{align*}
+Insbesondere ist $\text{Tor}_{0}^{A}\left(M,N\right)$ unabhängig
+von der Wahl von $F_{\bullet}$.
+
+\end{iiilist}
 
 
 \part*{Anhang\thispagestyle{empty}}

@@ -12368,7 +12368,7 @@ Es folgt
 \begin_inset Formula $\modulo MN=\left(0\right)$
 \end_inset
 
- nach dem Lemma
+ nach dem Lemma 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:LuD-Nakayama-Jacobsonradikal"
@@ -48591,6 +48591,1363 @@ status open
 
 \backslash
 qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Di 10.7.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $n\in\mathbb{N}_{>0}$
+\end_inset
+
+ ist 
+\begin_inset Formula $\modlo Zn$
+\end_inset
+
+ Artinsch, da 
+\begin_inset Formula $\abs{\modlo Zn}=n<\infty$
+\end_inset
+
+ ist.
+ Ist
+\begin_inset Formula 
+\begin{align*}
+n & =\prod_{i=1}^{r}p_{i}^{n_{i}}
+\end{align*}
+
+\end_inset
+
+die Primfaktorzerlegung, so gilt nach dem Chinesischen Restsatz:
+\begin_inset Formula 
+\begin{align*}
+\modlo Zn & \stackrel{\sim}{=}\prod_{i=1}^{r}\left(\modlo Z{p_{i}^{n_{i}}}\right)
+\end{align*}
+
+\end_inset
+
+Jeder der Ringe 
+\begin_inset Formula $\modlo Z{p_{i}^{n_{i}}}$
+\end_inset
+
+ ist Artinsch und lokal mit maximalem Ideal 
+\begin_inset Formula $p_{i}\cdot\left(\modlo Z{p_{i}^{n_{i}}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Satz 
+\series medium
+(Struktur Artinscher Ringe)
+\end_layout
+
+\begin_layout Standard
+Jeder Artinsche Ring ist endliches Produkt Artinscher lokaler Ringe.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $\left\{ \mathfrak{m}_{1},\ldots,\mathfrak{m}_{n}\right\} $
+\end_inset
+
+ die maximalen Ideal von 
+\begin_inset Formula $A$
+\end_inset
+
+ (vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-endlich-viele-MaxIdeale"
+
+\end_inset
+
+).
+\end_layout
+
+\begin_layout Standard
+Nach dem Beweis von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Charakterisierung-Artinsch"
+
+\end_inset
+
+ „i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“ gilt für geeignetes 
+\begin_inset Formula $N\in\mathbb{N}_{\ge1}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\left(0\right) & =\prod_{i=1}^{n}\mathfrak{m}_{i}^{N}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Behauptung: Für alle 
+\begin_inset Formula $1\le i,j\le n$
+\end_inset
+
+ mit 
+\begin_inset Formula $i\not=j$
+\end_inset
+
+ gilt: 
+\begin_inset Formula $\mathfrak{m}_{i}^{N}+\mathfrak{m}_{j}^{N}=\left(1\right)$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Description
+Beweis: Wegen 
+\begin_inset Formula $\mathfrak{m}_{i}\not=\mathfrak{m}_{j}$
+\end_inset
+
+ gilt ohne Einschränkung für 
+\begin_inset Formula $\mathfrak{m}_{i}$
+\end_inset
+
+ die echte Inklusion 
+\begin_inset Formula $\mathfrak{m}_{i}\subsetneq\mathfrak{m}_{i}+\mathfrak{m}_{j}$
+\end_inset
+
+ und, da 
+\begin_inset Formula $\mathfrak{m}_{i}$
+\end_inset
+
+ maximal ist, folgt 
+\begin_inset Formula $\mathfrak{m}_{i}+\mathfrak{m}_{j}=\left(1\right)$
+\end_inset
+
+, also 
+\begin_inset Formula $1=x_{i}+x_{j}$
+\end_inset
+
+ für geeignete 
+\begin_inset Formula $x_{i}\in\mathfrak{m}_{i}$
+\end_inset
+
+ und 
+\begin_inset Formula $x_{j}\in\mathfrak{m}_{j}$
+\end_inset
+
+.
+ Es folgt:
+\begin_inset Formula 
+\begin{align*}
+1 & =1^{2N}=\left(x_{i}+x_{j}\right)^{2N}=\sum_{k=0}^{2N}\left(\begin{array}{c}
+2N\\
+k
+\end{array}\right)x_{i}^{k}x_{j}^{2N-k}
+\end{align*}
+
+\end_inset
+
+Für jedes 
+\begin_inset Formula $0\le k\le2N$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+x_{i}^{k}x_{j}^{2N-k} & \in\begin{cases}
+\mathfrak{m}_{i}^{N} & \text{falls }k\ge N\\
+\mathfrak{m}_{j}^{N} & \text{falls }k\le N
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Also folgt 
+\begin_inset Formula $1\in\mathfrak{m}_{i}^{N}+\mathfrak{m}_{j}^{N}$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Behauptung]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nach der Behauptung sind die 
+\begin_inset Formula $\mathfrak{m}_{i}^{N},\ldots,\mathfrak{m}_{n}^{N}$
+\end_inset
+
+ paarweise komaximal und aus dem Chinesischen Restsatz 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Chinesischer-Restsatz"
+
+\end_inset
+
+ a) i) folgt
+\begin_inset Formula 
+\begin{align*}
+\bigcap_{i=1}^{n}\mathfrak{m}_{i}^{N} & =\prod_{i=1}^{n}\mathfrak{m}_{i}^{N}=\left(0\right)
+\end{align*}
+
+\end_inset
+
+und aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-Chinesischer-Restsatz"
+
+\end_inset
+
+ a) ii) und b) folgt, dass
+\begin_inset Formula 
+\begin{align*}
+A & \stackrel{\sim}{\to}\prod_{i=1}^{n}\modulo A{\mathfrak{m}_{i}^{N}}\\
+x & \mapsto\left(x\mod\mathfrak{m}_{i}^{N}\right)_{1\le i\le n}
+\end{align*}
+
+\end_inset
+
+ein Ringisomorphismus ist.
+ Offenbar ist jeder der Ringe 
+\begin_inset Formula $\modulo A{\mathfrak{m}_{i}^{N}}$
+\end_inset
+
+ als Quotient eines Artinschen Rings Artinsch und zudem lokal mit maximalem
+ Ideal 
+\begin_inset Formula $\modulo{\mathfrak{m}_{i}}{\mathfrak{m}_{i}^{N}}$
+\end_inset
+
+, denn das Bild der 
+\begin_inset Formula $\mathfrak{m}_{j}$
+\end_inset
+
+ für 
+\begin_inset Formula $j\not=i$
+\end_inset
+
+ in 
+\begin_inset Formula $\modulo A{\mathfrak{m}_{i}^{N}}$
+\end_inset
+
+ ist das Einsideal: Es gilt 
+\begin_inset Formula $\mathfrak{m}_{j}^{N}\subseteq\mathfrak{m}_{j}$
+\end_inset
+
+ und somit:
+\begin_inset Formula 
+\begin{align*}
+\left(1\right) & =\mathfrak{m}_{j}^{N}+\mathfrak{m}_{i}^{N}\subseteq\mathfrak{m}_{j}+\mathfrak{m}_{i}^{N}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\mathfrak{m}_{j}+\mathfrak{m}_{i}^{N}=\left(1\right)$
+\end_inset
+
+ und es folgt: 
+\begin_inset Formula 
+\begin{align*}
+\left(\text{Bild von }\mathfrak{m}_{j}\text{ in }\modulo A{\mathfrak{m}_{i}^{N}}\right) & =\modulo{\left(\mathfrak{m}_{j}+\mathfrak{m}_{i}^{N}\right)}{\mathfrak{m}_{i}^{N}}=\modulo{\left(1\right)}{\mathfrak{m}_{i}^{N}}=\modulo A{\mathfrak{m}_{i}^{N}}
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-Artinsch-Hauptideal-dimension1"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $\left(A,\mathfrak{m}\right)$
+\end_inset
+
+ ein Artinscher lokaler Ring mit Restklassenkörper 
+\begin_inset Formula $k=\modulo A{\mathfrak{m}}$
+\end_inset
+
+.
+ Dann sind folgende Aussagen äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Jedes Ideal in 
+\begin_inset Formula $A$
+\end_inset
+
+ ist ein Hauptideal.
+ (Beachte: Im Allgemeinen ist 
+\begin_inset Formula $A$
+\end_inset
+
+ kein Integritätsring und somit kein Hauptidealring, zum Beispiel 
+\begin_inset Formula $A=\modlo Z4$
+\end_inset
+
+.)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Das Ideal 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ ist ein Hauptideal.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Es gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{dim}_{k}\left(\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right) & \le1
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“ ist klar.
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iii)“: Wegen 
+\begin_inset Formula $\mathfrak{m}\cdot\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}=\left(0\right)$
+\end_inset
+
+ ist 
+\begin_inset Formula $\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}$
+\end_inset
+
+ ein 
+\begin_inset Formula $k=\modulo A{\mathfrak{m}}$
+\end_inset
+
+-Vektorraum.
+ Wegen 
+\begin_inset Formula $\mathfrak{m}=\left(x\right)$
+\end_inset
+
+ ist 
+\begin_inset Formula $x+\mathfrak{m}^{2}\in\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}$
+\end_inset
+
+ ein 
+\begin_inset Formula $k$
+\end_inset
+
+-Erzeugendensystem und somit folgt iii).
+\end_layout
+
+\begin_layout Standard
+„iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: Ist 
+\begin_inset Formula $\dim_{k}\left(\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right)=0$
+\end_inset
+
+, so gilt 
+\begin_inset Formula $\mathfrak{m}=\mathfrak{m}^{2}$
+\end_inset
+
+, also 
+\begin_inset Formula $\mathfrak{m}=\left(0\right)$
+\end_inset
+
+ nach dem Lemma von Nakayama, denn alle Ideale sind endlich erzeugt, weil
+ 
+\begin_inset Formula $A$
+\end_inset
+
+ insbesondere Noethersch ist.
+ Damit ist 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Körper und i) ist klar.
+\end_layout
+
+\begin_layout Standard
+Gelte nun 
+\begin_inset Formula $\dim_{k}\left(\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right)=1$
+\end_inset
+
+, dann gibt es ein 
+\begin_inset Formula $x\in\mathfrak{m}\setminus\mathfrak{m}^{2}$
+\end_inset
+
+ und 
+\begin_inset Formula $0\not=x+\mathfrak{m}^{2}\in\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}$
+\end_inset
+
+ ist eine 
+\begin_inset Formula $k$
+\end_inset
+
+-Basis, das heißt 
+\begin_inset Formula $\mathfrak{m}=\left(x\right)+\mathfrak{m}^{2}$
+\end_inset
+
+, und für den 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermodul 
+\begin_inset Formula $\left(x\right)\subseteq\mathfrak{m}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\mathfrak{m}\cdot\left(\modulo{\mathfrak{m}}{\left(x\right)}\right) & =\modulo{\mathfrak{m}^{2}+\left(x\right)}{\left(x\right)}=\modulo{\mathfrak{m}}{\left(x\right)}
+\end{align*}
+
+\end_inset
+
+Mit 
+\begin_inset Formula $\mathfrak{m}$
+\end_inset
+
+ ist auch 
+\begin_inset Formula $\modulo{\mathfrak{m}}{\left(x\right)}$
+\end_inset
+
+ endlich erzeugt und zudem ist 
+\begin_inset Formula $\mathfrak{m}=\text{Jac}\left(A\right)$
+\end_inset
+
+ und somit folgt aus dem Lemma von Nakayama 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:LuD-Nakayama-Jacobsonradikal"
+
+\end_inset
+
+ schon 
+\begin_inset Formula $\modulo{\mathfrak{m}}{\left(x\right)}=\left(0\right)$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $\mathfrak{m}=\left(x\right)$
+\end_inset
+
+ ist ein Hauptideal.
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Sei nun 
+\begin_inset Formula $\left(0\right)\subsetneq I\subsetneq A$
+\end_inset
+
+ ein Ideal.
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset Formula $\mathfrak{m}=\mathfrak{N}\left(A\right)$
+\end_inset
+
+, 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-NilradikalNilpotent"
+
+\end_inset
+
+ und 
+\begin_inset Formula $I\not=\left(0\right),\left(1\right)$
+\end_inset
+
+ existiert ein 
+\begin_inset Formula $n\ge1$
+\end_inset
+
+ mit 
+\begin_inset Formula $I\subseteq\mathfrak{m}^{n}=\left(x^{n}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $I\not\subseteq\mathfrak{m}^{n+1}=\left(x^{n+1}\right)$
+\end_inset
+
+.
+\begin_inset Newline newline
+\end_inset
+
+Also existiert ein 
+\begin_inset Formula $y\in I\setminus\left(x^{n+1}\right)$
+\end_inset
+
+ und wegen 
+\begin_inset Formula $I\subseteq\left(x^{n}\right)$
+\end_inset
+
+ gilt 
+\begin_inset Formula $y=ax^{n}$
+\end_inset
+
+ für ein geeignetes 
+\begin_inset Formula $a\in A$
+\end_inset
+
+ und 
+\begin_inset Formula $a\not\in\left(x\right)$
+\end_inset
+
+, da 
+\begin_inset Formula $y\not\in\left(x^{n+1}\right)$
+\end_inset
+
+ ist.
+ Wegen 
+\begin_inset Formula $a\not\in\left(x\right)=\mathfrak{m}\subseteq A$
+\end_inset
+
+ und weil 
+\begin_inset Formula $\left(A,\mathfrak{m}\right)$
+\end_inset
+
+ lokal ist, folgt 
+\begin_inset Formula $a\in A^{*}$
+\end_inset
+
+ und damit 
+\begin_inset Formula $x^{n}=a^{-1}y\in I$
+\end_inset
+
+, also 
+\begin_inset Formula $\left(x^{n}\right)\subseteq I$
+\end_inset
+
+ und damit 
+\begin_inset Formula $I=\left(x^{n}\right)$
+\end_inset
+
+, das heißt 
+\begin_inset Formula $I$
+\end_inset
+
+ ist ein Hauptideal.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ein Artinscher Ring 
+\begin_inset Formula $A$
+\end_inset
+
+, der ein Hauptidealring ist, ist ein Körper.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $A$
+\end_inset
+
+ Artinsch ist, ist jedes Primideal maximal und somit ist 
+\begin_inset Formula $A$
+\end_inset
+
+ Jacobson.
+ Außerdem hat 
+\begin_inset Formula $A$
+\end_inset
+
+ nur endlich viele maximale Ideale, das heißt endlich viele Primideale,
+ also 
+\begin_inset Formula $\abs{\text{Spec}\left(A\right)}<\infty$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wäre 
+\begin_inset Formula $A$
+\end_inset
+
+ kein Körper, so folgt aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-HauptidealringJacobson"
+
+\end_inset
+
+ schon 
+\begin_inset Formula $\abs{\text{Spec}\left(A\right)}=\infty$
+\end_inset
+
+ im Widerspruch zu 
+\begin_inset Formula $\abs{\text{Spec}\left(A\right)}<\infty$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+roman{ale2})]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für 
+\begin_inset Formula $A=\modlo Z{p^{n}}$
+\end_inset
+
+ für eine Primzahl 
+\begin_inset Formula $p\in\mathbb{Z}$
+\end_inset
+
+ und 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ gelten die Bedingungen in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-Artinsch-Hauptideal-dimension1"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+, 
+\begin_inset Formula $k$
+\end_inset
+
+ ein Körper und 
+\begin_inset Formula $A=\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\left(X_{1},\ldots,X_{n}\right)^{2}}$
+\end_inset
+
+.
+ Da 
+\begin_inset Formula $\mathfrak{m}:=\left(X_{1},\ldots,X_{n}\right)\subseteq k\left[X_{1},\ldots,X_{n}\right]$
+\end_inset
+
+ maximal ist, ist der lokale Ring 
+\begin_inset Formula $\left(A,\overline{\mathfrak{m}}:=\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right)$
+\end_inset
+
+ Artinsch, denn er ist Noethersch und 
+\begin_inset Formula $\dim\left(A\right)=0$
+\end_inset
+
+, und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\dim_{k}\left(\modulo{\overline{\mathfrak{m}}}{\overline{\mathfrak{m}}^{2}}\right) & =n
+\end{align*}
+
+\end_inset
+
+(vergleiche Blatt 2 Aufgabe 2 iii))
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Chapter
+Etwas homologische Algebra
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $A$
+\end_inset
+
+ stets ein Ring.
+\end_layout
+
+\begin_layout Section
+Bemerkung und Definition 
+\series medium
+(Komplex, Differential, Kohomologie)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $C_{\bullet}=\left(\ldots\to C_{n}\stackrel{f_{n}}{\to}C_{n-1}\to\ldots\right)$
+\end_inset
+
+ eine exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+\end_layout
+
+\begin_layout Standard
+Dann ist die Folge
+\begin_inset Formula 
+\begin{align*}
+D_{\bullet} & :=C_{\bullet}\otimes_{A}M:=\left(\ldots\to D_{n}:=C_{n}\otimes_{A}M\stackrel{f_{n}\otimes\text{id}_{M}=:\partial_{n}}{\to}D_{n-1}:=C_{n-1}\to\ldots\right)
+\end{align*}
+
+\end_inset
+
+ist im Allgemeinen nicht mehr exakt, genauer:
+\begin_inset Formula 
+\begin{align*}
+M\text{ flach} & \quad\Leftrightarrow\quad C_{\bullet}\otimes_{A}M\text{ ist exakt für alle }C_{\bullet}
+\end{align*}
+
+\end_inset
+
+Aber es gilt immer noch für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\partial_{n-1}\circ\partial_{n} & =\underbrace{\left(f_{n-1}\circ f_{n}\right)}_{=0}\otimes\text{id}_{M}=0
+\end{align*}
+
+\end_inset
+
+Das heißt:
+\begin_inset Formula 
+\begin{align*}
+\text{im}\left(\partial_{n}\right) & \subseteq\ker\left(\partial_{n-1}\right)
+\end{align*}
+
+\end_inset
+
+Ferner ist 
+\begin_inset Formula $D_{\bullet}$
+\end_inset
+
+ an der Stelle 
+\begin_inset Formula $D_{n-1}$
+\end_inset
+
+ genau dann exakt, wenn dies eine Gleichheit ist.
+\end_layout
+
+\begin_layout Standard
+Ein 
+\emph on
+Komplex (von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln)
+\emph default
+ ist eine Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln 
+\begin_inset Formula $\left(D_{n},\partial_{n}:D_{n}\to D_{n-1}\right)_{n\in\mathbb{Z}}$
+\end_inset
+
+ so, dass für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ gilt
+\begin_inset Formula 
+\begin{align*}
+\text{im}\left(\partial_{n}\right) & \subseteq\ker\left(\partial_{n-1}\right)
+\end{align*}
+
+\end_inset
+
+oder äquivalent 
+\begin_inset Formula $\partial_{n-1}\circ\partial_{n}=0$
+\end_inset
+
+ für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+.
+ Die Abbildungen 
+\begin_inset Formula $\partial_{n}$
+\end_inset
+
+ heißen 
+\emph on
+Differentiale von 
+\begin_inset Formula $D_{\bullet}$
+\end_inset
+
+
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ heißen
+\emph on
+
+\begin_inset Formula 
+\begin{align*}
+D_{n}\supseteq Z_{n}\left(D_{\bullet}\right) & :=\ker\left(\partial_{n}\right)
+\end{align*}
+
+\end_inset
+
+die 
+\begin_inset Formula $n$
+\end_inset
+
+-Zykel (von 
+\begin_inset Formula $D_{\bullet}$
+\end_inset
+
+)
+\emph default
+,
+\emph on
+
+\begin_inset Formula 
+\begin{align*}
+D_{n}\supseteq B_{n}\left(D_{\bullet}\right)=B_{n} & :=\text{im}\left(\partial_{n+1}\right)
+\end{align*}
+
+\end_inset
+
+die 
+\begin_inset Formula $n$
+\end_inset
+
+-Ränder (von 
+\begin_inset Formula $D_{\bullet}$
+\end_inset
+
+)
+\emph default
+ und
+\begin_inset Formula 
+\begin{align*}
+H_{n}\left(D_{\bullet}\right) & =H_{n}:=\modulo{Z_{n}}{B_{n}}
+\end{align*}
+
+\end_inset
+
+
+\emph on
+die 
+\begin_inset Formula $n$
+\end_inset
+
+-te Homologie (von 
+\begin_inset Formula $D_{\bullet}$
+\end_inset
+
+)
+\emph default
+.
+\end_layout
+
+\begin_layout Standard
+Genau dann ist 
+\begin_inset Formula $D_{\bullet}$
+\end_inset
+
+ exakt, wenn 
+\begin_inset Formula $H_{n}\left(D_{\bullet}\right)=0$
+\end_inset
+
+ für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ gilt.
+\end_layout
+
+\begin_layout Section
+Definition und Bemerkung 
+\series medium
+(freie Auflösung)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:DuB-freieAufloesung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Sei 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+ 
+\emph on
+Eine freie Auflösung von 
+\begin_inset Formula $M$
+\end_inset
+
+
+\emph default
+ ist eine exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln
+\begin_inset Formula 
+\begin{align*}
+\left(\ldots\to F_{1}\stackrel{f_{1}}{\to}F_{0}\to M\to0\right) & =:\left(F_{\bullet}\to M\to0\right)
+\end{align*}
+
+\end_inset
+
+in der alle 
+\begin_inset Formula $F_{i}$
+\end_inset
+
+ frei sind.
+ Jeder Modul besitzt (viele verschiedene) freie Auflösungen.
+\end_layout
+
+\begin_layout Standard
+Für einen weiteren 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $N$
+\end_inset
+
+ definiere für alle 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ die 
+\emph on
+höheren Torsionsmodule
+\emph default
+:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{n}^{A}\left(M,N\right) & :=H_{n}\left(F_{\bullet}\otimes_{A}N\right)
+\end{align*}
+
+\end_inset
+
+Es ist 
+\emph on
+nicht
+\emph default
+ klar, ob das wohldefiniert, das heißt unabhängig von der Wahl von 
+\begin_inset Formula $F_{\bullet}$
+\end_inset
+
+ ist.
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+Es gelten die Voraussetzungen von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:DuB-freieAufloesung"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $N$
+\end_inset
+
+ flach, so ist 
+\begin_inset Formula $F_{\bullet}\otimes_{A}N$
+\end_inset
+
+ an allen Stellen 
+\begin_inset Formula $n\in\mathbb{N}_{>0}$
+\end_inset
+
+ exakt, also gilt 
+\begin_inset Formula $\text{Tor}_{n}^{A}\left(M,N\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Berechne 
+\begin_inset Formula $\text{Tor}_{0}^{A}\left(M,N\right)$
+\end_inset
+
+: Sei
+\begin_inset Formula 
+\begin{align*}
+F_{1}\to F_{0}\to M\to0
+\end{align*}
+
+\end_inset
+
+eine exakt Folge und 
+\begin_inset Formula $F_{1},F_{0}$
+\end_inset
+
+ frei.
+ Wegen der Rechtsexaktheit des Tensorprodukts 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-RechtsexaktheitTensorprodukt"
+
+\end_inset
+
+ ist
+\begin_inset Formula 
+\begin{align*}
+F_{1}\otimes_{A}N\stackrel{\partial_{1}}{\to}F_{0}\otimes_{A}N\to M\otimes_{A}N\to0
+\end{align*}
+
+\end_inset
+
+exakt.
+ Es folgt:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{0}^{A}\left(M,N\right) & =H_{0}\left(F_{0}\otimes_{A}N\right)=\modulo{\ker\left(\partial_{0}\right)}{\text{im}\left(\partial_{1}\right)}\stackrel{\sim}{=}M\otimes_{A}N
+\end{align*}
+
+\end_inset
+
+Insbesondere ist 
+\begin_inset Formula $\text{Tor}_{0}^{A}\left(M,N\right)$
+\end_inset
+
+ unabhängig von der Wahl von 
+\begin_inset Formula $F_{\bullet}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
 \end_layout
 
 \end_inset
