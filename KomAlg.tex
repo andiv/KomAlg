@@ -37,7 +37,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%% User specified LaTeX commands.
 \usepackage{tikz}
 %\usepackage{tikz-3dplot}
-\usetikzlibrary{matrix,arrows,calc,decorations.pathmorphing,snakes}
+\usetikzlibrary{matrix,arrows,calc,decorations}
 \usepackage{latexsym,stmaryrd,stackrel,array,tabularx,multirow,icomma,braket,polynom,cancel}
 \usepackage[explicit]{titlesec}
 
@@ -666,7 +666,10 @@ wenn es ein $n\in\mathbb{N}_{>0}$ gibt mit $x^{n}=0$.
 \begin{iiilist}
 
 \iii Ist $0\not=x\in A\not=\left\{ 0\right\} $ nilpotent, so ist
-$x$ ein Nullteiler, denn f¸r $N:=\min\left\{ n\in\mathbb{N}_{>0}\big|x^{n}=0\right\} $
+$x$ ein Nullteiler, denn f¸r
+\begin{align*}
+N & :=\min\left\{ n\in\mathbb{N}_{>0}\big|x^{n}=0\right\} 
+\end{align*}
 gilt $N\ge1$ und wegen der Minimalit‰t von $N$ ist $x^{N-1}\not=0$.
 Also folgt aus
 \begin{align*}
@@ -1170,14 +1173,15 @@ Nilradikal von $A$.}
 
 ‹berpr¸fe \ref{sec:DuB-Ideal} i) a) und b):
 \begin{align*}
-x,y\in\mathfrak{N}\left(A\right) & \quad\Rightarrow\quad\exs_{N\in\mathbb{N}_{\ge1}}:x^{N}=y^{N}=0\quad\Rightarrow\quad\left(x-y\right)^{2N}=\sum_{i=0}^{2N}\left(\begin{array}{c}
+x,y\in\mathfrak{N}\left(A\right) & \ \,\Rightarrow\ \,\exs_{N\in\mathbb{N}_{\ge1}}:x^{N}=y^{N}=0\ \,\Rightarrow\ \,\left(x-y\right)^{2N}=\sum_{i=0}^{2N}\left(\begin{array}{c}
 2N\\
 i
 \end{array}\right)x^{i}\cdot\left(-1\right)^{2N-i}\cdot y^{2N-i}
 \end{align*}
-Da f¸r alle $0\le i\le2N$ gilt $\left(i\ge N\vee2N-i\ge N\right)$
-ist in jedem Produkt $x^{i}\cdot y^{2N-i}$ mindestens einer der Faktoren
-Null und es folgt $\left(x-y\right)^{2N}=\left(0\right)$, also $x-y\in\mathfrak{N}\left(A\right)$.\qqed[a)]
+Da f¸r alle $0\le i\le2N$ schon $\left(i\ge N\vee2N-i\ge N\right)$
+gilt, ist in jedem Produkt $x^{i}\cdot y^{2N-i}$ mindestens einer
+der Faktoren Null und es folgt $\left(x-y\right)^{2N}=\left(0\right)$,
+also $x-y\in\mathfrak{N}\left(A\right)$.\qqed[a)]
 
 Zu b): Seien $x\in\mathfrak{N}\left(A\right)$ und $a\in A$. Dann
 gibt es ein $N\in\mathbb{N}_{\ge1}$ mit $x^{N}=0$ und somit gilt:
@@ -2638,8 +2642,7 @@ eine $A$-lineare Abbildung $\alpha:M\otimes_{A}N\to L$ mit $f=\alpha\circ\tau$
 existiert.
 
 Der $A$-Modul $M\otimes_{A}N$, genauer die $A$-bilineare Abbildung
-$ $$\tau$, heiﬂt \emph{das Tensorprodukt von $M$ und $N$ (¸ber
-$A$)}.
+$\tau$, heiﬂt \emph{das Tensorprodukt von $M$ und $N$ (¸ber $A$)}.
 
 Schreibe $m\otimes n:=\tau\left(m,n\right)$ f¸r alle $\left(m,n\right)\in M\times N$.
 Dann kann man jedes $x\in M\otimes_{A}N$ als
@@ -3190,8 +3193,7 @@ Zu zeigen ist, dass die Abbildung
 injektiv ist.
 \begin{enumerate}
 \item Fall: $M$ ist frei, also ${\displaystyle M\stackrel{\sim}{=}A^{\left(I\right)}=\bigoplus_{i\in I}A}$.
-Das Diagramm\\
-\begin{center}
+Das Diagramm\begin{center}
 \begin{tikzpicture}
   \matrix (m) [matrix of math nodes, row sep=2em, column sep=1.5em, text height=1.5ex, text depth=0.25ex]
   { M\otimes_A L' &  M\otimes_A L\\
@@ -3214,8 +3216,7 @@ wenn die Abbildung in die einzelnen Summanden injektiv ist. Also ist
 $M$ flach.
 \item Fall: $M$ ist projektiv, also direkter Summand eines freien $A$-Moduls,
 das heiﬂt es gibt einen $A$-Modul $N$ mit $M+N\stackrel{\sim}{=}A^{\left(I\right)}$.
-Dann ist das Diagramm\\
-\begin{center}
+Dann ist das Diagramm\begin{center}
 \begin{tikzpicture}
   \matrix (m) [matrix of math nodes, row sep=2em, column sep=1.5em, text height=1.5ex, text depth=0.25ex]
   { A^{(I)}\otimes_A L' &  A^{(I)}\otimes_A L\\
@@ -3270,7 +3271,7 @@ kein Nullteiler.
 Dann gilt $\left\{ x\in M\big|ax=0\right\} =\left\{ 0\right\} $ und
 man nennt $M$ \emph{torsionsfrei}.
 
-\iii Seien $A$ ein Hauptidealring und $ $$M$ ein $A$-Modul, sodass
+\iii Seien $A$ ein Hauptidealring und $M$ ein $A$-Modul, sodass
 f¸r alle $a\in A\setminus\left\{ 0\right\} $ gilt:
 \begin{align}
 \left\{ x\in M\big|ax=0\right\}  & =\left\{ 0\right\} \label{eq:ax0}
@@ -3754,7 +3755,7 @@ sind Ringhomomorphismen und es gilt:
 
 
 \iii Sind $\left(T,\tau\right)$ eine $A$-Algebra und $f:B\to T$
-und $g:C\to T$ zwei $A$-Algebrenhomomorphismen, so existiert genau
+und $g:C\to T$ zwei $A$"=Algebrenhomomorphismen, so existiert genau
 ein $A$-Algebrenhomomorphismus
 \begin{align*}
 f\otimes g:D=B\otimes_{A}C & \to T
@@ -4023,8 +4024,7 @@ definiert. Wegen
 \end{align*}
 ist $\beta$ invers zu $\alpha$ und somit $\alpha$ ein Isomorphismus.\\
 Die Nat¸rlichkeit im Ring $A$ bedeutet, dass f¸r einen Ring $B$
-mit einem Ringhomomorphismus $g:A\to B$ das Diagramm\\
-\begin{center}
+mit einem Ringhomomorphismus $g:A\to B$ das Diagramm\begin{center}
 \begin{tikzpicture}[description/.style={fill=white,inner sep=2pt}]
   \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
   { A[X] & A\otimes_{\mathbb{Z}}\mathbb{Z}[X]\\ B[X] & B\otimes_{\mathbb{Z}}\mathbb{Z}[X] \\ };
@@ -4473,8 +4473,8 @@ a & \mapsto\overline{a}=a+I
 \end{align*}
 diese universelle Eigenschaft erf¸llt. Sei also $g:A\to B$ eine $A$-Algebra.\\
 \quotedblbase{}a) $\Rightarrow$ b)\textquotedblleft{}: Es gelte $g\left(S\right)\subseteq B^{*}$.\\
-Exsitenz: Es gibt aufgrund der universellen Eigenschaft des Polynomrings
-genau ein $A$-Algebrenhomomorphismus:
+Existenz: Es gibt aufgrund der universellen Eigenschaft des Polynomrings
+genau ein $A$"=Algebrenhomomorphismus:
 \begin{align*}
 \psi:A\left[X_{s}\big|s\in S\right] & \to B\\
 X_{s} & \mapsto\left(g\left(s\right)\right)^{-1}
@@ -4857,7 +4857,7 @@ und $s\in S$ gilt:
 \end{align*}
 Sei nun $x\in\ker\left(\varphi_{M}\right)\subseteq S^{-1}A\otimes_{A}M$.
 Wie im Beweis von \ref{sec:BuD-Lokalisierung} i) (\quotedblbase{}Hauptnenner\textquotedblleft{})
-sieht man, dass f¸r geeignete $s\in S$ und $ $$m\in M$ schon $x=\frac{1}{s}\otimes m$
+sieht man, dass f¸r geeignete $s\in S$ und $m\in M$ schon $x=\frac{1}{s}\otimes m$
 gilt. Es folgt:
 \begin{align*}
 0 & =\varphi_{M}\left(x\right)=\frac{m}{s}\in S^{-1}M
@@ -5262,7 +5262,7 @@ injektiv.\qqed
 %DATE: Di 5.6.12
 
 
-\section{Satz \textmd{(Idealtheorie von \texorpdfstring{$S^{-1}A$}{S^(-1)A})\label{sec:Satz-Idealtheorie-Lokalisierung}}}
+\section{Satz \textmd{(Idealtheorie von \texorpdfstring{$S^{-1}A$}{Lokalisierung})\label{sec:Satz-Idealtheorie-Lokalisierung}}}
 
 Seien $A$ ein Ring, $S\subseteq A$ multiplikativ abgeschlossen und
 $f:A\to S^{-1}A$ der kanonische Ringhomomorphismus.
@@ -6174,8 +6174,7 @@ Beachte:
 \mathfrak{N}\left(\mathbb{C}\times\mathbb{C}\right) & =\left(0\right)\\
 \mathfrak{N}\left(\modulo{\mathbb{C}\left[Y\right]}{Y^{2}}\right) & =\left(Y\right)\not=\left(0\right)
 \end{align*}
-Skizze:\\
-\begin{center}
+Skizze:\begin{center}
 \begin{tikzpicture}[domain=-1.7:1.7]
   \draw[->] (-1.2,0) -- (3.2,0) node[right] {$X\in\mathbb{C}$};
   \draw[->] (0,-2.2) -- (0,2.2) node[above] {$Y\in\mathbb{C}$};
@@ -9309,7 +9308,7 @@ Da $A$ Artinsch ist, ist jedes Primideal maximal und somit ist $A$
 Jacobson. Auﬂerdem hat $A$ nur endlich viele maximale Ideale, das
 heiﬂt endlich viele Primideale, also $\abs{\text{Spec}\left(A\right)}<\infty$.
 
-W‰re $A$ kein Kˆrper, so folgt aus \ref{sec:Bsp-HauptidealringJacobson}
+W‰re $A$ nun kein Kˆrper, so folgte aus \ref{sec:Bsp-HauptidealringJacobson}
 schon $\abs{\text{Spec}\left(A\right)}=\infty$ im Widerspruch zu
 $\abs{\text{Spec}\left(A\right)}<\infty$.\qqed[\roman{ale2})]
 
@@ -9317,6 +9316,7 @@ $\abs{\text{Spec}\left(A\right)}<\infty$.\qqed[\roman{ale2})]
 und $n\in\mathbb{N}_{\ge1}$ gelten die Bedingungen in \ref{sec:Prop-Artinsch-Hauptideal-dimension1}.
 
 \iii Seien $n\in\mathbb{N}_{\ge1}$, $k$ ein Kˆrper und $A=\modulo{k\left[X_{1},\ldots,X_{n}\right]}{\left(X_{1},\ldots,X_{n}\right)^{2}}$.
+
 Da $\mathfrak{m}:=\left(X_{1},\ldots,X_{n}\right)\subseteq k\left[X_{1},\ldots,X_{n}\right]$
 maximal ist, ist der lokale Ring $\left(A,\overline{\mathfrak{m}}:=\modulo{\mathfrak{m}}{\mathfrak{m}^{2}}\right)$
 Artinsch, denn er ist Noethersch und $\dim\left(A\right)=0$, und
@@ -9371,11 +9371,11 @@ F¸r alle $n\in\mathbb{Z}$ heiﬂen\emph{
 \begin{align*}
 D_{n}\supseteq Z_{n}\left(D_{\bullet}\right) & :=\ker\left(\partial_{n}\right)
 \end{align*}
-die $n$-Zykel (von $D_{\bullet}$)},\emph{
+die $n$-Zykel (von $D_{\bullet}$)},
 \begin{align*}
 D_{n}\supseteq B_{n}\left(D_{\bullet}\right)=B_{n} & :=\text{im}\left(\partial_{n+1}\right)
 \end{align*}
-die $n$-R‰nder (von $D_{\bullet}$)} und
+\emph{die $n$-R‰nder (von $D_{\bullet}$)} und
 \begin{align*}
 H_{n}\left(D_{\bullet}\right) & =H_{n}:=\modulo{Z_{n}}{B_{n}}
 \end{align*}
@@ -9420,16 +9420,474 @@ F_{1}\to F_{0}\to M\to0
 eine exakt Folge und $F_{1},F_{0}$ frei. Wegen der Rechtsexaktheit
 des Tensorprodukts \ref{sec:Satz-RechtsexaktheitTensorprodukt} ist
 \begin{align*}
-F_{1}\otimes_{A}N\stackrel{\partial_{1}}{\to}F_{0}\otimes_{A}N\to M\otimes_{A}N\to0
+F_{1}\otimes_{A}N\stackrel{\partial_{1}}{\to}F_{0}\otimes_{A}N\stackrel{f}{\to}M\otimes_{A}N\to0
 \end{align*}
-exakt. Es folgt:
+exakt, also $\text{im}\left(\partial_{1}\right)=\ker\left(f\right)$.
+Wegen
 \begin{align*}
-\text{Tor}_{0}^{A}\left(M,N\right) & =H_{0}\left(F_{0}\otimes_{A}N\right)=\modulo{\ker\left(\partial_{0}\right)}{\text{im}\left(\partial_{1}\right)}\stackrel{\sim}{=}M\otimes_{A}N
+F_{\bullet}\otimes_{A}N & =\left(\ldots\to F_{2}\otimes_{A}N\stackrel{\partial_{2}}{\to}F_{1}\otimes_{A}N\stackrel{\partial_{1}}{\to}F_{0}\otimes_{A}N\stackrel{\partial_{0}}{\to}0\right)
+\end{align*}
+ ist also $\ker\left(\partial_{0}\right)\stackrel{\sim}{=}F_{0}\otimes_{A}N$
+und es folgt:
+\begin{align*}
+\text{Tor}_{0}^{A}\left(M,N\right) & =H_{0}\left(F_{\bullet}\otimes_{A}N\right)=\modulo{\ker\left(\partial_{0}\right)}{\text{im}\left(\partial_{1}\right)}\stackrel{\sim}{=}\modulo{F_{0}\otimes_{A}N}{\ker\left(f\right)}\stackrel{\sim}{=}M\otimes_{A}N
 \end{align*}
 Insbesondere ist $\text{Tor}_{0}^{A}\left(M,N\right)$ unabh‰ngig
 von der Wahl von $F_{\bullet}$.
 
+%DATE: Fr 13.7.12
+
+\iii Seien $A$ ein Integrit‰tsring und $0\not=a\in A$. Erhalte
+die freie Auflˆsung von $\modulo A{\left(a\right)}$:
+\begin{align*}
+\ldots\to0\to F_{2}=0\to F_{1}=A\stackrel{\cdot a}{\to}F_{0}=A\to\modulo A{\left(a\right)}\to0
+\end{align*}
+F¸r einen beliebigen $A$-Modul $N$ folgt:
+\begin{align*}
+\text{Tor}_{n}^{A}\left(\modulo A{\left(a\right)},N\right) & \stackrel{\sim}{=}\begin{cases}
+\modulo A{\left(a\right)}\otimes_{A}N\stackrel{\sim}{=}\modulo N{aN} & n=0\\
+\modulo{\ker\left(A\otimes_{A}N\xrightarrow{\left(\cdot a\right)\otimes\text{id}_{N}}A\otimes_{A}N\right)}{\text{im}\left(0\right)}\stackrel{\sim}{=}\left\{ x\in N\big|ax=0\right\}  & n=1\\
+0 & n\ge2
+\end{cases}
+\end{align*}
+Der $A$-Modul
+\begin{align*}
+\text{Tor}_{1}^{A}\left(\modulo A{\left(a\right)},N\right) & \stackrel{\sim}{=}\left\{ x\in N\big|ax=0\right\} =:N\left[a\right]\subseteq N
+\end{align*}
+heiﬂt \emph{der Untermodul der $a$-Torsion}. 
+
 \end{iiilist}
+
+\bigskip{}
+
+
+Wir m¸ssen nun verschiedene freie Auflˆsungen miteinander vergleichen.
+
+
+\section{Definition \textmd{(Kettenabbildung)}}
+
+Seien $\left(D_{\bullet},\partial\right):=\left(D_{n},\partial_{n}:D_{n}\to D_{n-1}\right)_{n\in\mathbb{Z}}$
+und $\left(E_{\bullet},\varepsilon\right)$ Komplexe.
+
+Eine \emph{Kettenabbildung (von $\left(D_{\bullet},\partial\right)$
+und $\left(E_{\bullet},\varepsilon\right)$)} ist eine Familie $f=\left(f_{n}\right)_{n\in\mathbb{Z}}$
+von $A$-linearen Abbildungen $f_{n}:E_{n}\to D_{n}$ so, dass f¸r
+alle $n\in\mathbb{Z}$ das Diagramm
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { D_n & D_{n-1} \\
+     E_n & E_{n-1} \\};
+  \path[->,font=\scriptsize] (m-1-1) edge node[right] {$ f_n $} (m-2-1);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ f_{n-1} $} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-1) edge node[above] {$\partial_n$} (m-1-2);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above] {$\varepsilon_n$} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+kommutiert.
+
+
+\section{Proposition\label{sec:Prop-LiftZuKettenabbildung}}
+
+Seien $f:M\to N$ eine $A$-lineare Abbildung und $F\to M$ und $G\to N$
+freie Auflˆsungen.
+
+Dann existieren $A$-lineare Abbildungen $f_{n}:F_{n}\to G_{n}$ f¸r
+alle $n\in\mathbb{N}$ so, dass folgendes Diagramm kommutiert:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { \ldots & F_1  & F_0 & M & 0 \\
+     \ldots & G_1  & G_0 & N & 0 \\};
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ f_1 $} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-3) edge node[right] {$ f_0 $} (m-2-3);
+  \path[->,font=\scriptsize] (m-1-4) edge node[right] {$ f $} (m-2-4);
+  \path[->] (m-1-1) edge (m-1-2)
+            (m-1-2) edge (m-1-3)
+            (m-1-3) edge (m-1-4)
+            (m-1-4) edge (m-1-5);
+  \path[->] (m-2-1) edge (m-2-2)
+            (m-2-2) edge (m-2-3)
+            (m-2-3) edge (m-2-4)
+            (m-2-4) edge (m-2-5);
+\end{tikzpicture}
+\par\end{center}
+
+Das heiﬂt, dass sich jede $A$-lineare Abbildung zu einer Kettenabbildung
+zwischen den freien Auflˆsungen
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { F_{\bullet} & M & 0 \\
+     G_{\bullet} & N & 0 \\};
+  \path[->,font=\scriptsize,dashed] (m-1-1) edge (m-2-1);
+  \path[->] (m-1-2) edge  (m-1-3);
+  \path[->] (m-1-1) edge  (m-1-2);
+  \path[->] (m-2-1) edge  (m-2-2);
+  \path[->] (m-2-2) edge (m-2-3);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right]{$f$} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+liften l‰sst.
+
+
+\section{Lemma\label{sec:Lem-DiagrammKommutiert}}
+
+Zu einem Diagramm von $A$-Moduln
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { F &  \\
+     N & N' \\};
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\alpha$} (m-2-2);
+  \path[->,font=\scriptsize] (m-2-1) edge node[below]{$\sigma$} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+mit $F$ frei und $\text{im}\left(\alpha\right)\subseteq\text{im}\left(\sigma\right)$
+gibt es eine $A$-lineare Abbildung $F\to N$, sodass
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { F &  \\
+     N & N' \\};
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\alpha$} (m-2-2);
+  \path[->,font=\scriptsize] (m-2-1) edge node[below]{$\sigma$} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-1) edge (m-2-1);  
+\end{tikzpicture}
+\par\end{center}
+
+kommutiert.
+
+
+\subsubsection*{Beweis}
+
+Wegen $\text{im}\left(\alpha\right)\subseteq\text{im}\left(\sigma\right)$
+induziert $\alpha$ eine Abbildung:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { F &  \\
+     N & \text{im}(\sigma) \\};
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\alpha$} (m-2-2);
+  \path[->>,font=\scriptsize] (m-2-1) edge node[below]{$\sigma$} (m-2-2);
+  \path[->,font=\scriptsize,dashed] (m-1-1) edge (m-2-1);  
+\end{tikzpicture}
+\par\end{center}
+
+Da $F$ projektiv (und sogar frei) ist, existiert der gew¸nschte Homomorphismus.\qqed
+
+
+\subsubsection*{Beweis von \ref{sec:Prop-LiftZuKettenabbildung}}
+
+Konstruiere die $f_{n}$ induktiv f¸r $n\ge0$ mit dem letzten Lemma
+\ref{sec:Lem-DiagrammKommutiert}.
+
+Induktionsanfang bei $n=0$:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { F_0 & M & 0 \\
+     G_0 & N & 0 \\};
+  \path[->,font=\scriptsize,dashed] (m-1-1) edge node[right] {$ f_0 $} (m-2-1);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ f $} (m-2-2);
+  \path[->] (m-1-3) edge (m-2-3);
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\pi$} (m-1-2)
+            (m-1-2) edge (m-1-3);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above]{$\sigma$} (m-2-2)
+            (m-2-2) edge (m-2-3);
+\end{tikzpicture}
+\par\end{center}
+
+Die Existenz von $f_{0}$ folgt direkt aus dem Lemma \ref{sec:Lem-DiagrammKommutiert}
+mit $\alpha:=f\circ\pi$, da $\sigma$ surjektiv ist.
+
+Induktionsschritt $n-1\leadsto n>0$: Betrachte:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { F_{n} & F_{n-1} & F_{n-2} \\
+     G_{n} & G_{n-1} & G_{n-2} \\};
+  \path[->,font=\scriptsize,dashed] (m-1-1) edge node[right] {$ f_n $} (m-2-1);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ f_{n-1} $} (m-2-2)
+                             (m-1-3) edge node[right] {$ f_{n-2} $} (m-2-3);
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\partial_{n}$} (m-1-2)
+                             (m-1-2) edge node[above]{$\partial_{n-1}$} (m-1-3);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above]{$\varepsilon_{n}$} (m-2-2)
+                             (m-2-2) edge node[above]{$\varepsilon_{n-1}$} (m-2-3);
+  \path (m-1-2) -- node{$\circlearrowright$} (m-2-3);
+\end{tikzpicture}
+\par\end{center}
+
+Hier ist $F_{-1}:=M$, $G_{-1}:=N$ und $f_{-1}:=f$.
+
+Das Diagramm hat exakte Zeilen nach der Definition von freier Auflˆsung
+und die rechte Seite kommutiert.
+
+Wegen Lemma \ref{sec:Lem-DiagrammKommutiert} existiert ein $f_{n}$,
+falls wir $\text{im}\left(f_{n-1}\circ\partial_{n}\right)\subseteq\text{im}\left(\varepsilon_{n}\right)$
+zeigen kˆnnen.
+
+F¸r $x\in F_{n}$ rechnen wir:
+\begin{align*}
+\varepsilon_{n-1}\left(f_{n-1}\left(\partial_{n}\left(x\right)\right)\right) & \stackrel{\circlearrowright}{=}f_{n-2}\underbrace{\left(\partial_{n-1}\left(\partial_{n}\left(x\right)\right)\right)}_{=0,\text{ da exakt}}=0
+\end{align*}
+Wie gew¸nscht gilt:
+\begin{align*}
+f_{n-1}\left(\partial_{n}\left(x\right)\right) & \in\ker\left(\varepsilon_{n-1}\right)\stackrel{\text{exakt}}{=}\text{im}\left(\varepsilon_{n}\right)
+\end{align*}
+\qqed[\ref{sec:Prop-LiftZuKettenabbildung}]
+
+
+\section{Bemerkung und Definition \textmd{(quasi-Isomorphismus, Homotopie)}}
+
+\begin{iiilist}
+
+\iii Sind nun $M$ ein $A$-Modul und $F_{\bullet}\to M\to0$ und
+$G_{\bullet}\to M\to0$ zwei freie Auflˆsungen, so betrachte das Diagramm:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { F_{\bullet} & M \\
+     G_{\bullet} & M \\
+     F_{\bullet} & M \\};
+  \path[->,font=\scriptsize,dashed] (m-1-1) edge node[left]{\ref{sec:Prop-LiftZuKettenabbildung}} node[right]{$f_{\bullet}$} (m-2-1);
+  \path[->] (m-1-1) edge  (m-1-2);
+  \path[->] (m-2-1) edge  (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right]{id} (m-2-2);
+
+  \path[->,font=\scriptsize,dashed] (m-2-1) edge node[left]{\ref{sec:Prop-LiftZuKettenabbildung}} node[right]{$g_{\bullet}$} (m-3-1);
+  \path[->] (m-3-1) edge  (m-3-2);
+  \path[->,font=\scriptsize] (m-2-2) edge node[right]{id} (m-3-2);
+
+  \draw[->,font=\scriptsize]  (m-1-1) to [out=180,in=180] node[left]{$\text{id}_{F_{\bullet}}$} (m-3-1);
+\end{tikzpicture}
+\par\end{center}
+
+Um nun $g_{\bullet}\circ f_{\bullet}$ und $\text{id}_{F}$ vergleichen
+zu kˆnnen, brauchen wir in \ref{sec:Prop-LiftZuKettenabbildung} eine
+Eindeutigkeitsaussage.
+
+\iii Ist $f:\left(D_{\bullet},\partial\right)\to\left(E_{\bullet},\varepsilon\right)$
+eine Kettenabbildung, so gilt f¸r alle $n\in\mathbb{Z}$:
+\begin{align*}
+f_{n}\left(Z_{n}\left(D_{\bullet}\right)\right) & \subseteq Z_{n}\left(E_{\bullet}\right)
+\end{align*}
+Denn aus $\partial_{n}\left(x\right)=0$ folgt $\varepsilon_{n}\left(f_{n}\left(x\right)\right)\stackrel{\text{Kettenabbildung}}{=}f_{n-1}\left(\partial_{n}\left(x\right)\right)=0$
+
+Also induziert $f_{n}$ eine $A$-lineare Abbildung $f_{n}:Z_{n}\left(D_{\bullet}\right)\to Z_{n}\left(E_{\bullet}\right)$.
+
+Genauso folgt $f_{n}\left(B_{n}\left(D_{\bullet}\right)\right)\subseteq B_{n}\left(E_{\bullet}\right)$.
+Denn f¸r alle $x\in D_{n+1}$ gilt:
+\begin{align*}
+f_{n}\left(\partial_{n+1}\left(x\right)\right) & =\varepsilon_{n+1}\left(f_{n+1}\left(x\right)\right)\in B_{n}\left(E_{\bullet}\right)
+\end{align*}
+Also induziert $f_{n}$ eine $A$-lineare Abbildung:
+\begin{align*}
+H_{n}\left(f_{\bullet}\right):H_{n}\left(D_{\bullet}\right)=\modulo{Z_{n}\left(D_{\bullet}\right)}{B_{n}\left(D_{\bullet}\right)} & \to H_{n}\left(E_{\bullet}\right)
+\end{align*}
+Die Kettenabbildung $f_{\bullet}$ heiﬂt \emph{quasi-Isomorphismus},
+wenn gilt:
+\begin{align*}
+\fall_{n\in\mathbb{Z}}\ :\ H_{n}\left(f_{\bullet}\right)\text{ ist }A\text{-linearer Isomorphismus}
+\end{align*}
+
+
+\iii Sind $f_{\bullet},g_{\bullet}:\left(D_{\bullet},\partial\right)\to\left(E_{\bullet},\varepsilon\right)$
+Kettenabbildungen, so ist eine \emph{Homotopie von $f_{\bullet}$
+nach $g_{\bullet}$} eine Familie $A$-linearer Abbildungen $s_{n}:D_{n}\to E_{n+1}$
+so, dass f¸r alle $n\in\mathbb{Z}$ gilt:
+\begin{align*}
+f_{n}-g_{n} & =s_{n-1}\circ\partial_{n}+\varepsilon_{n+1}\circ s_{n}
+\end{align*}
+
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   {         & D_n  & D_{n-1} \\
+     E_{n+1} & E_n & \\};
+  \path[->,font=\scriptsize] (m-1-2) edge node[above] {$ \partial_n $} (m-1-3)
+                             (m-2-1) edge node[above] {$ \varepsilon_{n+1} $} (m-2-2);  
+  \path[->,font=\scriptsize] (m-1-2) edge node[above] {$ s_n $} (m-2-1)
+                             (m-1-3) edge node[below right] {$ s_{n-1} $} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2.250) edge node[left] {$f_n$} (m-2-2.110)
+                             (m-1-2.290) edge node[right] {$g_n$} (m-2-2.70);
+\end{tikzpicture}
+\par\end{center}
+
+Schreibweise: $s=\left(s_{n}\right):f_{\bullet}\stackrel{\sim}{\to}g_{\bullet}$ 
+
+Wir schreiben $f_{\bullet}\stackrel{\sim}{=}g_{\bullet}$ und sagen
+$f_{\bullet}$ und $g_{\bullet}$ sind \emph{homotop}, falls eine
+Homotopie von $f_{\bullet}$ nach $g_{\bullet}$ existiert.
+
+\end{iiilist}
+
+
+\section{Proposition}
+
+F¸r Kettenabbildungen $f_{\bullet},g_{\bullet}:D_{\bullet}\to E_{\bullet}$
+gilt f¸r alle $n\in\mathbb{Z}$:
+
+Aus $f_{\bullet}\stackrel{\sim}{=}g_{\bullet}$ folgt $H_{n}\left(f_{\bullet}\right)=H_{n}\left(g_{\bullet}\right):H_{n}\left(D_{\bullet}\right)\to H_{n}\left(E_{\bullet}\right)$.
+
+
+\subsubsection*{Beweis}
+
+Seien $n\in\mathbb{Z}$ und $x\in H_{n}\left(D_{\bullet}\right)$.
+
+W‰hle $z\in Z_{n}\left(D_{\bullet}\right)$ mit $x=z+B_{n}\left(D_{\bullet}\right)$.
+Sei $\left(s_{n}\right):f_{\bullet}\stackrel{\sim}{\to}g_{\bullet}$
+eine Homotopie, dann gilt in $Z_{n}\left(E_{\bullet}\right)\subseteq E_{n}$:
+\begin{align*}
+f_{n}\left(z\right) & =g_{n}\left(z\right)+s_{n-1}\underbrace{\left(\partial_{n}\left(z\right)\right)}_{=0,\text{ da }z\in Z_{n}\left(D_{\bullet}\right)}+\underbrace{\varepsilon_{n+1}\left(s_{n}\left(z\right)\right)}_{\in B_{n}\left(E_{\bullet}\right)}
+\end{align*}
+Also in $H_{n}\left(E_{\bullet}\right)$:
+\begin{align*}
+H_{n}\left(f\right)\left(x\right) & =f_{n}\left(z\right)+B_{n}\left(E_{\bullet}\right)=g_{n}\left(z\right)+B_{n}\left(E_{\bullet}\right)=H_{n}\left(g\right)\left(x\right)
+\end{align*}
+\qqed
+
+
+\section{Proposition}
+
+Betrachte die Situation:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { (F_{\bullet},\partial) & M  & 0 \\
+     (G_{\bullet},\varepsilon) & N & 0 \\};
+  \path[->] (m-1-1) edge (m-1-2) (m-1-2) edge (m-1-3);
+  \path[->] (m-2-1) edge (m-2-2) (m-2-2) edge (m-2-3);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right] {$ f $} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-1.250) edge node[left] {$F_{1,\bullet}$} (m-2-1.110)
+                             (m-1-1.290) edge node[right] {$F_{2,\bullet}$} (m-2-1.70);
+\end{tikzpicture}
+\par\end{center}
+
+\begin{abclist}
+
+\abc $f$ ist eine $A$-lineare Abbildung von $A$-Moduln.
+
+\abc $\left(F_{\bullet},\partial\right)\to M$, $\left(G_{\bullet},\varepsilon\right)\to N$
+sind freie Auflˆsungen.
+
+\abc $F_{1,\bullet},F_{2,\bullet}:F_{\bullet}\to G_{\bullet}$ sind
+Lifts von $f$.
+
+\end{abclist}
+
+Dann gilt $F_{1,\bullet}\stackrel{\sim}{=}F_{2,\bullet}$.
+
+
+\subsubsection*{Beweis}
+
+Wir konstruieren eine Homotopie $\left(s_{n}\right):F_{1,\bullet}\stackrel{\sim}{\to}F_{2,\bullet}$
+induktiv f¸r alle $n\in\mathbb{N}$.
+
+Induktionsanfang bei $n=0$:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   {         & F_0  & 0=F_{-1} \\
+     G_{1} & G_0 & 0\\};
+  \path[->,font=\scriptsize] (m-1-2) edge node[above] {$ \partial_0 $} (m-1-3)
+                             (m-2-1) edge node[above] {$ \varepsilon_{1} $} (m-2-2);  
+  \path[->,font=\scriptsize, dashed] (m-1-2) edge node[above] {$ s_0 $} (m-2-1);
+  \path[->,font=\scriptsize] (m-1-3) edge node[below right] {$ s_{-1}=0 $} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2.250) edge node[left=-3] {$F_{1,0}$} (m-2-2.110)
+                             (m-1-2.290) edge node[right=-3] {$F_{2,0}$} (m-2-2.70);
+\end{tikzpicture}
+\par\end{center}
+
+Um die Homotopie zu zeigen, ist $f_{n}-g_{n}=s_{n-1}\circ\partial_{n}+\varepsilon_{n+1}\circ s_{n}$
+zu ¸berpr¸fen, in diesem Fall hier also, dass ein $s_{0}$ existiert,
+sodass $F_{1,0}-F_{2,0}=\varepsilon_{1}\circ s_{0}$ gilt, das heiﬂt
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   {       & F_0  \\
+     G_{1} & G_0 \\};
+  \path[->,font=\scriptsize] (m-2-1) edge node[above] {$ \varepsilon_{1} $} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2) edge node[above left] {$ s_0 $} (m-2-1)
+                             (m-1-2) edge node[above right] {$ F_{1,0}-F_{2,0} $} (m-2-2);
+\end{tikzpicture}
+\par\end{center}
+
+kommutiert.
+
+Das Lemma \ref{sec:Lem-DiagrammKommutiert} liefert uns $s_{0}$,
+wenn wir zeigen:
+\begin{align*}
+\text{im}\left(F_{1,0}-F_{2,0}\right) & \subseteq\text{im}\left(\varepsilon_{1}\right)
+\end{align*}
+
+
+Betrachte:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   {       & F_0 & M & 0 \\
+     G_{1} & G_0 & N & 0\\};
+  \path[->,font=\scriptsize] (m-2-1) edge node[above] {$ \varepsilon_{1} $} (m-2-2)
+                             (m-2-2) edge node[above] {$ \sigma $} (m-2-3)
+                             (m-2-3) edge (m-2-4);  
+  \path[->,font=\scriptsize] (m-1-2) edge node[above] {$ \pi $} (m-1-3) (m-1-3) edge (m-1-4);
+  \path[->,font=\scriptsize] (m-1-2.250) edge node[left=-3] {$F_{1,0}$} (m-2-2.110)
+                             (m-1-2.290) edge node[right=-3] {$F_{2,0}$} (m-2-2.70);
+  \path[->] (m-1-3) edge node[right]{$f$} (m-2-3);
+\end{tikzpicture}
+\par\end{center}
+
+F¸r $x\in F_{0}$ ist:
+\begin{align*}
+\sigma\left(F_{1,0}\left(x\right)-F_{2,0}\left(x\right)\right) & \stackrel{\text{c)}}{=}f\left(\pi\left(x\right)\right)-f\left(\pi\left(x\right)\right)=0
+\end{align*}
+Also ist $F_{1,0}\left(x\right)-F_{2,0}\left(x\right)\in\ker\left(\sigma\right)\stackrel{\text{b)}}{=}\text{im}\left(\varepsilon_{1}\right)$.
+Also gilt $\text{im}\left(F_{1,0}-F_{2,0}\right)\subseteq\text{im}\left(\varepsilon_{1}\right)$.
+
+Induktionsschritt $n-1\leadsto n$:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=4.5em, text height=1.5ex, text depth=0.25ex]
+   {         & F_n  & F_{n-1} \\
+     G_{n+1} & G_n & G_{n-1}\\};
+  \path[->,font=\scriptsize] (m-1-2) edge node[above] {$ \partial_n $} (m-1-3)
+                             (m-2-1) edge node[above] {$ \varepsilon_{n+1} $} (m-2-2)
+                             (m-2-2) edge node[above] {$ \varepsilon_{n} $} (m-2-3);  
+  \path[->,font=\scriptsize, dashed] (m-1-2) edge node[above] {$ s_n $} (m-2-1);
+  \path[->,font=\scriptsize] (m-1-3) edge node[above=3] {$ s_{n-1} $} (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2.250) edge node[left=-3] {$F_{1,n}$} (m-2-2.110)
+                             (m-1-2.290) edge node[right=-3] {$F_{2,n}$} (m-2-2.70);
+  \path[->,font=\scriptsize] (m-1-3.250) edge node[left=-3] {$F_{1,n-1}$} (m-2-3.110)
+                             (m-1-3.290) edge node[right=-3] {$F_{2,n-1}$} (m-2-3.70);
+\end{tikzpicture}
+\par\end{center}
+
+Es ist $s_{n}$ so zu konstruieren, dass gilt:
+\begin{align*}
+\alpha & :=F_{1,n}-F_{2,n}-s_{n-1}\circ\partial_{n}=\varepsilon_{n+1}\circ s_{n}
+\end{align*}
+Dazu ist mit Lemma \ref{sec:Lem-DiagrammKommutiert} nur noch die
+Inklusion $\text{im}\left(\alpha\right)\subseteq\text{im}\left(\varepsilon_{n+1}\right)=\text{ker}\left(\varepsilon_{n}\right)$
+zu zeigen.
 
 
 \part*{Anhang\thispagestyle{empty}}
@@ -9442,7 +9900,7 @@ von der Wahl von $F_{\bullet}$.
 
 \chapter*{Danksagungen}
 
-\addcontentsline{toc}{section}{\hspace*{2.7em}Danksagungen}
+\addcontentsline{toc}{chapter}{\hspace*{2.7em}Danksagungen}
 
 \fancyhead[R]{Danksagungen}
 

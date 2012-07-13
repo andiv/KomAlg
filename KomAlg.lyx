@@ -6,7 +6,7 @@
 \begin_preamble
 \usepackage{tikz}
 %\usepackage{tikz-3dplot}
-\usetikzlibrary{matrix,arrows,calc,decorations.pathmorphing,snakes}
+\usetikzlibrary{matrix,arrows,calc,decorations}
 \usepackage{latexsym,stmaryrd,stackrel,array,tabularx,multirow,icomma,braket,polynom,cancel}
 \usepackage[explicit]{titlesec}
 
@@ -2971,11 +2971,15 @@ iii
 \begin_inset Formula $x$
 \end_inset
 
- ein Nullteiler, denn für 
-\begin_inset Formula $N:=\min\left\{ n\in\mathbb{N}_{>0}\big|x^{n}=0\right\} $
+ ein Nullteiler, denn für
+\begin_inset Formula 
+\begin{align*}
+N & :=\min\left\{ n\in\mathbb{N}_{>0}\big|x^{n}=0\right\} 
+\end{align*}
+
 \end_inset
 
- gilt 
+gilt 
 \begin_inset Formula $N\ge1$
 \end_inset
 
@@ -5899,7 +5903,7 @@ reference "sec:DuB-Ideal"
  i) a) und b):
 \begin_inset Formula 
 \begin{align*}
-x,y\in\mathfrak{N}\left(A\right) & \quad\Rightarrow\quad\exs_{N\in\mathbb{N}_{\ge1}}:x^{N}=y^{N}=0\quad\Rightarrow\quad\left(x-y\right)^{2N}=\sum_{i=0}^{2N}\left(\begin{array}{c}
+x,y\in\mathfrak{N}\left(A\right) & \ \,\Rightarrow\ \,\exs_{N\in\mathbb{N}_{\ge1}}:x^{N}=y^{N}=0\ \,\Rightarrow\ \,\left(x-y\right)^{2N}=\sum_{i=0}^{2N}\left(\begin{array}{c}
 2N\\
 i
 \end{array}\right)x^{i}\cdot\left(-1\right)^{2N-i}\cdot y^{2N-i}
@@ -5911,11 +5915,11 @@ Da für alle
 \begin_inset Formula $0\le i\le2N$
 \end_inset
 
- gilt 
+ schon 
 \begin_inset Formula $\left(i\ge N\vee2N-i\ge N\right)$
 \end_inset
 
- ist in jedem Produkt 
+ gilt, ist in jedem Produkt 
 \begin_inset Formula $x^{i}\cdot y^{2N-i}$
 \end_inset
 
@@ -14253,10 +14257,6 @@ Der
 \end_inset
 
 -bilineare Abbildung 
-\begin_inset Formula $ $
-\end_inset
-
-
 \begin_inset Formula $\tau$
 \end_inset
 
@@ -17266,10 +17266,6 @@ Fall:
 
 .
  Das Diagramm
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset ERT
 status open
 
@@ -17482,10 +17478,6 @@ Fall:
 
 .
  Dann ist das Diagramm
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset ERT
 status open
 
@@ -17911,10 +17903,6 @@ iii
 \end_inset
 
  ein Hauptidealring und 
-\begin_inset Formula $ $
-\end_inset
-
-
 \begin_inset Formula $M$
 \end_inset
 
@@ -20727,7 +20715,18 @@ iii
 \begin_inset Formula $A$
 \end_inset
 
--Algebrenhomomorphismen, so existiert genau ein 
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+"=
+\end_layout
+
+\end_inset
+
+Algebrenhomomorphismen, so existiert genau ein 
 \begin_inset Formula $A$
 \end_inset
 
@@ -21970,10 +21969,6 @@ Die Natürlichkeit im Ring
 \end_inset
 
  das Diagramm
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset ERT
 status open
 
@@ -24392,12 +24387,23 @@ diese universelle Eigenschaft erfüllt.
 \begin_inset Newline newline
 \end_inset
 
-Exsitenz: Es gibt aufgrund der universellen Eigenschaft des Polynomrings
+Existenz: Es gibt aufgrund der universellen Eigenschaft des Polynomrings
  genau ein 
 \begin_inset Formula $A$
 \end_inset
 
--Algebrenhomomorphismus:
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+"=
+\end_layout
+
+\end_inset
+
+Algebrenhomomorphismus:
 \begin_inset Formula 
 \begin{align*}
 \psi:A\left[X_{s}\big|s\in S\right] & \to B\\
@@ -26049,10 +26055,6 @@ reference "sec:BuD-Lokalisierung"
 \end_inset
 
  und 
-\begin_inset Formula $ $
-\end_inset
-
-
 \begin_inset Formula $m\in M$
 \end_inset
 
@@ -28284,7 +28286,7 @@ status open
 
 \begin_layout Plain Layout
 
-}{S^(-1)A}
+}{Lokalisierung}
 \end_layout
 
 \end_inset
@@ -32717,10 +32719,6 @@ Beachte:
 \end_inset
 
 Skizze:
-\begin_inset Newline newline
-\end_inset
-
-
 \begin_inset ERT
 status open
 
@@ -49337,7 +49335,7 @@ Wäre
 \begin_inset Formula $A$
 \end_inset
 
- kein Körper, so folgt aus 
+ nun kein Körper, so folgte aus 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Bsp-HauptidealringJacobson"
@@ -49431,7 +49429,10 @@ iii
 \end_inset
 
 .
- Da 
+\end_layout
+
+\begin_layout Standard
+Da 
 \begin_inset Formula $\mathfrak{m}:=\left(X_{1},\ldots,X_{n}\right)\subseteq k\left[X_{1},\ldots,X_{n}\right]$
 \end_inset
 
@@ -49635,8 +49636,6 @@ die
 )
 \emph default
 ,
-\emph on
-
 \begin_inset Formula 
 \begin{align*}
 D_{n}\supseteq B_{n}\left(D_{\bullet}\right)=B_{n} & :=\text{im}\left(\partial_{n+1}\right)
@@ -49644,6 +49643,8 @@ D_{n}\supseteq B_{n}\left(D_{\bullet}\right)=B_{n} & :=\text{im}\left(\partial_{
 
 \end_inset
 
+
+\emph on
 die 
 \begin_inset Formula $n$
 \end_inset
@@ -49885,16 +49886,32 @@ reference "sec:Satz-RechtsexaktheitTensorprodukt"
  ist
 \begin_inset Formula 
 \begin{align*}
-F_{1}\otimes_{A}N\stackrel{\partial_{1}}{\to}F_{0}\otimes_{A}N\to M\otimes_{A}N\to0
+F_{1}\otimes_{A}N\stackrel{\partial_{1}}{\to}F_{0}\otimes_{A}N\stackrel{f}{\to}M\otimes_{A}N\to0
 \end{align*}
 
 \end_inset
 
-exakt.
- Es folgt:
+exakt, also 
+\begin_inset Formula $\text{im}\left(\partial_{1}\right)=\ker\left(f\right)$
+\end_inset
+
+.
+ Wegen
 \begin_inset Formula 
 \begin{align*}
-\text{Tor}_{0}^{A}\left(M,N\right) & =H_{0}\left(F_{0}\otimes_{A}N\right)=\modulo{\ker\left(\partial_{0}\right)}{\text{im}\left(\partial_{1}\right)}\stackrel{\sim}{=}M\otimes_{A}N
+F_{\bullet}\otimes_{A}N & =\left(\ldots\to F_{2}\otimes_{A}N\stackrel{\partial_{2}}{\to}F_{1}\otimes_{A}N\stackrel{\partial_{1}}{\to}F_{0}\otimes_{A}N\stackrel{\partial_{0}}{\to}0\right)
+\end{align*}
+
+\end_inset
+
+ ist also 
+\begin_inset Formula $\ker\left(\partial_{0}\right)\stackrel{\sim}{=}F_{0}\otimes_{A}N$
+\end_inset
+
+ und es folgt:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{0}^{A}\left(M,N\right) & =H_{0}\left(F_{\bullet}\otimes_{A}N\right)=\modulo{\ker\left(\partial_{0}\right)}{\text{im}\left(\partial_{1}\right)}\stackrel{\sim}{=}\modulo{F_{0}\otimes_{A}N}{\ker\left(f\right)}\stackrel{\sim}{=}M\otimes_{A}N
 \end{align*}
 
 \end_inset
@@ -49916,6 +49933,98 @@ status open
 
 \begin_layout Plain Layout
 
+%DATE: Fr 13.7.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring und 
+\begin_inset Formula $0\not=a\in A$
+\end_inset
+
+.
+ Erhalte die freie Auflösung von 
+\begin_inset Formula $\modulo A{\left(a\right)}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\ldots\to0\to F_{2}=0\to F_{1}=A\stackrel{\cdot a}{\to}F_{0}=A\to\modulo A{\left(a\right)}\to0
+\end{align*}
+
+\end_inset
+
+Für einen beliebigen 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $N$
+\end_inset
+
+ folgt:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{n}^{A}\left(\modulo A{\left(a\right)},N\right) & \stackrel{\sim}{=}\begin{cases}
+\modulo A{\left(a\right)}\otimes_{A}N\stackrel{\sim}{=}\modulo N{aN} & n=0\\
+\modulo{\ker\left(A\otimes_{A}N\xrightarrow{\left(\cdot a\right)\otimes\text{id}_{N}}A\otimes_{A}N\right)}{\text{im}\left(0\right)}\stackrel{\sim}{=}\left\{ x\in N\big|ax=0\right\}  & n=1\\
+0 & n\ge2
+\end{cases}
+\end{align*}
+
+\end_inset
+
+Der 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{1}^{A}\left(\modulo A{\left(a\right)},N\right) & \stackrel{\sim}{=}\left\{ x\in N\big|ax=0\right\} =:N\left[a\right]\subseteq N
+\end{align*}
+
+\end_inset
+
+heißt 
+\emph on
+der Untermodul der 
+\begin_inset Formula $a$
+\end_inset
+
+-Torsion
+\emph default
+.
+ 
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
 
 \backslash
 end{iiilist}
@@ -49924,6 +50033,2543 @@ end{iiilist}
 \end_inset
 
 
+\end_layout
+
+\begin_layout Standard
+\begin_inset VSpace bigskip
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wir müssen nun verschiedene freie Auflösungen miteinander vergleichen.
+\end_layout
+
+\begin_layout Section
+Definition 
+\series medium
+(Kettenabbildung)
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $\left(D_{\bullet},\partial\right):=\left(D_{n},\partial_{n}:D_{n}\to D_{n-1}\right)_{n\in\mathbb{Z}}$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(E_{\bullet},\varepsilon\right)$
+\end_inset
+
+ Komplexe.
+\end_layout
+
+\begin_layout Standard
+Eine 
+\emph on
+Kettenabbildung (von 
+\begin_inset Formula $\left(D_{\bullet},\partial\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(E_{\bullet},\varepsilon\right)$
+\end_inset
+
+)
+\emph default
+ ist eine Familie 
+\begin_inset Formula $f=\left(f_{n}\right)_{n\in\mathbb{Z}}$
+\end_inset
+
+ von 
+\begin_inset Formula $A$
+\end_inset
+
+-linearen Abbildungen 
+\begin_inset Formula $f_{n}:E_{n}\to D_{n}$
+\end_inset
+
+ so, dass für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ das Diagramm
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { D_n & D_{n-1} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     E_n & E_{n-1} 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[right] {$ f_n $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ f_{n-1} $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above] {$
+\backslash
+partial_n$} (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above] {$
+\backslash
+varepsilon_n$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+kommutiert.
+\end_layout
+
+\begin_layout Section
+Proposition
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Prop-LiftZuKettenabbildung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $f:M\to N$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung und 
+\begin_inset Formula $F\to M$
+\end_inset
+
+ und 
+\begin_inset Formula $G\to N$
+\end_inset
+
+ freie Auflösungen.
+\end_layout
+
+\begin_layout Standard
+Dann existieren 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildungen 
+\begin_inset Formula $f_{n}:F_{n}\to G_{n}$
+\end_inset
+
+ für alle 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ so, dass folgendes Diagramm kommutiert:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { 
+\backslash
+ldots & F_1  & F_0 & M & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     
+\backslash
+ldots & G_1  & G_0 & N & 0 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ f_1 $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-3) edge node[right] {$ f_0 $} (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-4) edge node[right] {$ f $} (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-2) edge (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-3) edge (m-1-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-4) edge (m-1-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-2) edge (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-3) edge (m-2-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-4) edge (m-2-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das heißt, dass sich jede 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung zu einer Kettenabbildung zwischen den freien Auflösungen
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { F_{
+\backslash
+bullet} & M & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     G_{
+\backslash
+bullet} & N & 0 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-1-1) edge (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-2) edge  (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge  (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge  (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-2) edge (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right]{$f$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+liften lässt.
+\end_layout
+
+\begin_layout Section
+Lemma
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lem-DiagrammKommutiert"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zu einem Diagramm von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { F &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     N & N' 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+alpha$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[below]{$
+\backslash
+sigma$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+mit 
+\begin_inset Formula $F$
+\end_inset
+
+ frei und 
+\begin_inset Formula $\text{im}\left(\alpha\right)\subseteq\text{im}\left(\sigma\right)$
+\end_inset
+
+ gibt es eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $F\to N$
+\end_inset
+
+, sodass
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { F &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     N & N' 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+alpha$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[below]{$
+\backslash
+sigma$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge (m-2-1);  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+kommutiert.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Wegen 
+\begin_inset Formula $\text{im}\left(\alpha\right)\subseteq\text{im}\left(\sigma\right)$
+\end_inset
+
+ induziert 
+\begin_inset Formula $\alpha$
+\end_inset
+
+ eine Abbildung:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { F &  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     N & 
+\backslash
+text{im}(
+\backslash
+sigma) 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+alpha$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->>,font=
+\backslash
+scriptsize] (m-2-1) edge node[below]{$
+\backslash
+sigma$} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-1-1) edge (m-2-1);  
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Da 
+\begin_inset Formula $F$
+\end_inset
+
+ projektiv (und sogar frei) ist, existiert der gewünschte Homomorphismus.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis von 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-LiftZuKettenabbildung"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Konstruiere die 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ induktiv für 
+\begin_inset Formula $n\ge0$
+\end_inset
+
+ mit dem letzten Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-DiagrammKommutiert"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Induktionsanfang bei 
+\begin_inset Formula $n=0$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { F_0 & M & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     G_0 & N & 0 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-1-1) edge node[right] {$ f_0 $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ f $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-3) edge (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+pi$} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-1-2) edge (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above]{$
+\backslash
+sigma$} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+            (m-2-2) edge (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Existenz von 
+\begin_inset Formula $f_{0}$
+\end_inset
+
+ folgt direkt aus dem Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-DiagrammKommutiert"
+
+\end_inset
+
+ mit 
+\begin_inset Formula $\alpha:=f\circ\pi$
+\end_inset
+
+, da 
+\begin_inset Formula $\sigma$
+\end_inset
+
+ surjektiv ist.
+\end_layout
+
+\begin_layout Standard
+Induktionsschritt 
+\begin_inset Formula $n-1\leadsto n>0$
+\end_inset
+
+: Betrachte:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { F_{n} & F_{n-1} & F_{n-2} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     G_{n} & G_{n-1} & G_{n-2} 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-1-1) edge node[right] {$ f_n $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ f_{n-1} $} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-3) edge node[right] {$ f_{n-2} $} (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$
+\backslash
+partial_{n}$} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge node[above]{$
+\backslash
+partial_{n-1}$} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above]{$
+\backslash
+varepsilon_{n}$} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-2) edge node[above]{$
+\backslash
+varepsilon_{n-1}$} (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path (m-1-2) -- node{$
+\backslash
+circlearrowright$} (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Hier ist 
+\begin_inset Formula $F_{-1}:=M$
+\end_inset
+
+, 
+\begin_inset Formula $G_{-1}:=N$
+\end_inset
+
+ und 
+\begin_inset Formula $f_{-1}:=f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Das Diagramm hat exakte Zeilen nach der Definition von freier Auflösung
+ und die rechte Seite kommutiert.
+\end_layout
+
+\begin_layout Standard
+Wegen Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-DiagrammKommutiert"
+
+\end_inset
+
+ existiert ein 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+, falls wir 
+\begin_inset Formula $\text{im}\left(f_{n-1}\circ\partial_{n}\right)\subseteq\text{im}\left(\varepsilon_{n}\right)$
+\end_inset
+
+ zeigen können.
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $x\in F_{n}$
+\end_inset
+
+ rechnen wir:
+\begin_inset Formula 
+\begin{align*}
+\varepsilon_{n-1}\left(f_{n-1}\left(\partial_{n}\left(x\right)\right)\right) & \stackrel{\circlearrowright}{=}f_{n-2}\underbrace{\left(\partial_{n-1}\left(\partial_{n}\left(x\right)\right)\right)}_{=0,\text{ da exakt}}=0
+\end{align*}
+
+\end_inset
+
+Wie gewünscht gilt:
+\begin_inset Formula 
+\begin{align*}
+f_{n-1}\left(\partial_{n}\left(x\right)\right) & \in\ker\left(\varepsilon_{n-1}\right)\stackrel{\text{exakt}}{=}\text{im}\left(\varepsilon_{n}\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[
+\backslash
+ref{sec:Prop-LiftZuKettenabbildung}]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Bemerkung und Definition 
+\series medium
+(quasi-Isomorphismus, Homotopie)
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind nun 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul und 
+\begin_inset Formula $F_{\bullet}\to M\to0$
+\end_inset
+
+ und 
+\begin_inset Formula $G_{\bullet}\to M\to0$
+\end_inset
+
+ zwei freie Auflösungen, so betrachte das Diagramm:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { F_{
+\backslash
+bullet} & M 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     G_{
+\backslash
+bullet} & M 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     F_{
+\backslash
+bullet} & M 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-1-1) edge node[left]{
+\backslash
+ref{sec:Prop-LiftZuKettenabbildung}} node[right]{$f_{
+\backslash
+bullet}$} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge  (m-1-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge  (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right]{id} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize,dashed] (m-2-1) edge node[left]{
+\backslash
+ref{sec:Prop-LiftZuKettenabbildung}} node[right]{$g_{
+\backslash
+bullet}$} (m-3-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-3-1) edge  (m-3-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-2) edge node[right]{id} (m-3-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->,font=
+\backslash
+scriptsize]  (m-1-1) to [out=180,in=180] node[left]{$
+\backslash
+text{id}_{F_{
+\backslash
+bullet}}$} (m-3-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um nun 
+\begin_inset Formula $g_{\bullet}\circ f_{\bullet}$
+\end_inset
+
+ und 
+\begin_inset Formula $\text{id}_{F}$
+\end_inset
+
+ vergleichen zu können, brauchen wir in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-LiftZuKettenabbildung"
+
+\end_inset
+
+ eine Eindeutigkeitsaussage.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Ist 
+\begin_inset Formula $f:\left(D_{\bullet},\partial\right)\to\left(E_{\bullet},\varepsilon\right)$
+\end_inset
+
+ eine Kettenabbildung, so gilt für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+f_{n}\left(Z_{n}\left(D_{\bullet}\right)\right) & \subseteq Z_{n}\left(E_{\bullet}\right)
+\end{align*}
+
+\end_inset
+
+Denn aus 
+\begin_inset Formula $\partial_{n}\left(x\right)=0$
+\end_inset
+
+ folgt 
+\begin_inset Formula $\varepsilon_{n}\left(f_{n}\left(x\right)\right)\stackrel{\text{Kettenabbildung}}{=}f_{n-1}\left(\partial_{n}\left(x\right)\right)=0$
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Also induziert 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung 
+\begin_inset Formula $f_{n}:Z_{n}\left(D_{\bullet}\right)\to Z_{n}\left(E_{\bullet}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Genauso folgt 
+\begin_inset Formula $f_{n}\left(B_{n}\left(D_{\bullet}\right)\right)\subseteq B_{n}\left(E_{\bullet}\right)$
+\end_inset
+
+.
+ Denn für alle 
+\begin_inset Formula $x\in D_{n+1}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+f_{n}\left(\partial_{n+1}\left(x\right)\right) & =\varepsilon_{n+1}\left(f_{n+1}\left(x\right)\right)\in B_{n}\left(E_{\bullet}\right)
+\end{align*}
+
+\end_inset
+
+Also induziert 
+\begin_inset Formula $f_{n}$
+\end_inset
+
+ eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung:
+\begin_inset Formula 
+\begin{align*}
+H_{n}\left(f_{\bullet}\right):H_{n}\left(D_{\bullet}\right)=\modulo{Z_{n}\left(D_{\bullet}\right)}{B_{n}\left(D_{\bullet}\right)} & \to H_{n}\left(E_{\bullet}\right)
+\end{align*}
+
+\end_inset
+
+Die Kettenabbildung 
+\begin_inset Formula $f_{\bullet}$
+\end_inset
+
+ heißt 
+\emph on
+quasi-Isomorphismus
+\emph default
+, wenn gilt:
+\begin_inset Formula 
+\begin{align*}
+\fall_{n\in\mathbb{Z}}\ :\ H_{n}\left(f_{\bullet}\right)\text{ ist }A\text{-linearer Isomorphismus}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Sind 
+\begin_inset Formula $f_{\bullet},g_{\bullet}:\left(D_{\bullet},\partial\right)\to\left(E_{\bullet},\varepsilon\right)$
+\end_inset
+
+ Kettenabbildungen, so ist eine 
+\emph on
+Homotopie von 
+\begin_inset Formula $f_{\bullet}$
+\end_inset
+
+ nach 
+\begin_inset Formula $g_{\bullet}$
+\end_inset
+
+
+\emph default
+ eine Familie 
+\begin_inset Formula $A$
+\end_inset
+
+-linearer Abbildungen 
+\begin_inset Formula $s_{n}:D_{n}\to E_{n+1}$
+\end_inset
+
+ so, dass für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+f_{n}-g_{n} & =s_{n-1}\circ\partial_{n}+\varepsilon_{n+1}\circ s_{n}
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   {         & D_n  & D_{n-1} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     E_{n+1} & E_n & 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[above] {$ 
+\backslash
+partial_n $} (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-1) edge node[above] {$ 
+\backslash
+varepsilon_{n+1} $} (m-2-2);  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[above] {$ s_n $} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-3) edge node[below right] {$ s_{n-1} $}
+ (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2.250) edge node[left] {$f_n$} (m-2-2.110)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2.290) edge node[right] {$g_n$} (m-2-2.70);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Schreibweise: 
+\begin_inset Formula $s=\left(s_{n}\right):f_{\bullet}\stackrel{\sim}{\to}g_{\bullet}$
+\end_inset
+
+ 
+\end_layout
+
+\begin_layout Standard
+Wir schreiben 
+\begin_inset Formula $f_{\bullet}\stackrel{\sim}{=}g_{\bullet}$
+\end_inset
+
+ und sagen 
+\begin_inset Formula $f_{\bullet}$
+\end_inset
+
+ und 
+\begin_inset Formula $g_{\bullet}$
+\end_inset
+
+ sind 
+\emph on
+homotop
+\emph default
+, falls eine Homotopie von 
+\begin_inset Formula $f_{\bullet}$
+\end_inset
+
+ nach 
+\begin_inset Formula $g_{\bullet}$
+\end_inset
+
+ existiert.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\end_layout
+
+\begin_layout Standard
+Für Kettenabbildungen 
+\begin_inset Formula $f_{\bullet},g_{\bullet}:D_{\bullet}\to E_{\bullet}$
+\end_inset
+
+ gilt für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Aus 
+\begin_inset Formula $f_{\bullet}\stackrel{\sim}{=}g_{\bullet}$
+\end_inset
+
+ folgt 
+\begin_inset Formula $H_{n}\left(f_{\bullet}\right)=H_{n}\left(g_{\bullet}\right):H_{n}\left(D_{\bullet}\right)\to H_{n}\left(E_{\bullet}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ und 
+\begin_inset Formula $x\in H_{n}\left(D_{\bullet}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wähle 
+\begin_inset Formula $z\in Z_{n}\left(D_{\bullet}\right)$
+\end_inset
+
+ mit 
+\begin_inset Formula $x=z+B_{n}\left(D_{\bullet}\right)$
+\end_inset
+
+.
+ Sei 
+\begin_inset Formula $\left(s_{n}\right):f_{\bullet}\stackrel{\sim}{\to}g_{\bullet}$
+\end_inset
+
+ eine Homotopie, dann gilt in 
+\begin_inset Formula $Z_{n}\left(E_{\bullet}\right)\subseteq E_{n}$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+f_{n}\left(z\right) & =g_{n}\left(z\right)+s_{n-1}\underbrace{\left(\partial_{n}\left(z\right)\right)}_{=0,\text{ da }z\in Z_{n}\left(D_{\bullet}\right)}+\underbrace{\varepsilon_{n+1}\left(s_{n}\left(z\right)\right)}_{\in B_{n}\left(E_{\bullet}\right)}
+\end{align*}
+
+\end_inset
+
+Also in 
+\begin_inset Formula $H_{n}\left(E_{\bullet}\right)$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+H_{n}\left(f\right)\left(x\right) & =f_{n}\left(z\right)+B_{n}\left(E_{\bullet}\right)=g_{n}\left(z\right)+B_{n}\left(E_{\bullet}\right)=H_{n}\left(g\right)\left(x\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Proposition
+\end_layout
+
+\begin_layout Standard
+Betrachte die Situation:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { (F_{
+\backslash
+bullet},
+\backslash
+partial) & M  & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     (G_{
+\backslash
+bullet},
+\backslash
+varepsilon) & N & 0 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-1) edge (m-1-2) (m-1-2) edge (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-2-1) edge (m-2-2) (m-2-2) edge (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[right] {$ f $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1.250) edge node[left] {$F_{1,
+\backslash
+bullet}$} (m-2-1.110)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-1.290) edge node[right] {$F_{2,
+\backslash
+bullet}$} (m-2-1.70);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $f$
+\end_inset
+
+ ist eine 
+\begin_inset Formula $A$
+\end_inset
+
+-lineare Abbildung von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $\left(F_{\bullet},\partial\right)\to M$
+\end_inset
+
+, 
+\begin_inset Formula $\left(G_{\bullet},\varepsilon\right)\to N$
+\end_inset
+
+ sind freie Auflösungen.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+abc
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $F_{1,\bullet},F_{2,\bullet}:F_{\bullet}\to G_{\bullet}$
+\end_inset
+
+ sind Lifts von 
+\begin_inset Formula $f$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{abclist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Dann gilt 
+\begin_inset Formula $F_{1,\bullet}\stackrel{\sim}{=}F_{2,\bullet}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Wir konstruieren eine Homotopie 
+\begin_inset Formula $\left(s_{n}\right):F_{1,\bullet}\stackrel{\sim}{\to}F_{2,\bullet}$
+\end_inset
+
+ induktiv für alle 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Induktionsanfang bei 
+\begin_inset Formula $n=0$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   {         & F_0  & 0=F_{-1} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     G_{1} & G_0 & 0
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[above] {$ 
+\backslash
+partial_0 $} (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-1) edge node[above] {$ 
+\backslash
+varepsilon_{1} $} (m-2-2);  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize, dashed] (m-1-2) edge node[above] {$ s_0 $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-3) edge node[below right] {$ s_{-1}=0 $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2.250) edge node[left=-3] {$F_{1,0}$} (m-2-2.110)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2.290) edge node[right=-3] {$F_{2,0}$}
+ (m-2-2.70);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Um die Homotopie zu zeigen, ist 
+\begin_inset Formula $f_{n}-g_{n}=s_{n-1}\circ\partial_{n}+\varepsilon_{n+1}\circ s_{n}$
+\end_inset
+
+ zu überprüfen, in diesem Fall hier also, dass ein 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+ existiert, sodass 
+\begin_inset Formula $F_{1,0}-F_{2,0}=\varepsilon_{1}\circ s_{0}$
+\end_inset
+
+ gilt, das heißt
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   {       & F_0  
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     G_{1} & G_0 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above] {$ 
+\backslash
+varepsilon_{1} $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[above left] {$ s_0 $} (m-2-1)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge node[above right] {$ F_{1,0}-F_{2,0}
+ $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+kommutiert.
+\end_layout
+
+\begin_layout Standard
+Das Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-DiagrammKommutiert"
+
+\end_inset
+
+ liefert uns 
+\begin_inset Formula $s_{0}$
+\end_inset
+
+, wenn wir zeigen:
+\begin_inset Formula 
+\begin{align*}
+\text{im}\left(F_{1,0}-F_{2,0}\right) & \subseteq\text{im}\left(\varepsilon_{1}\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Betrachte:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   {       & F_0 & M & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     G_{1} & G_0 & N & 0
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above] {$ 
+\backslash
+varepsilon_{1} $} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-2) edge node[above] {$ 
+\backslash
+sigma $} (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-3) edge (m-2-4);  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[above] {$ 
+\backslash
+pi $} (m-1-3) (m-1-3) edge (m-1-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2.250) edge node[left=-3] {$F_{1,0}$} (m-2-2.110)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2.290) edge node[right=-3] {$F_{2,0}$}
+ (m-2-2.70);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->] (m-1-3) edge node[right]{$f$} (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $x\in F_{0}$
+\end_inset
+
+ ist:
+\begin_inset Formula 
+\begin{align*}
+\sigma\left(F_{1,0}\left(x\right)-F_{2,0}\left(x\right)\right) & \stackrel{\text{c)}}{=}f\left(\pi\left(x\right)\right)-f\left(\pi\left(x\right)\right)=0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $F_{1,0}\left(x\right)-F_{2,0}\left(x\right)\in\ker\left(\sigma\right)\stackrel{\text{b)}}{=}\text{im}\left(\varepsilon_{1}\right)$
+\end_inset
+
+.
+ Also gilt 
+\begin_inset Formula $\text{im}\left(F_{1,0}-F_{2,0}\right)\subseteq\text{im}\left(\varepsilon_{1}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Induktionsschritt 
+\begin_inset Formula $n-1\leadsto n$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=4.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   {         & F_n  & F_{n-1} 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     G_{n+1} & G_n & G_{n-1}
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge node[above] {$ 
+\backslash
+partial_n $} (m-1-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-1) edge node[above] {$ 
+\backslash
+varepsilon_{n+1} $} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-2) edge node[above] {$ 
+\backslash
+varepsilon_{n} $} (m-2-3);  
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize, dashed] (m-1-2) edge node[above] {$ s_n $} (m-2-1);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-3) edge node[above=3] {$ s_{n-1} $} (m-2-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2.250) edge node[left=-3] {$F_{1,n}$} (m-2-2.110)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2.290) edge node[right=-3] {$F_{2,n}$}
+ (m-2-2.70);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-3.250) edge node[left=-3] {$F_{1,n-1}$} (m-2-3.110)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-3.290) edge node[right=-3] {$F_{2,n-1}$}
+ (m-2-3.70);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es ist 
+\begin_inset Formula $s_{n}$
+\end_inset
+
+ so zu konstruieren, dass gilt:
+\begin_inset Formula 
+\begin{align*}
+\alpha & :=F_{1,n}-F_{2,n}-s_{n-1}\circ\partial_{n}=\varepsilon_{n+1}\circ s_{n}
+\end{align*}
+
+\end_inset
+
+Dazu ist mit Lemma 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-DiagrammKommutiert"
+
+\end_inset
+
+ nur noch die Inklusion 
+\begin_inset Formula $\text{im}\left(\alpha\right)\subseteq\text{im}\left(\varepsilon_{n+1}\right)=\text{ker}\left(\varepsilon_{n}\right)$
+\end_inset
+
+ zu zeigen.
 \end_layout
 
 \begin_layout Part*
@@ -49994,7 +52640,7 @@ status open
 
 
 \backslash
-addcontentsline{toc}{section}{
+addcontentsline{toc}{chapter}{
 \backslash
 hspace*{2.7em}Danksagungen}
 \end_layout
