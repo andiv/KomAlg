@@ -9649,7 +9649,7 @@ f_{n-1}\left(\partial_{n}\left(x\right)\right) & \in\ker\left(\varepsilon_{n-1}\
 \qqed[\ref{sec:Prop-LiftZuKettenabbildung}]
 
 
-\section{Bemerkung und Definition \textmd{(quasi-Isomorphismus, Homotopie)}}
+\section{Bemerkung und Definition \textmd{(quasi-Isomorphismus, Homotopie)\label{sec:BuD-Homotopie}}}
 
 \begin{iiilist}
 
@@ -9736,7 +9736,7 @@ Homotopie von $f_{\bullet}$ nach $g_{\bullet}$ existiert.
 \end{iiilist}
 
 
-\section{Proposition}
+\section{Proposition\label{sec:Prop-HomotopieSelbeHomologie}}
 
 Für Kettenabbildungen $f_{\bullet},g_{\bullet}:D_{\bullet}\to E_{\bullet}$
 gilt für alle $n\in\mathbb{Z}$:
@@ -9761,7 +9761,7 @@ H_{n}\left(f\right)\left(x\right) & =f_{n}\left(z\right)+B_{n}\left(E_{\bullet}\
 \qqed
 
 
-\section{Proposition}
+\section{Proposition\label{sec:Prop-ExistenzHomotopie}}
 
 Betrachte die Situation:
 
@@ -9888,6 +9888,346 @@ Es ist $s_{n}$ so zu konstruieren, dass gilt:
 Dazu ist mit Lemma \ref{sec:Lem-DiagrammKommutiert} nur noch die
 Inklusion $\text{im}\left(\alpha\right)\subseteq\text{im}\left(\varepsilon_{n+1}\right)=\text{ker}\left(\varepsilon_{n}\right)$
 zu zeigen.
+
+%DATE: Di 17.7.12
+
+Rechne also:
+\begin{align}
+\varepsilon_{n}\circ\alpha & =\varepsilon_{n}\circ F_{1,n}-\varepsilon_{n}\circ F_{2,n}-\varepsilon_{n}\circ s_{n-1}\circ\partial_{n}=\nonumber \\
+ & \stackrel{F_{i}\text{ Kettenabb.}}{=}F_{1,n-1}\circ\partial_{n}-F_{2,n-1}\circ\partial_{n}-\varepsilon_{n}\circ s_{n-1}\circ\partial_{n}\label{eq:F1}
+\end{align}
+Wir wissen induktiv bereits, dass gilt:
+\begin{align}
+F_{1,n-1}-F_{2,n-1} & =\varepsilon_{n}\circ s_{n-1}+s_{n-2}\circ\partial_{n-1}\label{eq:F2}
+\end{align}
+Es folgt:
+\begin{align}
+F_{1,n-1}\circ\partial_{n}-F_{2,n-1}\circ\partial_{n} & \stackrel{\eqref{eq:F2}}{=}\varepsilon_{n}\circ s_{n-1}\circ\partial_{n}+s_{n-2}\circ\underbrace{\partial_{n-1}\circ\partial_{n}}_{=0}\label{eq:F3}
+\end{align}
+Einsetzen von \eqref{eq:F3} in \eqref{eq:F1} liefert:
+\begin{align*}
+\varepsilon_{n}\circ\alpha & =\varepsilon_{n}\circ s_{n-1}\circ\partial_{n}-\varepsilon_{n}\circ s_{n-1}\circ\partial_{n}=0
+\end{align*}
+Also gilt $\varepsilon_{n}\circ\alpha=0$ und damit $\text{im}\left(\alpha\right)\subseteq\ker\left(\varepsilon_{n}\right)$.\qqed
+
+
+\section{Konstruktion der Tor-Funktoren}
+
+Seien $M,N$ zwei $A$-Moduln. Setze für alle $n\in\mathbb{N}$ mit
+einer freien Auflösung $F_{\bullet}\to M\to0$:
+\begin{align*}
+\text{Tor}_{n}^{A}\left(M,N\right) & :=H_{n}\left(F_{\bullet}\otimes_{A}N\right)
+\end{align*}
+
+
+
+\subsubsection*{Behauptung}
+
+Diese Definition ist (bis auf Isomorphie) unabhängig von der Wahl
+der freien Auflösung:
+\begin{align*}
+F_{\bullet}\to M\to0
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+Betrachte wie in \ref{sec:BuD-Homotopie} i):
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=2.5em, text height=1.5ex, text depth=0.25ex]
+   { F_{\bullet} & M \\
+     G_{\bullet} & M \\
+     F_{\bullet} & M \\};
+  \path[->,font=\scriptsize,dashed] (m-1-1) edge node[left]{\ref{sec:Prop-LiftZuKettenabbildung}} node[right]{$f_{\bullet}$} (m-2-1);
+  \path[->] (m-1-1) edge  (m-1-2);
+  \path[->] (m-2-1) edge  (m-2-2);
+  \path[->,font=\scriptsize] (m-1-2) edge node[right]{id} (m-2-2);
+
+  \path[->,font=\scriptsize,dashed] (m-2-1) edge node[left]{\ref{sec:Prop-LiftZuKettenabbildung}} node[right]{$g_{\bullet}$} (m-3-1);
+  \path[->] (m-3-1) edge  (m-3-2);
+  \path[->,font=\scriptsize] (m-2-2) edge node[right]{id} (m-3-2);
+
+  \draw[->,font=\scriptsize]  (m-1-1) to [out=180,in=180] node[left]{$\text{id}_{F_{\bullet}}$} (m-3-1);
+\end{tikzpicture}
+\par\end{center}
+
+Sowohl $\text{id}_{F_{\bullet}}$ als auch $g_{\bullet}\circ f_{\bullet}$
+liften $\text{id}_{M}$ und wegen \ref{sec:Prop-ExistenzHomotopie}
+existiert eine Homotopie:
+\begin{align*}
+\left(s_{n}\right):g_{\bullet}\circ f_{\bullet} & \stackrel{\sim}{\to}\text{id}_{F_{\bullet}}
+\end{align*}
+Man sieht leicht, dass dann auch
+\begin{align*}
+\left(s_{n}\otimes\text{id}_{N}\right):\left(g_{\bullet}\otimes\text{id}_{N}\right)\circ\left(f_{\bullet}\otimes\text{id}_{N}\right) & \stackrel{\sim}{\to}\text{id}_{F\otimes_{A}N}
+\end{align*}
+eine Homotopie ist. Für alle $n\in\mathbb{Z}$ folgt:
+\begin{align*}
+\text{id}_{H_{n}\left(F_{\bullet}\otimes_{A}N\right)} & =H_{n}\left(\text{id}_{F_{\bullet}\otimes_{A}N}\right)\stackrel{\ref{sec:Prop-HomotopieSelbeHomologie}}{=}H_{n}\left(\left(g_{\bullet}\otimes\text{id}_{N}\right)\cdot\left(f_{\bullet}\otimes\text{id}_{N}\right)\right)\stackrel{\text{klar}}{=}H_{n}\left(g_{\bullet}\otimes\text{id}_{N}\right)\circ H_{n}\left(f_{\bullet}\otimes\text{id}_{N}\right)
+\end{align*}
+Analog zeigt man:
+\begin{align*}
+H_{n}\left(f_{\bullet}\otimes\text{id}_{N}\right)\circ H_{n}\left(g_{\bullet}\otimes\text{id}_{N}\right) & =\text{id}_{H_{n}\left(G_{\bullet}\otimes_{A}N\right)}
+\end{align*}
+Also sind
+\begin{align*}
+H_{n}\left(f_{\bullet}\otimes\text{id}\right):H_{n}\left(F_{\bullet}\otimes_{A}N\right) & \sr{\rightleftarrows}{\sim}{\sim}H_{n}\left(G_{\bullet}\otimes_{A}N\right):H_{n}\left(g_{\bullet}\otimes\text{id}\right)
+\end{align*}
+zueinander inverse Isomorphismen.\qqed
+
+Erkläre noch, wie \quotedblbase{}Tor auf lineare Abbildungen wirkt\textquotedblleft{}.
+(vergleiche \ref{sec:SuD-Tensorprodukt} für den Fall $n=0$)
+
+Ist $f:N\to N'$ eine $A$-lineare Abbildung, so auch:
+\begin{align*}
+\text{Tor}_{n}^{A}\left(M,f\right):\underbrace{H_{n}\left(F_{\bullet}\otimes_{A}N\right)}_{=\text{Tor}_{n}^{A}\left(M,N\right)} & \xrightarrow{H_{n}\left(F_{\bullet}\otimes_{A}N\xrightarrow{\text{id}\otimes f}F_{\bullet}\otimes_{A}N'\right)}\underbrace{H_{n}\left(F_{\bullet}\otimes_{A}N'\right)}_{=\text{Tor}_{n}^{A}\left(M,N'\right)}
+\end{align*}
+Es gilt:
+\begin{align*}
+\text{Tor}_{n}^{A}\left(M,f\circ f'\right) & =\text{Tor}_{n}^{A}\left(M,f\right)\circ\text{Tor}_{n}^{A}\left(M,f'\right)
+\end{align*}
+Analoges gilt für die Varianz von $\text{Tor}_{n}^{A}\left(M,N\right)$
+in der ersten Variablen $M$, was mit Hilfe von \ref{sec:Prop-HomotopieSelbeHomologie}
+und \ref{sec:Prop-ExistenzHomotopie} folgt.
+
+
+\subsubsection*{Bemerkung}
+
+Es gilt (ohne Beweis):
+\begin{align*}
+\text{Tor}_{n}^{A}\left(M,N\right) & :=H_{n}\left(F_{\bullet}\otimes_{A}N\right)\stackrel{\sim}{=}H_{n}\left(M\otimes_{A}G_{\bullet}\right)\stackrel{\sim}{=}H_{n}\left(F_{\bullet}\stackrel{?}{\otimes_{A}}G_{\bullet}\right)
+\end{align*}
+
+
+
+\section{Bemerkung \textmd{(\quotedblbase{}Die \texorpdfstring{$\left\{ \text{Tor}_{n}^{A}\left(-,-\right)\right\} _{n\in\mathbb{Z}}$}{\{Tor_n^A(-,-)\}_n}
+bilden einen $\partial$-Funktor.\textquotedblleft{})\label{sec:Bem-Delta-Funktor}}}
+
+Ist
+\begin{align*}
+0\to M'\stackrel{\iota}{\to}M\stackrel{\pi}{\to}M''\to0
+\end{align*}
+eine kurze exakte Folge von $A$-Moduln, so haben wir ein Diagramm
+von $A$-Moduln:
+
+\noindent \hspace*{-10mm}\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=3.5em, text height=1.5ex, text depth=0.25ex]
+   { \vdots & \vdots & \text{Tor}_2^A(M'',N) &\\
+     \text{Tor}_1^A(M',N) & \text{Tor}_1^A(M,N) & \text{Tor}_1^A(M'',N) & \\
+     M'\otimes_A N & M\otimes_A N & M''\otimes_A N & 0 \\
+     \text{Tor}_0^A(M',N) & \text{Tor}_0^A(M,N) & \text{Tor}_0^A(M'',N) & 0 \\};
+% Übergang 3-4
+  \path (m-3-1) -- node[rotate=90]{$=$} (m-4-1)
+        (m-3-2) -- node[rotate=90]{$=$} (m-4-2)
+        (m-3-3) -- node[rotate=90]{$=$} (m-4-3)
+        (m-3-4) -- node[rotate=90]{$=$} (m-4-4);
+% Zeile 4
+  \path[->,font=\scriptsize] (m-4-1) edge node[above]{$\text{Tor}_0^A(\iota,N)$} (m-4-2)
+                             (m-4-2) edge node[above]{$\text{Tor}_0^A(\pi,N)$} (m-4-3)
+                             (m-4-3) edge (m-4-4);
+% Zeile 3
+  \path[->,font=\scriptsize] (m-3-1) edge node[above]{$\iota \otimes_A \text{id}_N$} (m-3-2)
+                             (m-3-2) edge node[above]{$\pi \otimes_A \text{id}_N$} (m-3-3)
+                             (m-3-3) edge (m-3-4);
+% Zeile 2
+  \path[->,font=\scriptsize] (m-2-1) edge node[above]{$\text{Tor}_1^A(\iota,N)$} (m-2-2)
+                             (m-2-2) edge node[above]{$\text{Tor}_1^A(\pi,N)$} (m-2-3);
+% verbindende Homomorphismen
+  \draw[->,font=\scriptsize,dashed] (m-2-3) to [out=0,in=180] node[above]{$\partial_1$} (m-3-1);
+  \draw[->,font=\scriptsize,dashed] (m-1-3) to [out=0,in=180] node[above]{$\partial_2$} (m-2-1);
+\end{tikzpicture}
+
+Wir werden sehen, dass \quotedblbase{}verbindende Homomorphismen\textquotedblleft{}
+$\partial_{n}$ für $n\in\mathbb{N}_{\ge1}$ existieren, sodass das
+Diagramm eine lange exakte Folge wird.
+
+Beachte:
+\begin{align*}
+\ker\left(\iota\otimes\text{id}_{N}\right) & =\text{im}\left(\partial_{1}\right)
+\end{align*}
+
+
+
+\section{Proposition und Definition \textmd{(exakte Folge von Komplexen)\label{sec:PuD-exakteFolgeKomplexe}}}
+
+Seien
+\begin{align*}
+0\to M'\stackrel{\iota}{\to}M\stackrel{\pi}{\to}M''\to0
+\end{align*}
+eine kurze exakte Folge von $A$-Moduln und
+\begin{align*}
+F_{\bullet}'\stackrel{\varepsilon'}{\to}M'\to0 &  & F_{\bullet}''\stackrel{\varepsilon''}{\to}M''\to0
+\end{align*}
+freie Auflösungen.
+
+Für $n\in\mathbb{N}$ setze $F_{n}:=F_{n}'\oplus F_{n}''$ und seien
+$\iota_{n}:F_{n}^{'}\hookrightarrow F_{n}$ (bzw. $\pi_{n}:F_{n}\twoheadrightarrow F_{n}''$)
+die kanonischen Inklusionen (bzw. Projektionen). Dann existieren Differentiale
+$\partial_{n}:F_{n}\to F_{n-1}$ für $n\in\mathbb{N}_{\ge1}$ so,
+dass $\left(F_{\bullet},\partial\right)$ ein Komplex ist und $\iota_{\bullet}:F_{\bullet}'\hookrightarrow F_{\bullet}$
+und $\pi_{\bullet}:F_{\bullet}\to F_{\bullet}''$ Kettenabbildungen
+sind. Offenbar ist dann
+\begin{align*}
+0\to F_{\bullet}'\stackrel{\iota_{\bullet}}{\to}F_{\bullet}\stackrel{\pi_{\bullet}}{\to}F_{\bullet}''\to0
+\end{align*}
+\emph{eine kurze exakte Folge von Komplexen}, das heißt für alle $n\in\mathbb{Z}$
+ist
+\begin{align*}
+0\to F_{n}'\stackrel{\iota_{n}}{\to}F_{n}\stackrel{\pi_{n}}{\to}F_{n}''\to0
+\end{align*}
+exakt. Es existiert ein $\varepsilon:F_{0}\to M$ so, dass $F_{\bullet}\stackrel{\varepsilon}{\to}M\to0$
+eine freie Auflösung ist und folgendes Diagramm kommutiert:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=3.5em, text height=1.5ex, text depth=0.25ex]
+   { 0 & F_{\bullet}' & F_\bullet & F_\bullet'' & 0\\
+     0 & M' & M & m'' & 0\\};
+  \path[->,font=\scriptsize] (m-1-1) edge (m-1-2)
+                             (m-1-2) edge node[above]{$\iota_\bullet$} (m-1-3)
+                             (m-1-3) edge node[above]{$\pi_\bullet$} (m-1-4)
+                             (m-1-4) edge (m-1-5);
+  \path[->,font=\scriptsize] (m-2-1) edge (m-2-2)
+                             (m-2-2) edge node[above]{$\iota$} (m-2-3)
+                             (m-2-3) edge node[above]{$\pi$} (m-2-4)
+                             (m-2-4) edge (m-2-5);
+  \path[->,font=\scriptsize] (m-1-1) edge (m-2-1)
+                             (m-1-2) edge node[right]{$\varepsilon'$} (m-2-2)
+                             (m-1-3) edge node[right]{$\varepsilon$} (m-2-3)
+                             (m-1-4) edge node[right]{$\varepsilon''$} (m-2-4)
+                             (m-1-5) edge (m-2-5);
+\end{tikzpicture}
+\par\end{center}
+
+Kurz: Die obere kurze exakte Folge von $A$-Moduln lieftet zu der
+unteren kurzen exakten Folge von freien Auflösungen.
+
+(Beachte, dass die freie Auflösung von $M$ nicht beliebig ist.)
+
+
+\subsubsection*{Beweis}
+
+Ähnlich wie \ref{sec:Prop-ExistenzHomotopie}.
+
+\textcolor{green}{TODO: Beweis als Übung ergänzen}
+
+\qqed
+
+
+\section{Bemerkung}
+
+Sind
+\begin{align*}
+\mathcal{E}=\left(0\to M'\to M\to M''\to0\right)
+\end{align*}
+eine kurze exakte Folge von $A$-Moduln und $M''$ \noun{frei}, so
+ist für \noun{jeden} $A$-Modul $N$ die Folge $\mathcal{E}\otimes_{A}N$
+exakt, denn $\mathcal{E}\otimes_{A}N$ spaltet sogar. Also erhalten
+wir in der Situation von \ref{sec:PuD-exakteFolgeKomplexe} eine kurze
+exakte Folge von Komplexen:
+\begin{align*}
+0\to F_{\bullet}'\otimes N\stackrel{\iota_{\bullet}\otimes\text{id}_{N}}{\to}F_{\bullet}\otimes N\stackrel{\pi_{\bullet}\otimes\text{id}_{N}}{\to}F_{\bullet}''\otimes N\to0
+\end{align*}
+Deren Homologie berechnet alle in \ref{sec:Bem-Delta-Funktor} auftretenden
+Tor-Terme.
+
+
+\section{Lemma \textmd{(Schlangenlemma)}}
+
+Sei
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3.5em, column sep=3.5em, text height=1.5ex, text depth=0.25ex]
+   {  & \color{red}{\ker(f')} & \color{red}{\ker(f)} & \color{red}{\ker(f'')} &\\
+      & M' & M & M'' & 0\\
+     0 & N' & N & N'' & \\
+     & \color{red}{\text{koker}(f')} & \color{red}{\text{koker}(f)} & \color{red}{\text{koker}(f'')} \\};
+  \path[->,font=\scriptsize] (m-2-2) edge node[above]{$\iota$} (m-2-3)
+                             (m-2-3) edge node[above]{$\pi$} (m-2-4)
+                             (m-2-4) edge (m-2-5);
+  \path[->,font=\scriptsize] (m-3-1) edge (m-3-2)
+                             (m-3-2) edge node[above]{$\tilde{\iota}$} (m-3-3)
+                             (m-3-3) edge node[above]{$\tilde{\pi}$} (m-3-4);
+  \path[->,font=\scriptsize] (m-2-2) edge node[left]{$f'$} (m-3-2)
+                             (m-2-3) edge node[left]{$f$} (m-3-3)
+                             (m-2-4) edge node[left]{$f''$} (m-3-4);
+  \path[right hook->,red] (m-1-2) edge (m-2-2)
+                      (m-1-3) edge (m-2-3)
+                      (m-1-4) edge (m-2-4);
+  \path[->>,red] (m-3-2) edge (m-4-2)
+                      (m-3-3) edge (m-4-3)
+                      (m-3-4) edge (m-4-4);
+  \node[orange,font=\scriptsize] (del1) at ($(m-1-4.320) + (0.1,-0.2)$) {$m''$};
+  \node[orange,font=\scriptsize] (del2) at ($(m-2-4.40) + (0.1,0.2)$) {$m''$};
+  \draw[|->,orange] (del1) -- (del2);
+  \node[orange,font=\scriptsize] (del4) at ($(m-2-3.320) + (0.1,-0.2)$) {$m$};
+  \node[orange,font=\scriptsize] (del3) at ($(m-2-4.220) + (-0.1,-0.2)$) {$m''$};
+  \draw[|->,orange] (del4) -- (del3);
+  \node[orange,font=\scriptsize] (del5) at ($(m-3-3.40) + (0.1,0.2)$) {$f(m)$};
+  \draw[|->,orange] (del4) -- (del5);
+  \node[orange,font=\scriptsize] (del6) at ($(m-3-3.220) + (-0.1,-0.2)$) {$f(m)$};
+  \node[orange,font=\scriptsize] (del7) at ($(m-3-2.320) + (0.1,-0.2)$) {$f(m)$};
+  \draw[|->,orange] (del7) -- (del6);
+  \node[orange,font=\scriptsize] (del8) at ($(m-4-2.40) + (0.1,0.2)$) {$\hspace*{15mm}f(m)+\text{im}(f')$};
+  \draw[|->,orange] (del7) -- (del8);
+\end{tikzpicture}
+\par\end{center}
+
+ein kommutatives Diagramm von $A$-Moduln mit exakten Zeilen.
+
+Dann ist die Abbildung
+\begin{align*}
+\partial:\ker\left(f''\right) & \to\text{koker}\left(f'\right)=\modulo{N'}{\text{im}\left(f'\right)}\\
+m'' & \mapsto f\left(\pi^{-1}\left(m''\right)\right)+\text{im}\left(f'\right)
+\end{align*}
+wohldefiniert und $A$-linear und die Folge
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=3.5em, text height=1.5ex, text depth=0.25ex]
+   { \ker(f') & \ker(f) & \ker(f'') \\
+     \text{koker}(f') & \text{koker}(f) & \text{koker}(f'') \\};
+% Zeile 1
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\iota\big|_{\ker(f')}$} (m-1-2)
+                             (m-1-2) edge node[above]{$\pi\big|_{\ker(f)}$} (m-1-3);
+% Zeile 2
+  \path[->,font=\scriptsize] (m-2-1) edge node[above]{$\tilde{\iota}$} (m-2-2)
+                             (m-2-2) edge node[above]{$\tilde{\pi}$} (m-2-3);
+% verbindende Homomorphismen
+  \draw[->,font=\scriptsize,dashed] (m-1-3.0) to [out=0,in=180] node[above]{$\partial_1$} (m-2-1.180);
+\end{tikzpicture}
+\par\end{center}
+
+exakt.
+
+
+\subsubsection*{Beweis}
+
+Für die Wohldefiniertheit (und die $A$-Linearität) von $\partial$
+sind zu zeigen:
+\begin{enumerate}
+\item Für alle $m\in M$ gilt: $\pi\left(m\right)\in\ker\left(f''\right)\quad\Rightarrow\quad f\left(m\right)\in N'$
+\item Für alle $m_{1},m_{2}\in M$ gilt: $\pi\left(m_{1}\right)=\pi\left(m_{2}\right)\in\ker\left(f''\right)\quad\Rightarrow\quad f\left(m_{1}\right)-f\left(m_{2}\right)\in\text{im}\left(f'\right)$
+\end{enumerate}
+Es gilt:
+\begin{align*}
+\tilde{\pi}\left(f\left(m\right)\right) & =f''\left(\pi\left(m\right)\right)\stackrel{m\in\ker\left(\pi\right)}{=}0\quad\Rightarrow\quad f\left(m\right)\in\ker\left(\tilde{\pi}\right)=N'\stackrel{\sim}{=}\text{im}\left(\tilde{\iota}\right)
+\end{align*}
+\qqed[1.]
+\begin{align*}
+\pi\left(m_{1}-m_{2}\right) & =\pi\left(m_{1}\right)-\pi\left(m_{2}\right)=0\\
+\quad\Rightarrow\quad & m_{1}-m_{2}\in\ker\left(\pi\right)=\text{im}\left(\iota\right)\\
+\quad\Rightarrow\quad & m_{1}-m_{2}=\iota\left(m'\right)\text{ für geeignetes }m'\in M'
+\end{align*}
+ Es folgt:
+\begin{align*}
+f\left(m_{1}\right)-f\left(m_{2}\right) & =f\left(m_{1}-m_{2}\right)=f\left(\iota\left(m'\right)\right)=\tilde{\iota}\left(f'\left(m'\right)\right)\in\text{im}\left(f'\right)
+\end{align*}
+\qqed[2.]
 
 
 \part*{Anhang\thispagestyle{empty}}
