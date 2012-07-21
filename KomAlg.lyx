@@ -17792,7 +17792,14 @@ ii)
 \begin_inset Formula $\Rightarrow$
 \end_inset
 
- i) wird später bewiesen.
+ i) wird in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Kor-Flach"
+
+\end_inset
+
+ bewiesen.
 \begin_inset ERT
 status open
 
@@ -49785,6 +49792,13 @@ nicht
 
 \begin_layout Section
 Beispiel
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Bsp-Tor-Untermodul"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -53068,7 +53082,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 
 \backslash
 texorpdfstring{
@@ -53086,7 +53099,6 @@ status open
 
 \begin_layout Plain Layout
 
-\series medium
 }{
 \backslash
 {Tor_n^A(-,-)
@@ -53695,7 +53707,7 @@ Beweis
 \end_layout
 
 \begin_layout Standard
-Ähnlich wie 
+Dies folgt ähnlich wie 
 \begin_inset CommandInset ref
 LatexCommand ref
 reference "sec:Prop-ExistenzHomotopie"
@@ -53703,15 +53715,6 @@ reference "sec:Prop-ExistenzHomotopie"
 \end_inset
 
 .
-\end_layout
-
-\begin_layout Standard
-
-\color green
-TODO: Beweis als Übung ergänzen
-\end_layout
-
-\begin_layout Standard
 \begin_inset ERT
 status open
 
@@ -53802,6 +53805,13 @@ reference "sec:Bem-Delta-Funktor"
 Lemma 
 \series medium
 (Schlangenlemma)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Lem-Schlangenlemma"
+
+\end_inset
+
+
 \end_layout
 
 \begin_layout Standard
@@ -54091,7 +54101,7 @@ node[orange,font=
 \backslash
 scriptsize] (del8) at ($(m-4-2.40) + (0.1,0.2)$) {$
 \backslash
-hspace*{15mm}f(m)+
+hspace*{13mm}f(m)+
 \backslash
 text{im}(f')$};
 \end_layout
@@ -54235,18 +54245,22 @@ path[->,font=
 \backslash
 scriptsize] (m-2-1) edge node[above]{$
 \backslash
+overline{
+\backslash
 tilde{
 \backslash
-iota}$} (m-2-2)
+iota}}$} (m-2-2)
 \end_layout
 
 \begin_layout Plain Layout
 
                              (m-2-2) edge node[above]{$
 \backslash
+overline{
+\backslash
 tilde{
 \backslash
-pi}$} (m-2-3);
+pi}}$} (m-2-3);
 \end_layout
 
 \begin_layout Plain Layout
@@ -54262,7 +54276,7 @@ draw[->,font=
 \backslash
 scriptsize,dashed] (m-1-3.0) to [out=0,in=180] node[above]{$
 \backslash
-partial_1$} (m-2-1.180);
+partial$} (m-2-1.180);
 \end_layout
 
 \begin_layout Plain Layout
@@ -54370,6 +54384,1781 @@ status open
 
 \backslash
 qqed[2.]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+%DATE: Fr 20.7.12
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zeige nun die Exaktheit der Schlangenfolge an der Stelle 
+\begin_inset Formula $\ker\left(f''\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $m\in\ker\left(f\right)$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\partial\left(\pi\big|_{\ker\left(f\right)}\left(m\right)\right) & =f\left(m\right)+\text{im}\left(f'\right)=0+\text{im}\left(f'\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\text{im}\left(\pi\big|_{\ker\left(f\right)}\right)\subseteq\ker\left(\partial\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei nun 
+\begin_inset Formula $m''\in\ker\left(\partial\right)\subseteq\ker\left(f''\right)$
+\end_inset
+
+.
+ Wähle 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\left(m\right)=m''$
+\end_inset
+
+.
+ Dann gilt:
+\begin_inset Formula 
+\begin{align*}
+0 & =\partial\left(m''\right)=f\left(m\right)+\text{im}\left(f'\right)
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $f\left(m\right)=f'\left(m'\right)=f'\left(\iota\left(m'\right)\right)$
+\end_inset
+
+ für geeignetes 
+\begin_inset Formula $m'\in M'$
+\end_inset
+
+.
+ Es folgt, dass für 
+\begin_inset Formula $\tilde{m}:=m-\iota\left(m'\right)$
+\end_inset
+
+ gilt:
+\begin_inset Formula 
+\begin{align*}
+\pi\left(\tilde{m}\right) & =\pi\left(m\right)-\underbrace{\left(\pi\circ\iota\right)}_{=0}\left(m'\right)=\pi\left(m\right)=m''\\
+f\left(\tilde{m}\right) & =f\left(m\right)-f\left(m'\right)=0
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $\tilde{m}\in\ker\left(f\right)$
+\end_inset
+
+ und es folgt 
+\begin_inset Formula $m''=\pi\left(\tilde{m}\right)\in\text{im}\left(\pi\big|_{\ker\left(f\right)}\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Exaktheit bei $
+\backslash
+ker(f'')$]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Zeige nun die Exaktheit der Schlangenfolge an der Stelle 
+\begin_inset Formula $\text{koker}\left(f'\right)$
+\end_inset
+
+:
+\end_layout
+
+\begin_layout Standard
+Für 
+\begin_inset Formula $m''\in\ker\left(f''\right)$
+\end_inset
+
+ gilt für jedes 
+\begin_inset Formula $m\in M$
+\end_inset
+
+ mit 
+\begin_inset Formula $\pi\left(m\right)=m''$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\partial\left(m''\right) & =f\left(m\right)+\text{im}\left(f'\right)
+\end{align*}
+
+\end_inset
+
+Es folgt:
+\begin_inset Formula 
+\begin{align*}
+\overline{\tilde{\iota}}\left(\partial\left(m''\right)\right) & =\underbrace{\tilde{\iota}\left(f\left(m\right)\right)}_{\in\text{im}\left(f\right)}+\text{im}\left(f\right)=0
+\end{align*}
+
+\end_inset
+
+Also gilt 
+\begin_inset Formula $\text{im}\left(\partial\right)\subseteq\ker\left(\overline{\tilde{\iota}}\right)$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Sei nun 
+\begin_inset Formula $x\in\ker\left(\overline{\tilde{\iota}}\right)\subseteq\text{koker}\left(f'\right)$
+\end_inset
+
+.
+ Dann gilt 
+\begin_inset Formula $x=n'+\text{im}\left(f'\right)$
+\end_inset
+
+ für ein 
+\begin_inset Formula $n'\in N'$
+\end_inset
+
+, und aus
+\begin_inset Formula 
+\begin{align*}
+0 & =\overline{\tilde{\iota}}\left(x\right)=\tilde{\iota}\left(n'\right)+\text{im}\left(f\right)
+\end{align*}
+
+\end_inset
+
+folgt für geeignetes 
+\begin_inset Formula $m\in M$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\tilde{\iota}\left(n'\right) & =f\left(m\right)
+\end{align*}
+
+\end_inset
+
+Weiter folgt:
+\begin_inset Formula 
+\begin{align*}
+f''\left(\pi\left(m\right)\right) & =\tilde{\pi}\left(f\left(m\right)\right)=\underbrace{\left(\tilde{\pi}\circ\tilde{\iota}\right)}_{=0}\left(n'\right)=0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\pi\left(m\right)\in\ker\left(f''\right)$
+\end_inset
+
+.
+ Ferner gilt:
+\begin_inset Formula 
+\begin{align*}
+\partial\left(\pi\left(m\right)\right) & =f\left(m\right)+\text{im}\left(f'\right)=\tilde{\iota}\left(n'\right)+\text{im}\left(f'\right)=n'+\text{im}\left(f'\right)=x
+\end{align*}
+
+\end_inset
+
+Daher ist 
+\begin_inset Formula $x\in\text{im}\left(\partial\right)$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[Exaktheit bei $
+\backslash
+text{koker}(f')$]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Die Exaktheit bei 
+\begin_inset Formula $\ker\left(f\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\text{koker}\left(f\right)$
+\end_inset
+
+ folgt direkt aus der Exaktheit des Ausgangsdiagramm bei 
+\begin_inset Formula $M$
+\end_inset
+
+ und 
+\begin_inset Formula $N$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz und Definition 
+\series medium
+(verbindender Homomorphismus)
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:SuD-verbindender-Homomorphismus"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Ist
+\begin_inset Formula 
+\begin{align*}
+0\to\left(A_{\bullet},\alpha_{\bullet}\right)\stackrel{f_{\bullet}}{\to}\left(B_{\bullet},\beta_{\bullet}\right)\stackrel{g_{\bullet}}{\to}\left(C_{\bullet},\gamma_{\bullet}\right)\to0
+\end{align*}
+
+\end_inset
+
+eine kurze exakte Folge von Komplexen, so existiert für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ ein 
+\emph on
+verbindender Homomorphismus
+\emph default
+ 
+\begin_inset Formula $\partial_{n}:H_{n}\left(C_{\bullet}\right)\to H_{n-1}\left(A_{\bullet}\right)$
+\end_inset
+
+ so, dass die folgende lange Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln exakt ist:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=3em, column sep=3.5em, text height=1.5ex
+, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   { H_{n}
+\backslash
+left(A_{
+\backslash
+bullet}
+\backslash
+right) & H_{n}
+\backslash
+left(B_{
+\backslash
+bullet}
+\backslash
+right) & H_{n}
+\backslash
+left(C_{
+\backslash
+bullet}
+\backslash
+right) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     H_{n-1}
+\backslash
+left(A_{
+\backslash
+bullet}
+\backslash
+right) & H_{n-1}
+\backslash
+left(B_{
+\backslash
+bullet}
+\backslash
+right) & H_{n-1}
+\backslash
+left(C_{
+\backslash
+bullet}
+\backslash
+right) 
+\backslash
+
+\backslash
+ 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+% Zeile 1
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-1) edge node[above]{$H_{n}
+\backslash
+left(f_{
+\backslash
+bullet}
+\backslash
+right)$} (m-1-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-2) edge node[above]{$H_{n}
+\backslash
+left(g_{
+\backslash
+bullet}
+\backslash
+right)$} (m-1-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+% Zeile 2
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge node[above]{$H_{n-1}
+\backslash
+left(f_{
+\backslash
+bullet}
+\backslash
+right)$} (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-2) edge node[above]{$H_{n-1}
+\backslash
+left(g_{
+\backslash
+bullet}
+\backslash
+right)$} (m-2-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+% verbindende Homomorphismen
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+draw[->,font=
+\backslash
+scriptsize,dashed] (m-1-3.0) to [out=0,in=180] node[above]{$
+\backslash
+partial_n$} (m-2-1.180);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ ist folgendes Diagramm von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln kommutativ:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2.5em, column sep=1.5em, text height=1.5e
+x, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+   {   & 0 & 0 & 0 &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     0 & Z_n(A_
+\backslash
+bullet) & Z_n(B_
+\backslash
+bullet) & Z_n(C_
+\backslash
+bullet) & & (1_n) 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     0 & A_n & B_n & C_n & 0 &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+     0 & A_{n-1} & B_{n-1} & C_{n-1} & 0 &
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+ & 
+\backslash
+modulo{A_{n-1}}{B_{n-1}(A_
+\backslash
+bullet)} & 
+\backslash
+modulo{B_{n-1}}{B_{n-1}(B_
+\backslash
+bullet)} & 
+\backslash
+modulo{C_{n-1}}{B_{n-1}(C_
+\backslash
+bullet)} & 0 & (2_{n-1})
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    & 0 & 0 & 0 & 
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+% Horizontal
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-1) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-2) edge (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-3) edge (m-2-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-3-1) edge (m-3-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-3-2) edge node[above]{$f_n$} (m-3-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-3-3) edge node[above]{$g_n$} (m-3-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-3-4) edge (m-3-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-4-1) edge (m-4-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-4-2) edge node[above]{$f_{n-1}$} (m-4-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-4-3) edge node[above]{$g_{n-1}$} (m-4-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-4-4) edge (m-4-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-5-2) edge (m-5-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-5-3) edge (m-5-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-5-4) edge (m-5-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+% Vertikal
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-2) edge (m-2-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-2) edge (m-3-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-3-2) edge node[right]{$
+\backslash
+alpha_n$} (m-4-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-4-2) edge (m-5-2)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-5-2) edge (m-6-2);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-3) edge (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-3) edge (m-3-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-3-3) edge node[right]{$
+\backslash
+beta_n$} (m-4-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-4-3) edge (m-5-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-5-3) edge (m-6-3);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-4) edge (m-2-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-4) edge (m-3-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-3-4) edge node[right]{$
+\backslash
+gamma_n$} (m-4-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-4-4) edge (m-5-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-5-4) edge (m-6-4);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Nach Voraussetzung sind die zwei Zeilen in der Mitte exakt, nach Konstruktion
+ sind alle Spalten exakt und aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-Schlangenlemma"
+
+\end_inset
+
+ angewendet auf die mittleren zwei Zeilen folgt die Exaktheit der Zeilen
+ 
+\begin_inset Formula $\left(1_{n}\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $\left(2_{n}\right)$
+\end_inset
+
+ für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+.
+ Erhalte ein kommutatives Diagramm mit exakten Zeilen:
+\end_layout
+
+\begin_layout Standard
+\noindent
+\align center
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{tikzpicture}
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+matrix (m) [matrix of math nodes, row sep=2.5em, column sep=1.5em, text height=1.5e
+x, text depth=0.25ex]
+\end_layout
+
+\begin_layout Plain Layout
+
+  { (2_n) & & 
+\backslash
+modulo{A_{n}}{B_{n}(A_
+\backslash
+bullet)} & 
+\backslash
+modulo{B_{n}}{B_{n}(B_
+\backslash
+bullet)} & 
+\backslash
+modulo{C_{n}}{B_{n}(C_
+\backslash
+bullet)} & 0 
+\backslash
+
+\backslash
+
+\end_layout
+
+\begin_layout Plain Layout
+
+    (1_{n-1}) & 0 & Z_{n-1}(A_
+\backslash
+bullet) & Z_{n-1}(B_
+\backslash
+bullet) & Z_{n-1}(C_
+\backslash
+bullet) &  
+\backslash
+
+\backslash
+};
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-3) edge node[above]{$
+\backslash
+overline{f_n}$} (m-1-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-4) edge node[above]{$
+\backslash
+overline{g_n}$} (m-1-5)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-5) edge (m-1-6);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-2-2) edge (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-3) edge node[above]{$f_{n-1}$} (m-2-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-2-4) edge node[above]{$g_{n-1}$} (m-2-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+  
+\backslash
+path[->,font=
+\backslash
+scriptsize] (m-1-3) edge node[right]{$
+\backslash
+overline{
+\backslash
+alpha_n}$} (m-2-3)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-4) edge node[right]{$
+\backslash
+overline{
+\backslash
+beta_n}$} (m-2-4)
+\end_layout
+
+\begin_layout Plain Layout
+
+                             (m-1-5) edge node[right]{$
+\backslash
+overline{
+\backslash
+gamma_n}$} (m-2-5);
+\end_layout
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{tikzpicture}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Beachte
+\begin_inset Formula 
+\begin{align*}
+\text{im}\left(\alpha_{n}\right) & \subseteq Z_{n-1}\left(A_{\bullet}\right)\\
+\alpha_{n}\left(B_{n}\left(A_{\bullet}\right)\right) & =0\\
+\ker\left(\overline{\alpha}_{n}\right) & \stackrel{\sim}{=}H_{n}\left(A_{\bullet}\right)\\
+\text{koker}\left(\overline{\alpha}_{n}\right) & \stackrel{\sim}{=}H_{n-1}\left(A_{\bullet}\right)
+\end{align*}
+
+\end_inset
+
+und Analoges für 
+\begin_inset Formula $B_{\bullet}$
+\end_inset
+
+ und 
+\begin_inset Formula $C_{\bullet}$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+Wendet man nun 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Lem-Schlangenlemma"
+
+\end_inset
+
+ auf dieses Diagramm an, so erhält man für alle 
+\begin_inset Formula $n\in\mathbb{Z}$
+\end_inset
+
+ eine exakte Folge:
+\begin_inset Formula 
+\begin{align*}
+H_{n}\left(A_{\bullet}\right)\stackrel{H_{n}\left(f_{\bullet}\right)}{\to}H_{n}\left(B_{\bullet}\right)\stackrel{H_{n}\left(g_{\bullet}\right)}{\to}H_{n}\left(C_{\bullet}\right)\stackrel{\partial_{n}}{\to}H_{n-1}\left(A_{\bullet}\right)\stackrel{H_{n-1}\left(f_{\bullet}\right)}{\to}H_{n-1}\left(B_{\bullet}\right)\stackrel{H_{n-1}\left(g_{\bullet}\right)}{\to}H_{n-1}\left(C_{\bullet}\right)
+\end{align*}
+
+\end_inset
+
+Die Behauptung folgt nun durch Zusammensetzen dieser exakten Folgen.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Satz
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Satz-lange-Exakte-Folge"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $0\to M'\to M\to M''\to0$
+\end_inset
+
+ eine kurze exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln und 
+\begin_inset Formula $N$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul.
+ Dann existiert eine lange exakte Folge von Tor-Moduln wie in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bem-Delta-Funktor"
+
+\end_inset
+
+ angegeben.
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:SuD-verbindender-Homomorphismus"
+
+\end_inset
+
+ angewandt auf die kurze exakte Folge von Komplexen in 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:PuD-exakteFolgeKomplexe"
+
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Das Folgende subsummiert 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Prop-flach"
+
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Section
+Korollar 
+\series medium
+(Charakterisierung von flach)
+\series default
+
+\begin_inset CommandInset label
+LatexCommand label
+name "sec:Kor-Flach"
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Für einen 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul 
+\begin_inset Formula $M$
+\end_inset
+
+ sind äquivalent:
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+begin{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ 
+\begin_inset Formula $M$
+\end_inset
+
+ ist flach.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $n\in\mathbb{N}_{\ge1}$
+\end_inset
+
+ und alle 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln 
+\begin_inset Formula $N$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\text{Tor}_{n}^{A}\left(M,N\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln 
+\begin_inset Formula $N$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\text{Tor}_{1}^{A}\left(M,N\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle endlich erzeugten Ideale 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\text{Tor}_{1}^{A}\left(M,\modulo AI\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+iii
+\end_layout
+
+\end_inset
+
+ Für alle endlich erzeugten Ideale 
+\begin_inset Formula $i:I\hookrightarrow A$
+\end_inset
+
+ ist 
+\begin_inset Formula $i\otimes\text{id}_{M}:I\otimes_{A}M\to A\otimes_{A}M\stackrel{\sim}{=}M$
+\end_inset
+
+ injektiv.
+\end_layout
+
+\begin_layout Standard
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+end{iiilist}
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+„i) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ ii)“: 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-Tor-Untermodul"
+
+\end_inset
+
+ i).
+\end_layout
+
+\begin_layout Standard
+„ii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iii)”: Wähle 
+\begin_inset Formula $n=1$
+\end_inset
+
+ in ii).
+\end_layout
+
+\begin_layout Standard
+„iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iv)”: Wähle 
+\begin_inset Formula $N=\modulo AI$
+\end_inset
+
+ in iii).
+\end_layout
+
+\begin_layout Standard
+„iv) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ v)“: Aus der kurzen exakten Folge
+\begin_inset Formula 
+\begin{align*}
+0\to I\to A\to\modulo AI\to0
+\end{align*}
+
+\end_inset
+
+erhalte durch Anwenden des Tensorproduktes und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-lange-Exakte-Folge"
+
+\end_inset
+
+ eine exakte Folge:
+\end_layout
+
+\begin_layout Standard
+\begin_inset Formula 
+\begin{align*}
+0\stackrel{\text{iv)}}{=}\text{Tor}_{1}^{A}\left(M,\modulo AI\right)\to M\otimes_{A}I\stackrel{\text{id}_{M}\otimes i}{\to}M\otimes_{A}A\to M\otimes_{A}\modulo AI\to0
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $\text{id}_{M}\otimes i$
+\end_inset
+
+ und damit 
+\begin_inset Formula $i\otimes\text{id}_{M}$
+\end_inset
+
+ injektiv.
+\end_layout
+
+\begin_layout Standard
+„v) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iv)“: Da jedes Ideal Vereinigung seiner endlich erzeugten Ideale ist, gilt
+ v) sogar für alle Ideale, und wir zeigen stärker als iv):
+\end_layout
+
+\begin_layout Description
+Behauptung
+\begin_inset space ~
+\end_inset
+
+iv') Für jedes Ideal 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+ gilt 
+\begin_inset Formula $\text{Tor}_{1}^{A}\left(M,\modulo AI\right)=0$
+\end_inset
+
+.
+\end_layout
+
+\begin_layout Description
+Beweis Aus der exakten Folge
+\begin_inset Formula 
+\begin{align*}
+0\to I\stackrel{i}{\to}A\to\modulo AI\to0
+\end{align*}
+
+\end_inset
+
+und 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-lange-Exakte-Folge"
+
+\end_inset
+
+ erhalte die exakte Folge:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{1}^{A}\left(M,A\right)\to\text{Tor}_{1}^{A}\left(M,\modulo AI\right)\stackrel{\partial_{1}}{\to}M\otimes_{A}I\stackrel{\text{id}_{M}\otimes i}{\to}M\otimes_{A}A
+\end{align*}
+
+\end_inset
+
+Da 
+\begin_inset Formula $A$
+\end_inset
+
+ ein flacher 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul ist, da er sogar frei ist, gilt nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-Tor-Untermodul"
+
+\end_inset
+
+ i) 
+\begin_inset Formula $\text{Tor}_{1}^{A}\left(M,A\right)=0$
+\end_inset
+
+.
+ Aus dieser exakten Folge folgt:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{1}^{A}\left(M,\modulo AI\right) & \stackrel{\sim}{=}\ker\left(\text{id}_{M}\otimes i\right)
+\end{align*}
+
+\end_inset
+
+Nach Voraussetzung ist 
+\begin_inset Formula $i\otimes\text{id}_{M}$
+\end_inset
+
+, und damit nach 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-natuerliche-Isomorphismen"
+
+\end_inset
+
+ i) auch 
+\begin_inset Formula $\text{id}_{M}\otimes i$
+\end_inset
+
+, injektiv, und es folgt 
+\begin_inset Formula $\ker\left(\text{id}_{M}\otimes i\right)=0$
+\end_inset
+
+.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[v) $
+\backslash
+Rightarrow$ iv')]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Wie im Beweis von v) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ iv) kann man 
+\begin_inset Formula $N$
+\end_inset
+
+ als endlich erzeugt annehmen, denn jeder Modul ist Vereinigung seiner endlich
+ erzeugten Untermoduln.
+ Führe dann eine Induktion über die Anzahl 
+\begin_inset Formula $n\in\mathbb{N}$
+\end_inset
+
+ von 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul-Erzeugern von 
+\begin_inset Formula $N$
+\end_inset
+
+ durch.
+\end_layout
+
+\begin_layout Standard
+Induktionsanfang bei 
+\begin_inset Formula $n=0$
+\end_inset
+
+: Dann gilt 
+\begin_inset Formula $N=0$
+\end_inset
+
+ und es gilt:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{n}^{A}\left(M,N\right)=H_{n}\underbrace{\left(F_{\bullet}\otimes_{A}N\right)}_{=0}=0
+\end{align*}
+
+\end_inset
+
+Induktionsschritt 
+\begin_inset Formula $n-1\leadsto n$
+\end_inset
+
+: Es existiert ein von 
+\begin_inset Formula $n-1$
+\end_inset
+
+ Elementen erzeugter 
+\begin_inset Formula $A$
+\end_inset
+
+-Untermodul 
+\begin_inset Formula $N'\subseteq N$
+\end_inset
+
+ so, dass 
+\begin_inset Formula $\modulo N{N'}$
+\end_inset
+
+ von einem Element erzeugt wird, das heißt, es gilt für ein geeignetes Ideal
+ 
+\begin_inset Formula $I\subseteq A$
+\end_inset
+
+:
+\begin_inset Formula 
+\begin{align*}
+\modulo N{N'} & \stackrel{\sim}{=}\modulo AI
+\end{align*}
+
+\end_inset
+
+Aus der exakten Folge
+\begin_inset Formula 
+\begin{align*}
+0\to N'\to N\to\modulo N{N'}\stackrel{\sim}{=}\modulo AI\to0
+\end{align*}
+
+\end_inset
+
+erhalte die exakte Folge:
+\begin_inset Formula 
+\begin{align*}
+\underbrace{\text{Tor}_{1}^{A}\left(M,N'\right)}_{=\left(0\right)\ \text{(Induktion)}}\to\text{Tor}_{1}^{A}\left(M,N\right)\to\underbrace{\text{Tor}_{1}^{A}\left(M,\modulo AI\right)}_{\stackrel{\text{iv)}}{=}\left(0\right)}
+\end{align*}
+
+\end_inset
+
+Es folgt:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{1}^{A}\left(M,N\right) & =\left(0\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed[iv') $
+\backslash
+Rightarrow$ iii)]
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Standard
+Es genügt noch zu zeigen:
+\end_layout
+
+\begin_layout Standard
+„iii) 
+\begin_inset Formula $\Rightarrow$
+\end_inset
+
+ i)“: Sei
+\begin_inset Formula 
+\begin{align*}
+\mathcal{E}:0\to N'\to N\to N''\to0
+\end{align*}
+
+\end_inset
+
+eine kurze exakte Folge von 
+\begin_inset Formula $A$
+\end_inset
+
+-Moduln.
+ Aus 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Satz-lange-Exakte-Folge"
+
+\end_inset
+
+ erhalte die exakte Folge:
+\begin_inset Formula 
+\begin{align*}
+\underbrace{\text{Tor}_{1}^{A}\left(M,N''\right)}_{\stackrel{\text{iii)}}{=}\left(0\right)}\to\underbrace{M\otimes_{A}N'\to M\otimes_{A}N\to M\otimes_{A}N''\to0}_{=M\otimes_{A}\mathcal{E}}
+\end{align*}
+
+\end_inset
+
+Also ist 
+\begin_inset Formula $M\otimes_{A}\mathcal{E}$
+\end_inset
+
+ exakt, und da 
+\begin_inset Formula $\mathcal{E}$
+\end_inset
+
+ beliebig ist, folgt, dass 
+\begin_inset Formula $M$
+\end_inset
+
+ flach ist.
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
+\end_layout
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Section
+Beispiel
+\end_layout
+
+\begin_layout Standard
+(vergleiche 
+\begin_inset CommandInset ref
+LatexCommand ref
+reference "sec:Bsp-Tor-Untermodul"
+
+\end_inset
+
+ iii))
+\end_layout
+
+\begin_layout Standard
+Seien 
+\begin_inset Formula $A$
+\end_inset
+
+ ein Integritätsring mit 
+\begin_inset Formula $k=\text{Quot}\left(A\right)$
+\end_inset
+
+ und 
+\begin_inset Formula $M$
+\end_inset
+
+ ein 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul, so folgt:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{1}^{A}\left(\modulo kA,M\right) & \stackrel{\sim}{=}T\left(M\right)
+\end{align*}
+
+\end_inset
+
+
+\end_layout
+
+\begin_layout Subsubsection*
+Beweis
+\end_layout
+
+\begin_layout Standard
+Aus der „flachen Auflösung von 
+\begin_inset Formula $\modulo kA$
+\end_inset
+
+“ 
+\begin_inset Formula 
+\begin{align*}
+0\to A\stackrel{\iota}{\to}k\to\modulo kA\to0
+\end{align*}
+
+\end_inset
+
+erhält man:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{1}^{A}\left(k,M\right)\to\text{Tor}_{1}^{A}\left(\modulo kA,M\right)\stackrel{\partial}{\to}M\otimes_{A}A\stackrel{\varphi:=\text{id}_{M}\otimes\iota}{\to}M\otimes_{A}k
+\end{align*}
+
+\end_inset
+
+Nun ist 
+\begin_inset Formula $\text{Tor}_{1}^{A}\left(k,M\right)=\left(0\right)$
+\end_inset
+
+, da 
+\begin_inset Formula $k=\left(A\setminus\left\{ 0\right\} \right)^{-1}A$
+\end_inset
+
+ ein flacher 
+\begin_inset Formula $A$
+\end_inset
+
+-Modul ist.
+\end_layout
+
+\begin_layout Standard
+Also ist:
+\begin_inset Formula 
+\begin{align*}
+\text{Tor}_{1}^{A}\left(\modulo kA,M\right) & \stackrel{\sim}{=}\ker\left(\varphi\right)\stackrel{\sim}{=}T\left(M\right)
+\end{align*}
+
+\end_inset
+
+
+\begin_inset ERT
+status open
+
+\begin_layout Plain Layout
+
+
+\backslash
+qqed
 \end_layout
 
 \end_inset

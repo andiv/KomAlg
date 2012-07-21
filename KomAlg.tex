@@ -3258,7 +3258,7 @@ denn $\text{im}\left(\iota\otimes\text{id}_{M}\right)=IM$ ist klar).
 i) $\Rightarrow$ ii) ist klar, da ii) das Kriterium von \ref{sec:PuD-flacherModul}
 iv) verschärft.
 
-ii) $\Rightarrow$ i) wird später bewiesen.\qqed
+ii) $\Rightarrow$ i) wird in \ref{sec:Kor-Flach} bewiesen.\qqed
 
 
 \section{Korollar und Definition \textmd{(torsionsfrei)\label{sec:KuD-flach-torsionsfrei}}}
@@ -9404,7 +9404,7 @@ Es ist \emph{nicht} klar, ob das wohldefiniert, das heißt unabhängig
 von der Wahl von $F_{\bullet}$ ist.
 
 
-\section{Beispiel}
+\section{Beispiel\label{sec:Bsp-Tor-Untermodul}}
 
 Es gelten die Voraussetzungen von \ref{sec:DuB-freieAufloesung}.
 
@@ -10110,11 +10110,7 @@ unteren kurzen exakten Folge von freien Auflösungen.
 
 \subsubsection*{Beweis}
 
-Ähnlich wie \ref{sec:Prop-ExistenzHomotopie}.
-
-\textcolor{green}{TODO: Beweis als Übung ergänzen}
-
-\qqed
+Dies folgt ähnlich wie \ref{sec:Prop-ExistenzHomotopie}.\qqed
 
 
 \section{Bemerkung}
@@ -10135,7 +10131,7 @@ Deren Homologie berechnet alle in \ref{sec:Bem-Delta-Funktor} auftretenden
 Tor-Terme.
 
 
-\section{Lemma \textmd{(Schlangenlemma)}}
+\section{Lemma \textmd{(Schlangenlemma)\label{sec:Lem-Schlangenlemma}}}
 
 Sei
 
@@ -10172,7 +10168,7 @@ Sei
   \node[orange,font=\scriptsize] (del6) at ($(m-3-3.220) + (-0.1,-0.2)$) {$f(m)$};
   \node[orange,font=\scriptsize] (del7) at ($(m-3-2.320) + (0.1,-0.2)$) {$f(m)$};
   \draw[|->,orange] (del7) -- (del6);
-  \node[orange,font=\scriptsize] (del8) at ($(m-4-2.40) + (0.1,0.2)$) {$\hspace*{15mm}f(m)+\text{im}(f')$};
+  \node[orange,font=\scriptsize] (del8) at ($(m-4-2.40) + (0.1,0.2)$) {$\hspace*{13mm}f(m)+\text{im}(f')$};
   \draw[|->,orange] (del7) -- (del8);
 \end{tikzpicture}
 \par\end{center}
@@ -10195,10 +10191,10 @@ wohldefiniert und $A$-linear und die Folge
   \path[->,font=\scriptsize] (m-1-1) edge node[above]{$\iota\big|_{\ker(f')}$} (m-1-2)
                              (m-1-2) edge node[above]{$\pi\big|_{\ker(f)}$} (m-1-3);
 % Zeile 2
-  \path[->,font=\scriptsize] (m-2-1) edge node[above]{$\tilde{\iota}$} (m-2-2)
-                             (m-2-2) edge node[above]{$\tilde{\pi}$} (m-2-3);
+  \path[->,font=\scriptsize] (m-2-1) edge node[above]{$\overline{\tilde{\iota}}$} (m-2-2)
+                             (m-2-2) edge node[above]{$\overline{\tilde{\pi}}$} (m-2-3);
 % verbindende Homomorphismen
-  \draw[->,font=\scriptsize,dashed] (m-1-3.0) to [out=0,in=180] node[above]{$\partial_1$} (m-2-1.180);
+  \draw[->,font=\scriptsize,dashed] (m-1-3.0) to [out=0,in=180] node[above]{$\partial$} (m-2-1.180);
 \end{tikzpicture}
 \par\end{center}
 
@@ -10228,6 +10224,341 @@ Es gilt:
 f\left(m_{1}\right)-f\left(m_{2}\right) & =f\left(m_{1}-m_{2}\right)=f\left(\iota\left(m'\right)\right)=\tilde{\iota}\left(f'\left(m'\right)\right)\in\text{im}\left(f'\right)
 \end{align*}
 \qqed[2.]
+
+%DATE: Fr 20.7.12
+
+Zeige nun die Exaktheit der Schlangenfolge an der Stelle $\ker\left(f''\right)$:
+
+Für $m\in\ker\left(f\right)$ gilt:
+\begin{align*}
+\partial\left(\pi\big|_{\ker\left(f\right)}\left(m\right)\right) & =f\left(m\right)+\text{im}\left(f'\right)=0+\text{im}\left(f'\right)
+\end{align*}
+Also ist $\text{im}\left(\pi\big|_{\ker\left(f\right)}\right)\subseteq\ker\left(\partial\right)$.
+
+Sei nun $m''\in\ker\left(\partial\right)\subseteq\ker\left(f''\right)$.
+Wähle $m\in M$ mit $\pi\left(m\right)=m''$. Dann gilt:
+\begin{align*}
+0 & =\partial\left(m''\right)=f\left(m\right)+\text{im}\left(f'\right)
+\end{align*}
+Also ist $f\left(m\right)=f'\left(m'\right)=f'\left(\iota\left(m'\right)\right)$
+für geeignetes $m'\in M'$. Es folgt, dass für $\tilde{m}:=m-\iota\left(m'\right)$
+gilt:
+\begin{align*}
+\pi\left(\tilde{m}\right) & =\pi\left(m\right)-\underbrace{\left(\pi\circ\iota\right)}_{=0}\left(m'\right)=\pi\left(m\right)=m''\\
+f\left(\tilde{m}\right) & =f\left(m\right)-f\left(m'\right)=0
+\end{align*}
+Daher ist $\tilde{m}\in\ker\left(f\right)$ und es folgt $m''=\pi\left(\tilde{m}\right)\in\text{im}\left(\pi\big|_{\ker\left(f\right)}\right)$.\qqed[Exaktheit bei $\ker(f'')$]
+
+Zeige nun die Exaktheit der Schlangenfolge an der Stelle $\text{koker}\left(f'\right)$:
+
+Für $m''\in\ker\left(f''\right)$ gilt für jedes $m\in M$ mit $\pi\left(m\right)=m''$:
+\begin{align*}
+\partial\left(m''\right) & =f\left(m\right)+\text{im}\left(f'\right)
+\end{align*}
+Es folgt:
+\begin{align*}
+\overline{\tilde{\iota}}\left(\partial\left(m''\right)\right) & =\underbrace{\tilde{\iota}\left(f\left(m\right)\right)}_{\in\text{im}\left(f\right)}+\text{im}\left(f\right)=0
+\end{align*}
+Also gilt $\text{im}\left(\partial\right)\subseteq\ker\left(\overline{\tilde{\iota}}\right)$.
+
+Sei nun $x\in\ker\left(\overline{\tilde{\iota}}\right)\subseteq\text{koker}\left(f'\right)$.
+Dann gilt $x=n'+\text{im}\left(f'\right)$ für ein $n'\in N'$, und
+aus
+\begin{align*}
+0 & =\overline{\tilde{\iota}}\left(x\right)=\tilde{\iota}\left(n'\right)+\text{im}\left(f\right)
+\end{align*}
+folgt für geeignetes $m\in M$:
+\begin{align*}
+\tilde{\iota}\left(n'\right) & =f\left(m\right)
+\end{align*}
+Weiter folgt:
+\begin{align*}
+f''\left(\pi\left(m\right)\right) & =\tilde{\pi}\left(f\left(m\right)\right)=\underbrace{\left(\tilde{\pi}\circ\tilde{\iota}\right)}_{=0}\left(n'\right)=0
+\end{align*}
+Also ist $\pi\left(m\right)\in\ker\left(f''\right)$. Ferner gilt:
+\begin{align*}
+\partial\left(\pi\left(m\right)\right) & =f\left(m\right)+\text{im}\left(f'\right)=\tilde{\iota}\left(n'\right)+\text{im}\left(f'\right)=n'+\text{im}\left(f'\right)=x
+\end{align*}
+Daher ist $x\in\text{im}\left(\partial\right)$.\qqed[Exaktheit bei $\text{koker}(f')$]
+
+Die Exaktheit bei $\ker\left(f\right)$ und $\text{koker}\left(f\right)$
+folgt direkt aus der Exaktheit des Ausgangsdiagramm bei $M$ und $N$.\qqed
+
+
+\section{Satz und Definition \textmd{(verbindender Homomorphismus)\label{sec:SuD-verbindender-Homomorphismus}}}
+
+Ist
+\begin{align*}
+0\to\left(A_{\bullet},\alpha_{\bullet}\right)\stackrel{f_{\bullet}}{\to}\left(B_{\bullet},\beta_{\bullet}\right)\stackrel{g_{\bullet}}{\to}\left(C_{\bullet},\gamma_{\bullet}\right)\to0
+\end{align*}
+eine kurze exakte Folge von Komplexen, so existiert für alle $n\in\mathbb{Z}$
+ein \emph{verbindender Homomorphismus} $\partial_{n}:H_{n}\left(C_{\bullet}\right)\to H_{n-1}\left(A_{\bullet}\right)$
+so, dass die folgende lange Folge von $A$-Moduln exakt ist:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=3em, column sep=3.5em, text height=1.5ex, text depth=0.25ex]
+   { H_{n}\left(A_{\bullet}\right) & H_{n}\left(B_{\bullet}\right) & H_{n}\left(C_{\bullet}\right) \\
+     H_{n-1}\left(A_{\bullet}\right) & H_{n-1}\left(B_{\bullet}\right) & H_{n-1}\left(C_{\bullet}\right) \\ \\};
+% Zeile 1
+  \path[->,font=\scriptsize] (m-1-1) edge node[above]{$H_{n}\left(f_{\bullet}\right)$} (m-1-2)
+                             (m-1-2) edge node[above]{$H_{n}\left(g_{\bullet}\right)$} (m-1-3);
+% Zeile 2
+  \path[->,font=\scriptsize] (m-2-1) edge node[above]{$H_{n-1}\left(f_{\bullet}\right)$} (m-2-2)
+                             (m-2-2) edge node[above]{$H_{n-1}\left(g_{\bullet}\right)$} (m-2-3);
+% verbindende Homomorphismen
+  \draw[->,font=\scriptsize,dashed] (m-1-3.0) to [out=0,in=180] node[above]{$\partial_n$} (m-2-1.180);
+\end{tikzpicture}
+\par\end{center}
+
+
+\subsubsection*{Beweis}
+
+Für alle $n\in\mathbb{Z}$ ist folgendes Diagramm von $A$-Moduln
+kommutativ:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2.5em, column sep=1.5em, text height=1.5ex, text depth=0.25ex]
+   {   & 0 & 0 & 0 &\\
+     0 & Z_n(A_\bullet) & Z_n(B_\bullet) & Z_n(C_\bullet) & & (1_n) \\
+     0 & A_n & B_n & C_n & 0 &\\
+     0 & A_{n-1} & B_{n-1} & C_{n-1} & 0 &\\
+ & \modulo{A_{n-1}}{B_{n-1}(A_\bullet)} & \modulo{B_{n-1}}{B_{n-1}(B_\bullet)} & \modulo{C_{n-1}}{B_{n-1}(C_\bullet)} & 0 & (2_{n-1})\\
+    & 0 & 0 & 0 & \\};
+% Horizontal
+  \path[->,font=\scriptsize] (m-2-1) edge (m-2-2)
+                             (m-2-2) edge (m-2-3)
+                             (m-2-3) edge (m-2-4);
+  \path[->,font=\scriptsize] (m-3-1) edge (m-3-2)
+                             (m-3-2) edge node[above]{$f_n$} (m-3-3)
+                             (m-3-3) edge node[above]{$g_n$} (m-3-4)
+                             (m-3-4) edge (m-3-5);
+  \path[->,font=\scriptsize] (m-4-1) edge (m-4-2)
+                             (m-4-2) edge node[above]{$f_{n-1}$} (m-4-3)
+                             (m-4-3) edge node[above]{$g_{n-1}$} (m-4-4)
+                             (m-4-4) edge (m-4-5);
+  \path[->,font=\scriptsize] (m-5-2) edge (m-5-3)
+                             (m-5-3) edge (m-5-4)
+                             (m-5-4) edge (m-5-5);
+% Vertikal
+  \path[->,font=\scriptsize] (m-1-2) edge (m-2-2)
+                             (m-2-2) edge (m-3-2)
+                             (m-3-2) edge node[right]{$\alpha_n$} (m-4-2)
+                             (m-4-2) edge (m-5-2)
+                             (m-5-2) edge (m-6-2);
+  \path[->,font=\scriptsize] (m-1-3) edge (m-2-3)
+                             (m-2-3) edge (m-3-3)
+                             (m-3-3) edge node[right]{$\beta_n$} (m-4-3)
+                             (m-4-3) edge (m-5-3)
+                             (m-5-3) edge (m-6-3);
+  \path[->,font=\scriptsize] (m-1-4) edge (m-2-4)
+                             (m-2-4) edge (m-3-4)
+                             (m-3-4) edge node[right]{$\gamma_n$} (m-4-4)
+                             (m-4-4) edge (m-5-4)
+                             (m-5-4) edge (m-6-4);
+\end{tikzpicture}
+\par\end{center}
+
+Nach Voraussetzung sind die zwei Zeilen in der Mitte exakt, nach Konstruktion
+sind alle Spalten exakt und aus \ref{sec:Lem-Schlangenlemma} angewendet
+auf die mittleren zwei Zeilen folgt die Exaktheit der Zeilen $\left(1_{n}\right)$
+und $\left(2_{n}\right)$ für alle $n\in\mathbb{Z}$. Erhalte ein
+kommutatives Diagramm mit exakten Zeilen:
+
+\noindent \begin{center}
+\begin{tikzpicture}
+  \matrix (m) [matrix of math nodes, row sep=2.5em, column sep=1.5em, text height=1.5ex, text depth=0.25ex]
+  { (2_n) & & \modulo{A_{n}}{B_{n}(A_\bullet)} & \modulo{B_{n}}{B_{n}(B_\bullet)} & \modulo{C_{n}}{B_{n}(C_\bullet)} & 0 \\
+    (1_{n-1}) & 0 & Z_{n-1}(A_\bullet) & Z_{n-1}(B_\bullet) & Z_{n-1}(C_\bullet) &  \\};
+  \path[->,font=\scriptsize] (m-1-3) edge node[above]{$\overline{f_n}$} (m-1-4)
+                             (m-1-4) edge node[above]{$\overline{g_n}$} (m-1-5)
+                             (m-1-5) edge (m-1-6);
+  \path[->,font=\scriptsize] (m-2-2) edge (m-2-3)
+                             (m-2-3) edge node[above]{$f_{n-1}$} (m-2-4)
+                             (m-2-4) edge node[above]{$g_{n-1}$} (m-2-5);
+  \path[->,font=\scriptsize] (m-1-3) edge node[right]{$\overline{\alpha_n}$} (m-2-3)
+                             (m-1-4) edge node[right]{$\overline{\beta_n}$} (m-2-4)
+                             (m-1-5) edge node[right]{$\overline{\gamma_n}$} (m-2-5);
+\end{tikzpicture}
+\par\end{center}
+
+Beachte
+\begin{align*}
+\text{im}\left(\alpha_{n}\right) & \subseteq Z_{n-1}\left(A_{\bullet}\right)\\
+\alpha_{n}\left(B_{n}\left(A_{\bullet}\right)\right) & =0\\
+\ker\left(\overline{\alpha}_{n}\right) & \stackrel{\sim}{=}H_{n}\left(A_{\bullet}\right)\\
+\text{koker}\left(\overline{\alpha}_{n}\right) & \stackrel{\sim}{=}H_{n-1}\left(A_{\bullet}\right)
+\end{align*}
+und Analoges für $B_{\bullet}$ und $C_{\bullet}$.
+
+Wendet man nun \ref{sec:Lem-Schlangenlemma} auf dieses Diagramm an,
+so erhält man für alle $n\in\mathbb{Z}$ eine exakte Folge:
+\begin{align*}
+H_{n}\left(A_{\bullet}\right)\stackrel{H_{n}\left(f_{\bullet}\right)}{\to}H_{n}\left(B_{\bullet}\right)\stackrel{H_{n}\left(g_{\bullet}\right)}{\to}H_{n}\left(C_{\bullet}\right)\stackrel{\partial_{n}}{\to}H_{n-1}\left(A_{\bullet}\right)\stackrel{H_{n-1}\left(f_{\bullet}\right)}{\to}H_{n-1}\left(B_{\bullet}\right)\stackrel{H_{n-1}\left(g_{\bullet}\right)}{\to}H_{n-1}\left(C_{\bullet}\right)
+\end{align*}
+Die Behauptung folgt nun durch Zusammensetzen dieser exakten Folgen.\qqed
+
+
+\section{Satz\label{sec:Satz-lange-Exakte-Folge}}
+
+Seien $0\to M'\to M\to M''\to0$ eine kurze exakte Folge von $A$-Moduln
+und $N$ ein $A$-Modul. Dann existiert eine lange exakte Folge von
+Tor-Moduln wie in \ref{sec:Bem-Delta-Funktor} angegeben.
+
+
+\subsubsection*{Beweis}
+
+\ref{sec:SuD-verbindender-Homomorphismus} angewandt auf die kurze
+exakte Folge von Komplexen in \ref{sec:PuD-exakteFolgeKomplexe}.\qqed
+
+Das Folgende subsummiert \ref{sec:Prop-flach}.
+
+
+\section{Korollar \textmd{(Charakterisierung von flach)}\label{sec:Kor-Flach}}
+
+Für einen $A$-Modul $M$ sind äquivalent:
+
+\begin{iiilist}
+
+\iii $M$ ist flach.
+
+\iii Für alle $n\in\mathbb{N}_{\ge1}$ und alle $A$-Moduln $N$
+gilt $\text{Tor}_{n}^{A}\left(M,N\right)=0$.
+
+\iii Für alle $A$-Moduln $N$ gilt $\text{Tor}_{1}^{A}\left(M,N\right)=0$.
+
+\iii Für alle endlich erzeugten Ideale $I\subseteq A$ gilt $\text{Tor}_{1}^{A}\left(M,\modulo AI\right)=0$.
+
+\iii Für alle endlich erzeugten Ideale $i:I\hookrightarrow A$ ist
+$i\otimes\text{id}_{M}:I\otimes_{A}M\to A\otimes_{A}M\stackrel{\sim}{=}M$
+injektiv.
+
+\end{iiilist}
+
+
+\subsubsection*{Beweis}
+
+\quotedblbase{}i) $\Rightarrow$ ii)\textquotedblleft{}: \ref{sec:Bsp-Tor-Untermodul}
+i).
+
+\quotedblbase{}ii) $\Rightarrow$ iii)\textquotedblright{}: Wähle
+$n=1$ in ii).
+
+\quotedblbase{}iii) $\Rightarrow$ iv)\textquotedblright{}: Wähle
+$N=\modulo AI$ in iii).
+
+\quotedblbase{}iv) $\Rightarrow$ v)\textquotedblleft{}: Aus der kurzen
+exakten Folge
+\begin{align*}
+0\to I\to A\to\modulo AI\to0
+\end{align*}
+erhalte durch Anwenden des Tensorproduktes und \ref{sec:Satz-lange-Exakte-Folge}
+eine exakte Folge:
+
+\begin{align*}
+0\stackrel{\text{iv)}}{=}\text{Tor}_{1}^{A}\left(M,\modulo AI\right)\to M\otimes_{A}I\stackrel{\text{id}_{M}\otimes i}{\to}M\otimes_{A}A\to M\otimes_{A}\modulo AI\to0
+\end{align*}
+Also ist $\text{id}_{M}\otimes i$ und damit $i\otimes\text{id}_{M}$
+injektiv.
+
+\quotedblbase{}v) $\Rightarrow$ iv)\textquotedblleft{}: Da jedes
+Ideal Vereinigung seiner endlich erzeugten Ideale ist, gilt v) sogar
+für alle Ideale, und wir zeigen stärker als iv):
+\begin{description}
+\item [{Behauptung~iv')}] Für jedes Ideal $I\subseteq A$ gilt $\text{Tor}_{1}^{A}\left(M,\modulo AI\right)=0$.
+\item [{Beweis}] Aus der exakten Folge
+\begin{align*}
+0\to I\stackrel{i}{\to}A\to\modulo AI\to0
+\end{align*}
+und \ref{sec:Satz-lange-Exakte-Folge} erhalte die exakte Folge:
+\begin{align*}
+\text{Tor}_{1}^{A}\left(M,A\right)\to\text{Tor}_{1}^{A}\left(M,\modulo AI\right)\stackrel{\partial_{1}}{\to}M\otimes_{A}I\stackrel{\text{id}_{M}\otimes i}{\to}M\otimes_{A}A
+\end{align*}
+Da $A$ ein flacher $A$-Modul ist, da er sogar frei ist, gilt nach
+\ref{sec:Bsp-Tor-Untermodul} i) $\text{Tor}_{1}^{A}\left(M,A\right)=0$.
+Aus dieser exakten Folge folgt:
+\begin{align*}
+\text{Tor}_{1}^{A}\left(M,\modulo AI\right) & \stackrel{\sim}{=}\ker\left(\text{id}_{M}\otimes i\right)
+\end{align*}
+Nach Voraussetzung ist $i\otimes\text{id}_{M}$, und damit nach \ref{sec:Satz-natuerliche-Isomorphismen}
+i) auch $\text{id}_{M}\otimes i$, injektiv, und es folgt $\ker\left(\text{id}_{M}\otimes i\right)=0$.\qqed[v) $\Rightarrow$ iv')]
+\end{description}
+Wie im Beweis von v) $\Rightarrow$ iv) kann man $N$ als endlich
+erzeugt annehmen, denn jeder Modul ist Vereinigung seiner endlich
+erzeugten Untermoduln. Führe dann eine Induktion über die Anzahl $n\in\mathbb{N}$
+von $A$-Modul-Erzeugern von $N$ durch.
+
+Induktionsanfang bei $n=0$: Dann gilt $N=0$ und es gilt:
+\begin{align*}
+\text{Tor}_{n}^{A}\left(M,N\right)=H_{n}\underbrace{\left(F_{\bullet}\otimes_{A}N\right)}_{=0}=0
+\end{align*}
+Induktionsschritt $n-1\leadsto n$: Es existiert ein von $n-1$ Elementen
+erzeugter $A$-Untermodul $N'\subseteq N$ so, dass $\modulo N{N'}$
+von einem Element erzeugt wird, das heißt, es gilt für ein geeignetes
+Ideal $I\subseteq A$:
+\begin{align*}
+\modulo N{N'} & \stackrel{\sim}{=}\modulo AI
+\end{align*}
+Aus der exakten Folge
+\begin{align*}
+0\to N'\to N\to\modulo N{N'}\stackrel{\sim}{=}\modulo AI\to0
+\end{align*}
+erhalte die exakte Folge:
+\begin{align*}
+\underbrace{\text{Tor}_{1}^{A}\left(M,N'\right)}_{=\left(0\right)\ \text{(Induktion)}}\to\text{Tor}_{1}^{A}\left(M,N\right)\to\underbrace{\text{Tor}_{1}^{A}\left(M,\modulo AI\right)}_{\stackrel{\text{iv)}}{=}\left(0\right)}
+\end{align*}
+Es folgt:
+\begin{align*}
+\text{Tor}_{1}^{A}\left(M,N\right) & =\left(0\right)
+\end{align*}
+\qqed[iv') $\Rightarrow$ iii)]
+
+Es genügt noch zu zeigen:
+
+\quotedblbase{}iii) $\Rightarrow$ i)\textquotedblleft{}: Sei
+\begin{align*}
+\mathcal{E}:0\to N'\to N\to N''\to0
+\end{align*}
+eine kurze exakte Folge von $A$-Moduln. Aus \ref{sec:Satz-lange-Exakte-Folge}
+erhalte die exakte Folge:
+\begin{align*}
+\underbrace{\text{Tor}_{1}^{A}\left(M,N''\right)}_{\stackrel{\text{iii)}}{=}\left(0\right)}\to\underbrace{M\otimes_{A}N'\to M\otimes_{A}N\to M\otimes_{A}N''\to0}_{=M\otimes_{A}\mathcal{E}}
+\end{align*}
+Also ist $M\otimes_{A}\mathcal{E}$ exakt, und da $\mathcal{E}$ beliebig
+ist, folgt, dass $M$ flach ist.\qqed
+
+
+\section{Beispiel}
+
+(vergleiche \ref{sec:Bsp-Tor-Untermodul} iii))
+
+Seien $A$ ein Integritätsring mit $k=\text{Quot}\left(A\right)$
+und $M$ ein $A$-Modul, so folgt:
+\begin{align*}
+\text{Tor}_{1}^{A}\left(\modulo kA,M\right) & \stackrel{\sim}{=}T\left(M\right)
+\end{align*}
+
+
+
+\subsubsection*{Beweis}
+
+Aus der \quotedblbase{}flachen Auflösung von $\modulo kA$\textquotedblleft{}
+\begin{align*}
+0\to A\stackrel{\iota}{\to}k\to\modulo kA\to0
+\end{align*}
+erhält man:
+\begin{align*}
+\text{Tor}_{1}^{A}\left(k,M\right)\to\text{Tor}_{1}^{A}\left(\modulo kA,M\right)\stackrel{\partial}{\to}M\otimes_{A}A\stackrel{\varphi:=\text{id}_{M}\otimes\iota}{\to}M\otimes_{A}k
+\end{align*}
+Nun ist $\text{Tor}_{1}^{A}\left(k,M\right)=\left(0\right)$, da $k=\left(A\setminus\left\{ 0\right\} \right)^{-1}A$
+ein flacher $A$-Modul ist.
+
+Also ist:
+\begin{align*}
+\text{Tor}_{1}^{A}\left(\modulo kA,M\right) & \stackrel{\sim}{=}\ker\left(\varphi\right)\stackrel{\sim}{=}T\left(M\right)
+\end{align*}
+\qqed
 
 
 \part*{Anhang\thispagestyle{empty}}
